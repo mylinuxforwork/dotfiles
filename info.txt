@@ -4,6 +4,12 @@ https://wiki.archlinux.org/title/Power_management#Disabling_suspend
 Promt:
 https://starship.rs/
 
+Add symlink from dotfiles folder into .config
+ln -s /home/raabe/dotfiles/polybar/ ~/.config
+
+Git Crendential Helper Store
+git config credential.helper store
+
 GIT:
 git add *
 git commit -m "Message"
