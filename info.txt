@@ -1,0 +1,12 @@
+Disable Suspend
+https://wiki.archlinux.org/title/Power_management#Disabling_suspend
+
+Promt:
+https://starship.rs/
+
+GIT:
+git add *
+git commit -m "Message"
+git push
+
+
