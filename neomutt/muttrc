@@ -1,0 +1,26 @@
+# CREDENTIALS
+set my_user		= "wp1160188-raabe"
+set my_pass		= "sancho!mail1"
+
+# IMAP
+set my_name		= "Stephan Raabe"
+set imap_user		= $my_user
+set imap_pass		= $my_pass
+set folder		= imaps://wp1160188.mail.server-he.de
+set spoolfile		= +INBOX
+set mail_check		= 120
+
+# SMTP
+set realname 		= "Stephan Raabe"
+set from 		= mail@stephan-raabe.de
+set use_from		= yes
+set smtp_pass		= $my_pass
+set smtp_url		= smtps://$my_user@wp1160188.mailout.server-he.de
+set ssl_force_tls	= yes
+
+# EDITOR
+set editor		= vim
+set sort_aux 		= last-date-received
+set sort		= reverse-threads
+
+set sidebar_visible
