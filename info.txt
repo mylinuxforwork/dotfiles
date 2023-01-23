@@ -15,4 +15,6 @@ git add *
 git commit -m "Message"
 git push
 
+NEOMUTT
+Delete Emails with d + $ to sync
 
