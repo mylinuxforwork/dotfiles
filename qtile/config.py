@@ -73,7 +73,8 @@ keys = [
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod], "r", lazy.spawn("rofi -show run"), desc="Launch Rofi"),
+    # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -133,7 +134,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-#                widget.CurrentLayout(),
+                # widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
@@ -148,8 +149,11 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
+                widget.Volume(fmt='Vol: {}'),
+                widget.Clipboard(),
+                widget.CheckUpdates(distro="Arch_yay",no_update_string="No updates"),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                widget.QuickExit(countdown_start=3),
             ],
             24,
             opacity=0.7,
