@@ -33,7 +33,7 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = guess_terminal("Alacritty")
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -71,6 +71,7 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawn("rofi -show run"), desc="Launch Rofi"),
@@ -103,24 +104,27 @@ for i in groups:
         ]
     )
 
+layout_theme =  { "border_width": 2,
+                 "margin": 15,
+                 "border_focus": "e1acff",
+                 "border_normal": "1D2330"
+                }
+
 layouts = [
-    layout.Columns(
-        border_focus_stack=["#ffffff", "#333333"], 
-        border_width=1, 
-        margin=10
-    ),
-    layout.Max(),
+    # layout.Columns(),
+    # layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
-    # layout.MonadTall(),
+    layout.MonadTall(**layout_theme),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
+    layout.Floating(**layout_theme)
 ]
 
 widget_defaults = dict(
