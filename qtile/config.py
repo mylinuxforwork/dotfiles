@@ -33,7 +33,8 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
-terminal = guess_terminal("Alacritty")
+terminal = guess_terminal("alacritty")
+browser = "chromium"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -74,7 +75,8 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawn("rofi -show run"), desc="Launch Rofi"),
+    Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
+    Key([mod], "b", lazy.spawn(browser), desc="Launch Chromium"),
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
@@ -124,7 +126,7 @@ layouts = [
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
-    layout.Floating(**layout_theme)
+    # layout.Floating(**layout_theme)
 ]
 
 widget_defaults = dict(
@@ -154,7 +156,7 @@ screens = [
                 # widget.StatusNotifier(),
                 widget.Systray(),
                 widget.Volume(fmt='Vol: {}'),
-                widget.Clipboard(),
+                # widget.Clipboard(),
                 widget.CheckUpdates(distro="Arch_yay",no_update_string="No updates"),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.QuickExit(countdown_start=3),
@@ -217,3 +219,4 @@ wmname = "LG3D"
 def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.Popen([home])
+
