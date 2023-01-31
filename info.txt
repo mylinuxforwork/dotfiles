@@ -1,3 +1,6 @@
+Packages:
+exa neomutt htop picom xfce-power-manager nitrogen dunst
+
 Disable Suspend
 https://wiki.archlinux.org/title/Power_management#Disabling_suspend
 

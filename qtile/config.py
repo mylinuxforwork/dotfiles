@@ -25,16 +25,25 @@
 # SOFTWARE.
 
 import os
+import re
+import socket
 import subprocess
-
-from libqtile import bar, layout, widget, hook
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile import hook
+from libqtile import qtile
+from typing import List  
+from libqtile import bar, layout, widget
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+from libqtile.widget import Spacer, Backlight
+from libqtile.widget.image import Image
+from libqtile.dgroups import simple_key_binder
 
 mod = "mod4"
 terminal = guess_terminal("alacritty")
 browser = "chromium"
+
+# KEYBINDINGS
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -59,6 +68,7 @@ keys = [
     Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle between split and unsplit sides of stack.
+    Key([mod], "t", lazy.window.toggle_floating(), desc='Toggle floating'),
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
@@ -80,31 +90,33 @@ keys = [
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
-groups = [Group(i) for i in "123456789"]
+# GROUPS
 
-for i in groups:
-    keys.extend(
-        [
-            # mod1 + letter of group = switch to group
-            Key(
-                [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
-            ),
-            # mod1 + shift + letter of group = switch to & move focused window to group
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
-        ]
-    )
+groups = [Group("DEV", layout='monadtall'),
+          Group("WWW", layout='monadtall'),
+          Group("SYS", layout='monadtall'),
+          Group("SYS", layout='monadtall'),
+          Group("DOC", layout='monadtall'),
+          Group("VBOX", layout='monadtall'),
+          Group("CHAT", layout='monadtall'),
+          Group("MUS", layout='monadtall'),
+          Group("VID", layout='monadtall'),
+          Group("GFX", layout='floating')]
+
+dgroups_key_binder = simple_key_binder(mod)
+
+# SCRATCHPADS
+
+# Append scratchpad with dropdowns to groups
+groups.append(ScratchPad('scratchpad', [
+    DropDown('terminal', terminal, width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0),
+#    DropDown('dmnotes', terminal, width=0.8,height=0.8, x=0.1,y=0.1, opacity=1.0),
+]))
+# extend keys list with keybinding for scratchpad
+keys.extend([
+    Key(["control"], "1", lazy.group['scratchpad'].dropdown_toggle('terminal')),
+#    Key(["control"], "2", lazy.gtoup['scratchpad'].dropdown_toggle('dmnotes'))
+])  
 
 layout_theme =  { "border_width": 2,
                  "margin": 15,
@@ -157,7 +169,12 @@ screens = [
                 widget.Systray(),
                 widget.Volume(fmt='Vol: {}'),
                 # widget.Clipboard(),
-                widget.CheckUpdates(distro="Arch_yay",no_update_string="No updates"),
+                widget.CheckUpdates(
+                    distro="Arch",
+                    no_update_string="No updates",
+                    update_interval=600,
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e yay')}
+                ),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.QuickExit(countdown_start=3),
             ],
@@ -176,7 +193,6 @@ mouse = [
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
-dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = False
