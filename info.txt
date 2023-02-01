@@ -1,3 +1,6 @@
+Start VM without sudo
+virsh --connect qemu:///system start archlinux
+
 Packages:
 exa neomutt htop picom xfce-power-manager nitrogen dunst
 
