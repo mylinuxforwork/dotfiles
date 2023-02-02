@@ -88,7 +88,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -99,16 +99,17 @@ keys = [
 
 # GROUPS
 
-groups = [Group("DEV", layout='monadtall'),
-          Group("WWW", layout='monadtall'),
-          Group("SYS", layout='monadtall'),
-          Group("SYS", layout='monadtall'),
-          Group("DOC", layout='monadtall'),
-          Group("VBOX", layout='monadtall'),
-          Group("CHAT", layout='monadtall'),
-          Group("MUS", layout='monadtall'),
-          Group("VID", layout='monadtall'),
-          Group("GFX", layout='floating')]
+groups = [Group("1", layout='monadtall'),
+          Group("2", layout='monadtall'),
+          Group("3", layout='monadtall'),
+          Group("4", layout='monadtall'),
+          Group("5", layout='monadtall'),
+#          Group("VBOX", layout='monadtall'),
+#          Group("CHAT", layout='monadtall'),
+#          Group("MUS", layout='monadtall'),
+#          Group("VID", layout='monadtall'),
+#          Group("GFX", layout='floating')
+          ]
 
 dgroups_key_binder = simple_key_binder(mod)
 
