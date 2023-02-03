@@ -42,6 +42,15 @@ from libqtile.dgroups import simple_key_binder
 mod = "mod4"
 terminal = guess_terminal("alacritty")
 browser = "chromium"
+wp = "/home/raabe/wallpaper/default.jpg"
+
+# CUSTOM FUNCTIONS
+
+def wallpaper():
+    wp = "/home/raabe/wallpaper/" + "deer_in_pine_forest.jpg"
+    for screen in qtile.screens:
+        screen.cmd_set_wallpaper(wp, 'fill')
+    os.system('wal -n -i ' + wp)
 
 # KEYBINDINGS
 
@@ -158,6 +167,8 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
+        wallpaper=wp,
+        wallpaper_mode="stretch",
         top=bar.Bar(
             [
                 # widget.CurrentLayout(),
@@ -244,3 +255,6 @@ def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.Popen([home])
 
+@hook.subscribe.startup
+def autostart():
+    wallpaper()

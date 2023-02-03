@@ -1,7 +1,5 @@
 #!/bin/sh
 
-picom -b &
+picom &
 xfce4-power-manager &
-nitrogen --restore &
 dunst &
-
