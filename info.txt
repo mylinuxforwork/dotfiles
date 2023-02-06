@@ -3,6 +3,7 @@ virsh --connect qemu:///system start archlinux
 
 Packages:
 exa neomutt htop picom xfce-power-manager nitrogen dunst pywal mpv ranger ueberzug
+bat grivbox-material-theme-git gruvbox-icon-theme
 
 Disable Suspend
 https://wiki.archlinux.org/title/Power_management#Disabling_suspend

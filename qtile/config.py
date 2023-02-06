@@ -28,6 +28,7 @@ import os
 import re
 import socket
 import subprocess
+import random
 from libqtile import hook
 from libqtile import qtile
 from typing import List  
@@ -42,14 +43,19 @@ from libqtile.dgroups import simple_key_binder
 mod = "mod4"
 terminal = guess_terminal("alacritty")
 browser = "chromium"
-wp = "/home/raabe/wallpaper/default.jpg"
+wp = "/home/raabe/wallpaper/"
 
 # CUSTOM FUNCTIONS
 
 def wallpaper():
-    wp = "/home/raabe/wallpaper/" + "deer_in_pine_forest.jpg"
+
+    wallpapers = [
+        os.path.join(wp, x) for x in os.listdir(wp) if x[-4:] == ".jpg"
+    ]
+    wallpaper = random.choice(wallpapers)
+
     for screen in qtile.screens:
-        screen.cmd_set_wallpaper(wp, 'fill')
+        screen.cmd_set_wallpaper(wallpaper, 'fill')
     os.system('wal -n -i ' + wp)
 
 # KEYBINDINGS
@@ -101,7 +107,7 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
+    Key([mod], "r", lazy.spawn("rofi -show drun -icon-theme 'Papirus' -show-icons"), desc="Launch Rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Chromium"),
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
@@ -167,8 +173,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper=wp,
-        wallpaper_mode="stretch",
+        # wallpaper_mode="stretch",
         top=bar.Bar(
             [
                 # widget.CurrentLayout(),
@@ -186,6 +191,10 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
+                widget.TextBox(
+                    text="Change Theme",
+                    mouse_callbacks = {'Button1': lambda: wallpaper()},
+                ),
                 widget.Volume(fmt='Vol: {}'),
                 # widget.Clipboard(),
                 widget.CheckUpdates(
@@ -254,7 +263,5 @@ wmname = "LG3D"
 def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.Popen([home])
-
-@hook.subscribe.startup
-def autostart():
     wallpaper()
+
