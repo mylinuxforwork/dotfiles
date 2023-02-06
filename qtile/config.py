@@ -28,7 +28,9 @@ import os
 import re
 import socket
 import subprocess
-import random
+import psutil
+import json
+
 from libqtile import hook
 from libqtile import qtile
 from typing import List  
@@ -44,19 +46,6 @@ mod = "mod4"
 terminal = guess_terminal("alacritty")
 browser = "chromium"
 wp = "/home/raabe/wallpaper/"
-
-# CUSTOM FUNCTIONS
-
-def wallpaper():
-
-    wallpapers = [
-        os.path.join(wp, x) for x in os.listdir(wp) if x[-4:] == ".jpg"
-    ]
-    wallpaper = random.choice(wallpapers)
-
-    for screen in qtile.screens:
-        screen.cmd_set_wallpaper(wallpaper, 'fill')
-    os.system('wal -n -i ' + wp)
 
 # KEYBINDINGS
 
@@ -141,10 +130,27 @@ keys.extend([
 #    Key(["control"], "2", lazy.gtoup['scratchpad'].dropdown_toggle('dmnotes'))
 ])  
 
+########################
+# Define colors ########
+########################
+#Pywal Colors
+colors = os.path.expanduser('~/.cache/wal/colors.json')
+colordict = json.load(open(colors))
+ColorZ=(colordict['colors']['color0'])
+ColorA=(colordict['colors']['color1'])
+ColorB=(colordict['colors']['color2'])
+ColorC=(colordict['colors']['color3'])
+ColorD=(colordict['colors']['color4'])
+ColorE=(colordict['colors']['color5'])
+ColorF=(colordict['colors']['color6'])
+ColorG=(colordict['colors']['color7'])
+ColorH=(colordict['colors']['color8'])
+ColorI=(colordict['colors']['color9'])
+
 layout_theme =  { "border_width": 2,
                  "margin": 15,
-                 "border_focus": "e1acff",
-                 "border_normal": "1D2330"
+                 "border_focus": ColorC,
+                 "border_normal": ColorZ
                 }
 
 layouts = [
@@ -173,7 +179,6 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        # wallpaper_mode="stretch",
         top=bar.Bar(
             [
                 # widget.CurrentLayout(),
@@ -191,10 +196,6 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.TextBox(
-                    text="Change Theme",
-                    mouse_callbacks = {'Button1': lambda: wallpaper()},
-                ),
                 widget.Volume(fmt='Vol: {}'),
                 # widget.Clipboard(),
                 widget.CheckUpdates(
@@ -209,7 +210,6 @@ screens = [
             24,
             opacity=0.7,
             border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["000000", "000000", "ffffff", "000000"]  # Borders are magenta
         ),
     ),
 ]
@@ -263,5 +263,4 @@ wmname = "LG3D"
 def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.Popen([home])
-    wallpaper()
 

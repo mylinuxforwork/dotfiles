@@ -15,7 +15,7 @@ configuration {
 }
 
 #window {
-  border:1px;
+  border:0px;
   border-color:@foreground;
 }
 
