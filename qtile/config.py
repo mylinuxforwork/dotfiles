@@ -181,35 +181,40 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                # widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
+                widget.GroupBox(
+                    highlight_method='block',
+                    block_highlight_text_color='ffffff',
+                    foreground='ffffff',
+                    fontsize=14,
+                    active=ColorC
                 ),
-                # widget.TextBox("default config", name="default"),
-                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
+                widget.WindowName(
+                    fontsize=14
+                ),
                 widget.Systray(),
-                widget.Volume(fmt='Vol: {}'),
-                # widget.Clipboard(),
+                widget.Volume(
+                    fmt='Vol: {}',
+                    fontsize=14
+                ),
                 widget.CheckUpdates(
+                    fontsize=14,
                     distro="Arch",
                     no_update_string="No updates",
                     update_interval=600,
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e yay')}
                 ),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(countdown_start=3),
+                widget.Clock(
+                    format="%Y-%m-%d %a %I:%M %p",
+                    fontsize=14
+                ),
+                widget.QuickExit(
+                    countdown_start=3,
+                    fontsize=14
+                ),
             ],
             24,
             opacity=0.7,
-            border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            border_width=[3, 0, 3, 0],  # Draw top and bottom borders
         ),
     ),
 ]
