@@ -20,6 +20,9 @@ alias w='wal -i ~/wallpaper/'
 alias gr='python ~/dotfiles/scripts/growthrate.py'
 
 alias vm='~/dotfiles/scripts/launchVM.sh'
+alias vmstart='virsh --connect qemu:///system start RDPWindows'
+alias vmstop='virsh --connect qemu:///system destroy RDPWindows'
+alias win10='xfreerdp /v:Windows10 /size:100% /d: /p:sancho /dynamic-resolution &'
 
 alias qc='vim ~/dotfiles/qtile/config.py'
 alias pc='vim ~/dotfiles/picom/picom.conf'
