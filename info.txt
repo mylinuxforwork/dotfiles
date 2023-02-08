@@ -22,11 +22,11 @@ https://starship.rs/
 Add symlink from dotfiles folder into .config
 ln -s /home/raabe/dotfiles/polybar/ ~/.config
 
-Git Crendential Helper Store
+Git Crendential Helper Store (to store credentials)
 git config credential.helper store
 
 GIT:
-git add *
+git add -A
 git commit -m "Message"
 git push
 
