@@ -9,6 +9,9 @@ sudo usermod -aG libvirt raabe
 Packages:
 exa neomutt htop picom xfce-power-manager nitrogen dunst pywal mpv ranger ueberzug
 bat grivbox-material-theme-git gruvbox-icon-theme
+yaru-gtk-theme
+remmina freerdp
+
 
 Disable Suspend
 https://wiki.archlinux.org/title/Power_management#Disabling_suspend

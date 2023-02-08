@@ -182,18 +182,45 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    highlight_method='block',
+                    highlight_method='line',
+                    highlight=ColorC,
+                    block_border=ColorC,
+                    highlight_color=[ColorC,ColorE],
                     block_highlight_text_color='ffffff',
                     foreground='ffffff',
                     fontsize=14,
                     active=ColorC
                 ),
+                widget.TextBox(
+                    text='',
+                    fontsize=14
+                ),
                 widget.WindowName(
                     fontsize=14
                 ),
                 widget.Systray(),
+                widget.TextBox(
+                    text=' ',
+                    desc='Start Win10 and RDP',
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vm')},
+                    fontsize=14
+                ),
+                widget.TextBox(
+                    text=' ',
+                    desc='Destroy Win10',
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vmstop')},
+                    fontsize=14
+                ),
+                widget.TextBox(
+                    text='',
+                    fontsize=14
+                ),
                 widget.Volume(
                     fmt='Vol: {}',
+                    fontsize=14
+                ),
+                widget.TextBox(
+                    text='',
                     fontsize=14
                 ),
                 widget.CheckUpdates(
@@ -203,11 +230,20 @@ screens = [
                     update_interval=600,
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e yay')}
                 ),
+                widget.TextBox(
+                    text='',
+                    fontsize=14
+                ),
                 widget.Clock(
                     format="%Y-%m-%d %a %I:%M %p",
                     fontsize=14
                 ),
+                widget.TextBox(
+                    text='',
+                    fontsize=14
+                ),
                 widget.QuickExit(
+                    default_text=' ',
                     countdown_start=3,
                     fontsize=14
                 ),
@@ -261,7 +297,7 @@ wl_input_rules = None
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+wmname = "QTILE"
 
 # HOOK startup
 @hook.subscribe.startup_once
