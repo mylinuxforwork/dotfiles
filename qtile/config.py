@@ -122,12 +122,12 @@ dgroups_key_binder = simple_key_binder(mod)
 # Append scratchpad with dropdowns to groups
 groups.append(ScratchPad('scratchpad', [
     DropDown('terminal', terminal, width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0),
-#    DropDown('dmnotes', terminal, width=0.8,height=0.8, x=0.1,y=0.1, opacity=1.0),
+    # DropDown('notes', terminal, width=0.8, height=0.8, x=0.1,y=0.1, opacity=1.0)
 ]))
 # extend keys list with keybinding for scratchpad
 keys.extend([
     Key(["control"], "1", lazy.group['scratchpad'].dropdown_toggle('terminal')),
-#    Key(["control"], "2", lazy.gtoup['scratchpad'].dropdown_toggle('dmnotes'))
+    # Key(["control"], "2", lazy.gtoup['scratchpad'].dropdown_toggle('notes'))
 ])  
 
 ########################
@@ -199,16 +199,27 @@ screens = [
                     fontsize=14
                 ),
                 widget.Systray(),
-                widget.TextBox(
-                    text=' ',
-                    desc='Start Win10 and RDP',
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vm')},
+                widget.CPU(
+                    fontsize=14
+                ),
+                widget.DF(
+                    visible_on_warn=False,
                     fontsize=14
                 ),
                 widget.TextBox(
-                    text=' ',
-                    desc='Destroy Win10',
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vmstop')},
+                    text='',
+                    fontsize=14
+                ),
+                widget.TextBox(
+                    text=' ',
+                    desc='Start Win10 and RDP',
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e htop')},
+                    fontsize=14
+                ),
+                widget.TextBox(
+                    text=' ',
+                    desc='Notes',
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vim /home/raabe/notes.txt')},
                     fontsize=14
                 ),
                 widget.TextBox(

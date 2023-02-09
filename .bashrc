@@ -35,6 +35,9 @@ alias confq='vim ~/dotfiles/qtile/config.py'
 alias confp='vim ~/dotfiles/picom/picom.conf'
 alias confb='vim ~/dotfiles/.bashrc'
 
+# EDIT NOTES
+alias notes='vim ~/notes.txt'
+
 # START STARSHIP
 eval "$(starship init bash)"
 
