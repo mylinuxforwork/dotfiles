@@ -117,19 +117,6 @@ groups = [Group("1", layout='monadtall'),
 
 dgroups_key_binder = simple_key_binder(mod)
 
-# SCRATCHPADS
-
-# Append scratchpad with dropdowns to groups
-groups.append(ScratchPad('scratchpad', [
-    DropDown('terminal', terminal, width=0.8, height=0.8, x=0.1, y=0.1, opacity=1.0),
-    # DropDown('notes', terminal, width=0.8, height=0.8, x=0.1,y=0.1, opacity=1.0)
-]))
-# extend keys list with keybinding for scratchpad
-keys.extend([
-    Key(["control"], "1", lazy.group['scratchpad'].dropdown_toggle('terminal')),
-    # Key(["control"], "2", lazy.gtoup['scratchpad'].dropdown_toggle('notes'))
-])  
-
 ########################
 # Define colors ########
 ########################
@@ -199,27 +186,22 @@ screens = [
                     fontsize=14
                 ),
                 widget.Systray(),
-                widget.CPU(
-                    fontsize=14
-                ),
-                widget.DF(
-                    visible_on_warn=False,
+                widget.TextBox(
+                    text=' ',
+                    desc='Notes',
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vim /home/raabe/notes.txt')},
                     fontsize=14
                 ),
                 widget.TextBox(
                     text='',
                     fontsize=14
                 ),
-                widget.TextBox(
-                    text=' ',
-                    desc='Start Win10 and RDP',
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e htop')},
+                widget.CPU(
                     fontsize=14
                 ),
-                widget.TextBox(
-                    text=' ',
-                    desc='Notes',
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vim /home/raabe/notes.txt')},
+                widget.DF(
+                    visible_on_warn=False,
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e htop')},
                     fontsize=14
                 ),
                 widget.TextBox(
