@@ -10,6 +10,7 @@ PS1='[\u@\h \W]\$ '
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 alias c='clear'
+alias w='~/dotfiles/scripts/updatewal.sh'
 
 # APPLICATIONS
 alias ls='exa -al'
@@ -18,7 +19,6 @@ alias m='neomutt'
 alias shutdown='sudo shutdown -h now'
 alias v='vim'
 alias r='ranger'
-alias w='~/dotfiles/scripts/updatewal.sh'
 
 # SCRIPTS
 alias gr='python ~/dotfiles/scripts/growthrate.py'
