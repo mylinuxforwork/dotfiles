@@ -12,6 +12,9 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias c='clear'
 alias w='~/dotfiles/scripts/updatewal.sh'
 
+alias instp='sudo pacman -S'
+alias insty='yay -S'
+
 # APPLICATIONS
 alias ls='exa -al'
 alias mutt='neomutt'
