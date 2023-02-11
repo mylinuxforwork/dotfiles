@@ -108,19 +108,11 @@ groups = [Group("1", layout='monadtall'),
           Group("3", layout='monadtall'),
           Group("4", layout='monadtall'),
           Group("5", layout='monadtall'),
-#          Group("VBOX", layout='monadtall'),
-#          Group("CHAT", layout='monadtall'),
-#          Group("MUS", layout='monadtall'),
-#          Group("VID", layout='monadtall'),
-#          Group("GFX", layout='floating')
           ]
 
 dgroups_key_binder = simple_key_binder(mod)
 
-########################
-# Define colors ########
-########################
-#Pywal Colors
+# Pywal Colors
 colors = os.path.expanduser('~/.cache/wal/colors.json')
 colordict = json.load(open(colors))
 ColorZ=(colordict['colors']['color0'])
@@ -186,6 +178,12 @@ screens = [
                     fontsize=14
                 ),
                 widget.Systray(),
+                widget.TextBox(
+                    text=' ',
+                    desc='Spotify',
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e spt')},
+                    fontsize=14
+                ),
                 widget.TextBox(
                     text=' ',
                     desc='Notes',

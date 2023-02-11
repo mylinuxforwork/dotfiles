@@ -2,16 +2,29 @@ Screenresolution
 xrandr --rate 120
 
 Start VM without sudo
-virsh --connect qemu:///system start archlinux
+virsh --connect qemu:///system start win10
 
 sudo usermod -aG libvirt raabe
 
 Packages:
-exa neomutt htop picom xfce-power-manager nitrogen dunst pywal mpv ranger ueberzug
-bat
-yaru-gtk-theme yaru-icon-theme
- freerdp
+echo "Install Pacman Packages:"
+pacman -S qtile neomutt rofi git openssh exa bat neomutt htop nitrogen dunst ranger ueberzug mpv freerdp spotifyd xfce4-power-manager
 
+Install yay:
+echo "Install yay"
+sudo git clone https://aur.archlinux.org/yay-git.git /opt
+sudo chown -R raabe:raabe /opt/yay-git
+echo "cd /opt/yay-git"
+echo "makepkg -si"
+
+echo "Install yay packages"
+yay -S picom pywal spotify-tui yaru-gtk-theme yaru-icon-theme
+
+echo "Install Pip Packages:"
+
+echo "Install dotfiles:"
+
+echo "Install wallpapers:"
 
 Disable Suspend
 https://wiki.archlinux.org/title/Power_management#Disabling_suspend
@@ -24,11 +37,6 @@ ln -s /home/raabe/dotfiles/polybar/ ~/.config
 
 Git Crendential Helper Store (to store credentials)
 git config credential.helper store
-
-GIT:
-git add -A
-git commit -m "Message"
-git push
 
 NEOMUTT
 Delete Emails with d + $ to sync
