@@ -6,4 +6,4 @@ sleep 30
 echo "Starting xfreerdp now..."
 xfreerdp /v:Windows10 /size:100% /d: /p:sancho /dynamic-resolution &
 
-
+exit
