@@ -170,12 +170,13 @@ screens = [
                     block_highlight_text_color='000000',
                     foreground='ffffff',
                     rounded=False,
-                    this_current_screen_border='ffffff',
+                    this_current_screen_border=ColorC,
                     fontsize=14,
                     active='ffffff'
                 ),
                 widget.TextBox(
                     text='  ',
+                    foreground=ColorC,
                     fontsize=14
                 ),
                 widget.WindowName(
@@ -189,13 +190,15 @@ screens = [
 #                    fontsize=14
 #                ),
                 widget.TextBox(
-                    text='',
+                    text=' ',
+                    foreground=ColorC,
                     desc='Notes',
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vim /home/raabe/notes.txt')},
                     fontsize=14
                 ),
                 widget.TextBox(
                     text='|',
+                    foreground=ColorC,
                     fontsize=14
                 ),
                 widget.CPU(
@@ -208,6 +211,7 @@ screens = [
                 ),
                 widget.TextBox(
                     text='|',
+                    foreground=ColorC,
                     fontsize=14
                 ),
                 widget.Volume(
@@ -216,6 +220,7 @@ screens = [
                 ),
                 widget.TextBox(
                     text='|',
+                    foreground=ColorC,
                     fontsize=14
                 ),
                 widget.CheckUpdates(
@@ -227,6 +232,7 @@ screens = [
                 ),
                 widget.TextBox(
                     text='|',
+                    foreground=ColorC,
                     fontsize=14
                 ),
                 widget.Clock(
@@ -235,6 +241,7 @@ screens = [
                 ),
                 widget.TextBox(
                     text='|',
+                    foreground=ColorC,
                     fontsize=14
                 ),
                 widget.QuickExit(
