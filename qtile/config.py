@@ -24,6 +24,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# Icons: https://fontawesome.com/search?o=r&m=free
+
 import os
 import re
 import socket
@@ -129,7 +131,7 @@ ColorI=(colordict['colors']['color9'])
 layout_theme =  { "border_width": 2,
                  "margin": 15,
                  "border_focus": ColorC,
-                 "border_normal": ColorZ
+                 "border_normal": ColorG
                 }
 
 layouts = [
@@ -161,17 +163,19 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    highlight_method='line',
-                    highlight=ColorC,
-                    block_border=ColorC,
-                    highlight_color=[ColorC,ColorE],
-                    block_highlight_text_color='ffffff',
+                    highlight_method='block',
+                    highlight='ffffff',
+                    block_border='ffffff',
+                    highlight_color=['ffffff','ffffff'],
+                    block_highlight_text_color='000000',
                     foreground='ffffff',
+                    rounded=False,
+                    this_current_screen_border='ffffff',
                     fontsize=14,
-                    active=ColorC
+                    active='ffffff'
                 ),
                 widget.TextBox(
-                    text='|',
+                    text='  ',
                     fontsize=14
                 ),
                 widget.WindowName(
@@ -185,7 +189,7 @@ screens = [
 #                    fontsize=14
 #                ),
                 widget.TextBox(
-                    text='Notes ',
+                    text='',
                     desc='Notes',
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vim /home/raabe/notes.txt')},
                     fontsize=14
@@ -230,10 +234,11 @@ screens = [
                     fontsize=14
                 ),
                 widget.TextBox(
-                    text='',
+                    text='|',
                     fontsize=14
                 ),
                 widget.QuickExit(
+                    default_text=" ",
                     countdown_start=3,
                     fontsize=14
                 ),
