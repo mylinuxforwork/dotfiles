@@ -171,27 +171,27 @@ screens = [
                     active=ColorC
                 ),
                 widget.TextBox(
-                    text='',
+                    text='|',
                     fontsize=14
                 ),
                 widget.WindowName(
                     fontsize=14
                 ),
                 widget.Systray(),
+#                widget.TextBox(
+#                    text='SPT',
+#                    desc='Spotify',
+#                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e spt')},
+#                    fontsize=14
+#                ),
                 widget.TextBox(
-                    text=' ',
-                    desc='Spotify',
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e spt')},
-                    fontsize=14
-                ),
-                widget.TextBox(
-                    text=' ',
+                    text='Notes ',
                     desc='Notes',
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vim /home/raabe/notes.txt')},
                     fontsize=14
                 ),
                 widget.TextBox(
-                    text='',
+                    text='|',
                     fontsize=14
                 ),
                 widget.CPU(
@@ -203,7 +203,7 @@ screens = [
                     fontsize=14
                 ),
                 widget.TextBox(
-                    text='',
+                    text='|',
                     fontsize=14
                 ),
                 widget.Volume(
@@ -211,7 +211,7 @@ screens = [
                     fontsize=14
                 ),
                 widget.TextBox(
-                    text='',
+                    text='|',
                     fontsize=14
                 ),
                 widget.CheckUpdates(
@@ -222,7 +222,7 @@ screens = [
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e yay')}
                 ),
                 widget.TextBox(
-                    text='',
+                    text='|',
                     fontsize=14
                 ),
                 widget.Clock(
@@ -234,7 +234,6 @@ screens = [
                     fontsize=14
                 ),
                 widget.QuickExit(
-                    default_text=' ',
                     countdown_start=3,
                     fontsize=14
                 ),

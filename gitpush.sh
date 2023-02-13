@@ -1,8 +1,6 @@
 #!/bin/sh
-#
 
-echo -e "Enter the git commit message: \c "
-read comment
+read -p "Enter the git commit message: " comment
 git add -A
 git commit -m "$comment"
 git push
