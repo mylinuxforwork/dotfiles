@@ -22,6 +22,7 @@ alias m='neomutt'
 alias shutdown='sudo shutdown -h now'
 alias v='vim'
 alias r='ranger'
+alias ts='sudo timeshift --list'
 
 # SCRIPTS
 alias gr='python ~/dotfiles/scripts/growthrate.py'

@@ -152,8 +152,8 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
-    fontsize=12,
+    font="Fira Sans SemiBold",
+    fontsize=14,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -171,83 +171,56 @@ screens = [
                     foreground='ffffff',
                     rounded=False,
                     this_current_screen_border=ColorC,
-                    fontsize=14,
                     active='ffffff'
                 ),
                 widget.TextBox(
                     text='  ',
                     foreground=ColorC,
-                    fontsize=14
                 ),
                 widget.WindowName(
-                    fontsize=14
                 ),
                 widget.Systray(),
-#                widget.TextBox(
-#                    text='SPT',
-#                    desc='Spotify',
-#                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e spt')},
-#                    fontsize=14
-#                ),
                 widget.TextBox(
                     text=' ',
                     foreground=ColorC,
                     desc='Notes',
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vim /home/raabe/notes.txt')},
-                    fontsize=14
                 ),
                 widget.TextBox(
                     text='|',
                     foreground=ColorC,
-                    fontsize=14
                 ),
                 widget.CPU(
-                    fontsize=14
                 ),
                 widget.DF(
                     visible_on_warn=False,
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e htop')},
-                    fontsize=14
                 ),
                 widget.TextBox(
                     text='|',
                     foreground=ColorC,
-                    fontsize=14
                 ),
                 widget.Volume(
                     fmt='Vol: {}',
-                    fontsize=14
                 ),
                 widget.TextBox(
                     text='|',
                     foreground=ColorC,
-                    fontsize=14
-                ),
-                widget.CheckUpdates(
-                    fontsize=14,
-                    distro="Arch",
-                    no_update_string="No updates",
-                    update_interval=600,
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e yay')}
                 ),
                 widget.TextBox(
                     text='|',
                     foreground=ColorC,
-                    fontsize=14
                 ),
                 widget.Clock(
                     format="%Y-%m-%d %a %I:%M %p",
-                    fontsize=14
                 ),
                 widget.TextBox(
                     text='|',
                     foreground=ColorC,
-                    fontsize=14
                 ),
                 widget.QuickExit(
                     default_text=" ",
                     countdown_start=3,
-                    fontsize=14
                 ),
             ],
             24,
