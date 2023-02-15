@@ -207,10 +207,6 @@ screens = [
                     text='|',
                     foreground=ColorC,
                 ),
-                widget.TextBox(
-                    text='|',
-                    foreground=ColorC,
-                ),
                 widget.Clock(
                     format="%Y-%m-%d %a %I:%M %p",
                 ),
