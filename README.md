@@ -1,6 +1,6 @@
 # dotfiles
 
-This is my personal configuration of my Arch linux based installation. I'm mainly use qtile as my window manager.
+This is the personal configuration of my Arch linux based installation. I'm mainly use qtile as my window manager.
 
 Included is a pywal configuration that changes the color scheme based on a random wallpaper. Just type w in a terminal. See also the .bashrc for more alias definitions.
 
