@@ -59,5 +59,4 @@ starship preset plain-text-symbols > ~/.config/starship.toml
 # ------------------------------------------------------
 wal -i ~/wallpaper/default.jpg
 
-# Activate git config credential.helper store in repositories to disable credentials.
 echo "DONE!"

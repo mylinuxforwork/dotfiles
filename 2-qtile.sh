@@ -3,7 +3,6 @@
 # ------------------------------------------------------
 # Install Script for Qtile
 # yay must be installed
-# Copy this script into the home directory and start.
 # ------------------------------------------------------
 
 read -p "Do you want to start? " s
@@ -20,6 +19,6 @@ sudo pacman -S qtile
 # ------------------------------------------------------
 echo "-> Create symbolic links"
 rm ~/.xinitrc
-ln -s ~/dotfiles/.xinitrc ~/.xinitrc
+ln -s ~/dotfiles/qtile/.xinitrc ~/.xinitrc
 
 echo "DONE!"
