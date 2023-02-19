@@ -12,7 +12,7 @@ echo "START INSTALLATION..."
 # Install required packages
 # ------------------------------------------------------
 echo "-> Install main packages"
-sudo pacman -S alacritty nitrogen picom starship chromium slock neomutt rofi dunst ueberzug mpv freerdp spotifyd xfce4-power-manager python-pip thunar lxappearance papirus-icon-theme ttf-font-awesome ttf-fira-sans ttf-fira-code ttf-firacode-nerd
+sudo pacman -S alacritty nitrogen picom starship chromium slock neomutt rofi dunst ueberzug mpv freerdp spotifyd xfce4-power-manager python-pip thunar lxappearance papirus-icon-theme ttf-font-awesome ttf-fira-sans ttf-fira-code ttf-firacode-nerd figlet
 
 # ------------------------------------------------------
 # Install required packages
