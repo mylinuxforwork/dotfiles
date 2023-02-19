@@ -52,11 +52,11 @@ git clone https://gitlab.com/stephan-raabe/wallpaper.git ~/wallpaper
 # ------------------------------------------------------
 # Install startship plain text 
 # ------------------------------------------------------
-starship preset plain-text-symbols > ~/.config/starship.toml
+# starship preset plain-text-symbols > ~/.config/starship.toml
 
 # ------------------------------------------------------
 # Init pywal
 # ------------------------------------------------------
-wal -i ~/wallpaper/default.jpg
+wal -i ~/wallpaper/default.jpg -n
 
 echo "DONE!"
