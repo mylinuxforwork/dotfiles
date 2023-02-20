@@ -1,9 +1,9 @@
 #!/bin/bash
 
 virsh --connect qemu:///system start win11
-echo "Waiting 30 sec for Windows 11 startup..."
-sleep 30
+echo "Waiting 20 sec for Windows 11 startup..."
+sleep 20
 echo "Starting xfreerdp now..."
-xfreerdp /v:192.168.122.42 /size:100% /d: /p:sancho /dynamic-resolution &
+xfreerdp -grab-keyboard /t:Windows11 /v:192.168.122.42 /size:100% /d: /p:sancho /dynamic-resolution /gfx-h264:avc444 +gfx-progressive &
 
 exit
