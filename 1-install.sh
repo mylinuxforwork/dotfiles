@@ -18,7 +18,7 @@ sudo pacman -S alacritty nitrogen picom starship chromium slock neomutt rofi dun
 # Install required packages
 # ------------------------------------------------------
 echo "-> Install AUR packages"
-yay -S pywal timeshift adwaita-dark 
+yay -S pywal timeshift graphite-gtk-theme tela-circle-icon-theme-orange
 
 # ------------------------------------------------------
 # Install Pip packages
