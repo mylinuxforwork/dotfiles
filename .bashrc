@@ -24,6 +24,8 @@ alias v='vim'
 alias r='ranger'
 alias t='sudo timeshift --list'
 alias ts='~/dotfiles/scripts/snapshot.sh'
+alias matrix='cmatrix'
+alias screenshot='scrot'
 
 # SCRIPTS
 alias gr='python ~/dotfiles/scripts/growthrate.py'

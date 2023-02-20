@@ -6,7 +6,7 @@ Included is a pywal configuration that changes the color scheme based on a rando
 
 ## Screenshot
 
-![Screenshot1](screenshots/screenshot1.png "Screenshot")
+![Screenshot4](screenshots/screenshot4.png "Screenshot")
 
 You can find more screenshots in the screenshots folder
 
