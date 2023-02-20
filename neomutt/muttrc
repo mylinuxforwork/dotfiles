@@ -1,0 +1,14 @@
+source ~/private/neomutt/mailbox
+
+# EDITOR
+set editor		= vim
+set sort_aux 		= last-date-received
+set sort		= reverse-threads
+
+# FORWARD EMAIL WITH ATTACHEMENTS
+set mime_forward
+set mime_forward_rest=yes
+
+#SIDEBAR
+set sidebar_visible
+
