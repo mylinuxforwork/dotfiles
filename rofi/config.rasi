@@ -2,7 +2,7 @@ configuration {
   display-drun: "Applications:";
   display-window: "Windows:";
   drun-display-format: "{name}";
-  font: "JetBrainsMono Nerd Font Medium 10";
+  font: "Fira Sans 11";
   modi: "window,run,drun";
   lines: 10;
 }
@@ -15,7 +15,7 @@ configuration {
 }
 
 #window {
-  border:0px;
+  border:2px;
   border-color:@foreground;
 }
 
