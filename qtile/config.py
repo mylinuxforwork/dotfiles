@@ -45,7 +45,13 @@ from libqtile.widget.image import Image
 from libqtile.dgroups import simple_key_binder
 
 mod = "mod4"
-terminal = guess_terminal("alacritty")
+
+if (os.path.isfile("/usr/bin/VBoxService")):
+    terminal = "terminator"
+else:
+    terminal = "alacritty"        
+
+terminal = guess_terminal(terminal)
 browser = "chromium"
 wp = "/home/raabe/wallpaper/"
 
