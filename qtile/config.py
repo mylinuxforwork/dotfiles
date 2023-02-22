@@ -195,14 +195,14 @@ screens = [
                 widget.Systray(),
                 widget.TextBox(
                     text=' ',
-                    fontsize=16,
+                    fontsize=18,
                     foreground='ffffff',
                     desc='Calculator',
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn('qalculate-gtk')},
                 ),
                 widget.TextBox(
                     text='',
-                    fontsize=16,
+                    fontsize=18,
                     foreground='ffffff',
                     desc='Notes',
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vim /home/raabe/notes.txt')},
@@ -236,6 +236,7 @@ screens = [
                 ),
                 widget.QuickExit(
                     default_text=" ",
+                    fontsize=20,
                     countdown_start=3,
                 ),
             ],
