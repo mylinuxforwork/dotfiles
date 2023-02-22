@@ -5,17 +5,17 @@
 # Copyright (c) 2012 Craig Barnes
 # Copyright (c) 2013 horsik
 # Copyright (c) 2013 Tao Sauvage
-#
+
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-#
+
 # The above copyright notice and this permission notice shall be included in
 # all copies or substantial portions of the Software.
-#
+
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,6 +23,13 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+
+#   ___ _____ ___ _     _____    ____             __ _       
+#  / _ \_   _|_ _| |   | ____|  / ___|___  _ __  / _(_) __ _ 
+# | | | || |  | || |   |  _|   | |   / _ \| '_ \| |_| |/ _` |
+# | |_| || |  | || |___| |___  | |__| (_) | | | |  _| | (_| |
+#  \__\_\|_| |___|_____|_____|  \____\___/|_| |_|_| |_|\__, |
+#                                                      |___/ 
 
 # Icons: https://fontawesome.com/search?o=r&m=free
 
@@ -204,16 +211,15 @@ screens = [
                     text='|',
                     foreground=ColorC,
                 ),
-                widget.CPU(
-                ),
-                widget.DF(
-                    visible_on_warn=False,
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e htop')},
-                ),
-                widget.TextBox(
-                    text='|',
-                    foreground=ColorC,
-                ),
+                # widget.CPU(),
+                # widget.DF(
+                #    visible_on_warn=False,
+                #    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e htop')},
+                # ),
+                # widget.TextBox(
+                #     text='|',
+                #     foreground=ColorC,
+                # ),
                 widget.Volume(
                     fmt='Vol: {}',
                 ),
