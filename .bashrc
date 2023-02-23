@@ -27,6 +27,12 @@ alias ts='~/dotfiles/scripts/snapshot.sh'
 alias matrix='cmatrix'
 alias screenshot='scrot'
 
+# GIT
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push"
+
 # SCRIPTS
 alias gr='python ~/dotfiles/scripts/growthrate.py'
 alias chat='python ~/mychatgpt/mychatgpt.py'
