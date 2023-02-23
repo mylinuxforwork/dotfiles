@@ -53,25 +53,36 @@ from libqtile.dgroups import simple_key_binder
 
 mod = "mod4"
 
+# --------------------------------------------------------
+# Check for VirtualBox
+# --------------------------------------------------------
+
 if (os.path.isfile("/usr/bin/VBoxService")):
     terminal = "terminator"
 else:
     terminal = "alacritty"        
 
+# --------------------------------------------------------
+# Set default apps
+# --------------------------------------------------------
+
 terminal = guess_terminal(terminal)
 browser = "chromium"
-wp = "/home/raabe/wallpaper/"
 
+# --------------------------------------------------------
 # KEYBINDINGS
+# --------------------------------------------------------
 
 keys = [
-    
+
+    # Focus
     Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
-
+    
+    # Move
     Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
     Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
@@ -116,7 +127,9 @@ keys = [
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
-# GROUPS
+# --------------------------------------------------------
+# Groups
+# --------------------------------------------------------
 
 groups = [Group("1", layout='monadtall'),
           Group("2", layout='monadtall'),
@@ -127,7 +140,10 @@ groups = [Group("1", layout='monadtall'),
 
 dgroups_key_binder = simple_key_binder(mod)
 
+# --------------------------------------------------------
 # Pywal Colors
+# --------------------------------------------------------
+
 colors = os.path.expanduser('~/.cache/wal/colors.json')
 colordict = json.load(open(colors))
 ColorZ=(colordict['colors']['color0'])
@@ -141,11 +157,19 @@ ColorG=(colordict['colors']['color7'])
 ColorH=(colordict['colors']['color8'])
 ColorI=(colordict['colors']['color9'])
 
+# --------------------------------------------------------
+# Setup Layout Theme
+# --------------------------------------------------------
+
 layout_theme =  { "border_width": 2,
                  "margin": 15,
                  "border_focus": ColorC,
                  "border_normal": ColorG
                 }
+
+# --------------------------------------------------------
+# Layouts
+# --------------------------------------------------------
 
 layouts = [
     # layout.Columns(),
@@ -164,12 +188,20 @@ layouts = [
     # layout.Floating(**layout_theme)
 ]
 
+# --------------------------------------------------------
+# Setup Widget Defaults
+# --------------------------------------------------------
+
 widget_defaults = dict(
     font="Fira Sans SemiBold",
     fontsize=14,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
+
+# --------------------------------------------------------
+# Screens and Widgets
+# --------------------------------------------------------
 
 screens = [
     Screen(
@@ -253,12 +285,19 @@ screens = [
     ),
 ]
 
+# --------------------------------------------------------
 # Drag floating layouts.
+# --------------------------------------------------------
+
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
+
+# --------------------------------------------------------
+# General Setup
+# --------------------------------------------------------
 
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
@@ -295,7 +334,16 @@ wl_input_rules = None
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
+
+# --------------------------------------------------------
+# Windows Manager Name
+# --------------------------------------------------------
+
 wmname = "QTILE"
+
+# --------------------------------------------------------
+# Hooks
+# --------------------------------------------------------
 
 # HOOK startup
 @hook.subscribe.startup_once
