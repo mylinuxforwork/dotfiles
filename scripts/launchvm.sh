@@ -30,6 +30,6 @@ countdown "00:00:20"
 
 echo "Starting xfreerdp now..."
 xfreerdp -grab-keyboard /t:"Windows 11" /v:192.168.122.42 /size:100% /d: /p:sancho /dynamic-resolution /gfx-h264:avc444 +gfx-progressive &
-sleep 3
+sleep 10
 
 exit
