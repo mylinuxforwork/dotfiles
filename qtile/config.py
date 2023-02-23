@@ -124,7 +124,12 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawn("rofi -show drun -icon-theme 'Papirus' -show-icons"), desc="Launch Rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Chromium"),
-    # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+
+# --------------------------------------------------------
+# Scratchpads
+# --------------------------------------------------------
+
+    Key([mod, "shift"], "t", lazy.group["terminal"].dropdown_toggle("term"))
 ]
 
 # --------------------------------------------------------
@@ -136,6 +141,13 @@ groups = [Group("1", layout='monadtall'),
           Group("3", layout='monadtall'),
           Group("4", layout='monadtall'),
           Group("5", layout='monadtall'),
+
+# --------------------------------------------------------
+# Scratchpads
+# --------------------------------------------------------
+
+          ScratchPad("terminal",[DropDown("term", terminal, x=0.05, y=0.02, width=0.90, height=0.6, on_focus_lost_hide=False)])
+          
           ]
 
 dgroups_key_binder = simple_key_binder(mod)
