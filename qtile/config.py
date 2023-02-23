@@ -227,6 +227,12 @@ screens = [
                     text='|',
                     foreground=ColorC,
                 ),
+                widget.Battery(),
+                # widget.Backlight(),
+                widget.TextBox(
+                    text='|',
+                    foreground=ColorC,
+                ),
                 widget.Clock(
                     format="%Y-%m-%d %a %I:%M %p",
                 ),
