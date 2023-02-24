@@ -66,8 +66,8 @@ else:
 # Check for Desktop/Laptop
 # --------------------------------------------------------
 
-# Use output from /sys/class/dmi/id/chassis_type
 # 3 = Desktop
+platform = int(os.popen("cat /sys/class/dmi/id/chassis_type").read())
 
 # --------------------------------------------------------
 # Set default apps
@@ -219,83 +219,89 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 # --------------------------------------------------------
-# Screens and Widgets
+# Widgets
 # --------------------------------------------------------
 
 widget_list = [
-                widget.GroupBox(
-                    highlight_method='block',
-                    highlight='ffffff',
-                    block_border='ffffff',
-                    highlight_color=['ffffff','ffffff'],
-                    block_highlight_text_color='000000',
-                    foreground='ffffff',
-                    rounded=False,
-                    this_current_screen_border=ColorC,
-                    active='ffffff'
-                ),
-                widget.TextBox(
-                    text='  ',
-                    foreground=ColorC,
-                ),
-                widget.WindowName(
-                ),
-                widget.Systray(),
-                widget.TextBox(
-                    text=' ',
-                    fontsize=18,
-                    foreground='ffffff',
-                    desc='Calculator',
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn('qalculate-gtk')},
-                ),
-                widget.TextBox(
-                    text='',
-                    fontsize=18,
-                    foreground='ffffff',
-                    desc='Notes',
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vim /home/raabe/notes.txt')},
-                ),
-                widget.TextBox(
-                    text='|',
-                    foreground=ColorC,
-                ),
-                widget.Volume(
-                    fmt='Vol: {}',
-                ),
-                widget.TextBox(
-                    text='|',
-                    foreground=ColorC,
-                ),
-                widget.Battery(),
-                widget.TextBox(
-                    text='|',
-                    foreground=ColorC,
-                ),
-                widget.GenPollText(
-                    name = "checkupdates",
-                    fmt="Updates: {}",
-                    update_interval = 3600,
-                    func = lambda: subprocess.check_output("/home/raabe/dotfiles/scripts/checkupdates.sh").decode()[:-1],
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e yay')},
-                ),
-                widget.TextBox(
-                    text='|',
-                    foreground=ColorC,
-                ),
-                widget.Clock(
-                    format="%Y-%m-%d %a %I:%M %p",
-                ),
-                widget.TextBox(
-                    text='|',
-                    foreground=ColorC,
-                ),
-                widget.QuickExit(
-                    default_text=" ",
-                    fontsize=20,
-                    countdown_start=3,
-                ),
-
+    widget.GroupBox(
+        highlight_method='block',
+        highlight='ffffff',
+        block_border='ffffff',
+        highlight_color=['ffffff','ffffff'],
+        block_highlight_text_color='000000',
+        foreground='ffffff',
+        rounded=False,
+        this_current_screen_border=ColorC,
+        active='ffffff'
+    ),
+    widget.TextBox(
+        text='  ',
+        foreground=ColorC,
+    ),
+    widget.WindowName(
+    ),
+    widget.Systray(),
+    widget.TextBox(
+        text=' ',
+        fontsize=18,
+        foreground='ffffff',
+        desc='Calculator',
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn('qalculate-gtk')},
+    ),
+    widget.TextBox(
+        text='',
+        fontsize=18,
+        foreground='ffffff',
+        desc='Notes',
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vim /home/raabe/notes.txt')},
+    ),
+    widget.TextBox(
+        text='|',
+        foreground=ColorC,
+    ),
+    widget.Volume(
+        fmt='Vol: {}',
+    ),
+    widget.TextBox(
+        text='|',
+        foreground=ColorC,
+    ),
+    widget.Battery(),
+    widget.TextBox(
+        text='|',
+        foreground=ColorC,
+    ),
+    widget.GenPollText(
+        name = "checkupdates",
+        fmt="Updates: {}",
+        update_interval = 3600,
+        func = lambda: subprocess.check_output("/home/raabe/dotfiles/scripts/checkupdates.sh").decode()[:-1],
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e yay')},
+    ),
+    widget.TextBox(
+        text='|',
+        foreground=ColorC,
+    ),
+    widget.Clock(
+        format="%Y-%m-%d %a %I:%M %p",
+    ),
+    widget.TextBox(
+        text='|',
+        foreground=ColorC,
+    ),
+    widget.QuickExit(
+        default_text=" ",
+        fontsize=20,
+        countdown_start=3,
+    ),
 ]
+
+if (platform == 3):
+    del widget_list[9:11]
+
+# --------------------------------------------------------
+# Screens
+# --------------------------------------------------------
 
 screens = [
     Screen(
@@ -303,7 +309,7 @@ screens = [
 		widget_list,
             24,
             opacity=0.7,
-            border_width=[3, 0, 3, 0],  # Draw top and bottom borders
+            border_width=[3, 0, 3, 0],
         ),
     ),
 ]
