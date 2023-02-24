@@ -222,10 +222,7 @@ extension_defaults = widget_defaults.copy()
 # Screens and Widgets
 # --------------------------------------------------------
 
-screens = [
-    Screen(
-        top=bar.Bar(
-            [
+widget_list = [
                 widget.GroupBox(
                     highlight_method='block',
                     highlight='ffffff',
@@ -297,7 +294,13 @@ screens = [
                     fontsize=20,
                     countdown_start=3,
                 ),
-            ],
+
+]
+
+screens = [
+    Screen(
+        top=bar.Bar(
+		widget_list,
             24,
             opacity=0.7,
             border_width=[3, 0, 3, 0],  # Draw top and bottom borders
