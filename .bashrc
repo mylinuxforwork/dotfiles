@@ -30,7 +30,7 @@ alias screenshot='scrot'
 # GIT
 alias gs="git status"
 alias ga="git add"
-alias gc="git commit"
+alias gc="git commit -m"
 alias gp="git push"
 
 # SCRIPTS

@@ -63,6 +63,13 @@ else:
     terminal = "alacritty"        
 
 # --------------------------------------------------------
+# Check for Desktop/Laptop
+# --------------------------------------------------------
+
+# Use output from /sys/class/dmi/id/chassis_type
+# 3 = Desktop
+
+# --------------------------------------------------------
 # Set default apps
 # --------------------------------------------------------
 
@@ -255,15 +262,6 @@ screens = [
                     text='|',
                     foreground=ColorC,
                 ),
-                # widget.CPU(),
-                # widget.DF(
-                #    visible_on_warn=False,
-                #    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e htop')},
-                # ),
-                # widget.TextBox(
-                #     text='|',
-                #     foreground=ColorC,
-                # ),
                 widget.Volume(
                     fmt='Vol: {}',
                 ),
@@ -272,7 +270,17 @@ screens = [
                     foreground=ColorC,
                 ),
                 widget.Battery(),
-                # widget.Backlight(),
+                widget.TextBox(
+                    text='|',
+                    foreground=ColorC,
+                ),
+                widget.GenPollText(
+                    name = "checkupdates",
+                    fmt="Updates: {}",
+                    update_interval = 3600,
+                    func = lambda: subprocess.check_output("/home/raabe/dotfiles/scripts/checkupdates.sh").decode()[:-1],
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e yay')},
+                ),
                 widget.TextBox(
                     text='|',
                     foreground=ColorC,
