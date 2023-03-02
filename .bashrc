@@ -38,7 +38,8 @@ alias gr='python ~/dotfiles/scripts/growthrate.py'
 alias chat='python ~/mychatgpt/mychatgpt.py'
 
 # VIRTUAL MACHINE
-alias vm='~/dotfiles/scripts/launchvm.sh'
+# alias vm='~/dotfiles/scripts/launchvm.sh'
+alias vm='~/dotfiles/scripts/looking-glass.sh'
 alias vmstart='virsh --connect qemu:///system start win11'
 alias vmstop='virsh --connect qemu:///system destroy win11'
 
