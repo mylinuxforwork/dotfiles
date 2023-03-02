@@ -137,7 +137,8 @@ keys = [
 # Scratchpads
 # --------------------------------------------------------
 
-    Key([mod, "shift"], "t", lazy.group["terminal"].dropdown_toggle("term"))
+    Key([mod, "shift"], "t", lazy.group["terminal"].dropdown_toggle("term")),
+    Key([mod, "shift"], "r", lazy.group["calculator"].dropdown_toggle("calc"))
 ]
 
 # --------------------------------------------------------
@@ -154,7 +155,8 @@ groups = [Group("1", layout='monadtall'),
 # Scratchpads
 # --------------------------------------------------------
 
-          ScratchPad("terminal",[DropDown("term", terminal, x=0.05, y=0.02, width=0.90, height=0.6, on_focus_lost_hide=False)])
+          ScratchPad("terminal",[DropDown("term", terminal, x=0.05, y=0.02, width=0.90, height=0.6, on_focus_lost_hide=False)]),
+          ScratchPad("calculator",[DropDown("calc", "qalculate-gtk", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False )])
           
           ]
 
@@ -243,13 +245,6 @@ widget_list = [
     ),
     widget.Systray(),
     widget.TextBox(
-        text=' ',
-        fontsize=18,
-        foreground='ffffff',
-        desc='Calculator',
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn('qalculate-gtk')},
-    ),
-    widget.TextBox(
         text='',
         fontsize=18,
         foreground='ffffff',
@@ -272,17 +267,6 @@ widget_list = [
         text='|',
         foreground=ColorC,
     ),
-    widget.GenPollText(
-        name = "checkupdates",
-        fmt="Updates: {}",
-        update_interval = 3600,
-        func = lambda: subprocess.check_output("/home/raabe/dotfiles/scripts/checkupdates.sh").decode()[:-1],
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e yay')},
-    ),
-    widget.TextBox(
-        text='|',
-        foreground=ColorC,
-    ),
     widget.Clock(
         format="%Y-%m-%d %a %I:%M %p",
     ),
@@ -294,11 +278,12 @@ widget_list = [
         default_text=" ",
         fontsize=20,
         countdown_start=3,
+        countdown_format="{}"
     ),
 ]
 
 if (platform == 3):
-    del widget_list[9:11]
+    del widget_list[7:9]
 
 # --------------------------------------------------------
 # Screens
