@@ -8,7 +8,7 @@ format() {
     fi
 }
 
-if ! updates_arch="$(checkupdates | wc -l)"; then
+if ! updates_arch="$(pacman -Qm >/dev/null | wc -l)"; then
     updates_arch=0
 fi
 

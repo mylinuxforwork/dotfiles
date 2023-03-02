@@ -30,7 +30,7 @@ yay -S pywal timeshift tela-circle-icon-theme-orange
 # Install Pip packages
 # ------------------------------------------------------
 echo "-> Install Pip packages"
-pip install psutil
+pip install psutil rich click
 
 # ------------------------------------------------------
 # Create symbolic links
