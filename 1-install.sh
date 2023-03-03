@@ -18,13 +18,13 @@ echo "START INSTALLATION..."
 # Install required packages
 # ------------------------------------------------------
 echo "-> Install main packages"
-sudo pacman -S alacritty scrot nitrogen picom starship chromium slock neomutt neovim rofi dunst ueberzug mpv freerdp spotifyd xfce4-power-manager python-pip thunar mousepad lxappearance papirus-icon-theme ttf-font-awesome ttf-fira-sans ttf-fira-code ttf-firacode-nerd figlet cmatrix qalculate-gtk adapta-gtk-theme terminator
+sudo pacman -S alacritty scrot nitrogen picom starship slock neomutt neovim rofi dunst ueberzug mpv freerdp spotifyd xfce4-power-manager python-pip thunar mousepad lxappearance papirus-icon-theme ttf-font-awesome ttf-fira-sans ttf-fira-code ttf-firacode-nerd figlet cmatrix qalculate-gtk adapta-gtk-theme terminator
 
 # ------------------------------------------------------
 # Install required packages
 # ------------------------------------------------------
 echo "-> Install AUR packages"
-yay -S pywal timeshift tela-circle-icon-theme-orange
+yay -S brave-bin pywal timeshift tela-circle-icon-theme-orange
 
 # ------------------------------------------------------
 # Install Pip packages

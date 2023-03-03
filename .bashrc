@@ -26,6 +26,7 @@ alias t='sudo timeshift --list'
 alias ts='~/dotfiles/scripts/snapshot.sh'
 alias matrix='cmatrix'
 alias screenshot='scrot'
+alias cat='bat'
 
 # GIT
 alias gs="git status"

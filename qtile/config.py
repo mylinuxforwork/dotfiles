@@ -73,8 +73,8 @@ platform = int(os.popen("cat /sys/class/dmi/id/chassis_type").read())
 # Set default apps
 # --------------------------------------------------------
 
-terminal = guess_terminal(terminal)
-browser = "chromium"
+# terminal = guess_terminal(terminal)
+browser = "brave"
 
 # --------------------------------------------------------
 # KEYBINDINGS
@@ -262,6 +262,18 @@ widget_list = [
         text='|',
         foreground=ColorC,
     ),
+    widget.Memory(
+        measure_mem='G',
+        format="{MemUsed:.0f}{mm} ({MemTotal:.0f}{mm})"
+    ),
+    widget.DF(
+        visible_on_warn=False,
+        format="{p} {uf}{m} ({r:.0f}%)"
+    ),
+    widget.TextBox(
+        text='|',
+        foreground=ColorC,
+    ),
     widget.Battery(),
     widget.TextBox(
         text='|',
@@ -283,7 +295,7 @@ widget_list = [
 ]
 
 if (platform == 3):
-    del widget_list[7:9]
+    del widget_list[10:12]
 
 # --------------------------------------------------------
 # Screens
