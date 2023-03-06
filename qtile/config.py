@@ -145,20 +145,20 @@ keys = [
 # Groups
 # --------------------------------------------------------
 
-groups = [Group("1", layout='monadtall'),
-          Group("2", layout='monadtall'),
-          Group("3", layout='monadtall'),
-          Group("4", layout='monadtall'),
-          Group("5", layout='monadtall'),
+groups = [
+    Group("1", layout='monadtall'),
+    Group("2", layout='monadtall'),
+    Group("3", layout='monadtall'),
+    Group("4", layout='monadtall'),
+    Group("5", layout='monadtall'),
 
 # --------------------------------------------------------
 # Scratchpads
 # --------------------------------------------------------
 
-          ScratchPad("terminal",[DropDown("term", terminal, x=0.05, y=0.02, width=0.90, height=0.6, on_focus_lost_hide=False)]),
-          ScratchPad("calculator",[DropDown("calc", "qalculate-gtk", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False )])
-          
-          ]
+    ScratchPad("terminal",[DropDown("term", terminal, x=0.05, y=0.02, width=0.90, height=0.6, on_focus_lost_hide=False)]),
+    ScratchPad("calculator",[DropDown("calc", "qalculate-gtk", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False )])
+]
 
 dgroups_key_binder = simple_key_binder(mod)
 
@@ -183,11 +183,12 @@ ColorI=(colordict['colors']['color9'])
 # Setup Layout Theme
 # --------------------------------------------------------
 
-layout_theme =  { "border_width": 2,
-                 "margin": 15,
-                 "border_focus": ColorC,
-                 "border_normal": ColorG
-                }
+layout_theme = { 
+    "border_width": 2,
+    "margin": 20,
+    "border_focus": ColorC,
+    "border_normal": ColorG
+}
 
 # --------------------------------------------------------
 # Layouts
@@ -217,7 +218,7 @@ layouts = [
 widget_defaults = dict(
     font="Fira Sans SemiBold",
     fontsize=14,
-    padding=3,
+    padding=3
 )
 extension_defaults = widget_defaults.copy()
 
@@ -308,6 +309,7 @@ screens = [
             24,
             opacity=0.7,
             border_width=[3, 0, 3, 0],
+            margin=[5,5,0,5]
         ),
     ),
 ]
