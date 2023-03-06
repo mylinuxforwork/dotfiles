@@ -26,6 +26,7 @@ alias t='sudo timeshift --list'
 alias ts='~/dotfiles/scripts/snapshot.sh'
 alias matrix='cmatrix'
 alias screenshot='scrot'
+alias nf='neofetch'
 
 # GIT
 alias gs="git status"
@@ -43,10 +44,12 @@ alias vm='~/dotfiles/scripts/looking-glass.sh'
 alias vmstart='virsh --connect qemu:///system start win11'
 alias vmstop='virsh --connect qemu:///system destroy win11'
 
-# EDIT CONFIG Files
+# EDIT CONFIG FILES
 alias confq='vim ~/dotfiles/qtile/config.py'
 alias confp='vim ~/dotfiles/picom/picom.conf'
 alias confb='vim ~/dotfiles/.bashrc'
+
+# IMAGE MANIPULATION
 
 # EDIT NOTES
 alias notes='vim ~/notes.txt'

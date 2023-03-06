@@ -77,7 +77,7 @@ platform = int(os.popen("cat /sys/class/dmi/id/chassis_type").read())
 browser = "brave"
 
 # --------------------------------------------------------
-# KEYBINDINGS
+# Keybindings
 # --------------------------------------------------------
 
 keys = [
@@ -95,48 +95,43 @@ keys = [
     Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
 
-    Key([mod], "h",
-        lazy.layout.shrink(),
-        lazy.layout.decrease_nmaster(),
-        desc='Shrink window (MonadTall), decrease number in master pane (Tile)'
-    ),
-    Key([mod], "l",
-        lazy.layout.grow(),
-        lazy.layout.increase_nmaster(),
-        desc='Expand window (MonadTall), increase number in master pane (Tile)'
-    ),
+    # Swap
+    Key([mod, "shift"], "h", lazy.layout.swap_left()),
+    Key([mod, "shift"], "l", lazy.layout.swap_right()),
 
+    # Size
+    Key([mod], "h", lazy.layout.shrink(), lazy.layout.decrease_nmaster(), desc='Shrink window (MonadTall)'),
+    Key([mod], "l", lazy.layout.grow(), lazy.layout.increase_nmaster(), desc='Expand window (MonadTall)'),
     Key([mod, "control"], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key([mod, "control"], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    # Toggle between split and unsplit sides of stack.
+
+    # Floating
     Key([mod], "t", lazy.window.toggle_floating(), desc='Toggle floating'),
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    # Toggle between different layouts as defined below
+    
+    # Split
+    Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
+
+    # Toggle Layouts
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
+
+    # Fullscreen
     Key([mod], "f", lazy.window.toggle_fullscreen()),
+
+    #System
+    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    
+    # Apps
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "r", lazy.spawn("rofi -show drun -icon-theme 'Papirus' -show-icons"), desc="Launch Rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Chromium"),
     Key([mod], "v", lazy.spawn("/home/raabe/dotfiles/scripts/looking-glass.sh"), desc="Start Looking Glass Client"),
 
-# --------------------------------------------------------
-# Scratchpads
-# --------------------------------------------------------
-
+    # Scratchpads
     Key([mod, "shift"], "t", lazy.group["terminal"].dropdown_toggle("term")),
     Key([mod, "shift"], "r", lazy.group["calculator"].dropdown_toggle("calc"))
 ]
@@ -184,10 +179,10 @@ ColorI=(colordict['colors']['color9'])
 # --------------------------------------------------------
 
 layout_theme = { 
-    "border_width": 2,
-    "margin": 20,
-    "border_focus": ColorC,
-    "border_normal": ColorG
+    "border_width": 3,
+    "margin": 15,
+    "border_focus": "ffffff",
+    "border_normal": ColorC
 }
 
 # --------------------------------------------------------
@@ -235,7 +230,7 @@ widget_list = [
         block_highlight_text_color='000000',
         foreground='ffffff',
         rounded=False,
-        this_current_screen_border=ColorC,
+        this_current_screen_border='ffffff',
         active='ffffff'
     ),
     widget.TextBox(
@@ -309,7 +304,7 @@ screens = [
             24,
             opacity=0.7,
             border_width=[3, 0, 3, 0],
-            margin=[5,5,0,5]
+            margin=[0,0,0,0]
         ),
     ),
 ]
