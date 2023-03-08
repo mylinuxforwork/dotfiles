@@ -33,6 +33,8 @@ alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
 alias gp="git push"
+alias gpl="git pull"
+alias gpf="git stash; git pull"
 
 # SCRIPTS
 alias gr='python ~/dotfiles/scripts/growthrate.py'
