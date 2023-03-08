@@ -1,12 +1,21 @@
-#
+#    _               _              
+#   | |__   __ _ ___| |__  _ __ ___ 
+#   | '_ \ / _` / __| '_ \| '__/ __|
+#  _| |_) | (_| \__ \ | | | | | (__ 
+# (_)_.__/ \__,_|___/_| |_|_|  \___|
+# 
+# by Stephan Raabe (2023)
+# -----------------------------------------------------
 # ~/.bashrc
-#
+# -----------------------------------------------------
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 PS1='[\u@\h \W]\$ '
 
+# -----------------------------------------------------
 # ALIASES
+# -----------------------------------------------------
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 alias c='clear'
@@ -25,7 +34,7 @@ alias r='ranger'
 alias t='sudo timeshift --list'
 alias ts='~/dotfiles/scripts/snapshot.sh'
 alias matrix='cmatrix'
-alias screenshot='scrot'
+alias screenshot='scrot -d 3 -c -z -u'
 alias nf='neofetch'
 
 # GIT
@@ -56,11 +65,17 @@ alias confb='vim ~/dotfiles/.bashrc'
 # EDIT NOTES
 alias notes='vim ~/notes.txt'
 
+# -----------------------------------------------------
 # START STARSHIP
+# -----------------------------------------------------
 eval "$(starship init bash)"
 
+# -----------------------------------------------------
 # PYWAL
+# -----------------------------------------------------
 cat ~/.cache/wal/sequences
 
+# -----------------------------------------------------
 # NEOFETCH
+# -----------------------------------------------------
 neofetch
