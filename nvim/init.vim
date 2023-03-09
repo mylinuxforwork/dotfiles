@@ -1,3 +1,12 @@
+"  _   _                 _            
+" | \ | | ___  _____   _(_)_ __ ___   
+" |  \| |/ _ \/ _ \ \ / / | '_ ` _ \  
+" | |\  |  __/ (_) \ V /| | | | | | | 
+" |_| \_|\___|\___/ \_/ |_|_| |_| |_| 
+"                                     
+" by Stephan Raabe (2023) 
+" ----------------------------------------------------- 
+
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
 set ignorecase              " case insensitive 
