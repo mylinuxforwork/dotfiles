@@ -34,8 +34,10 @@ alias r='ranger'
 alias t='sudo timeshift --list'
 alias ts='~/dotfiles/scripts/snapshot.sh'
 alias matrix='cmatrix'
-alias screenshot='scrot -d 3 -c -z -u'
+alias shot='scrot -d 3 -c -z -u'
+alias shotsel='scrot -s'
 alias nf='neofetch'
+alias pf='pfetch'
 
 # GIT
 alias gs="git status"

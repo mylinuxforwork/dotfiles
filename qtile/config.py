@@ -131,6 +131,7 @@ keys = [
     Key([mod], "b", lazy.spawn(browser), desc="Launch Chromium"),
     Key([mod], "v", lazy.spawn("/home/raabe/dotfiles/scripts/looking-glass.sh"), desc="Start Looking Glass Client"),
     Key([mod, "shift"], "w", lazy.spawn("/home/raabe/dotfiles/scripts/updatewal.sh"), desc="Update Thema and Wallpaper"),
+    Key([mod, "shift"], "s", lazy.spawn("scrot -s"), desc="Screenshot of selected area"),
 
     # Scratchpads
     Key([mod, "shift"], "t", lazy.group["terminal"].dropdown_toggle("term")),
