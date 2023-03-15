@@ -24,7 +24,12 @@ sudo pacman -S alacritty scrot nitrogen picom starship slock neomutt neovim rofi
 # Install required packages
 # ------------------------------------------------------
 echo "-> Install AUR packages"
-yay -S brave-bin pywal timeshift tela-circle-icon-theme-orange
+yay -S brave-bin pywal timeshift tela-circle-icon-theme-orange pfetch preload
+
+# ------------------------------------------------------
+# Enable services
+# ------------------------------------------------------
+sudo systemctl enable preload
 
 # ------------------------------------------------------
 # Install Pip packages
@@ -70,4 +75,4 @@ git clone https://gitlab.com/stephan-raabe/wallpaper.git ~/wallpaper
 # ------------------------------------------------------
 wal -i ~/wallpaper/default.jpg -n
 
-echo "DONE!"
+echo "DONE! Reboot suggested..."
