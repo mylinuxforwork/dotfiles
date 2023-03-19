@@ -184,7 +184,8 @@ layout_theme = {
     "border_width": 3,
     "margin": 15,
     "border_focus": "ffffff",
-    "border_normal": ColorC
+    "border_normal": ColorC,
+    "single_border_width": 3
 }
 
 # --------------------------------------------------------
@@ -205,7 +206,7 @@ layouts = [
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
-    # layout.Floating(**layout_theme)
+    layout.Floating(**layout_theme)
 ]
 
 # --------------------------------------------------------
