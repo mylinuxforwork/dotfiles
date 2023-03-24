@@ -44,7 +44,7 @@ from libqtile import hook
 from libqtile import qtile
 from typing import List  
 from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown, KeyChord
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile.widget import Spacer, Backlight
@@ -130,8 +130,10 @@ keys = [
     Key([mod], "r", lazy.spawn("rofi -show drun -icon-theme 'Papirus' -show-icons"), desc="Launch Rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Chromium"),
     Key([mod], "v", lazy.spawn("/home/raabe/dotfiles/scripts/looking-glass.sh"), desc="Start Looking Glass Client"),
-    Key([mod, "shift"], "w", lazy.spawn("/home/raabe/dotfiles/scripts/updatewal.sh"), desc="Update Thema and Wallpaper"),
+    Key([mod, "shift"], "w", lazy.spawn("/home/raabe/dotfiles/scripts/updatewal.sh"), desc="Update Theme and Wallpaper"),
+    Key([mod, "control"], "w", lazy.spawn("/home/raabe/dotfiles/scripts/wallpaper.sh"), desc="Select Theme and Wallpaper"),
     Key([mod, "shift"], "s", lazy.spawn("scrot -s"), desc="Screenshot of selected area"),
+    Key([mod, "control"], "t", lazy.spawn("/home/raabe/dotfiles/scripts/templates.sh"), desc="Select Tempate and copy to clipboard"),
 
     # Scratchpads
     Key([mod, "shift"], "t", lazy.group["terminal"].dropdown_toggle("term")),
@@ -240,8 +242,7 @@ widget_list = [
         text='  ',
         foreground=ColorC,
     ),
-    widget.WindowName(
-    ),
+    widget.WindowName(),
     widget.Systray(),
     widget.TextBox(
         text='',
@@ -311,6 +312,13 @@ screens = [
         ),
     ),
 ]
+
+
+# --------------------------------------------------------
+# Screens Gap for PolyBar
+# --------------------------------------------------------
+
+# screens = [Screen(top=bar.Gap(size=35))]
 
 # --------------------------------------------------------
 # Drag floating layouts.
