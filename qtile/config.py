@@ -183,8 +183,8 @@ ColorI=(colordict['colors']['color9'])
 layout_theme = { 
     "border_width": 3,
     "margin": 15,
-    "border_focus": "ffffff",
-    "border_normal": ColorC,
+    "border_focus": ColorC,
+    "border_normal": "FFFFFF",
     "single_border_width": 3
 }
 
@@ -315,7 +315,7 @@ screens = [
 # Screens Gap for PolyBar
 # --------------------------------------------------------
 
-screens = [Screen(top=bar.Gap(size=30))]
+screens = [Screen(top=bar.Gap(size=28))]
 
 # --------------------------------------------------------
 # Drag floating layouts.
