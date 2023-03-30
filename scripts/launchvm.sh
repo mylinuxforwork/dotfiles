@@ -33,9 +33,13 @@ function countdown
         echo "        "
 }
 
-virsh --connect qemu:///system start win11
-echo "Waiting 20 sec for Windows 11 startup..."
-countdown "00:00:20"
+tmp=$(virsh --connect qemu:///system list | grep " win11 " | awk '{ print $3}')
+if ([ "x$tmp" == "x" ] || [ "x$tmp" != "xrunning" ])
+then
+    virsh --connect qemu:///system start win11
+    echo "Waiting 20 sec for Windows 11 startup..."
+    countdown "00:00:20"
+fi
 
 echo "Starting xfreerdp now..."
 xfreerdp -grab-keyboard /t:"Windows 11" /v:192.168.122.42 /size:100% /d: /p:sancho /dynamic-resolution /gfx-h264:avc444 +gfx-progressive &
