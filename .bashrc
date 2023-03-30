@@ -21,8 +21,6 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias c='clear'
 alias w='~/dotfiles/scripts/updatewal.sh'
 alias setkb='setxkbmap de;echo "Keyboard set back to de."'
-alias instp='sudo pacman -S'
-alias insty='yay -S'
 
 # APPLICATIONS
 alias ls='exa -al'
@@ -53,8 +51,8 @@ alias chat='python ~/mychatgpt/mychatgpt.py'
 alias ascii='~/dotfiles/scripts/figlet.sh'
 
 # VIRTUAL MACHINE
-# alias vm='~/dotfiles/scripts/launchvm.sh'
-alias vm='~/dotfiles/scripts/looking-glass.sh'
+alias vm='~/dotfiles/scripts/launchvm.sh'
+alias lc='~/dotfiles/scripts/looking-glass.sh'
 alias vmstart='virsh --connect qemu:///system start win11'
 alias vmstop='virsh --connect qemu:///system destroy win11'
 
@@ -62,8 +60,6 @@ alias vmstop='virsh --connect qemu:///system destroy win11'
 alias confq='vim ~/dotfiles/qtile/config.py'
 alias confp='vim ~/dotfiles/picom/picom.conf'
 alias confb='vim ~/dotfiles/.bashrc'
-
-# IMAGE MANIPULATION
 
 # EDIT NOTES
 alias notes='vim ~/notes.txt'

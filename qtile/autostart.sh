@@ -5,5 +5,6 @@ setxkbmap de
 picom &
 xfce4-power-manager &
 dunst &
+polybar -r mybar &
 ~/dotfiles/scripts/updatewal.sh
 spotifyd

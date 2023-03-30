@@ -87,7 +87,7 @@ keys = [
     Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window around"),
     
     # Move
     Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -100,12 +100,12 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.swap_right()),
 
     # Size
-    Key([mod], "h", lazy.layout.shrink(), lazy.layout.decrease_nmaster(), desc='Shrink window (MonadTall)'),
-    Key([mod], "l", lazy.layout.grow(), lazy.layout.increase_nmaster(), desc='Expand window (MonadTall)'),
-    Key([mod, "control"], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
+    # Key([mod], "h", lazy.layout.shrink(), lazy.layout.decrease_nmaster(), desc='Shrink window (MonadTall)'),
+    # Key([mod], "l", lazy.layout.grow(), lazy.layout.increase_nmaster(), desc='Expand window (MonadTall)'),
+    Key([mod, "control"], "Left", lazy.layout.shrink(), desc="Grow window to the left"),
+    Key([mod, "control"], "Right", lazy.layout.grow(), desc="Grow window to the right"),
+    # Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
+    # Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
     # Floating
@@ -127,7 +127,7 @@ keys = [
     
     # Apps
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "r", lazy.spawn("rofi -show drun -icon-theme 'Papirus' -show-icons"), desc="Launch Rofi"),
+    Key([mod, "control"], "Return", lazy.spawn("rofi -show drun -icon-theme 'Papirus' -show-icons"), desc="Launch Rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Chromium"),
     Key([mod], "v", lazy.spawn("/home/raabe/dotfiles/scripts/looking-glass.sh"), desc="Start Looking Glass Client"),
     Key([mod, "shift"], "w", lazy.spawn("/home/raabe/dotfiles/scripts/updatewal.sh"), desc="Update Theme and Wallpaper"),
@@ -136,8 +136,7 @@ keys = [
     Key([mod, "control"], "t", lazy.spawn("/home/raabe/dotfiles/scripts/templates.sh"), desc="Select Tempate and copy to clipboard"),
 
     # Scratchpads
-    Key([mod, "shift"], "t", lazy.group["terminal"].dropdown_toggle("term")),
-    Key([mod, "shift"], "r", lazy.group["calculator"].dropdown_toggle("calc"))
+    # Key([mod, "control"], "c", lazy.group["calculator"].dropdown_toggle("calc"))
 ]
 
 # --------------------------------------------------------
@@ -155,8 +154,7 @@ groups = [
 # Scratchpads
 # --------------------------------------------------------
 
-    ScratchPad("terminal",[DropDown("term", terminal, x=0.05, y=0.02, width=0.90, height=0.6, on_focus_lost_hide=False)]),
-    ScratchPad("calculator",[DropDown("calc", "qalculate-gtk", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False )])
+   # ScratchPad("calculator",[DropDown("calc", "qalculate-gtk", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False )])
 ]
 
 dgroups_key_binder = simple_key_binder(mod)
@@ -300,7 +298,7 @@ if (platform == 3):
 # --------------------------------------------------------
 # Screens
 # --------------------------------------------------------
-
+'''
 screens = [
     Screen(
         top=bar.Bar(
@@ -312,13 +310,12 @@ screens = [
         ),
     ),
 ]
-
-
+'''
 # --------------------------------------------------------
 # Screens Gap for PolyBar
 # --------------------------------------------------------
 
-# screens = [Screen(top=bar.Gap(size=35))]
+screens = [Screen(top=bar.Gap(size=30))]
 
 # --------------------------------------------------------
 # Drag floating layouts.
