@@ -134,7 +134,6 @@ keys = [
     Key([mod], "v", lazy.spawn("/home/raabe/dotfiles/scripts/looking-glass.sh"), desc="Start Looking Glass Client"),
     Key([mod, "shift"], "w", lazy.spawn("/home/raabe/dotfiles/scripts/updatewal.sh"), desc="Update Theme and Wallpaper"),
     Key([mod, "control"], "w", lazy.spawn("/home/raabe/dotfiles/scripts/wallpaper.sh"), desc="Select Theme and Wallpaper"),
-    Key([mod, "shift"], "s", lazy.spawn("scrot -s"), desc="Screenshot of selected area"),
     Key([mod, "control"], "t", lazy.spawn("/home/raabe/dotfiles/scripts/templates.sh"), desc="Select Tempate and copy to clipboard"),
 
     # Scratchpads

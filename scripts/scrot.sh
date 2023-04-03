@@ -18,7 +18,7 @@ option3="Fullscreen (delay 3 sec)"
 
 options="$option1\n$option2\n$option3"
 
-choice=$(echo -e "$options" | rofi -mesg "Current: $DIR" -i -dmenu -lines 4 -width 30 -p "Screenshot")
+choice=$(echo -e "$options" | rofi -i -dmenu -lines 4 -width 30 -p "Take Screenshot")
 
 case $choice in
     $option1)
