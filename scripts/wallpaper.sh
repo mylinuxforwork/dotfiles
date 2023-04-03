@@ -10,13 +10,15 @@
 # ----------------------------------------------------- 
 
 # Select wallpaper
-selected=$(ls -1 ~/wallpaper | rofi -dmenu -p "Select the wallpaper")
+selected=$(ls -1 ~/wallpaper | grep "jpg" | rofi -dmenu -p "Select the wallpaper")
 
-# Update wallpaper with pywal
-wal -q -i ~/wallpaper/$selected
+if [ "$selected" ]; then
+    # Update wallpaper with pywal
+    wal -q -i ~/wallpaper/$selected
 
-# Wait for 1 sec
-sleep 1
+    # Wait for 1 sec
+    sleep 1
 
-# Reload qtile to color bar
-qtile cmd-obj -o cmd -f reload_config
+    # Reload qtile to color bar
+    qtile cmd-obj -o cmd -f reload_config
+fi

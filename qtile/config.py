@@ -99,6 +99,8 @@ keys = [
     Key([mod, "shift"], "h", lazy.layout.swap_left()),
     Key([mod, "shift"], "l", lazy.layout.swap_right()),
 
+    Key([mod], "Print", lazy.spawn("/home/raabe/dotfiles/scripts/scrot.sh")),
+
     # Size
     # Key([mod], "h", lazy.layout.shrink(), lazy.layout.decrease_nmaster(), desc='Shrink window (MonadTall)'),
     # Key([mod], "l", lazy.layout.grow(), lazy.layout.increase_nmaster(), desc='Expand window (MonadTall)'),
@@ -194,19 +196,19 @@ layout_theme = {
 
 layouts = [
     # layout.Columns(),
-    # layout.Max(),
+    layout.Max(**layout_theme),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
     layout.MonadTall(**layout_theme),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
+    layout.MonadWide(**layout_theme),
+    layout.RatioTile(**layout_theme),
     # layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
-    layout.Floating(**layout_theme)
+    # layout.Floating(**layout_theme)
 ]
 
 # --------------------------------------------------------
