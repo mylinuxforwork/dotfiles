@@ -134,7 +134,8 @@ keys = [
     # Apps
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod, "control"], "Return", lazy.spawn("rofi -show drun -icon-theme 'Papirus' -show-icons"), desc="Launch Rofi"),
-    Key([mod], "b", lazy.spawn(browser), desc="Launch Chromium"),
+    Key([mod], "b", lazy.spawn(browser), desc="Launch Browser"),
+    Key([mod, "control"], "b", lazy.spawn(home + "/dotfiles/scripts/bravebookmarks.sh"), desc="Rofi Brave Bookmarks"),
     Key([mod], "v", lazy.spawn(home + "/dotfiles/scripts/looking-glass.sh"), desc="Start Looking Glass Client"),
     Key([mod, "shift"], "w", lazy.spawn(home + "/dotfiles/scripts/updatewal.sh"), desc="Update Theme and Wallpaper"),
     Key([mod, "control"], "w", lazy.spawn(home + "/dotfiles/scripts/wallpaper.sh"), desc="Select Theme and Wallpaper"),
