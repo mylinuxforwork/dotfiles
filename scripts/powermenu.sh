@@ -22,7 +22,7 @@ choice=$(echo -e "$options" | rofi -dmenu -i -no-show-icons -lines 4 -width 30 -
 
 case $choice in
 	$option1)
-		mantablockscreen -cc ;;
+		slock ;;
 	$option2)
 		qtile cmd-obj -o cmd -f shutdown ;;
 	$option3)
