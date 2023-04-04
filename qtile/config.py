@@ -51,7 +51,10 @@ from libqtile.widget import Spacer, Backlight
 from libqtile.widget.image import Image
 from libqtile.dgroups import simple_key_binder
 
-mod = "mod4"
+from pathlib import Path
+
+# Get home path
+home = str(Path.home())
 
 # --------------------------------------------------------
 # Check for VirtualBox
@@ -79,6 +82,7 @@ browser = "brave"
 # --------------------------------------------------------
 # Keybindings
 # --------------------------------------------------------
+mod = "mod4"
 
 keys = [
 
@@ -131,10 +135,10 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod, "control"], "Return", lazy.spawn("rofi -show drun -icon-theme 'Papirus' -show-icons"), desc="Launch Rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Chromium"),
-    Key([mod], "v", lazy.spawn("/home/raabe/dotfiles/scripts/looking-glass.sh"), desc="Start Looking Glass Client"),
-    Key([mod, "shift"], "w", lazy.spawn("/home/raabe/dotfiles/scripts/updatewal.sh"), desc="Update Theme and Wallpaper"),
-    Key([mod, "control"], "w", lazy.spawn("/home/raabe/dotfiles/scripts/wallpaper.sh"), desc="Select Theme and Wallpaper"),
-    Key([mod, "control"], "t", lazy.spawn("/home/raabe/dotfiles/scripts/templates.sh"), desc="Select Tempate and copy to clipboard"),
+    Key([mod], "v", lazy.spawn(home + "/dotfiles/scripts/looking-glass.sh"), desc="Start Looking Glass Client"),
+    Key([mod, "shift"], "w", lazy.spawn(home + "/dotfiles/scripts/updatewal.sh"), desc="Update Theme and Wallpaper"),
+    Key([mod, "control"], "w", lazy.spawn(home + "/dotfiles/scripts/wallpaper.sh"), desc="Select Theme and Wallpaper"),
+    Key([mod, "control"], "t", lazy.spawn(home + "/dotfiles/scripts/templates.sh"), desc="Select Tempate and copy to clipboard"),
 
     # Scratchpads
     # Key([mod, "control"], "c", lazy.group["calculator"].dropdown_toggle("calc"))
@@ -248,7 +252,7 @@ widget_list = [
         fontsize=18,
         foreground='ffffff',
         desc='Notes',
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vim /home/raabe/notes.txt')},
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + ' -e vim ' + home + '/notes.txt')},
     ),
     widget.TextBox(
         text='|',

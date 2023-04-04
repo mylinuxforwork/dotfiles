@@ -37,8 +37,8 @@ tmp=$(virsh --connect qemu:///system list | grep " win11 " | awk '{ print $3}')
 if ([ "x$tmp" == "x" ] || [ "x$tmp" != "xrunning" ])
 then
     virsh --connect qemu:///system start win11
-    echo "Waiting 20 sec for Windows 11 startup..."
-    countdown "00:00:20"
+    echo "Waiting 25 sec for Windows 11 startup..."
+    countdown "00:00:25"
 fi
 
 echo "Starting xfreerdp now..."

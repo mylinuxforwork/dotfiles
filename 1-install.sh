@@ -51,6 +51,7 @@ ln -s ~/dotfiles/rofi/ ~/.config
 ln -s ~/dotfiles/spotifyd/ ~/.config
 ln -s ~/dotfiles/vim/ ~/.config
 ln -s ~/dotfiles/nvim/ ~/.config
+ln -s ~/dotfiles/polybar ~/.config
 ln -s ~/dotfiles/starship/starship.toml ~/.config/starship.toml
 rm ~/.bashrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc
@@ -69,6 +70,11 @@ git clone https://gitlab.com/stephan-raabe/wallpaper.git ~/wallpaper
 # Install startship plain text 
 # ------------------------------------------------------
 # starship preset plain-text-symbols > ~/.config/starship.toml
+
+# ------------------------------------------------------
+# Install custom issue (login prompt)
+# ------------------------------------------------------
+sudo cp ~/dotfiles/issue /etc/issue
 
 # ------------------------------------------------------
 # Init pywal
