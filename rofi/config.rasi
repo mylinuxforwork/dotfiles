@@ -10,12 +10,11 @@
 */
 
 configuration {
-  display-drun: "Applications:";
-  display-window: "Windows:";
+  display-drun: "Applications";
+  display-window: "Windows";
   drun-display-format: "{name}";
-  font: "Fira Sans 11";
+  font: "Fira Sans SemiBold 11";
   modi: "window,run,drun";
-  lines: 10;
 }
 
 /* Dark theme. */
@@ -25,9 +24,12 @@ configuration {
   width:700px;
 }
 
-#window {
-  border:2px;
-  border-color:@foreground;
+element {
+  padding:6;
+}
+
+element-text selected {
+  text-color:@background;
 }
 
 /* vim: ft=sass
