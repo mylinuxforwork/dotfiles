@@ -1,14 +1,30 @@
 # dotfiles
 
-This is the personal configuration of my Arch linux based installation. I'm mainly use qtile as my window manager.
+This is the configuration of my Arch linux based installation.
 
-Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. Just type w in a terminal. See also the .bashrc for more alias definitions.
+Window Manager: qtile
+Compositor: picom
+Terminal: alacritty
+Editor: nvim
+Prompt: starship
+Bar: polybar
+Icons: Font Awesome
+Menus: Rofi
+Colorscheme: pywal
+Browser: brave
+Filemanager: ranger, Thunar
+Screenshots: scrot
+Virtual Machine: qemu (Windows 11 with looking glass and xrdp)
+
+Please also see the script folder how I setup my system.
+
+Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. Just type w in a terminal (or SuperKey + Shift + w). SuperKey + Ctrl + w opens rofi with a list of installed wallpapers for individual selection. See also the .bashrc for more alias definitions.
 
 ## Screenshot
 
-![Screenshot4](screenshots/screenshot4.png "Screenshot")
+![Screenshots](screenshots/screenshot_20230406_2.png "Screenshot")
 
-You can find more screenshots in the screenshots folder
+You can find more screenshots in the screenshots folder.
 
 ## Getting started
 
