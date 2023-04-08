@@ -52,6 +52,7 @@ ln -s ~/dotfiles/spotifyd/ ~/.config
 ln -s ~/dotfiles/vim/ ~/.config
 ln -s ~/dotfiles/nvim/ ~/.config
 ln -s ~/dotfiles/polybar ~/.config
+ln -s ~/dotfiles/dunst ~/.config
 ln -s ~/dotfiles/starship/starship.toml ~/.config/starship.toml
 rm ~/.bashrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc

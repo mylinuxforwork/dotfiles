@@ -13,7 +13,6 @@ import socket
 import subprocess
 import psutil
 import json
-
 from libqtile import hook
 from libqtile import qtile
 from typing import List  
@@ -24,11 +23,16 @@ from libqtile.utils import guess_terminal
 from libqtile.widget import Spacer, Backlight
 from libqtile.widget.image import Image
 from libqtile.dgroups import simple_key_binder
-
 from pathlib import Path
 
 # Get home path
 home = str(Path.home())
+
+# --------------------------------------------------------
+# Define Bar
+# --------------------------------------------------------
+wm_bar = "polybar"
+# wm_bar = "qtile"
 
 # --------------------------------------------------------
 # Check for VirtualBox
@@ -186,7 +190,12 @@ layouts = [
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
-    # layout.Floating(**layout_theme)
+    layout.Floating(
+        border_width=3,
+        single_border_width=3,
+        border_focus=ColorC,
+        border_normal="#FFFFFF",
+    )
 ]
 
 # --------------------------------------------------------
@@ -278,24 +287,21 @@ if (platform == 3):
 # --------------------------------------------------------
 # Screens
 # --------------------------------------------------------
-'''
-screens = [
-    Screen(
-        top=bar.Bar(
-		widget_list,
-            24,
-            opacity=0.7,
-            border_width=[3, 0, 3, 0],
-            margin=[0,0,0,0]
-        ),
-    ),
-]
-'''
-# --------------------------------------------------------
-# Screens Gap for PolyBar
-# --------------------------------------------------------
 
-screens = [Screen(top=bar.Gap(size=28))]
+if (wm_bar == "polybar"):
+    screens = [Screen(top=bar.Gap(size=28))]
+else:
+    screens = [
+        Screen(
+            top=bar.Bar(
+    		widget_list,
+                24,
+                opacity=0.7,
+                border_width=[3, 0, 3, 0],
+                margin=[0,0,0,0]
+            ),
+        ),
+    ]
 
 # --------------------------------------------------------
 # Drag floating layouts.

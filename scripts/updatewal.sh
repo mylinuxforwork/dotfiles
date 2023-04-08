@@ -10,6 +10,7 @@
 # ----------------------------------------------------- 
 
 echo "Changing theme..."
+
 # Update Wallpaper with pywal
 wal -q -i ~/wallpaper/
 
@@ -18,5 +19,11 @@ sleep 1
 
 # Reload qtile to color bar
 qtile cmd-obj -o cmd -f reload_config
+
+# Get new theme
+source "$HOME/.cache/wal/colors.sh"
+
+# Send notification
+notify-send "Theme updated" "Theme updated with image. \n $wallpaper"
 
 echo "Done."

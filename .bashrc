@@ -26,7 +26,7 @@ alias setkb='setxkbmap de;echo "Keyboard set back to de."'
 alias ls='exa -al'
 alias mutt='neomutt'
 alias m='neomutt'
-alias shutdown='sudo shutdown -h now'
+alias shutdown='systemctl poweroff'
 alias v='nvim'
 alias r='ranger'
 alias t='sudo timeshift --list'
@@ -53,7 +53,7 @@ alias ascii='~/dotfiles/scripts/figlet.sh'
 
 # VIRTUAL MACHINE
 alias vm='~/dotfiles/scripts/launchvm.sh'
-alias lc='~/dotfiles/scripts/looking-glass.sh'
+alias lg='~/dotfiles/scripts/looking-glass.sh'
 alias vmstart='virsh --connect qemu:///system start win11'
 alias vmstop='virsh --connect qemu:///system destroy win11'
 
