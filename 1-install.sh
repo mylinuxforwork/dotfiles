@@ -24,7 +24,7 @@ sudo pacman -S alacritty scrot nitrogen picom starship slock neomutt neovim rofi
 # Install required packages
 # ------------------------------------------------------
 echo "-> Install AUR packages"
-yay -S brave-bin pywal timeshift tela-circle-icon-theme-orange pfetch preload
+yay -S brave-bin pywal timeshift tela-circle-icon-theme-orange pfetch preload bibata-cursor-theme
 
 # ------------------------------------------------------
 # Enable services
@@ -56,10 +56,18 @@ ln -s ~/dotfiles/dunst ~/.config
 ln -s ~/dotfiles/starship/starship.toml ~/.config/starship.toml
 rm ~/.bashrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc
+
+# ------------------------------------------------------
+# Install Theme, Icons and Cursor
+# ------------------------------------------------------
 rm ~/.gtkrc-2.0
 ln -s ~/dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0
 rm -r ~/.config/gtk-3.0/
 ln -s ~/dotfiles/gtk-3.0/ ~/.config/
+rm ~/.Xresources
+ln -s ~/dotfiles/.Xresources ~/.Xresources
+rm -r ~/.icons
+ln -s ~/dotfiles/.icons/ ~/
 
 # ------------------------------------------------------
 # Clone wallpapers
