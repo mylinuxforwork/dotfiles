@@ -20,7 +20,7 @@ configuration {
 /* Dark theme. */
 @import "~/.cache/wal/colors-rofi-dark"
 
-* {
+window {
   width:700px;
 }
 
@@ -30,6 +30,14 @@ element {
 
 element-text selected {
   text-color:@background;
+}
+
+prompt {
+  text-color:#ffffff;
+}
+
+entry {
+  text-color:#ffffff;
 }
 
 /* vim: ft=sass
