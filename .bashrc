@@ -52,7 +52,7 @@ alias chat='python ~/mychatgpt/mychatgpt.py'
 alias ascii='~/dotfiles/scripts/figlet.sh'
 
 # VIRTUAL MACHINE
-alias vm='~/dotfiles/scripts/launchvm.sh'
+alias vm='~/private/launchvm.sh'
 alias lg='~/dotfiles/scripts/looking-glass.sh'
 alias vmstart='virsh --connect qemu:///system start win11'
 alias vmstop='virsh --connect qemu:///system destroy win11'
