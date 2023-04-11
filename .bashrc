@@ -37,6 +37,7 @@ alias shotsel='scrot -s'
 alias nf='neofetch'
 alias pf='pfetch'
 alias wifi='nmtui'
+alias od='~/private/onedrive.sh'
 
 # GIT
 alias gs="git status"
