@@ -190,12 +190,7 @@ layouts = [
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
-    layout.Floating(
-        border_width=3,
-        single_border_width=3,
-        border_focus=ColorC,
-        border_normal="#FFFFFF",
-    )
+    layout.Floating()
 ]
 
 # --------------------------------------------------------
@@ -304,7 +299,7 @@ else:
     ]
 
 # --------------------------------------------------------
-# Drag floating layouts.
+# Drag floating layouts
 # --------------------------------------------------------
 
 mouse = [
@@ -314,14 +309,13 @@ mouse = [
 ]
 
 # --------------------------------------------------------
-# General Setup
+# Define floating layouts
 # --------------------------------------------------------
 
-dgroups_app_rules = []  # type: list
-follow_mouse_focus = True
-bring_front_click = False
-cursor_warp = False
 floating_layout = layout.Floating(
+    border_width=3,
+    border_focus=ColorC,
+    border_normal="FFFFFF",
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
@@ -333,6 +327,15 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
+
+# --------------------------------------------------------
+# General Setup
+# --------------------------------------------------------
+
+dgroups_app_rules = []  # type: list
+follow_mouse_focus = True
+bring_front_click = False
+cursor_warp = False
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True

@@ -10,7 +10,7 @@
 # ----------------------------------------------------- 
 
 # Select wallpaper
-selected=$(ls -1 ~/wallpaper | grep "jpg" | rofi -dmenu -p "Select the wallpaper")
+selected=$(ls -1 ~/wallpaper | grep "jpg" | rofi -dmenu -p "Wallpapers")
 
 if [ "$selected" ]; then
 
