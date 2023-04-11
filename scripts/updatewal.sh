@@ -23,9 +23,10 @@ qtile cmd-obj -o cmd -f reload_config
 # Get new theme
 source "$HOME/.cache/wal/colors.sh"
 
-newwall=$(echo $wallpaper | sed 's|/home/raabe/wallpaper/||g')
+newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
 
 # Send notification
-notify-send "Theme updated" "with image $newwall"
+notify-send "Theme and Wallpaper updated" "With image $newwall"
 
 echo "Done."
+

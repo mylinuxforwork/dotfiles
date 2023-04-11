@@ -22,10 +22,15 @@ choice=$(echo -e "$options" | rofi -i -dmenu -lines 4 -width 30 -p "Take Screens
 
 case $choice in
     $option1)
-        scrot $DIR$NAME -d 3 -e 'xclip -selection clipboard -t image/png -i $f' -c -z -u;;
+        scrot $DIR$NAME -d 3 -e 'xclip -selection clipboard -t image/png -i $f' -c -z -u
+        notify-send "Screenshot created" "Mode: Selected window"
+    ;;
     $option2)
-        scrot $DIR$NAME -s -e 'xclip -selection clipboard -t image/png -i $f';;
-        
+        scrot $DIR$NAME -s -e 'xclip -selection clipboard -t image/png -i $f'
+        notify-send "Screenshot created" "Mode: Selected area"
+    ;;
     $option3)
-        scrot $DIR$NAME -d 3 -e 'xclip -selection clipboard -t image/png -i $f';;
+        scrot $DIR$NAME -d 3 -e 'xclip -selection clipboard -t image/png -i $f'
+        notify-send "Screenshot created" "Mode: Fullscreen"
+    ;;
 esac

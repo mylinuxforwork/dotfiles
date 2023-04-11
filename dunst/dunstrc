@@ -73,7 +73,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 50
+    transparency = 30
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -127,7 +127,7 @@
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
-    line_height = 0
+    line_height = 3
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -315,14 +315,14 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#000000"
     foreground = "#888888"
-    timeout = 10
+    timeout = 6
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
     background = "#000000"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 6
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 
@@ -330,7 +330,7 @@
     background = "#900000"
     foreground = "#ffffff"
     frame_color = "#ffffff"
-    timeout = 10
+    timeout = 6
     # Icon for notifications with critical urgency, uncomment to enable
     #default_icon = /path/to/icon
 

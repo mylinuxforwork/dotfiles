@@ -37,12 +37,15 @@ tmp=$(virsh --connect qemu:///system list | grep " win11 " | awk '{ print $3}')
 if ([ "x$tmp" == "x" ] || [ "x$tmp" != "xrunning" ])
 then
     virsh --connect qemu:///system start win11
+    notify-send "Virtual Machine started" "Domain win11"
     echo "Waiting 25 sec for Windows 11 startup..."
     countdown "00:00:25"
+else
+    notify-send "Virtual Machine already running" "Domain win11"
 fi
 
 echo "Starting xfreerdp now..."
-xfreerdp -grab-keyboard /t:"Windows 11" /v:192.168.122.42 /size:100% /d: /p:sancho /dynamic-resolution /gfx-h264:avc444 +gfx-progressive &
+xfreerdp -grab-keyboard /t:"Windows 11" /v:192.168.122.42 /size:100% /u:raabe /d: /dynamic-resolution /gfx-h264:avc444 +gfx-progressive &
 sleep 10
 
 exit

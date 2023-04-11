@@ -10,10 +10,13 @@ Prompt: starship
 Bar: polybar
 Icons: Font Awesome
 Menus: Rofi
-Colorscheme: pywal
+Colorscheme: pywal (dynamic)
 Browser: brave
 Filemanager: ranger, Thunar
 Screenshots: scrot
+Cursor: Bibata Modern Classic
+Icons: Tela Circle Orange Dark
+Theme: Adapta-Nokto
 Virtual Machine: qemu (Windows 11 with looking glass and xrdp)
 
 Please also see the script folder how I setup my system.
