@@ -2,8 +2,8 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/raabe/.gtkrc-2.0.mine"
-gtk-theme-name="Adapta-Nokto"
-gtk-icon-theme-name="Tela-circle-orange-dark"
+gtk-theme-name="Pop-dark"
+gtk-icon-theme-name="ePapirus-Dark"
 gtk-font-name="Cantarell 11"
 gtk-cursor-theme-name="Bibata-Modern-Classic"
 gtk-cursor-theme-size=0

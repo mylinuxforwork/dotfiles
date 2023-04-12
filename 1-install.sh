@@ -44,10 +44,9 @@ done
 echo ""
 echo "-> Install main packages"
 
-packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neomutt" "neovim" "rofi" "dunst" "ueberzug" "mpv" "freerdp" "spotifyd" "xfce4-power-manager" "python-pip" "thunar" "mousepad" "papirus-icon-theme" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "cmatrix" "lxappearance" "qalculate-gtk" "adapta-gtk-theme" "polybar" "chromium");
+packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neomutt" "neovim" "rofi" "dunst" "ueberzug" "mpv" "freerdp" "spotifyd" "xfce4-power-manager" "python-pip" "thunar" "mousepad" "papirus-icon-theme" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "cmatrix" "lxappearance" "qalculate-gtk" "pop-gtk-theme" "polybar" "chromium");
 
 packagesYay=("brave-bin" "timeshift" "pfetch" "preload" "bibata-cursor-theme");
-# Optional "tela-circle-icon-theme-orange" 
 
 packagesPip=("psutil" "rich" "click");
     
@@ -282,7 +281,7 @@ fi
 # ------------------------------------------------------
 echo ""
 echo "-> Init pywal"
-wal -q -i ~/wallpaper/default.jpg -n
+wal -i ~/wallpaper/default.jpg -n
 echo "pywal initiated."
 
 # ------------------------------------------------------
