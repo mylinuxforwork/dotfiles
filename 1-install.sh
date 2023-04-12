@@ -44,11 +44,12 @@ done
 echo ""
 echo "-> Install main packages"
 
-packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neomutt" "neovim" "rofi" "dunst" "ueberzug" "mpv" "freerdp" "spotifyd" "xfce4-power-manager" "python-pip" "thunar" "mousepad" "papirus-icon-theme" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "cmatrix" "qalculate-gtk" "adapta-gtk-theme" "terminator" "polybar");
+packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neomutt" "neovim" "rofi" "dunst" "ueberzug" "mpv" "freerdp" "spotifyd" "xfce4-power-manager" "python-pip" "thunar" "mousepad" "papirus-icon-theme" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "cmatrix" "lxappearance" "qalculate-gtk" "adapta-gtk-theme" "polybar" "chromium");
 
-packagesYay=("brave-bin" "timeshift" "tela-circle-icon-theme-orange" "pfetch" "preload" "bibata-cursor-theme");
+packagesYay=("brave-bin" "timeshift" "pfetch" "preload" "bibata-cursor-theme");
+# Optional "tela-circle-icon-theme-orange" 
 
-packagesPip=("psutil" "rich" "click" "pywal");
+packagesPip=("psutil" "rich" "click");
     
 # ------------------------------------------------------
 # Function: Is package installed
@@ -157,6 +158,9 @@ _installPackagesPip() {
 _installPackagesPacman "${packagesPacman[@]}";
 _installPackagesYay "${packagesYay[@]}";
 _installPackagesPip "${packagesPip[@]}";
+
+# pywal requires dedicated installation
+yay -S pywal
 
 # ------------------------------------------------------
 # Enable services
