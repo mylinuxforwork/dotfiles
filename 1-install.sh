@@ -214,11 +214,48 @@ _installSymLink ~/.config/nvim ~/dotfiles/nvim/ ~/.config
 _installSymLink ~/.config/polybar ~/dotfiles/polybar/ ~/.config
 _installSymLink ~/.config/dunst ~/dotfiles/dunst/ ~/.config
 _installSymLink ~/.config/starship.toml ~/dotfiles/starship/starship.toml ~/.config/starship.toml
+
+# ------------------------------------------------------
+# Install .bashrc
+# ------------------------------------------------------
+echo ""
+echo "-> Install .bashrc"
+while true; do
+    read -p "Do you want to replace the existing .bashrc file? (Yy/Nn): " yn
+    case $yn in
+        [Yy]* )
+            rm ~/.bashrc
+            echo ".bashrc removed"
+        break;;
+        [Nn]* ) 
+            echo "Replacement of .bashrc skipped."
+        break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 _installSymLink ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
 
 # ------------------------------------------------------
 # Install Theme, Icons and Cursor
 # ------------------------------------------------------
+echo ""
+echo "-> Install Theme"
+while true; do
+    read -p "Do you want to replace the existing theme configuration? (Yy/Nn): " yn
+    case $yn in
+        [Yy]* )
+            rm ~/.gtkrc-2.0
+            rm -r ~/.config/gtk-3.0
+            rm ~/.Xresources
+            rm -r ~/.icons
+            echo "Existing theme removed"
+        break;;
+        [Nn]* ) 
+            echo "Replacement of theme skipped."
+        break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 _installSymLink ~/.gtkrc-2.0 ~/dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0
 _installSymLink ~/.config/gtk-3.0 ~/dotfiles/gtk-3.0/ ~/.config/
 _installSymLink ~/.Xresources ~/dotfiles/.Xresources ~/.Xresources
@@ -228,7 +265,7 @@ _installSymLink ~/.icons ~/dotfiles/.icons/ ~/
 # Clone wallpapers
 # ------------------------------------------------------
 echo ""
-echo "-> Install wallpapers"
+echo "-> Install wallpapers (into folder ~/wallpaper)"
 if [ -d ~/wallpaper/ ]; then
     echo "wallpaper folder already exists."
 else
@@ -241,7 +278,7 @@ fi
 # ------------------------------------------------------
 echo ""
 echo "-> Init pywal"
-wal -i ~/wallpaper/default.jpg -n
+wal -q -i ~/wallpaper/default.jpg -n
 echo "pywal initiated."
 
 # ------------------------------------------------------
