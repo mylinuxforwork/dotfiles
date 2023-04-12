@@ -11,9 +11,32 @@
 # yay must be installed
 # ------------------------------------------------------
 
+# ------------------------------------------------------
+# Confirm Start
+# ------------------------------------------------------
 clear
-echo "DO YOU WANT TO START THE INSTALLATION NOW?"
-read -p "(Return to start, Ctrl+c to cancel)" c
+echo "     _       _    __ _ _            "
+echo "  __| | ___ | |_ / _(_) | ___  ___  "
+echo " / _' |/ _ \| __| |_| | |/ _ \/ __| "
+echo "| (_| | (_) | |_|  _| | |  __/\__ \ "
+echo " \__,_|\___/ \__|_| |_|_|\___||___/ "
+echo "                                    "
+echo "by Stephan Raabe (2023)"
+echo "-------------------------------------"
+echo ""
+
+while true; do
+    read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
+    case $yn in
+        [Yy]* )
+            echo "Installation started."
+        break;;
+        [Nn]* ) 
+            exit;
+        break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 
 # ------------------------------------------------------
 # Install required packages
@@ -147,10 +170,10 @@ echo ""
 echo "-> Install .config folder"
 
 if [ -d ~/.config ]; then
-    echo ".config folder already exists"
+    echo ".config folder already exists."
 else
     mkdir ~/.config
-    echo ".config folder created"
+    echo ".config folder created."
 fi
 
 # ------------------------------------------------------
@@ -164,16 +187,16 @@ _installSymLink() {
     linksource="$2";
     linktarget="$3";
     if [ -L "${symlink}" ]; then
-        echo "Link ${symlink} exists already!"
+        echo "Link ${symlink} exists already."
     else
         if [ -d ${symlink} ]; then
-            echo "Directory ${symlink}/ exists"
+            echo "Directory ${symlink}/ exists."
         else
             if [ -f ${symlink} ]; then
-                echo "File ${symlink} exists"
+                echo "File ${symlink} exists."
             else
                 ln -s ${linksource} ${linktarget} 
-                echo "Link ${linksource} -> ${linktarget} created"
+                echo "Link ${linksource} -> ${linktarget} created."
             fi
         fi
     fi
@@ -207,19 +230,11 @@ _installSymLink ~/.icons ~/dotfiles/.icons/ ~/
 echo ""
 echo "-> Install wallpapers"
 if [ -d ~/wallpaper/ ]; then
-    echo "wallpaper folder already exists"
+    echo "wallpaper folder already exists."
 else
     git clone https://gitlab.com/stephan-raabe/wallpaper.git ~/wallpaper
-    echo "wallpaper installed"
+    echo "wallpaper installed."
 fi
-
-# ------------------------------------------------------
-# Install custom issue (login prompt)
-# ------------------------------------------------------
-echo ""
-echo "-> Install login screen"
-sudo cp ~/dotfiles/issue /etc/issue
-echo "Login screen installed"
 
 # ------------------------------------------------------
 # Init pywal
@@ -227,6 +242,29 @@ echo "Login screen installed"
 echo ""
 echo "-> Init pywal"
 wal -i ~/wallpaper/default.jpg -n
-echo "pywal initiated"
+echo "pywal initiated."
+
+# ------------------------------------------------------
+# Install custom issue (login prompt)
+# ------------------------------------------------------
+echo ""
+echo "-> Install login screen"
+while true; do
+    read -p "Do you want to install the custom login promt? (Yy/Nn): " yn
+    case $yn in
+        [Yy]* )
+            sudo cp ~/dotfiles/issue /etc/issue
+            echo "Login promt installed."
+        break;;
+        [Nn]* ) 
+            echo "Custom login promt skipped."
+        break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+# ------------------------------------------------------
+# DONE
+# ------------------------------------------------------
 echo ""
 echo "DONE! Reboot suggested..."
