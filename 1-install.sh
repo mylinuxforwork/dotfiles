@@ -340,11 +340,11 @@ done
 # ------------------------------------------------------
 echo ""
 echo "-> Init pywal"
-wal -i ~/dotfiles/default.jpg -n
+wal -i ~/dotfiles/default.jpg
 echo "pywal initiated."
 
 # ------------------------------------------------------
 # DONE
 # ------------------------------------------------------
-echo ""
-echo "DONE! Reboot suggested..."
+clear
+echo "DONE!"
