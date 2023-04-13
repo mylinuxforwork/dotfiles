@@ -20,7 +20,6 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias c='clear'
 alias w='~/dotfiles/scripts/updatewal.sh'
 alias setkb='setxkbmap de;echo "Keyboard set back to de."'
-alias update='yay --noconfirm'
 
 # APPLICATIONS
 alias ls='exa -al'
