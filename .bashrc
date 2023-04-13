@@ -77,7 +77,7 @@ eval "$(starship init bash)"
 cat ~/.cache/wal/sequences
 
 # -----------------------------------------------------
-# NEOFETCH
+# PFETCH
 # -----------------------------------------------------
 echo ""
 pfetch
