@@ -46,7 +46,7 @@ echo "-> Install main packages"
 
 packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neomutt" "neovim" "rofi" "dunst" "ueberzug" "mpv" "freerdp" "spotifyd" "xfce4-power-manager" "python-pip" "thunar" "mousepad" "papirus-icon-theme" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "cmatrix" "lxappearance" "qalculate-gtk" "pop-gtk-theme" "polybar" "chromium");
 
-packagesYay=("brave-bin" "timeshift" "pfetch" "preload" "bibata-cursor-theme");
+packagesYay=("brave-bin" "pfetch" "preload" "bibata-cursor-theme");
 
 packagesPip=("psutil" "rich" "click");
     
