@@ -340,7 +340,7 @@ done
 # ------------------------------------------------------
 echo ""
 echo "-> Init pywal"
-wal -i ~/wallpaper/default.jpg -n
+wal -i ~/dotfiles/default.jpg -n
 echo "pywal initiated."
 
 # ------------------------------------------------------
