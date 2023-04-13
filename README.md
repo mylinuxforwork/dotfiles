@@ -3,6 +3,7 @@
 This is the configuration of my Arch linux based installation.
 
 Window Manager: qtile
+
 Compositor: picom
 Terminal: alacritty
 Editor: nvim
