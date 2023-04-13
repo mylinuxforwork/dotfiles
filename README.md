@@ -37,7 +37,7 @@ To make it easy for you to get started with my dotfiles, here's a list of recomm
 # Clone the repository
 git clone https://gitlab.com/stephan-raabe/dotfiles.git
 
-# Install or update all required packages
+# Install or update all required packages and install dotfiles
 ./1-install.sh
 
 # Install qtile window manager
