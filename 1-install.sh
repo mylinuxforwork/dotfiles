@@ -44,7 +44,7 @@ done
 echo ""
 echo "-> Install main packages"
 
-packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neomutt" "neovim" "rofi" "dunst" "ueberzug" "mpv" "freerdp" "spotifyd" "xfce4-power-manager" "python-pip" "thunar" "mousepad" "papirus-icon-theme" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "cmatrix" "lxappearance" "qalculate-gtk" "polybar" "chromium" "breeze" "breeze-gtk");
+packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neomutt" "neovim" "rofi" "dunst" "ueberzug" "mpv" "freerdp" "spotifyd" "xfce4-power-manager" "python-pip" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "cmatrix" "lxappearance" "qalculate-gtk" "polybar" "chromium" "breeze" "breeze-gtk");
 
 packagesYay=("brave-bin" "pfetch" "bibata-cursor-theme");
 # pywal installation below 
@@ -287,26 +287,6 @@ while true; do
 done
 
 # ------------------------------------------------------
-# Clone wallpapers
-# ------------------------------------------------------
-echo ""
-echo "-> Install wallpapers (into folder ~/wallpaper)"
-if [ -d ~/wallpaper/ ]; then
-    echo "wallpaper folder already exists."
-else
-    git clone https://gitlab.com/stephan-raabe/wallpaper.git ~/wallpaper
-    echo "wallpaper installed."
-fi
-
-# ------------------------------------------------------
-# Init pywal
-# ------------------------------------------------------
-echo ""
-echo "-> Init pywal"
-wal -i ~/wallpaper/default.jpg -n
-echo "pywal initiated."
-
-# ------------------------------------------------------
 # Install custom issue (login prompt)
 # ------------------------------------------------------
 echo ""
@@ -324,6 +304,44 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
+
+# ------------------------------------------------------
+# Install wallpapers
+# ------------------------------------------------------
+echo ""
+echo "-> Install wallapers"
+while true; do
+    read -p "Do you want to clone the wallpapers? (Yy/Nn): " yn
+    case $yn in
+        [Yy]* )
+            if [ -d ~/wallpaper/ ]; then
+                echo "wallpaper folder already exists."
+            else
+                git clone https://gitlab.com/stephan-raabe/wallpaper.git ~/wallpaper
+                echo "wallpaper installed."
+            fi
+            echo "Wallpaper installed."
+        break;;
+        [Nn]* ) 
+            if [ -d ~/wallpaper/ ]; then
+                echo "wallpaper folder already exists."
+            else
+                mkdir ~/wallpaper
+            fi
+            cp ~/dotfiles/default.jpg ~/wallpaper
+            echo "Default wallpaper installed."
+        break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+# ------------------------------------------------------
+# Init pywal
+# ------------------------------------------------------
+echo ""
+echo "-> Init pywal"
+wal -i ~/wallpaper/default.jpg -n
+echo "pywal initiated."
 
 # ------------------------------------------------------
 # DONE
