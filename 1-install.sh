@@ -44,9 +44,10 @@ done
 echo ""
 echo "-> Install main packages"
 
-packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neomutt" "neovim" "rofi" "dunst" "ueberzug" "mpv" "freerdp" "spotifyd" "xfce4-power-manager" "python-pip" "thunar" "mousepad" "papirus-icon-theme" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "cmatrix" "lxappearance" "qalculate-gtk" "pop-gtk-theme" "polybar" "chromium");
+packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neomutt" "neovim" "rofi" "dunst" "ueberzug" "mpv" "freerdp" "spotifyd" "xfce4-power-manager" "python-pip" "thunar" "mousepad" "papirus-icon-theme" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "cmatrix" "lxappearance" "qalculate-gtk" "polybar" "chromium" "breeze" "breeze-gtk");
 
 packagesYay=("brave-bin" "pfetch" "bibata-cursor-theme");
+# pywal installation below 
 
 packagesPip=("psutil" "rich" "click");
     
@@ -159,7 +160,11 @@ _installPackagesYay "${packagesYay[@]}";
 _installPackagesPip "${packagesPip[@]}";
 
 # pywal requires dedicated installation
-yay -S pywal
+if [ -f /usr/bin/wal ]; then
+    echo "pywal already installed."
+else
+    yay --noconfirm -S pywal
+fi
 
 # ------------------------------------------------------
 # Enable services
