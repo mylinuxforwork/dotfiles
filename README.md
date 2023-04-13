@@ -2,23 +2,22 @@
 
 This is the configuration of my Arch linux based installation.
 
-Window Manager: qtile
-
-Compositor: picom
-Terminal: alacritty
-Editor: nvim
-Prompt: starship
-Bar: polybar
-Icons: Font Awesome
-Menus: Rofi
-Colorscheme: pywal (dynamic)
-Browser: brave
-Filemanager: ranger, Thunar
-Screenshots: scrot
-Cursor: Bibata Modern Classic
-Icons: Tela Circle Orange Dark
-Theme: Adapta-Nokto
-Virtual Machine: qemu (Windows 11 with looking glass and xrdp)
+- Window Manager: qtile
+- Compositor: picom
+- Terminal: alacritty
+- Editor: nvim
+- Prompt: starship
+- Bar: polybar
+- Icons: Font Awesome
+- Menus: Rofi
+- Colorscheme: pywal (dynamic)
+- Browser: brave
+- Filemanager: ranger, Thunar
+- Screenshots: scrot
+- Cursor: Bibata Modern Classic
+- Icons: breeze-dark
+- Theme: Breeze-dark
+- Virtual Machine: qemu (Windows 11 with looking glass and xrdp)
 
 Please also see the script folder how I setup my system.
 
