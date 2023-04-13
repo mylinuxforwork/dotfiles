@@ -9,4 +9,4 @@
 # by Stephan Raabe (2023) 
 # ----------------------------------------------------- 
 
-rofi -show drun -icon-theme "Papirus" -show-icons -l 10
+rofi -show drun -l 10
