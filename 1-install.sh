@@ -46,7 +46,7 @@ echo "-> Install main packages"
 
 packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neomutt" "neovim" "rofi" "dunst" "ueberzug" "mpv" "freerdp" "spotifyd" "xfce4-power-manager" "python-pip" "thunar" "mousepad" "papirus-icon-theme" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "cmatrix" "lxappearance" "qalculate-gtk" "pop-gtk-theme" "polybar" "chromium");
 
-packagesYay=("brave-bin" "pfetch" "preload" "bibata-cursor-theme");
+packagesYay=("brave-bin" "pfetch" "bibata-cursor-theme");
 
 packagesPip=("psutil" "rich" "click");
     
@@ -106,7 +106,7 @@ _installPackagesPacman() {
     fi;
 
     printf "Packages not installed:\n%s\n" "${toInstall[@]}";
-    sudo pacman -S "${toInstall[@]}";
+    sudo pacman --noconfirm -S "${toInstall[@]}";
 }
 
 _installPackagesYay() {
@@ -127,7 +127,7 @@ _installPackagesYay() {
     fi;
 
     printf "AUR ackages not installed:\n%s\n" "${toInstall[@]}";
-    yay -S "${toInstall[@]}";
+    yay --noconfirm -S "${toInstall[@]}";
 }
 
 _installPackagesPip() {
@@ -247,10 +247,31 @@ while true; do
     read -p "Do you want to replace the existing theme configuration? (Yy/Nn): " yn
     case $yn in
         [Yy]* )
-            rm ~/.gtkrc-2.0
-            rm -r ~/.config/gtk-3.0
-            rm ~/.Xresources
-            rm -r ~/.icons
+            if [ -d ~/.config/gtk-3.0 ]; then
+                rm -r ~/.config/gtk-3.0
+                echo "gtk-3.0 removed"
+            fi
+
+            if [ -f ~/.gtkrc-2.0 ]; then
+                rm ~/.gtkrc-2.0
+                echo ".gtkrc-2.0"
+            fi
+
+            if [ -f ~/.Xresources ]; then
+                rm ~/.Xresources
+                echo ".Xresources removed"
+            fi
+            
+            if [ -d ~/.icons ]; then
+                rm -r ~/.icons
+                echo ".icons removed"
+            fi
+            
+            _installSymLink ~/.gtkrc-2.0 ~/dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0
+            _installSymLink ~/.config/gtk-3.0 ~/dotfiles/gtk-3.0/ ~/.config/
+            _installSymLink ~/.Xresources ~/dotfiles/.Xresources ~/.Xresources
+            _installSymLink ~/.icons ~/dotfiles/.icons/ ~/
+
             echo "Existing theme removed"
         break;;
         [Nn]* ) 
@@ -259,10 +280,6 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
-_installSymLink ~/.gtkrc-2.0 ~/dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0
-_installSymLink ~/.config/gtk-3.0 ~/dotfiles/gtk-3.0/ ~/.config/
-_installSymLink ~/.Xresources ~/dotfiles/.Xresources ~/.Xresources
-_installSymLink ~/.icons ~/dotfiles/.icons/ ~/
 
 # ------------------------------------------------------
 # Clone wallpapers
