@@ -44,6 +44,7 @@ alias ga="git add"
 alias gc="git commit -m"
 alias gp="git push"
 alias gpl="git pull"
+alias gs="git stash"
 alias gpf="git stash; git pull"
 
 # SCRIPTS
