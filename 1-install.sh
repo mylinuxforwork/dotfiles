@@ -336,6 +336,15 @@ while true; do
 done
 
 # ------------------------------------------------------
+# Install snapshot file
+# ------------------------------------------------------
+if [ -f ~/snapshot.sh ]; then
+    echo "snapshot.sh exists"
+else
+    cp ~/dotfiles/scripts/snapshot.sh ~/
+fi
+
+# ------------------------------------------------------
 # Init pywal
 # ------------------------------------------------------
 echo ""
