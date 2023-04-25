@@ -27,8 +27,6 @@ Included is a pywal configuration that changes the color scheme based on a rando
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=WHxgeWzGoBY" target="_blank"><img src="screenshots/screenshot_play_button.png" alt="Click to watch on YouTube" /></a>
 
-![Screenshots](screenshots/screenshot_play_button.png "Click to watch the video on YouTube")
-
 You can find more screenshots in the screenshots folder.
 
 ## Getting started
