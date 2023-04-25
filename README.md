@@ -23,9 +23,11 @@ Please also see the script folder how I setup my system.
 
 Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. Just type w in a terminal (or SuperKey + Shift + w). SuperKey + Ctrl + w opens rofi with a list of installed wallpapers for individual selection. See also the .bashrc for more alias definitions.
 
-## Screenshot
+## Screenshots & Video
 
-![Screenshots](screenshots/screenshot_20230406_2.png "Screenshot")
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=WHxgeWzGoBY" target="_blank"><img src="screenshots/screenshot_play_button.png" alt="Click to watch on YouTube" /></a>
+
+![Screenshots](screenshots/screenshot_play_button.png "Click to watch the video on YouTube")
 
 You can find more screenshots in the screenshots folder.
 
