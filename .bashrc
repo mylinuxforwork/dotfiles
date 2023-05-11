@@ -19,6 +19,7 @@ PS1='[\u@\h \W]\$ '
 alias res1='xrandr --output DisplayPort-0 --mode 2560x1440 --rate 120'
 alias res2='xrandr --output DisplayPort-0 --mode 1920x1080 --rate 120'
 
+export PATH="/usr/lib/ccache/bin/:$PATH"
 
 # -----------------------------------------------------
 # ALIASES
@@ -56,7 +57,7 @@ alias gpf="git stash; git pull"
 
 # SCRIPTS
 alias gr='python ~/dotfiles/scripts/growthrate.py'
-alias chat='python ~/mychatgpt/mychatgpt.py'
+alias ChatGPT='python ~/mychatgpt/mychatgpt.py'
 alias ascii='~/dotfiles/scripts/figlet.sh'
 
 # VIRTUAL MACHINE
