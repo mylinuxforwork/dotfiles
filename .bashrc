@@ -58,6 +58,7 @@ alias gpf="git stash; git pull"
 # SCRIPTS
 alias gr='python ~/dotfiles/scripts/growthrate.py'
 alias ChatGPT='python ~/mychatgpt/mychatgpt.py'
+alias chat='python ~/mychatgpt/mychatgpt.py'
 alias ascii='~/dotfiles/scripts/figlet.sh'
 
 # VIRTUAL MACHINE

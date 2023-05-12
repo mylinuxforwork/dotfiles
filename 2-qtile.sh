@@ -41,7 +41,7 @@ echo ""
 # ------------------------------------------------------
 # Install required packages
 # ------------------------------------------------------
-sudo --noconfirm pacman -S qtile
+sudo pacman -S --noconfirm qtile
 
 # ------------------------------------------------------
 # Create symbolic links
