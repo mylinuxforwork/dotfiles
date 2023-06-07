@@ -118,7 +118,7 @@ keys = [
     Key([mod, "shift"], "w", lazy.spawn(home + "/dotfiles/scripts/updatewal.sh"), desc="Update Theme and Wallpaper"),
     Key([mod, "control"], "w", lazy.spawn(home + "/dotfiles/scripts/wallpaper.sh"), desc="Select Theme and Wallpaper"),
     Key([mod, "control"], "t", lazy.spawn(home + "/dotfiles/scripts/templates.sh"), desc="Select Tempate and copy to clipboard"),
-    Key([], 'F10', lazy.spawn("brave --app=https://chat.openai.com"), desc="Open ChatGPT")
+#    Key([], 'F10', lazy.spawn("brave --app=https://chat.openai.com"), desc="Open ChatGPT")
 ]
 
 # --------------------------------------------------------
@@ -138,15 +138,19 @@ dgroups_key_binder = simple_key_binder(mod)
 # --------------------------------------------------------
 # Scratchpads
 # --------------------------------------------------------
-'''
+
 groups.append(ScratchPad("6", [
-    DropDown("chatgpt", "chromium --profile-directory=Default --app-id=jckaldkomadaenmmgladeopgmfbahfjm", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False )
+    DropDown("chatgpt", "chromium --app=https://chat.openai.com", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),
+    DropDown("filemanager", "mousepad", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),
+    DropDown("terminal", "alacritty", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False )
 ]))
 
 keys.extend([
-    Key([], 'F10', lazy.group["6"].dropdown_toggle("chatgpt"))
+    Key([], 'F10', lazy.group["6"].dropdown_toggle("chatgpt")),
+    Key([mod], 'F11', lazy.group["6"].dropdown_toggle("filemanager")),
+    Key([mod], 'F12', lazy.group["6"].dropdown_toggle("terminal"))
 ])
-'''
+
 # --------------------------------------------------------
 # Pywal Colors
 # --------------------------------------------------------
@@ -225,7 +229,7 @@ widget_list = [
         active='ffffff'
     ),
     widget.TextBox(
-        text='  ',
+        text='  ',
         foreground=ColorC,
     ),
     widget.WindowName(),
