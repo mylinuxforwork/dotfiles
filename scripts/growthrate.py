@@ -17,14 +17,16 @@ from rich.prompt import FloatPrompt
 
 # Show prompts
 console = Console()
-num1 = FloatPrompt.ask("Original value")
+num1 = FloatPrompt.ask("Old value")
 num2 = FloatPrompt.ask("New value")
 
-# printing the sum in float
+# Calculate the growth rate
 gr = ((num2-num1)/num1)
 percentage = "{:.2%}".format(gr)
+
+# Print result to the console
 console.print(percentage, style="bold")
 
-# copy result into the system clipboard
+# Copy result into the system clipboard
 pyperclip.copy(percentage)
-print("Output has been copied to the clipboard!")
+print("Result has been copied to the clipboard!")

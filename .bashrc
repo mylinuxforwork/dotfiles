@@ -14,22 +14,12 @@
 PS1='[\u@\h \W]\$ '
 
 # -----------------------------------------------------
-# SCREEN RESOLUTINS
-# -----------------------------------------------------
-alias res1='xrandr --output DisplayPort-0 --mode 2560x1440 --rate 120'
-alias res2='xrandr --output DisplayPort-0 --mode 1920x1080 --rate 120'
-
-export PATH="/usr/lib/ccache/bin/:$PATH"
-
-# -----------------------------------------------------
 # ALIASES
 # -----------------------------------------------------
-alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias c='clear'
-alias w='~/dotfiles/scripts/updatewal.sh'
-alias setkb='setxkbmap de;echo "Keyboard set back to de."'
 
-# APPLICATIONS
+alias c='clear'
+alias nf='neofetch'
+alias pf='pfetch'
 alias ls='exa -al'
 alias mutt='neomutt'
 alias m='neomutt'
@@ -41,12 +31,11 @@ alias ts='~/dotfiles/scripts/snapshot.sh'
 alias matrix='cmatrix'
 alias shot='scrot -d 3 -c -z -u'
 alias shotsel='scrot -s'
-alias nf='neofetch'
-alias pf='pfetch'
 alias wifi='nmtui'
 alias od='~/private/onedrive.sh'
 
 # GIT
+
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
@@ -56,24 +45,42 @@ alias gst="git stash"
 alias gpf="git stash; git pull"
 
 # SCRIPTS
+
+alias w='~/dotfiles/scripts/updatewal.sh'
 alias gr='python ~/dotfiles/scripts/growthrate.py'
 alias ChatGPT='python ~/mychatgpt/mychatgpt.py'
 alias chat='python ~/mychatgpt/mychatgpt.py'
 alias ascii='~/dotfiles/scripts/figlet.sh'
 
 # VIRTUAL MACHINE
+
 alias vm='~/private/launchvm.sh'
 alias lg='~/dotfiles/scripts/looking-glass.sh'
 alias vmstart='virsh --connect qemu:///system start win11'
 alias vmstop='virsh --connect qemu:///system destroy win11'
 
 # EDIT CONFIG FILES
-alias confq='vim ~/dotfiles/qtile/config.py'
-alias confp='vim ~/dotfiles/picom/picom.conf'
-alias confb='vim ~/dotfiles/.bashrc'
+
+alias confq='nvim ~/dotfiles/qtile/config.py'
+alias confp='nvim ~/dotfiles/picom/picom.conf'
+alias confb='nvim ~/dotfiles/.bashrc'
 
 # EDIT NOTES
+
 alias notes='vim ~/notes.txt'
+
+# SYSTEM
+
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias setkb='setxkbmap de;echo "Keyboard set back to de."'
+
+# -----------------------------------------------------
+# SCREEN RESOLUTINS
+# -----------------------------------------------------
+alias res1='xrandr --output DisplayPort-0 --mode 2560x1440 --rate 120'
+alias res2='xrandr --output DisplayPort-0 --mode 1920x1080 --rate 120'
+
+export PATH="/usr/lib/ccache/bin/:$PATH"
 
 # -----------------------------------------------------
 # START STARSHIP
