@@ -44,13 +44,11 @@ done
 echo ""
 echo "-> Install main packages"
 
-packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neomutt" "neovim" "rofi" "dunst" "ueberzug" "mpv" "freerdp" "spotifyd" "xfce4-power-manager" "python-pip" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "cmatrix" "lxappearance" "polybar" "breeze" "breeze-gtk" "rofi-calc" "vlc");
+packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neovim" "rofi" "dunst" "mpv" "freerdp" "xfce4-power-manager" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "lxappearance" "polybar" "breeze" "breeze-gtk" "rofi-calc" "vlc");
 
 packagesYay=("brave-bin" "pfetch" "bibata-cursor-theme");
 # pywal installation below 
-
-packagesPip=("psutil" "rich" "click");
-    
+  
 # ------------------------------------------------------
 # Function: Is package installed
 # ------------------------------------------------------
@@ -74,16 +72,6 @@ _isInstalledYay() {
     fi;
     echo 1; #'1' means 'false' in Bash
     return; #false
-}
-
-_isInstalledPip() {
-    package="$1";
-    check="$(pip list | grep "${package} ")";
-    if [ -n "${check}" ] ; then
-      echo 0;
-    else
-      echo 1;
-    fi
 }
 
 # ------------------------------------------------------
@@ -131,33 +119,11 @@ _installPackagesYay() {
     yay --noconfirm -S "${toInstall[@]}";
 }
 
-_installPackagesPip() {
-    toInstall=();
-
-    for pkg; do
-        if [[ $(_isInstalledPip "${pkg}") == 0 ]]; then
-            echo "${pkg} is already installed.";
-            continue;
-        fi;
-
-        toInstall+=("${pkg}");
-    done;
-
-    if [[ "${toInstall[@]}" == "" ]] ; then
-        # echo "All packages are already installed.";
-        return;
-    fi;
-
-    printf "Pip packages not installed:\n%s\n" "${toInstall[@]}";
-    pip install "${toInstall[@]}";
-}
-
 # ------------------------------------------------------
 # Install required packages
 # ------------------------------------------------------
 _installPackagesPacman "${packagesPacman[@]}";
 _installPackagesYay "${packagesYay[@]}";
-_installPackagesPip "${packagesPip[@]}";
 
 # pywal requires dedicated installation
 if [ -f /usr/bin/wal ]; then
@@ -165,11 +131,6 @@ if [ -f /usr/bin/wal ]; then
 else
     yay --noconfirm -S pywal
 fi
-
-# ------------------------------------------------------
-# Enable services
-# ------------------------------------------------------
-sudo systemctl enable preload
 
 # ------------------------------------------------------
 # Create .config folder
@@ -212,11 +173,8 @@ _installSymLink() {
 
 _installSymLink ~/.config/qtile ~/dotfiles/qtile/ ~/.config
 _installSymLink ~/.config/alacritty ~/dotfiles/alacritty/ ~/.config
-_installSymLink ~/.config/neomutt ~/dotfiles/neomutt/ ~/.config
 _installSymLink ~/.config/picom ~/dotfiles/picom/ ~/.config
-_installSymLink ~/.config/ranger ~/dotfiles/ranger/ ~/.config
 _installSymLink ~/.config/rofi ~/dotfiles/rofi/ ~/.config
-_installSymLink ~/.config/spotifyd ~/dotfiles/spotifyd/ ~/.config
 _installSymLink ~/.config/vim ~/dotfiles/vim/ ~/.config
 _installSymLink ~/.config/nvim ~/dotfiles/nvim/ ~/.config
 _installSymLink ~/.config/polybar ~/dotfiles/polybar/ ~/.config
