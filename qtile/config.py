@@ -86,8 +86,8 @@ keys = [
     # Size
     # Key([mod], "h", lazy.layout.shrink(), lazy.layout.decrease_nmaster(), desc='Shrink window (MonadTall)'),
     # Key([mod], "l", lazy.layout.grow(), lazy.layout.increase_nmaster(), desc='Expand window (MonadTall)'),
-    Key([mod, "control"], "Left", lazy.layout.shrink(), desc="Grow window to the left"),
-    Key([mod, "control"], "Right", lazy.layout.grow(), desc="Grow window to the right"),
+    Key([mod, "control"], "Down", lazy.layout.shrink(), desc="Grow window to the left"),
+    Key([mod, "control"], "Up", lazy.layout.grow(), desc="Grow window to the right"),
     # Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
     # Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
