@@ -24,7 +24,11 @@ echo "                                    "
 echo "by Stephan Raabe (2023)"
 echo "-------------------------------------"
 echo ""
-
+echo "The script will not remove any folders or files."
+echo "Symbolic links will be created instead if the folder or files doesn't exists."
+echo "If you want to overwrite your configuration please remove the correspondig folder in your .config first."
+echo "(For example ~/.config/qtile, etc.)"
+echo ""
 while true; do
     read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
     case $yn in
@@ -160,12 +164,10 @@ _installSymLink() {
     else
         if [ -d ${symlink} ]; then
             echo "Directory ${symlink}/ exists."
-	    rm -r ${symlink}/
 	    ln -s ${linksource} ${linktarget} 
         else
             if [ -f ${symlink} ]; then
                 echo "File ${symlink} exists."
-		rm ${symlink}
 		ln -s ${linksource} ${linktarget} 
             else
                 ln -s ${linksource} ${linktarget} 
