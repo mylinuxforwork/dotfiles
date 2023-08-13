@@ -160,11 +160,13 @@ _installSymLink() {
     else
         if [ -d ${symlink} ]; then
             echo "Directory ${symlink}/ exists."
-	    rm -r ${symlink}
+	    rm -r ${symlink}/
+	    ln -s ${linksource} ${linktarget} 
         else
             if [ -f ${symlink} ]; then
                 echo "File ${symlink} exists."
 		rm ${symlink}
+		ln -s ${linksource} ${linktarget} 
             else
                 ln -s ${linksource} ${linktarget} 
                 echo "Link ${linksource} -> ${linktarget} created."
