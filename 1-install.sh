@@ -175,7 +175,6 @@ _installSymLink() {
     fi
 }
 
-_installSymLink ~/.config/qtile ~/dotfiles/qtile/ ~/.config
 _installSymLink ~/.config/alacritty ~/dotfiles/alacritty/ ~/.config
 _installSymLink ~/.config/picom ~/dotfiles/picom/ ~/.config
 _installSymLink ~/.config/rofi ~/dotfiles/rofi/ ~/.config
@@ -184,6 +183,28 @@ _installSymLink ~/.config/nvim ~/dotfiles/nvim/ ~/.config
 _installSymLink ~/.config/polybar ~/dotfiles/polybar/ ~/.config
 _installSymLink ~/.config/dunst ~/dotfiles/dunst/ ~/.config
 _installSymLink ~/.config/starship.toml ~/dotfiles/starship/starship.toml ~/.config/starship.toml
+
+# ------------------------------------------------------
+# Install qtile configuration
+# ------------------------------------------------------
+echo ""
+echo "-> Install Qtile configuration"
+while true; do
+    read -p "Do you want to install/replace the Qtile configuration? (Yy/Nn): " yn
+    case $yn in
+        [Yy]* )
+		if [ -d ~/.config/qtile/ ]; then
+	            rm -r ~/.config/qtile/
+		    echo "qtile directory removed"
+		fi
+		_installSymLink ~/.config/qtile ~/dotfiles/qtile/ ~/.config
+        break;;
+        [Nn]* ) 
+            echo "Installation/Replacement of Qtile configuration skipped."
+        break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 
 # ------------------------------------------------------
 # Install .bashrc
@@ -204,7 +225,6 @@ while true; do
     esac
 done
 _installSymLink ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
-
 # ------------------------------------------------------
 # Install Theme, Icons and Cursor
 # ------------------------------------------------------
