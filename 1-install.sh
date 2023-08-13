@@ -193,10 +193,6 @@ while true; do
     read -p "Do you want to install/replace the Qtile configuration? (Yy/Nn): " yn
     case $yn in
         [Yy]* )
-		if [ -d ~/.config/qtile/ ]; then
-	            rm -r ~/.config/qtile/
-		    echo "qtile directory removed"
-		fi
 		_installSymLink ~/.config/qtile ~/dotfiles/qtile/ ~/.config
         break;;
         [Nn]* ) 
