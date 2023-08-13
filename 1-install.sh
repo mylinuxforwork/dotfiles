@@ -44,10 +44,12 @@ done
 echo ""
 echo "-> Install main packages"
 
-packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neovim" "rofi" "dunst" "mpv" "freerdp" "xfce4-power-manager" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "lxappearance" "polybar" "breeze" "breeze-gtk" "rofi-calc" "vlc");
+packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neovim" "rofi" "dunst" "mpv" "freerdp" "xfce4-power-manager" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "lxappearance" "polybar" "breeze" "breeze-gtk" "rofi-calc" "vlc" "exa");
 
 packagesYay=("brave-bin" "pfetch" "bibata-cursor-theme");
 # pywal installation below 
+
+packagesPip=("psutil" "rich" "click");
   
 # ------------------------------------------------------
 # Function: Is package installed
@@ -72,6 +74,16 @@ _isInstalledYay() {
     fi;
     echo 1; #'1' means 'false' in Bash
     return; #false
+}
+
+_isInstalledPip() {
+    package="$1";
+    check="$(pip list | grep "${package} ")";
+    if [ -n "${check}" ] ; then
+      echo 0;
+    else
+      echo 1;
+    fi
 }
 
 # ------------------------------------------------------

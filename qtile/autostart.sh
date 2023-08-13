@@ -16,4 +16,4 @@ xfce4-power-manager &
 dunst &
 ~/dotfiles/polybar/launch.sh &
 ~/dotfiles/scripts/updatewal.sh &
-virsh --connect qemu:///system start win11
+# virsh --connect qemu:///system start win11
