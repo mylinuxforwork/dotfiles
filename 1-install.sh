@@ -44,12 +44,10 @@ done
 echo ""
 echo "-> Install main packages"
 
-packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neovim" "rofi" "dunst" "mpv" "freerdp" "xfce4-power-manager" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "lxappearance" "polybar" "breeze" "breeze-gtk" "rofi-calc" "vlc" "exa");
+packagesPacman=("alacritty" "scrot" "nitrogen" "picom" "starship" "slock" "neovim" "rofi" "dunst" "mpv" "freerdp" "xfce4-power-manager" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "lxappearance" "polybar" "breeze" "breeze-gtk" "rofi-calc" "vlc" "exa" "python-pip" "python-psutil" "python-rich" "python-click");
 
 packagesYay=("brave-bin" "pfetch" "bibata-cursor-theme");
 # pywal installation below 
-
-packagesPip=("psutil" "rich" "click");
   
 # ------------------------------------------------------
 # Function: Is package installed
@@ -74,16 +72,6 @@ _isInstalledYay() {
     fi;
     echo 1; #'1' means 'false' in Bash
     return; #false
-}
-
-_isInstalledPip() {
-    package="$1";
-    check="$(pip list | grep "${package} ")";
-    if [ -n "${check}" ] ; then
-      echo 0;
-    else
-      echo 1;
-    fi
 }
 
 # ------------------------------------------------------
@@ -172,9 +160,11 @@ _installSymLink() {
     else
         if [ -d ${symlink} ]; then
             echo "Directory ${symlink}/ exists."
+	    rm -r ${symlink}
         else
             if [ -f ${symlink} ]; then
                 echo "File ${symlink} exists."
+		rm ${symlink}
             else
                 ln -s ${linksource} ${linktarget} 
                 echo "Link ${linksource} -> ${linktarget} created."
