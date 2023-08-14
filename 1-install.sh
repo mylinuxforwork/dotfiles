@@ -10,10 +10,6 @@
 # Install Script for dotfiles and configuration
 # yay must be installed
 # ------------------------------------------------------
-
-# ------------------------------------------------------
-# Confirm Start
-# ------------------------------------------------------
 clear
 echo "     _       _    __ _ _            "
 echo "  __| | ___ | |_ / _(_) | ___  ___  "
@@ -29,6 +25,20 @@ echo "Symbolic links will be created instead if the folder or files doesn't exis
 echo "If you want to overwrite your configuration please remove the correspondig folder in your .config first."
 echo "(For example ~/.config/qtile, etc.)"
 echo ""
+
+# ------------------------------------------------------
+# Check if yay is installed
+# ------------------------------------------------------
+if sudo pacman -Qs yay > /dev/null ; then
+  echo "yay is installed. You can proceed with the installation"
+else
+  echo "yay is not installed. Please install yay before proceed with the installation"
+  exit
+fi
+
+# ------------------------------------------------------
+# Confirm Start
+# ------------------------------------------------------
 while true; do
     read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
     case $yn in
