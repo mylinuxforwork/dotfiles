@@ -36,7 +36,7 @@ else
     git clone https://aur.archlinux.org/yay-git.git ~/yay-git
     cd ~/yay-git
     makepkg -si
-  exit
+    cd ~/dotfiles/
 fi
 
 # ------------------------------------------------------
