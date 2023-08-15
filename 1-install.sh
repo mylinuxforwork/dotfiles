@@ -30,9 +30,12 @@ echo ""
 # Check if yay is installed
 # ------------------------------------------------------
 if sudo pacman -Qs yay > /dev/null ; then
-  echo "yay is installed. You can proceed with the installation"
+    echo "yay is installed. You can proceed with the installation"
 else
-  echo "yay is not installed. Please install yay before proceed with the installation"
+    echo "yay is not installed. Will be installed now!"
+    git clone https://aur.archlinux.org/yay-git.git ~/yay-git
+    cd ~/yay-git
+    makepkg -si
   exit
 fi
 
