@@ -15,7 +15,6 @@
 # Load Library
 # ------------------------------------------------------
 source $(dirname "$0")/scripts/library.sh
-
 clear
 echo "     _       _    __ _ _            "
 echo "  __| | ___ | |_ / _(_) | ___  ___  "
@@ -67,7 +66,7 @@ done
 echo ""
 echo "-> Install main packages"
 
-packagesPacman=("alacritty" "chromium" "scrot" "nitrogen" "starship" "slock" "neovim" "mpv" "freerdp" "xfce4-power-manager" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "lxappearance" "breeze" "breeze-gtk" "vlc" "exa" "python-pip" "python-psutil" "python-rich" "python-click");
+packagesPacman=("alacritty" "rofi" "rofi-calc" "chromium" "scrot" "nitrogen" "dunst" "starship" "slock" "neovim" "mpv" "freerdp" "xfce4-power-manager" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "lxappearance" "breeze" "breeze-gtk" "vlc" "exa" "python-pip" "python-psutil" "python-rich" "python-click");
 
 packagesYay=("brave-bin" "pfetch" "bibata-cursor-theme");
 # pywal installation below 
@@ -105,11 +104,9 @@ echo ""
 echo "-> Install symbolic links"
 
 _installSymLink ~/.config/alacritty ~/dotfiles/alacritty/ ~/.config
-_installSymLink ~/.config/picom ~/dotfiles/picom/ ~/.config
 _installSymLink ~/.config/rofi ~/dotfiles/rofi/ ~/.config
 _installSymLink ~/.config/vim ~/dotfiles/vim/ ~/.config
 _installSymLink ~/.config/nvim ~/dotfiles/nvim/ ~/.config
-_installSymLink ~/.config/polybar ~/dotfiles/polybar/ ~/.config
 _installSymLink ~/.config/dunst ~/dotfiles/dunst/ ~/.config
 _installSymLink ~/.config/starship.toml ~/dotfiles/starship/starship.toml ~/.config/starship.toml
 
