@@ -66,10 +66,9 @@ done
 echo ""
 echo "-> Install main packages"
 
-packagesPacman=("alacritty" "rofi" "rofi-calc" "chromium" "scrot" "nitrogen" "dunst" "starship" "slock" "neovim" "mpv" "freerdp" "xfce4-power-manager" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "lxappearance" "breeze" "breeze-gtk" "vlc" "exa" "python-pip" "python-psutil" "python-rich" "python-click");
+packagesPacman=("picom" "alacritty" "rofi" "rofi-calc" "chromium" "scrot" "nitrogen" "dunst" "starship" "slock" "neovim" "mpv" "freerdp" "xfce4-power-manager" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "lxappearance" "breeze" "breeze-gtk" "vlc" "exa" "python-pip" "python-psutil" "python-rich" "python-click" "xdg-desktop-portal-gtk");
 
 packagesYay=("brave-bin" "pfetch" "bibata-cursor-theme");
-# pywal installation below 
   
 # ------------------------------------------------------
 # Install required packages
@@ -77,7 +76,9 @@ packagesYay=("brave-bin" "pfetch" "bibata-cursor-theme");
 _installPackagesPacman "${packagesPacman[@]}";
 _installPackagesYay "${packagesYay[@]}";
 
-# pywal requires dedicated installation
+# ------------------------------------------------------
+# Install pywal
+# ------------------------------------------------------
 if [ -f /usr/bin/wal ]; then
     echo "pywal already installed."
 else
@@ -103,30 +104,13 @@ fi
 echo ""
 echo "-> Install symbolic links"
 
+_installSymLink ~/.config/picom ~/dotfiles/picom/ ~/.config
 _installSymLink ~/.config/alacritty ~/dotfiles/alacritty/ ~/.config
 _installSymLink ~/.config/rofi ~/dotfiles/rofi/ ~/.config
 _installSymLink ~/.config/vim ~/dotfiles/vim/ ~/.config
 _installSymLink ~/.config/nvim ~/dotfiles/nvim/ ~/.config
 _installSymLink ~/.config/dunst ~/dotfiles/dunst/ ~/.config
 _installSymLink ~/.config/starship.toml ~/dotfiles/starship/starship.toml ~/.config/starship.toml
-
-# ------------------------------------------------------
-# Install qtile configuration
-# ------------------------------------------------------
-echo ""
-echo "-> Install Qtile configuration"
-while true; do
-    read -p "Do you want to install/replace the Qtile configuration? (Yy/Nn): " yn
-    case $yn in
-        [Yy]* )
-		_installSymLink ~/.config/qtile ~/dotfiles/qtile/ ~/.config
-        break;;
-        [Nn]* ) 
-            echo "Installation/Replacement of Qtile configuration skipped."
-        break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
 
 # ------------------------------------------------------
 # Install .bashrc
@@ -154,7 +138,7 @@ _installSymLink ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
 echo ""
 echo "-> Install Theme"
 while true; do
-    read -p "Do you want to replace the existing theme configuration? (Yy/Nn): " yn
+    read -p "Do you want to replace the existing GTK2/GTK3 theme configuration? (Yy/Nn): " yn
     case $yn in
         [Yy]* )
             if [ -d ~/.config/gtk-3.0 ]; then

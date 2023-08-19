@@ -33,6 +33,7 @@ alias shot='scrot -d 3 -c -z -u'
 alias shotsel='scrot -s'
 alias wifi='nmtui'
 alias od='~/private/onedrive.sh'
+alias rw='~/dotfiles/waybar/reload.sh'
 
 # GIT
 
