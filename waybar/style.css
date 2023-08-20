@@ -40,7 +40,7 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0 10px;
     color: #ffffff;
 }
 
@@ -90,8 +90,10 @@ button:hover {
 
 #window,
 #workspaces {
-    margin: 0 4px;
+    margin: 0 10px 0 6px;
 }
+
+
 
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
@@ -103,6 +105,10 @@ button:hover {
 
 #custom-appmenu {
     margin-left:10;
+}
+
+#custom-brave, #custom-outlook, #custom-teams, #custom-chatgpt, #custom-calculator {
+    margin-right:10px;
 }
 
 #custom-exit {

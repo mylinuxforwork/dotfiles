@@ -46,9 +46,9 @@ echo ""
 # ------------------------------------------------------
 echo ""
 echo "-> Install main packages"
-packagesPacman=("waybar");
+packagesPacman=("waybar" "grim" "slurp");
 
-packagesYay=("hyprland-git" "swww");
+packagesYay=("hyprland-git" "swww" "swaylock");
 
 # ------------------------------------------------------
 # Install required packages

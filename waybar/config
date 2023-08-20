@@ -2,30 +2,59 @@
     "layer": "top", // Waybar at top layer
     "height": 30, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
-    "modules-left": ["custom/appmenu", "wlr/workspaces"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["hyprland/language", "keyboard-state", "pulseaudio", "cpu", "memory", "battery", "clock", "custom/exit", "tray"],
+    "modules-left": [
+        "custom/appmenu", 
+        "wlr/workspaces",
+        "custom/brave",
+        "custom/outlook",
+        "custom/teams",
+        "custom/calculator",
+        "custom/chatgpt",
+        "custom/lookingglass"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "hyprland/language", 
+        "keyboard-state", 
+        "pulseaudio", 
+        "cpu", 
+        "memory", 
+        "battery", 
+        "clock", 
+        "custom/exit", 
+        "tray"
+    ],
     "wlr/workspaces" : {
         "on-click": "activate"
     },
-    //"hyprland/workspaces": {
-    //    "disable-scroll": true,
-    //    "all-outputs": true,
-    //    "warp-on-scroll": false,
-    //    "format": "{name}: {icon}",
-    //    "format-icons": {
-    //        "1": "",
-    //        "2": "",
-    //        "3": "",
-    //        "4": "",
-    //        "5": "",
-    //        "urgent": "",
-    //        "focused": "",
-    //        "default": ""
-    //    }
-    //},
+    "custom/outlook": {
+        "format": "",
+        "on-click": "brave --app=https://outlook.office.com/mail/"
+    },
+    "custom/teams": {
+        "format": "",
+        "on-click": "brave --app=https://teams.microsoft.com/go"
+    },
+    "custom/brave": {
+        "format": "",
+        "on-click": "brave"
+    },
+    "custom/chatgpt": {
+        "format": "",
+        "on-click": "brave --app=https://chat.openai.com"
+    },
+    "custom/calculator": {
+        "format": "",
+        "on-click": "~/dotfiles/scripts/calculator.sh"
+    },
+    "custom/lookingglass": {
+        "format": "",
+        "on-click": "~/dotfiles/scripts/looking-glass.sh"
+    },
     "custom/appmenu": {
-        "format": " ",
+        "format": "",
         "on-click": "~/dotfiles/scripts/applauncher.sh"
     },
     "custom/exit": {

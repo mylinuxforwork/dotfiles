@@ -22,7 +22,7 @@ choice=$(echo -e "$options" | rofi -dmenu -i -no-show-icons -l 4 -width 30 -p "P
 
 case $choice in
 	$option1)
-		slock ;;
+		swaylock ;;
 	$option2)
 		hyprctl dispatch exit ;;
 	$option3)
