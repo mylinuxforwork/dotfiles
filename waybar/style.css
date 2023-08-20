@@ -1,29 +1,23 @@
+@import 'colors-waybar.css';
+
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
     font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
+    border-radius: 4px;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.8);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
+    background-color: rgba(0,0,0,0.3);
+    /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
+    color: #FFFFFF;
     transition-property: background-color;
     transition-duration: .5s;
+    border-radius: 0;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
 
 window#waybar.termite {
     background-color: #3F3F3F;
@@ -35,32 +29,33 @@ window#waybar.chromium {
 }
 
 button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
+    /* box-shadow: inset 0 -3px transparent; */
     border: none;
     border-radius: 0;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 0px @foreground;
 }
 
 #workspaces button {
     padding: 0 5px;
-    background-color: transparent;
     color: #ffffff;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background-color: @foreground;
+    color: @background;
+}
+
+#workspaces button.active {
+    background-color: @color11;
+    color: #FFFFFF;
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: @foreground;
 }
 
 #workspaces button.urgent {
@@ -88,6 +83,7 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #mpd {
+    margin: 6px 6px;
     padding: 0 10px;
     color: #ffffff;
 }
@@ -97,18 +93,24 @@ button:hover {
     margin: 0 4px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }
 
-/* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
 }
 
+#custom-appmenu {
+    margin-left:10;
+}
+
+#custom-exit {
+    margin-right: 10px;
+}
+
 #clock {
-    background-color: #64727D;
+    background-color: @color11;
 }
 
 #battery {
@@ -143,12 +145,13 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
-    color: #000000;
+   background-color: @foreground;
+   color: #000000;
 }
 
 #memory {
-    background-color: #9b59b6;
+    background-color: @foreground;
+    color:#000000;
 }
 
 #disk {
@@ -168,13 +171,15 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
+    background-color: @foreground;
     color: #000000;
 }
 
 #pulseaudio.muted {
+    /*
     background-color: #90b1b1;
     color: #2a5c45;
+    */
 }
 
 #wireplumber {
@@ -248,11 +253,13 @@ label:focus {
 }
 
 #language {
+    /*
     background: #00b093;
     color: #740864;
     padding: 0 5px;
     margin: 0 5px;
     min-width: 16px;
+    */
 }
 
 #keyboard-state {

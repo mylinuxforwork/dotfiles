@@ -17,7 +17,6 @@ polybar-msg cmd quit
 # ----------------------------------------------------- 
 # Loading the configuration based on the username
 # ----------------------------------------------------- 
-
 if [[ $USER = "raabe" ]]
 then
     polybar -r mypolybar

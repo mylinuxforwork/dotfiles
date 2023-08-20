@@ -2,9 +2,12 @@
     "layer": "top", // Waybar at top layer
     "height": 30, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
-    "modules-left": ["hyprland/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
+    "modules-left": ["custom/appmenu", "wlr/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "cpu", "memory", "keyboard-state", "hyprland/language", "battery", "battery#bat2", "clock", "tray"],
+    "modules-right": ["hyprland/language", "keyboard-state", "pulseaudio", "cpu", "memory", "battery", "clock", "custom/exit", "tray"],
+    "wlr/workspaces" : {
+        "on-click": "activate"
+    },
     //"hyprland/workspaces": {
     //    "disable-scroll": true,
     //    "all-outputs": true,
@@ -21,6 +24,21 @@
     //        "default": ""
     //    }
     //},
+    "custom/appmenu": {
+        "format": " ",
+        "on-click": "~/dotfiles/scripts/applauncher.sh"
+    },
+    "custom/exit": {
+        "format": "",
+        "on-click": "~/dotfiles/scripts/powermenu-hypr.sh"
+    },
+    "custom/reload": {
+        "format": "Reload",
+        "on-click": "~/dotfiles/waybar/reload.sh"
+    },
+    "hyprland/language": {
+        "format": "{short}"
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -73,11 +91,11 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "  {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "  {}%"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -120,7 +138,7 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{icon} {volume}%",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",

@@ -17,6 +17,7 @@ PS1='[\u@\h \W]\$ '
 # ALIASES
 # -----------------------------------------------------
 
+alias Qtile='startx'
 alias c='clear'
 alias nf='neofetch'
 alias pf='pfetch'

@@ -99,6 +99,15 @@ else
 fi
 
 # ------------------------------------------------------
+# Remove pywal folder from .config
+# ------------------------------------------------------
+echo ""
+if [ -d ~/.config/wal/ ]; then
+    rm -r ~/.config/wal/
+    echo "~/.config/wal/ removed."
+fi
+
+# ------------------------------------------------------
 # Create symbolic links
 # ------------------------------------------------------
 echo ""
@@ -110,6 +119,7 @@ _installSymLink ~/.config/rofi ~/dotfiles/rofi/ ~/.config
 _installSymLink ~/.config/vim ~/dotfiles/vim/ ~/.config
 _installSymLink ~/.config/nvim ~/dotfiles/nvim/ ~/.config
 _installSymLink ~/.config/dunst ~/dotfiles/dunst/ ~/.config
+_installSymLink ~/.config/wal ~/dotfiles/wal/ ~/.config
 _installSymLink ~/.config/starship.toml ~/dotfiles/starship/starship.toml ~/.config/starship.toml
 
 # ------------------------------------------------------
