@@ -30,6 +30,7 @@ button {
     color: #FFFFFF;
     /* font-weight:bold; */
     border:0;
+    margin:0;
 }
 
 #workspaces button.active {
@@ -79,7 +80,7 @@ button {
     margin: 6px 10px 6px 0px;
     padding: 0 0px;
     color: #ffffff;
-    font-size:14;
+    font-size:16;
 }
 
 #window,
@@ -87,6 +88,7 @@ button {
     margin: 5 10px 5 10px;
     background-color:@color11;
     opacity:0.8;
+    padding:0;
 }
 
 .modules-left > widget:first-child > #workspaces {
@@ -99,7 +101,7 @@ button {
 
 #custom-appmenu {
     margin-left:16;
-    font-size:18;
+    font-size:16;
     font-weight:bold;
 }
 
@@ -110,12 +112,12 @@ button {
 
 #custom-exit {
     margin-right: 10px;
-    font-size:16px;
+    font-size:14px;
 }
 
 #clock {
     background-color: transparent;
-    font-size:18;
+    font-size:16;
 }
 
 #battery {
