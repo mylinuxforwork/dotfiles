@@ -9,7 +9,7 @@
 window#waybar {
     background-color: rgba(0,0,0,0.8);
     /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-    color: #FFFFFF;
+    /* color: #FFFFFF; */
     background: transparent;
     transition-property: background-color;
     transition-duration: .5s;
@@ -27,10 +27,11 @@ button {
 #workspaces button {
     padding: 0px 10px;
     border-radius: 10px;
-    color: #FFFFFF;
     /* font-weight:bold; */
     border:0;
     margin:0;
+    font-weight:bold;
+    color: @color11;
 }
 
 #workspaces button.active {
@@ -41,12 +42,12 @@ button {
 }
 
 #workspaces button:hover {
-	color: #FFFFFF;
+	color: @color11;
 	border-radius: 15px;
     border:0;
 }
 #workspaces button.focused {
-	color: #FFFFFF;
+	color: @color11;
 	border-radius: 15px;
     font-weight:bold;
 }
@@ -79,15 +80,15 @@ button {
 #mpd {
     margin: 6px 10px 6px 0px;
     padding: 0 0px;
-    color: #ffffff;
+    color: #FFFFFF;
     font-size:16;
 }
 
 #window,
 #workspaces {
-    margin: 5 10px 5 10px;
-    background-color:@color11;
-    opacity:0.8;
+    margin: 4 10px 5 10px;
+    background-color:#000000;
+    opacity:0.5;
     padding:0;
 }
 
