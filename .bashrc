@@ -81,6 +81,9 @@ alias setkb='setxkbmap de;echo "Keyboard set back to de."'
 # -----------------------------------------------------
 alias res1='xrandr --output DisplayPort-0 --mode 2560x1440 --rate 120'
 alias res2='xrandr --output DisplayPort-0 --mode 1920x1080 --rate 120'
+alias r1='hyprctl keyword monitor ,preferred,auto,1'
+alias r2='hyprctl keyword monitor ,1920x1080,auto,1'
+
 
 export PATH="/usr/lib/ccache/bin/:$PATH"
 

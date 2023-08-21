@@ -2,21 +2,24 @@
     "layer": "top", // Waybar at top layer
     "height": 30, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
     "modules-left": [
         "custom/appmenu", 
-        "wlr/workspaces",
-        "custom/brave",
+        // "custom/brave",
         "custom/outlook",
         "custom/teams",
-        "custom/calculator",
+        // "custom/calculator",
         "custom/chatgpt",
         "custom/lookingglass"
+        // "hyprland/window"
     ],
     "modules-center": [
-        "hyprland/window"
+        "wlr/workspaces",
     ],
     "modules-right": [
-        "hyprland/language", 
+        // "hyprland/language", 
         "keyboard-state", 
         "pulseaudio", 
         "cpu", 
@@ -27,7 +30,16 @@
         "tray"
     ],
     "wlr/workspaces" : {
-        "on-click": "activate"
+        "on-click": "activate",
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+			"urgent": "",
+			"active":  "",
+			"default": "",
+            "sort-by-number": true
+        }
     },
     "custom/outlook": {
         "format": "",
@@ -54,7 +66,7 @@
         "on-click": "~/dotfiles/scripts/looking-glass.sh"
     },
     "custom/appmenu": {
-        "format": "",
+        "format": " ",
         "on-click": "~/dotfiles/scripts/applauncher.sh"
     },
     "custom/exit": {
