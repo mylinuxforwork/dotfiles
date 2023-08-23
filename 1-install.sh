@@ -66,7 +66,7 @@ done
 echo ""
 echo "-> Install main packages"
 
-packagesPacman=("picom" "alacritty" "rofi" "rofi-calc" "chromium" "scrot" "nitrogen" "dunst" "starship" "slock" "neovim" "mpv" "freerdp" "xfce4-power-manager" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "lxappearance" "breeze" "breeze-gtk" "vlc" "exa" "python-pip" "python-psutil" "python-rich" "python-click" "xdg-desktop-portal-gtk");
+packagesPacman=("picom" "alacritty" "rofi" "rofi-calc" "chromium" "scrot" "nitrogen" "dunst" "starship" "slock" "neovim" "mpv" "freerdp" "xfce4-power-manager" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "lxappearance" "breeze" "breeze-gtk" "vlc" "exa" "python-pip" "python-psutil" "python-rich" "python-click" "xdg-desktop-portal-gtk" "pavucontrol");
 
 packagesYay=("brave-bin" "pfetch" "bibata-cursor-theme");
   
