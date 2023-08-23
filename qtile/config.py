@@ -81,7 +81,7 @@ keys = [
     Key([mod, "shift"], "h", lazy.layout.swap_left()),
     Key([mod, "shift"], "l", lazy.layout.swap_right()),
 
-    Key([mod], "Print", lazy.spawn("/home/raabe/dotfiles/scripts/scrot.sh")),
+    Key([mod], "Print", lazy.spawn(home + "/dotfiles/scripts/scrot.sh")),
 
     # Size
     # Key([mod], "h", lazy.layout.shrink(), lazy.layout.decrease_nmaster(), desc='Shrink window (MonadTall)'),
