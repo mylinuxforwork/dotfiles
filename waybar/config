@@ -22,6 +22,7 @@
         // "hyprland/language", 
         "keyboard-state", 
         "pulseaudio", 
+        "disk",
         "cpu", 
         "memory", 
         "battery", 
@@ -151,6 +152,11 @@
         "format": "{percent}% {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
+    "disk": {
+        "interval": 30,
+        "format": " {percentage_used}%",
+        "path": "/"
+    }, 
     "battery": {
         "states": {
             // "good": 95,
