@@ -22,53 +22,72 @@
             "sort-by-number": true
         }
     },
+
     // Youtube Subscriber Count
     "custom/youtube": {
-        "format": "YT: {}",
+        "format": " {}",
         "exec": "python ~/private/youtube.py",
         "interval": "300",
-        "on-click": "brave https://studio.youtube.com"
+        "on-click": "brave https://studio.youtube.com",
+        "tooltip": false
     },
+
     // Outlook Launcher
     "custom/outlook": {
         "format": "",
-        "on-click": "brave --app=https://outlook.office.com/mail/"
+        "on-click": "brave --app=https://outlook.office.com/mail/",
+        "tooltip": false
     },
+
     // Teams Launcher
     "custom/teams": {
         "format": "",
-        "on-click": "brave --app=https://teams.microsoft.com/go"
+        "on-click": "brave --app=https://teams.microsoft.com/go",
+        "tooltip": false
     },
+
     // Brave Launcher
     "custom/brave": {
         "format": "",
-        "on-click": "brave"
+        "on-click": "brave",
+        "tooltip": false
     },
+
     // ChatGPT Launcher
     "custom/chatgpt": {
         "format": "",
-        "on-click": "brave --app=https://chat.openai.com"
+        "on-click": "brave --app=https://chat.openai.com",
+        "tooltip": false
     },
+
     // Rofi Calculator
     "custom/calculator": {
         "format": "",
-        "on-click": "~/dotfiles/scripts/calculator.sh"
+        "on-click": "~/dotfiles/scripts/calculator.sh",
+        "tooltip": false
     },
+
     // Looking Glass Launcher
     "custom/lookingglass": {
         "format": "",
-        "on-click": "~/dotfiles/scripts/looking-glass.sh"
+        "on-click": "~/dotfiles/scripts/looking-glass.sh",
+        "tooltip": false
     },
+
     // Rofi Application Launcher
     "custom/appmenu": {
         "format": " ",
-        "on-click": "~/dotfiles/scripts/applauncher.sh"
+        "on-click": "~/dotfiles/scripts/applauncher.sh",
+        "tooltip": false
     },
+
     // Rofi Power Menu
     "custom/exit": {
         "format": "",
-        "on-click": "~/dotfiles/scripts/powermenu-hypr.sh"
+        "on-click": "~/dotfiles/scripts/powermenu-hypr.sh",
+        "tooltip": false
     },
+
     // Keyboard State
     "keyboard-state": {
         "numlock": true,
@@ -79,32 +98,38 @@
             "unlocked": ""
         }
     },
+
     // System tray
     "tray": {
         // "icon-size": 21,
         "spacing": 10
     },
+
     // Clock
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
+
     // CPU
     "cpu": {
         "format": "  {usage}%",
         "tooltip": false
     },
+
     // Memory
     "memory": {
         "format": "  {}%"
     },
+
     // Harddisc space used
     "disk": {
         "interval": 30,
         "format": " {percentage_used}%",
         "path": "/"
     }, 
+
     // Battery
     "battery": {
         "states": {
@@ -120,6 +145,7 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
+
     // Pulseaudio
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -139,5 +165,13 @@
             "default": ["", " ", " "]
         },
         "on-click": "pavucontrol"
+    },
+
+    "user": {
+        "format": "{user}",
+        "interval": 60,
+        "height": 30,
+        "width": 30,
+        "icon": false,
     }
 }

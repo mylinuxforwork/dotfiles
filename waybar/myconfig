@@ -38,7 +38,8 @@
         "memory", 
         "battery", 
         "clock", 
-        "custom/exit", 
+        "user",
+        "custom/exit",
         "tray"
     ],
 }
