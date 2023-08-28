@@ -17,7 +17,6 @@ PS1='[\u@\h \W]\$ '
 # ALIASES
 # -----------------------------------------------------
 
-alias Qtile='startx'
 alias c='clear'
 alias nf='neofetch'
 alias pf='pfetch'
@@ -35,6 +34,11 @@ alias shotsel='scrot -s'
 alias wifi='nmtui'
 alias od='~/private/onedrive.sh'
 alias rw='~/dotfiles/waybar/reload.sh'
+
+# Window Managers
+
+alias Qtile='startx'
+# alias Hyprland="~/dotfiles/hypr/starthypr.sh"
 
 # GIT
 

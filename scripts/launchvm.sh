@@ -17,7 +17,7 @@ then
     exit
 else
     echo "Starting xfreerdp now..."
-    xfreerdp -grab-keyboard /v:192.168.122.42 /size:100% /cert-ignore /u:raabe /p:SECRET /d: /dynamic-resolution /gfx-h264:avc444 +gfx-progressive &
+    xfreerdp -grab-keyboard /v:192.168.122.44 /size:100% /cert-ignore /u:raabe /p:SECRET /d: /dynamic-resolution /gfx-h264:avc444 +gfx-progressive &
     exit
 fi
 

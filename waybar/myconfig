@@ -20,6 +20,7 @@
     ],
     "modules-right": [
         // "hyprland/language", 
+        "custom/youtube",
         "keyboard-state", 
         "pulseaudio", 
         "disk",

@@ -33,7 +33,7 @@ newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
 # Set the new wallpaper
 # ----------------------------------------------------- 
 swww img $wallpaper --transition-step 20 --transition-fps=20
-~/dotfiles/waybar/reload.sh
+~/dotfiles/waybar/launch.sh
 
 # ----------------------------------------------------- 
 # Send notification
