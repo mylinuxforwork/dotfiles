@@ -16,9 +16,9 @@
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-			"urgent": "",
-			"active":  "",
-			"default": "",
+			"urgent": "",
+			"active": "",
+			"default": "",
             "sort-by-number": true
         }
     },
@@ -27,7 +27,7 @@
     "custom/youtube": {
         "format": " {}",
         "exec": "python ~/private/youtube.py",
-        "interval": "300",
+        "restart-interval": 60,
         "on-click": "brave https://studio.youtube.com",
         "tooltip": false
     },
@@ -41,7 +41,7 @@
 
     // Teams Launcher
     "custom/teams": {
-        "format": "",
+        "format": "",
         "on-click": "brave --app=https://teams.microsoft.com/go",
         "tooltip": false
     },
@@ -76,7 +76,7 @@
 
     // Rofi Application Launcher
     "custom/appmenu": {
-        "format": " ",
+        "format": "Apps",
         "on-click": "~/dotfiles/scripts/applauncher.sh",
         "tooltip": false
     },
@@ -114,19 +114,18 @@
 
     // CPU
     "cpu": {
-        "format": "  {usage}%",
-        "tooltip": false
+        "format": "/ {usage}% ",
     },
 
     // Memory
     "memory": {
-        "format": "  {}%"
+        "format": "/ {}% "
     },
 
     // Harddisc space used
     "disk": {
         "interval": 30,
-        "format": " {percentage_used}%",
+        "format": "   {percentage_used}% ",
         "path": "/"
     }, 
 
@@ -170,8 +169,6 @@
     "user": {
         "format": "{user}",
         "interval": 60,
-        "height": 30,
-        "width": 30,
         "icon": false,
     }
 }

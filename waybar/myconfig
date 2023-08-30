@@ -10,36 +10,33 @@
 //
 {
     "layer": "top",
-    "height": 30,
-    "spacing": 4,
-    "margin-top": 0,
+    "height": 16,
+    "margin-top": 14,
+    "margin-bottom": 0,
     "margin-left": 0,
-    "margin-right": 0,
+    "margin-right": 0,    
+    "spacing": 0,
     "include": ["~/dotfiles/waybar/modules.json"],
     "modules-left": [
         "custom/appmenu", 
-        "custom/brave",
         "custom/outlook",
         "custom/teams",
-        "custom/calculator",
         "custom/chatgpt",
-        "custom/lookingglass"
-        // "hyprland/window"
+        "custom/lookingglass",
+        "hyprland/window"
     ],
     "modules-center": [
-        "wlr/workspaces",
+        "wlr/workspaces"
     ],
     "modules-right": [
         "custom/youtube",
-        "keyboard-state", 
-        "pulseaudio", 
+        "keyboard-state",
+        "pulseaudio",
         "disk",
         "cpu", 
         "memory", 
         "battery", 
-        "clock", 
-        "user",
         "custom/exit",
-        "tray"
+        "clock"
     ],
 }

@@ -10,28 +10,29 @@
 //
 {
     "layer": "top",
-    "height": 30,
-    "spacing": 4,
-    "margin-top": 0,
+    "height": 16,
+    "margin-top": 14,
+    "margin-bottom": 0,
     "margin-left": 0,
-    "margin-right": 0,
+    "margin-right": 0,    
+    "spacing": 0,
     "include": ["~/dotfiles/waybar/modules.json"],
     "modules-left": [
         "custom/appmenu", 
         "custom/brave",
+        "hyprland/window"
     ],
     "modules-center": [
-        "wlr/workspaces",
+        "wlr/workspaces"
     ],
     "modules-right": [
-        "keyboard-state", 
-        "pulseaudio", 
+        "keyboard-state",
+        "pulseaudio",
         "disk",
         "cpu", 
         "memory", 
         "battery", 
-        "clock", 
-        "custom/exit", 
-        "tray"
+        "custom/exit",
+        "clock"
     ],
 }

@@ -23,6 +23,7 @@ source "$HOME/.cache/wal/colors.sh"
 # Copy color file to waybar folder
 # ----------------------------------------------------- 
 cp ~/.cache/wal/colors-waybar.css ~/dotfiles/waybar/
+cp $wallpaper ~/.cache/current_wallpaper.jpg
 
 # ----------------------------------------------------- 
 # get wallpaper iamge name
