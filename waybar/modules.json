@@ -124,7 +124,7 @@
     // Rofi Power Menu
     "custom/exit": {
         "format": "",
-        "on-click": "~/dotfiles/scripts/powermenu-hypr.sh",
+        "on-click": "wlogout",
         "tooltip": false
     },
 
@@ -176,10 +176,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
+        "format": "{icon}   {capacity}%",
         "format-charging": "  {capacity}%",
         "format-plugged": "  {capacity}%",
-        "format-alt": "{icon} {time}",
+        "format-alt": "{icon}  {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": [" ", " ", " ", " ", " "]

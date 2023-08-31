@@ -48,7 +48,7 @@ echo ""
 echo "-> Install main packages"
 packagesPacman=("hyprland" "xdg-desktop-portal-hyprland" "waybar" "grim" "slurp");
 
-packagesYay=("swww" "swaylock");
+packagesYay=("swww" "swaylock-effects" "wlogout");
 
 # ------------------------------------------------------
 # Install required packages
@@ -82,6 +82,9 @@ done
 # ------------------------------------------------------
 echo "-> Create symbolic links"
 _installSymLink ~/.config/waybar ~/dotfiles/waybar/ ~/.config
+_installSymLink ~/.config/swaylock ~/dotfiles/swaylock/ ~/.config
+_installSymLink ~/.config/wlogout ~/dotfiles/wlogout/ ~/.config
+
 
 swww init
 
