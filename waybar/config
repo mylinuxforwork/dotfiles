@@ -27,6 +27,7 @@
         "wlr/workspaces"
     ],
     "modules-right": [
+        "custom/updates",
         "pulseaudio",
         "group/hardware",
         "battery", 

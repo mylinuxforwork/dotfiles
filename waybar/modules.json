@@ -51,6 +51,15 @@
         "tooltip": false
     },
 
+    // Updates Count
+    "custom/updates": {
+        "format": " {}",
+        "exec": "~/dotfiles/scripts/updates.sh",
+        "restart-interval": 60,
+        "on-click": "alacritty -e yay",
+        "tooltip": false
+    },
+
     // Outlook Launcher
     "custom/outlook": {
         "format": "",
@@ -133,12 +142,12 @@
 
     // CPU
     "cpu": {
-        "format": "/ {usage}% ",
+        "format": "/ C {usage}% ",
     },
 
     // Memory
     "memory": {
-        "format": "/ {}% "
+        "format": "/ M {}% "
     },
 
     // Harddisc space used

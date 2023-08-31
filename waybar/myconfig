@@ -29,6 +29,7 @@
     ],
     "modules-right": [
         "custom/youtube",
+        "custom/updates",
         "pulseaudio",
         "group/hardware",
         "battery", 
