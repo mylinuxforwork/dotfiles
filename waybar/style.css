@@ -108,6 +108,10 @@ tooltip label {
     opacity:0.8;
 }
 
+window#waybar.empty #window {
+    background-color:transparent;
+}
+
 /* -----------------------------------------------------
  * Taskbar
  * ----------------------------------------------------- */
