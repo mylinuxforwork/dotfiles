@@ -38,9 +38,7 @@ Included is a pywal configuration that changes the color scheme based on a rando
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=EujO_5KvCCo" target="_blank"><img src="screenshots/hyprland1.png" alt="Click to watch on YouTube" /></a>
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=EujO_5KvCCo" target="_blank">Watch on YouTube</a>
 
-<a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a>
-
-You can find more screenshots in the screenshots folder.
+<b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
 
 ## Getting started
 
