@@ -206,6 +206,15 @@
         "on-click": "pavucontrol"
     },
 
+    // Bluetooth
+    "bluetooth": {
+        "format-disabled": "",
+        "format-off": "",
+        "interval": 30,
+        "on-click": "blueman-manager"
+    },
+
+    // Other
     "user": {
         "format": "{user}",
         "interval": 60,

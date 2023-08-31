@@ -29,6 +29,7 @@
     "modules-right": [
         "custom/updates",
         "pulseaudio",
+        "bluetooth",
         "battery", 
         "group/hardware",
         "custom/exit",
