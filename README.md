@@ -1,33 +1,35 @@
-# dotfiles
- __  __ _    _  ___        __      _       _    __ _ _            
-|  \/  | |  | || \ \      / /   __| | ___ | |_ / _(_) | ___  ___  
-| |\/| | |  | || |\ \ /\ / /   / _` |/ _ \| __| |_| | |/ _ \/ __| 
-| |  | | |__|__   _\ V  V /   | (_| | (_) | |_|  _| | |  __/\__ \ 
-|_|  |_|_____| |_|  \_/\_/     \__,_|\___/ \__|_| |_|_|\___||___/ 
-                                                                   
-by Stephan Raabe (2023) 
------------------------------------------------------ 
+# ML4W dotfiles
 
 This is the configuration of my Arch linux based installation.
+I'm using the Hyprland (Wayland) and Qtile (Xorg).
 
-- Window Manager: qtile
-- Compositor: picom
+## Common Packages
+
 - Terminal: alacritty
 - Editor: nvim
 - Prompt: starship
-- Bar: polybar
 - Icons: Font Awesome
 - Menus: Rofi
 - Colorscheme: pywal (dynamic)
-- Browser: brave
+- Browsers: brave, chromium
 - Filemanager: ranger, Thunar
-- Screenshots: scrot
 - Cursor: Bibata Modern Classic
 - Icons: breeze-dark
 - Theme: Breeze-dark
 - Virtual Machine: qemu (Windows 11 with looking glass and xrdp)
 
-Please also see the script folder how I setup my system.
+## Hyprland
+
+- Status Bar: waybar
+- Screenshots: grim
+
+## Qtile
+
+- Compositor: picom
+- Status Bar: polybar
+- Screenshots: scrot
+
+## Templating
 
 Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. Just type w in a terminal (or SuperKey + Shift + w). SuperKey + Ctrl + w opens rofi with a list of installed wallpapers for individual selection. See also the .bashrc for more alias definitions.
 
@@ -49,7 +51,10 @@ git clone https://gitlab.com/stephan-raabe/dotfiles.git
 ./1-install.sh
 
 # Install qtile window manager
-./2-qtile.sh
+./2-install-hyprland.sh
+
+# Install qtile window manager
+./2-install-qtile.sh
 
 ```
 
