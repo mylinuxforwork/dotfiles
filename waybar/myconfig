@@ -31,8 +31,8 @@
         "custom/youtube",
         "custom/updates",
         "pulseaudio",
-        "group/hardware",
         "battery", 
+        "group/hardware",
         "custom/exit",
         "clock"
     ],
