@@ -93,35 +93,43 @@ tooltip label {
     color: @color11;
 }
 
-#mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
+/* -----------------------------------------------------
+ * Window
+ * ----------------------------------------------------- */
+
+#window {
+    background: #FFFFFF;
+    margin: 5px 15px 5px 5px;
+    padding: 2px 10px 0px 10px;
+    border-radius: 12px;
+    color:@background;
+    font-size:16px;
+    font-weight:normal;
+    opacity:0.8;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#language,
-#user,
-#window,
-#mpd {
-    margin: 0px 20px 0px 10px;
-    padding: 0 0px;
-    color: #FFFFFF;
-    font-size:16px;
+/* -----------------------------------------------------
+ * Taskbar
+ * ----------------------------------------------------- */
+
+#taskbar {
+    background: #FFFFFF;
+    margin: 5px 15px 5px 5px;
+    padding: 0px 1px;
+    border-radius: 12px;
+    font-weight: normal;
+    font-style: normal;
+    opacity:0.8;
 }
+
+#taskbar button {
+    margin:0;
+    padding: 0px 5px 0px 5px;
+}
+
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
 
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
@@ -131,30 +139,23 @@ tooltip label {
     margin-right: 0;
 }
 
+/* -----------------------------------------------------
+ * Custom Modules
+ * ----------------------------------------------------- */
+
 #custom-appmenu {
     background-color: #FFFFFF;
-    font-size: 18px;
+    font-size: 16px;
     color: @background;
     border-radius: 12px;
     padding: 2px 10px 0px 10px;
-    margin: 5px 10px 5px 20px;
+    margin: 5px 10px 5px 14px;
     opacity:0.8;
 }
 
-#disk,#memory,#cpu {
-    margin:0px;
-
-    padding:0px;
-}
-
 #custom-youtube, #custom-brave, #custom-outlook, #custom-teams, #custom-chatgpt, #custom-calculator, #custom-lookingglass {
-    margin-right:10px;
+    margin-right:15px;
     font-size:16px;
-}
-
-#user {
-    margin-right:10px;
-    font-size:20px;
 }
 
 #custom-exit {
@@ -162,15 +163,48 @@ tooltip label {
     font-size:20px;
 }
 
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- */
+
+#disk,#memory,#cpu {
+    margin:0px;
+    padding:0px;
+    font-size:16px;
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
 #clock {
     background-color: #FFFFFF;
-    font-size: 18px;
+    font-size: 16px;
     color: @background;
     border-radius: 12px;
     padding: 2px 10px 0px 10px;
-    margin: 5px 20px 5px 10px;
+    margin: 5px 14px 5px 10px;
     opacity:0.8;
 }
+
+/* -----------------------------------------------------
+ * Pulseaudio
+ * ----------------------------------------------------- */
+
+#pulseaudio {
+    font-size:16px;
+    margin-right:15px;
+
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
 
 #battery {
     color: @color11;
@@ -198,75 +232,9 @@ tooltip label {
     animation-direction: alternate;
 }
 
-label:focus {
-    background-color: #000000;
-}
-
-#cpu {
-   background-color: transparent;
-}
-
-#memory {
-    background-color: transparent;
-}
-
-#disk {
-    background-color: transparent;
-}
-
-#backlight {
-    background-color: #90b1b1;
-}
-
-#network {
-    background-color: #2980b9;
-}
-
-#network.disconnected {
-    background-color: #f53c3c;
-}
-
-#pulseaudio {
-    background-color: transparent;
-}
-
-#pulseaudio.muted {
-    /*
-    background-color: #90b1b1;
-    color: #2a5c45;
-    */
-}
-
-#wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
-}
-
-#wireplumber.muted {
-    background-color: #f53c3c;
-}
-
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#temperature {
-    background-color: #f0932b;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
-}
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
 
 #tray {
     background-color: #2980b9;
@@ -281,61 +249,23 @@ label:focus {
     background-color: #eb4d4b;
 }
 
-#idle_inhibitor {
-    background-color: #2d3436;
+/* -----------------------------------------------------
+ * Other
+ * ----------------------------------------------------- */
+
+label:focus {
+    background-color: #000000;
 }
 
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
-
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
+#backlight {
     background-color: #90b1b1;
 }
 
-#mpd.paused {
-    background-color: #51a37a;
+#network {
+    background-color: #2980b9;
 }
 
-#language {
-    color:#FFFFFF;
-    /*
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-    */
+#network.disconnected {
+    background-color: #f53c3c;
 }
-
-#keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#window {
-    margin:0;
-}
-
 

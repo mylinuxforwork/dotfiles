@@ -18,9 +18,8 @@
     "spacing": 0,
     "include": ["~/dotfiles/waybar/modules.json"],
     "modules-left": [
-        "custom/appmenu", 
-        "custom/outlook",
-        "custom/teams",
+        "custom/appmenu",
+        "wlr/taskbar",
         "custom/chatgpt",
         "custom/lookingglass",
         "hyprland/window"
@@ -30,13 +29,18 @@
     ],
     "modules-right": [
         "custom/youtube",
-        "keyboard-state",
         "pulseaudio",
-        "disk",
-        "cpu", 
-        "memory", 
+        "group/hardware",
         "battery", 
         "custom/exit",
         "clock"
     ],
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "disk",
+            "cpu",
+            "memory"
+        ]
+    }
 }

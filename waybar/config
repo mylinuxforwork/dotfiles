@@ -18,7 +18,8 @@
     "spacing": 0,
     "include": ["~/dotfiles/waybar/modules.json"],
     "modules-left": [
-        "custom/appmenu", 
+        "custom/appmenu",
+        "wlr/taskbar",
         "custom/brave",
         "hyprland/window"
     ],
@@ -26,13 +27,18 @@
         "wlr/workspaces"
     ],
     "modules-right": [
-        "keyboard-state",
         "pulseaudio",
-        "disk",
-        "cpu", 
-        "memory", 
+        "group/hardware",
         "battery", 
         "custom/exit",
         "clock"
     ],
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "disk",
+            "cpu",
+            "memory"
+        ]
+    }
 }
