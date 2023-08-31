@@ -22,5 +22,5 @@ updates=$(("$updates_arch" + "$updates_aur"))
 if [ "$updates" -gt 0 ]; then
     echo " $updates"
 else
-    echo "0"
+    echo " 0"
 fi

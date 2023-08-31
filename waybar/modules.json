@@ -42,11 +42,23 @@
         }
     },
 
+    // Hyprland Window
+    "hyprland/window": {
+        "rewrite": {
+            "(.*) - Brave": "$1",
+            "(.*) - Chromium": "$1",
+            "(.*) - Brave Search": "$1",
+            "(.*) - Outlook": "$1",
+            "(.*) Microsoft Teams": "$1"
+        },
+        "separate-outputs": true
+    },
+
     // Youtube Subscriber Count
     "custom/youtube": {
         "format": " {}",
         "exec": "python ~/private/youtube.py",
-        "restart-interval": 60,
+        "restart-interval": 600,
         "on-click": "brave https://studio.youtube.com",
         "tooltip": false
     },
@@ -55,7 +67,7 @@
     "custom/updates": {
         "format": " {}",
         "exec": "~/dotfiles/scripts/updates.sh",
-        "restart-interval": 60,
+        "restart-interval": 600,
         "on-click": "alacritty -e yay",
         "tooltip": false
     },
