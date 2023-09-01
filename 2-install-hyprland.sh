@@ -80,12 +80,15 @@ done
 # ------------------------------------------------------
 # Create symbolic links
 # ------------------------------------------------------
+echo ""
 echo "-> Create symbolic links"
 _installSymLink ~/.config/waybar ~/dotfiles/waybar/ ~/.config
 _installSymLink ~/.config/swaylock ~/dotfiles/swaylock/ ~/.config
 _installSymLink ~/.config/wlogout ~/dotfiles/wlogout/ ~/.config
 
-
+echo ""
+echo "-> Start swww"
 swww init
 
+echo ""
 echo "DONE!"
