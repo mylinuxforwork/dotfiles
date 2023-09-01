@@ -246,10 +246,12 @@ window#waybar.empty #window {
 
 #network.ethernet {
     background-color: @color11;
+    color:#FFFFFF;
 }
 
 #network.wifi {
     background-color: @color11;
+    color:#FFFFFF;
 }
 
 /* -----------------------------------------------------
