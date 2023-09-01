@@ -231,6 +231,28 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+    background-color: #FFFFFF;
+    font-size: 16px;
+    color: @background;
+    border-radius: 12px;
+    padding: 2px 10px 0px 10px;
+    margin: 5px 15px 5px 0px;
+    opacity:0.8;
+}
+
+#network.ethernet {
+    background-color: @color11;
+}
+
+#network.wifi {
+    background-color: @color11;
+}
+
+/* -----------------------------------------------------
  * Bluetooth
  * ----------------------------------------------------- */
 

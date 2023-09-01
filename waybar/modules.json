@@ -121,7 +121,7 @@
         "tooltip": false
     },
 
-    // Rofi Power Menu
+    // Power Menu
     "custom/exit": {
         "format": "",
         "on-click": "wlogout",
@@ -154,7 +154,7 @@
 
     // CPU
     "cpu": {
-        "format": "/ C {usage}% ",
+        "format": "/ C {usage}% "
     },
 
     // Memory
@@ -168,6 +168,19 @@
         "format": "   {percentage_used}% ",
         "path": "/"
     }, 
+    
+    // Network
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "  {essid} ({signalStrength}%)",
+        "format-ethernet": "  {ipaddr}/{cidr}",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": " {ifname} via {gwaddri}",
+        "tooltip-format-wifi": "  {essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "  {ifname}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
 
     // Battery
     "battery": {
