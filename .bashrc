@@ -34,6 +34,7 @@ alias shotsel='scrot -s'
 alias wifi='nmtui'
 alias od='~/private/onedrive.sh'
 alias rw='~/dotfiles/waybar/reload.sh'
+alias winclass="xprop | grep 'CLASS'"
 
 # Window Managers
 
