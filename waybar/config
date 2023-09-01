@@ -9,6 +9,7 @@
 // ----------------------------------------------------- 
 //
 {
+    // General Settings
     "layer": "top",
     "height": 16,
     "margin-top": 14,
@@ -16,26 +17,44 @@
     "margin-left": 0,
     "margin-right": 0,    
     "spacing": 0,
+
+    // Load Modules
     "include": ["~/dotfiles/waybar/modules.json"],
+
+    // Modules Left
     "modules-left": [
         "custom/appmenu",
         "wlr/taskbar",
-        "custom/brave",
+        "group/quicklinks",
         "hyprland/window"
     ],
+
+    // Modules Center
     "modules-center": [
         "wlr/workspaces"
     ],
+
+    // Modules Right    
     "modules-right": [
         "custom/updates",
         "pulseaudio",
         "bluetooth",
-        "network",
         "battery", 
         "group/hardware",
         "custom/exit",
+        "network",
         "clock"
     ],
+
+    // Group Quicklinks
+    "group/quicklinks": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/brave",
+         ]
+    },
+
+    // Group Hardware
     "group/hardware": {
         "orientation": "horizontal",
         "modules": [

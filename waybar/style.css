@@ -119,12 +119,12 @@ window#waybar.empty #window {
 #taskbar {
     background: transparent;
     margin: 3px 15px 3px 0px;
-    padding: 3px 3px 1px 3px;
+    padding: 2px 3px 1px 3px;
     border-radius: 14px;
     font-weight: normal;
     font-style: normal;
-    opacity:0.9;
-    border:3px solid #FFFFFF;
+    opacity:0.8;
+    border: 3px solid #FFFFFF;
 }
 
 #taskbar button {
@@ -145,6 +145,15 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
+ * Custom Quicklinks
+ * ----------------------------------------------------- */
+
+#custom-brave, #custom-outlook, #custom-teams, #custom-chatgpt, #custom-calculator, #custom-lookingglass {
+    margin-right:15px;
+    font-size:20px;
+}
+
+/* -----------------------------------------------------
  * Custom Modules
  * ----------------------------------------------------- */
 
@@ -159,15 +168,18 @@ window#waybar.empty #window {
     border:3px solid #FFFFFF;
 }
 
-#custom-brave, #custom-outlook, #custom-teams, #custom-chatgpt, #custom-calculator, #custom-lookingglass {
-    margin-right:15px;
-    font-size:16px;
-}
+/* -----------------------------------------------------
+ * Custom Exit
+ * ----------------------------------------------------- */
 
 #custom-exit {
     margin: 0px 20px 0px 0px;
     font-size:20px;
 }
+
+/* -----------------------------------------------------
+ * Custom Updates
+ * ----------------------------------------------------- */
 
 #custom-updates {
     background-color: #FFFFFF;
@@ -178,6 +190,10 @@ window#waybar.empty #window {
     margin: 5px 15px 5px 0px;
     opacity:0.8;
 }
+
+/* -----------------------------------------------------
+ * Custom Youtube
+ * ----------------------------------------------------- */
 
 #custom-youtube {
     background-color: #FFFFFF;

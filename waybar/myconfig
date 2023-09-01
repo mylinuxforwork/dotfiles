@@ -36,6 +36,7 @@
 
     // Modules Right    
     "modules-right": [
+        "custom/youtube",
         "custom/updates",
         "pulseaudio",
         "bluetooth",
@@ -51,8 +52,7 @@
         "orientation": "horizontal",
         "modules": [
             "custom/chatgpt",
-            "custom/lookingglass",
-            "custom/youtube"
+            "custom/lookingglass"
          ]
     },
 
