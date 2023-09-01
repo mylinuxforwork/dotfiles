@@ -99,7 +99,7 @@ tooltip label {
 
 #window {
     background: #FFFFFF;
-    margin: 5px 15px 5px 5px;
+    margin: 5px 15px 5px 0px;
     padding: 2px 10px 0px 10px;
     border-radius: 12px;
     color:@background;
@@ -148,9 +148,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-appmenu {
-    background-color: #FFFFFF;
+    background-color: @color11;
     font-size: 16px;
-    color: @background;
+    color: #FFFFFF;
     border-radius: 12px;
     padding: 2px 10px 0px 10px;
     margin: 5px 10px 5px 14px;
