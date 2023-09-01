@@ -22,13 +22,13 @@
         "wlr/taskbar",
         "custom/chatgpt",
         "custom/lookingglass",
+        "custom/youtube",
         "hyprland/window"
     ],
     "modules-center": [
         "wlr/workspaces"
     ],
     "modules-right": [
-        "custom/youtube",
         "custom/updates",
         "pulseaudio",
         "bluetooth",
