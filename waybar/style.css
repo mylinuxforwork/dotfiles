@@ -151,10 +151,11 @@ window#waybar.empty #window {
     background-color: @color11;
     font-size: 16px;
     color: #FFFFFF;
-    border-radius: 12px;
-    padding: 2px 10px 0px 10px;
-    margin: 5px 10px 5px 14px;
+    border-radius: 14px;
+    padding: 0px 10px 0px 10px;
+    margin: 3px 10px 3px 14px;
     opacity:0.8;
+    border:3px solid #FFFFFF;
 }
 
 #custom-brave, #custom-outlook, #custom-teams, #custom-chatgpt, #custom-calculator, #custom-lookingglass {
@@ -202,13 +203,14 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #clock {
-    background-color: #FFFFFF;
+    background-color: @color11;
     font-size: 16px;
-    color: @background;
-    border-radius: 12px;
-    padding: 2px 10px 0px 10px;
-    margin: 5px 14px 5px 10px;
+    color: #FFFFFF;
+    border-radius: 14px;
+    padding: 1px 10px 0px 10px;
+    margin: 3px 15px 3px 14px;
     opacity:0.8;
+    border:3px solid #FFFFFF;   
 }
 
 /* -----------------------------------------------------
