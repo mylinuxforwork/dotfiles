@@ -117,13 +117,14 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #taskbar {
-    background: #FFFFFF;
-    margin: 5px 15px 5px 5px;
-    padding: 0px 1px;
-    border-radius: 12px;
+    background: transparent;
+    margin: 3px 15px 3px 0px;
+    padding: 3px 3px 1px 3px;
+    border-radius: 14px;
     font-weight: normal;
     font-style: normal;
-    opacity:0.8;
+    opacity:0.9;
+    border:3px solid #FFFFFF;
 }
 
 #taskbar button {
@@ -153,7 +154,7 @@ window#waybar.empty #window {
     color: #FFFFFF;
     border-radius: 14px;
     padding: 0px 10px 0px 10px;
-    margin: 3px 10px 3px 14px;
+    margin: 3px 15px 3px 14px;
     opacity:0.8;
     border:3px solid #FFFFFF;
 }
@@ -164,7 +165,7 @@ window#waybar.empty #window {
 }
 
 #custom-exit {
-    margin: 0px 10px 0px 10px;
+    margin: 0px 20px 0px 0px;
     font-size:20px;
 }
 
@@ -198,6 +199,10 @@ window#waybar.empty #window {
     font-size:16px;
 }
 
+#memory {
+    margin-right:10px;
+}
+
 /* -----------------------------------------------------
  * Clock
  * ----------------------------------------------------- */
@@ -208,7 +213,7 @@ window#waybar.empty #window {
     color: #FFFFFF;
     border-radius: 14px;
     padding: 1px 10px 0px 10px;
-    margin: 3px 15px 3px 14px;
+    margin: 3px 15px 3px 0px;
     opacity:0.8;
     border:3px solid #FFFFFF;   
 }
@@ -240,10 +245,11 @@ window#waybar.empty #window {
     background-color: #FFFFFF;
     font-size: 16px;
     color: @background;
-    border-radius: 12px;
+    border-radius: 14px;
     padding: 2px 10px 0px 10px;
-    margin: 5px 15px 5px 0px;
+    margin: 3px 15px 3px 0px;
     opacity:0.8;
+    border: 3px solid #FFFFFF
 }
 
 #network.ethernet {
