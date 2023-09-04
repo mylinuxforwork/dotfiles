@@ -25,7 +25,7 @@ echo "                                    "
 echo "by Stephan Raabe (2023)"
 echo "-------------------------------------"
 echo ""
-echo "The script will ask for permission to remove the following existing folders and files."
+echo "The script will ask for permission to remove existing folders and files."
 echo "But you can decide to keep your local versions by answering with No (Nn)."
 echo "Symbolic links will be created from ~/dotfiles into your home and .config directories."
 echo ""
@@ -50,7 +50,7 @@ done
 # Create .config folder
 # ------------------------------------------------------
 echo ""
-echo "-> Check existing .config folder"
+echo "-> Check if .config folder exists"
 
 if [ -d ~/.config ]; then
     echo ".config folder already exists."
@@ -62,30 +62,52 @@ fi
 # ------------------------------------------------------
 # Create symbolic links
 # ------------------------------------------------------
+# name symlink source target
+
 echo ""
-echo "-> Install dotfiles with symbolic links"
+echo "-------------------------------------"
+echo "-> Install general dotfiles"
+echo "-------------------------------------"
+echo ""
 
-_installSymLink ~/.config/picom ~/dotfiles/picom/ ~/.config
-_installSymLink ~/.config/alacritty ~/dotfiles/alacritty/ ~/.config
-_installSymLink ~/.config/ranger ~/dotfiles/ranger/ ~/.config
-_installSymLink ~/.config/rofi ~/dotfiles/rofi/ ~/.config
-_installSymLink ~/.config/vim ~/dotfiles/vim/ ~/.config
-_installSymLink ~/.config/nvim ~/dotfiles/nvim/ ~/.config
-_installSymLink ~/.config/dunst ~/dotfiles/dunst/ ~/.config
-_installSymLink ~/.config/wal ~/dotfiles/wal/ ~/.config
-_installSymLink ~/.config/starship.toml ~/dotfiles/starship/starship.toml ~/.config/starship.toml
-_installSymLink ~/.config/hypr ~/dotfiles/hypr/ ~/.config
-_installSymLink ~/.config/waybar ~/dotfiles/waybar/ ~/.config
-_installSymLink ~/.config/swaylock ~/dotfiles/swaylock/ ~/.config
-_installSymLink ~/.config/wlogout ~/dotfiles/wlogout/ ~/.config
-_installSymLink ~/.config/qtile ~/dotfiles/qtile/ ~/.config
-_installSymLink ~/.config/polybar ~/dotfiles/polybar/ ~/.config
-_installSymLink ~/.xinitrc ~/dotfiles/qtile/.xinitrc ~/.xinitrc
+_installSymLink alacritty ~/.config/alacritty ~/dotfiles/alacritty/ ~/.config
+_installSymLink ranger ~/.config/ranger ~/dotfiles/ranger/ ~/.config
+_installSymLink vim ~/.config/vim ~/dotfiles/vim/ ~/.config
+_installSymLink nvim ~/.config/nvim ~/dotfiles/nvim/ ~/.config
+_installSymLink starship ~/.config/starship.toml ~/dotfiles/starship/starship.toml ~/.config/starship.toml
+_installSymLink rofi ~/.config/rofi ~/dotfiles/rofi/ ~/.config
+_installSymLink dunst ~/.config/dunst ~/dotfiles/dunst/ ~/.config
+_installSymLink wal ~/.config/wal ~/dotfiles/wal/ ~/.config
 
-_installSymLink ~/.gtkrc-2.0 ~/dotfiles/gtk/.gtkrc-2.0 ~/.gtkrc-2.0
-_installSymLink ~/.config/gtk-3.0 ~/dotfiles/gtk/gtk-3.0/ ~/.config/
-_installSymLink ~/.Xresources ~/dotfiles/gtk/.Xresources ~/.Xresources
-_installSymLink ~/.icons ~/dotfiles/gtk/.icons/ ~/
+echo "-------------------------------------"
+echo "-> Install GTK dotfiles"
+echo "-------------------------------------"
+echo ""
+
+_installSymLink .gtkrc-2.0 ~/.gtkrc-2.0 ~/dotfiles/gtk/.gtkrc-2.0 ~/.gtkrc-2.0
+_installSymLink gtk-3.0 ~/.config/gtk-3.0 ~/dotfiles/gtk/gtk-3.0/ ~/.config/
+_installSymLink .Xresouces ~/.Xresources ~/dotfiles/gtk/.Xresources ~/.Xresources
+_installSymLink .icons ~/.icons ~/dotfiles/gtk/.icons/ ~/
+
+echo "-------------------------------------"
+echo "-> Install Qtile dotfiles"
+echo "-------------------------------------"
+echo ""
+
+_installSymLink qtile ~/.config/qtile ~/dotfiles/qtile/ ~/.config
+_installSymLink polybar ~/.config/polybar ~/dotfiles/polybar/ ~/.config
+_installSymLink picom ~/.config/picom ~/dotfiles/picom/ ~/.config
+_installSymLink .xinitrc ~/.xinitrc ~/dotfiles/qtile/.xinitrc ~/.xinitrc
+
+echo "-------------------------------------"
+echo "-> Install Hyprland dotfiles"
+echo "-------------------------------------"
+echo ""
+
+_installSymLink hypr ~/.config/hypr ~/dotfiles/hypr/ ~/.config
+_installSymLink waybar ~/.config/waybar ~/dotfiles/waybar/ ~/.config
+_installSymLink swaylock ~/.config/swaylock ~/dotfiles/swaylock/ ~/.config
+_installSymLink wlogout ~/.config/wlogout ~/dotfiles/wlogout/ ~/.config
 
 # ------------------------------------------------------
 # DONE

@@ -84,31 +84,36 @@ _installPackagesYay() {
 # Create symbolic links
 # ------------------------------------------------------
 _installSymLink() {
-    symlink="$1";
-    linksource="$2";
-    linktarget="$3";
+    name="$1"
+    symlink="$2";
+    linksource="$3";
+    linktarget="$4";
     
     while true; do
-        read -p "DO YOU WANT TO INSTALL ${symlink}? (Yy/Nn): " yn
+        read -p "DO YOU WANT TO INSTALL ${name}? (Existing dotfiles will be removed!) (Yy/Nn): " yn
         case $yn in
             [Yy]* )
                 if [ -L "${symlink}" ]; then
                     rm ${symlink}
                     ln -s ${linksource} ${linktarget} 
-		            echo "Symlink ${symlink} created."
+		            echo "Symlink ${linksource} -> ${linktarget} created."
+                    echo ""
     		    else
 	    	        if [ -d ${symlink} ]; then
                         rm -rf ${symlink}/ 
 		    		    ln -s ${linksource} ${linktarget}
-                        echo "Symlink for directory ${symlink}/ created."
+                        echo "Symlink for directory ${linksource} -> ${linktarget} created."
+                        echo ""
            		    else
 	    	            if [ -f ${symlink} ]; then
                             rm ${symlink} 
                     		ln -s ${linksource} ${linktarget} 
-                            echo "Symlink to file ${symlink} created."
+                            echo "Symlink to file ${linksource} -> ${linktarget} created."
+                            echo ""
 		                else
 		                    ln -s ${linksource} ${linktarget} 
 	                        echo "New symlink ${linksource} -> ${linktarget} created."
+                            echo ""
                 	    fi
                 	fi
         	    fi
