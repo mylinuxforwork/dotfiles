@@ -81,10 +81,11 @@ _installSymLink ~/.config/wlogout ~/dotfiles/wlogout/ ~/.config
 _installSymLink ~/.config/qtile ~/dotfiles/qtile/ ~/.config
 _installSymLink ~/.config/polybar ~/dotfiles/polybar/ ~/.config
 _installSymLink ~/.xinitrc ~/dotfiles/qtile/.xinitrc ~/.xinitrc
-_installSymLink ~/.gtkrc-2.0 ~/dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0
-_installSymLink ~/.config/gtk-3.0 ~/dotfiles/gtk-3.0/ ~/.config/
-_installSymLink ~/.Xresources ~/dotfiles/.Xresources ~/.Xresources
-_installSymLink ~/.icons ~/dotfiles/.icons/ ~/
+
+_installSymLink ~/.gtkrc-2.0 ~/dotfiles/gtk/.gtkrc-2.0 ~/.gtkrc-2.0
+_installSymLink ~/.config/gtk-3.0 ~/dotfiles/gtk/gtk-3.0/ ~/.config/
+_installSymLink ~/.Xresources ~/dotfiles/gtk/.Xresources ~/.Xresources
+_installSymLink ~/.icons ~/dotfiles/gtk/.icons/ ~/
 
 # ------------------------------------------------------
 # DONE
