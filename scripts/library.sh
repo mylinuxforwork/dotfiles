@@ -87,20 +87,36 @@ _installSymLink() {
     symlink="$1";
     linksource="$2";
     linktarget="$3";
-    if [ -L "${symlink}" ]; then
-        echo "Link ${symlink} exists already."
-    else
-        if [ -d ${symlink} ]; then
-            echo "Directory ${symlink}/ exists."
-	    ln -s ${linksource} ${linktarget} 
-        else
-            if [ -f ${symlink} ]; then
-                echo "File ${symlink} exists."
-		ln -s ${linksource} ${linktarget} 
-            else
-                ln -s ${linksource} ${linktarget} 
-                echo "Link ${linksource} -> ${linktarget} created."
-            fi
-        fi
-    fi
+    
+    while true; do
+        read -p "DO YOU WANT TO INSTALL ${symlink}? (Yy/Nn): " yn
+        case $yn in
+            [Yy]* )
+                if [ -L "${symlink}" ]; then
+                    rm ${symlink}
+                    ln -s ${linksource} ${linktarget} 
+		            echo "Symlink ${symlink} created."
+    		    else
+	    	        if [ -d ${symlink} ]; then
+                        rm -rf ${symlink}/ 
+		    		    ln -s ${linksource} ${linktarget}
+                        echo "Symlink for directory ${symlink}/ created."
+           		    else
+	    	            if [ -f ${symlink} ]; then
+                            rm ${symlink} 
+                    		ln -s ${linksource} ${linktarget} 
+                            echo "Symlink to file ${symlink} created."
+		                else
+		                    ln -s ${linksource} ${linktarget} 
+	                        echo "New symlink ${linksource} -> ${linktarget} created."
+                	    fi
+                	fi
+        	    fi
+        break;;
+            [Nn]* ) 
+                # exit;
+            break;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
 }

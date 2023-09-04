@@ -46,45 +46,25 @@ echo ""
 # ------------------------------------------------------
 echo ""
 echo "-> Install main packages"
-packagesPacman=("hyprland" "xdg-desktop-portal-hyprland" "waybar" "grim" "slurp");
+packagesPacman=(
+    "hyprland" 
+    "xdg-desktop-portal-hyprland" 
+    "waybar" 
+    "grim" 
+    "slurp"
+);
 
-packagesYay=("swww" "swaylock-effects" "wlogout");
+packagesYay=(
+    "swww" 
+    "swaylock-effects" 
+    "wlogout"
+);
 
 # ------------------------------------------------------
 # Install required packages
 # ------------------------------------------------------
 _installPackagesPacman "${packagesPacman[@]}";
 _installPackagesYay "${packagesYay[@]}";
-
-# ------------------------------------------------------
-# Install qtile configuration
-# ------------------------------------------------------
-echo ""
-echo "-> Install Hyprland configuration"
-while true; do
-    read -p "Do you want to install/replace the Hyprland configuration? (Yy/Nn): " yn
-    case $yn in
-        [Yy]* )
-            if [ -d ~/.config/hypr/ ]; then
-                rm -r ~/.config/hypr/
-            fi
-    		_installSymLink ~/.config/hypr ~/dotfiles/hypr/ ~/.config
-        break;;
-        [Nn]* ) 
-            echo "Installation/Replacement of Hyprland configuration skipped."
-        break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
-
-# ------------------------------------------------------
-# Create symbolic links
-# ------------------------------------------------------
-echo ""
-echo "-> Create symbolic links"
-_installSymLink ~/.config/waybar ~/dotfiles/waybar/ ~/.config
-_installSymLink ~/.config/swaylock ~/dotfiles/swaylock/ ~/.config
-_installSymLink ~/.config/wlogout ~/dotfiles/wlogout/ ~/.config
 
 echo ""
 echo "-> Start swww"

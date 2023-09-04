@@ -45,43 +45,14 @@ echo ""
 echo ""
 echo "-> Install main packages"
 
-packagesPacman=("qtile" "polybar");
+packagesPacman=(
+    "qtile" 
+    "polybar"
+);
 
 # ------------------------------------------------------
 # Install required packages
 # ------------------------------------------------------
 _installPackagesPacman "${packagesPacman[@]}";
-
-# ------------------------------------------------------
-# Install qtile configuration
-# ------------------------------------------------------
-echo ""
-echo "-> Install Qtile configuration"
-while true; do
-    read -p "Do you want to install/replace the Qtile configuration? (Yy/Nn): " yn
-    case $yn in
-        [Yy]* )
-            if [ -d ~/.config/qtile/ ]; then
-                rm -r ~/.config/qtile/
-            fi
-    		_installSymLink ~/.config/qtile ~/dotfiles/qtile/ ~/.config
-        break;;
-        [Nn]* ) 
-            echo "Installation/Replacement of Qtile configuration skipped."
-        break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
-
-# ------------------------------------------------------
-# Create symbolic links
-# ------------------------------------------------------
-echo "-> Create symbolic links"
-_installSymLink ~/.config/polybar ~/dotfiles/polybar/ ~/.config
-
-if [ -f ~/.xinitrc ]; then
-    rm ~/.xinitrc
-fi
-ln -s ~/dotfiles/qtile/.xinitrc ~/.xinitrc
 
 echo "DONE!"

@@ -1,0 +1,92 @@
+#!/bin/bash
+#      _       _    __ _ _           
+#   __| | ___ | |_ / _(_) | ___  ___ 
+#  / _` |/ _ \| __| |_| | |/ _ \/ __|
+# | (_| | (_) | |_|  _| | |  __/\__ \
+#  \__,_|\___/ \__|_| |_|_|\___||___/
+#                                    
+# by Stephan Raabe (2023)
+# ------------------------------------------------------
+# Install Script for dotfiles and configuration
+# yay must be installed
+# ------------------------------------------------------
+
+# ------------------------------------------------------
+# Load Library
+# ------------------------------------------------------
+source $(dirname "$0")/scripts/library.sh
+clear
+echo "     _       _    __ _ _            "
+echo "  __| | ___ | |_ / _(_) | ___  ___  "
+echo " / _' |/ _ \| __| |_| | |/ _ \/ __| "
+echo "| (_| | (_) | |_|  _| | |  __/\__ \ "
+echo " \__,_|\___/ \__|_| |_|_|\___||___/ "
+echo "                                    "
+echo "by Stephan Raabe (2023)"
+echo "-------------------------------------"
+echo ""
+echo "The script will ask for permission to remove the following existing folders and files."
+echo "But you can decide to keep your local versions by answering with No (Nn)."
+echo "Symbolic links will be created from ~/dotfiles into your home and .config directories."
+echo ""
+
+# ------------------------------------------------------
+# Confirm Start
+# ------------------------------------------------------
+while true; do
+    read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
+    case $yn in
+        [Yy]* )
+            echo "Installation started."
+        break;;
+        [Nn]* ) 
+            exit;
+        break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+# ------------------------------------------------------
+# Create .config folder
+# ------------------------------------------------------
+echo ""
+echo "-> Check existing .config folder"
+
+if [ -d ~/.config ]; then
+    echo ".config folder already exists."
+else
+    mkdir ~/.config
+    echo ".config folder created."
+fi
+
+# ------------------------------------------------------
+# Create symbolic links
+# ------------------------------------------------------
+echo ""
+echo "-> Install dotfiles with symbolic links"
+
+_installSymLink ~/.config/picom ~/dotfiles/picom/ ~/.config
+_installSymLink ~/.config/alacritty ~/dotfiles/alacritty/ ~/.config
+_installSymLink ~/.config/ranger ~/dotfiles/ranger/ ~/.config
+_installSymLink ~/.config/rofi ~/dotfiles/rofi/ ~/.config
+_installSymLink ~/.config/vim ~/dotfiles/vim/ ~/.config
+_installSymLink ~/.config/nvim ~/dotfiles/nvim/ ~/.config
+_installSymLink ~/.config/dunst ~/dotfiles/dunst/ ~/.config
+_installSymLink ~/.config/wal ~/dotfiles/wal/ ~/.config
+_installSymLink ~/.config/starship.toml ~/dotfiles/starship/starship.toml ~/.config/starship.toml
+_installSymLink ~/.config/hypr ~/dotfiles/hypr/ ~/.config
+_installSymLink ~/.config/waybar ~/dotfiles/waybar/ ~/.config
+_installSymLink ~/.config/swaylock ~/dotfiles/swaylock/ ~/.config
+_installSymLink ~/.config/wlogout ~/dotfiles/wlogout/ ~/.config
+_installSymLink ~/.config/qtile ~/dotfiles/qtile/ ~/.config
+_installSymLink ~/.config/polybar ~/dotfiles/polybar/ ~/.config
+_installSymLink ~/.xinitrc ~/dotfiles/qtile/.xinitrc ~/.xinitrc
+_installSymLink ~/.gtkrc-2.0 ~/dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0
+_installSymLink ~/.config/gtk-3.0 ~/dotfiles/gtk-3.0/ ~/.config/
+_installSymLink ~/.Xresources ~/dotfiles/.Xresources ~/.Xresources
+_installSymLink ~/.icons ~/dotfiles/.icons/ ~/
+
+# ------------------------------------------------------
+# DONE
+# ------------------------------------------------------
+echo "DONE! Please reboot your system!"

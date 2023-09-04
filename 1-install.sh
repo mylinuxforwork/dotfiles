@@ -1,14 +1,13 @@
 #!/bin/bash
-#      _       _    __ _ _           
-#   __| | ___ | |_ / _(_) | ___  ___ 
-#  / _` |/ _ \| __| |_| | |/ _ \/ __|
-# | (_| | (_) | |_|  _| | |  __/\__ \
-#  \__,_|\___/ \__|_| |_|_|\___||___/
-#                                    
-# by Stephan Raabe (2023)
-# ------------------------------------------------------
-# Install Script for dotfiles and configuration
-# yay must be installed
+#  ___           _        _ _  
+# |_ _|_ __  ___| |_ __ _| | | 
+#  | || '_ \/ __| __/ _` | | | 
+#  | || | | \__ \ || (_| | | | 
+# |___|_| |_|___/\__\__,_|_|_| 
+#                              
+# by Stephan Raabe (2023) 
+# ----------------------------------------------------- 
+# Install Script for required packages
 # ------------------------------------------------------
 
 # ------------------------------------------------------
@@ -16,19 +15,14 @@
 # ------------------------------------------------------
 source $(dirname "$0")/scripts/library.sh
 clear
-echo "     _       _    __ _ _            "
-echo "  __| | ___ | |_ / _(_) | ___  ___  "
-echo " / _' |/ _ \| __| |_| | |/ _ \/ __| "
-echo "| (_| | (_) | |_|  _| | |  __/\__ \ "
-echo " \__,_|\___/ \__|_| |_|_|\___||___/ "
-echo "                                    "
+echo "  ___           _        _ _  "
+echo " |_ _|_ __  ___| |_ __ _| | | "
+echo "  | ||  _ \/ __| __/ _  | | | "
+echo "  | || | | \__ \ || (_| | | | "
+echo " |___|_| |_|___/\__\__,_|_|_| "
+echo "                              "
 echo "by Stephan Raabe (2023)"
 echo "-------------------------------------"
-echo ""
-echo "The script will not remove any folders or files."
-echo "Symbolic links will be created instead when the folder or files doesn't exists."
-echo "If you want to overwrite your configuration please remove the correspondig folder in your .config first."
-echo "(For example ~/.config/qtile, etc.)"
 echo ""
 
 # ------------------------------------------------------
@@ -66,9 +60,50 @@ done
 echo ""
 echo "-> Install main packages"
 
-packagesPacman=("picom" "alacritty" "rofi" "rofi-calc" "chromium" "scrot" "nitrogen" "dunst" "starship" "slock" "neovim" "mpv" "freerdp" "xfce4-power-manager" "thunar" "mousepad" "ttf-font-awesome" "ttf-fira-sans" "ttf-fira-code" "ttf-firacode-nerd" "figlet" "lxappearance" "breeze" "breeze-gtk" "vlc" "exa" "python-pip" "python-psutil" "python-rich" "python-click" "xdg-desktop-portal-gtk" "pavucontrol" "tumbler" "xautolock" "blueman");
+packagesPacman=(
+    "picom" 
+    "alacritty" 
+    "rofi" 
+    "rofi-calc" 
+    "chromium" 
+    "scrot" 
+    "nitrogen" 
+    "dunst" 
+    "starship"
+    "slock" 
+    "neovim" 
+    "mpv" 
+    "freerdp" 
+    "xfce4-power-manager" 
+    "thunar" 
+    "mousepad" 
+    "ttf-font-awesome" 
+    "ttf-fira-sans" 
+    "ttf-fira-code" 
+    "ttf-firacode-nerd" 
+    "figlet" 
+    "lxappearance" 
+    "breeze" 
+    "breeze-gtk" 
+    "vlc" 
+    "exa" 
+    "python-pip" 
+    "python-psutil" 
+    "python-rich" 
+    "python-click" 
+    "xdg-desktop-portal-gtk"
+    "pavucontrol" 
+    "tumbler" 
+    "xautolock" 
+    "blueman"
+);
 
-packagesYay=("brave-bin" "pfetch" "bibata-cursor-theme" "trizen");
+packagesYay=(
+    "brave-bin" 
+    "pfetch" 
+    "bibata-cursor-theme" 
+    "trizen"
+);
   
 # ------------------------------------------------------
 # Install required packages
@@ -88,19 +123,6 @@ fi
 clear
 
 # ------------------------------------------------------
-# Create .config folder
-# ------------------------------------------------------
-echo ""
-echo "-> Install .config folder"
-
-if [ -d ~/.config ]; then
-    echo ".config folder already exists."
-else
-    mkdir ~/.config
-    echo ".config folder created."
-fi
-
-# ------------------------------------------------------
 # Remove pywal folder from .config
 # ------------------------------------------------------
 echo ""
@@ -108,21 +130,6 @@ if [ -d ~/.config/wal/ ]; then
     rm -r ~/.config/wal/
     echo "~/.config/wal/ removed."
 fi
-
-# ------------------------------------------------------
-# Create symbolic links
-# ------------------------------------------------------
-echo ""
-echo "-> Install symbolic links"
-
-_installSymLink ~/.config/picom ~/dotfiles/picom/ ~/.config
-_installSymLink ~/.config/alacritty ~/dotfiles/alacritty/ ~/.config
-_installSymLink ~/.config/rofi ~/dotfiles/rofi/ ~/.config
-_installSymLink ~/.config/vim ~/dotfiles/vim/ ~/.config
-_installSymLink ~/.config/nvim ~/dotfiles/nvim/ ~/.config
-_installSymLink ~/.config/dunst ~/dotfiles/dunst/ ~/.config
-_installSymLink ~/.config/wal ~/dotfiles/wal/ ~/.config
-_installSymLink ~/.config/starship.toml ~/dotfiles/starship/starship.toml ~/.config/starship.toml
 
 # ------------------------------------------------------
 # Install .bashrc
@@ -134,6 +141,7 @@ while true; do
     case $yn in
         [Yy]* )
             rm ~/.bashrc
+            _installSymLink ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
             echo ".bashrc removed"
         break;;
         [Nn]* ) 
@@ -142,7 +150,6 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
-_installSymLink ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
 
 # ------------------------------------------------------
 # Install Theme, Icons and Cursor
