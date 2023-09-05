@@ -31,7 +31,7 @@
 
     // Modules Center
     "modules-center": [
-        "wlr/workspaces"
+        "hyprland/workspaces"
     ],
 
     // Modules Right    
