@@ -127,63 +127,8 @@ clear
 # ------------------------------------------------------
 echo ""
 echo "-> Install .bashrc"
-while true; do
-    read -p "Do you want to replace the existing .bashrc file? (Yy/Nn): " yn
-    case $yn in
-        [Yy]* )
-            rm ~/.bashrc
-            _installSymLink ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
-            echo ".bashrc removed"
-        break;;
-        [Nn]* ) 
-            echo "Replacement of .bashrc skipped."
-        break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
 
-# ------------------------------------------------------
-# Install Theme, Icons and Cursor
-# ------------------------------------------------------
-echo ""
-echo "-> Install Theme"
-while true; do
-    read -p "Do you want to replace the existing GTK2/GTK3 theme configuration? (Yy/Nn): " yn
-    case $yn in
-        [Yy]* )
-            if [ -d ~/.config/gtk-3.0 ]; then
-                rm -r ~/.config/gtk-3.0
-                echo "gtk-3.0 removed"
-            fi
-
-            if [ -f ~/.gtkrc-2.0 ]; then
-                rm ~/.gtkrc-2.0
-                echo ".gtkrc-2.0"
-            fi
-
-            if [ -f ~/.Xresources ]; then
-                rm ~/.Xresources
-                echo ".Xresources removed"
-            fi
-            
-            if [ -d ~/.icons ]; then
-                rm -r ~/.icons
-                echo ".icons removed"
-            fi
-            
-            _installSymLink ~/.gtkrc-2.0 ~/dotfiles/.gtkrc-2.0 ~/.gtkrc-2.0
-            _installSymLink ~/.config/gtk-3.0 ~/dotfiles/gtk-3.0/ ~/.config/
-            _installSymLink ~/.Xresources ~/dotfiles/.Xresources ~/.Xresources
-            _installSymLink ~/.icons ~/dotfiles/.icons/ ~/
-
-            echo "Existing theme removed"
-        break;;
-        [Nn]* ) 
-            echo "Replacement of theme skipped."
-        break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+_installSymLink .bashrc ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
 
 # ------------------------------------------------------
 # Install custom issue (login prompt)
