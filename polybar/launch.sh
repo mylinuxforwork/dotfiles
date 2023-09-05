@@ -23,4 +23,3 @@ then
 else
     polybar -r mybar
 fi 
-
