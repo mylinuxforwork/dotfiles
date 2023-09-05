@@ -67,8 +67,4 @@ _installPackagesPacman "${packagesPacman[@]}";
 _installPackagesYay "${packagesYay[@]}";
 
 echo ""
-echo "-> Start swww"
-swww init
-
-echo ""
-echo "DONE!"
+echo "DONE! Please reboot your system!"

@@ -55,4 +55,4 @@ packagesPacman=(
 # ------------------------------------------------------
 _installPackagesPacman "${packagesPacman[@]}";
 
-echo "DONE!"
+echo "DONE! Please reboot your system!"
