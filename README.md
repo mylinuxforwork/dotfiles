@@ -48,13 +48,15 @@ To make it easy for you to get started with my dotfiles, here's a list of recomm
 # Clone the repository from your home directory
 git clone https://gitlab.com/stephan-raabe/dotfiles.git
 
-# Install or update all required packages and install dotfiles
+# Change into the new dotfiles folder
+cd dotfiles
+
+# Install all required packages
 ./1-install.sh
 
 # Install hyprland window manager
 ./2-install-hyprland.sh
-# OR/AND
-# Install qtile window manager
+# OR/AND Install qtile window manager
 ./2-install-qtile.sh
 
 # Install dotfiles
