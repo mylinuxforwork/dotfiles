@@ -10,7 +10,7 @@
 //
 {
     // Workspaces
-    "wlr/workspaces" : {
+    "hyprland/workspaces" : {
         "on-click": "activate",
         "active-only": false,
         "all-outputs": true,
@@ -18,9 +18,11 @@
         "format-icons": {
 			"urgent": "",
 			"active": "",
-			"default": "",
-            "sort-by-number": true
-        }
+			"default": ""
+        },
+        "persistent_workspaces": {
+             "*": 5
+        }       
     },
 
     // Taskbar
