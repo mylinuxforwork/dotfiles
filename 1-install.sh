@@ -36,11 +36,24 @@ else
     cd ~/yay-git
     makepkg -si
     cd ~/dotfiles/
+    clear
+    echo "yay has been installed successfully."
+    echo ""
+    echo "  ___           _        _ _  "
+    echo " |_ _|_ __  ___| |_ __ _| | | "
+    echo "  | ||  _ \/ __| __/ _  | | | "
+    echo "  | || | | \__ \ || (_| | | | "
+    echo " |___|_| |_|___/\__\__,_|_|_| "
+    echo "                              "
+    echo "by Stephan Raabe (2023)"
+    echo "-------------------------------------"
+    echo ""
 fi
 
 # ------------------------------------------------------
 # Confirm Start
 # ------------------------------------------------------
+
 while true; do
     read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
     case $yn in
