@@ -20,9 +20,8 @@ wal -q -i ~/wallpaper/
 source "$HOME/.cache/wal/colors.sh"
 
 # ----------------------------------------------------- 
-# Copy color file to waybar folder
+# Copy selected wallpaper into .cache folder
 # ----------------------------------------------------- 
-cp ~/.cache/wal/colors-waybar.css ~/dotfiles/waybar/
 cp $wallpaper ~/.cache/current_wallpaper.jpg
 
 # ----------------------------------------------------- 
