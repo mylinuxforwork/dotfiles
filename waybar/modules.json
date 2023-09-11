@@ -72,7 +72,7 @@
         "escape": true,
         "return-type": "json",       
         "exec": "~/dotfiles/scripts/updates.sh",
-        "restart-interval": 600,
+        "restart-interval": 60,
         "on-click": "alacritty -e ~/dotfiles/scripts/installupdates.sh",
         "tooltip": false
     },

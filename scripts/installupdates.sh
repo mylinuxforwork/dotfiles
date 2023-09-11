@@ -10,8 +10,8 @@
 # Required: yay trizen timeshift btrfs-grub
 # ----------------------------------------------------- 
 
+sleep 1
 source ~/dotfiles/scripts/library.sh
-
 clear
 
 echo "-----------------------------------------------------"
