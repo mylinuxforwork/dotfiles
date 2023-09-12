@@ -1,0 +1,6 @@
+Version 2.1
+
+Bugfixes
+Updates custom waybar mdule to check available packages for updates (pacman and aur) plus color theme for number of available packages (waybar/modules.json)
+New installupdates script with Timeshift integration. Ask for name for the Timeshift before starting the updates (scripts/installupdates.sh)
+Pywal colors for waybar now with relative link into ./cache/wal/ (waybar/style.css)
