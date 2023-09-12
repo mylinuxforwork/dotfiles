@@ -117,7 +117,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #taskbar {
-    background: transparent;
+    background: @color11;
     margin: 3px 15px 3px 0px;
     padding: 2px 3px 1px 3px;
     border-radius: 14px;

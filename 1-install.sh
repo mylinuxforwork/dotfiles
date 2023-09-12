@@ -74,6 +74,7 @@ echo ""
 echo "-> Install main packages"
 
 packagesPacman=(
+    "pacman-contrib"
     "alacritty" 
     "rofi" 
     "chromium" 

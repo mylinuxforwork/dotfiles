@@ -8,6 +8,7 @@
 #  
 # by Stephan Raabe (2023) 
 # ----------------------------------------------------- 
+# Requires pacman-contrib trizen
 
 # ----------------------------------------------------- 
 # Define threshholds for color indicators
@@ -43,7 +44,8 @@ css_class="green"
 
 if [ "$updates" -gt $threshhold_yellow ]; then
     css_class="yellow"
-elif [ "$updates" -gt $threshhold_red ]; then
+fi
+if [ "$updates" -gt $threshhold_red ]; then
     css_class="red"
 fi
 if [ "$updates" -gt $threshhold_green ]; then
