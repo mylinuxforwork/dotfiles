@@ -10,10 +10,19 @@
 //
 {
     // General Settings
+
+    // Position TOP
     "layer": "top",
-    "height": 16,
     "margin-top": 14,
     "margin-bottom": 0,
+
+    // Position BOTTOM
+    // "position": "bottom",
+    // "margin-top": 0,
+    // "margin-bottom": 14,
+    
+    "layer": "top",
+    "height": 16,
     "margin-left": 0,
     "margin-right": 0,    
     "spacing": 0,
