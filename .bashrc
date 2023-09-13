@@ -21,27 +21,24 @@ alias c='clear'
 alias nf='neofetch'
 alias pf='pfetch'
 alias ls='exa -al'
-alias mutt='neomutt'
-alias m='neomutt'
 alias shutdown='systemctl poweroff'
 alias v='nvim'
-alias r='ranger'
-alias t='sudo timeshift --list'
 alias ts='~/dotfiles/scripts/snapshot.sh'
 alias matrix='cmatrix'
-alias shot='scrot -d 3 -c -z -u'
-alias shotsel='scrot -s'
 alias wifi='nmtui'
 alias od='~/private/onedrive.sh'
 alias rw='~/dotfiles/waybar/reload.sh'
 alias winclass="xprop | grep 'CLASS'"
 
+# -----------------------------------------------------
 # Window Managers
+# -----------------------------------------------------
 
 alias Qtile='startx'
-# alias Hyprland="~/dotfiles/hypr/starthypr.sh"
 
+# -----------------------------------------------------
 # GIT
+# -----------------------------------------------------
 
 alias gs="git status"
 alias ga="git add"
@@ -50,8 +47,11 @@ alias gp="git push"
 alias gpl="git pull"
 alias gst="git stash"
 alias gsp="git stash; git pull"
+alias gcheck="git checkout"
 
+# -----------------------------------------------------
 # SCRIPTS
+# -----------------------------------------------------
 
 alias w='~/dotfiles/scripts/updatewal.sh'
 alias gr='python ~/dotfiles/scripts/growthrate.py'
@@ -59,24 +59,32 @@ alias ChatGPT='python ~/mychatgpt/mychatgpt.py'
 alias chat='python ~/mychatgpt/mychatgpt.py'
 alias ascii='~/dotfiles/scripts/figlet.sh'
 
+# -----------------------------------------------------
 # VIRTUAL MACHINE
+# -----------------------------------------------------
 
 alias vm='~/private/launchvm.sh'
 alias lg='~/dotfiles/scripts/looking-glass.sh'
 alias vmstart='virsh --connect qemu:///system start win11'
 alias vmstop='virsh --connect qemu:///system destroy win11'
 
+# -----------------------------------------------------
 # EDIT CONFIG FILES
+# -----------------------------------------------------
 
 alias confq='nvim ~/dotfiles/qtile/config.py'
 alias confp='nvim ~/dotfiles/picom/picom.conf'
 alias confb='nvim ~/dotfiles/.bashrc'
 
+# -----------------------------------------------------
 # EDIT NOTES
+# -----------------------------------------------------
 
 alias notes='vim ~/notes.txt'
 
+# -----------------------------------------------------
 # SYSTEM
+# -----------------------------------------------------
 
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias setkb='setxkbmap de;echo "Keyboard set back to de."'
@@ -84,11 +92,14 @@ alias setkb='setxkbmap de;echo "Keyboard set back to de."'
 # -----------------------------------------------------
 # SCREEN RESOLUTINS
 # -----------------------------------------------------
+
+# Qtile
 alias res1='xrandr --output DisplayPort-0 --mode 2560x1440 --rate 120'
 alias res2='xrandr --output DisplayPort-0 --mode 1920x1080 --rate 120'
-alias r1='hyprctl keyword monitor ,preferred,auto,1'
-alias r2='hyprctl keyword monitor ,1920x1080,auto,1'
 
+#Hyprland
+alias r1='hyprctl keyword monitor ,2560x1440@120,auto,1'
+alias r2='hyprctl keyword monitor ,1920x1080@120,auto,1'
 
 export PATH="/usr/lib/ccache/bin/:$PATH"
 

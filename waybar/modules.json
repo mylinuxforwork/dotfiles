@@ -67,10 +67,13 @@
 
     // Updates Count
     "custom/updates": {
-        "format": " {}",
+        "format": "  {}",
+        "tooltip-format": "{}",
+        "escape": true,
+        "return-type": "json",       
         "exec": "~/dotfiles/scripts/updates.sh",
-        "restart-interval": 600,
-        "on-click": "alacritty -e yay",
+        "restart-interval": 60,
+        "on-click": "alacritty -e ~/dotfiles/scripts/installupdates.sh",
         "tooltip": false
     },
 

@@ -74,16 +74,13 @@ echo ""
 echo "-> Install main packages"
 
 packagesPacman=(
-    "picom" 
+    "pacman-contrib"
     "alacritty" 
     "rofi" 
-    "rofi-calc" 
     "chromium" 
-    "scrot" 
     "nitrogen" 
     "dunst" 
     "starship"
-    "slock" 
     "neovim" 
     "mpv" 
     "freerdp" 
@@ -152,7 +149,7 @@ while true; do
     read -p "Do you want to install the custom login promt? (Yy/Nn): " yn
     case $yn in
         [Yy]* )
-            sudo cp ~/dotfiles/issue /etc/issue
+            sudo cp ~/dotfiles/login/issue /etc/issue
             echo "Login promt installed."
         break;;
         [Nn]* ) 

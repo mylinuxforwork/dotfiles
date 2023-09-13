@@ -48,6 +48,9 @@ echo "-> Install main packages"
 packagesPacman=(
     "qtile" 
     "polybar"
+    "picom"
+    "scrot"
+    "slock"
 );
 
 # ------------------------------------------------------

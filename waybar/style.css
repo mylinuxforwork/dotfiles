@@ -13,7 +13,7 @@
 /* -----------------------------------------------------
  * Import Pywal colors 
  * ----------------------------------------------------- */
-@import 'colors-waybar.css';
+@import '../../.cache/wal/colors-waybar.css';
 
 /* -----------------------------------------------------
  * General 
@@ -117,7 +117,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #taskbar {
-    background: transparent;
+    background: @color11;
     margin: 3px 15px 3px 0px;
     padding: 2px 3px 1px 3px;
     border-radius: 14px;
@@ -189,6 +189,20 @@ window#waybar.empty #window {
     padding: 2px 10px 0px 10px;
     margin: 5px 15px 5px 0px;
     opacity:0.8;
+}
+
+#custom-updates.green {
+    background-color: #FFFFFF;
+}
+
+#custom-updates.yellow {
+    background-color: #ff9a3c;
+    color: #ffffff;
+}
+
+#custom-updates.red {
+    background-color: #dc2f2f;
+    color: #ffffff;
 }
 
 /* -----------------------------------------------------
