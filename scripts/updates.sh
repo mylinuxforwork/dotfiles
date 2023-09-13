@@ -33,21 +33,30 @@ fi
 updates=$(("$updates_arch" + "$updates_aur"))
 
 # ----------------------------------------------------- 
+# Testing
+# ----------------------------------------------------- 
+
+# Overwrite updates with numbers for testing
+# updates=100
+
+# test JSON output
+# printf '{"text": "0", "alt": "0", "tooltip": "0 Updates", "class": "red"}'
+# exit
+
+# ----------------------------------------------------- 
 # Output in JSON format for Waybar Module custom-updates
 # ----------------------------------------------------- 
 
 css_class="green"
 
-# test classes
-# printf '{"text": "0", "alt": "0", "tooltip": "0 Updates", "class": "red"}'
-# exit
-
 if [ "$updates" -gt $threshhold_yellow ]; then
     css_class="yellow"
 fi
+
 if [ "$updates" -gt $threshhold_red ]; then
     css_class="red"
 fi
+
 if [ "$updates" -gt $threshhold_green ]; then
     printf '{"text": "%s", "alt": "%s", "tooltip": "%s Updates", "class": "%s"}' "$updates" "$updates" "$updates" "$css_class"
 else

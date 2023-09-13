@@ -15,6 +15,7 @@ configuration {
   drun-display-format: "{name}";
   font: "Fira Sans SemiBold 11";
   modi: "window,run,drun";
+  /* show-icons: true; */
 }
 
 /* Dark theme. */
