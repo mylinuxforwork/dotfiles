@@ -106,6 +106,7 @@ packagesPacman=(
     "tumbler" 
     "xautolock" 
     "blueman"
+    "nautilus"
 );
 
 packagesYay=(

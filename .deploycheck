@@ -1,0 +1,8 @@
+-------------------------------------------------------
+Checklist for changes on main branch after merging
+-------------------------------------------------------
+
+hyprland.conf: Set monitor to ,preferred,auto,1
+hyprland.conf: Set keyboard to us
+gtk/gtk-3.0: Remove bookmarks
+

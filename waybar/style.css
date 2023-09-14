@@ -148,9 +148,11 @@ window#waybar.empty #window {
  * Custom Quicklinks
  * ----------------------------------------------------- */
 
-#custom-brave, #custom-outlook, #custom-teams, #custom-chatgpt, #custom-calculator, #custom-lookingglass {
-    margin-right:15px;
+#custom-brave, #custom-outlook, #custom-filemanager, #custom-teams, #custom-chatgpt, #custom-calculator, #custom-windowsvm {
+    margin-right:20px;
     font-size:20px;
+    font-weight:bold;
+    opacity:0.8;
 }
 
 /* -----------------------------------------------------

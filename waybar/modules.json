@@ -77,6 +77,13 @@
         "tooltip": false
     },
 
+    // Filemanager Launcher
+    "custom/filemanager": {
+        "format": "",
+        "on-click": "nautilus",
+        "tooltip": false
+    },
+
     // Outlook Launcher
     "custom/outlook": {
         "format": "",
@@ -100,7 +107,7 @@
 
     // ChatGPT Launcher
     "custom/chatgpt": {
-        "format": "",
+        "format": "",
         "on-click": "brave --app=https://chat.openai.com",
         "tooltip": false
     },
@@ -112,10 +119,10 @@
         "tooltip": false
     },
 
-    // Looking Glass Launcher
-    "custom/lookingglass": {
+    // Windows VM
+    "custom/windowsvm": {
         "format": "",
-        "on-click": "~/dotfiles/scripts/looking-glass.sh",
+        "on-click": "~/private/launchvm.sh",
         "tooltip": false
     },
 

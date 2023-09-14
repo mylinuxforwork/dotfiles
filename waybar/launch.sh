@@ -16,7 +16,7 @@ killall waybar
 # ----------------------------------------------------- 
 # Loading the configuration based on the username
 # ----------------------------------------------------- 
-if [[ $USER = "raabe2" ]]
+if [[ $USER = "raabe" ]]
 then
     waybar -c ~/dotfiles/waybar/myconfig & -s ~/dotfiles/waybar/style.css  
 else
