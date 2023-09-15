@@ -80,7 +80,7 @@
     // Filemanager Launcher
     "custom/filemanager": {
         "format": "",
-        "on-click": "nautilus",
+        "on-click": "~/dotfiles/scripts/filemanager.sh",
         "tooltip": false
     },
 
