@@ -13,7 +13,7 @@ source ~/dotfiles/scripts/library.sh
 
 if [ -f "/usr/bin/nautilus" ]; then
     echo "nautilus is installed.";
-    nautilus
+    nautilus --new-window
 else
     echo "nautilus not installed. Launching thunar instead."
     thunar
