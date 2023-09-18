@@ -28,6 +28,7 @@ if [ "$selected" ]; then
     source "$HOME/.cache/wal/colors.sh"
 
     newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
+    sleep 1
 
     # Send notification
     notify-send "Theme and Wallpaper updated" "With image $newwall"

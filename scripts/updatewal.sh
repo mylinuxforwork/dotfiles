@@ -31,6 +31,7 @@ qtile cmd-obj -o cmd -f reload_config
 # ----------------------------------------------------- 
 source "$HOME/.cache/wal/colors.sh"
 newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
+sleep 1
 
 # ----------------------------------------------------- 
 # Send notification
