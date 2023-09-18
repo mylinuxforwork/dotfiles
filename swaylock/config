@@ -1,3 +1,13 @@
+#  ____                     _            _     
+# / ___|_      ____ _ _   _| | ___   ___| | __ 
+# \___ \ \ /\ / / _` | | | | |/ _ \ / __| |/ / 
+#  ___) \ V  V / (_| | |_| | | (_) | (__|   <  
+# |____/ \_/\_/ \__,_|\__, |_|\___/ \___|_|\_\ 
+#                     |___/                    
+#  
+# by Stephan Raabe (2023) 
+# ----------------------------------------------------- 
+
 ignore-empty-password
 font="Fira Sans Semibold"
 
@@ -10,7 +20,7 @@ screenshots
 fade-in=1
 
 effect-blur=20x6
-effect-greyscale
+# effect-greyscale
 effect-scale=0.9
 
 indicator
@@ -18,7 +28,7 @@ indicator-radius=240
 indicator-thickness=20
 indicator-caps-lock
 
-key-hl-color=FFFFFF
+key-hl-color=00000066
 
 separator-color=00000000
 
@@ -28,7 +38,7 @@ inside-caps-lock-color=ffffff00
 inside-ver-color=ffffff00
 inside-wrong-color=ffffff00
 
-ring-color=000000
+ring-color=ffffff
 ring-clear-color=ffffff
 ring-caps-lock-color=ffffff
 ring-ver-color=ffffff
@@ -40,6 +50,7 @@ line-caps-lock-color=ffffffFF
 line-ver-color=ffffffFF
 line-wrong-color=ffffffFF
 
+text-color=ffffff
 text-clear-color=ffffff
 text-ver-color=ffffff
 text-wrong-color=ffffff
