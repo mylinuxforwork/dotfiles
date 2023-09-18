@@ -6,6 +6,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.2
 - Hyprland: Prefer dark theme for gtk3 applications e.g., nautilus
 - Hyprland: Add keybinding for filemanager.sh SUPER, CTRL, F to start nautilus (if installed) or thunar
 - Installation: Add nautilus package to become new default file manager
+- Hyprland install script: Add swayidle to 2-install-hyprland.sh
 - Waybar: Add quickstart icon for filemanager.sh
 - Waybar: Style improvements
 
