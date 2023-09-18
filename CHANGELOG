@@ -9,6 +9,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.2
 - Hyprland install script: Add swayidle to 2-install-hyprland.sh
 - Waybar: Add quickstart icon for filemanager.sh
 - Waybar: Style improvements
+- Dunst: Add white border around notifications
 
 Version 2.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.1
