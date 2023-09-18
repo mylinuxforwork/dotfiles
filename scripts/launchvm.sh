@@ -14,10 +14,11 @@ if ([ "x$tmp" == "x" ] || [ "x$tmp" != "xrunning" ])
 then
     virsh --connect qemu:///system start win11
     echo "Virtual Machine win11 is starting..."
-    exit
+    notify-send "Virtual Machine win11 is starting..." "Waiting 45s for booting up."
+    sleep 45
 else
+    notify-send "Virtual Machine win11 is already running." "Launching xfreerdp now!"
     echo "Starting xfreerdp now..."
-    xfreerdp -grab-keyboard /v:192.168.122.44 /size:100% /cert-ignore /u:raabe /p:SECRET /d: /dynamic-resolution /gfx-h264:avc444 +gfx-progressive &
-    exit
 fi
 
+xfreerdp -grab-keyboard /v:192.168.122.44 /size:100% /cert-ignore /u:raabe /p:SECRET /d: /dynamic-resolution /gfx-h264:avc444 +gfx-progressive &

@@ -4,9 +4,9 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.2
 - Login: Move issue into login directory
 - Bugfix: /gtk/gtk-3.0/bookmarks removed from repository
 - Hyprland: Prefer dark theme for gtk3 applications e.g., nautilus
-- Hyprland: Add keybinding for nautilus SUPER, CTRL, F
-- Installation: Add nautilus as default file manager
-- Waybar: Add quickstart icon for nautilus
+- Hyprland: Add keybinding for filemanager.sh SUPER, CTRL, F to start nautilus (if installed) or thunar
+- Installation: Add nautilus package to become new default file manager
+- Waybar: Add quickstart icon for filemanager.sh
 - Waybar: Style improvements
 
 Version 2.1
