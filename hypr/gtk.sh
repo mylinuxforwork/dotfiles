@@ -15,4 +15,4 @@ gsettings set "$gnome_schema" icon-theme "$icon_theme"
 gsettings set "$gnome_schema" cursor-theme "$cursor_theme"
 gsettings set "$gnome_schema" font-name "$font_name"
 
-gsettings set "$gnome_schema" color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
