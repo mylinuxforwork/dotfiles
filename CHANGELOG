@@ -1,8 +1,11 @@
 Version 2.2
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.2
 --------------------------------------------------------
-- Login: Move issue into login directory
 - Bugfix: /gtk/gtk-3.0/bookmarks removed from repository
+- Bugfix: Added cursor definition to hyprland.conf
+- + more smaller fixes
+
+- Login: Move issue into login directory
 - Hyprland: Prefer dark theme for gtk3 applications e.g., nautilus
 - Hyprland: Add keybinding for filemanager.sh SUPER, CTRL, F to start nautilus (if installed) or thunar
 - Installation: Add nautilus package to become new default file manager

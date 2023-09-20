@@ -29,6 +29,7 @@ alias wifi='nmtui'
 alias od='~/private/onedrive.sh'
 alias rw='~/dotfiles/waybar/reload.sh'
 alias winclass="xprop | grep 'CLASS'"
+alias dot="cd ~/dotfiles"
 
 # -----------------------------------------------------
 # Window Managers
