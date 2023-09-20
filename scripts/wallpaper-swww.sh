@@ -44,7 +44,7 @@ if [ "$selected" ]; then
     # ----------------------------------------------------- 
     # Send notification
     # ----------------------------------------------------- 
-    notify-send "Theme and Wallpaper updated" "With image $newwall"
+    notify-send "Colors and Wallpaper updated" "with image $newwall"
 
     echo "Done."
 fi
