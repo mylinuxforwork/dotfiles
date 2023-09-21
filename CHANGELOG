@@ -13,6 +13,9 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.2
 - Waybar: Add quickstart icon for filemanager.sh
 - Waybar: Style improvements
 - Dunst: Add white border around notifications
+- wlogout: Add new white icons and optimized style with pywal
+- Hyprland: Add keybind to passthrough SUPERKEY to Virtual Machine
+- Grim: Removed first option in the script for selected window
 
 Version 2.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.1
