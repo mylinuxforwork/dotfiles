@@ -15,21 +15,36 @@ clock
 timestr=%R
 datestr=%a, %e of %B
 
-screenshots
+# Add current screenshot as wallpaper
+# screenshots
 
+# Add an image as a background 
+# In my setup the current wallpaper (requires wallpaper scripts in /scripts)
+image=~/.cache/current_wallpaper.jpg
+
+# Fade in time
 fade-in=1
 
-effect-blur=20x6
+# Effect for background
+# effect-blur=20x6
 # effect-greyscale
-effect-scale=0.9
+effect-pixelate=5
 
+# Show/Hide indicator circle
 indicator
-indicator-radius=240
+
+# smaller indicator
+indicator-radius=200
+
+# bigger indicator
+# indicator-radius=300
+
 indicator-thickness=20
 indicator-caps-lock
 
-key-hl-color=00000066
+# Define all colors
 
+key-hl-color=00000066
 separator-color=00000000
 
 inside-color=00000033
