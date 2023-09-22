@@ -84,3 +84,5 @@ echo "-----------------------------------------------------"
 echo ""
 
 yay
+
+notify-send "Update complete" "$updates packages updated successfully"

@@ -39,11 +39,12 @@ if [ "$selected" ]; then
     # ----------------------------------------------------- 
     swww img $wallpaper --transition-step 20 --transition-fps=20
     ~/dotfiles/waybar/launch.sh
+    sleep 1
 
     # ----------------------------------------------------- 
     # Send notification
     # ----------------------------------------------------- 
-    notify-send "Theme and Wallpaper updated" "With image $newwall"
+    notify-send "Colors and Wallpaper updated" "with image $newwall"
 
     echo "Done."
 fi

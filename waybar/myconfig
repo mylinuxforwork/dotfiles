@@ -59,8 +59,9 @@
     "group/quicklinks": {
         "orientation": "horizontal",
         "modules": [
+            "custom/filemanager",
             "custom/chatgpt",
-            "custom/lookingglass"
+            "custom/windowsvm"
          ]
     },
 

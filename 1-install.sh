@@ -106,6 +106,7 @@ packagesPacman=(
     "tumbler" 
     "xautolock" 
     "blueman"
+    "nautilus"
 );
 
 packagesYay=(
@@ -182,7 +183,7 @@ while true; do
             else
                 mkdir ~/wallpaper
             fi
-            cp ~/dotfiles/default.jpg ~/wallpaper
+            cp ~/dotfiles/wallpapers/* ~/wallpaper
             echo "Default wallpaper installed."
         break;;
         * ) echo "Please answer yes or no.";;
@@ -194,7 +195,7 @@ done
 # ------------------------------------------------------
 echo ""
 echo "-> Init pywal"
-wal -i ~/dotfiles/default.jpg
+wal -i ~/dotfiles/wallpapers/default.jpg
 echo "pywal initiated."
 
 # ------------------------------------------------------

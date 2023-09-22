@@ -1,6 +1,26 @@
-Version 2.1
+Version 2.2
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.2
+--------------------------------------------------------
+- Bugfix: /gtk/gtk-3.0/bookmarks removed from repository
+- Bugfix: Added cursor definition to hyprland.conf
+- + more smaller fixes
 
-Bugfixes
-Updates custom waybar mdule to check available packages for updates (pacman and aur) plus color theme for number of available packages (waybar/modules.json)
-New installupdates script with Timeshift integration. Ask for name for the Timeshift before starting the updates (scripts/installupdates.sh)
-Pywal colors for waybar now with relative link into ./cache/wal/ (waybar/style.css)
+- Login: Move issue into login directory
+- Hyprland: Prefer dark theme for gtk3 applications e.g., nautilus
+- Hyprland: Add keybinding for filemanager.sh SUPER, CTRL, F to start nautilus (if installed) or thunar
+- Installation: Add nautilus package to become new default file manager
+- Hyprland install script: Add swayidle to 2-install-hyprland.sh
+- Waybar: Add quickstart icon for filemanager.sh
+- Waybar: Style improvements
+- Dunst: Add white border around notifications
+- wlogout: Add new white icons and optimized style with pywal
+- Hyprland: Add keybind to passthrough SUPERKEY to Virtual Machine
+- Grim: Removed first option in the script for selected window
+
+Version 2.1
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.1
+--------------------------------------------------------
+- Several bugfixes
+- Updates custom waybar module to check available packages for updates (pacman and aur) plus color theme for number of available packages (waybar/modules.json)
+- New installupdates script with Timeshift integration. Ask for name for the Timeshift before starting the updates (scripts/installupdates.sh)
+- Waybar: Pywal colors for waybar now with relative link into ./cache/wal/ (waybar/style.css)

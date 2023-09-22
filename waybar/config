@@ -59,6 +59,7 @@
     "group/quicklinks": {
         "orientation": "horizontal",
         "modules": [
+            "custom/filemanager",
             "custom/brave",
          ]
     },
