@@ -53,6 +53,7 @@ packagesPacman=(
     "grim" 
     "slurp"
     "swayidle"
+    "swappy"
 );
 
 packagesYay=(
