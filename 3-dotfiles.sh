@@ -78,7 +78,9 @@ _installSymLink starship ~/.config/starship.toml ~/dotfiles/starship/starship.to
 _installSymLink rofi ~/.config/rofi ~/dotfiles/rofi/ ~/.config
 _installSymLink dunst ~/.config/dunst ~/dotfiles/dunst/ ~/.config
 _installSymLink wal ~/.config/wal ~/dotfiles/wal/ ~/.config
-
+wal -i screenshots/
+echo "Pywal templates initiated!"
+echo ""
 echo "-------------------------------------"
 echo "-> Install GTK dotfiles"
 echo "-------------------------------------"

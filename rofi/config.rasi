@@ -15,22 +15,57 @@ configuration {
   drun-display-format: "{name}";
   font: "Fira Sans SemiBold 11";
   modi: "window,run,drun";
-  /* show-icons: true; */
+  show-icons: true;
 }
 
 /* Dark theme. */
 @import "~/.cache/wal/colors-rofi-dark"
 
 window {
-  width:700px;
+  width:900px;
+  height:600px;
+  spacing:0px;
+  padding:0px;
+
+  border: 3px;
+  border-color:#FFFFFF;
+  border-radius:15px;
+
+  cursor: "default";
+  transparency: "real";
+  fullscreen: "false";
+  background-color: transparent;
+}
+
+mainbox {
+  spacing:0px;
+  padding: 0px 0px 0px 500px;
+  background-color:#000000;
+  background-image: url("~/.cache/current_wallpaper.jpg", height);
+}
+
+inputbar {
+  padding: 10px; 
+}
+
+listview {
+  padding: 10px;
+  background-color:#000000;
+
 }
 
 element {
+  font-color:#FFFFFF;
   padding:6;
+  border-radius:4px;
+  border:2px;
+  border-color:#000000;
+  background-color:#000000;
 }
 
-element-text selected {
+element selected {
   text-color:@background;
+  border-color: #FFFFFF;
 }
 
 prompt {

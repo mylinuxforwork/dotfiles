@@ -44,6 +44,7 @@
 
     // Modules Right    
     "modules-right": [
+        "custom/cliphist",
         "custom/youtube",
         "custom/updates",
         "pulseaudio",
