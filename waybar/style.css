@@ -41,7 +41,7 @@ window#waybar {
 #workspaces {
     background: #FFFFFF;
     margin: 2px;
-    padding: 2px 2px;
+    padding: 1px 1px;
     border-radius: 15px;
     font-weight: bold;
     font-style: normal;
