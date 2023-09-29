@@ -16,6 +16,7 @@ configuration {
   font: "Fira Sans Bold 12";
   modi: "window,run,drun";
   show-icons: true;
+  icon-theme: "kora";
 }
 
 /* Dark theme. */

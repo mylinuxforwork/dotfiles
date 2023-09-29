@@ -40,41 +40,40 @@ window#waybar {
 
 #workspaces {
     background: #FFFFFF;
-    margin: 5px 5px 5px 5px;
-    padding: 4px 1px;
-    border-radius: 12px;
-    font-weight: normal;
+    margin: 2px;
+    padding: 2px 2px;
+    border-radius: 15px;
+    font-weight: bold;
     font-style: normal;
     opacity:0.8;
+    font-size:16px;
+    color:#FFFFFF;
 }
 
 #workspaces button {
-    padding: 0px 10px;
-    margin: 0px 3px;
-    border-radius: 12px;
-    color: @color11;
+    padding: 0px 5px;
+    margin: 2px 3px;
+    border-radius: 15px;
+    color: #FFFFFF;
     background-color: @color11;
     transition: all 0.3s ease-in-out;
     opacity:0.4;
-    font-size:13px;
 }
 
 #workspaces button.active {
-    color: #cdd6f4;
-    background-color: @color11;
-    border-radius: 10px;
-    min-width: 30px;
-    background-size: 400% 400%;
+    color: #FFFFFF;
+    background: @color11;
+    border-radius: 15px;
+    min-width: 40px;
     transition: all 0.3s ease-in-out;
     opacity:1.0;
 }
 
 #workspaces button:hover {
-    background-color: @color1;
-    color: #cdd6f4;
-    border-radius: 10px;
-    min-width: 30px;
-    background-size: 400% 400%;
+    color: #FFFFFF;
+    background: @color11;
+    border-radius: 15px;
+    opacity:0.7;
 }
 
 /* -----------------------------------------------------
@@ -120,8 +119,9 @@ window#waybar.empty #window {
     /* background: @color11; */
     background: #FFFFFF;
     margin: 3px 15px 3px 0px;
-    padding: 2px 3px 1px 3px;
-    border-radius: 14px;
+    padding:0px;
+    /*padding: 2px 3px 1px 3px;*/
+    border-radius: 15px;
     font-weight: normal;
     font-style: normal;
     opacity:0.8;
@@ -149,11 +149,12 @@ window#waybar.empty #window {
  * Custom Quicklinks
  * ----------------------------------------------------- */
 
-#custom-brave, #custom-outlook, #custom-filemanager, #custom-teams, #custom-chatgpt, #custom-calculator, #custom-windowsvm {
+#custom-brave, #custom-outlook, #custom-filemanager, #custom-teams, #custom-chatgpt, #custom-calculator, #custom-windowsvm, #custom-cliphist {
     margin-right:20px;
     font-size:20px;
     font-weight:bold;
     opacity:0.8;
+    color:#FFFFFF;
 }
 
 /* -----------------------------------------------------
@@ -164,7 +165,7 @@ window#waybar.empty #window {
     background-color: @color11;
     font-size: 16px;
     color: #FFFFFF;
-    border-radius: 14px;
+    border-radius: 15px;
     padding: 0px 10px 0px 10px;
     margin: 3px 15px 3px 14px;
     opacity:0.8;
@@ -178,6 +179,7 @@ window#waybar.empty #window {
 #custom-exit {
     margin: 0px 20px 0px 0px;
     font-size:20px;
+    color:#FFFFFF;
 }
 
 /* -----------------------------------------------------
@@ -230,6 +232,7 @@ window#waybar.empty #window {
     margin:0px;
     padding:0px;
     font-size:16px;
+    color:#FFFFFF;
 }
 
 #memory {

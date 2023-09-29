@@ -14,7 +14,7 @@
         "on-click": "activate",
         "active-only": false,
         "all-outputs": true,
-        "format": "{icon}",
+        "format": "{}",
         "format-icons": {
 			"urgent": "",
 			"active": "",
@@ -67,14 +67,14 @@
     
     // Cliphist
     "custom/cliphist": {
-        "format": "{}",
+        "format": "",
         "on-click": "cliphist list | rofi -dmenu | cliphist decode | wl-copy",
         // "exec": "echo ; echo 󰅇 clipboard history",
         // "on-click": "sleep 0.1 && ~/.config/hypr/scripts/cliphist.sh c",
         // "on-click-right": "sleep 0.1 && ~/.config/hypr/scripts/cliphist.sh d",
         // "on-click-middle": "sleep 0.1 && ~/.config/hypr/scripts/cliphist.sh w",
         // "interval" : 86400, // once every day
-        "tooltip": true
+        "tooltip": false
     },
 
     // Updates Count

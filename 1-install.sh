@@ -114,6 +114,7 @@ packagesYay=(
     "pfetch" 
     "bibata-cursor-theme" 
     "trizen"
+    "kora-icon-theme"
 );
   
 # ------------------------------------------------------

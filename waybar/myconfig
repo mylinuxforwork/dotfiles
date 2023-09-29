@@ -44,12 +44,12 @@
 
     // Modules Right    
     "modules-right": [
-        "custom/cliphist",
         "custom/youtube",
         "custom/updates",
         "pulseaudio",
         "bluetooth",
         "battery", 
+        "custom/cliphist",
         "group/hardware",
         "custom/exit",
         "network",
