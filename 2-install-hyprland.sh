@@ -48,7 +48,7 @@ echo ""
 echo "-> Install main packages"
 packagesPacman=(
     "hyprland" 
-    "xdg-desktop-portal-hyprland" 
+    "xdg-desktop-portal-wlr" 
     "waybar" 
     "grim" 
     "slurp"
