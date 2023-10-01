@@ -1,13 +1,15 @@
 Version 2.3
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.3
 --------------------------------------------------------
-Waybar: Add numbers to workspaces
-Screenshots: Add swappy
-Icons: Changed to Kora Icon Theme
-Rofi: New Layout featuring current wallpaper as a background
-Cliphist: Added to the toolbar
-Rofi: Add layout for cliphist
-
+- Waybar: Add numbers to workspaces
+- Screenshots: Add swappy
+- Icons: Changed to Kora Icon Theme
+- Rofi: New Layout featuring current wallpaper as a background
+- Cliphist: Added to the toolbar
+- Rofi: Add layout for cliphist
+- Update Wallpaper: Add random transition effects
+- Hyprland: Exclude configurations files into dedicated files in hypr/conf/ directory
+- Hyprland: New window animations (in hypr/conf/)
 
 Version 2.2
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.2
