@@ -54,7 +54,7 @@ alias gcheck="git checkout"
 # SCRIPTS
 # -----------------------------------------------------
 
-alias w='~/dotfiles/scripts/updatewal.sh'
+alias wallp='~/dotfiles/scripts/updatewal.sh'
 alias gr='python ~/dotfiles/scripts/growthrate.py'
 alias ChatGPT='python ~/mychatgpt/mychatgpt.py'
 alias chat='python ~/mychatgpt/mychatgpt.py'
