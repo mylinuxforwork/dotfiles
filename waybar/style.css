@@ -40,9 +40,10 @@ window#waybar {
 
 #workspaces {
     background: #FFFFFF;
-    margin: 2px;
-    padding: 1px 1px;
+    margin: 2px 1px 3px 1px;
+    padding: 0px 1px;
     border-radius: 15px;
+    border:0px;
     font-weight: bold;
     font-style: normal;
     opacity:0.8;
@@ -51,9 +52,10 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0px 5px;
-    margin: 2px 3px;
+    padding: 1px 5px;
+    margin: 3px 3px;
     border-radius: 15px;
+    border:0px;
     color: #FFFFFF;
     background-color: @color11;
     transition: all 0.3s ease-in-out;
@@ -190,7 +192,7 @@ window#waybar.empty #window {
     background-color: #FFFFFF;
     font-size: 16px;
     color: @background;
-    border-radius: 12px;
+    border-radius: 15px;
     padding: 2px 10px 0px 10px;
     margin: 5px 15px 5px 0px;
     opacity:0.8;
@@ -218,7 +220,7 @@ window#waybar.empty #window {
     background-color: #FFFFFF;
     font-size: 16px;
     color: @background;
-    border-radius: 12px;
+    border-radius: 15px;
     padding: 2px 10px 0px 10px;
     margin: 5px 15px 5px 0px;
     opacity:0.8;
@@ -247,7 +249,7 @@ window#waybar.empty #window {
     background-color: @color11;
     font-size: 16px;
     color: #FFFFFF;
-    border-radius: 14px;
+    border-radius: 15px;
     padding: 1px 10px 0px 10px;
     margin: 3px 15px 3px 0px;
     opacity:0.8;
@@ -262,7 +264,7 @@ window#waybar.empty #window {
     background-color: #FFFFFF;
     font-size: 16px;
     color: @background;
-    border-radius: 12px;
+    border-radius: 15px;
     padding: 2px 10px 0px 10px;
     margin: 5px 15px 5px 0px;
     opacity:0.8;
@@ -281,7 +283,7 @@ window#waybar.empty #window {
     background-color: #FFFFFF;
     font-size: 16px;
     color: @background;
-    border-radius: 14px;
+    border-radius: 15px;
     padding: 2px 10px 0px 10px;
     margin: 3px 15px 3px 0px;
     opacity:0.8;
@@ -306,7 +308,7 @@ window#waybar.empty #window {
     background-color: #FFFFFF;
     font-size: 16px;
     color: @background;
-    border-radius: 12px;
+    border-radius: 15px;
     padding: 2px 10px 0px 10px;
     margin: 5px 15px 5px 0px;
     opacity:0.8;
@@ -326,7 +328,7 @@ window#waybar.empty #window {
     background-color: #FFFFFF;
     font-size: 16px;
     color: @background;
-    border-radius: 12px;
+    border-radius: 15px;
     padding: 2px 15px 0px 10px;
     margin: 5px 15px 5px 0px;
     opacity:0.8;
