@@ -35,7 +35,7 @@ window {
     width:                        200px;
     height:                       130px;
     x-offset:                     -15px;
-    y-offset:                     65px;
+    y-offset:                     62px;
     spacing:                      0px;
     padding:                      0px;
     margin:                       0px; 
