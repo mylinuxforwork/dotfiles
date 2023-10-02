@@ -20,6 +20,9 @@ configuration {
     display-filebrowser:        "FILES";
     display-window:             "WINDOW";
 	drun-display-format:        "{name}";
+    hover-select:               true;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
     window-format:              "{w} · {c} · {t}";
     
 }
