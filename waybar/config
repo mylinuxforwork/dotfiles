@@ -45,6 +45,7 @@
 
     // Modules Right    
     "modules-right": [
+        "custom/wallpaper",
         "custom/cliphist",
         "custom/updates",
         "pulseaudio",

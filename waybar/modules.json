@@ -68,12 +68,9 @@
     // Cliphist
     "custom/cliphist": {
         "format": "",
-        "on-click": "cliphist list | rofi -dmenu | cliphist decode | wl-copy",
-        // "exec": "echo ; echo 󰅇 clipboard history",
-        // "on-click": "sleep 0.1 && ~/.config/hypr/scripts/cliphist.sh c",
-        // "on-click-right": "sleep 0.1 && ~/.config/hypr/scripts/cliphist.sh d",
-        // "on-click-middle": "sleep 0.1 && ~/.config/hypr/scripts/cliphist.sh w",
-        // "interval" : 86400, // once every day
+        "on-click": "sleep 0.1 && ~/dotfiles/scripts/cliphist.sh",
+        "on-click-right": "sleep 0.1 && ~/dotfiles/scripts/cliphist.sh d",
+        "on-click-middle": "sleep 0.1 && ~/dotfiles/scripts/cliphist.sh w",
         "tooltip": false
     },
 
@@ -86,6 +83,13 @@
         "exec": "~/dotfiles/scripts/updates.sh",
         "restart-interval": 60,
         "on-click": "alacritty -e ~/dotfiles/scripts/installupdates.sh",
+        "tooltip": false
+    },
+    
+    // Wallpaper
+    "custom/wallpaper": {
+        "format": "",
+        "on-click": "~/dotfiles/scripts/wallpaper-swww.sh",
         "tooltip": false
     },
 
