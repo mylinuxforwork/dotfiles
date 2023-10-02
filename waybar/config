@@ -33,6 +33,7 @@
     // Modules Left
     "modules-left": [
         "custom/appmenu",
+        "custom/wallpaper",
         "wlr/taskbar",
         "group/quicklinks",
         "hyprland/window"
@@ -50,7 +51,6 @@
         "bluetooth",
         "battery", 
         "group/hardware",
-        "custom/wallpaper",
         "custom/cliphist",
         "network",
         "custom/exit",
