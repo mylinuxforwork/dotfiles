@@ -16,9 +16,9 @@ option1="Selected window (delay 3 sec)"
 option2="Selected area"
 option3="Fullscreen (delay 3 sec)"
 
-options="$option1\n$option2\n$option3"
+options="$option2\n$option3\n$option1"
 
-choice=$(echo -e "$options" | rofi -i -dmenu -lines 4 -width 30 -p "Take Screenshot")
+choice=$(echo -e "$options" | rofi -i -dmenu -config ~/dotfiles/rofi/config-screenshot.rasi -width 30 -p "Take Screenshot")
 
 case $choice in
     $option1)

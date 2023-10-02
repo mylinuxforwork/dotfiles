@@ -10,7 +10,7 @@
 # ----------------------------------------------------- 
 
 # Select wallpaper
-selected=$(ls -1 ~/wallpaper | grep "jpg" | rofi -dmenu -p "Wallpapers")
+selected=$(ls -1 ~/wallpaper | grep "jpg" | rofi -dmenu -config ~/dotfiles/rofi/config-wallpaper.rasi -p "Wallpapers")
 
 if [ "$selected" ]; then
 
@@ -28,6 +28,12 @@ if [ "$selected" ]; then
     source "$HOME/.cache/wal/colors.sh"
 
     newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
+
+    # ----------------------------------------------------- 
+    # Copy selected wallpaper into .cache folder
+    # ----------------------------------------------------- 
+    cp $wallpaper ~/.cache/current_wallpaper.jpg
+
     sleep 1
 
     # Send notification

@@ -45,15 +45,15 @@
 
     // Modules Right    
     "modules-right": [
-        "custom/wallpaper",
-        "custom/cliphist",
         "custom/updates",
         "pulseaudio",
         "bluetooth",
         "battery", 
         "group/hardware",
-        "custom/exit",
+        "custom/wallpaper",
+        "custom/cliphist",
         "network",
+        "custom/exit",
         "clock"
     ],
 

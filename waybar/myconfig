@@ -49,11 +49,11 @@
         "pulseaudio",
         "bluetooth",
         "battery",
+        "group/hardware",
         "custom/wallpaper",
         "custom/cliphist",
-        "group/hardware",
-        "custom/exit",
         "network",
+        "custom/exit",
         "clock"
     ],
 
