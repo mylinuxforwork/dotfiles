@@ -159,6 +159,10 @@ window#waybar.empty #window {
     color:#FFFFFF;
 }
 
+#custom-wallpaper {
+    margin-right:22px;
+}
+
 /* -----------------------------------------------------
  * Custom Modules
  * ----------------------------------------------------- */
@@ -179,7 +183,8 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-exit {
-    margin: 0px 20px 0px 0px;
+    margin: 0px 15px 0px 0px;
+    padding:0px;
     font-size:20px;
     color:#FFFFFF;
 }
@@ -285,7 +290,7 @@ window#waybar.empty #window {
     color: @background;
     border-radius: 15px;
     padding: 2px 10px 0px 10px;
-    margin: 3px 15px 3px 0px;
+    margin: 3px 10px 3px 0px;
     opacity:0.8;
     border: 3px solid #FFFFFF
 }
