@@ -79,7 +79,7 @@ Buttons
 #hibernate {
 	margin: 10px;
 	border-radius: 20px;
-	background-image: image(url("icons/hiberate.png"));
+	background-image: image(url("icons/hibernate.png"));
 }
 
 #shutdown {
