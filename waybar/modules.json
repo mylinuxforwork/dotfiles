@@ -183,19 +183,22 @@
 
     // CPU
     "cpu": {
-        "format": "/ C {usage}% "
+        "format": "/ C {usage}% ",
+        "on-click": "alacritty -e htop"
     },
 
     // Memory
     "memory": {
-        "format": "/ M {}% "
+        "format": "/ M {}i% ",
+        "on-click": "alacritty -e htop"
     },
 
     // Harddisc space used
     "disk": {
         "interval": 30,
         "format": "   {percentage_used}% ",
-        "path": "/"
+        "path": "/",
+        "on-click": "alacritty -e htop"
     }, 
     
     // Network
