@@ -12,7 +12,7 @@
 # ----------------------------------------------------- 
 # Select wallpaper
 # ----------------------------------------------------- 
-selected=$(ls -1 ~/wallpaper | grep "jpg" | rofi -dmenu -p "Wallpapers")
+selected=$(ls -1 ~/wallpaper | grep "jpg" | rofi -dmenu -config ~/dotfiles/rofi/config-wallpaper.rasi -p "Wallpapers")
 
 if [ "$selected" ]; then
 
@@ -37,7 +37,13 @@ if [ "$selected" ]; then
     # ----------------------------------------------------- 
     # Set the new wallpaper
     # ----------------------------------------------------- 
-    swww img $wallpaper --transition-step 20 --transition-fps=20
+    swww img $wallpaper \
+        --transition-bezier .43,1.19,1,.4 \
+        --transition-fps=60 \
+        --transition-type="random" \
+        --transition-duration=0.7 \
+        --transition-pos "$( hyprctl cursorpos )"
+
     ~/dotfiles/waybar/launch.sh
     sleep 1
 

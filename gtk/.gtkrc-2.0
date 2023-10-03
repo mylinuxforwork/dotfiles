@@ -1,9 +1,5 @@
-# DO NOT EDIT! This file will be overwritten by LXAppearance.
-# Any customization should be done in ~/.gtkrc-2.0.mine instead.
-
-include "/home/raabe/.gtkrc-2.0.mine"
 gtk-theme-name="Breeze-Dark"
-gtk-icon-theme-name="breeze-dark"
+gtk-icon-theme-name="kora"
 gtk-font-name="Cantarell 11"
 gtk-cursor-theme-name="Bibata-Modern-Classic"
 gtk-cursor-theme-size=0

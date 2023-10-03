@@ -14,7 +14,7 @@
         "on-click": "activate",
         "active-only": false,
         "all-outputs": true,
-        "format": "{icon}",
+        "format": "{}",
         "format-icons": {
 			"urgent": "",
 			"active": "",
@@ -64,6 +64,15 @@
         "on-click": "brave https://studio.youtube.com",
         "tooltip": false
     },
+    
+    // Cliphist
+    "custom/cliphist": {
+        "format": "",
+        "on-click": "sleep 0.1 && ~/dotfiles/scripts/cliphist.sh",
+        "on-click-right": "sleep 0.1 && ~/dotfiles/scripts/cliphist.sh d",
+        "on-click-middle": "sleep 0.1 && ~/dotfiles/scripts/cliphist.sh w",
+        "tooltip": false
+    },
 
     // Updates Count
     "custom/updates": {
@@ -74,6 +83,14 @@
         "exec": "~/dotfiles/scripts/updates.sh",
         "restart-interval": 60,
         "on-click": "alacritty -e ~/dotfiles/scripts/installupdates.sh",
+        "tooltip": false
+    },
+    
+    // Wallpaper
+    "custom/wallpaper": {
+        "format": "",
+        "on-click-right": "~/dotfiles/scripts/wallpaper-swww.sh",
+        "on-click": "~/dotfiles/scripts/updatewal-swww.sh",
         "tooltip": false
     },
 
@@ -166,19 +183,22 @@
 
     // CPU
     "cpu": {
-        "format": "/ C {usage}% "
+        "format": "/ C {usage}% ",
+        "on-click": "alacritty -e htop"
     },
 
     // Memory
     "memory": {
-        "format": "/ M {}% "
+        "format": "/ M {}% ",
+        "on-click": "alacritty -e htop"
     },
 
     // Harddisc space used
     "disk": {
         "interval": 30,
         "format": "   {percentage_used}% ",
-        "path": "/"
+        "path": "/",
+        "on-click": "alacritty -e htop"
     }, 
     
     // Network

@@ -12,17 +12,17 @@
 /* ---- Configuration ---- */
 configuration {
     modi:                       "drun,run";
-    font:                       "Fira Sans Bold 12";
-    show-icons:                 true;
+    font:                       "Fira Sans Bold 10";
+    show-icons:                 false;
     icon-theme:                 "kora";
     display-drun:               "APPS";
     display-run:                "RUN";
     display-filebrowser:        "FILES";
     display-window:             "WINDOW";
-	drun-display-format:        "{name}";
-    hover-select:               true;
+	hover-select:               true;
     me-select-entry:            "";
     me-accept-entry:            "MousePrimary";
+    drun-display-format:        "{name}";
     window-format:              "{w} · {c} · {t}";
     
 }
@@ -32,9 +32,10 @@ configuration {
 
 /* ---- Window ---- */
 window {
-    width:                        900px;
-    x-offset:                     0px;
-    y-offset:                     0px;
+    width:                        200px;
+    height:                       130px;
+    x-offset:                     -15px;
+    y-offset:                     62px;
     spacing:                      0px;
     padding:                      0px;
     margin:                       0px; 
@@ -43,8 +44,8 @@ window {
     border-color:                 #FFFFFF;
     cursor:                       "default";
     transparency:                 "real";
-    location:                     center;
-    anchor:                       center;
+    location:                     northeast;
+    anchor:                       northeast;
     fullscreen:                   false;
     enabled:                      true;
     border-radius:                10px;
@@ -59,7 +60,7 @@ mainbox {
     margin:                       0px;
     background-color:             @background;
     background-image:             url("~/.cache/current_wallpaper.jpg", height);
-    children:                     ["imagebox","listbox"];
+    children:                     ["listbox"];
 }
 
 /* ---- Imagebox ---- */
@@ -75,7 +76,7 @@ listbox {
     spacing:                     20px;
     background-color:            transparent;
     orientation:                 vertical;
-    children:                    [ "message", "listview" ];
+    children:                    [ "listview" ];
 }
 
 /* ---- Dummy ---- */
@@ -89,7 +90,7 @@ inputbar {
     text-color:                   @foreground;
     spacing:                      10px;
     padding:                      15px;
-    border-radius:                10px;
+    border-radius:                0px;
     border-color:                 @foreground;
     background-color:             @background;
     children:                     [ "textbox-prompt-colon", "entry" ];
@@ -138,7 +139,7 @@ button selected {
 listview {
     enabled:                      true;
     columns:                      1;
-    lines:                        8;
+    lines:                        2;
     cycle:                        true;
     dynamic:                      true;
     scrollbar:                    false;

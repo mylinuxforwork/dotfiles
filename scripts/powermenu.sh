@@ -18,7 +18,7 @@ options="$option1\n"
 options="$options$option2\n"
 options="$options$option3\n$option4"
 
-choice=$(echo -e "$options" | rofi -dmenu -i -no-show-icons -l 4 -width 30 -p "Powermenu") 
+choice=$(echo -e "$options" | rofi -dmenu -config ~/dotfiles/rofi/config-power.rasi -i -no-show-icons -l 4 -width 30 -p "Powermenu") 
 
 case $choice in
 	$option1)

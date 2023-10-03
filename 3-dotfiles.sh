@@ -110,6 +110,7 @@ _installSymLink hypr ~/.config/hypr ~/dotfiles/hypr/ ~/.config
 _installSymLink waybar ~/.config/waybar ~/dotfiles/waybar/ ~/.config
 _installSymLink swaylock ~/.config/swaylock ~/dotfiles/swaylock/ ~/.config
 _installSymLink wlogout ~/.config/wlogout ~/dotfiles/wlogout/ ~/.config
+_installSymLink swappy ~/.config/swappy ~/dotfiles/swappy/ ~/.config
 
 # ------------------------------------------------------
 # DONE

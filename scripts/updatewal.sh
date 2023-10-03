@@ -31,6 +31,12 @@ qtile cmd-obj -o cmd -f reload_config
 # ----------------------------------------------------- 
 source "$HOME/.cache/wal/colors.sh"
 newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
+
+# ----------------------------------------------------- 
+# Copy selected wallpaper into .cache folder
+# ----------------------------------------------------- 
+cp $wallpaper ~/.cache/current_wallpaper.jpg
+
 sleep 1
 
 # ----------------------------------------------------- 

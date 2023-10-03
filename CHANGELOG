@@ -1,3 +1,17 @@
+Version 2.3
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.3
+--------------------------------------------------------
+- Add clipboard manager cliphist
+- Waybar: Add numbers to workspaces
+- Waybar: Add icon for wallpaper selection
+- Waybar: Add cliphist icon (click = open, right-click = delete item, middle-click = clear data)
+- Screenshots: Add swappy
+- Icons: Changed to Kora Icon Theme
+- Rofi: New Layout featuring current wallpaper as a background for launcher, cliphist and wallpaper selection
+- Update Wallpaper: Add random transition effects
+- Hyprland: Exclude configurations files into dedicated files in hypr/conf/ directory
+- Hyprland: New window animations (in hypr/conf/)
+
 Version 2.2
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.2
 --------------------------------------------------------

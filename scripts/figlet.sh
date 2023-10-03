@@ -18,7 +18,8 @@ echo "" >> ~/figlet.txt
 echo "by Stephan Raabe (2023)" >> ~/figlet.txt
 echo "-----------------------------------------------------" >> ~/figlet.txt
 sed -i 's/^/# /; s/$/ /' ~/figlet.txt
-
+lines=$( cat ~/figlet.txt )
+wl-copy "$lines"
 xclip -sel clip ~/figlet.txt
 
 echo "Text copied to clipboard!"

@@ -177,8 +177,8 @@ ColorI=(colordict['colors']['color9'])
 layout_theme = { 
     "border_width": 3,
     "margin": 15,
-    "border_focus": "FFFFFF",
-    "border_normal": ColorC,
+    "border_focus": ColorC,
+    "border_normal": "FFFFFF",
     "single_border_width": 3
 }
 
