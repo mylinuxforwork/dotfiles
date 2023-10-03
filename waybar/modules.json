@@ -189,7 +189,7 @@
 
     // Memory
     "memory": {
-        "format": "/ M {}i% ",
+        "format": "/ M {}% ",
         "on-click": "alacritty -e htop"
     },
 
