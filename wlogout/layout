@@ -12,7 +12,7 @@
 }
 {
     "label" : "logout",
-    "action" : "sleep 1; hyprctl dispatch exit",
+    "action" : "sleep 1; loginctl terminate-user $USER",
     "text" : "Logout",
     "keybind" : "e"
 }
