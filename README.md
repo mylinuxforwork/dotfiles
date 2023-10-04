@@ -37,13 +37,13 @@ Included is a pywal configuration that changes the color scheme based on a rando
 
 ## Screenshots & Video
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=EujO_5KvCCo" target="_blank"><img src="screenshots/screenshot-23-1.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-23-1.png" alt="Click to watch on YouTube" /></a>
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=EujO_5KvCCo" target="_blank"><img src="screenshots/screenshot-23-2.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-23-2.png" alt="Click to watch on YouTube" /></a>
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=EujO_5KvCCo" target="_blank"><img src="screenshots/screenshot-23-3.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-23-3.png" alt="Click to watch on YouTube" /></a>
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=EujO_5KvCCo" target="_blank">Watch on YouTube</a>
+<a href="https://youtu.be/ELEQh0z3lm8" target="_blank">Watch on YouTube</a>
 
 <b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
 
