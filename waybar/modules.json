@@ -139,7 +139,7 @@
     // Windows VM
     "custom/windowsvm": {
         "format": "",
-        "on-click": "~/private/launchvm.sh",
+        "on-click": "~/dotfiles/scripts/launchvm.sh",
         "tooltip": false
     },
 
