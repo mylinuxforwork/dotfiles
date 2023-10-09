@@ -27,7 +27,7 @@ fi
 IFS=';' read -ra arrThemes <<< "$themestyle"
 echo ${arrThemes[0]}
 
-if [ ! -f ~/dotfiles/waybar/styles${arrThemes[1]}/style.css ]; then
+if [ ! -f ~/dotfiles/waybar/themes${arrThemes[1]}/style.css ]; then
     themestyle="/ml4w;/ml4w/light"
 fi
 
@@ -36,7 +36,7 @@ fi
 # ----------------------------------------------------- 
 if [[ $USER = "raabe" ]]
 then
-    waybar -c ~/dotfiles/waybar/styles${arrThemes[0]}/myconfig -s ~/dotfiles/waybar/styles${arrThemes[1]}/style.css &
+    waybar -c ~/dotfiles/waybar/themes${arrThemes[0]}/myconfig -s ~/dotfiles/waybar/themes${arrThemes[1]}/style.css &
 else
-    waybar -c ~/dotfiles/waybar/styles${arrThemes[0]}/config -s ~/dotfiles/waybar/styles${arrThemes[1]}/style.css &
+    waybar -c ~/dotfiles/waybar/themes${arrThemes[0]}/config -s ~/dotfiles/waybar/themes${arrThemes[1]}/style.css &
 fi 

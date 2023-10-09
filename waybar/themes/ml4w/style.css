@@ -302,7 +302,7 @@ window#waybar.empty #window {
 
 #network.wifi {
     background-color: @backgroundlight;
-    color: @textcolor1;
+    color: @textcolor2;
 }
 
 /* -----------------------------------------------------

@@ -1,11 +1,11 @@
 #!/bin/bash
-options=$(find ~/dotfiles/waybar/styles/ -maxdepth 2 -type d)
+options=$(find ~/dotfiles/waybar/themes/ -maxdepth 2 -type d)
 listThemes=""
 for value in $options
 do
-    if [ ! $value == "$HOME/dotfiles/waybar/styles/" ]; then
+    if [ ! $value == "$HOME/dotfiles/waybar/themes/" ]; then
         if [ $(find $value -maxdepth 1 -type d | wc -l) = 1 ]; then
-            result=$(echo $value | sed "s#$HOME/dotfiles/waybar/styles/#/#g")
+            result=$(echo $value | sed "s#$HOME/dotfiles/waybar/themes/#/#g")
             IFS='/' read -ra arrThemes <<< "$result"
             echo $arrThemes
             listThemes+="/${arrThemes[1]};$result\n"
