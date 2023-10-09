@@ -16,15 +16,19 @@ killall waybar
 # ----------------------------------------------------- 
 # Get current theme information
 # ----------------------------------------------------- 
-themestyle="/default/light"
+themestyle="/ml4w;/ml4w/light"
 if [ -f ~/.cache/.themestyle.sh ]; then
     themestyle=$(cat ~/.cache/.themestyle.sh)
 else
     touch ~/.cache/.themestyle.sh
     echo "$themestyle" > ~/.cache/.themestyle.sh
 fi
-if [ ! -f ~/dotfiles/waybar/styles$themestyle/style.css ]; then
-    themestyle="/default/light"
+
+IFS=';' read -ra arrThemes <<< "$themestyle"
+echo ${arrThemes[0]}
+
+if [ ! -f ~/dotfiles/waybar/styles${arrThemes[1]}/style.css ]; then
+    themestyle="/ml4w;/ml4w/light"
 fi
 
 # ----------------------------------------------------- 
@@ -32,7 +36,7 @@ fi
 # ----------------------------------------------------- 
 if [[ $USER = "raabe" ]]
 then
-    waybar -c ~/dotfiles/waybar/myconfig -s ~/dotfiles/waybar/styles$themestyle/style.css &
+    waybar -c ~/dotfiles/waybar/styles${arrThemes[0]}/myconfig -s ~/dotfiles/waybar/styles${arrThemes[1]}/style.css &
 else
-    waybar -s ~/dotfiles/waybar/styles$themestyle/style.css &
+    waybar -c ~/dotfiles/waybar/styles${arrThemes[0]}/config -s ~/dotfiles/waybar/styles${arrThemes[1]}/style.css &
 fi 
