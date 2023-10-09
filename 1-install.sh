@@ -107,6 +107,8 @@ packagesPacman=(
     "xautolock" 
     "blueman"
     "nautilus"
+    "sddm"
+    "code"
 );
 
 packagesYay=(
@@ -198,6 +200,11 @@ echo ""
 echo "-> Init pywal"
 wal -i ~/dotfiles/wallpapers/default.jpg
 echo "pywal initiated."
+
+# ------------------------------------------------------
+# Enable SDDM Service
+# ------------------------------------------------------
+sudo systemctl enable sddm.service
 
 # ------------------------------------------------------
 # DONE
