@@ -117,6 +117,7 @@ packagesYay=(
     "bibata-cursor-theme" 
     "trizen"
     "kora-icon-theme"
+    "sddm-sugar-dark"
 );
   
 # ------------------------------------------------------
@@ -200,6 +201,14 @@ echo ""
 echo "-> Init pywal"
 wal -i ~/dotfiles/wallpapers/default.jpg
 echo "pywal initiated."
+
+# ------------------------------------------------------
+# Copy default wallpaper to .cache
+# ------------------------------------------------------
+echo ""
+echo "-> Copy default wallpaper to .cache"
+cp ~/dotfiles/wallpapers/default.jpg ~/.cache/current_wallpaper.jpg
+echo "default wallpaper copied."
 
 # ------------------------------------------------------
 # Enable SDDM Service
