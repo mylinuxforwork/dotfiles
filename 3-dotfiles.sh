@@ -88,8 +88,7 @@ echo ""
 
 _installSymLink .gtkrc-2.0 ~/.gtkrc-2.0 ~/dotfiles/gtk/.gtkrc-2.0 ~/.gtkrc-2.0
 _installSymLink gtk-3.0 ~/.config/gtk-3.0 ~/dotfiles/gtk/gtk-3.0/ ~/.config/
-_installSymLink .Xresouces ~/.Xresources ~/dotfiles/gtk/.Xresources ~/.Xresources
-_installSymLink .icons ~/.icons ~/dotfiles/gtk/.icons/ ~/
+_installSymLink gtk-4.0 ~/.config/gtk-4.0 ~/dotfiles/gtk/gtk-4.0/ ~/.config/
 
 echo "-------------------------------------"
 echo "-> Install Qtile dotfiles"

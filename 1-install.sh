@@ -92,9 +92,6 @@ packagesPacman=(
     "ttf-fira-code" 
     "ttf-firacode-nerd" 
     "figlet" 
-    "lxappearance" 
-    "breeze" 
-    "breeze-gtk" 
     "vlc" 
     "exa" 
     "python-pip" 
@@ -106,9 +103,9 @@ packagesPacman=(
     "tumbler" 
     "xautolock" 
     "blueman"
-    "nautilus"
     "sddm"
     "code"
+    "papirus-icon-theme"
 );
 
 packagesYay=(
@@ -116,7 +113,6 @@ packagesYay=(
     "pfetch" 
     "bibata-cursor-theme" 
     "trizen"
-    "kora-icon-theme"
     "sddm-sugar-dark"
 );
   
