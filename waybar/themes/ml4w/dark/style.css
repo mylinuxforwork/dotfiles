@@ -5,6 +5,8 @@
 
 @define-color backgroundlight @color8;
 @define-color backgrounddark #FFFFFF;
+@define-color workspacesbackground1 @color8;
+@define-color workspacesbackground2 #FFFFFF;
 @define-color bordercolor @color8;
 @define-color textcolor1 @color8;
 @define-color textcolor2 #FFFFFF;
