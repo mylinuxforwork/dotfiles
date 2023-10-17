@@ -119,6 +119,7 @@ _installSymLink() {
         	    fi
         break;;
             [Nn]* ) 
+                echo ""
                 # exit;
             break;;
             * ) echo "Please answer yes or no.";;
