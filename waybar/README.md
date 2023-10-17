@@ -16,7 +16,7 @@ Create subfolders to save variations.
 
 The style.css saves the Stylesheet of the theme. 
 
-## Theme name
+## Define Theme name
 
 Add a config.sh file to save the theme name. Add it to the main or subfolders for variations.
 
