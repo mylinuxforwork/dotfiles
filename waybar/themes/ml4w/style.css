@@ -152,7 +152,7 @@ window#waybar.empty #window {
  * Custom Quicklinks
  * ----------------------------------------------------- */
 
-#custom-brave, #custom-outlook, #custom-filemanager, #custom-teams, #custom-chatgpt, #custom-calculator, #custom-windowsvm, #custom-cliphist, #custom-wallpaper {
+#custom-brave, #custom-outlook, #custom-filemanager, #custom-teams, #custom-chatgpt, #custom-calculator, #custom-windowsvm, #custom-cliphist, #custom-wallpaper, #custom-waybarthemes {
     margin-right: 20px;
     font-size: 20px;
     font-weight: bold;
