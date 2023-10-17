@@ -12,6 +12,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.3
 - Default icons set to Papirus icon theme
 - GTK files updated and cleaned up. gtk-4.0 added (please check the ~/dotfiles/3-dotfile.sh for required symlinks)
 - Default cursor set to Bibata Modern Ice
+- 1-install.sh checks if base-devel is installed. Required to install and compile yay
 
 Version 2.3
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.3
