@@ -81,6 +81,7 @@ _installSymLink wal ~/.config/wal ~/dotfiles/wal/ ~/.config
 wal -i screenshots/
 echo "Pywal templates initiated!"
 echo ""
+
 echo "-------------------------------------"
 echo "-> Install GTK dotfiles"
 echo "-------------------------------------"
