@@ -210,4 +210,3 @@ echo "default wallpaper copied."
 clear
 echo "DONE!" 
 echo "Please continue with 2-install-hyprland.sh and/or 2-install-qtile.sh"
-
