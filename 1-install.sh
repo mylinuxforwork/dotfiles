@@ -32,7 +32,7 @@ if sudo pacman -Qs yay > /dev/null ; then
     echo "yay is installed. You can proceed with the installation"
 else
     echo "yay is not installed. Will be installed now!"
-    _installPackagesPacman "base-devel";
+    _installPackagesPacman "base-devel"
     git clone https://aur.archlinux.org/yay-git.git ~/yay-git
     cd ~/yay-git
     makepkg -si
