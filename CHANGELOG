@@ -1,3 +1,18 @@
+Version 2.4
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.3
+--------------------------------------------------------
+- Now using sddm as Display Manager
+- sddm theme sddm-sugar-dark available
+- Add Waybar theme switcher (SUPER + CTRL + T)
+- Add Waybar theme engine ~/dotfiles/waybar/themes
+- Switch to chromium as default browser (SUPER + B)
+- Brave is alternative browser (SUPER + CTRL + B)
+- Default animations back to standard ~/dotfiles/conf/animations-low.conf due to compatibility reasons. Enhanced animations available in ~/dotfiles/conf/animations-high.conf
+- Thunar is default file manager now due to compatibility reasons
+- Default icons set to Papirus icon theme
+- GTK files updated and cleaned up. gtk-4.0 added (please check the ~/dotfiles/3-dotfile.sh for required symlinks)
+- Default cursor set to Bibata Modern Ice
+
 Version 2.3
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.3
 --------------------------------------------------------
