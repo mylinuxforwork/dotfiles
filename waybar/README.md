@@ -5,8 +5,11 @@ Select a theme with SUPER + CTRL + T (custom Hyprland key binding)
 ## Create your own theme
 
 Please check the configurations of the folders in ~/dotfiles/waybar/themes/
+
 Create a folder for your theme and add your configuration.
+
 The main theme folder holds the core config file. 
+
 Create subfolders to save variations.
 
 ## Stylesheet
