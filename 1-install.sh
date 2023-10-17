@@ -104,7 +104,6 @@ packagesPacman=(
     "xautolock" 
     "blueman"
     "sddm"
-    "code"
     "papirus-icon-theme"
 );
 
@@ -142,19 +141,18 @@ echo "-> Install .bashrc"
 _installSymLink .bashrc ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
 
 # ------------------------------------------------------
-# Install custom issue (login prompt)
+# Install sddm display manager
 # ------------------------------------------------------
 echo ""
-echo "-> Install login screen"
+echo "-> Install sddm display manager"
 while true; do
     read -p "Do you want to install the custom login promt? (Yy/Nn): " yn
     case $yn in
         [Yy]* )
-            sudo cp ~/dotfiles/login/issue /etc/issue
-            echo "Login promt installed."
+            sudo systemctl enable sddm.service
         break;;
         [Nn]* ) 
-            echo "Custom login promt skipped."
+            echo "sddm installation skipped."
         break;;
         * ) echo "Please answer yes or no.";;
     esac
@@ -166,7 +164,7 @@ done
 echo ""
 echo "-> Install wallapers"
 while true; do
-    read -p "Do you want to clone the wallpapers? (Yy/Nn): " yn
+    read -p "Do you want to clone the wallpapers? If not, the script will install 3 default wallpapers to ~/wallpaper/ (Yy/Nn): " yn
     case $yn in
         [Yy]* )
             if [ -d ~/wallpaper/ ]; then
@@ -184,7 +182,7 @@ while true; do
                 mkdir ~/wallpaper
             fi
             cp ~/dotfiles/wallpapers/* ~/wallpaper
-            echo "Default wallpaper installed."
+            echo "Default wallpapers installed."
         break;;
         * ) echo "Please answer yes or no.";;
     esac
@@ -207,12 +205,9 @@ cp ~/dotfiles/wallpapers/default.jpg ~/.cache/current_wallpaper.jpg
 echo "default wallpaper copied."
 
 # ------------------------------------------------------
-# Enable SDDM Service
-# ------------------------------------------------------
-sudo systemctl enable sddm.service
-
-# ------------------------------------------------------
 # DONE
 # ------------------------------------------------------
 clear
-echo "DONE!"
+echo "DONE!" 
+echo "Please continue with 2-install-hyprland.sh and/or 2-install-qtile.sh"
+

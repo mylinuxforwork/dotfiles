@@ -70,4 +70,6 @@ _installPackagesPacman "${packagesPacman[@]}";
 _installPackagesYay "${packagesYay[@]}";
 
 echo ""
-echo "DONE! Please reboot your system!"
+echo "DONE!"
+echo "Please continue with 3-dotfiles.sh"
+

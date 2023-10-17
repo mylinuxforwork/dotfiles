@@ -25,9 +25,9 @@ echo "                                    "
 echo "by Stephan Raabe (2023)"
 echo "-------------------------------------"
 echo ""
-echo "The script will ask for permission to remove existing folders and files."
-echo "But you can decide to keep your local versions by answering with No (Nn)."
-echo "Symbolic links will be created from ~/dotfiles into your home and .config directories."
+echo "The script will ask for permission to remove existing directories and files from ~/.config/"
+echo "Symbolic links will then be created from ~/dotfiles into your ~/.config/ directory."
+echo "But you can decide to keep your personal versions by answering with No (Nn)."
 echo ""
 
 # ------------------------------------------------------
@@ -78,7 +78,8 @@ _installSymLink starship ~/.config/starship.toml ~/dotfiles/starship/starship.to
 _installSymLink rofi ~/.config/rofi ~/dotfiles/rofi/ ~/.config
 _installSymLink dunst ~/.config/dunst ~/dotfiles/dunst/ ~/.config
 _installSymLink wal ~/.config/wal ~/dotfiles/wal/ ~/.config
-wal -i screenshots/
+
+wal -i wallpapers/
 echo "Pywal templates initiated!"
 echo ""
 
@@ -115,4 +116,5 @@ _installSymLink swappy ~/.config/swappy ~/dotfiles/swappy/ ~/.config
 # ------------------------------------------------------
 # DONE
 # ------------------------------------------------------
-echo "DONE! Please reboot your system!"
+echo "DONE!" 
+echo "Please logout and reboot your system!"

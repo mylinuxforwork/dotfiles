@@ -58,4 +58,6 @@ packagesPacman=(
 # ------------------------------------------------------
 _installPackagesPacman "${packagesPacman[@]}";
 
-echo "DONE! Please reboot your system!"
+echo "DONE!" 
+echo "Please continue with 3-dotfiles.sh"
+
