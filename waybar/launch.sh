@@ -9,14 +9,18 @@
 # ----------------------------------------------------- 
 
 # ----------------------------------------------------- 
-# Quit running waybar instances
+# Quit all running waybar instances
 # ----------------------------------------------------- 
 killall waybar
 
 # ----------------------------------------------------- 
-# Get current theme information
+# Default theme: /THEMEFOLDER;/VARIATION
 # ----------------------------------------------------- 
 themestyle="/ml4w;/ml4w/light"
+
+# ----------------------------------------------------- 
+# Get current theme information from .cache/.themestyle.sh
+# ----------------------------------------------------- 
 if [ -f ~/.cache/.themestyle.sh ]; then
     themestyle=$(cat ~/.cache/.themestyle.sh)
 else
@@ -32,7 +36,7 @@ if [ ! -f ~/dotfiles/waybar/themes${arrThemes[1]}/style.css ]; then
 fi
 
 # ----------------------------------------------------- 
-# Loading the configuration based on the username
+# Loading the configuration and style file based on the username
 # ----------------------------------------------------- 
 if [[ $USER = "raabe" ]]
 then

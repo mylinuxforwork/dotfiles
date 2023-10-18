@@ -9,14 +9,18 @@ Waybar Wiki: https://github.com/Alexays/Waybar/wiki
 ## Create your own theme
 
 Please check the configurations of the folders in ~/dotfiles/waybar/themes/
-Create a folder for your theme and add your configuration. A good starting point is to copy the default folder with the default waybar theme.
-The main theme folder holds the core config file and stylesheet.
-Create subfolders to save variations like in the folder ml4w.
-You can include stylesheets from other themes to standardize your themes like in the theme ml4w-bottom.
+Create a folder for your theme and add your configuration. 
+A good starting point is to copy the default folder with the default waybar theme.
+
+The main theme folder includes the core config file and stylesheet.
+Waybar configuration: https://github.com/Alexays/Waybar/wiki/Configuration
+
+Create subfolders to save variations like in the folder ml4w. You can include stylesheets from other themes to standardize your themes like in the theme ml4w-bottom.
 
 ## Stylesheet
 
-The style.css saves the Stylesheet of the theme. 
+The style.css includes the style file of the theme. 
+Waybar Styling: https://github.com/Alexays/Waybar/wiki/Styling
 
 ## Define theme name
 
