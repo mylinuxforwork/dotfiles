@@ -41,6 +41,8 @@ Hyprland: In addition, you can switch the Waybar Template with SUPER + CTRL + T 
 
 ## Screenshots & Video
 
+<a href="https://youtu.be/mJ9m18-7pQk" target="_blank">Watch on YouTube</a>
+
 <a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/screenshot-24-2.png" alt="Click to watch on YouTube" /></a>
 
 <a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/screenshot-24-3.png" alt="Click to watch on YouTube" /></a>
