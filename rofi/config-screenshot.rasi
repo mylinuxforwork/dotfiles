@@ -34,8 +34,8 @@ configuration {
 window {
     width:                        400px;
     height:                       130px;
-    x-offset:                     -15px;
-    y-offset:                     62px;
+    x-offset:                     0px;
+    y-offset:                     0px;
     spacing:                      0px;
     padding:                      0px;
     margin:                       0px; 
@@ -44,8 +44,8 @@ window {
     border-color:                 #FFFFFF;
     cursor:                       "default";
     transparency:                 "real";
-    location:                     northeast;
-    anchor:                       northeast;
+    location:                     center;
+    anchor:                       center;
     fullscreen:                   false;
     enabled:                      true;
     border-radius:                10px;

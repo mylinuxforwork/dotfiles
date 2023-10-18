@@ -10,14 +10,14 @@
 # ----------------------------------------------------- 
 
 # My screen resolution
-xrandr --rate 120
+# xrandr --rate 120
 
 # For Virtual Machine 
-# xrandr --outout Virtual-1 --mode 1920x1080
+# xrandr --output Virtual-1 --mode 1920x1080
 
 # Set keyboard mapping
-setxkbmap de
-# setxkbmap en
+# setxkbmap de
+setxkbmap en
 
 # Load picom
 picom &
@@ -33,6 +33,3 @@ dunst &
 
 # Setup Wallpaper and update colors
 ~/dotfiles/scripts/updatewal.sh &
-
-# Load Windows 11 VM
-# virsh --connect qemu:///system start win11

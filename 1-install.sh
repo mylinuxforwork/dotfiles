@@ -93,9 +93,6 @@ packagesPacman=(
     "ttf-fira-code" 
     "ttf-firacode-nerd" 
     "figlet" 
-    "lxappearance" 
-    "breeze" 
-    "breeze-gtk" 
     "vlc" 
     "exa" 
     "python-pip" 
@@ -107,7 +104,8 @@ packagesPacman=(
     "tumbler" 
     "xautolock" 
     "blueman"
-    "nautilus"
+    "sddm"
+    "papirus-icon-theme"
 );
 
 packagesYay=(
@@ -115,7 +113,7 @@ packagesYay=(
     "pfetch" 
     "bibata-cursor-theme" 
     "trizen"
-    "kora-icon-theme"
+    "sddm-sugar-dark"
 );
   
 # ------------------------------------------------------
@@ -144,19 +142,18 @@ echo "-> Install .bashrc"
 _installSymLink .bashrc ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
 
 # ------------------------------------------------------
-# Install custom issue (login prompt)
+# Install sddm display manager
 # ------------------------------------------------------
 echo ""
-echo "-> Install login screen"
+echo "-> Install sddm display manager"
 while true; do
     read -p "Do you want to install the custom login promt? (Yy/Nn): " yn
     case $yn in
         [Yy]* )
-            sudo cp ~/dotfiles/login/issue /etc/issue
-            echo "Login promt installed."
+            sudo systemctl enable sddm.service
         break;;
         [Nn]* ) 
-            echo "Custom login promt skipped."
+            echo "sddm installation skipped."
         break;;
         * ) echo "Please answer yes or no.";;
     esac
@@ -168,7 +165,7 @@ done
 echo ""
 echo "-> Install wallapers"
 while true; do
-    read -p "Do you want to clone the wallpapers? (Yy/Nn): " yn
+    read -p "Do you want to clone the wallpapers? If not, the script will install 3 default wallpapers to ~/wallpaper/ (Yy/Nn): " yn
     case $yn in
         [Yy]* )
             if [ -d ~/wallpaper/ ]; then
@@ -186,7 +183,7 @@ while true; do
                 mkdir ~/wallpaper
             fi
             cp ~/dotfiles/wallpapers/* ~/wallpaper
-            echo "Default wallpaper installed."
+            echo "Default wallpapers installed."
         break;;
         * ) echo "Please answer yes or no.";;
     esac
@@ -201,7 +198,16 @@ wal -i ~/dotfiles/wallpapers/default.jpg
 echo "pywal initiated."
 
 # ------------------------------------------------------
+# Copy default wallpaper to .cache
+# ------------------------------------------------------
+echo ""
+echo "-> Copy default wallpaper to .cache"
+cp ~/dotfiles/wallpapers/default.jpg ~/.cache/current_wallpaper.jpg
+echo "default wallpaper copied."
+
+# ------------------------------------------------------
 # DONE
 # ------------------------------------------------------
 clear
-echo "DONE!"
+echo "DONE!" 
+echo "NEXT: Please continue with 2-install-hyprland.sh and/or 2-install-qtile.sh"

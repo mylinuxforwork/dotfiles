@@ -10,14 +10,14 @@
 //
 {
     // Position TOP
-    "position": "top",
-    "margin-top": 14,
-    "margin-bottom": 0,
+    // "position": "top",
+    // "margin-top": 14,
+    //"margin-bottom": 0,
 
     // Position BOTTOM
-    // "position": "bottom",
-    // "margin-bottom": 14,
-    // "margin-top": 0,
+    "position": "bottom",
+    "margin-bottom": 14,
+    "margin-top": 0,
 
      // General Settings
     "layer": "top",
@@ -33,6 +33,7 @@
     "modules-left": [
         "custom/appmenu",
         "custom/wallpaper",
+        "custom/waybarthemes",          
         "wlr/taskbar",
         "group/quicklinks",
         "hyprland/window"

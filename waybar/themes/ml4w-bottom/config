@@ -12,14 +12,14 @@
     // General Settings
 
     // Position TOP
-    "layer": "top",
-    "margin-top": 14,
-    "margin-bottom": 0,
+    // "layer": "top",
+    // "margin-top": 14,
+    // "margin-bottom": 0,
 
     // Position BOTTOM
-    // "position": "bottom",
-    // "margin-top": 0,
-    // "margin-bottom": 14,
+    "position": "bottom",
+    "margin-top": 0,
+    "margin-bottom": 14,
     
     "layer": "top",
     "height": 16,
@@ -34,6 +34,7 @@
     "modules-left": [
         "custom/appmenu",
         "custom/wallpaper",
+        "custom/waybarthemes",          
         "wlr/taskbar",
         "group/quicklinks",
         "hyprland/window"

@@ -1,6 +1,8 @@
 # ML4W dotfiles
 
-This is the configuration of my Arch linux based installation for Hyprland (Wayland) and Qtile (Xorg).
+This is my configuration of Hyprland (Wayland) and Qtile (Xorg).
+This package includes installation scripts to install and setup the required components.
+The dotfiles are tested with Arch Linux, Manjaro Linux, EndeavourOS and Arco Linux.
 
 ## Common Packages
 
@@ -10,11 +12,10 @@ This is the configuration of my Arch linux based installation for Hyprland (Wayl
 - Icons: Font Awesome
 - Menus: Rofi
 - Colorscheme: pywal (dynamic)
-- Browsers: brave, chromium
-- Filemanager: Neutilus, ranger, Thunar
-- Cursor: Bibata Modern Classic
-- Icons: Kora-Icon-Theme
-- Theme: Breeze-dark
+- Browsers: chromium (brave optional)
+- Filemanager: Thunar
+- Cursor: Bibata Modern Ice
+- Icons: Papirus-Icon-Theme
 - Virtual Machine: qemu (Windows 11 with looking glass and xrdp)
 
 ## Hyprland
@@ -35,13 +36,17 @@ This is the configuration of my Arch linux based installation for Hyprland (Wayl
 
 Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding SuperKey + Shift + w you can change the wallpaper. SuperKey + Ctrl + w opens rofi with a list of installed wallpapers for your individual selection. See also the .bashrc and the key bindings on Hyprland and Qtile for more alias definitions.
 
+In addition, you can switch the Waybar Template with SUPER + CTRL + T or by pressing the "..." icon in Waybar. The templates are available in ~/dotfiles/waybar/themes. You can add your own personal themes into this folder. The script will read in the folder structure.
+
 ## Screenshots & Video
 
-<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-23-1.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-24-2.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-23-2.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-24-3.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-23-3.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-24-4.png" alt="Click to watch on YouTube" /></a>
+
+<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-24-1.png" alt="Click to watch on YouTube" /></a>
 
 <a href="https://youtu.be/ELEQh0z3lm8" target="_blank">Watch on YouTube</a>
 

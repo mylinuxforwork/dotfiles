@@ -24,7 +24,7 @@ case $choice in
 	$option1)
 		slock ;;
 	$option2)
-		loginctl terminate-user $USER ;;
+		qtile cmd-obj -o cmd -f shutdown ;;
 	$option3)
 		systemctl reboot ;;
 	$option4)

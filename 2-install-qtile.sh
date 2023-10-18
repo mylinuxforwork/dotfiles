@@ -58,4 +58,7 @@ packagesPacman=(
 # ------------------------------------------------------
 _installPackagesPacman "${packagesPacman[@]}";
 
-echo "DONE! Please reboot your system!"
+echo ""
+echo "DONE!" 
+echo "NEXT: Update the keyboard layout and screen resolution in ~/dotfiles/qtile/autostart.sh"
+echo "Then proceed with 3-dotfiles.sh"

@@ -24,7 +24,8 @@ case $choice in
 	$option1)
 		swaylock ;;
 	$option2)
-		hyprctl dispatch exit ;;
+        # loginctl terminate-user $USER # For command line based login
+		hyprctl dispatch exit ;; # For display manager login
 	$option3)
 		systemctl reboot ;;
 	$option4)

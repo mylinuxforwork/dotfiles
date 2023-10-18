@@ -29,38 +29,28 @@ from pathlib import Path
 home = str(Path.home())
 
 # --------------------------------------------------------
-# Define Bar
+# Define Status Bar
 # --------------------------------------------------------
 wm_bar = "polybar"
 # wm_bar = "qtile"
 
 # --------------------------------------------------------
-# Check for VirtualBox
-# --------------------------------------------------------
-
-if (os.path.isfile("/usr/bin/VBoxService")):
-    terminal = "terminator"
-else:
-    terminal = "alacritty"        
-
-# --------------------------------------------------------
 # Check for Desktop/Laptop
 # --------------------------------------------------------
-
 # 3 = Desktop
 platform = int(os.popen("cat /sys/class/dmi/id/chassis_type").read())
 
 # --------------------------------------------------------
 # Set default apps
 # --------------------------------------------------------
-
-# terminal = guess_terminal(terminal)
-browser = "brave"
+terminal = "alacritty"        
+browser = "chromium"
+# browser = "brave"
 
 # --------------------------------------------------------
 # Keybindings
 # --------------------------------------------------------
-mod = "mod4"
+mod = "mod4" # SUPER KEY
 
 keys = [
 
