@@ -71,6 +71,6 @@ _installPackagesYay "${packagesYay[@]}";
 
 echo ""
 echo "DONE!"
-echo "Update the keyboard layout and screen resolution in ~/dotfiles/hypr/hyprland.conf"
+echo "NEXT: Update the keyboard layout and screen resolution in ~/dotfiles/hypr/hyprland.conf"
 echo "Then proceed with with 3-dotfiles.sh"
 
