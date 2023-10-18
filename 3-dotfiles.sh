@@ -117,4 +117,4 @@ _installSymLink swappy ~/.config/swappy ~/dotfiles/swappy/ ~/.config
 # DONE
 # ------------------------------------------------------
 echo "DONE!" 
-echo "Please logout and reboot your system!"
+echo "NEXT: Please logout and reboot your system!"
