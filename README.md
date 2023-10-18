@@ -40,11 +40,13 @@ In addition, you can switch the Waybar Template with SUPER + CTRL + T or by pres
 
 ## Screenshots & Video
 
-<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-23-1.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-24-2.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-23-2.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-24-3.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-23-3.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-24-4.png" alt="Click to watch on YouTube" /></a>
+
+<a href="https://youtu.be/ELEQh0z3lm8" target="_blank"><img src="screenshots/screenshot-24-1.png" alt="Click to watch on YouTube" /></a>
 
 <a href="https://youtu.be/ELEQh0z3lm8" target="_blank">Watch on YouTube</a>
 
