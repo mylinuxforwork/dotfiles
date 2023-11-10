@@ -63,7 +63,7 @@
         "orientation": "horizontal",
         "modules": [
             "custom/filemanager",
-            "custom/brave",
+            "custom/browser"
          ]
     },
 

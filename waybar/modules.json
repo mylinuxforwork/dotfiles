@@ -89,8 +89,8 @@
     // Wallpaper
     "custom/wallpaper": {
         "format": "",
-        "on-click": "~/dotfiles/scripts/wallpaper-swww.sh",
-        "on-click-right": "~/dotfiles/scripts/updatewal-swww.sh",
+        "on-click": "~/dotfiles/hypr/scripts/wallpaper.sh select",
+        "on-click-right": "~/dotfiles/hypr/scripts/wallpaper.sh",
         "tooltip": false
     },
 
@@ -101,10 +101,17 @@
         "tooltip": false
     },
 
+    // Keybindings
+    "custom/keybindings": {
+        "format": "",
+        "on-click": "~/dotfiles/hypr/scripts/keybindings.sh",
+        "tooltip": false
+    },
+
     // Filemanager Launcher
     "custom/filemanager": {
         "format": "",
-        "on-click": "~/dotfiles/scripts/filemanager.sh",
+        "on-click": "thunar",
         "tooltip": false
     },
 
@@ -129,6 +136,13 @@
         "tooltip": false
     },
 
+    // Browser Launcher
+    "custom/browser": {
+        "format": "",
+        "on-click": "chromium",
+        "tooltip": false
+    },    
+
     // ChatGPT Launcher
     "custom/chatgpt": {
         "format": "",
@@ -136,10 +150,10 @@
         "tooltip": false
     },
 
-    // Rofi Calculator
+    // Calculator
     "custom/calculator": {
         "format": "",
-        "on-click": "~/dotfiles/scripts/calculator.sh",
+        "on-click": "qalculate-gtk",
         "tooltip": false
     },
 
@@ -153,10 +167,11 @@
     // Rofi Application Launcher
     "custom/appmenu": {
         "format": "Apps",
-        "on-click": "~/dotfiles/scripts/applauncher.sh",
+        "on-click": "rofi -show drun",
+        "on-click-right": "~/dotfiles/hypr/scripts/keybindings.sh",
         "tooltip": false
     },
-
+    
     // Power Menu
     "custom/exit": {
         "format": "",
@@ -213,12 +228,13 @@
         "format": "{ifname}",
         "format-wifi": "   {signalStrength}%",
         "format-ethernet": "  {ipaddr}",
-        "format-disconnected": "", //An empty format will hide the module.
+        "format-disconnected": "Not connected", //An empty format will hide the module.
         "tooltip-format": " {ifname} via {gwaddri}",
         "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
         "tooltip-format-disconnected": "Disconnected",
-        "max-length": 50
+        "max-length": 50,
+        "on-click": "alacritty -e nmtui"
     },
 
     // Battery

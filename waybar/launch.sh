@@ -12,7 +12,7 @@
 # Quit all running waybar instances
 # ----------------------------------------------------- 
 killall waybar
-
+sleep 0.2
 # ----------------------------------------------------- 
 # Default theme: /THEMEFOLDER;/VARIATION
 # ----------------------------------------------------- 
@@ -36,11 +36,6 @@ if [ ! -f ~/dotfiles/waybar/themes${arrThemes[1]}/style.css ]; then
 fi
 
 # ----------------------------------------------------- 
-# Loading the configuration and style file based on the username
+# Loading the configuration
 # ----------------------------------------------------- 
-if [[ $USER = "raabe" ]]
-then
-    waybar -c ~/dotfiles/waybar/themes${arrThemes[0]}/myconfig -s ~/dotfiles/waybar/themes${arrThemes[1]}/style.css &
-else
-    waybar -c ~/dotfiles/waybar/themes${arrThemes[0]}/config -s ~/dotfiles/waybar/themes${arrThemes[1]}/style.css &
-fi 
+waybar -c ~/dotfiles/waybar/themes${arrThemes[0]}/config -s ~/dotfiles/waybar/themes${arrThemes[1]}/style.css &

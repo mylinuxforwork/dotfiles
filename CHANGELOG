@@ -1,3 +1,33 @@
+Version 2.5
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.5
+--------------------------------------------------------
+Installation:
+- Completely reworked script
+- Can install Hyprland and/or Qtile
+- Backup of existing dotfiles possible
+- New optimized download of wallpapers from the repository
+
+General:
+- Script folder cleaned up and window manager scripts moved to related wm scripts folder
+
+Hyprland:
+- Show key bindings defined in ~/dotfiles/hypr/conf/keybindings.conf rofi menu. Opens with SUPER+CTRL+H or right click on Apps
+- Added keybinding to toggle all windows to float and back to tiling (Doesn't work with web apps)
+- Add brightness control for FN Brightness keys
+- swww loading wallpaper from last session
+- New Waybar Theme with blurred background
+- Latest Waybar supports now persistent workspaces (set to 5 by default)
+
+Qtile:
+- Add wayland support
+- New Qtile status bar theme (Qtile status bar is default theme)
+- Status bar can be switch on X11 with SUPER + SHIFT + S between Qtile bar and Polybar
+- swww/wal loading wallpaper from last session
+- Add brightness control for FN Brightness keys
+
+Known issues:
+- GTK dark theme is not always working (e.g. on Qtile Wayland)
+
 Version 2.4
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.4
 --------------------------------------------------------

@@ -1,36 +1,38 @@
-# ML4W dotfiles
+# ML4W dotfiles Version 2.5
 
-This is my configuration of Hyprland (Wayland) and Qtile (Xorg).
-This package includes installation scripts to install and setup the required components.
+This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland).
+This package includes an installation script to install and setup the required components.
 
 The dotfiles are tested with Arch Linux, Manjaro Linux, EndeavourOS and Arco Linux.
 
-## Common Packages
+## General Packages
 
 - Terminal: alacritty
 - Editor: nvim
 - Prompt: starship
 - Icons: Font Awesome
-- Menus: Rofi
-- Colorscheme: pywal (dynamic)
+- Launch Menus: Rofi
+- Colorscheme: pywal
 - Browsers: chromium (brave optional)
 - Filemanager: Thunar
 - Cursor: Bibata Modern Ice
 - Icons: Papirus-Icon-Theme
 - Virtual Machine: qemu (Windows 11 with looking glass and xrdp)
 
-## Hyprland
+## Hyprland & Qtile Wayland
 
 - Status Bar: waybar
 - Screenshots: grim & slurp
 - Clipboard Manager: cliphist
-- Logout: wlogout
+- Logout Hyprland: wlogout 
+- Logout Qtile: rofi power menu
 - Screenlock: swaylock-effects
+- Qtile Bar: Qtile status bar
 
-## Qtile
+## Qtile X11
 
 - Compositor: picom
-- Status Bar: polybar
+- Status Bar: Qtile status bar + Polybar (optional)
 - Screenshots: scrot
 
 ## Templating
@@ -39,51 +41,55 @@ Hyprland & Qtile: Included is a pywal configuration that changes the color schem
 
 Hyprland: In addition, you can switch the Waybar Template with SUPER + CTRL + T or by pressing the "..." icon in Waybar. The templates are available in ~/dotfiles/waybar/themes. You can add your own personal themes into this folder. The script will read in the folder structure.
 
-## Screenshots & Video
+Qtile X11: In addition, you can switch between the Qtile status bar and Polybar with SUPER + SHIFT + S 
+
+## Screenshots Hyprland
+
+<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/v25/screenshot-25-5.png" alt="Click to watch on YouTube" /></a>
+
+<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/v25/screenshot-25-6.png" alt="Click to watch on YouTube" /></a>
 
 <a href="https://youtu.be/mJ9m18-7pQk" target="_blank">Watch on YouTube</a>
 
-<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/screenshot-24-2.png" alt="Click to watch on YouTube" /></a>
+## Screenshots Qtile X11
 
-<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/screenshot-24-3.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/v25/screenshot-25-3.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/screenshot-24-4.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/v25/screenshot-25-4.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/screenshot-24-1.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/mJ9m18-7pQk" target="_blank">Watch on YouTube</a>
+
+## Screenshots Qtile Wayland
+
+<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/v25/screenshot-25-1.png" alt="Click to watch on YouTube" /></a>
+
+<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/v25/screenshot-25-2.png" alt="Click to watch on YouTube" /></a>
 
 <a href="https://youtu.be/mJ9m18-7pQk" target="_blank">Watch on YouTube</a>
 
 <b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
 
-## Getting started
+## Installation
 
 To make it easy for you to get started with my dotfiles, here's a list of recommended next steps.
 
-PLEASE BACKUP YOUR EXISTING .config WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS.
+PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIONAL INSTALLTION.
+
+The script will try to create a backup from an older dotfiles folder.
 
 ```
-# Make sure that you're in your home directory
-cd
+# 1.) Change into your Downloads folder
+cd ~/Downloads
 
-# Clone the repository from your home directory
+# 2.) Clone the dotfiles repository into the Downloads folder
 git clone https://gitlab.com/stephan-raabe/dotfiles.git
 
-# Or download the lastest version and unzip into ~/dotfiles folder
-
-# Change into the new dotfiles folder
+# 3.) Change into the dotfiles folder
 cd dotfiles
 
-# Install all required packages
-./1-install.sh
-
-# Install hyprland window manager
-./2-install-hyprland.sh
-# OR/AND Install qtile window manager
-./2-install-qtile.sh
-
-# Install dotfiles
-./3-install-dotfiles.sh
+# 4.) Start the installation
+./install.sh
 
 ```
-Please note that every Arch Linux system is different and I cannot guarantee that everything works fine on your system.
 
+Please note that every Arch Linux system is different and I cannot guarantee that everything works fine on your system.

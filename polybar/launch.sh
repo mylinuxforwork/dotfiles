@@ -12,14 +12,12 @@
 # ----------------------------------------------------- 
 # Quit running polybar instances
 # ----------------------------------------------------- 
-polybar-msg cmd quit
+killall polybar
+
+# polybar-msg cmd quit
+
 
 # ----------------------------------------------------- 
 # Loading the configuration based on the username
 # ----------------------------------------------------- 
-if [[ $USER = "raabe" ]]
-then
-    polybar -r mypolybar
-else
-    polybar -r mybar
-fi 
+polybar -r mybar

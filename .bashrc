@@ -36,6 +36,8 @@ alias dot="cd ~/dotfiles"
 # -----------------------------------------------------
 
 alias Qtile='startx'
+alias QtileWayland='qtile start -b wayland'
+# Hyprland with Hyprland
 
 # -----------------------------------------------------
 # GIT
@@ -54,7 +56,6 @@ alias gcheck="git checkout"
 # SCRIPTS
 # -----------------------------------------------------
 
-alias wallp='~/dotfiles/scripts/updatewal.sh'
 alias gr='python ~/dotfiles/scripts/growthrate.py'
 alias ChatGPT='python ~/mychatgpt/mychatgpt.py'
 alias chat='python ~/mychatgpt/mychatgpt.py'
@@ -111,7 +112,17 @@ eval "$(starship init bash)"
 cat ~/.cache/wal/sequences
 
 # -----------------------------------------------------
-# PFETCH
+# PFETCH if on wm
 # -----------------------------------------------------
 echo ""
-pfetch
+if [[ $(tty) == *"pts"* ]]; then
+    pfetch
+else
+    if [ -f /bin/qtile ]; then
+        echo "Start Qtile X11 with command Qtile"
+        echo "Start Qtile Wayland with command QtileWayland"
+    fi
+    if [ -f /bin/hyprctl ]; then
+        echo "Start Hyprland with command Hyprland"
+    fi
+fi

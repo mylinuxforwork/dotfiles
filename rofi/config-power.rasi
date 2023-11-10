@@ -43,8 +43,8 @@ window {
     border-color:                 #FFFFFF;
     cursor:                       "default";
     transparency:                 "real";
-    location:                     northeast;
-    anchor:                       northeast;
+    location:                     center;
+    anchor:                       center;
     fullscreen:                   false;
     enabled:                      true;
     border-radius:                10px;
