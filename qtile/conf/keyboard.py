@@ -1,3 +1,3 @@
 # Setup global keyboard layout here
 
-keyboard_layout = "de"
+keyboard_layout = "us"

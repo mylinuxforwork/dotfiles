@@ -21,7 +21,6 @@ EOF
         read -p "Do you want to proceed? (Yy/Nn): " yn
         case $yn in
             [Yy]* )
-                echo "-> Preparing dotfiles"
                 if [ ! -d ~/dotfiles-versions ]; then
                     mkdir ~/dotfiles-versions
                 fi

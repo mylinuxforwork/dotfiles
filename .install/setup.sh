@@ -20,11 +20,11 @@ while true; do
             if [ -z "$keyboard" ]; then
                 keyboard="us"
             fi
-            SEARCH="kb_layout = de"
+            SEARCH="kb_layout = us"
             REPLACE="kb_layout = $keyboard"
             sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
 
-            SEARCH="keyboard_layout = \"de\""
+            SEARCH="keyboard_layout = \"us\""
             REPLACE="keyboard_layout = \"$keyboard\""
             sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/qtile/conf/keyboard.py
         break;;
