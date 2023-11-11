@@ -23,9 +23,11 @@ EOF
             [Yy]* )
                 if [ ! -d ~/dotfiles-versions ]; then
                     mkdir ~/dotfiles-versions
+                    echo "~/dotfiles-versions created."
                 fi
                 if [ ! -d ~/dotfiles-versions/backups ]; then
                     mkdir ~/dotfiles-versions/backups
+                    echo "~/dotfiles-versions/backups created"
                 fi
                 if [ -d ~/dotfiles ]; then
                     cp -r ~/dotfiles ~/dotfiles-versions/backups/$datets
