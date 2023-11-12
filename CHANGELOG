@@ -25,8 +25,9 @@ Qtile:
 - swww/wal loading wallpaper from last session
 - Add brightness control for FN Brightness keys
 
-Known issues:
-- GTK dark theme is not always working (e.g. on Qtile Wayland)
+Known issues Qtile Wayland:
+- GTK dark theme is not always working
+- Screen recording issues with OBS Studio and other applications
 
 Version 2.4
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.4
