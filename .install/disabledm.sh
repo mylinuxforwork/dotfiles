@@ -17,7 +17,7 @@ EOF
     echo "An active display manager has been dedected."
     echo ""
     if [ $profile == "Hyprland" ]; then
-        echo "IMPORTANT: Starting Hyprland from tty (terminal) with command Hyperland is recommended."
+        echo "IMPORTANT: Starting Hyprland from tty (terminal) with command Hyprland is recommended."
         echo "Login with display managers could fail and could have negative side effects on some devices."
     fi
     if [ $profile == "Qtile" ]; then
@@ -25,7 +25,7 @@ EOF
         echo "But if you want to use the tty based (terminal) login instead, you can disable the display manager now."
     fi
     if [ $profile == "All" ]; then
-        echo "IMPORTANT: Starting Hyprland from tty (terminal) with command Hyperland is recommended."
+        echo "IMPORTANT: Starting Hyprland from tty (terminal) with command Hyprland is recommended."
         echo "Login with display managers could fail and could have negative side effects on some devices."
         echo "PLEASE NOTE: Qtile works with Display Managers."
         echo "But if you want to use the tty based (terminal) login instead, you can disable the display manager now."

@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 
 datets=$(date '+%Y%m%d%H%M%S')
-if [ -d ~/dotfiles ]; then
+if [ -d ~/dotfiles ] || [ -f ~/.bashrc ]; then
 
 cat <<"EOF"
 ____             _                
@@ -14,8 +14,12 @@ ____             _
                             |_|    
 
 EOF
-
-    echo "The script has detected an existing dotfiles folder and will try to create a backup into the folder ~/dotfiles-versions/backups/$datets"
+    if [ -d ~/dotfiles ]; then
+        echo "The script has detected an existing dotfiles folder and will try to create a backup into the folder ~/dotfiles-versions/backups/$datets"
+    fi
+    if [ -f ~/.bashrc ]; then
+        echo "The script has detected an existing .bashrc file and will try to create a backup ~/dotfiles-versions/backups/$datets/.bashrc-old"
+    fi
     echo ""
     while true; do
         read -p "Do you want to proceed? (Yy/Nn): " yn
@@ -28,6 +32,10 @@ EOF
                 if [ ! -d ~/dotfiles-versions/backups ]; then
                     mkdir ~/dotfiles-versions/backups
                     echo "~/dotfiles-versions/backups created"
+                fi
+                if [ ! -d ~/dotfiles-versions/backups/$datets ]; then
+                    mkdir ~/dotfiles-versions/backups/$datets
+                    echo "~/dotfiles-versions/backups/$datets created"
                 fi
                 if [ -d ~/dotfiles ]; then
                     cp -r ~/dotfiles ~/dotfiles-versions/backups/$datets

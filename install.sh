@@ -69,7 +69,7 @@ if [ $profile == "All" ]; then
     source .install/hyprland-dotfiles.sh
     source .install/qtile-dotfiles.sh
 fi
-
+source .install/bashrc.sh
 echo "IMPORTANT: Please check the keyboard layout and screen resolution after the rebbot of your system."
 echo ""
 
