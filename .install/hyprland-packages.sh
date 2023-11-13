@@ -33,6 +33,7 @@ packagesPacman=(
     "hyprland" 
     "xdg-desktop-portal" 
     "xdg-desktop-portal-wlr" 
+    "xdg-desktop-portal-hyprland" 
     "waybar" 
     "grim" 
     "slurp"
