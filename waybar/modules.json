@@ -167,7 +167,7 @@
     // Rofi Application Launcher
     "custom/appmenu": {
         "format": "Apps",
-        "on-click": "rofi -show drun",
+        "on-click": "rofi -show drun -replace",
         "on-click-right": "~/dotfiles/hypr/scripts/keybindings.sh",
         "tooltip": false
     },
