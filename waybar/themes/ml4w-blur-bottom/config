@@ -19,7 +19,7 @@
     // Position BOTTOM
     "position": "bottom",
     "margin-top": 0,
-    "margin-bottom": 14,
+    "margin-bottom": 0,
     
     "layer": "top",
     "height": 40,
