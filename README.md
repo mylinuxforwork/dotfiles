@@ -5,6 +5,8 @@ This package includes an installation script to install and setup the required c
 
 The dotfiles are tested with Arch Linux, Manjaro Linux, EndeavourOS and Arco Linux.
 
+You can find the video on YouTube: <a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Dotfiles Configuration and Installation</a>
+
 ## General Packages
 
 - Terminal: alacritty
@@ -45,27 +47,27 @@ Qtile X11: In addition, you can switch between the Qtile status bar and Polybar 
 
 ## Screenshots Hyprland
 
-<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/v25/screenshot-25-5.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-5.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/v25/screenshot-25-6.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-6.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/mJ9m18-7pQk" target="_blank">Watch on YouTube</a>
+<a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Watch on YouTube</a>
 
 ## Screenshots Qtile X11
 
-<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/v25/screenshot-25-3.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-3.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/v25/screenshot-25-4.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-4.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/mJ9m18-7pQk" target="_blank">Watch on YouTube</a>
+<a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Watch on YouTube</a>
 
 ## Screenshots Qtile Wayland
 
-<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/v25/screenshot-25-1.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-1.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/mJ9m18-7pQk" target="_blank"><img src="screenshots/v25/screenshot-25-2.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-2.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/mJ9m18-7pQk" target="_blank">Watch on YouTube</a>
+<a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Watch on YouTube</a>
 
 <b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
 
