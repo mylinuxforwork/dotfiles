@@ -93,7 +93,8 @@ cd dotfiles
 ./install.sh
 
 ```
-Please note:
+
+PLEASE NOTE: 
 In case you have issues with starting Waybar please make sure that only one xdg-desktop-portal-x is installed additionally to xdg-desktop-portal.
 I had several issues with xdg-desktop-portal-wlr, Hyprland and Waybar. Please make sure that xdg-desktop-portal-wlr is uninstalled and xdg-desktop-portal-hyprland is installed.
 More information you can find here:
