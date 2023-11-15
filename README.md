@@ -93,5 +93,10 @@ cd dotfiles
 ./install.sh
 
 ```
+Please note:
+In case you have issues with starting Waybar please make sure that only one xdg-desktop-portal-x is installed additionally to xdg-desktop-portal.
+I had several issues with xdg-desktop-portal-wlr, Hyprland and Waybar. Please make sure that xdg-desktop-portal-wlr is uninstalled and xdg-desktop-portal-hyprland is installed.
+More information you can find here:
+https://gist.github.com/PowerBall253/2dea6ddf6974ba4e5d26c3139ffb7580
 
 Please note that every Arch Linux system is different and I cannot guarantee that everything works fine on your system.
