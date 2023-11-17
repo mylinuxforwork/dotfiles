@@ -61,7 +61,7 @@
         "format": " {}",
         "exec": "python ~/private/youtube.py",
         "restart-interval": 600,
-        "on-click": "brave https://studio.youtube.com",
+        "on-click": "chromium https://studio.youtube.com",
         "tooltip": false
     },
     
@@ -118,7 +118,7 @@
     // Outlook Launcher
     "custom/outlook": {
         "format": "",
-        "on-click": "brave --app=https://outlook.office.com/mail/",
+        "on-click": "chromium --app=https://outlook.office.com/mail/",
         "tooltip": false
     },
 
@@ -126,13 +126,6 @@
     "custom/teams": {
         "format": "",
         "on-click": "chromium --app=https://teams.microsoft.com/go",
-        "tooltip": false
-    },
-
-    // Brave Launcher
-    "custom/brave": {
-        "format": "",
-        "on-click": "brave",
         "tooltip": false
     },
 
@@ -146,7 +139,7 @@
     // ChatGPT Launcher
     "custom/chatgpt": {
         "format": "",
-        "on-click": "brave --app=https://chat.openai.com",
+        "on-click": "chromium --app=https://chat.openai.com",
         "tooltip": false
     },
 

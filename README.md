@@ -1,4 +1,4 @@
-# ML4W dotfiles Version 2.5
+# ML4W dotfiles Version 2.5.1
 
 This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland).
 This package includes an installation script to install and setup the required components.
@@ -94,7 +94,7 @@ cd dotfiles
 
 ```
 
-PLEASE NOTE: 
+PLEASE NOTE:
 In case you have issues with starting Waybar please make sure that only one xdg-desktop-portal-x is installed additionally to xdg-desktop-portal.
 I had several issues with xdg-desktop-portal-wlr, Hyprland and Waybar. Please make sure that xdg-desktop-portal-wlr is uninstalled and xdg-desktop-portal-hyprland is installed.
 More information you can find here:

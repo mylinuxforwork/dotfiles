@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 disman=0
 if [ -f /etc/systemd/system/display-manager.service ]; then
-
+echo -e "${GREEN}"
 cat <<"EOF"
  ___                            _              _   
 |_ _|_ __ ___  _ __   ___  _ __| |_ __ _ _ __ | |_ 
@@ -13,7 +13,7 @@ cat <<"EOF"
               |_|                                  
 
 EOF
-
+echo -e "${NONE}"
     echo "An active display manager has been dedected."
     echo ""
     if [ $profile == "Hyprland" ]; then

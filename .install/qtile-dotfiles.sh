@@ -21,3 +21,5 @@ if [ ! $mode == "dev" ]; then
 else
     echo "Skipped: DEV MODE!"
 fi
+echo "Symbolic links created."
+echo ""

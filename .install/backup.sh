@@ -4,7 +4,7 @@
 
 datets=$(date '+%Y%m%d%H%M%S')
 if [ -d ~/dotfiles ] || [ -f ~/.bashrc ]; then
-
+echo -e "${GREEN}"
 cat <<"EOF"
 ____             _                
 | __ )  __ _  ___| | ___   _ _ __  
@@ -14,13 +14,17 @@ ____             _
                             |_|    
 
 EOF
+echo -e "${NONE}"
     if [ -d ~/dotfiles ]; then
-        echo "The script has detected an existing dotfiles folder and will try to create a backup into the folder ~/dotfiles-versions/backups/$datets"
+        echo "The script has detected an existing dotfiles folder and will try to create a backup into the folder:"
+        echo "~/dotfiles-versions/backups/$datets"
+        echo ""
     fi
-    if [ -f ~/.bashrc ]; then
-        echo "The script has detected an existing .bashrc file and will try to create a backup ~/dotfiles-versions/backups/$datets/.bashrc-old"
+    if [ ! -L ~/.bashrc ] && [ -f ~/.bashrc ]; then
+        echo "The script has detected an existing .bashrc file and will try to create a backup to:" 
+        echo "~/dotfiles-versions/backups/$datets/.bashrc-old"
+        echo ""
     fi
-    echo ""
     while true; do
         read -p "Do you want to proceed? (Yy/Nn): " yn
         case $yn in
@@ -38,7 +42,7 @@ EOF
                     echo "~/dotfiles-versions/backups/$datets created"
                 fi
                 if [ -d ~/dotfiles ]; then
-                    cp -r ~/dotfiles ~/dotfiles-versions/backups/$datets
+                    rsync -a ~/dotfiles/ ~/dotfiles-versions/backups/$datets/
                     echo "Backup of your current dotfiles in ~/dotfiles-versions/backups/$datets created."
                 fi
                 if [ -f ~/.bashrc ]; then

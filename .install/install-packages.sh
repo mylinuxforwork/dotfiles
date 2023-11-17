@@ -1,7 +1,7 @@
 # ------------------------------------------------------
 # Install required packages
 # ------------------------------------------------------
-
+echo -e "${GREEN}"
 cat <<"EOF"
  ___           _        _ _                    _                         
 |_ _|_ __  ___| |_ __ _| | |  _ __   __ _  ___| | ____ _  __ _  ___  ___ 
@@ -11,7 +11,7 @@ cat <<"EOF"
                              |_|                         |___/           
 
 EOF
-
+echo -e "${NONE}"
 _installPackagesPacman "${packagesPacman[@]}";
 _installPackagesYay "${packagesYay[@]}";
 echo ""

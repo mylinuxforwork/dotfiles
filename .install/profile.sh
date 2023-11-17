@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Select installation profile
 # ------------------------------------------------------
+echo -e "${GREEN}"
 cat <<"EOF"
  ____            _    _                ____             __ _ _      
 |  _ \  ___  ___| | _| |_ ___  _ __   |  _ \ _ __ ___  / _(_) | ___ 
@@ -10,7 +11,7 @@ cat <<"EOF"
                               |_|                                   
 
 EOF
-
+echo -e "${NONE}"
 echo "Please select the Desktop Profile for your installation:"
 echo "1  - Hyprland"
 echo "2  - Qtile"

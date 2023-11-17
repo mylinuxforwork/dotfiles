@@ -1,7 +1,7 @@
 # ------------------------------------------------------
 # Install wallpapers
 # ------------------------------------------------------
-
+echo -e "${GREEN}"
 cat <<"EOF"
 __        __    _ _                                 
 \ \      / /_ _| | |_ __   __ _ _ __   ___ _ __ ___ 
@@ -11,10 +11,13 @@ __        __    _ _
                    |_|         |_|                  
 
 EOF
-
+echo -e "${NONE}"
+if [ ! -d ~/wallpaper ]; then
 echo "Do you want to download the wallpapers from repository https://gitlab.com/stephan-raabe/wallpaper/ ?"
+echo "If not, the script will install 3 default wallpapers in ~/wallpaper/"
+echo ""
 while true; do
-    read -p "If not, the script will install 3 default wallpapers to ~/wallpaper/ (Yy/Nn): " yn
+    read -p "Do you want to download the repository? (Yy/Nn): " yn
     case $yn in
         [Yy]* )
             wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/wallpaper/-/archive/main/wallpaper-main.zip
@@ -23,7 +26,7 @@ while true; do
                 mkdir ~/wallpaper
             fi
             cp ~/Downloads/wallpaper-main/* ~/wallpaper/
-            echo "Wallpapers installed successfully."
+            echo "Wallpapers frpm the repository installed successfully."
         break;;
         [Nn]* ) 
             if [ -d ~/wallpaper/ ]; then
@@ -32,15 +35,21 @@ while true; do
                 mkdir ~/wallpaper
             fi
             cp wallpapers/* ~/wallpaper
-            echo "Default wallpapers installed."
+            echo "Default wallpapers installed successfully."
         break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
+else
+    echo "~/wallpaper folder already exsits."
+fi
 echo ""
 
 # ------------------------------------------------------
 # Copy default wallpaper to .cache
 # ------------------------------------------------------
+if [ ! -f ~/.cache/current_wallpaper.jpg ]; then
 cp wallpapers/default.jpg ~/.cache/current_wallpaper.jpg
+echo "Default wallpaper installed."
 echo ""
+fi

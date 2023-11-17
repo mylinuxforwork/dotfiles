@@ -1,4 +1,6 @@
 #!/bin/bash
+source .install/version.sh
+source .install/colors.sh
 clear
 
 # Set installation mode
@@ -9,7 +11,7 @@ if [ ! -z $1 ]; then
     echo "Existing dotfiles folder will not be modified."
     echo "Symbolic links will not be created."
 fi
-
+echo -e "${GREEN}"
 cat <<"EOF"
      _       _    __ _ _           
   __| | ___ | |_ / _(_) | ___  ___ 
@@ -18,7 +20,8 @@ cat <<"EOF"
  \__,_|\___/ \__|_| |_|_|\___||___/
                                    
 EOF
-version="2.5"
+echo -e "${NONE}"
+
 echo "Version: $version"
 echo "by Stephan Raabe 2023"
 echo ""
@@ -26,6 +29,7 @@ echo "This script will guide you through the installation process of my dotfiles
 echo ""
 source .install/library.sh
 source .install/confirm-start.sh
+source .install/rsync.sh
 source .install/backup.sh
 source .install/preparation.sh
 source .install/profile.sh

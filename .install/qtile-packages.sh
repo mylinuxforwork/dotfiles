@@ -26,7 +26,6 @@ packagesPacman=(
     "python-rich" 
     "python-click" 
     "xdg-desktop-portal"
-    "xdg-desktop-portal-gtk"
     "pavucontrol" 
     "tumbler" 
     "xautolock" 
