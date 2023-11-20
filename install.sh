@@ -59,7 +59,7 @@ source .install/wallpaper.sh
 source .install/disabledm.sh
 source .install/issue.sh
 source .install/restore.sh
-source .install/setup.sh
+source .install/keyboard.sh
 source .install/copy.sh
 source .install/config-folder.sh
 source .install/init-pywal.sh
