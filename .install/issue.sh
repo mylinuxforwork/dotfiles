@@ -14,17 +14,10 @@ cat <<"EOF"
 
 EOF
 echo -e "${NONE}"
-    while true; do
-        read -p "Do you want to install the custom tty login issue (Yy/Nn): " yn
-        case $yn in
-            [Yy]* )
-                sudo cp login/issue /etc/issue
-            break;;
-            [Nn]* ) 
-                echo "Setup tty login skipped."
-            break;;
-            * ) echo "Please answer yes or no.";;
-        esac
-    done
+    if gum confirm "Do you want to install the custom tty login issue?" ;then
+        sudo cp login/issue /etc/issue
+    else
+        echo "Setup tty login skipped."
+    fi
     echo ""
 fi

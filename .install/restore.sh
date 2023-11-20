@@ -39,41 +39,34 @@ echo -e "${NONE}"
         fi
     fi
     echo ""
-
-    while true; do
-        read -p "Do you want to restore the files now and use it on your new installation (Yy/Nn): " yn
-        case $yn in
-            [Yy]* )
-                if [ -f ~/dotfiles/.bashrc ]; then
-                    cp ~/dotfiles/.bashrc ~/dotfiles-versions/$version/
-                    echo ".bashrc restored!"
+    if gum confirm "Do you want to restore the files now and use it on your new installation?" ;then
+            if [ -f ~/dotfiles/.bashrc ]; then
+                cp ~/dotfiles/.bashrc ~/dotfiles-versions/$version/
+                echo ".bashrc restored!"
+            fi
+            if [ $profile == "Hyprland" ] || [ $profile == "All" ]; then                
+                if [ -f ~/dotfiles/hypr/conf/keyboard.conf ]; then
+                    cp ~/dotfiles/hypr/conf/keyboard.conf ~/dotfiles-versions/$version/hypr/conf/
+                    echo "Hyprland keyboard.conf restored!"
                 fi
-                if [ $profile == "Hyprland" ] || [ $profile == "All" ]; then                
-                    if [ -f ~/dotfiles/hypr/conf/keyboard.conf ]; then
-                        cp ~/dotfiles/hypr/conf/keyboard.conf ~/dotfiles-versions/$version/hypr/conf/
-                        echo "Hyprland keyboard.conf restored!"
-                    fi
-                    if [ -f ~/dotfiles/hypr/conf/monitor.conf ]; then
-                        cp ~/dotfiles/hypr/conf/monitor.conf ~/dotfiles-versions/$version/hypr/conf/
-                        echo "Hyprland monitor.conf restored!"                
-                    fi
-                    if [ -f ~/dotfiles/hypr/conf/keybindings.conf ]; then
-                        cp ~/dotfiles/hypr/conf/keybindings.conf ~/dotfiles-versions/$version/hypr/conf/
-                        echo "Hyprland keybindings.conf restored!"
-                    fi
+                if [ -f ~/dotfiles/hypr/conf/monitor.conf ]; then
+                    cp ~/dotfiles/hypr/conf/monitor.conf ~/dotfiles-versions/$version/hypr/conf/
+                    echo "Hyprland monitor.conf restored!"                
                 fi
-                if [ $profile == "Qtile" ] || [ $profile == "All" ]; then
-                    if [ -f ~/dotfiles/qtile/conf/keyboard.py ]; then
-                        cp ~/dotfiles/qtile/conf/keyboard.py ~/dotfiles-versions/$version/qtile/conf/
-                        echo "Qtile keyboard.py restored!"
-                    fi
+                if [ -f ~/dotfiles/hypr/conf/keybindings.conf ]; then
+                    cp ~/dotfiles/hypr/conf/keybindings.conf ~/dotfiles-versions/$version/hypr/conf/
+                    echo "Hyprland keybindings.conf restored!"
                 fi
-                restored=1
-            break;;
-            [Nn]* ) 
-            break;;
-            * ) echo "Please answer yes or no.";;
-        esac
-    done
+            fi
+            if [ $profile == "Qtile" ] || [ $profile == "All" ]; then
+                if [ -f ~/dotfiles/qtile/conf/keyboard.py ]; then
+                    cp ~/dotfiles/qtile/conf/keyboard.py ~/dotfiles-versions/$version/qtile/conf/
+                    echo "Qtile keyboard.py restored!"
+                fi
+            fi
+            restored=1
+    else
+        echo "Restore skipped"
+    fi
     echo ""
 fi
