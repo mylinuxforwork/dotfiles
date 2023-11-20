@@ -6,3 +6,6 @@ README.md
 CHANGELOG
 LICENSE
 install.sh
+monitor.conf
+keyboard.conf
+keyboard.py
