@@ -1,0 +1,11 @@
+.gitignore
+.git
+.install
+.dev
+README.md
+CHANGELOG
+LICENSE
+install.sh
+monitor.conf
+keyboard.conf
+keyboard.py
