@@ -1,1 +1,1 @@
-version="2.5.2 BETA"
+version="2.5.2BETA"

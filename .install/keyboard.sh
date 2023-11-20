@@ -62,16 +62,16 @@ else
     cp .install/templates/keyboard.conf ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
     cp .install/templates/keyboard.py ~/dotfiles-versions/$version/qtile/conf/keyboard.py
 
-    SEARCH="\"KEYBOARD_LAYOUT\""
-    REPLACE="\"$keyboard_layout\""
+    SEARCH="KEYBOARD_LAYOUT"
+    REPLACE="$keyboard_layout"
     sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
 
     SEARCH="\"KEYBOARD_LAYOUT\""
     REPLACE="\"$keyboard_layout\""
     sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/qtile/conf/keyboard.py
 
-    SEARCH="\"KEYBOARD_VARIANT\""
-    REPLACE="\"$keyboard_variant\""
+    SEARCH="KEYBOARD_VARIANT"
+    REPLACE="$keyboard_variant"
     sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
 
     echo ""
