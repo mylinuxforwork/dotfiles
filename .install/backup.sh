@@ -18,14 +18,12 @@ echo -e "${NONE}"
     if [ -d ~/dotfiles ]; then
         echo "The script has detected an existing dotfiles folder and will try to create a backup into the folder:"
         echo "~/dotfiles-versions/backups/$datets"
-        echo ""
     fi
     if [ ! -L ~/.bashrc ] && [ -f ~/.bashrc ]; then
         echo "The script has detected an existing .bashrc file and will try to create a backup to:" 
         echo "~/dotfiles-versions/backups/$datets/.bashrc-old"
-        echo ""
     fi
-    if gum confirm "Do you want to proceed?" ;then
+    if gum confirm "Do you want to create a backup?" ;then
         if [ ! -d ~/dotfiles-versions ]; then
             mkdir ~/dotfiles-versions
             echo "~/dotfiles-versions created."
