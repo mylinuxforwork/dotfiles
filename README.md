@@ -1,7 +1,10 @@
-# ML4W dotfiles Version 2.5.1
+# ML4W dotfiles
 
 This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland).
 This package includes an installation script to install and setup the required components.
+
+PLEASE NOTE: This branch is the developement version of my dotfiles and includes the latest changes. Please be aware that this version is not a tested release. 
+To access the latest release please choose the latest tag https://gitlab.com/stephan-raabe/dotfiles/-/tags or the latest release https://gitlab.com/stephan-raabe/dotfiles/-/releases
 
 The dotfiles are tested with Arch Linux, Manjaro Linux, EndeavourOS and Arco Linux.
 
@@ -77,7 +80,9 @@ To make it easy for you to get started with my dotfiles, here's a list of recomm
 
 PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIONAL INSTALLTION.
 
-The script will try to create a backup from an older dotfiles folder.
+The script will try to create a backup from an older dotfiles installation.
+
+### Installation with GIT
 
 ```
 # 1.) Change into your Downloads folder
@@ -94,9 +99,16 @@ cd dotfiles
 
 ```
 
-PLEASE NOTE:
+### Installation with the dotfiles installer
+
+You can also use the dotfiles installer script to download and install the latest official release: https://gitlab.com/stephan-raabe/installer
+
+## Please note
+
 In case you have issues with starting Waybar please make sure that only one xdg-desktop-portal-x is installed additionally to xdg-desktop-portal.
+
 I had several issues with xdg-desktop-portal-wlr, Hyprland and Waybar. Please make sure that xdg-desktop-portal-wlr is uninstalled and xdg-desktop-portal-hyprland is installed.
+
 More information you can find here:
 https://gist.github.com/PowerBall253/2dea6ddf6974ba4e5d26c3139ffb7580
 
