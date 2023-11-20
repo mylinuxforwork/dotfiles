@@ -41,6 +41,7 @@ packagesPacman=(
     "cliphist"
     "qalculate-gtk"
     "brightnessctl"
+    "gum"
 );
 
 packagesYay=(
