@@ -9,3 +9,6 @@ install.sh
 monitor.conf
 keyboard.conf
 keyboard.py
+animation.conf
+decoration.conf
+window.conf

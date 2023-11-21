@@ -1,2 +1,2 @@
-#!/bin/bash
-rsync -a --exclude-from=excludes.txt ../ ~/dotfiles/
+#!/bin/sh
+rsync -av --exclude-from=excludes.txt ../ ~/dotfiles/
