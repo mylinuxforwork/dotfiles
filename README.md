@@ -3,7 +3,7 @@
 This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland).
 This package includes an installation script to install and setup the required components.
 
-PLEASE NOTE: This branch is the developement version of my dotfiles and includes the latest changes. Please be aware that this version is not a fully tested release. 
+PLEASE NOTE: This branch is the rolling release of my dotfiles and includes the latest changes. Please be aware that this version is not a fully tested release. 
 To access the latest release please choose the latest tag https://gitlab.com/stephan-raabe/dotfiles/-/tags or the latest release https://gitlab.com/stephan-raabe/dotfiles/-/releases
 
 You can also use the dotfiles installer script to download and install the latest official release: https://gitlab.com/stephan-raabe/installer
