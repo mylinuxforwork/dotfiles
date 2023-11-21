@@ -3,10 +3,12 @@
 This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland).
 This package includes an installation script to install and setup the required components.
 
-PLEASE NOTE: This branch is the developement version of my dotfiles and includes the latest changes. Please be aware that this version is not a tested release. 
+PLEASE NOTE: This branch is the developement version of my dotfiles and includes the latest changes. Please be aware that this version is not a fully tested release. 
 To access the latest release please choose the latest tag https://gitlab.com/stephan-raabe/dotfiles/-/tags or the latest release https://gitlab.com/stephan-raabe/dotfiles/-/releases
 
-The dotfiles are tested with Arch Linux, Manjaro Linux, EndeavourOS and Arco Linux.
+You can also use the dotfiles installer script to download and install the latest official release: https://gitlab.com/stephan-raabe/installer
+
+The released dotfiles are tested with Arch Linux, Manjaro Linux, EndeavourOS and Arco Linux.
 
 You can find the video on YouTube: <a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Dotfiles Configuration and Installation</a>
 
@@ -82,7 +84,7 @@ PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING TH
 
 The script will try to create a backup from an older dotfiles installation.
 
-### Installation with GIT
+### Installation with GIT (Development Release)
 
 ```
 # 1.) Change into your Downloads folder
@@ -99,7 +101,7 @@ cd dotfiles
 
 ```
 
-### Installation with the dotfiles installer
+### Installation with the dotfiles installer (Tested Release)
 
 You can also use the dotfiles installer script to download and install the latest official release: https://gitlab.com/stephan-raabe/installer
 
