@@ -1,5 +1,5 @@
 # ------------------------------------------------------
-# Check that rsync is installed
+# Check for required packages to run the installation
 # ------------------------------------------------------
 
 echo "Checking that rsync and gum is installed..."
