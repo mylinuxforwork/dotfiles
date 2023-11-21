@@ -5,12 +5,12 @@ disman=0
 if [ -f /etc/systemd/system/display-manager.service ]; then
 echo -e "${GREEN}"
 cat <<"EOF"
- ___                            _              _   
-|_ _|_ __ ___  _ __   ___  _ __| |_ __ _ _ __ | |_ 
- | || '_ ` _ \| '_ \ / _ \| '__| __/ _` | '_ \| __|
- | || | | | | | |_) | (_) | |  | || (_| | | | | |_ 
-|___|_| |_| |_| .__/ \___/|_|   \__\__,_|_| |_|\__|
-              |_|                                  
+ ____  _           _               __  __                                   
+|  _ \(_)___ _ __ | | __ _ _   _  |  \/  | __ _ _ __   __ _  __ _  ___ _ __ 
+| | | | / __| '_ \| |/ _` | | | | | |\/| |/ _` | '_ \ / _` |/ _` |/ _ \ '__|
+| |_| | \__ \ |_) | | (_| | |_| | | |  | | (_| | | | | (_| | (_| |  __/ |   
+|____/|_|___/ .__/|_|\__,_|\__, | |_|  |_|\__,_|_| |_|\__,_|\__, |\___|_|   
+            |_|            |___/                            |___/           
 
 EOF
 echo -e "${NONE}"
@@ -31,23 +31,19 @@ echo -e "${NONE}"
         echo "But if you want to use the tty based (terminal) login instead, you can disable the display manager now."
     fi
     echo ""
-    while true; do
-        read -p "Do you want to deactive the current display manager (Yy/Nn): " yn
-        case $yn in
-            [Yy]* )
-                if [ -f /etc/systemd/system/display-manager.service ]; then
-                    sudo rm /etc/systemd/system/display-manager.service
-                    echo "Current display manager removed."
-                fi
-                disman=1
-            break;;
-            [Nn]* ) 
-                echo "Disable display manager skipped."
-                echo "You can run ~/dotfiles/hypr/script/disablewm.sh at a later point of time if needed."
-            break;;
-            * ) echo "Please answer yes or no.";;
-        esac
-    done
+
+    if gum confirm "Do you want to deactive the current display manager?" ;then
+        if [ -f /etc/systemd/system/display-manager.service ]; then
+            sudo rm /etc/systemd/system/display-manager.service
+            echo "Current display manager removed."
+        fi
+        disman=1
+    elif [ $? -eq 130 ]; then
+        exit 130
+    else
+        echo "Disable display manager skipped."
+        echo "You can run ~/dotfiles/hypr/script/disablewm.sh at a later point of time if needed."
+    fi
     echo ""
 else
     disman=1

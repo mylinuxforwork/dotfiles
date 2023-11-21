@@ -33,24 +33,14 @@ source .install/confirm-start.sh
 source .install/backup.sh
 source .install/preparation.sh
 source .install/profile.sh
-if [ $profile == "Hyprland" ]; then
-    source .install/hyprland.sh
-fi
-if [ $profile == "Qtile" ]; then
-    source .install/qtile.sh
-fi
 source .install/yay.sh
-if [ $profile == "Hyprland" ]; then
+if [[ $profile == *"Hyprland"* ]]; then
+    source .install/hyprland.sh
     source .install/hyprland-packages.sh
     source .install/install-packages.sh
 fi
-if [ $profile == "Qtile" ]; then
-    source .install/qtile-packages.sh
-    source .install/install-packages.sh
-fi
-if [ $profile == "All" ]; then
-    source .install/hyprland-packages.sh
-    source .install/install-packages.sh
+if [[ $profile == *"Qtile"* ]]; then
+    source .install/qtile.sh
     source .install/qtile-packages.sh
     source .install/install-packages.sh
 fi
@@ -63,14 +53,10 @@ source .install/keyboard.sh
 source .install/copy.sh
 source .install/config-folder.sh
 source .install/init-pywal.sh
-if [ $profile == "Hyprland" ]; then
+if [[ $profile == *"Hyprland"* ]]; then
     source .install/hyprland-dotfiles.sh
 fi
-if [ $profile == "Qtile" ]; then
-    source .install/qtile-dotfiles.sh
-fi
-if [ $profile == "All" ]; then
-    source .install/hyprland-dotfiles.sh
+if [[ $profile == *"Qtile"* ]]; then
     source .install/qtile-dotfiles.sh
 fi
 source .install/bashrc.sh

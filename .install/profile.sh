@@ -12,32 +12,10 @@ cat <<"EOF"
 
 EOF
 echo -e "${NONE}"
-echo "Please select the Desktop Profile for your installation:"
-echo "1  - Hyprland"
-echo "2  - Qtile"
-echo "3  - All"
-echo "Nn - Cancel"
-echo ""
-while true; do
-    read -p "PLEASE SELECT: " yn
-    case $yn in
-        [1]* )
-            profile="Hyprland"
-        break;;
-        [2]* )
-            profile="Qtile"
-        break;;
-        [3]* )
-            profile="All"
-        break;;
-        [Nn]* ) 
-            echo "Installation canceled."
-            exit;
-        break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
-echo ""
-echo "Installing profile $profile ..."
-sleep 2
-echo ""
+
+echo "SPACE = select/unselect a profile. RETURN = confirm. No selection = CANCEL"
+profile=$(gum choose --no-limit --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " "Hyprland" "Qtile")
+if [ -z $profile ] ;then
+    echo "No profile selected. Installation canceled."
+    exit
+fi

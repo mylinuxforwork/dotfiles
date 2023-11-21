@@ -44,6 +44,8 @@ echo -e "${NONE}"
             cp ~/.bashrc ~/dotfiles-versions/backups/$datets/.bashrc-old
             echo "Existing .bashrc file found in homefolder. .bashrc-old created"
         fi
+    elif [ $? -eq 130 ]; then
+        exit 130
     else
         echo "Backup skipped."
     fi

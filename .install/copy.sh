@@ -46,26 +46,21 @@ if [ ! -d ~/dotfiles ]; then
     echo ""
 fi
 
-while true; do
-    read -p "Do you want to install the prepared dotfiles now? (Yy/Nn): " yn
-    case $yn in
-        [Yy]* )
-            if [ ! $mode == "dev" ]; then
-                echo "Copy started"
-                if [ ! -d ~/dotfiles ]; then
-                    mkdir ~/dotfiles
-                    echo "~/dotfiles folder created."
-                fi   
-                rsync -a ~/dotfiles-versions/$version/ ~/dotfiles/
-                echo "All files from ~/dotfiles-versions/$version/ to ~/dotfiles/ copied."
-            else
-                echo "Skipped: DEV MODE!"
-            fi
-        break;;
-        [Nn]* ) 
-            exit
-        break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+if gum confirm "Do you want to install the prepared dotfiles now?" ;then
+    if [ ! $mode == "dev" ]; then
+        echo "Copy started"
+        if [ ! -d ~/dotfiles ]; then
+            mkdir ~/dotfiles
+            echo "~/dotfiles folder created."
+        fi   
+        rsync -a ~/dotfiles-versions/$version/ ~/dotfiles/
+        echo "All files from ~/dotfiles-versions/$version/ to ~/dotfiles/ copied."
+    else
+        echo "Skipped: DEV MODE!"
+    fi
+elif [ $? -eq 130 ]; then
+        exit 130
+else
+    exit
+fi
 echo ""

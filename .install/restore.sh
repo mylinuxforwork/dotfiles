@@ -22,7 +22,7 @@ echo -e "${NONE}"
     if [ -f ~/dotfiles/.bashrc ]; then
         echo ".bashrc file: ~/dotfiles/.bashrc"
     fi
-    if [ $profile == "Hyprland" ] || [ $profile == "All" ]; then
+    if [[ $profile == *"Hyprland"* ]]; then
         if [ -f ~/dotfiles/hypr/conf/keyboard.conf ]; then
             echo "Hyprland keyboard layout: ~/dotfiles/hypr/conf/keyboard.conf"
         fi
@@ -33,38 +33,40 @@ echo -e "${NONE}"
             echo "Hyprland keybindings: ~/dotfiles/hypr/conf/keybindings.conf"
         fi
     fi
-    if [ $profile == "Qtile" ] || [ $profile == "All" ]; then
+    if [[ $profile == *"Qtile"* ]]; then
         if [ -f ~/dotfiles/qtile/conf/keyboard.py ]; then
             echo "Qtile keyboard layout: ~/dotfiles/qtile/conf/keyboard.py"
         fi
     fi
     echo ""
     if gum confirm "Do you want to restore the files now and use it on your new installation?" ;then
-            if [ -f ~/dotfiles/.bashrc ]; then
-                cp ~/dotfiles/.bashrc ~/dotfiles-versions/$version/
-                echo ".bashrc restored!"
+        if [ -f ~/dotfiles/.bashrc ]; then
+            cp ~/dotfiles/.bashrc ~/dotfiles-versions/$version/
+            echo ".bashrc restored!"
+        fi
+        if [[ $profile == *"Hyprland"* ]]; then
+            if [ -f ~/dotfiles/hypr/conf/keyboard.conf ]; then
+                cp ~/dotfiles/hypr/conf/keyboard.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo "Hyprland keyboard.conf restored!"
             fi
-            if [ $profile == "Hyprland" ] || [ $profile == "All" ]; then                
-                if [ -f ~/dotfiles/hypr/conf/keyboard.conf ]; then
-                    cp ~/dotfiles/hypr/conf/keyboard.conf ~/dotfiles-versions/$version/hypr/conf/
-                    echo "Hyprland keyboard.conf restored!"
-                fi
-                if [ -f ~/dotfiles/hypr/conf/monitor.conf ]; then
-                    cp ~/dotfiles/hypr/conf/monitor.conf ~/dotfiles-versions/$version/hypr/conf/
-                    echo "Hyprland monitor.conf restored!"                
-                fi
-                if [ -f ~/dotfiles/hypr/conf/keybindings.conf ]; then
-                    cp ~/dotfiles/hypr/conf/keybindings.conf ~/dotfiles-versions/$version/hypr/conf/
-                    echo "Hyprland keybindings.conf restored!"
-                fi
+            if [ -f ~/dotfiles/hypr/conf/monitor.conf ]; then
+                cp ~/dotfiles/hypr/conf/monitor.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo "Hyprland monitor.conf restored!"                
             fi
-            if [ $profile == "Qtile" ] || [ $profile == "All" ]; then
-                if [ -f ~/dotfiles/qtile/conf/keyboard.py ]; then
-                    cp ~/dotfiles/qtile/conf/keyboard.py ~/dotfiles-versions/$version/qtile/conf/
-                    echo "Qtile keyboard.py restored!"
-                fi
+            if [ -f ~/dotfiles/hypr/conf/keybindings.conf ]; then
+                cp ~/dotfiles/hypr/conf/keybindings.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo "Hyprland keybindings.conf restored!"
             fi
-            restored=1
+        fi
+        if [[ $profile == *"Qtile"* ]]; then
+            if [ -f ~/dotfiles/qtile/conf/keyboard.py ]; then
+                cp ~/dotfiles/qtile/conf/keyboard.py ~/dotfiles-versions/$version/qtile/conf/
+                echo "Qtile keyboard.py restored!"
+            fi
+        fi
+        restored=1
+    elif [ $? -eq 130 ]; then
+        exit 130
     else
         echo "Restore skipped"
     fi
