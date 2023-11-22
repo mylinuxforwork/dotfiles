@@ -16,27 +16,11 @@ echo -e "${NONE}"
 
 # Default layout and variants
 keyboard_layout="us"
-keyboard_variant=""
 
 _setupKeyboardLayout() {
-    if gum confirm "Current keyboard layout: $keyboard_layout! Do you want to change it?" ;then
-        keyboard_layout=$(localectl list-x11-keymap-layouts | gum filter --placeholder "Select keyboard layout...")
-        echo ""
-        echo "Keyboard layout changed to $keyboard_layout"
-    elif [ $? -eq 130 ]; then
-        exit 130
-    fi
-    _setupKeyboardVariant
-}
-
-_setupKeyboardVariant() {
-    if gum confirm "Current keyboard variant: $keyboard_variant! Do you want to change it?" ;then
-        keyboard_variant=$(localectl list-x11-keymap-variants | gum filter --placeholder "Select keyboard variant...")
-        echo ""
-        echo "Keyboard layout changed to $keyboard_variant"
-    elif [ $? -eq 130 ]; then
-        exit 130
-    fi
+    keyboard_layout=$(localectl list-x11-keymap-layouts | gum filter --placeholder "Select keyboard layout...")
+    echo ""
+    echo "Keyboard layout changed to $keyboard_layout"
     echo ""
     _confirmKeyboard
 }
@@ -44,7 +28,6 @@ _setupKeyboardVariant() {
 _confirmKeyboard() {
     echo "Current selected keyboard setup:"
     echo "Keyboard layout: $keyboard_layout"
-    echo "Keyboard variant: $keyboard_variant"
     if gum confirm "Do you want proceed with this keyboard setup?" --affirmative "Proceed" --negative "Change" ;then
         return 0
     elif [ $? -eq 130 ]; then
@@ -70,10 +53,7 @@ else
     REPLACE="\"$keyboard_layout\""
     sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/qtile/conf/keyboard.py
 
-    SEARCH="KEYBOARD_VARIANT"
-    REPLACE="$keyboard_variant"
-    sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
-
     echo ""
     echo "Keyboard setup updated successfully."
+    echo "PLEASE NOTE: You can update your keyboard layout later in ~/dotfiles/hypr/conf/keyboard.conf"
 fi
