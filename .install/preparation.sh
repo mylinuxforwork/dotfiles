@@ -13,7 +13,6 @@ cat <<"EOF"
 EOF
 echo -e "${NONE}"
 echo "Preparing temporary folders for the installation."
-echo ""
 if [ ! -d ~/dotfiles-versions ]; then
     mkdir ~/dotfiles-versions
     echo "~/dotfiles-versions folder created."
@@ -23,11 +22,9 @@ if [ ! -d ~/dotfiles-versions/$version ]; then
     echo "~/dotfiles-versions/$version folder created."
 else
     echo "The folder ~/dotfiles-versions/$version already exists from previous installations."
-    echo ""
     rm -fr ~/dotfiles-versions/$version
     mkdir ~/dotfiles-versions/$version
     echo "Clean build prepared for the installation."
-    echo ""
 fi
 rsync -a --exclude-from=.install/excludes.txt . ~/dotfiles-versions/$version/
 echo "dotfiles $version successfully prepared in ~/dotfiles-versions/$version/"
