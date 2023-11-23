@@ -18,7 +18,9 @@ echo -e "${NONE}"
 keyboard_layout="us"
 
 _setupKeyboardLayout() {
-    keyboard_layout=$(localectl list-x11-keymap-layouts | gum filter --placeholder "Select keyboard layout...")
+    echo ""
+    echo "Start typing = Search, RETURN = Confirm, CTRL-C = Cancel"
+    keyboard_layout=$(localectl list-x11-keymap-layouts | gum filter --height 15 --placeholder "Find your keyboard layout...")
     echo ""
     echo "Keyboard layout changed to $keyboard_layout"
     echo ""
