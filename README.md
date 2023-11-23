@@ -1,4 +1,4 @@
-# ML4W dotfiles
+# ML4W dotfiles 2.6RC
 
 This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland).
 This package includes an installation script to install and setup the required components.
