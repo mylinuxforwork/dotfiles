@@ -1,3 +1,20 @@
+Version 2.6
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.6
+--------------------------------------------------------
+Installation:
+- Script ensures with the start that rsync and gum is installed
+- All dialogues implememted with gum to increase usability
+- New .dev folder with sync scripts added to sync from dotfiles-version/* to ~/dotfiles (Please check before executing)
+
+Hyprland:
+- New variations for decoration and window
+- Variations for monitor settings introduced
+- More keybindings for function keys added
+
+Known issues Qtile Wayland:
+- GTK dark theme is not always working
+- Screen recording issues with OBS Studio and other applications
+
 Version 2.5.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.5.1
 --------------------------------------------------------
