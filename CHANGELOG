@@ -7,6 +7,7 @@ Installation:
 - New .dev folder with sync scripts added to sync from dotfiles-version/* to ~/dotfiles (Please check before executing)
 
 Hyprland:
+- New settings cli app to change variations on the fly. SUPER+CTRL+S or wheel icon in waybar.
 - New variations for decoration and window
 - Variations for monitor settings introduced
 - More keybindings for function keys added
