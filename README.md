@@ -52,9 +52,9 @@ Qtile X11: In addition, you can switch between the Qtile status bar and Polybar 
 
 ## Screenshots Hyprland
 
-<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-5.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v26/screenshot-26-1.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-6.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v26/screenshot-26-2.png" alt="Click to watch on YouTube" /></a>
 
 <a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Watch on YouTube</a>
 
