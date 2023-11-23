@@ -11,6 +11,7 @@ Hyprland:
 - New variations for decoration and window
 - Variations for monitor settings introduced
 - More keybindings for function keys added
+- New ML4W black Waybar Theme
 
 Known issues Qtile Wayland:
 - GTK dark theme is not always working
