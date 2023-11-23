@@ -100,6 +100,13 @@
         "on-click": "~/dotfiles/waybar/themeswitcher.sh",
         "tooltip": false
     },
+    
+    // Settings
+    "custom/settings": {
+        "format": "",
+        "on-click": "alacritty --class dotfiles-floating -e ~/dotfiles/hypr/settings/settings.sh",
+        "tooltip": false
+    },
 
     // Keybindings
     "custom/keybindings": {

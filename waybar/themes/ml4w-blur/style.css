@@ -159,10 +159,11 @@ window#waybar.empty #window {
 #custom-calculator, 
 #custom-windowsvm, 
 #custom-cliphist, 
-#custom-wallpaper, 
+#custom-wallpaper,
+#custom-settings,  
 #custom-wallpaperwlr, 
 #custom-waybarthemes {
-    margin-right: 20px;
+    margin-right: 15px;
     font-size: 20px;
     font-weight: bold;
     opacity: 0.8;
