@@ -21,13 +21,14 @@ echo -e "${NONE}"
         echo "Please check: https://wiki.hyprland.org/hyprland-wiki/pages/Getting-Started/Master-Tutorial/#launching-hyprland"
         echo "Hyprland could work with SDDM > 0.20.0 or the latest git version (yay -S sddm-git)."
         echo "Login with other display managers could fail and could have negative side effects on some devices."
+        echo ""
     fi
     if [[ $profile == *"Qtile"* ]]; then
         echo "PLEASE NOTE: Qtile works with Display Managers."
         echo "But if you want to use the tty based (terminal) login instead, you can disable the display manager now."
         echo "If you install the aliases with the included .bashrc, you can start Qtile with the command Qtile or QtileWayland."
+        echo ""
     fi
-    echo ""
 
     if gum confirm "Do you want to deactive the current display manager?" ;then
         if [ -f /etc/systemd/system/display-manager.service ]; then
