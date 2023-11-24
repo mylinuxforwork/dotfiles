@@ -19,7 +19,7 @@ packagesPacman=(
     "ttf-firacode-nerd" 
     "figlet" 
     "vlc" 
-    "exa" 
+    "eza" 
     "python-pip" 
     "python-psutil" 
     "python-rich" 
