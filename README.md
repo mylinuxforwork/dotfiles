@@ -15,7 +15,9 @@ To make it easy for you to get started with my dotfiles, here's a list of recomm
 
 PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIONAL INSTALLTION.
 
-The script will try to create a backup from an older dotfiles installation.
+The script will try to create a backup from an previous dotfiles installation.
+
+PLEASE READ THIS README until the end before starting the installation.
 
 ### Installation with GIT (Rolling Release of main branch)
 
@@ -38,7 +40,7 @@ To access the latest release please choose the latest tag https://gitlab.com/ste
 
 ### Installation with the dotfiles installer (Latest Release)
 
-You can also use the dotfiles installer script to download and install the latest official release: https://gitlab.com/stephan-raabe/installer
+You can also use the dotfiles installer script to download and install the latest release: https://gitlab.com/stephan-raabe/installer
 
 ### NVIDIA 
 
@@ -46,6 +48,19 @@ There is no official Hyprland support for Nvidia hardware. However, you might ma
 https://wiki.hyprland.org/Nvidia/
 
 That's why NVIDIA GPUs are currently not supported by my dotfiles. But in upcoming releases, I will try to setup Hyprland for NVIDIA based on the article above.
+
+## Some important key bindings
+
+- SUPER + RETURN: Alacritty
+- SUPER + CMD + RETURN: rofi application launcher
+- SUPER + SHIFT + W: Change wallpaper
+- SUPER + PRINT: Screenshot
+- SUPER + CMS + Q: Logout screen
+
+All keybindings for Hyprland with right mouse click on Apps in waybar or here: 
+https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/conf/keybindings.conf?ref_type=heads
+
+All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/qtile/config.py?ref_type=heads
 
 ## Templating & Settings
 
@@ -104,17 +119,22 @@ Please note that every Arch Linux system is different and I cannot guarantee tha
 - Filemanager: Thunar
 - Cursor: Bibata Modern Ice
 - Icons: Papirus-Icon-Theme
-- Virtual Machine: qemu (Windows 11 with looking glass and xrdp)
 
-## Hyprland & Qtile Wayland
+## Hyprland 
 
 - Status Bar: waybar
 - Screenshots: grim & slurp
 - Clipboard Manager: cliphist
-- Logout Hyprland: wlogout 
-- Logout Qtile: rofi power menu
+- Logout: wlogout 
 - Screenlock: swaylock-effects
-- Qtile Bar: Qtile status bar
+
+## Qtile Wayland
+
+- Status Bar: Qtile status bar
+- Screenshots: grim & slurp
+- Clipboard Manager: cliphist
+- Logout: rofi power menu
+- Screenlock: swaylock-effects
 
 ## Qtile X11
 
