@@ -2,6 +2,15 @@
 # DONE
 # ------------------------------------------------------
 
-echo "DONE!" 
+echo -e "${GREEN}"
+cat <<"EOF"
+ ____   ___  _   _ _____ 
+|  _ \ / _ \| \ | | ____|
+| | | | | | |  \| |  _|  
+| |_| | |_| | |\  | |___ 
+|____/ \___/|_| \_|_____|
+                         
+EOF
+echo -e "${NONE}"
 echo "IMPORTANT: Please logout and reboot your system!"
 echo ""

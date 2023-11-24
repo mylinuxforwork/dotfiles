@@ -19,10 +19,10 @@ _showRestoreOptions() {
         if [ -f ~/dotfiles/hypr/conf/keybindings.conf ]; then
             restorelist+="~/dotfiles/hypr/conf/keybindings.conf "
         fi
-        if [ -f ~/dotfiles/hypr/conf/monitor.conf ] && [ -d ~/dotfiles/hypr/conf/monitor/ ]; then
+        if [ -f ~/dotfiles/hypr/conf/monitor.conf ] && [ -d ~/dotfiles/hypr/conf/monitors/ ]; then
             restorelist+="~/dotfiles/hypr/conf/monitor.conf "
         fi
-        if [ -f ~/dotfiles/hypr/conf/animation.conf ] && [ -d ~/dotfiles/hypr/conf/animation/ ]; then
+        if [ -f ~/dotfiles/hypr/conf/animation.conf ] && [ -d ~/dotfiles/hypr/conf/animations/ ]; then
             restorelist+="~/dotfiles/hypr/conf/animation.conf "
         fi
         if [ -f ~/dotfiles/hypr/conf/decoration.conf ] && [ -d ~/dotfiles/hypr/conf/decorations/ ]; then

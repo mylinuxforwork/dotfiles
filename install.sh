@@ -60,4 +60,5 @@ if [[ $profile == *"Qtile"* ]]; then
     source .install/qtile-dotfiles.sh
 fi
 source .install/bashrc.sh
+source .install/monitor.sh
 source .install/done.sh
