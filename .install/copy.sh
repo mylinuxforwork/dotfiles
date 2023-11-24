@@ -53,7 +53,7 @@ if gum confirm "Do you want to install the prepared dotfiles now?" ;then
             mkdir ~/dotfiles
             echo "~/dotfiles folder created."
         fi   
-        rsync -a ~/dotfiles-versions/$version/ ~/dotfiles/
+        rsync -a -I ~/dotfiles-versions/$version/ ~/dotfiles/
         echo "All files from ~/dotfiles-versions/$version/ to ~/dotfiles/ copied."
     else
         echo "Skipped: DEV MODE!"

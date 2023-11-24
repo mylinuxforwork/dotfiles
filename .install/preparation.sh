@@ -26,6 +26,6 @@ else
     mkdir ~/dotfiles-versions/$version
     echo "Clean build prepared for the installation."
 fi
-rsync -a --exclude-from=.install/excludes.txt . ~/dotfiles-versions/$version/
+rsync -a -I --exclude-from=.install/excludes.txt . ~/dotfiles-versions/$version/
 echo "dotfiles $version successfully prepared in ~/dotfiles-versions/$version/"
 echo ""
