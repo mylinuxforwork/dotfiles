@@ -4,43 +4,48 @@ This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland).
 This package includes an installation script to install and setup the required components.
 
 PLEASE NOTE: This branch is the rolling release of my dotfiles and includes the latest changes. Please be aware that this version is not a fully tested release. 
-To access the latest release please choose the latest tag https://gitlab.com/stephan-raabe/dotfiles/-/tags or the latest release https://gitlab.com/stephan-raabe/dotfiles/-/releases
-
-You can also use the dotfiles installer script to download and install the latest official release: https://gitlab.com/stephan-raabe/installer
 
 The released dotfiles are tested with Arch Linux, Manjaro Linux, EndeavourOS and Arco Linux.
 
 You can find the video on YouTube: <a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Dotfiles Configuration and Installation</a>
 
-## General Packages
+## Installation
 
-- Terminal: alacritty
-- Editor: nvim
-- Prompt: starship
-- Icons: Font Awesome
-- Launch Menus: Rofi
-- Colorscheme: pywal
-- Browsers: chromium (brave optional)
-- Filemanager: Thunar
-- Cursor: Bibata Modern Ice
-- Icons: Papirus-Icon-Theme
-- Virtual Machine: qemu (Windows 11 with looking glass and xrdp)
+To make it easy for you to get started with my dotfiles, here's a list of recommended next steps.
 
-## Hyprland & Qtile Wayland
+PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIONAL INSTALLTION.
 
-- Status Bar: waybar
-- Screenshots: grim & slurp
-- Clipboard Manager: cliphist
-- Logout Hyprland: wlogout 
-- Logout Qtile: rofi power menu
-- Screenlock: swaylock-effects
-- Qtile Bar: Qtile status bar
+The script will try to create a backup from an older dotfiles installation.
 
-## Qtile X11
+### Installation with GIT (Rolling Release of main branch)
 
-- Compositor: picom
-- Status Bar: Qtile status bar + Polybar (optional)
-- Screenshots: scrot
+```
+# 1.) Change into your Downloads folder
+cd ~/Downloads
+
+# 2.) Clone the dotfiles repository into the Downloads folder
+git clone https://gitlab.com/stephan-raabe/dotfiles.git
+
+# 3.) Change into the dotfiles folder
+cd dotfiles
+
+# 4.) Start the installation
+./install.sh
+
+```
+
+To access the latest release please choose the latest tag https://gitlab.com/stephan-raabe/dotfiles/-/tags or the latest release https://gitlab.com/stephan-raabe/dotfiles/-/releases
+
+### Installation with the dotfiles installer (Latest Release)
+
+You can also use the dotfiles installer script to download and install the latest official release: https://gitlab.com/stephan-raabe/installer
+
+### NVIDIA 
+
+There is no official Hyprland support for Nvidia hardware. However, you might make it work properly following this page.
+https://wiki.hyprland.org/Nvidia/
+
+That's why NVIDIA GPUs are currently not supported by my dotfiles. But in upcoming releases, I will try to setup Hyprland for NVIDIA based on the article above.
 
 ## Templating
 
@@ -76,42 +81,43 @@ Qtile X11: In addition, you can switch between the Qtile status bar and Polybar 
 
 <b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
 
-## Installation
-
-To make it easy for you to get started with my dotfiles, here's a list of recommended next steps.
-
-PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIONAL INSTALLTION.
-
-The script will try to create a backup from an older dotfiles installation.
-
-### Installation with GIT (Development Release)
-
-```
-# 1.) Change into your Downloads folder
-cd ~/Downloads
-
-# 2.) Clone the dotfiles repository into the Downloads folder
-git clone https://gitlab.com/stephan-raabe/dotfiles.git
-
-# 3.) Change into the dotfiles folder
-cd dotfiles
-
-# 4.) Start the installation
-./install.sh
-
-```
-
-### Installation with the dotfiles installer (Tested Release)
-
-You can also use the dotfiles installer script to download and install the latest official release: https://gitlab.com/stephan-raabe/installer
-
 ## Please note
 
 In case you have issues with starting Waybar please make sure that only one xdg-desktop-portal-x is installed additionally to xdg-desktop-portal.
 
-I had several issues with xdg-desktop-portal-wlr, Hyprland and Waybar. Please make sure that xdg-desktop-portal-wlr is uninstalled and xdg-desktop-portal-hyprland is installed.
+I had several issues with xdg-desktop-portal-wlr on Hyprland and Waybar. Please make sure that xdg-desktop-portal-wlr is uninstalled and xdg-desktop-portal-hyprland is installed.
 
 More information you can find here:
 https://gist.github.com/PowerBall253/2dea6ddf6974ba4e5d26c3139ffb7580
 
 Please note that every Arch Linux system is different and I cannot guarantee that everything works fine on your system.
+
+## General Packages
+
+- Terminal: alacritty
+- Editor: nvim
+- Prompt: starship
+- Icons: Font Awesome
+- Launch Menus: Rofi
+- Colorscheme: pywal
+- Browsers: chromium (brave optional)
+- Filemanager: Thunar
+- Cursor: Bibata Modern Ice
+- Icons: Papirus-Icon-Theme
+- Virtual Machine: qemu (Windows 11 with looking glass and xrdp)
+
+## Hyprland & Qtile Wayland
+
+- Status Bar: waybar
+- Screenshots: grim & slurp
+- Clipboard Manager: cliphist
+- Logout Hyprland: wlogout 
+- Logout Qtile: rofi power menu
+- Screenlock: swaylock-effects
+- Qtile Bar: Qtile status bar
+
+## Qtile X11
+
+- Compositor: picom
+- Status Bar: Qtile status bar + Polybar (optional)
+- Screenshots: scrot
