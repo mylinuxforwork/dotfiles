@@ -34,6 +34,19 @@ _isInstalledYay() {
     return; #false
 }
 
+_isFolderEmpty() {
+    folder="$1"
+    if [ -d $folder ] ;then
+        if [ -z "$(ls -A $folder)" ]; then
+            echo 0
+        else
+            echo 1
+        fi
+    else
+        echo 1
+    fi
+}
+
 # ------------------------------------------------------
 # Function Install all package if not installed
 # ------------------------------------------------------

@@ -54,6 +54,12 @@ if gum confirm "Do you want to install the prepared dotfiles now?" ;then
             echo "~/dotfiles folder created."
         fi   
         rsync -a -I ~/dotfiles-versions/$version/ ~/dotfiles/
+        if [[ $(_isFolderEmpty ~/dotfiles/) == 0 ]] ;then
+            echo "AN ERROR HAS OCCURED. Copy prepared dofiles from ~/dotfiles-versions/$version/ to ~/dotfiles/ failed" 
+            echo "Please check that rsync is installad on your system."
+            echo "Execution of rsync -a -I ~/dotfiles-versions/$version/ ~/dotfiles/ is required."
+            exit
+        fi
         echo "All files from ~/dotfiles-versions/$version/ to ~/dotfiles/ copied."
     else
         echo "Skipped: DEV MODE!"

@@ -22,10 +22,16 @@ if [ ! -d ~/dotfiles-versions/$version ]; then
     echo "~/dotfiles-versions/$version folder created."
 else
     echo "The folder ~/dotfiles-versions/$version already exists from previous installations."
-    rm -fr ~/dotfiles-versions/$version
+    rm -rf ~/dotfiles-versions/$version
     mkdir ~/dotfiles-versions/$version
     echo "Clean build prepared for the installation."
 fi
 rsync -a -I --exclude-from=.install/excludes.txt . ~/dotfiles-versions/$version/
+if [[ $(_isFolderEmpty ~/dotfiles-versions/$version/) == 0 ]] ;then
+    echo "AN ERROR HAS OCCURED. Preparation of ~/dotfiles-versions/$version/ failed" 
+    echo "Please check that rsync is installad on your system."
+    echo "Execution of rsync -a -I --exclude-from=.install/excludes.txt . ~/dotfiles-versions/$version/ is required."
+    exit
+fi
 echo "dotfiles $version successfully prepared in ~/dotfiles-versions/$version/"
 echo ""
