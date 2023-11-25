@@ -9,7 +9,7 @@
 # by Stephan Raabe (2023) 
 # ----------------------------------------------------- 
 
-read -p "Enter a comment for the snapshot: " c
+c=$(gum input --placeholder "Enter a comment for the snapshot...")
 sudo timeshift --create --comments "$c"
 sudo timeshift --list
 sudo grub-mkconfig -o /boot/grub/grub.cfg

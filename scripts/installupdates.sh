@@ -38,38 +38,32 @@ _isInstalledYay() {
 # Confirm Start
 # ------------------------------------------------------
 
-while true; do
-    read -p "DO YOU WANT TO START THE UPDATE NOW? (Yy/Nn): " yn
-    case $yn in
-        [Yy]* )
-            echo ""
-        break;;
-        [Nn]* ) 
-            exit;
-        break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+if gum confirm "DO YOU WANT TO START THE UPDATE NOW?" ;then
+    echo "Update started."
+elif [ $? -eq 130 ]; then
+        exit 130
+else
+    echo "Update canceled."
+    exit;
+fi
+echo ""
 
-if [[ $(_isInstalledYay "Timeshift") == 1 ]];
-then
-    while true; do
-        read -p "DO YOU WANT TO CREATE A SNAPSHOT? (Yy/Nn): " yn
-        case $yn in
-            [Yy]* )
-                echo ""
-                read -p "Enter a comment for the snapshot: " c
-                sudo timeshift --create --comments "$c"
-                sudo timeshift --list
-                sudo grub-mkconfig -o /boot/grub/grub.cfg
-                echo "DONE. Snapshot $c created!"
-                echo ""
-            break;;
-            [Nn]* ) 
-            break;;
-            * ) echo "Please answer yes or no.";;
-        esac
-    done
+if [[ $(_isInstalledYay "Timeshift") == 1 ]] ;then
+    if gum confirm "DO YOU WANT TO CREATE A SNAPSHOT?" ;then
+        echo ""
+        c=$(gum input --placeholder "Enter a comment for the snapshot...")
+        sudo timeshift --create --comments "$c"
+        sudo timeshift --list
+        sudo grub-mkconfig -o /boot/grub/grub.cfg
+        echo "DONE. Snapshot $c created!"
+        echo ""
+    elif [ $? -eq 130 ]; then
+        echo "Snapshot canceled."
+        exit 130
+    else
+        echo "Snapshot canceled."
+    fi
+    echo ""
 fi
 
 echo "-----------------------------------------------------"
