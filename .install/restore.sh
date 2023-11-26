@@ -38,11 +38,17 @@ _showRestoreOptions() {
         if [ -f ~/dotfiles/qtile/conf/keyboard.py ]; then
             restorelist+="~/dotfiles/qtile/conf/keyboard.py "
         fi
+        if [ -f ~/dotfiles/qtile/autostart_wayland.sh ]; then
+            restorelist+="~/dotfiles/qtile/autostart_wayland.sh "
+        fi
+        if [ -f ~/dotfiles/qtile/autostart_x11.sh ]; then
+            restorelist+="~/dotfiles/qtile/autostart_x11.sh "
+        fi
     fi
     if [ ! -z "$restorelist" ] ;then
         restorelist+="All"
     fi
-    restoreselect=$(gum choose --no-limit --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " $restorelist)
+    restoreselect=$(gum choose --no-limit --height 20 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " $restorelist)
     if [ ! -z "$restoreselect" ] ;then
         echo "Selected to restore:" 
         echo "$restoreselect"
@@ -71,36 +77,68 @@ _showRestoreOptions() {
 
 _startRestore() {
     if [[ $restoreselect == *"~/dotfiles/.bashrc"* ]] || [[ $restoreselect == *"All"* ]] ; then
-        cp ~/dotfiles/.bashrc ~/dotfiles-versions/$version/
-        echo ".bashrc restored!"
+        if [ -f ~/dotfiles/.bashrc ]; then
+            cp ~/dotfiles/.bashrc ~/dotfiles-versions/$version/
+            echo ".bashrc restored!"
+        fi
     fi
-    if [[ $restoreselect == *"~/dotfiles/hypr/conf/keyboard.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
-        cp ~/dotfiles/hypr/conf/keyboard.conf ~/dotfiles-versions/$version/hypr/conf/
-        echo "Hyprland keyboard.conf restored!"
+    if [[ $profile == *"Hyprland"* ]]; then
+        if [[ $restoreselect == *"~/dotfiles/hypr/conf/keyboard.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/hypr/conf/keyboard.conf ]; then
+                cp ~/dotfiles/hypr/conf/keyboard.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo "Hyprland keyboard.conf restored!"
+            fi
+        fi
+        if [[ $restoreselect == *"~/dotfiles/hypr/conf/monitor.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/hypr/conf/monitor.conf ]; then
+                cp ~/dotfiles/hypr/conf/monitor.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo "Hyprland monitor.conf restored!"                
+            fi
+        fi
+        if [[ $restoreselect == *"~/dotfiles/hypr/conf/keybindings.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/hypr/conf/keybindings.conf ]; then
+                cp ~/dotfiles/hypr/conf/keybindings.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo "Hyprland keybindings.conf restored!"
+            fi
+        fi
+        if [[ $restoreselect == *"~/dotfiles/hypr/conf/animation.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/hypr/conf/animation.conf ]; then
+                cp ~/dotfiles/hypr/conf/animation.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo "Hyprland animation.conf restored!"
+            fi
+        fi
+        if [[ $restoreselect == *"~/dotfiles/hypr/conf/decoration.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/hypr/conf/decoration.conf ]; then
+                cp ~/dotfiles/hypr/conf/decoration.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo "Hyprland decoration.conf restored!"
+            fi
+        fi
+        if [[ $restoreselect == *"~/dotfiles/hypr/conf/window.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/hypr/conf/window.conf ]; then
+                cp ~/dotfiles/hypr/conf/window.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo "Hyprland window.conf restored!"
+            fi
+        fi
     fi
-    if [[ $restoreselect == *"~/dotfiles/hypr/conf/monitor.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
-        cp ~/dotfiles/hypr/conf/monitor.conf ~/dotfiles-versions/$version/hypr/conf/
-        echo "Hyprland monitor.conf restored!"                
-    fi
-    if [[ $restoreselect == *"~/dotfiles/hypr/conf/keybindings.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
-        cp ~/dotfiles/hypr/conf/keybindings.conf ~/dotfiles-versions/$version/hypr/conf/
-        echo "Hyprland keybindings.conf restored!"
-    fi
-    if [[ $restoreselect == *"~/dotfiles/hypr/conf/animation.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
-        cp ~/dotfiles/hypr/conf/animation.conf ~/dotfiles-versions/$version/hypr/conf/
-        echo "Hyprland animation.conf restored!"
-    fi
-    if [[ $restoreselect == *"~/dotfiles/hypr/conf/decoration.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
-        cp ~/dotfiles/hypr/conf/decoration.conf ~/dotfiles-versions/$version/hypr/conf/
-        echo "Hyprland decoration.conf restored!"
-    fi
-    if [[ $restoreselect == *"~/dotfiles/hypr/conf/window.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
-        cp ~/dotfiles/hypr/conf/window.conf ~/dotfiles-versions/$version/hypr/conf/
-        echo "Hyprland keybindings.conf restored!"
-    fi
-    if [[ $restoreselect == *"~/dotfiles/qtile/conf/keyboard.py"* ]] || [[ $restoreselect == *"All"* ]] ; then
-        cp ~/dotfiles/qtile/conf/keyboard.py ~/dotfiles-versions/$version/qtile/conf/
-        echo "Qtile keyboard.py restored!"
+    if [[ $profile == *"Qtile"* ]]; then
+        if [[ $restoreselect == *"~/dotfiles/qtile/conf/keyboard.py"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/qtile/conf/keyboard.py ]; then
+                cp ~/dotfiles/qtile/conf/keyboard.py ~/dotfiles-versions/$version/qtile/conf/
+                echo "Qtile keyboard.py restored!"
+            fi
+        fi
+        if [[ $restoreselect == *"~/dotfiles/qtile/autostart_wayland.sh"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/qtile/autostart_wayland.sh ]; then
+                cp ~/dotfiles/qtile/autostart_wayland.sh ~/dotfiles-versions/$version/qtile/
+                echo "Qtile autostart_wayland.sh restored!"
+            fi
+        fi
+        if [[ $restoreselect == *"~/dotfiles/qtile/autostart_x11.sh"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/qtile/autostart_x11.sh ]; then
+                cp ~/dotfiles/qtile/autostart_x11.sh ~/dotfiles-versions/$version/qtile/
+                echo "Qtile autostart_x11.sh restored!"
+            fi
+        fi
     fi
     restored=1
     return 0
