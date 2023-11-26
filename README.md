@@ -36,6 +36,21 @@ cd dotfiles
 
 ```
 ### Update with GIT (Rolling Release of main branch)
+```
+# 1.) Change into your Downloads folder
+cd ~/Downloads/dotfiles
+
+# 2.) Pull the latest version and update the repository
+git stash; git pull
+
+# 3.) Start the installation to update
+./install.sh
+
+```
+
+### Update with GIT (Rolling Release of main branch)
+
+You can also update by deleting the ~/Downloads/dotfiles folder and clone again.
 
 ```
 # 1.) Change into your Downloads folder
