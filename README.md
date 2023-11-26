@@ -1,9 +1,10 @@
 # ML4W dotfiles 2.6
 
-This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland).
-This package includes an installation script to install and setup the required components.
+This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland) for Arch. This package includes an installation script to install and setup the required components.
 
-PLEASE NOTE: This branch is the rolling release of my dotfiles and includes the latest changes. Please be aware that this version is not a fully tested release. 
+> [!IMPORTANT]
+> PLEASE NOTE: This branch is the rolling release of my dotfiles and includes the latest changes. 
+> Please be aware that this version is not a tested release. 
 
 The released dotfiles are tested with Arch Linux, Manjaro Linux, EndeavourOS and Arco Linux.
 
@@ -12,12 +13,11 @@ You can find the video on YouTube: <a href="https://youtu.be/5i_LMMXUDJI" target
 ## Installation
 
 To make it easy for you to get started with my dotfiles, here's a list of recommended next steps.
-
-PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIONAL INSTALLTION.
-
 The script will try to create a backup from an previous dotfiles installation.
 
-PLEASE READ THIS README until the end before starting the installation.
+> [!CAUTION]
+> PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIONAL INSTALLTION.
+> PLEASE READ THIS README until the end before starting the installation.
 
 ### Installation with GIT (Rolling Release of main branch)
 
@@ -100,11 +100,11 @@ That's why NVIDIA GPUs are currently not supported by my dotfiles. But in upcomi
 
 ## Some important key bindings
 
-- SUPER + RETURN: Alacritty
-- SUPER + CMD + RETURN: rofi application launcher
-- SUPER + SHIFT + W: Change wallpaper
-- SUPER + PRINT: Screenshot
-- SUPER + CMS + Q: Logout screen
+- <kbd>SUPER</kbd> + <kbd>RETURN</kbd>: Alacritty
+- <kbd>SUPER</kbd> + <kbd>CMD</kbd> + <kbd>RETURN</kbd>: rofi application launcher
+- <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd>: Change wallpaper
+- <kbd>SUPER</kbd> + <kbd>PRINT</kbd>: Screenshot
+- <kbd>SUPER</kbd> + <kbd>CMS</kbd> + <kbd>Q</kbd>: Logout screen
 
 All keybindings for Hyprland with right mouse click on Apps in waybar or here: 
 https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/conf/keybindings.conf?ref_type=heads

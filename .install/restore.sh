@@ -6,7 +6,7 @@ restorelist=""
 monitorrestored=0
 
 _showRestoreOptions() {
-    echo "The following configurations can be transferred into the new installation:"
+    echo "The following configurations can be transferred into the new installation."
     echo "(SPACE = select/unselect a profile. RETURN = confirm. No selection = CANCEL)"
     echo ""
     restorelist=""
