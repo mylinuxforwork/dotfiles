@@ -11,7 +11,7 @@ You can find the video on YouTube: <a href="https://youtu.be/5i_LMMXUDJI" target
 
 [TOC]
 
-## Installation
+# Installation
 
 To make it easy for you to get started with my dotfiles, here's a list of recommended next steps.
 The script will try to create a backup from an previous dotfiles installation.
@@ -19,7 +19,7 @@ The script will try to create a backup from an previous dotfiles installation.
 PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIONAL INSTALLTION.
 PLEASE READ THIS README until the end before starting the installation.
 
-### Installation with GIT (Rolling Release of main branch)
+## Installation with GIT (Rolling Release of main branch)
 
 ```
 # 1.) Change into your Downloads folder
@@ -35,7 +35,7 @@ cd dotfiles
 ./install.sh
 
 ```
-### Update with GIT (Rolling Release of main branch)
+## Update with GIT (Rolling Release of main branch)
 ```
 # 1.) Change into your Downloads folder
 cd ~/Downloads/dotfiles
@@ -48,7 +48,7 @@ git stash; git pull
 
 ```
 
-### Update with GIT (Rolling Release of main branch)
+## Update with GIT (Rolling Release of main branch)
 
 You can also update by deleting the ~/Downloads/dotfiles folder and clone again.
 
@@ -70,7 +70,7 @@ cd dotfiles
 
 ```
 
-### Installation by downloading the latest release
+## Installation by downloading the latest release
 
 If you don't want to use the rolling release, you can download the latest release the latest release https://gitlab.com/stephan-raabe/dotfiles/-/releases or choose the the latest tag https://gitlab.com/stephan-raabe/dotfiles/-/tags and download the zip.
 
@@ -91,14 +91,14 @@ cd dotfiles-2.6
 
 You can also use the dotfiles installer script to download and install the latest release: https://gitlab.com/stephan-raabe/installer
 
-### NVIDIA 
+## NVIDIA 
 
 There is no official Hyprland support for Nvidia hardware. However, you might make it work properly following this page.
 https://wiki.hyprland.org/Nvidia/
 
 That's why NVIDIA GPUs are currently not supported by my dotfiles. But in upcoming releases, I will try to setup Hyprland for NVIDIA based on the article above.
 
-## Some important key bindings
+# Some important key bindings
 
 - <kbd>SUPER</kbd> + <kbd>RETURN</kbd>: Alacritty
 - <kbd>SUPER</kbd> + <kbd>CMD</kbd> + <kbd>RETURN</kbd>: rofi application launcher
@@ -111,7 +111,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/conf/keybindings.conf
 
 All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/qtile/config.py?ref_type=heads
 
-## Templating & Settings
+# Templating & Settings
 
 Hyprland & Qtile: Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding SuperKey + Shift + W you can change the wallpaper. SuperKey + Ctrl + W opens rofi with a list of installed wallpapers for your individual selection. See also the .bashrc and the key bindings on Hyprland and Qtile for more alias definitions.
 
@@ -119,7 +119,9 @@ Hyprland: In addition, you can switch the Waybar Template with SUPER + CTRL + T 
 
 Qtile X11: In addition, you can switch between the Qtile status bar and Polybar with SUPER + SHIFT + S 
 
-## Screenshots Hyprland
+# Screenshots
+
+## Hyprland
 
 <a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v26/screenshot-26-1.png" alt="Click to watch on YouTube" /></a>
 
@@ -127,7 +129,7 @@ Qtile X11: In addition, you can switch between the Qtile status bar and Polybar 
 
 <a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Watch on YouTube</a>
 
-## Screenshots Qtile X11
+## Qtile X11
 
 <a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-3.png" alt="Click to watch on YouTube" /></a>
 
@@ -135,7 +137,7 @@ Qtile X11: In addition, you can switch between the Qtile status bar and Polybar 
 
 <a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Watch on YouTube</a>
 
-## Screenshots Qtile Wayland
+## Qtile Wayland
 
 <a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-1.png" alt="Click to watch on YouTube" /></a>
 
@@ -145,7 +147,7 @@ Qtile X11: In addition, you can switch between the Qtile status bar and Polybar 
 
 <b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
 
-## Please note
+# Screensharing and recording on Hyprland
 
 In case you have issues with starting Waybar please make sure that only one xdg-desktop-portal-x is installed additionally to xdg-desktop-portal.
 
@@ -156,7 +158,9 @@ https://gist.github.com/PowerBall253/2dea6ddf6974ba4e5d26c3139ffb7580
 
 Please note that every Arch Linux system is different and I cannot guarantee that everything works fine on your system.
 
-## General Packages
+# Packages
+
+## General
 
 - Terminal: alacritty
 - Editor: nvim
