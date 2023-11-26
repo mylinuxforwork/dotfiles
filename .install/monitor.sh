@@ -13,7 +13,7 @@ cat <<"EOF"
                                         
 EOF
 echo -e "${NONE}"
-    if [ -f ~/dotfiles/hypr/conf/monitor.conf ] && [ -d ~/dotfiles/hypr/conf/monitors/ ]; then
+    if [ "$monitorrestored" == "1" ]; then
         echo "Monitor settings could already be restored".
         echo ""
     else

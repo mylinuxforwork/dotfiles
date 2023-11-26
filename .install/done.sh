@@ -12,5 +12,5 @@ cat <<"EOF"
                          
 EOF
 echo -e "${NONE}"
-echo "IMPORTANT: Please logout and reboot your system!"
+echo "Please logout and reboot your system!"
 echo ""

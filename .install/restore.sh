@@ -3,6 +3,7 @@
 # ------------------------------------------------------
 
 restorelist=""
+monitorrestored=0
 
 _showRestoreOptions() {
     echo "The following configurations can be transferred into the new installation:"
@@ -21,6 +22,7 @@ _showRestoreOptions() {
         fi
         if [ -f ~/dotfiles/hypr/conf/monitor.conf ] && [ -d ~/dotfiles/hypr/conf/monitors/ ]; then
             restorelist+="~/dotfiles/hypr/conf/monitor.conf "
+            monitorrestored=1
         fi
         if [ -f ~/dotfiles/hypr/conf/animation.conf ] && [ -d ~/dotfiles/hypr/conf/animations/ ]; then
             restorelist+="~/dotfiles/hypr/conf/animation.conf "
