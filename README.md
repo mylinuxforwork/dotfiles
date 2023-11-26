@@ -41,8 +41,8 @@ cd dotfiles
 # 1.) Change into your Downloads folder
 cd ~/Downloads
 
-# 2.) Delete existing dotfiles folder
-rm -rf dotfiles
+# 2.) Delete existing dotfiles folder from Downloads folder
+rm -rf ~/Downloads/dotfiles
 
 # 3.) Clone the dotfiles repository into the Downloads folder
 git clone https://gitlab.com/stephan-raabe/dotfiles.git
