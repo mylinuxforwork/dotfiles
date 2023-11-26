@@ -70,9 +70,24 @@ cd dotfiles
 
 ```
 
-To access the latest release please choose the latest tag https://gitlab.com/stephan-raabe/dotfiles/-/tags or the latest release https://gitlab.com/stephan-raabe/dotfiles/-/releases
+### Installation by downloading the latest release
 
-### Installation with the dotfiles installer (Latest Release)
+If you don't want to use the rolling release, you can download the latest release the latest release https://gitlab.com/stephan-raabe/dotfiles/-/releases or choose the the latest tag https://gitlab.com/stephan-raabe/dotfiles/-/tags and download the zip.
+
+```
+# 1.) Change into your Downloads folder where you have downloaded the release to
+cd ~/Downloads
+
+# 2.) Unzip
+unzip dotfiles-2.6.zip
+
+# 3.) Change into the new dotfiles folder
+cd dotfiles-2.6
+
+# 4.) Start the installation to update
+./install.sh
+
+```
 
 You can also use the dotfiles installer script to download and install the latest release: https://gitlab.com/stephan-raabe/installer
 
