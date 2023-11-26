@@ -9,6 +9,8 @@ The released dotfiles are tested with Arch Linux, Manjaro Linux, EndeavourOS and
 
 You can find the video on YouTube: <a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Dotfiles Configuration and Installation</a>
 
+[TOC]
+
 ## Installation
 
 To make it easy for you to get started with my dotfiles, here's a list of recommended next steps.
