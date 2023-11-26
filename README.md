@@ -1,4 +1,4 @@
-# ML4W dotfiles 2.6RC
+# ML4W dotfiles 2.6
 
 This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland).
 This package includes an installation script to install and setup the required components.
@@ -32,6 +32,25 @@ git clone https://gitlab.com/stephan-raabe/dotfiles.git
 cd dotfiles
 
 # 4.) Start the installation
+./install.sh
+
+```
+### Update with GIT (Rolling Release of main branch)
+
+```
+# 1.) Change into your Downloads folder
+cd ~/Downloads
+
+# 2.) Delete existing dotfiles folder
+rm -rf dotfiles
+
+# 3.) Clone the dotfiles repository into the Downloads folder
+git clone https://gitlab.com/stephan-raabe/dotfiles.git
+
+# 4.) Change into the dotfiles folder
+cd dotfiles
+
+# 5.) Start the installation to update
 ./install.sh
 
 ```
