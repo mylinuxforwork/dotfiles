@@ -44,6 +44,7 @@ packagesPacman=(
     "qalculate-gtk"
     "brightnessctl"
     "gum"
+    "xorg-xinit"
 );
 
 packagesYay=(
