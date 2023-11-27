@@ -104,7 +104,7 @@ Qtile X11 works fine in a KVM virtual machine. The Hyprland performance is low b
 
 In virt-manager please make sure that 3D acceleration is enabled in Video Virtio and the Listen type is set to None in Display Spice.
 
-To fix the mouse issue on Hyprland, open the Hyprland settings with <kbd>SUPER</kbd> + <kbd>CMD</kbd> + <kbd>S</kbd> and select in Environments the variation kvm.conf
+To fix the mouse issue on Hyprland, open the Hyprland settings with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> and select in Environments the variation kvm.conf
 
 # Some important key bindings
 
@@ -121,11 +121,11 @@ All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main
 
 # Templating & Settings
 
-Hyprland & Qtile: Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding SuperKey + Shift + W you can change the wallpaper. SuperKey + Ctrl + W opens rofi with a list of installed wallpapers for your individual selection. See also the .bashrc and the key bindings on Hyprland and Qtile for more alias definitions.
+Hyprland & Qtile: Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding SuperKey + Shift + W you can change the wallpaper. <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>W</kbd> opens rofi with a list of installed wallpapers for your individual selection. See also the .bashrc and the key bindings on Hyprland and Qtile for more alias definitions.
 
-Hyprland: In addition, you can switch the Waybar Template with SUPER + CTRL + T or by pressing the "..." icon in Waybar. The templates are available in ~/dotfiles/waybar/themes. You can add your own personal themes into this folder. The script will read in the folder structure. You can open the settings script with SUPER + CMD + S to select variations for your hyprland.conf and customize your desktop even more.
+Hyprland: In addition, you can switch the Waybar Template with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>T</kbd> or by pressing the "..." icon in Waybar. The templates are available in ~/dotfiles/waybar/themes. You can add your own personal themes into this folder. The script will read in the folder structure. You can open the settings script with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> to select variations for your hyprland.conf and customize your desktop even more.
 
-Qtile X11: In addition, you can switch between the Qtile status bar and Polybar with SUPER + SHIFT + S 
+Qtile X11: In addition, you can switch between the Qtile status bar and Polybar with <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd> 
 
 # Screenshots
 
