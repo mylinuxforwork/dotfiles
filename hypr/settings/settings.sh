@@ -173,6 +173,10 @@ cat <<"EOF"
                             |___/     
 
 EOF
+    if [ -f ~/dotfiles/version ] ;then
+        echo "Version: $(cat ~/dotfiles/version)"
+        echo ""
+    fi
     menu=$(gum choose "Decorations" "Windows" "Animations" "Monitors" "Environments" "Keybindings" "Windowrules" "EXIT")
     case $menu in
         Decorations)
