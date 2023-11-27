@@ -111,6 +111,14 @@ https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/conf/keybindings.conf
 
 All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/qtile/config.py?ref_type=heads
 
+## Installation in a KVM virtual machine
+
+Qtile X11 works fine in a KVM virtual machine. The Hyprland performance is low but it's enough for testing new features.
+
+In virt-manager please make sure that 3D acceleration is enabled in Video Virtio and the Listen type is set to None in Display Spice.
+
+To fix the mouse issue on Hyprland, open the Hyprland settings with SUPER+CMS+S and select in Environments the variation kvm.conf
+
 # Templating & Settings
 
 Hyprland & Qtile: Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding SuperKey + Shift + W you can change the wallpaper. SuperKey + Ctrl + W opens rofi with a list of installed wallpapers for your individual selection. See also the .bashrc and the key bindings on Hyprland and Qtile for more alias definitions.
