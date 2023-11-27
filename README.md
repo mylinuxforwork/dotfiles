@@ -98,6 +98,14 @@ https://wiki.hyprland.org/Nvidia/
 
 That's why NVIDIA GPUs are currently not supported by my dotfiles. But in upcoming releases, I will try to setup Hyprland for NVIDIA based on the article above.
 
+## Installation in a KVM virtual machine
+
+Qtile X11 works fine in a KVM virtual machine. The Hyprland performance is low but it's enough for testing new features.
+
+In virt-manager please make sure that 3D acceleration is enabled in Video Virtio and the Listen type is set to None in Display Spice.
+
+To fix the mouse issue on Hyprland, open the Hyprland settings with SUPER+CMS+S and select in Environments the variation kvm.conf
+
 # Some important key bindings
 
 - <kbd>SUPER</kbd> + <kbd>RETURN</kbd>: Alacritty
@@ -110,14 +118,6 @@ All keybindings for Hyprland with right mouse click on Apps in waybar or here:
 https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/conf/keybindings.conf?ref_type=heads
 
 All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/qtile/config.py?ref_type=heads
-
-## Installation in a KVM virtual machine
-
-Qtile X11 works fine in a KVM virtual machine. The Hyprland performance is low but it's enough for testing new features.
-
-In virt-manager please make sure that 3D acceleration is enabled in Video Virtio and the Listen type is set to None in Display Spice.
-
-To fix the mouse issue on Hyprland, open the Hyprland settings with SUPER+CMS+S and select in Environments the variation kvm.conf
 
 # Templating & Settings
 
