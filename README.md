@@ -7,7 +7,7 @@ Please be aware that this version is not a tested release.
 
 The released dotfiles are tested with Arch Linux, Manjaro Linux, EndeavourOS and Arco Linux.
 
-You can find the video on YouTube: <a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Dotfiles Configuration and Installation</a>
+You can find the video on YouTube: <a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Dotfiles Configuration and Installation</a>
 
 [TOC]
 
@@ -131,27 +131,27 @@ Qtile X11: In addition, you can switch between the Qtile status bar and Polybar 
 
 ## Hyprland
 
-<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v26/screenshot-26-1.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v26/screenshot-26-1.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v26/screenshot-26-2.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v26/screenshot-26-2.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Watch on YouTube</a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
 
 ## Qtile X11
 
-<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-3.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-3.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-4.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-4.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Watch on YouTube</a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
 
 ## Qtile Wayland
 
-<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-1.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-1.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/5i_LMMXUDJI" target="_blank"><img src="screenshots/v25/screenshot-25-2.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-2.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/5i_LMMXUDJI" target="_blank">Watch on YouTube</a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
 
 <b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
 
