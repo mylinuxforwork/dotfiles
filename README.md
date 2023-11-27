@@ -104,7 +104,7 @@ Qtile X11 works fine in a KVM virtual machine. The Hyprland performance is low b
 
 In virt-manager please make sure that 3D acceleration is enabled in Video Virtio and the Listen type is set to None in Display Spice.
 
-To fix the mouse issue on Hyprland, open the Hyprland settings with <kbd>SUPER</kbd> + <kbd>CMD</kbd> + </kbd>S</kbd> and select in Environments the variation kvm.conf
+To fix the mouse issue on Hyprland, open the Hyprland settings with <kbd>SUPER</kbd> + <kbd>CMD</kbd> + <kbd>S</kbd> and select in Environments the variation kvm.conf
 
 # Some important key bindings
 
