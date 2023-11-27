@@ -15,6 +15,7 @@ EOF
     echo "Select a file to load (RETURN = Confirm, ESC = Cancel/Back):"
     sel=$(gum file ~/dotfiles/hypr/conf/decorations/)
     if [ ! -z $sel ] ;then
+        sel=$(echo "$sel" | sed "s+"\/home\/$USER"+~+")
         echo "source = $sel" > ~/dotfiles/hypr/conf/decoration.conf
         _settingsDecoration
     fi
@@ -37,6 +38,7 @@ EOF
     echo "Select a file to load (RETURN = Confirm, ESC = Cancel/Back):"
     sel=$(gum file ~/dotfiles/hypr/conf/windows/)
     if [ ! -z $sel ] ;then
+        sel=$(echo "$sel" | sed "s+"\/home\/$USER"+~+")
         echo "source = $sel" > ~/dotfiles/hypr/conf/window.conf
         _settingsWindow
     fi
@@ -59,6 +61,7 @@ EOF
     echo "Select a file to load (RETURN = Confirm, ESC = Cancel/Back):"
     sel=$(gum file ~/dotfiles/hypr/conf/animations/)
     if [ ! -z $sel ] ;then
+        sel=$(echo "$sel" | sed "s+"\/home\/$USER"+~+")
         echo "source = $sel" > ~/dotfiles/hypr/conf/animation.conf
         _settingsAnimation
     fi
@@ -81,7 +84,80 @@ EOF
     echo "Select a file to load (RETURN = Confirm, ESC = Cancel/Back):"
     sel=$(gum file ~/dotfiles/hypr/conf/monitors/)
     if [ ! -z $sel ] ;then
+        sel=$(echo "$sel" | sed "s+"\/home\/$USER"+~+")
         echo "source = $sel" > ~/dotfiles/hypr/conf/monitor.conf
+    fi
+    _settingsMenu
+}
+
+_settingsEnvironment() {
+    clear
+cat <<"EOF"
+ _____            _                                      _   
+| ____|_ ____   _(_)_ __ ___  _ __  _ __ ___   ___ _ __ | |_ 
+|  _| | '_ \ \ / / | '__/ _ \| '_ \| '_ ` _ \ / _ \ '_ \| __|
+| |___| | | \ V /| | | | (_) | | | | | | | | |  __/ | | | |_ 
+|_____|_| |_|\_/ |_|_|  \___/|_| |_|_| |_| |_|\___|_| |_|\__|
+                                                             
+EOF
+
+    cur=$(cat ~/dotfiles/hypr/conf/environment.conf)
+    echo "In use: ${cur##*/}"
+    echo ""
+    echo "Please restart Hyprland after changing the environment."
+    echo "If you select KVM it's recommended to shutdown your system and start again."
+    echo ""
+    echo "Select a file to load (RETURN = Confirm, ESC = Cancel/Back):"
+    sel=$(gum file ~/dotfiles/hypr/conf/environments/)
+    if [ ! -z $sel ] ;then
+        sel=$(echo "$sel" | sed "s+"\/home\/$USER"+~+")
+        echo "source = $sel" > ~/dotfiles/hypr/conf/environment.conf
+    fi
+    _settingsMenu
+}
+
+_settingsKeybinding() {
+    clear
+cat <<"EOF"
+ _  __          _     _           _ _                 
+| |/ /___ _   _| |__ (_)_ __   __| (_)_ __   __ _ ___ 
+| ' // _ \ | | | '_ \| | '_ \ / _` | | '_ \ / _` / __|
+| . \  __/ |_| | |_) | | | | | (_| | | | | | (_| \__ \
+|_|\_\___|\__, |_.__/|_|_| |_|\__,_|_|_| |_|\__, |___/
+          |___/                             |___/     
+
+EOF
+    cur=$(cat ~/dotfiles/hypr/conf/keybinding.conf)
+    echo "In use: ${cur##*/}"
+    echo ""
+    echo "Select a file to load (RETURN = Confirm, ESC = Cancel/Back):"
+    sel=$(gum file ~/dotfiles/hypr/conf/keybindings/)
+    if [ ! -z $sel ] ;then
+        sel=$(echo "$sel" | sed "s+"\/home\/$USER"+~+")
+        echo "source = $sel" > ~/dotfiles/hypr/conf/keybinding.conf
+    fi
+    _settingsMenu
+}
+
+_settingsWindowrule() {
+    clear
+cat <<"EOF"
+__        ___           _                          _           
+\ \      / (_)_ __   __| | _____      ___ __ _   _| | ___  ___ 
+ \ \ /\ / /| | '_ \ / _` |/ _ \ \ /\ / / '__| | | | |/ _ \/ __|
+  \ V  V / | | | | | (_| | (_) \ V  V /| |  | |_| | |  __/\__ \
+   \_/\_/  |_|_| |_|\__,_|\___/ \_/\_/ |_|   \__,_|_|\___||___/
+                                                               
+EOF
+
+    cur=$(cat ~/dotfiles/hypr/conf/windowrule.conf)
+    echo "In use: ${cur##*/}"
+    echo ""
+    echo "Select a file to load (RETURN = Confirm, ESC = Cancel/Back):"
+    sel=$(gum file ~/dotfiles/hypr/conf/windowrules/)
+    if [ ! -z $sel ] ;then
+        sel=$(echo "$sel" | sed "s+"\/home\/$USER"+~+")
+        echo "source = $sel" > ~/dotfiles/hypr/conf/windowrule.conf
     fi
     _settingsMenu
 }
@@ -97,19 +173,28 @@ cat <<"EOF"
                             |___/     
 
 EOF
-    menu=$(gum choose "Decorations" "Windows" "Animations" "Monitors" "EXIT")
+    menu=$(gum choose "Decorations" "Windows" "Animations" "Monitors" "Environments" "Keybindings" "Windowrules" "EXIT")
     case $menu in
-        [Decorations]* )
+        Decorations)
             _settingsDecoration
         break;;
-        [Windows]* ) 
+        Windows) 
             _settingsWindow
         break;;
-        [Animations]* ) 
+        Animations) 
             _settingsAnimation
         break;;
-        [Monitors]* ) 
+        Monitors) 
             _settingsMonitor
+        break;;
+        Environments) 
+            _settingsEnvironment
+        break;;
+        Keybindings) 
+            _settingsKeybinding
+        break;;
+        Windowrules) 
+            _settingsWindowrule
         break;;
         * ) 
             exit

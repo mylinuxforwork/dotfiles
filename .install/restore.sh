@@ -17,8 +17,14 @@ _showRestoreOptions() {
         if [ -f ~/dotfiles/hypr/conf/keyboard.conf ]; then
             restorelist+="~/dotfiles/hypr/conf/keyboard.conf "
         fi
-        if [ -f ~/dotfiles/hypr/conf/keybindings.conf ]; then
-            restorelist+="~/dotfiles/hypr/conf/keybindings.conf "
+        if [ -f ~/dotfiles/hypr/conf/keybinding.conf ] && [ -d ~/dotfiles/hypr/conf/keybindings/ ]; then
+            restorelist+="~/dotfiles/hypr/conf/keybinding.conf "
+        fi
+        if [ -f ~/dotfiles/hypr/conf/environment.conf ] && [ -d ~/dotfiles/hypr/conf/environments/ ]; then
+            restorelist+="~/dotfiles/hypr/conf/environment.conf "
+        fi
+        if [ -f ~/dotfiles/hypr/conf/windowrule.conf ] && [ -d ~/dotfiles/hypr/conf/windowrules/ ]; then
+            restorelist+="~/dotfiles/hypr/conf/windowrule.conf "
         fi
         if [ -f ~/dotfiles/hypr/conf/monitor.conf ] && [ -d ~/dotfiles/hypr/conf/monitors/ ]; then
             restorelist+="~/dotfiles/hypr/conf/monitor.conf "
@@ -95,12 +101,24 @@ _startRestore() {
                 echo "Hyprland monitor.conf restored!"                
             fi
         fi
-        if [[ $restoreselect == *"~/dotfiles/hypr/conf/keybindings.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
-            if [ -f ~/dotfiles/hypr/conf/keybindings.conf ]; then
-                cp ~/dotfiles/hypr/conf/keybindings.conf ~/dotfiles-versions/$version/hypr/conf/
-                echo "Hyprland keybindings.conf restored!"
+        if [[ $restoreselect == *"~/dotfiles/hypr/conf/keybinding.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/hypr/conf/keybinding.conf ]; then
+                cp ~/dotfiles/hypr/conf/keybinding.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo "Hyprland keybinding.conf restored!"
             fi
         fi
+        if [[ $restoreselect == *"~/dotfiles/hypr/conf/environment.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/hypr/conf/environment.conf ]; then
+                cp ~/dotfiles/hypr/conf/environment.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo "Hyprland environment.conf restored!"
+            fi
+        fi        
+        if [[ $restoreselect == *"~/dotfiles/hypr/conf/windowrule.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/hypr/conf/windowrule.conf ]; then
+                cp ~/dotfiles/hypr/conf/windowrule.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo "Hyprland windowrule.conf restored!"
+            fi
+        fi        
         if [[ $restoreselect == *"~/dotfiles/hypr/conf/animation.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/dotfiles/hypr/conf/animation.conf ]; then
                 cp ~/dotfiles/hypr/conf/animation.conf ~/dotfiles-versions/$version/hypr/conf/
