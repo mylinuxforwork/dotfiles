@@ -149,30 +149,30 @@ window#waybar.empty #window {
  * Custom Quicklinks
  * ----------------------------------------------------- */
 
-#custom-brave, 
-#custom-browser, 
-#custom-keybindings, 
-#custom-outlook, 
-#custom-filemanager, 
-#custom-teams, 
-#custom-chatgpt, 
-#custom-calculator, 
-#custom-windowsvm, 
-#custom-cliphist, 
-#custom-wallpaper,
-#custom-settings,  
-#custom-wallpaperwlr, 
-#custom-waybarthemes {
-    margin-right: 15px;
-    font-size: 20px;
-    font-weight: bold;
-    opacity: 0.8;
-    color: @iconcolor;
-}
-
-#custom-wallpaper, #custom-keybindings {
-    margin-right:23px;
-}
+ #custom-brave, 
+ #custom-browser, 
+ #custom-keybindings, 
+ #custom-outlook, 
+ #custom-filemanager, 
+ #custom-teams, 
+ #custom-chatgpt, 
+ #custom-calculator, 
+ #custom-windowsvm, 
+ #custom-cliphist, 
+ #custom-wallpaper, 
+ #custom-settings, 
+ #custom-wallpaper, 
+ #custom-waybarthemes {
+     margin-right: 23px;
+     font-size: 20px;
+     font-weight: bold;
+     opacity: 0.8;
+     color: @iconcolor;
+ }
+ 
+ #custom-waybarthemes {
+     margin-right:15px;
+ }
 
 /* -----------------------------------------------------
  * Custom Modules
