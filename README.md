@@ -121,14 +121,6 @@ All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main
 
 # Templating & Settings
 
-Hyprland & Qtile: Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> you can change the wallpaper. <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>W</kbd> opens rofi with a list of installed wallpapers for your individual selection. See also the .bashrc and the key bindings on Hyprland and Qtile for more alias definitions.
-
-Hyprland: In addition, you can switch the Waybar Template with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>T</kbd> or by pressing the "..." icon in Waybar. The templates are available in ~/dotfiles/waybar/themes. You can add your own personal themes into this folder. The script will read in the folder structure. You can open the settings script with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> to select variations for your hyprland.conf and customize your desktop even more.
-
-Qtile X11: In addition, you can switch between the Qtile status bar and Polybar with <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd> 
-
-# Screenshots
-
 ## Hyprland
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v26/screenshot-26-1.png" alt="Click to watch on YouTube" /></a>
@@ -137,25 +129,25 @@ Qtile X11: In addition, you can switch between the Qtile status bar and Polybar 
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
 
-## Qtile X11
+### Wallpaper and Pywal
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-3.png" alt="Click to watch on YouTube" /></a>
+Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> you can change the wallpaper coming from the folder ~/wallpaper/. 
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-4.png" alt="Click to watch on YouTube" /></a>
+<kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>W</kbd> opens rofi with a list of installed wallpapers in ~/wallpaper/ for your individual selection. 
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
+### Waybar themes and themeswitcher
 
-## Qtile Wayland
+In addition, you can switch the Waybar Template with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>T</kbd> or by pressing the "..." icon in Waybar with the themeswitcher. 
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-1.png" alt="Click to watch on YouTube" /></a>
+The templates are available in ~/dotfiles/waybar/themes. You can add your own personal themes into this folder. 
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-2.png" alt="Click to watch on YouTube" /></a>
+More information here: https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/waybar
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
+### Hyprland settings
 
-<b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
+You can open the settings script with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> to select variations for your hyprland.conf and customize your desktop even more.
 
-# Screensharing and recording on Hyprland
+### Screensharing and recording
 
 In case you have issues with starting Waybar please make sure that only one xdg-desktop-portal-x is installed additionally to xdg-desktop-portal.
 
@@ -166,9 +158,7 @@ https://gist.github.com/PowerBall253/2dea6ddf6974ba4e5d26c3139ffb7580
 
 Please note that every Arch Linux system is different and I cannot guarantee that everything works fine on your system.
 
-# Packages
-
-## General
+### Main packages
 
 - Terminal: alacritty
 - Editor: nvim
@@ -180,25 +170,68 @@ Please note that every Arch Linux system is different and I cannot guarantee tha
 - Filemanager: Thunar
 - Cursor: Bibata Modern Ice
 - Icons: Papirus-Icon-Theme
-
-## Hyprland 
-
 - Status Bar: waybar
 - Screenshots: grim & slurp
 - Clipboard Manager: cliphist
 - Logout: wlogout 
 - Screenlock: swaylock-effects
 
-## Qtile Wayland
+## Qtile
 
+### X11
+
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-3.png" alt="Click to watch on YouTube" /></a>
+
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-4.png" alt="Click to watch on YouTube" /></a>
+
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-1.png" alt="Click to watch on YouTube" /></a>
+
+### Wayland
+
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-2.png" alt="Click to watch on YouTube" /></a>
+
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
+
+<b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
+
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
+
+### Wallpaper and Pywal
+
+Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> you can change the wallpaper coming from the folder ~/wallpaper/. 
+
+<kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>W</kbd> opens rofi with a list of installed wallpapers in ~/wallpaper/ for your individual selection. 
+
+### Qtile status bar switcher
+
+With <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd>, you can switch between the Qtile standard status bar and Polybar and back. 
+
+### Main Packages
+
+#### Qtile X11
+
+- Terminal: alacritty
+- Editor: nvim
+- Prompt: starship
+- Icons: Font Awesome
+- Launch Menus: Rofi
+- Colorscheme: pywal
+- Browsers: chromium (brave optional)
+- Filemanager: Thunar
+- Cursor: Bibata Modern Ice
+- Icons: Papirus-Icon-Theme
 - Status Bar: Qtile status bar
+- Compositor: picom
+- Status Bar: Qtile status bar + Polybar (optional)
+- Screenshots: scrot
+
+#### Qtile Wayland
+
 - Screenshots: grim & slurp
 - Clipboard Manager: cliphist
 - Logout: rofi power menu
 - Screenlock: swaylock-effects
 
-## Qtile X11
+## Wallpaper repository
 
-- Compositor: picom
-- Status Bar: Qtile status bar + Polybar (optional)
-- Screenshots: scrot
+You can find my wallpaper collection in the repository https://gitlab.com/stephan-raabe/wallpaper
