@@ -91,7 +91,7 @@ cd dotfiles-2.6
 
 You can also use the dotfiles installer script to download and install the latest release: https://gitlab.com/stephan-raabe/installer
 
-## NVIDIA 
+## Hyprland & NVIDIA 
 
 There is no official Hyprland support for Nvidia hardware. However, you might make it work properly following this page.
 https://wiki.hyprland.org/Nvidia/
@@ -119,9 +119,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/conf/keybindings.conf
 
 All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/qtile/config.py?ref_type=heads
 
-# Templating & Settings
-
-## Hyprland
+# Hyprland
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v26/screenshot-26-1.png" alt="Click to watch on YouTube" /></a>
 
@@ -129,13 +127,13 @@ All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
 
-### Wallpaper and Pywal
+## Wallpaper and Pywal
 
 Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> you can change the wallpaper coming from the folder ~/wallpaper/. 
 
 <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>W</kbd> opens rofi with a list of installed wallpapers in ~/wallpaper/ for your individual selection. 
 
-### Waybar themes and themeswitcher
+## Waybar themes and themeswitcher
 
 In addition, you can switch the Waybar Template with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>T</kbd> or by pressing the "..." icon in Waybar with the themeswitcher. 
 
@@ -143,11 +141,11 @@ The templates are available in ~/dotfiles/waybar/themes. You can add your own pe
 
 More information here: https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/waybar
 
-### Hyprland settings
+## Hyprland settings
 
 You can open the settings script with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> to select variations for your hyprland.conf and customize your desktop even more.
 
-### Screensharing and recording
+## Screensharing and recording
 
 In case you have issues with starting Waybar please make sure that only one xdg-desktop-portal-x is installed additionally to xdg-desktop-portal.
 
@@ -158,7 +156,7 @@ https://gist.github.com/PowerBall253/2dea6ddf6974ba4e5d26c3139ffb7580
 
 Please note that every Arch Linux system is different and I cannot guarantee that everything works fine on your system.
 
-### Main packages
+## Main packages
 
 - Terminal: alacritty
 - Editor: nvim
@@ -176,9 +174,9 @@ Please note that every Arch Linux system is different and I cannot guarantee tha
 - Logout: wlogout 
 - Screenlock: swaylock-effects
 
-## Qtile
+# Qtile
 
-### X11
+## X11 
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-3.png" alt="Click to watch on YouTube" /></a>
 
@@ -186,7 +184,7 @@ Please note that every Arch Linux system is different and I cannot guarantee tha
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-1.png" alt="Click to watch on YouTube" /></a>
 
-### Wayland
+## Wayland
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-2.png" alt="Click to watch on YouTube" /></a>
 
@@ -196,19 +194,19 @@ Please note that every Arch Linux system is different and I cannot guarantee tha
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
 
-### Wallpaper and Pywal
+## Wallpaper and Pywal
 
 Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> you can change the wallpaper coming from the folder ~/wallpaper/. 
 
 <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>W</kbd> opens rofi with a list of installed wallpapers in ~/wallpaper/ for your individual selection. 
 
-### Qtile status bar switcher
+## Qtile status bar switcher
 
 With <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd>, you can switch between the Qtile standard status bar and Polybar and back. 
 
-### Main Packages
+## Main Packages
 
-#### Qtile X11
+### Qtile X11
 
 - Terminal: alacritty
 - Editor: nvim
@@ -225,13 +223,14 @@ With <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd>, you can switch between 
 - Status Bar: Qtile status bar + Polybar (optional)
 - Screenshots: scrot
 
-#### Qtile Wayland
+### Qtile Wayland
 
+- +
 - Screenshots: grim & slurp
 - Clipboard Manager: cliphist
 - Logout: rofi power menu
 - Screenlock: swaylock-effects
 
-## Wallpaper repository
+# Wallpaper repository
 
 You can find my wallpaper collection in the repository https://gitlab.com/stephan-raabe/wallpaper
