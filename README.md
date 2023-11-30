@@ -131,6 +131,8 @@ All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v26/screenshot-26-2.png" alt="Click to watch on YouTube" /></a>
 
+<b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
+
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
 
 ## Wallpaper and Pywal
@@ -188,17 +190,14 @@ Please note that every Arch Linux system is different and I cannot guarantee tha
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-4.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-1.png" alt="Click to watch on YouTube" /></a>
-
 ## Wayland
+
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-1.png" alt="Click to watch on YouTube" /></a>
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-2.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
-
 <b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
 
 ## Wallpaper and Pywal
 
