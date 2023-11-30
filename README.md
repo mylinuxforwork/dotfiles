@@ -108,6 +108,10 @@ In virt-manager please make sure that 3D acceleration is enabled in Video Virtio
 
 To fix the mouse issue on Hyprland, open the Hyprland settings with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> and select in Environments the variation kvm.conf
 
+## Base Hyprland installation with Hyperland Starter
+
+If you want to install only the core packages of Hyprland as a starting point for your Hyprland experiments please also try my Hyprland Starter script: https://gitlab.com/stephan-raabe/hyprland-starter
+
 # Some important key bindings
 
 - <kbd>SUPER</kbd> + <kbd>RETURN</kbd>: Alacritty
@@ -117,9 +121,9 @@ To fix the mouse issue on Hyprland, open the Hyprland settings with <kbd>SUPER</
 - <kbd>SUPER</kbd> + <kbd>CMS</kbd> + <kbd>Q</kbd>: Logout screen
 
 All keybindings for Hyprland with right mouse click on Apps in waybar or here: 
-https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/conf/keybindings.conf?ref_type=heads
+https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/conf/keybindings.conf
 
-All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/qtile/config.py?ref_type=heads
+All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/qtile/config.py
 
 # Hyprland
 
@@ -220,14 +224,23 @@ With <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd>, you can switch between 
 - Filemanager: Thunar
 - Cursor: Bibata Modern Ice
 - Icons: Papirus-Icon-Theme
-- Status Bar: Qtile status bar
-- Compositor: picom
 - Status Bar: Qtile status bar + Polybar (optional)
+- Compositor: picom
 - Screenshots: scrot
 
 ### Qtile Wayland
 
-- +
+- Terminal: alacritty
+- Editor: nvim
+- Prompt: starship
+- Icons: Font Awesome
+- Launch Menus: Rofi
+- Colorscheme: pywal
+- Browsers: chromium (brave optional)
+- Filemanager: Thunar
+- Cursor: Bibata Modern Ice
+- Icons: Papirus-Icon-Theme
+- Status Bar: Qtile status bar
 - Screenshots: grim & slurp
 - Clipboard Manager: cliphist
 - Logout: rofi power menu
