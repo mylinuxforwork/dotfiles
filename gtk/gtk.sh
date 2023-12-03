@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 gnome_schema="org.gnome.desktop.interface"
 gsettings set "$gnome_schema" icon-theme "Papirus-Dark"
 gsettings set "$gnome_schema" cursor-theme "Bibata-Modern-Ice"
