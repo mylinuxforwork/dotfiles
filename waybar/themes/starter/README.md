@@ -1,12 +1,12 @@
 # Waybar Theme Starter
 
-Create your own Waybar Theme based on this starter.
+Create your own Waybar Theme based on this starter theme.
 
-- Copy this folder "starter" and define a custom name
-- Open config.sh and enter the name of your theme
-- Select the theme with the Waybat Themeswitcher with SUPER+CTRL+T
-- Start customization
+- Copy the folder "~/dotfiles/waybar/themes/starter" and define a custom folder name
+- Open config.sh and enter the name of your new theme
+- Select the theme with the Waybar Themeswitcher with <kbd>SUPER</kbd>+<kbd>CTRL</kbd>+<kbd>T</kbd>
+- Start your customization
 
-You can enable and disable modules in the config file. 
+You can enable, disable and reorder waybar modules in the config file. 
 
-Your custom theme will not overwritten with and update of the dotfiles.
+Your custom theme will not be overwritten with an update of the dotfiles.
