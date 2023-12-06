@@ -88,7 +88,7 @@
 
     // Wallpaper
     "custom/starter": {
-        "format": "THEME STARTER: Copy the starter folder",
+        "format": "THEME STARTER",
         "tooltip": false
     },
     

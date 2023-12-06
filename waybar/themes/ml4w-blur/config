@@ -22,7 +22,6 @@
     // "margin-bottom": 14,
     
     "layer": "top",
-    "height": 40,
     "margin-left": 0,
     "margin-right": 0,    
     "spacing": 0,
@@ -33,9 +32,9 @@
     // Modules Left
     "modules-left": [
         "custom/appmenu",
+        "custom/settings",
+        "custom/waybarthemes",
         "custom/wallpaper",
-        "custom/waybarthemes",          
-        "custom/settings",          
         "wlr/taskbar",
         "group/quicklinks",
         "hyprland/window"
@@ -52,29 +51,10 @@
         "pulseaudio",
         "bluetooth",
         "battery", 
+        "network",
         "group/hardware",
         "custom/cliphist",
-        "network",
         "custom/exit",
         "clock"
-    ],
-
-    // Group Quicklinks
-    "group/quicklinks": {
-        "orientation": "horizontal",
-        "modules": [
-            "custom/filemanager",
-            "custom/browser"
-         ]
-    },
-
-    // Group Hardware
-    "group/hardware": {
-        "orientation": "horizontal",
-        "modules": [
-            "disk",
-            "cpu",
-            "memory"
-        ]
-    }
+    ]
 }
