@@ -55,5 +55,6 @@ packagesYay=(
     "trizen"
     "swww" 
     "qtile-extras"
-    "wlr-randr"    
+    "wlr-randr"
+    "pacseek"    
 );

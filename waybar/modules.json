@@ -83,6 +83,7 @@
         "exec": "~/dotfiles/scripts/updates.sh",
         "restart-interval": 60,
         "on-click": "alacritty -e ~/dotfiles/scripts/installupdates.sh",
+        "on-click-right": "~/dotfiles/.settings/software.sh",
         "tooltip": false
     },
     
@@ -118,7 +119,7 @@
     // Filemanager Launcher
     "custom/filemanager": {
         "format": "",
-        "on-click": "thunar",
+        "on-click": "~/dotfiles/.settings/filemanager.sh",
         "tooltip": false
     },
 
@@ -139,7 +140,7 @@
     // Browser Launcher
     "custom/browser": {
         "format": "",
-        "on-click": "chromium",
+        "on-click": "~/dotfiles/.settings/browser.sh",
         "tooltip": false
     },    
 

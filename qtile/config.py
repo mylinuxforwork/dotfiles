@@ -82,8 +82,6 @@ platform = int(os.popen("cat /sys/class/dmi/id/chassis_type").read())
 # --------------------------------------------------------
 
 terminal = "alacritty"        
-browser = "chromium"
-# browser = "brave"
 
 # --------------------------------------------------------
 # Keybindings
@@ -140,8 +138,7 @@ if core_name == "x11":
         # Apps
         Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
         Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
-        Key([mod], "b", lazy.spawn(browser), desc="Launch Browser"),
-        Key([mod, "control"], "b", lazy.spawn(home + "/dotfiles/scripts/bravebookmarks.sh"), desc="Rofi Brave Bookmarks"),
+        Key([mod], "b", lazy.spawn("sh " + home + "/dotfiles/.settings/browser.sh"), desc="Launch Browser"),
         Key([mod, "shift"], "w", lazy.spawn(home + "/dotfiles/qtile/scripts/x11/wallpaper.sh"), desc="Update Theme and Wallpaper"),
         Key([mod, "control"], "w", lazy.spawn(home + "/dotfiles/qtile/scripts/x11/wallpaper.sh select"), desc="Select Theme and Wallpaper"),
 
@@ -197,7 +194,7 @@ elif qtile.core.name == "wayland":
         # Apps
         Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
         Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
-        Key([mod], "b", lazy.spawn(browser), desc="Launch Browser"),
+        Key([mod], "b", lazy.spawn("sh " + home + "/dotfiles/.settings/browser.sh"), desc="Launch Browser"),
         Key([mod, "shift"], "w", lazy.spawn(home + "/dotfiles/qtile/scripts/wayland/wallpaper.sh"), desc="Update Theme and Wallpaper"),
         Key([mod, "control"], "w", lazy.spawn(home + "/dotfiles/qtile/scripts/wayland/wallpaper.sh select"), desc="Select Theme and Wallpaper"),
 
@@ -355,7 +352,7 @@ widget_list = [
         text=" ",
         foreground="000000.6",
         fontsize=18,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("chromium")},
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh " + home + "/dotfiles/.settings/browser.sh")},
     ),
     widget.TextBox(
         **decor_left,
@@ -363,7 +360,7 @@ widget_list = [
         text=" ",
         foreground="000000.6",
         fontsize=18,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("thunar")}
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh " + home + "/dotfiles/.settings/filemanager.sh")}
     ),
     
     widget.WindowName(
