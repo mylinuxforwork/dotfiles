@@ -15,6 +15,7 @@ packagesPacman=(
     "thunar" 
     "mousepad" 
     "ttf-font-awesome" 
+    "otf-font-awesome" 
     "ttf-fira-sans" 
     "ttf-fira-code" 
     "ttf-firacode-nerd" 

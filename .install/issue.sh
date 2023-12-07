@@ -11,7 +11,6 @@ cat <<"EOF"
   | |   | |   | |   | | (_) | (_| | | | | |
   |_|   |_|   |_|   |_|\___/ \__, |_|_| |_|
                              |___/         
-
 EOF
 echo -e "${NONE}"
     if gum confirm "Do you want to install the custom tty login issue?" ;then

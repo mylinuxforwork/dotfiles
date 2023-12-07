@@ -92,7 +92,6 @@ _installPackagesYay() {
     yay --noconfirm -S "${toInstall[@]}";
 }
 
-
 # ------------------------------------------------------
 # Create symbolic links
 # ------------------------------------------------------
@@ -121,5 +120,17 @@ _installSymLink() {
                 echo "New symlink ${linksource} -> ${linktarget} created."
             fi
         fi
+    fi
+}
+
+# ------------------------------------------------------
+# Installation in a KVM Virtual Machine
+# ------------------------------------------------------
+_isKVM() {
+    iskvm=$(sudo dmesg | grep "Hypervisor detected")
+    if [[ "$iskvm" =~ "KVM" ]] ;then
+        echo 0
+    else
+        echo 1
     fi
 }
