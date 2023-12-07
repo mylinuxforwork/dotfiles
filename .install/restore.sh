@@ -3,6 +3,7 @@
 # ------------------------------------------------------
 
 restorelist=""
+selectedlist=""
 monitorrestored=0
 
 _showRestoreOptions() {
@@ -12,52 +13,62 @@ _showRestoreOptions() {
     restorelist=""
     if [ -f ~/dotfiles/.bashrc ]; then
         restorelist+="~/dotfiles/.bashrc "
+        selectedlist+="~/dotfiles/.bashrc,"
     fi
     if [ -d ~/dotfiles/.settings ]; then
         restorelist+="~/dotfiles/.settings "
+        selectedlist+="~/dotfiles/.settings,"
     fi
     if [[ $profile == *"Hyprland"* ]]; then
         if [ -f ~/dotfiles/hypr/conf/keyboard.conf ]; then
             restorelist+="~/dotfiles/hypr/conf/keyboard.conf "
+            selectedlist+="~/dotfiles/hypr/conf/keyboard.conf,"
         fi
         if [ -f ~/dotfiles/hypr/conf/keybinding.conf ] && [ -d ~/dotfiles/hypr/conf/keybindings/ ]; then
             restorelist+="~/dotfiles/hypr/conf/keybinding.conf "
+            selectedlist+="~/dotfiles/hypr/conf/keybinding.conf,"
         fi
         if [ -f ~/dotfiles/hypr/conf/environment.conf ] && [ -d ~/dotfiles/hypr/conf/environments/ ]; then
             restorelist+="~/dotfiles/hypr/conf/environment.conf "
+            selectedlist+="~/dotfiles/hypr/conf/environment.conf,"
         fi
         if [ -f ~/dotfiles/hypr/conf/windowrule.conf ] && [ -d ~/dotfiles/hypr/conf/windowrules/ ]; then
             restorelist+="~/dotfiles/hypr/conf/windowrule.conf "
+            selectedlist+="~/dotfiles/hypr/conf/windowrule.conf,"
         fi
         if [ -f ~/dotfiles/hypr/conf/monitor.conf ] && [ -d ~/dotfiles/hypr/conf/monitors/ ]; then
             restorelist+="~/dotfiles/hypr/conf/monitor.conf "
+            selectedlist+="~/dotfiles/hypr/conf/monitor.conf,"
             monitorrestored=1
         fi
         if [ -f ~/dotfiles/hypr/conf/animation.conf ] && [ -d ~/dotfiles/hypr/conf/animations/ ]; then
             restorelist+="~/dotfiles/hypr/conf/animation.conf "
+            selectedlist+="~/dotfiles/hypr/conf/animation.conf,"
         fi
         if [ -f ~/dotfiles/hypr/conf/decoration.conf ] && [ -d ~/dotfiles/hypr/conf/decorations/ ]; then
             restorelist+="~/dotfiles/hypr/conf/decoration.conf "
+            selectedlist+="~/dotfiles/hypr/conf/decoration.conf,"
         fi
         if [ -f ~/dotfiles/hypr/conf/window.conf ] && [ -d ~/dotfiles/hypr/conf/windows/ ]; then
             restorelist+="~/dotfiles/hypr/conf/window.conf "
+            selectedlist+="~/dotfiles/hypr/conf/window.conf,"
         fi
     fi
     if [[ $profile == *"Qtile"* ]]; then
         if [ -f ~/dotfiles/qtile/conf/keyboard.py ]; then
             restorelist+="~/dotfiles/qtile/conf/keyboard.py "
+            selectedlist+="~/dotfiles/qtile/conf/keyboard.py,"
         fi
         if [ -f ~/dotfiles/qtile/autostart_wayland.sh ]; then
             restorelist+="~/dotfiles/qtile/autostart_wayland.sh "
+            selectedlist+="~/dotfiles/qtile/autostart_wayland.sh,"
         fi
         if [ -f ~/dotfiles/qtile/autostart_x11.sh ]; then
             restorelist+="~/dotfiles/qtile/autostart_x11.sh "
+            selectedlist+="~/dotfiles/qtile/autostart_x11.sh,"
         fi
     fi
-    if [ ! -z "$restorelist" ] ;then
-        restorelist+="All"
-    fi
-    restoreselect=$(gum choose --no-limit --height 20 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " $restorelist)
+    restoreselect=$(gum choose --no-limit --height 20 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " --selected="$selectedlist" $restorelist)
     if [ ! -z "$restoreselect" ] ;then
         echo "Selected to restore:" 
         echo "$restoreselect"
