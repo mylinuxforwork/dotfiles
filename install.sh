@@ -51,6 +51,7 @@ source .install/issue.sh
 source .install/restore.sh
 source .install/vm.sh
 source .install/keyboard.sh
+source .install/hook.sh
 source .install/copy.sh
 source .install/config-folder.sh
 source .install/init-pywal.sh

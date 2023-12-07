@@ -93,6 +93,24 @@ cd dotfiles-2.6
 
 You can also use the dotfiles installer script to download and install the latest release: https://gitlab.com/stephan-raabe/installer
 
+## Installation Hook
+
+The installation script will prepare the configuration files in a folder ~/dotfiles-versions/[version] before copying into the final destination in ~/dotfiles
+
+If you want to modify the installation files just before the copy procedure starts, you can create a file hook.sh in the folder ~/dotfiles-versions
+
+You can delete folders and files or update existing configurations.
+
+```
+#!/bin/bash
+rm -rf ~/dotfiles-versions/$version/vim/
+rm -rf ~/dotfiles-versions/$version/nvim/
+```
+
+This script will for example remove the vim and nvim folder before the installation. The symbolic link will not be created because the source folder doesn't exits.
+
+You can find a template in .install/templates/hook.sh
+
 ## Hyprland & NVIDIA 
 
 There is no official Hyprland support for Nvidia hardware. However, you might make it work properly following this page.

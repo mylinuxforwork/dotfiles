@@ -33,5 +33,8 @@ if [[ $(_isFolderEmpty ~/dotfiles-versions/$version/) == 0 ]] ;then
     echo "Execution of rsync -a -I --exclude-from=.install/excludes.txt . ~/dotfiles-versions/$version/ is required."
     exit
 fi
+if [ ! -f ~/dotfiles-versions/hook.sh ]; then
+    # cp .install/templates/hook.sh ~/dotfiles-versions/ 
+fi
 echo "dotfiles $version successfully prepared in ~/dotfiles-versions/$version/"
 echo ""
