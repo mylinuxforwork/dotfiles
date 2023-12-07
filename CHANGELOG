@@ -1,3 +1,14 @@
+Version 2.6.1
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.6.1
+--------------------------------------------------------
+Installation:
+- Add hook.sh to modify the installation files just before the copy procedure into ~/dotfiles. Please check the README.md for more information
+
+Hyprland:
+- Add foldable module for hardware information
+- Add keyboard layout to hardware information
+- Add waybar starter theme to waybar
+
 Version 2.6
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.6
 --------------------------------------------------------
