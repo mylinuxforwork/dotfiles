@@ -23,7 +23,7 @@ if [ ! -d ~/wallpaper ]; then
             mkdir ~/wallpaper
         fi
         cp ~/Downloads/wallpaper-main/* ~/wallpaper/
-        echo "Wallpapers frpm the repository installed successfully."
+        echo "Wallpapers from the repository installed successfully."
     elif [ $? -eq 130 ]; then
         exit 130
     else
