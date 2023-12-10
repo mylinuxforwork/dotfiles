@@ -14,7 +14,7 @@ case $1 in
     # Load wallpaper from .cache of last session 
     "init")
         if [ -f ~/.cache/current_wallpaper.jpg ]; then
-            wal -q -i ~/.cache/current_wallpaper.jpg
+            wal -q -c -i ~/.cache/current_wallpaper.jpg
         else
             wal -q -i ~/wallpaper/
         fi
