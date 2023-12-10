@@ -10,6 +10,9 @@ cat <<"EOF"
  \____\__,_|___/\__\___/|_| |_| |_|
                                    
 EOF
+    echo "You can edit here the ~/dotfiles/hypr/conf/custom.conf directly"
+    echo "to add more individual configurations to the hyprland.conf."
+    echo ""
     echo "Press ESC to proceed."
     echo ""
     filevalue=$(gum write --show-line-numbers --height 15 --width 70 --value="$(cat ~/dotfiles/hypr/conf/custom.conf)")
