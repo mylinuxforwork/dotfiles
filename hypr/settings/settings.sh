@@ -1,4 +1,33 @@
 #!/bin/bash
+
+_settingsCustom() {
+    clear
+cat <<"EOF"
+  ____          _                  
+ / ___|   _ ___| |_ ___  _ __ ___  
+| |  | | | / __| __/ _ \| '_ ` _ \ 
+| |__| |_| \__ \ || (_) | | | | | |
+ \____\__,_|___/\__\___/|_| |_| |_|
+                                   
+EOF
+    echo "Press ESC to proceed."
+    echo ""
+    filevalue=$(gum write --show-line-numbers --height 15 --width 70 --value="$(cat ~/dotfiles/hypr/conf/custom.conf)")
+    clear
+cat <<"EOF"
+  ____          _                  
+ / ___|   _ ___| |_ ___  _ __ ___  
+| |  | | | / __| __/ _ \| '_ ` _ \ 
+| |__| |_| \__ \ || (_) | | | | | |
+ \____\__,_|___/\__\___/|_| |_| |_|
+                                   
+EOF
+    if gum confirm "Do you want to save your changes into ~/dotfiles/hypr/conf/custom.conf?" ;then
+        echo "$filevalue" > ~/dotfiles/hypr/conf/custom.conf
+    fi
+    _settingsMenu
+}
+
 _settingsDecoration() {
     clear
 cat <<"EOF"
@@ -177,7 +206,7 @@ EOF
         echo "Version: $(cat ~/dotfiles/version)"
         echo ""
     fi
-    menu=$(gum choose "Decorations" "Windows" "Animations" "Monitors" "Environments" "Keybindings" "Windowrules" "EXIT")
+    menu=$(gum choose "Decorations" "Windows" "Animations" "Monitors" "Environments" "Keybindings" "Windowrules" "Custom" "EXIT")
     case $menu in
         Decorations)
             _settingsDecoration
@@ -200,6 +229,9 @@ EOF
         Windowrules) 
             _settingsWindowrule
         break;;
+        Custom) 
+            _settingsCustom
+        break;;
         * ) 
             exit
         ;;
@@ -207,5 +239,3 @@ EOF
 }
 
 _settingsMenu
-
-
