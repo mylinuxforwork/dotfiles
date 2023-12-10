@@ -1,4 +1,4 @@
-# ML4W dotfiles 2.6.1 BETA
+# ML4W dotfiles 2.6.1 RC
 
 This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland) for Arch. This package includes an installation script to install and setup the required components.
 
@@ -170,6 +170,12 @@ More information here: https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/way
 ## Hyprland settings
 
 You can open the settings script with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> to select variations for your hyprland.conf and customize your desktop even more.
+
+You can create custom variations by copying a file from the ~/dotfiles/hypr/conf subfolders like monitor/default.conf, give the file a custom name (e.g., mymonitor.conf) and select the variation in the settings script in the corresponding section.
+
+You can also edit the file custom.conf which is included at the bottom of the hyprland.conf and can hold you personal configurations.
+
+You can also edit the file directly in the settings script in the section Custom.
 
 ## Screensharing and recording
 
