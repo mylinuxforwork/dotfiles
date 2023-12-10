@@ -51,7 +51,7 @@ packagesYay=(
     "bibata-cursor-theme" 
     "trizen"
     "swww" 
-    "swaylock-effects" 
+    "swaylock-effects-git" 
     "wlogout"
     "wlr-randr"
     "pacseek"
