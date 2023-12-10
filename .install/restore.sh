@@ -20,6 +20,10 @@ _showRestoreOptions() {
         selectedlist+="~/dotfiles/.settings,"
     fi
     if [[ $profile == *"Hyprland"* ]]; then
+        if [ -f ~/dotfiles/hypr/conf/custom.conf ]; then
+            restorelist+="~/dotfiles/hypr/conf/custom.conf "
+            selectedlist+="~/dotfiles/hypr/conf/custom.conf,"
+        fi
         if [ -f ~/dotfiles/hypr/conf/keyboard.conf ]; then
             restorelist+="~/dotfiles/hypr/conf/keyboard.conf "
             selectedlist+="~/dotfiles/hypr/conf/keyboard.conf,"
@@ -109,12 +113,18 @@ _startRestore() {
         fi
     fi
     if [[ $profile == *"Hyprland"* ]]; then
+        if [[ $restoreselect == *"~/dotfiles/hypr/conf/custom.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/hypr/conf/custom.conf ]; then
+                cp ~/dotfiles/hypr/conf/custom.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo "Hyprland custom.conf restored!"
+            fi
+        fi
         if [[ $restoreselect == *"~/dotfiles/hypr/conf/keyboard.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/dotfiles/hypr/conf/keyboard.conf ]; then
                 cp ~/dotfiles/hypr/conf/keyboard.conf ~/dotfiles-versions/$version/hypr/conf/
                 echo "Hyprland keyboard.conf restored!"
             fi
-        fi
+        fi        
         if [[ $restoreselect == *"~/dotfiles/hypr/conf/monitor.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/dotfiles/hypr/conf/monitor.conf ]; then
                 cp ~/dotfiles/hypr/conf/monitor.conf ~/dotfiles-versions/$version/hypr/conf/
