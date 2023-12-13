@@ -4,6 +4,9 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.6.1
 Installation:
 - Add hook.sh to modify the installation files just before the copy procedure into ~/dotfiles. Please check the README.md for more information
 
+Settings Script:
+- Added custom.conf which is included at the bottom of the hyprland.conf and can hold you personal configurations. Editable in the section Custom
+
 Hyprland:
 - Add foldable module for hardware information
 - Add keyboard layout to hardware information
