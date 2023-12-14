@@ -47,6 +47,7 @@ packagesPacman=(
     "gum"
     "xorg"
     "xorg-xinit"
+    "man-pages"
 );
 
 packagesYay=(
