@@ -1,5 +1,5 @@
 Version 2.6.2
-https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.6.1
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.6.2
 --------------------------------------------------------
 Hyprland:
 - New Waybar Module Idle Inhibitor to deactivate the automatic start of swaylock e.g. to watch videos or for online meetings 
