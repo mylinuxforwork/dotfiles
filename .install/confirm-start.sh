@@ -4,6 +4,7 @@
 
 echo "IMPORTANT: Please make sure that your system and your packages are up to date."
 echo "You can cancel the installation at any time with CMD + C"
+echo "If you have already installed a window manager like sway, please backup your .config folder."
 SCRIPT=$(realpath "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 if [ $SCRIPTPATH = "/home/$USER/dotfiles" ]; then
