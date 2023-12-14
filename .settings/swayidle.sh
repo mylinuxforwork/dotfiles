@@ -1,2 +1,2 @@
-timeswaylock=60
-timeoff=70
+timeswaylock=600
+timeoff=660
