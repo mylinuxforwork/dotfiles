@@ -52,6 +52,7 @@
         "group/hardware",
         "group/settings",
         "custom/cliphist",
+        "idle_inhibitor",
         "custom/exit",
         "clock"
     ]

@@ -339,5 +339,14 @@
         "format": "{user}",
         "interval": 60,
         "icon": false,
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "tooltip": false,
+        "format-icons":{
+            "activated": "Auto lock OFF",
+            "deactivated": "ON"
+        }
     }
 }
