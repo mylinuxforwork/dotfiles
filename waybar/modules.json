@@ -328,6 +328,7 @@
 
     // Bluetooth
     "bluetooth": {
+        "format": " {status}",
         "format-disabled": "",
         "format-off": "",
         "interval": 30,
