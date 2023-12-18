@@ -28,7 +28,7 @@ if grep -s "$startMarker" $targetFile && grep -s "$endMarker" $targetFile; then
     }' $targetFile
 
     # Reload Waybar
-    $HOME/dotfiles/waybar/launch.sh 1>/dev/null 2>&1
+    exec $HOME/dotfiles/waybar/launch.sh 1>/dev/null 2>&1 &
     _goBack
 
 else 
