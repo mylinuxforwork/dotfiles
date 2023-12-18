@@ -1,3 +1,3 @@
 #!/bin/bash
-cd settings
+cd ~/dotfiles/hypr/settings
 ./settings.sh
