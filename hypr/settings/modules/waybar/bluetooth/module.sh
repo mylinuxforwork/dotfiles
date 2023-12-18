@@ -1,21 +1,34 @@
 #!/bin/bash
 _getHeader "$name" "$author"
 
-echo "Define the date format for the clock module. Default: {:%Y-%m-%d}"
+echo "Hide the bluetooth icon in waybar."
+
 # Define File
-targetFile="$HOME/dotfiles/waybar/modules.json"
+targetFile="$HOME/dotfiles/waybar/themes/ml4w/config"
+
+if [ ! -f $targetFile ] ;then
+    echo "ERROR: Target file not found."
+    sleep 2
+    _goBack
+fi
 
 # Define Markers
-startMarker="\/\/ START CLOCK FORMAT"
-endMarker="\/\/ END CLOCK FORMAT"
+startMarker="\/\/ START BT TOOGLE"
+endMarker="\/\/ END BT TOOGLE"
 
 # Define Replacement Template
-customtemplate="\"format-alt\": \"VALUE\""
+customtemplate="VALUE\"bluetooth\","
 
 # Select Value
-customvalue=$(gum input --placeholder="Define the date format")
+customvalue=$(gum choose "SHOW" "HIDE")
 
 if [ ! -z $customvalue ]; then
+
+    if [ "$customvalue" == "SHOW" ] ;then
+        customvalue=""
+    else
+        customvalue="//"
+    fi
     # Replace in Template
     customtext="${customtemplate/VALUE/"$customvalue"}" 
 

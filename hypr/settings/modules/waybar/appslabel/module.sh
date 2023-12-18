@@ -22,7 +22,6 @@ if [ ! -z $customvalue ]; then
 
     # Ensure that markers are in target file
     if grep -s "$startMarker" $targetFile && grep -s "$endMarker" $targetFile; then 
-        echo "Exists" 
 
         # Write into File
         sed -i '/'"$startMarker"'/,/'"$endMarker"'/ {
