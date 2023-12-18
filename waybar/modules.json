@@ -21,7 +21,9 @@
 			"default": ""
         },
         "persistent-workspaces": {
-             "*": 5
+            // START WORKSPACES
+    "*": 5
+            // END WORKSPACES
         }       
     },
 
@@ -105,7 +107,7 @@
     // Settings
     "custom/settings": {
         "format": "",
-        "on-click": "alacritty --class dotfiles-floating -e ~/dotfiles/hypr/settings/settings.sh",
+        "on-click": "alacritty --class dotfiles-floating -e ~/dotfiles/hypr/start-settings.sh",
         "tooltip": false
     },
 
@@ -167,7 +169,9 @@
 
     // Rofi Application Launcher
     "custom/appmenu": {
+        // START APPS LABEL
         "format": "Apps",
+        // END APPS LABEL
         "on-click": "rofi -show drun -replace",
         "on-click-right": "~/dotfiles/hypr/scripts/keybindings.sh",
         "tooltip": false
@@ -201,7 +205,9 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        // START CLOCK FORMAT
         "format-alt": "{:%Y-%m-%d}"
+        // END CLOCK FORMAT
     },
 
     // System

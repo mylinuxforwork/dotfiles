@@ -1,1 +1,1 @@
-chromium
+brave
