@@ -52,7 +52,7 @@ git stash; git pull
 
 ```
 
-## Update with GIT (Rolling Release of main branch)
+## Update with GIT (Rolling Release of main branch) (fresh update)
 
 You can also update by deleting the ~/Downloads/dotfiles folder and clone again.
 
