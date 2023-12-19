@@ -21,6 +21,8 @@ The script will try to create a backup from an previous dotfiles installation.
 PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIONAL INSTALLTION.
 PLEASE READ THIS README until the end before starting the installation.
 
+Please note: To get the default Linux folder structure incl. Downloads, etc please install the packages xdg-user-dirs and run xdg-user-dirs-update.
+
 ## Installation with GIT (Rolling Release of main branch)
 
 ```
