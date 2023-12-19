@@ -30,7 +30,7 @@ if [ ! -z $customvalue ]; then
         }' $targetFile
 
         # Reload Waybar
-        exec $HOME/dotfiles/waybar/launch.sh 1>/dev/null 2>&1 &
+        setsid $HOME/dotfiles/waybar/launch.sh 1>/dev/null 2>&1 &
         _goBack
 
     else 
