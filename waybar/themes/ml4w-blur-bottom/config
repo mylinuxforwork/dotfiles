@@ -46,7 +46,9 @@
     "modules-right": [
         "custom/updates",
         "pulseaudio",
+        // START BT TOOGLE
         "bluetooth",
+        // END BT TOOGLE
         "battery", 
         "network",
         "group/hardware",
