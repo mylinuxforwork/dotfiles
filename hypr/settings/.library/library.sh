@@ -193,6 +193,21 @@ _writeConf() {
     fi
 }
 
+# _replaceInFile $startMarket $endMarker $customtext $targetFile
+_replaceInFile() {
+    if grep -s "$1" $4 && grep -s "$2" $4 ;then
+        sed -i '/'"$1"'/,/'"$2"'/ {
+        //!d
+        /'"$1"'/a\
+        '"$3"'
+        }' $4
+    else
+        echo "ERROR: $1 and/or $2 not found in $4"
+        sleep 2
+        _goBack
+    fi
+}
+
 # Return the version of the hyprland-settings script
 _getVersion() {
     echo $version

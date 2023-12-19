@@ -26,55 +26,23 @@ customtemplate="VALUE\"bluetooth\","
 customvalue=$(gum choose "SHOW" "HIDE")
 
 if [ ! -z $customvalue ]; then
-
     if [ "$customvalue" == "SHOW" ] ;then
         customvalue=""
     else
         customvalue="//"
     fi
+    
     # Replace in Template
     customtext="${customtemplate/VALUE/"$customvalue"}" 
 
-    # Ensure that markers are in target file
-    if grep -s "$startMarker" $targetFile1 && grep -s "$endMarker" $targetFile1 && grep -s "$startMarker" $targetFile2 && grep -s "$endMarker" $targetFile2 && grep -s "$startMarker" $targetFile3 && grep -s "$endMarker" $targetFile3 && grep -s "$startMarker" $targetFile4 && grep -s "$endMarker" $targetFile4; then 
-
-        # Write into File
-        sed -i '/'"$startMarker"'/,/'"$endMarker"'/ {
-        //!d
-        /'"$startMarker"'/a\
-        '"$customtext"'
-        }' $targetFile1
-
-        # Write into File
-        sed -i '/'"$startMarker"'/,/'"$endMarker"'/ {
-        //!d
-        /'"$startMarker"'/a\
-        '"$customtext"'
-        }' $targetFile2
-
-        # Write into File
-        sed -i '/'"$startMarker"'/,/'"$endMarker"'/ {
-        //!d
-        /'"$startMarker"'/a\
-        '"$customtext"'
-        }' $targetFile3
-
-        # Write into File
-        sed -i '/'"$startMarker"'/,/'"$endMarker"'/ {
-        //!d
-        /'"$startMarker"'/a\
-        '"$customtext"'
-        }' $targetFile4
-
-        # Reload Waybar
-        setsid $HOME/dotfiles/waybar/launch.sh 1>/dev/null 2>&1 &
-        _goBack
-
-    else 
-        echo "ERROR: Marker not found."
-        sleep 2
-        _goBack
-    fi
+    _replaceInFile $startMarker $endMarker $customtext $targetFile1
+    _replaceInFile $startMarker $endMarker $customtext $targetFile2
+    _replaceInFile $startMarker $endMarker $customtext $targetFile3
+    _replaceInFile $startMarker $endMarker $customtext $targetFile4
+    
+    # Reload Waybar
+    setsid $HOME/dotfiles/waybar/launch.sh 1>/dev/null 2>&1 &
+    _goBack
 else 
     echo "ERROR: Define a value."
     sleep 2
