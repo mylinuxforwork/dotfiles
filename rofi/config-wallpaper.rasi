@@ -156,7 +156,7 @@ listview {
 /* ---- Element ---- */
 element {
     enabled:                      true;
-    padding:                      10px;
+    padding:                      0px;
     margin:                       5px;
     cursor:                       pointer;
     background-color:             @background;
@@ -221,7 +221,7 @@ element-text {
     text-color:                  inherit;
     cursor:                      inherit;
     vertical-align:              0.5;
-    horizontal-align:            0.0;
+    horizontal-align:            0.1;
 }
 
 /*****----- Message -----*****/
