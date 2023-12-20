@@ -210,20 +210,9 @@ Please note that every Arch Linux system is different and I cannot guarantee tha
 
 # Qtile
 
-## X11 
-
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-3.png" alt="Click to watch on YouTube" /></a>
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-4.png" alt="Click to watch on YouTube" /></a>
-
-## Wayland
-
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-1.png" alt="Click to watch on YouTube" /></a>
-
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-2.png" alt="Click to watch on YouTube" /></a>
-
-<b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
-
 
 ## Wallpaper and Pywal
 
@@ -252,24 +241,6 @@ With <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd>, you can switch between 
 - Status Bar: Qtile status bar + Polybar (optional)
 - Compositor: picom
 - Screenshots: scrot
-
-### Qtile Wayland
-
-- Terminal: alacritty
-- Editor: nvim
-- Prompt: starship
-- Icons: Font Awesome
-- Launch Menus: Rofi
-- Colorscheme: pywal
-- Browsers: chromium (brave optional)
-- Filemanager: Thunar
-- Cursor: Bibata Modern Ice
-- Icons: Papirus-Icon-Theme
-- Status Bar: Qtile status bar
-- Screenshots: grim & slurp
-- Clipboard Manager: cliphist
-- Logout: rofi power menu
-- Screenlock: swaylock-effects
 
 # Wallpaper repository
 
