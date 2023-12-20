@@ -1,4 +1,4 @@
-# ML4W dotfiles 2.7 BETA 2
+# ML4W dotfiles 2.7 RC1
 
 This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland) for Arch. This package includes an installation script to install and setup the required components.
 
