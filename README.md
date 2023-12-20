@@ -7,7 +7,7 @@ This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland) for Ar
 PLEASE NOTE: This branch is the rolling release of my dotfiles and includes the latest changes. 
 Please be aware that this version is not a tested release. 
 
-The released dotfiles are tested with Arch Linux, Manjaro Linux, EndeavourOS and Arco Linux.
+The released dotfiles are tested with Arch Linux, Manjaro Linux, EndeavourOS and Arco Linux. (Arco Linux: Please install hyprland-git run my dotfiles.)
 
 You can find the video on YouTube: <a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Dotfiles Configuration and Installation</a>
 
