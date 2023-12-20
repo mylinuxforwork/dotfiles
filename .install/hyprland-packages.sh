@@ -44,7 +44,6 @@ packagesPacman=(
     "brightnessctl"
     "gum"
     "man-pages"
-    "sddm"
 );
 
 packagesYay=(
@@ -57,5 +56,6 @@ packagesYay=(
     "wlogout"
     "wlr-randr"
     "pacseek"
+    "sddm-git"
     "sddm-sugar-candy-git"
 );

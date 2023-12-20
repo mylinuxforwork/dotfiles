@@ -2,7 +2,6 @@
 # Disable display manager
 # ------------------------------------------------------
 disman=0
-profile="Hyprland"
 echo -e "${GREEN}"
 cat <<"EOF"
  ____  _           _               __  __                                   
@@ -26,6 +25,7 @@ fi
 if [[ $profile == *"Qtile"* ]]; then
     if [ -f /usr/share/wayland-sessions/qtile-wayland.desktop ]; then
         sudo mv /usr/share/wayland-sessions/qtile-wayland.desktop /usr/share/wayland-sessions/qtile-wayland.bak
+        echo "Qtile Wayland Session removed."
     fi
     echo "PLEASE NOTE: Qtile works with Display Managers."
     echo "But if you want to use the tty based (terminal) login instead, you can disable the display manager now."
