@@ -1,10 +1,10 @@
 #!/bin/bash
-#                _ _                              
-# __      ____ _| | |_ __   __ _ _ __   ___ _ __  
-# \ \ /\ / / _` | | | '_ \ / _` | '_ \ / _ \ '__| 
-#  \ V  V / (_| | | | |_) | (_| | |_) |  __/ |    
-#   \_/\_/ \__,_|_|_| .__/ \__,_| .__/ \___|_|    
-#                   |_|         |_|               
+#   ____ _                              _____ _                          
+#  / ___| |__   __ _ _ __   __ _  ___  |_   _| |__   ___ _ __ ___   ___  
+# | |   | '_ \ / _` | '_ \ / _` |/ _ \   | | | '_ \ / _ \ '_ ` _ \ / _ \ 
+# | |___| | | | (_| | | | | (_| |  __/   | | | | | |  __/ | | | | |  __/ 
+#  \____|_| |_|\__,_|_| |_|\__, |\___|   |_| |_| |_|\___|_| |_| |_|\___| 
+#                          |___/                                         
 #  
 # by Stephan Raabe (2023) 
 # ----------------------------------------------------- 
@@ -22,7 +22,10 @@ case $1 in
 
     # Select wallpaper with rofi
     "select")
-        selected=$(ls -1 ~/wallpaper | grep "jpg" | rofi -dmenu -replace -config ~/dotfiles/rofi/config-wallpaper.rasi)
+        selected=$( find "$HOME/wallpaper" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -exec basename {} \; | sort | while read rfile
+        do
+            echo -en "$rfile\x00icon\x1f$HOME/wallpaper/${rfile}\n"
+        done | rofi -dmenu -replace -l 6 -config ~/dotfiles/rofi/config-wallpaper.rasi)
         if [ ! "$selected" ]; then
             echo "No wallpaper selected"
             exit
@@ -38,41 +41,26 @@ case $1 in
 esac
 
 # ----------------------------------------------------- 
-# Load current pywal color scheme
+# Reload qtile to color bar
+# ----------------------------------------------------- 
+qtile cmd-obj -o cmd -f reload_config
+
+# ----------------------------------------------------- 
+# Get new theme
 # ----------------------------------------------------- 
 source "$HOME/.cache/wal/colors.sh"
 echo "Wallpaper: $wallpaper"
+newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
 
 # ----------------------------------------------------- 
 # Copy selected wallpaper into .cache folder
 # ----------------------------------------------------- 
 cp $wallpaper ~/.cache/current_wallpaper.jpg
 
-# ----------------------------------------------------- 
-# get wallpaper iamge name
-# ----------------------------------------------------- 
-newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
-
-# ----------------------------------------------------- 
-# Set the new wallpaper
-# -----------------------------------------------------
-swww init
-
-transition_type="wipe"
-# transition_type="outer"
-# transition_type="random"
-
-swww img $wallpaper \
-    --transition-bezier .43,1.19,1,.4 \
-    --transition-fps=60 \
-    --transition-type=$transition_type \
-    --transition-duration=0.7 \
-
-qtile cmd-obj -o cmd -f reload_config
+sleep 1
 
 # ----------------------------------------------------- 
 # Send notification
 # ----------------------------------------------------- 
 notify-send "Colors and Wallpaper updated" "with image $newwall"
-
-echo "DONE!"
+echo "Done."

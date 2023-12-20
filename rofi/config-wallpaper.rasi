@@ -13,7 +13,7 @@
 configuration {
     modi:                       "drun,run";
     font:                       "Fira Sans Bold 10";
-    show-icons:                 false;
+    show-icons:                 true;
     icon-theme:                 "kora";
     display-drun:               "APPS";
     display-run:                "RUN";
@@ -212,7 +212,7 @@ element alternate.active {
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        32px;
+    size:                        60px;
     cursor:                      inherit;
 }
 

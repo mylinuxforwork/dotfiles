@@ -24,9 +24,12 @@ echo -e "${NONE}"
         echo ""
     fi
     if [[ $profile == *"Qtile"* ]]; then
+        if [ -f /usr/share/wayland-sessions/qtile-wayland.desktop ]; then
+            sudo mv /usr/share/wayland-sessions/qtile-wayland.desktop /usr/share/wayland-sessions/qtile-wayland.bak
+        fi
         echo "PLEASE NOTE: Qtile works with Display Managers."
         echo "But if you want to use the tty based (terminal) login instead, you can disable the display manager now."
-        echo "If you install the aliases with the included .bashrc, you can start Qtile with the command Qtile or QtileWayland."
+        echo "If you install the aliases with the included .bashrc, you can start Qtile with the command Qtile."
         echo ""
     fi
 

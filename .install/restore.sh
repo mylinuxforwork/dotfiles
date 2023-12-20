@@ -59,17 +59,9 @@ _showRestoreOptions() {
         fi
     fi
     if [[ $profile == *"Qtile"* ]]; then
-        if [ -f ~/dotfiles/qtile/conf/keyboard.py ]; then
-            restorelist+="~/dotfiles/qtile/conf/keyboard.py "
-            selectedlist+="~/dotfiles/qtile/conf/keyboard.py,"
-        fi
-        if [ -f ~/dotfiles/qtile/autostart_wayland.sh ]; then
-            restorelist+="~/dotfiles/qtile/autostart_wayland.sh "
-            selectedlist+="~/dotfiles/qtile/autostart_wayland.sh,"
-        fi
-        if [ -f ~/dotfiles/qtile/autostart_x11.sh ]; then
-            restorelist+="~/dotfiles/qtile/autostart_x11.sh "
-            selectedlist+="~/dotfiles/qtile/autostart_x11.sh,"
+        if [ -f ~/dotfiles/qtile/autostart.sh ]; then
+            restorelist+="~/dotfiles/qtile/autostart.sh "
+            selectedlist+="~/dotfiles/qtile/autostart.sh,"
         fi
     fi
     restoreselect=$(gum choose --no-limit --height 20 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " --selected="$selectedlist" $restorelist)

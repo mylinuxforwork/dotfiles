@@ -12,3 +12,4 @@ keyboard.py
 animation.conf
 decoration.conf
 window.conf
+autostart.sh

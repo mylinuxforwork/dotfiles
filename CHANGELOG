@@ -8,11 +8,14 @@ Installation:
 Hyprland:
 - New Waybar Module Idle Inhibitor to deactivate the automatic start of swaylock e.g. to watch videos or for online meetings 
 - Create own customization of ML4W waybar themes: https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/waybar?ref_type=heads#define-your-own-config-and-stylecss-for-a-ml4w-theme
-
-Settings Script:
+- Wallpaper selector now with preview thumbnails
 - Settings script reworked completely. Implementation of custom modules are now possible. 
-- New waybar module to edit some ML4W waybar themes settings on the fly
-- SDDM module to update the SDDM background with current wallpaper
+- Waybar settings module to edit some ML4W waybar themes settings on the fly
+- SDDM settings module to update the SDDM background with current wallpaper
+
+Qtile:
+- Removed wayland support due to many limitations. Installation script will rename /usr/share/wayland-sessions/qtile-wayland.session to qtile-wayland.bak to hide in sddm
+
 
 Version 2.6.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.6.1
