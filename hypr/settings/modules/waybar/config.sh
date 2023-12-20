@@ -1,2 +1,2 @@
 name="Waybar"
-order=1
+order=40

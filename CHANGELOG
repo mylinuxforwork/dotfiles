@@ -1,10 +1,18 @@
-Version 2.6.2
+Version 2.7
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.6.2
 --------------------------------------------------------
+Installation:
+- Display Manager SDDM and sugar-candy theme will be installed. 
+- Optional display manager disablement possible
+
 Hyprland:
 - New Waybar Module Idle Inhibitor to deactivate the automatic start of swaylock e.g. to watch videos or for online meetings 
 - Create own customization of ML4W waybar themes: https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/waybar?ref_type=heads#define-your-own-config-and-stylecss-for-a-ml4w-theme
-- Waybar bluetooth module hidden when no bluetooth device detected or disabled
+
+Settings Script:
+- Settings script reworked completely. Implementation of custom modules are now possible. 
+- New waybar module to edit some ML4W waybar themes settings on the fly
+- SDDM module to update the SDDM background with current wallpaper
 
 Version 2.6.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.6.1

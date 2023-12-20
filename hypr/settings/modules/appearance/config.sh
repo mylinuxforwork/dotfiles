@@ -1,3 +1,3 @@
 name="Appearance"
-order=2
+order=10
 author="Stephan Raabe ML4W"
