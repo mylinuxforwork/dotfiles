@@ -208,7 +208,7 @@ Please note that every Arch Linux system is different and I cannot guarantee tha
 - Logout: wlogout 
 - Screenlock: swaylock-effects
 
-# Qtile
+# Qtile X11
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-3.png" alt="Click to watch on YouTube" /></a>
 
@@ -225,8 +225,6 @@ Included is a pywal configuration that changes the color scheme based on a rando
 With <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd>, you can switch between the Qtile standard status bar and Polybar and back. 
 
 ## Main Packages
-
-### Qtile X11
 
 - Terminal: alacritty
 - Editor: nvim
