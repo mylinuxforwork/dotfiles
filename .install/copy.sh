@@ -53,7 +53,7 @@ if gum confirm "Do you want to install the prepared dotfiles now?" ;then
             mkdir ~/dotfiles
             echo "~/dotfiles folder created."
         fi   
-        rsync -a -I ~/dotfiles-versions/$version/ ~/dotfiles/
+        rsync -avhp -I ~/dotfiles-versions/$version/ ~/dotfiles/
         if [[ $(_isFolderEmpty ~/dotfiles/) == 0 ]] ;then
             echo "AN ERROR HAS OCCURED. Copy prepared dofiles from ~/dotfiles-versions/$version/ to ~/dotfiles/ failed" 
             echo "Please check that rsync is installad on your system."

@@ -4,7 +4,7 @@
 if [ ! -z $1 ] ;then
     if [ -d ~/dotfiles-versions/"$1" ] ;then
         echo "Folder exists. Start rsync now ..."
-        rsync -avzh -I --exclude-from=excludes.txt ~/dotfiles-versions/$1/  ~/dotfiles
+        rsync -avhp -I --exclude-from=excludes.txt ~/dotfiles-versions/$1/  ~/dotfiles
     else 
         echo "Folder ~/dotfiles-versions/$1 not found."
     fi
