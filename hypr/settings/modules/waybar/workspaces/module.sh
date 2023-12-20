@@ -13,7 +13,7 @@ customtemplate="\"*\": VALUE"
 
 # Select Value
 customvalue=$(gum choose 5 6 7 8 9 10)
-
+if [ ! -z $customvalue ] ;then
 # Replace in Template
 customtext="${customtemplate/VALUE/"$customvalue"}" 
 
@@ -36,4 +36,6 @@ else
     sleep 2
     _goBack
 fi
-
+else
+    _goBack
+fi

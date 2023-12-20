@@ -1,2 +1,2 @@
 name="SDDM"
-order=30
+order=40
