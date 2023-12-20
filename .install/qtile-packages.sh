@@ -48,6 +48,7 @@ packagesPacman=(
     "xorg"
     "xorg-xinit"
     "man-pages"
+    "sddm"
 );
 
 packagesYay=(
@@ -58,5 +59,6 @@ packagesYay=(
     "swww" 
     "qtile-extras"
     "wlr-randr"
-    "pacseek"    
+    "pacseek"
+    "sddm-sugar-candy-git"    
 );
