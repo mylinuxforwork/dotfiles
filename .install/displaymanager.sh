@@ -34,6 +34,10 @@ if [[ $profile == *"Qtile"* ]]; then
 fi
 
 if gum confirm "Do you want to enable/update to sddm?" ;then
+
+    # Try to force the installation of sddm-git
+    yay -S sddm-git --ask 4
+    
     if [ -f /etc/systemd/system/display-manager.service ]; then
         sudo rm /etc/systemd/system/display-manager.service
     fi
