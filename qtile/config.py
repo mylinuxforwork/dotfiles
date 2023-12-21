@@ -273,6 +273,14 @@ widget_list = [
         padding=10,
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("rofi -show drun")},
     ),
+    widget.TextBox(
+        **decor_left,
+        background="#ffffff.4",
+        text="  ",
+        foreground="000000.6",
+        fontsize=18,
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + "/dotfiles/qtile/scripts/wallpaper.sh select")},
+    ),
     widget.GroupBox(
         **decor_left,
         background="#ffffff.7",
@@ -292,7 +300,7 @@ widget_list = [
         text=" ",
         foreground="000000.6",
         fontsize=18,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh " + home + "/dotfiles/.settings/browser.sh")},
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + "/dotfiles/.settings/browser.sh")},
     ),
     widget.TextBox(
         **decor_left,
@@ -300,7 +308,7 @@ widget_list = [
         text=" ",
         foreground="000000.6",
         fontsize=18,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh " + home + "/dotfiles/.settings/filemanager.sh")}
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + "/dotfiles/.settings/filemanager.sh")}
     ),
     
     widget.WindowName(
@@ -377,13 +385,13 @@ widget_list = [
 
 # Hide Modules if not on laptop
 if (show_wlan == False):
-    del widget_list[12:13]
+    del widget_list[13:14]
 
 if (show_bluetooth == False):
-    del widget_list[11:12]
+    del widget_list[12:13]
 
 if (core_name == "x11"):
-    del widget_list[12:13]
+    del widget_list[13:14]
 
 # --------------------------------------------------------
 # Screens
