@@ -479,8 +479,7 @@ wmname = "QTILE"
 # HOOK startup
 @hook.subscribe.startup_once
 def autostart():
-    autostartscript = "~/.config/qtile/autostart_x11.sh"
-    subprocess.Popen(['setxkbmap',keyboard_layout])
+    autostartscript = "~/.config/qtile/autostart.sh"
     home = os.path.expanduser(autostartscript)
     subprocess.Popen([home])
 

@@ -9,6 +9,7 @@
 # by Stephan Raabe (2023) 
 # ----------------------------------------------------- 
 
+cache_file="$HOME/.cache/current_wallpaper"
 clear
 echo "Update the background wallpaper of sddm to the current wallpaper."
 echo ""
@@ -20,10 +21,15 @@ fi
 sudo cp sddm.conf /etc/sddm.conf.d/
 echo "File /etc/sddm.conf.d/sddm.conf updated."
 
-sudo cp ~/.cache/current_wallpaper.jpg /usr/share/sddm/themes/sugar-candy/Backgrounds/
-echo "Current wallpaper copied into /usr/share/sddm/themes/sugar-candy/Backgrounds/"
+current_wallpaper=$(cat "$cache_file")
+extension="${current_wallpaper##*.}"
 
+sudo cp $current_wallpaper /usr/share/sddm/themes/sugar-candy/Backgrounds/current_wallpaper.$extension
+echo "Current wallpaper copied into /usr/share/sddm/themes/sugar-candy/Backgrounds/"
+new_wall=$(echo $current_wallpaper | sed "s|$HOME/wallpaper/||g")
 sudo cp theme.conf /usr/share/sddm/themes/sugar-candy/
+sudo sed -i 's/CURRENTWALLPAPER/'"current_wallpaper.$extension"'/' /usr/share/sddm/themes/sugar-candy/theme.conf
+
 echo "File theme.conf updated in /usr/share/sddm/themes/sugar-candy/"
 
 echo ""

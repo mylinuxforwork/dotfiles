@@ -16,7 +16,7 @@
 # xrandr --output Virtual-1 --mode 1920x1080
 
 # Keyboard layout
-setxkbmap en
+setxkbmap us
 
 # Load picom
 picom &
@@ -28,9 +28,9 @@ xfce4-power-manager &
 dunst &
 
 # Launch polybar
-~/dotfiles/qtile/scripts/x11/loadbar.sh
+~/dotfiles/qtile/scripts/loadbar.sh
 
 sleep 1
 
 # Setup Wallpaper and update colors
-~/dotfiles/qtile/scripts/x11/wallpaper.sh init
+~/dotfiles/qtile/scripts/wallpaper.sh init

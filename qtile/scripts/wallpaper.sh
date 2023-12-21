@@ -9,12 +9,30 @@
 # by Stephan Raabe (2023) 
 # ----------------------------------------------------- 
 
+# Cache file for holding the current wallpaper
+cache_file="$HOME/.cache/current_wallpaper"
+rasi_file="$HOME/.cache/current_wallpaper.rasi"
+
+# Create cache file if not exists
+if [ ! -f $cache_file ] ;then
+    touch $cache_file
+    echo "$HOME/wallpaper/default.jpg" > "$cache_file"
+fi
+
+# Create rasi file if not exists
+if [ ! -f $rasi_file ] ;then
+    touch $rasi_file
+    echo "* { current-image: url(\"$HOME/wallpaper/default.jpg\", height); }" > "$rasi_file"
+fi
+
+current_wallpaper=$(cat "$cache_file")
+
 case $1 in
 
     # Load wallpaper from .cache of last session 
     "init")
-        if [ -f ~/.cache/current_wallpaper.jpg ]; then
-            wal -q -i ~/.cache/current_wallpaper.jpg
+        if [ -f $cache_file ]; then
+            wal -q -i $current_wallpaper
         else
             wal -q -i ~/wallpaper/
         fi
@@ -53,9 +71,10 @@ echo "Wallpaper: $wallpaper"
 newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
 
 # ----------------------------------------------------- 
-# Copy selected wallpaper into .cache folder
+# Write selected wallpaper into .cache files
 # ----------------------------------------------------- 
-cp $wallpaper ~/.cache/current_wallpaper.jpg
+echo "$wallpaper" > "$cache_file"
+echo "* { current-image: url(\"$wallpaper\", height); }" > "$rasi_file"
 
 sleep 1
 
