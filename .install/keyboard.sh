@@ -44,14 +44,14 @@ else
     _confirmKeyboard
     
     cp .install/templates/keyboard.conf ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
-    cp .install/templates/keyboard.py ~/dotfiles-versions/$version/qtile/conf/keyboard.py
+    cp .install/templates/autostart.sgh ~/dotfiles-versions/$version/qtile/autostart.sh
 
     SEARCH="KEYBOARD_LAYOUT"
     REPLACE="$keyboard_layout"
     sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
 
-    SEARCH="\"setxkbmap en\""
-    REPLACE="\"setxkbmap $keyboard_layout\""
+    SEARCH="\"KEYBOARD_LAYOUT\""
+    REPLACE="\"$keyboard_layout\""
     sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/qtile/autostart.sh
 
     echo ""
