@@ -16,19 +16,18 @@ timestr=%R
 datestr=%a, %e of %B
 
 # Add current screenshot as wallpaper
-# screenshots
+screenshots
 
 # Add an image as a background 
-# In my setup the current wallpaper (requires wallpaper scripts in /scripts)
-image=~/.cache/current_wallpaper.jpg
+# image=~/.cache/current_wallpaper.jpg
 
 # Fade in time
 fade-in=1
 
 # Effect for background
-# effect-blur=20x6
+effect-blur=5x2
 # effect-greyscale
-effect-pixelate=5
+# effect-pixelate=5
 
 # Show/Hide indicator circle
 indicator
