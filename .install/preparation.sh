@@ -2,15 +2,7 @@
 # Prepare dotfiles
 # ------------------------------------------------------
 echo -e "${GREEN}"
-cat <<"EOF"
- ____                                 _   _             
-|  _ \ _ __ ___ _ __   __ _ _ __ __ _| |_(_) ___  _ __  
-| |_) | '__/ _ \ '_ \ / _` | '__/ _` | __| |/ _ \| '_ \ 
-|  __/| | |  __/ |_) | (_| | | | (_| | |_| | (_) | | | |
-|_|   |_|  \___| .__/ \__,_|_|  \__,_|\__|_|\___/|_| |_|
-               |_|                                      
-
-EOF
+figlet "Preparation"
 echo -e "${NONE}"
 echo "Preparing temporary folders for the installation."
 if [ ! -d ~/dotfiles-versions ]; then

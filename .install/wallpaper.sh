@@ -2,15 +2,7 @@
 # Install wallpapers
 # ------------------------------------------------------
 echo -e "${GREEN}"
-cat <<"EOF"
-__        __    _ _                                 
-\ \      / /_ _| | |_ __   __ _ _ __   ___ _ __ ___ 
- \ \ /\ / / _` | | | '_ \ / _` | '_ \ / _ \ '__/ __|
-  \ V  V / (_| | | | |_) | (_| | |_) |  __/ |  \__ \
-   \_/\_/ \__,_|_|_| .__/ \__,_| .__/ \___|_|  |___/
-                   |_|         |_|                  
-
-EOF
+figlet "Wallpapers"
 echo -e "${NONE}"
 if [ ! -d ~/wallpaper ]; then
     echo "Do you want to download the wallpapers from repository https://gitlab.com/stephan-raabe/wallpaper/ ?"

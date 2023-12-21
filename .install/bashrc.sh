@@ -2,13 +2,7 @@
 # Install .bashrc
 # ------------------------------------------------------
 echo -e "${GREEN}"
-cat <<"EOF"
-   _               _              
-  | |__   __ _ ___| |__  _ __ ___ 
-  | '_ \ / _` / __| '_ \| '__/ __|
- _| |_) | (_| \__ \ | | | | | (__ 
-(_)_.__/ \__,_|___/_| |_|_|  \___|
-EOF
+figlet ".bashrc"
 echo -e "${NONE}"
 if [ ! -L ~/.bashrc ] && [ -f ~/.bashrc ]; then
     echo "PLEASE NOTE AGAIN: The script has detected an existing .bashrc file."

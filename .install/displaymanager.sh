@@ -3,15 +3,7 @@
 # ------------------------------------------------------
 disman=0
 echo -e "${GREEN}"
-cat <<"EOF"
- ____  _           _               __  __                                   
-|  _ \(_)___ _ __ | | __ _ _   _  |  \/  | __ _ _ __   __ _  __ _  ___ _ __ 
-| | | | / __| '_ \| |/ _` | | | | | |\/| |/ _` | '_ \ / _` |/ _` |/ _ \ '__|
-| |_| | \__ \ |_) | | (_| | |_| | | |  | | (_| | | | | (_| | (_| |  __/ |   
-|____/|_|___/ .__/|_|\__,_|\__, | |_|  |_|\__,_|_| |_|\__,_|\__, |\___|_|   
-            |_|            |___/                            |___/           
-
-EOF
+figlet "Display Manager"
 echo -e "${NONE}"
 if [[ $profile == *"Hyprland"* ]]; then
     echo "IMPORTANT: Starting Hyprland works from tty (terminal) with command Hyprland (recommended)" 

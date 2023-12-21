@@ -5,15 +5,7 @@
 datets=$(date '+%Y%m%d%H%M%S')
 if [ -d ~/dotfiles ] || [ -f ~/.bashrc ]; then
 echo -e "${GREEN}"
-cat <<"EOF"
-____             _                
-| __ )  __ _  ___| | ___   _ _ __  
-|  _ \ / _` |/ __| |/ / | | | '_ \ 
-| |_) | (_| | (__|   <| |_| | |_) |
-|____/ \__,_|\___|_|\_\\__,_| .__/ 
-                            |_|    
-
-EOF
+figlet "Backup"
 echo -e "${NONE}"
     if [ -d ~/dotfiles ]; then
         echo "The script has detected an existing dotfiles folder and will try to create a backup into the folder:"

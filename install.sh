@@ -1,6 +1,7 @@
 #!/bin/bash
 source .install/version.sh
 source .install/colors.sh
+source .install/library.sh
 clear
 
 # Set installation mode
@@ -13,12 +14,12 @@ if [ ! -z $1 ]; then
 fi
 echo -e "${GREEN}"
 cat <<"EOF"
-     _       _    __ _ _           
-  __| | ___ | |_ / _(_) | ___  ___ 
- / _` |/ _ \| __| |_| | |/ _ \/ __|
-| (_| | (_) | |_|  _| | |  __/\__ \
- \__,_|\___/ \__|_| |_|_|\___||___/
-                                   
+ __  __ _    _  ___        __      _       _    __ _ _           
+|  \/  | |  | || \ \      / /   __| | ___ | |_ / _(_) | ___  ___ 
+| |\/| | |  | || |\ \ /\ / /   / _` |/ _ \| __| |_| | |/ _ \/ __|
+| |  | | |__|__   _\ V  V /   | (_| | (_) | |_|  _| | |  __/\__ \
+|_|  |_|_____| |_|  \_/\_/     \__,_|\___/ \__|_| |_|_|\___||___/
+                                                                 
 EOF
 echo -e "${NONE}"
 
@@ -27,7 +28,6 @@ echo "by Stephan Raabe 2023"
 echo ""
 echo "This script will guide you through the installation process of my dotfiles."
 echo ""
-source .install/library.sh
 source .install/required.sh
 source .install/confirm-start.sh
 source .install/backup.sh

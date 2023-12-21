@@ -2,14 +2,7 @@
 # Check if yay is installed
 # ------------------------------------------------------
 echo -e "${GREEN}"
-cat <<"EOF"
- _   _  __ _ _   _ 
-| | | |/ _` | | | |
-| |_| | (_| | |_| |
- \__, |\__,_|\__, |
- |___/       |___/ 
-
-EOF
+figlet "yay"
 echo -e "${NONE}"
 if sudo pacman -Qs yay > /dev/null ; then
     echo "yay is already installed!"

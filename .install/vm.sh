@@ -1,14 +1,7 @@
 # Set KVM environment variables
 if [ $(_isKVM) == "0" ] ;then
 echo -e "${GREEN}"
-cat <<"EOF"
- _  ____     ____  __  __     ____  __ 
-| |/ /\ \   / /  \/  | \ \   / /  \/  |
-| ' /  \ \ / /| |\/| |  \ \ / /| |\/| |
-| . \   \ V / | |  | |   \ V / | |  | |
-|_|\_\   \_/  |_|  |_|    \_/  |_|  |_|
-                                       
-EOF
+figlet "KVM VM"
 echo -e "${NONE}"
     echo "The script has detected that you run the installation in a KVM virtual machine."
     if gum confirm "Do you want to install the KVM environment variables?" ;then
