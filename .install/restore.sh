@@ -161,22 +161,10 @@ _startRestore() {
         fi
     fi
     if [[ $profile == *"Qtile"* ]]; then
-        if [[ $restoreselect == *"~/dotfiles/qtile/conf/keyboard.py"* ]] || [[ $restoreselect == *"All"* ]] ; then
-            if [ -f ~/dotfiles/qtile/conf/keyboard.py ]; then
-                cp ~/dotfiles/qtile/conf/keyboard.py ~/dotfiles-versions/$version/qtile/conf/
-                echo "Qtile keyboard.py restored!"
-            fi
-        fi
-        if [[ $restoreselect == *"~/dotfiles/qtile/autostart_wayland.sh"* ]] || [[ $restoreselect == *"All"* ]] ; then
-            if [ -f ~/dotfiles/qtile/autostart_wayland.sh ]; then
-                cp ~/dotfiles/qtile/autostart_wayland.sh ~/dotfiles-versions/$version/qtile/
-                echo "Qtile autostart_wayland.sh restored!"
-            fi
-        fi
-        if [[ $restoreselect == *"~/dotfiles/qtile/autostart_x11.sh"* ]] || [[ $restoreselect == *"All"* ]] ; then
-            if [ -f ~/dotfiles/qtile/autostart_x11.sh ]; then
-                cp ~/dotfiles/qtile/autostart_x11.sh ~/dotfiles-versions/$version/qtile/
-                echo "Qtile autostart_x11.sh restored!"
+        if [[ $restoreselect == *"~/dotfiles/qtile/autostart.sh"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/qtile/autostart.sh ]; then
+                cp ~/dotfiles/qtile/autostart.sh ~/dotfiles-versions/$version/qtile/
+                echo "Qtile autostart.sh restored!"
             fi
         fi
     fi
