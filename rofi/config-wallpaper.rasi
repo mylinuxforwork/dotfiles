@@ -14,11 +14,6 @@ configuration {
     modi:                       "drun,run";
     font:                       "Fira Sans Bold 10";
     show-icons:                 true;
-    icon-theme:                 "kora";
-    display-drun:               "APPS";
-    display-run:                "RUN";
-    display-filebrowser:        "FILES";
-    display-window:             "WINDOW";
 	hover-select:               true;
     me-select-entry:            "";
     me-accept-entry:            "MousePrimary";
@@ -33,7 +28,7 @@ configuration {
 
 /* ---- Window ---- */
 window {
-    width:                        400px;
+    width:                        761px;
     x-offset:                     0px;
     y-offset:                     65px;
     spacing:                      0px;
@@ -59,7 +54,6 @@ mainbox {
     spacing:                      0px;
     margin:                       0px;
     background-color:             @background;
-    background-image:             @current-image;
     children:                     ["listbox"];
 }
 
@@ -139,19 +133,16 @@ button selected {
 listview {
     enabled:                      true;
     columns:                      1;
-    lines:                        8;
     cycle:                        true;
-    dynamic:                      true;
-    scrollbar:                    false;
-    layout:                       vertical;
+    dynamic:                      false;
+    scrollbar:                    true;
+    layout:                       horizontal;
     reverse:                      false;
-    fixed-height:                 true;
-    fixed-columns:                true;
-    spacing:                      0px;
+    spacing:                      10px;
     padding:                      10px;
     margin:                       0px;
     background-color:             @background;
-    border:0px;
+    border:                       0px;
 }
 
 /* ---- Element ---- */
@@ -163,49 +154,59 @@ element {
     background-color:             @background;
     border-radius:                10px;
     border:                       2px;
+    layout:                       vertical;
 }
 
 element normal.normal {
+    border-color:                @color11;
     background-color:            inherit;
     text-color:                  @foreground;
 }
 
 element normal.urgent {
+    border-color:                @color11;
     background-color:            inherit;
     text-color:                  @foreground;
 }
 
 element normal.active {
+    border-color:                @color11;
     background-color:            inherit;
     text-color:                  @foreground;
 }
 
 element selected.normal {
-    background-color:            @color11;
+    border-color:                @foreground;
+    background-color:            inherit;
     text-color:                  @foreground;
 }
 
 element selected.urgent {
+    border-color:                @foreground;
     background-color:            inherit;
     text-color:                  @foreground;
 }
 
 element selected.active {
+    border-color:                @foreground;
     background-color:            inherit;
     text-color:                  @foreground;
 }
 
 element alternate.normal {
+    border-color:                @color11;
     background-color:            inherit;
     text-color:                  @foreground;
 }
 
 element alternate.urgent {
+    border-color:                @color11;
     background-color:            inherit;
     text-color:                  @foreground;
 }
 
 element alternate.active {
+    border-color:                @color11;
     background-color:            inherit;
     text-color:                  @foreground;
 }
@@ -213,8 +214,9 @@ element alternate.active {
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        60px;
+    size:                        100px;
     cursor:                      inherit;
+    horizontal-align:              0.5;
 }
 
 element-text {
@@ -223,6 +225,7 @@ element-text {
     cursor:                      inherit;
     vertical-align:              0.5;
     horizontal-align:            0.1;
+    enabled: false;
 }
 
 /*****----- Message -----*****/
