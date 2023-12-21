@@ -2,7 +2,7 @@
 
 This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland) for Arch. This package includes an installation script to install and setup the required components.
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v26/screenshot-26-1.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v27/screenshot-27-1.png" alt="Click to watch on YouTube" /></a>
 
 PLEASE NOTE: This branch is the rolling release of my dotfiles and includes the latest changes. 
 Please be aware that this version is not a tested release. 
@@ -162,9 +162,9 @@ All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main
 
 # Hyprland
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v26/screenshot-27-1.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v27/screenshot-27-1.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v26/screenshot-27-2.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v27/screenshot-27-2.png" alt="Click to watch on YouTube" /></a>
 
 <b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
 
@@ -225,9 +225,9 @@ Please note that every Arch Linux system is different and I cannot guarantee tha
 
 # Qtile X11
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-27-3.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v27/screenshot-27-3.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-27-4.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v27/screenshot-27-4.png" alt="Click to watch on YouTube" /></a>
 
 ## Wallpaper and Pywal
 
