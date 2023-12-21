@@ -5,6 +5,9 @@ Installation:
 - Display Manager SDDM and sugar-candy theme will be installed. 
 - Optional display manager disablement possible
 
+General:
+- Adding icons to eza. Adding ls, ll, lt
+
 Hyprland:
 - New Waybar Module Idle Inhibitor to deactivate the automatic start of swaylock e.g. to watch videos or for online meetings 
 - Create own customization of ML4W waybar themes: https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/waybar?ref_type=heads#define-your-own-config-and-stylecss-for-a-ml4w-theme

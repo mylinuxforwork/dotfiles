@@ -122,9 +122,9 @@ That's why NVIDIA GPUs are currently not supported by my dotfiles. But in upcomi
 
 ## Display Manager SDDM
 
-The suggested method to start Hyprland is via the tty with the command Hyprland. But I made good experiences with the Display Manager SDDM (https://github.com/sddm/sddm) but you can also install a custom issue to improve the tty based login.
+The suggested method to start Hyprland is with the tty with the command Hyprland. But I made good experiences with the Display Manager SDDM (https://github.com/sddm/sddm) but you can also install a custom issue to improve the tty based login.
 
-Important is that you use the package sddm-git. You can replace sddm with sddm git with
+Important is that you use the package sddm-git. You can replace sddm with sddm-git with
 ```
 yay -S sddm-git
 ```
