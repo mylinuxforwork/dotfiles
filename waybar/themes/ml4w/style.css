@@ -162,7 +162,7 @@ window#waybar.empty #window {
 #custom-cliphist, 
 #custom-wallpaper, 
 #custom-settings, 
-#custom-wallpaper,
+#custom-wallpaper, 
 #custom-system,
 #custom-waybarthemes {
     margin-right: 23px;
@@ -172,8 +172,16 @@ window#waybar.empty #window {
     color: @iconcolor;
 }
 
-#custom-waybarthemes, #custom-settings, #custom-system {
+#custom-system {
     margin-right:15px;
+}
+
+#custom-wallpaper {
+    margin-right:25px;
+}
+
+#custom-waybarthemes, #custom-settings {
+    margin-right:20px;
 }
 
 /* -----------------------------------------------------

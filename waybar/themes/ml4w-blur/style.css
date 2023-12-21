@@ -149,37 +149,45 @@ window#waybar.empty #window {
  * Custom Quicklinks
  * ----------------------------------------------------- */
 
- #custom-brave, 
- #custom-browser, 
- #custom-keybindings, 
- #custom-outlook, 
- #custom-filemanager, 
- #custom-teams, 
- #custom-chatgpt, 
- #custom-calculator, 
- #custom-windowsvm, 
- #custom-cliphist, 
- #custom-wallpaper, 
- #custom-settings, 
- #custom-wallpaper, 
- #custom-system,
- #custom-waybarthemes {
-     margin-right: 23px;
-     font-size: 20px;
-     font-weight: bold;
-     opacity: 0.8;
-     color: @iconcolor;
- }
+#custom-brave, 
+#custom-browser, 
+#custom-keybindings, 
+#custom-outlook, 
+#custom-filemanager, 
+#custom-teams, 
+#custom-chatgpt, 
+#custom-calculator, 
+#custom-windowsvm, 
+#custom-cliphist, 
+#custom-wallpaper, 
+#custom-settings, 
+#custom-wallpaper, 
+#custom-system,
+#custom-waybarthemes {
+    margin-right: 23px;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: @iconcolor;
+}
  
- #custom-waybarthemes, #custom-settings, #custom-system {
-     margin-right:15px;
- }
+#custom-system {
+    margin-right:15px;
+}
+
+#custom-wallpaper {
+    margin-right:25px;
+}
+
+#custom-waybarthemes, #custom-settings {
+    margin-right:20px;
+}
 
 /* -----------------------------------------------------
  * Idle Inhibator
  * ----------------------------------------------------- */
 
- #idle_inhibitor {
+#idle_inhibitor {
     margin-right: 15px;
     font-size: 16px;
     font-weight: bold;
