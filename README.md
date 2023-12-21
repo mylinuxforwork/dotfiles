@@ -120,6 +120,21 @@ https://wiki.hyprland.org/Nvidia/
 
 That's why NVIDIA GPUs are currently not supported by my dotfiles. But in upcoming releases, I will try to setup Hyprland for NVIDIA based on the article above.
 
+## Display Manager SDDM
+
+The suggested method to start Hyprland is via the tty with the command Hyprland. But I made good experiences with the Display Manager SDDM (https://github.com/sddm/sddm) but you can also install a custom issue to improve the tty based login.
+
+Important is that you use the package sddm-git. You can replace sddm with sddm git with
+```
+yay -S sddm-git
+```
+
+The dotfiles installation script will offer to deactivate the installed display manager and to activate  SDDM. 
+
+The dotfiles package also includes a configuration for the SDDM theme sdd-sugar-candy (https://github.com/Kangie/sddm-sugar-candy) and a configuration to run SDDM in X11 mode to get the best compatibility.
+
+With the Hyprland settings script you can copy the current wallpaper into SDDM and use it as a background.
+
 ## Installation in a KVM virtual machine
 
 Qtile X11 works fine in a KVM virtual machine. The Hyprland performance is low but it's enough for testing new features.
@@ -147,9 +162,9 @@ All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main
 
 # Hyprland
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v26/screenshot-26-1.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v26/screenshot-27-1.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v26/screenshot-26-2.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v26/screenshot-27-2.png" alt="Click to watch on YouTube" /></a>
 
 <b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
 
@@ -210,9 +225,9 @@ Please note that every Arch Linux system is different and I cannot guarantee tha
 
 # Qtile X11
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-3.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-27-3.png" alt="Click to watch on YouTube" /></a>
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-25-4.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v25/screenshot-27-4.png" alt="Click to watch on YouTube" /></a>
 
 ## Wallpaper and Pywal
 
