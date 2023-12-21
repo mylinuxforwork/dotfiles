@@ -33,7 +33,7 @@ if [[ $profile == *"Qtile"* ]]; then
     echo ""
 fi
 
-if gum confirm "Do you want to enable/update to sddm?" ;then
+if gum confirm "Do you want to enable/update to sddm-git?" ;then
 
     # Try to force the installation of sddm-git
     echo "Install sddm-git"
