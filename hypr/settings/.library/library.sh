@@ -134,11 +134,13 @@ _getConfSelector() {
     echo "In use: ${cur##*/}"
     echo ""
     echo "Select a file to load (RETURN = Confirm, ESC = Cancel/Back):"
-    sel=$(gum file $installFolder/conf/$2)
+    echo ""
+    sel=$(gum choose $(ls $installFolder/conf/$2))
+
     if [ -z $sel ] ;then
         _goBack
     fi
-    echo "File ${sel##*/} selected."
+    echo "File $sel selected."
     echo ""
 }
 
@@ -146,10 +148,10 @@ _getConfEditor() {
     selected=$(gum choose "EXECUTE" "EDIT" "COPY" "DELETE" "CANCEL")
     case $selected in
         EXECUTE)
-            _writeConf $1 $2
+            _writeConf $1 $2 $3
         break;;            
         EDIT)
-            vim $sel
+            vim $installFolder/conf/$3/$2
             sleep 1
             _reloadModule
         break;;            
@@ -165,19 +167,19 @@ _getConfEditor() {
                     if [ -f $(dirname $sel)/$filename ] ;then
                         echo "ERROR: File already exists."
                     else
-                        cp $sel $(dirname $sel)/$filename
+                        cp $installFolder/conf/$3/$sel $installFolder/conf/$3/$filename
                         _reloadModule
                     fi
                 fi
             fi
-            _getConfEditor $1 $2
+            _getConfEditor $1 $2 $3
         break;;            
         DELETE)
-            if gum confirm "Do you really want to delete the file ${sel##*/}?" ;then
-                rm $sel
+            if gum confirm "Do you really want to delete the file $sel?" ;then
+                rm $installFolder/conf/$3/$sel
                 _reloadModule
             else
-                _getConfEditor $1 $2
+                _getConfEditor $1 $2 $3
             fi
         break;;
         * ) 
@@ -188,8 +190,8 @@ _getConfEditor() {
 # _writeConf conf/monitor.conf $sel
 _writeConf() {
     if [ ! -z $2 ] ;then
-        sel=$(echo "$2" | sed "s+"\/home\/$USER"+~+")
-        echo "source = $sel" > $installFolder/conf/$1
+        editsel=$(echo "$installFolder/conf/$3/$2" | sed "s+"\/home\/$USER"+~+")
+        echo "source = $editsel" > $installFolder/conf/$1
     fi
 }
 

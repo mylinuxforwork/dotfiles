@@ -1,1 +1,1 @@
-version="2.7RC3"
+version="2.7RC4"

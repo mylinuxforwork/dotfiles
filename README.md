@@ -1,4 +1,4 @@
-# ML4W dotfiles 2.7 RC3
+# ML4W dotfiles 2.7 RC4
 
 This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland) for Arch. This package includes an installation script to install and setup the required components.
 
@@ -258,3 +258,24 @@ With <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd>, you can switch between 
 # Wallpaper repository
 
 You can find my wallpaper collection in the repository https://gitlab.com/stephan-raabe/wallpaper
+
+# Special Thanks
+
+THANK YOU very much for all your support, contributions and ideas:
+
+- Diana Ward: https://github.com/dianaw353
+- dwilliam62: https://github.com/dwilliam62
+- Teodor Orzechowski: https://gitlab.com/sq6gtt
+and many more...
+
+Thanks to all YouTube subscribers for all your great feedback.
+
+# Inspirations
+
+The following projects have inspired me:
+
+- https://github.com/dianaw353/hyprland-configuration-rootfs
+- https://github.com/prasanthrangan/hyprdots
+- https://github.com/sudo-harun/dotfiles
+and many more...
+

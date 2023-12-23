@@ -3,5 +3,5 @@ _getHeader "$name" "$author"
 
 sel=""
 _getConfSelector animation.conf animations
-_getConfEditor animation.conf $sel
+_getConfEditor animation.conf $sel animations
 _reloadModule

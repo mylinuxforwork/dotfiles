@@ -3,5 +3,5 @@ _getHeader "$name" "$author"
 
 sel=""
 _getConfSelector windowrule.conf windowrules
-_getConfEditor windowrule.conf $sel
+_getConfEditor windowrule.conf $sel windowrules
 _reloadModule
