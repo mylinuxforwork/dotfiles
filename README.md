@@ -266,6 +266,7 @@ THANK YOU very much for all your support, contributions and ideas:
 - Diana Ward: https://github.com/dianaw353
 - Don Williams: https://github.com/dwilliam62
 - Teodor Orzechowski: https://gitlab.com/sq6gtt
+- Jamie Deppeler: https://gitlab.com/bknight2k
 
 and many more...
 
