@@ -7,13 +7,15 @@ This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland) for Ar
 PLEASE NOTE: This branch is the rolling release of my dotfiles and includes the latest changes. 
 Please be aware that this version is not a tested release. 
 
-The released dotfiles are tested with Arch Linux, Manjaro Linux, EndeavourOS and Arco Linux. (Arco Linux: Please install hyprland-git run my dotfiles.)
-
 You can find the video on YouTube: <a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Dotfiles Configuration and Installation</a>
 
 [TOC]
 
 # Installation
+
+The released dotfiles are tested with Arch Linux (recommended), Manjaro Linux and EndeavourOS. 
+
+For Arco Linux users: It's possible that not all packages can be installed with the installation script. In case of missing packages please install them manually.
 
 To make it easy for you to get started with my dotfiles, here's a list of recommended next steps.
 The script will try to create a backup from an previous dotfiles installation.
@@ -147,13 +149,24 @@ To fix the mouse issue on Hyprland, open the Hyprland settings with <kbd>SUPER</
 
 If you want to install only the core packages of Hyprland as a starting point for your Hyprland experiments please also try my Hyprland Starter script: https://gitlab.com/stephan-raabe/hyprland-starter
 
+## Known issues
+
+In case of missing icons on waybar, it's due to a conflict between several installed fonts (can happen especially on Arco Linux). Please make sure that ttf-ms-fonts is uninstalled and ttf-font-awesome and otf-font-awesome are installed with
+
+```
+yay -R ttf-ms-fonts
+yay -S ttf-font-awesome otf-font-awesome
+```
+
 # Some important key bindings
 
 - <kbd>SUPER</kbd> + <kbd>RETURN</kbd>: Alacritty
-- <kbd>SUPER</kbd> + <kbd>CMD</kbd> + <kbd>RETURN</kbd>: rofi application launcher
+- <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>RETURN</kbd>: rofi application launcher
 - <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd>: Change wallpaper
 - <kbd>SUPER</kbd> + <kbd>PRINT</kbd>: Screenshot
-- <kbd>SUPER</kbd> + <kbd>CMS</kbd> + <kbd>Q</kbd>: Logout screen
+- <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>Q</kbd>: Logout screen
+- <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd>: Settings script on Hyprland
+- <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd>: Reload waybar on Hyprland
 
 All keybindings for Hyprland with right mouse click on Apps in waybar or here: 
 https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/conf/keybindings.conf
