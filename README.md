@@ -264,8 +264,9 @@ You can find my wallpaper collection in the repository https://gitlab.com/stepha
 THANK YOU very much for all your support, contributions and ideas:
 
 - Diana Ward: https://github.com/dianaw353
-- dwilliam62: https://github.com/dwilliam62
+- Don Williams: https://github.com/dwilliam62
 - Teodor Orzechowski: https://gitlab.com/sq6gtt
+
 and many more...
 
 Thanks to all YouTube subscribers for all your great feedback.
@@ -277,5 +278,5 @@ The following projects have inspired me:
 - https://github.com/dianaw353/hyprland-configuration-rootfs
 - https://github.com/prasanthrangan/hyprdots
 - https://github.com/sudo-harun/dotfiles
-and many more...
 
+and many more...
