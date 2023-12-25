@@ -4,6 +4,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.7
 Installation:
 - Display Manager SDDM and sugar-candy theme will be installed. 
 - Optional display manager disablement possible
+- Arco Linux is now supported. Please reinstall/force the installation of all packages during the installation/update script.
 
 General:
 - Adding icons to eza. Adding ls, ll, lt

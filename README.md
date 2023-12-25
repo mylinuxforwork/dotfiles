@@ -1,6 +1,6 @@
-# ML4W dotfiles 2.7 RC4
+# ML4W dotfiles 2.7 RC5
 
-This is my configuration of Hyprland (Wayland) and Qtile (Xorg & Wayland) for Arch. This package includes an installation script to install and setup the required components.
+This is my configuration of Hyprland (Wayland) and Qtile (X11) for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v27/screenshot-27-1.png" alt="Click to watch on YouTube" /></a>
 
@@ -13,15 +13,18 @@ You can find the video on YouTube: <a href="https://youtu.be/e9ro_P9rbFk" target
 
 # Installation
 
-The released dotfiles are tested with Arch Linux (recommended), Manjaro Linux and EndeavourOS. 
+To make it easy for you to get started with the ML4W dotfiles, here's a list of recommended next steps.
 
-For Arco Linux users: It's possible that not all packages can be installed with the installation script. In case of missing packages please install them manually.
+The package includes an installation script install.sh that will guide you through all steps of the installation or update process.
 
-To make it easy for you to get started with my dotfiles, here's a list of recommended next steps.
-The script will try to create a backup from an previous dotfiles installation.
+The released dotfiles are tested with Arch Linux (recommended), Manjaro Linux, Arco Linux and EndeavourOS. 
+
+For Arco Linux users: Please reinstall/force the installation of all packages during the installation/update.
 
 PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIONAL INSTALLTION.
 PLEASE READ THIS README until the end before starting the installation.
+
+The installation script will try to create a backup from an previous dotfiles installation.
 
 Please note: To get the default Linux folder structure incl. Downloads, etc please install the packages xdg-user-dirs and run xdg-user-dirs-update.
 
