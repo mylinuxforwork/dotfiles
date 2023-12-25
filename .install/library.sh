@@ -81,7 +81,7 @@ _forcePackagesPacman() {
     fi;
 
     # printf "Package not installed:\n%s\n" "${toInstall[@]}";
-    sudo pacman --noconfirm -S "${toInstall[@]}";
+    sudo pacman --noconfirm -S "${toInstall[@]}" --ask 4;
 }
 
 _installPackagesYay() {
@@ -115,7 +115,7 @@ _forcePackagesYay() {
     fi;
 
     # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
-    yay --noconfirm -S "${toInstall[@]}";
+    yay --noconfirm -S "${toInstall[@]}" --ask 4;
 }
 
 # ------------------------------------------------------
