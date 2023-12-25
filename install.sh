@@ -69,4 +69,5 @@ if [[ $profile == *"Qtile"* ]]; then
 fi
 source .install/bashrc.sh
 source .install/monitor.sh
+source .install/cleanup.sh
 source .install/done.sh
