@@ -26,7 +26,12 @@ echo -e "${NONE}"
 echo "Version: $version"
 echo "by Stephan Raabe 2023"
 echo ""
-echo "This script will guide you through the installation process of my dotfiles."
+if [ -d ~/dotfiles ] ;then
+    echo "A ML4W dotfiles installation has been detected."
+    echo "This script will guide you through the update process of the ML4W dotfiles."
+else
+    echo "This script will guide you through the installation process of the ML4W dotfiles."
+fi
 echo ""
 source .install/required.sh
 source .install/confirm-start.sh
@@ -34,6 +39,7 @@ source .install/backup.sh
 source .install/preparation.sh
 source .install/profile.sh
 source .install/yay.sh
+source .install/installer.sh
 if [[ $profile == *"Hyprland"* ]]; then
     source .install/hyprland.sh
     source .install/hyprland-packages.sh

@@ -52,13 +52,11 @@ _isFolderEmpty() {
 # ------------------------------------------------------
 _installPackagesPacman() {
     toInstall=();
-
     for pkg; do
         if [[ $(_isInstalledPacman "${pkg}") == 0 ]]; then
             echo "${pkg} is already installed.";
             continue;
         fi;
-
         toInstall+=("${pkg}");
     done;
 
@@ -67,19 +65,32 @@ _installPackagesPacman() {
         return;
     fi;
 
-    printf "Package not installed:\n%s\n" "${toInstall[@]}";
+    # printf "Package not installed:\n%s\n" "${toInstall[@]}";
+    sudo pacman --noconfirm -S "${toInstall[@]}";
+}
+
+_forcePackagesPacman() {
+    toInstall=();
+    for pkg; do
+        toInstall+=("${pkg}");
+    done;
+
+    if [[ "${toInstall[@]}" == "" ]] ; then
+        # echo "All pacman packages are already installed.";
+        return;
+    fi;
+
+    # printf "Package not installed:\n%s\n" "${toInstall[@]}";
     sudo pacman --noconfirm -S "${toInstall[@]}";
 }
 
 _installPackagesYay() {
     toInstall=();
-
     for pkg; do
         if [[ $(_isInstalledYay "${pkg}") == 0 ]]; then
             echo "${pkg} is already installed.";
             continue;
         fi;
-
         toInstall+=("${pkg}");
     done;
 
@@ -88,7 +99,22 @@ _installPackagesYay() {
         return;
     fi;
 
-    printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
+    # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
+    yay --noconfirm -S "${toInstall[@]}";
+}
+
+_forcePackagesYay() {
+    toInstall=();
+    for pkg; do
+        toInstall+=("${pkg}");
+    done;
+
+    if [[ "${toInstall[@]}" == "" ]] ; then
+        # echo "All packages are already installed.";
+        return;
+    fi;
+
+    # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
     yay --noconfirm -S "${toInstall[@]}";
 }
 

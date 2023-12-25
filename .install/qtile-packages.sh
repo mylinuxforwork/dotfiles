@@ -47,7 +47,6 @@ packagesPacman=(
 );
 
 packagesYay=(
-    "brave-bin" 
     "pfetch" 
     "bibata-cursor-theme" 
     "trizen"

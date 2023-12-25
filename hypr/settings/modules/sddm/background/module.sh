@@ -1,7 +1,7 @@
 #!/bin/bash
 _getHeader "$name" "$author"
 
-if gum confirm "Do you want to update the SDDM background with the current wallpaper?" ;then
+if gum confirm "Do you want to update the SDDM background image with the current wallpaper?" ;then
 
     cache_file="$HOME/.cache/current_wallpaper"
     
