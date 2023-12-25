@@ -17,9 +17,20 @@ To make it easy for you to get started with the ML4W dotfiles, here's a list of 
 
 The package includes an installation script install.sh that will guide you through all steps of the installation or update process.
 
-The released dotfiles are tested with Arch Linux (recommended), Manjaro Linux, Arco Linux and EndeavourOS. 
+## Supported platforms
+
+The dotfiles are tested with the following Arch based distributions:
+
+- Arch Linux (recommended)
+- Manjaro Linux
+- Arco Linux
+- EndeavourOS
+
+But the installation should work on all Arch Linux based distributions as well.
 
 For Arco Linux users: Please reinstall/force the installation of all packages during the installation/update.
+
+## Before you start
 
 PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIONAL INSTALLTION.
 PLEASE READ THIS README until the end before starting the installation.
