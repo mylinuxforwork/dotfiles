@@ -28,7 +28,7 @@ The dotfiles are tested with the following Arch based distributions:
 
 But the installation should work on all Arch Linux based distributions as well.
 
-For Arco Linux users: Please reinstall/force the installation of all packages during the installation/update.
+For Arco Linux users: Please reinstall/force the installation of all packages during the installation/update process of the install script. The script will also offer to remove ttf-ms-fonts if installed to avoid issues with icons on waybar. 
 
 ## Before you start
 
