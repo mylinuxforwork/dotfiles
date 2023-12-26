@@ -35,7 +35,9 @@
         "custom/settings",
         "custom/waybarthemes",
         "custom/wallpaper",
+        // START TASK TOOGLE
         "wlr/taskbar",
+        // END TASK TOOGLE
         "group/quicklinks",
         "hyprland/window"
     ],

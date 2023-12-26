@@ -1,7 +1,7 @@
 #!/bin/bash
 _getHeader "$name" "$author"
 
-echo "Hide or Show the systray in ML4W waybar themes."
+echo "Hide or show the systray in ML4W waybar themes."
 
 # Define File
 targetFile1="$HOME/dotfiles/waybar/themes/ml4w/config"
