@@ -1,2 +1,2 @@
-name="Hide Bluetooth"
+name="Toggle Bluetooth"
 order=1

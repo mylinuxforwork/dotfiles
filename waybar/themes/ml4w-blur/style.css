@@ -407,7 +407,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #tray {
-    background-color: #2980b9;
+    padding: 0px 15px 0px 0px;
 }
 
 #tray > .passive {
@@ -416,7 +416,6 @@ window#waybar.empty #window {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
 }
 
 /* -----------------------------------------------------

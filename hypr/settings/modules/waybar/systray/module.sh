@@ -1,7 +1,7 @@
 #!/bin/bash
 _getHeader "$name" "$author"
 
-echo "Hide or show the bluetooth icon in ML4W waybar themes."
+echo "Hide or Show the systray in ML4W waybar themes."
 
 # Define File
 targetFile1="$HOME/dotfiles/waybar/themes/ml4w/config"
@@ -16,11 +16,11 @@ if [ ! -f $targetFile1 ] || [ ! -f $targetFile2 ] || [ ! -f $targetFile3 ] || [ 
 fi
 
 # Define Markers
-startMarker="\/\/ START BT TOOGLE"
-endMarker="\/\/ END BT TOOGLE"
+startMarker="\/\/ START TRAY TOOGLE"
+endMarker="\/\/ END TRAY TOOGLE"
 
 # Define Replacement Template
-customtemplate="VALUE\"bluetooth\","
+customtemplate="VALUE\"tray\","
 
 # Select Value
 customvalue=$(gum choose "SHOW" "HIDE")

@@ -57,6 +57,9 @@
         "group/hardware",
         "custom/cliphist",
         "idle_inhibitor",
+        // START TRAY TOOGLE
+        "tray",
+        // END TRAY TOOGLE
         "custom/exit",
         "clock"
     ]
