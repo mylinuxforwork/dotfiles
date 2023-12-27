@@ -3,10 +3,11 @@ _getHeader "$name" "$author"
 
 # Define File
 targetFile="$HOME/dotfiles/waybar/modules.json"
+settingsFile="$HOME/dotfiles/.settings/waybar_workspaces"
 
 # Define Markers
-startMarker="\/\/ START WORKSPACE"
-endMarker="\/\/ END WORKSPACES"
+startMarker="START WORKSPACE"
+endMarker="END WORKSPACES"
 
 # Define Replacement Template
 customtemplate="\"*\": VALUE"
@@ -14,28 +15,17 @@ customtemplate="\"*\": VALUE"
 # Select Value
 customvalue=$(gum choose 5 6 7 8 9 10)
 if [ ! -z $customvalue ] ;then
-# Replace in Template
-customtext="${customtemplate/VALUE/"$customvalue"}" 
 
-# Ensure that markers are in target file
-if grep -s "$startMarker" $targetFile && grep -s "$endMarker" $targetFile; then 
+    # Replace in Template
+    customtext="${customtemplate/VALUE/"$customvalue"}" 
 
-    # Write into File
-    sed -i '/'"$startMarker"'/,/'"$endMarker"'/ {
-    //!d
-    /'"$startMarker"'/a\
-    '"$customtext"'
-    }' $targetFile
+    _replaceInFile $startMarker $endMarker $customtext $targetFile
+    _writeSettings $settingsFile $customtext
 
     # Reload Waybar
     setsid $HOME/dotfiles/waybar/launch.sh 1>/dev/null 2>&1 &
     _goBack
 
-else 
-    echo "ERROR: Marker not found."
-    sleep 2
-    _goBack
-fi
 else
     _goBack
 fi

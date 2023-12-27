@@ -1,2 +1,2 @@
-name="Toggle Systray"
+name="Show/Hide Systray"
 order=1

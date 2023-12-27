@@ -5,10 +5,11 @@ echo "Define the label of the Apps Starter"
 
 # Define File
 targetFile="$HOME/dotfiles/waybar/modules.json"
+settingsFile="$HOME/dotfiles/.settings/waybar_appslabel"
 
 # Define Markers
-startMarker="\/\/ START APPS LABEL"
-endMarker="\/\/ END APPS LABEL"
+startMarker="START APPS LABEL"
+endMarker="END APPS LABEL"
 
 # Define Replacement Template
 customtemplate="\"format\": \"VALUE\","
@@ -20,7 +21,8 @@ if [ ! -z $customvalue ]; then
     # Replace in Template
     customtext="${customtemplate/VALUE/"$customvalue"}" 
     _replaceInFile $startMarker $endMarker $customtext $targetFile
-    
+    _writeSettings $settingsFile $customtext
+
     # Reload Waybar
     setsid $HOME/dotfiles/waybar/launch.sh 1>/dev/null 2>&1 &
     _goBack

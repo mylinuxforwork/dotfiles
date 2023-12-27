@@ -191,6 +191,62 @@ echo -e "${NONE}"
     echo ""
     
     _showRestoreOptions
-    
+
+    # Restore Waybar Workspaces
+    targetFile="$HOME/dotfiles-versions/$version/waybar/modules.json"
+    settingsFile="$HOME/dotfiles/.settings/waybar_workspaces"
+    if [ -f $settingsFile ] ;then
+        startMarker="START WORKSPACE"
+        endMarker="END WORKSPACES"
+        customtext="$(cat $settingsFile)"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile"
+        echo "Waybar Workspaces restored."
+    fi
+
+    # Restore Waybar Appslabel
+    targetFile="$HOME/dotfiles-versions/$version/waybar/modules.json"
+    settingsFile="$HOME/dotfiles/.settings/waybar_appslabel"
+    if [ -f $settingsFile ] ;then
+        startMarker="START APPS LABEL"
+        endMarker="END APPS LABEL"
+        customtext="$(cat $settingsFile)"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile"
+        echo "Waybar Appslabel restored."
+    fi
+
+    # Restore Waybar Bluetooth
+    targetFile1="$HOME/dotfiles-versions/$version/waybar/themes/ml4w/config"
+    targetFile2="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-blur/config"
+    targetFile3="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-blur-bottom/config"
+    targetFile4="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-bottom/config"
+    settingsFile="$HOME/dotfiles/.settings/waybar_bluetooth"
+    if [ -f $settingsFile ] ;then
+        startMarker="START BT TOOGLE"
+        endMarker="END BT TOOGLE"
+        customtext="$(cat $settingsFile)"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile1"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile2"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile3"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile4"
+        echo "Waybar Bluetooth restored."
+    fi
+
+    # Restore Waybar Systray
+    targetFile1="$HOME/dotfiles-versions/$version/waybar/themes/ml4w/config"
+    targetFile2="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-blur/config"
+    targetFile3="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-blur-bottom/config"
+    targetFile4="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-bottom/config"
+    settingsFile="$HOME/dotfiles/.settings/waybar_systray"
+    if [ -f $settingsFile ] ;then
+        startMarker="START TRAY TOOGLE"
+        endMarker="END TRAY TOOGLE"
+        customtext="$(cat $settingsFile)"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile1"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile2"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile3"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile4"
+        echo "Waybar Systray restored."
+    fi
+
     echo ""
 fi
