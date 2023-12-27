@@ -280,7 +280,7 @@ _getVersion() {
 
 # Write the header to a page
 _getHeader() {
-    figlet "$1"
+    figlet -w 100 "$1"
     if [ ! -z "$2" ]; then
         echo "by $2"
     fi
