@@ -1,7 +1,7 @@
 packagesPacman=(
     "pacman-contrib"
     "vim"
-    "nvim"
+    "neovim"
     "wget"
     "unzip"
     "alacritty" 
