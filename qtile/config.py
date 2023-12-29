@@ -300,7 +300,7 @@ widget_list = [
         text=" ",
         foreground="000000.6",
         fontsize=18,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + "/dotfiles/.settings/browser.sh")},
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("bash " + home + "/dotfiles/.settings/browser.sh")},
     ),
     widget.TextBox(
         **decor_left,
@@ -308,7 +308,7 @@ widget_list = [
         text=" ",
         foreground="000000.6",
         fontsize=18,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + "/dotfiles/.settings/filemanager.sh")}
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("bash " + home + "/dotfiles/.settings/filemanager.sh")}
     ),
     
     widget.WindowName(

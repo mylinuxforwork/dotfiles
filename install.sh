@@ -35,15 +35,17 @@ fi
 echo ""
 source .install/required.sh
 source .install/confirm-start.sh
+source .install/yay.sh
 source .install/backup.sh
 source .install/preparation.sh
 source .install/profile.sh
-source .install/yay.sh
+if [[ $profile == *"Hyprland"* ]]; then
+    source .install/hyprland-version.sh
+fi
 source .install/installer.sh
 source .install/general.sh
 source .install/general-packages.sh
 source .install/install-packages.sh
-
 if [[ $profile == *"Hyprland"* ]]; then
     source .install/hyprland.sh
     source .install/hyprland-packages.sh
