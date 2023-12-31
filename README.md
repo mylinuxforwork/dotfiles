@@ -131,10 +131,10 @@ You can find a template in .install/templates/hook.sh
 
 ## Hyprland & NVIDIA 
 
+Users have reported that Hyprland with dotfiles could be installed successfully on setups with NVDIA GPUs using the nouveau open source drivers. 
+
 There is no official Hyprland support for Nvidia hardware. However, you might make it work properly following this page.
 https://wiki.hyprland.org/Nvidia/
-
-That's why NVIDIA GPUs are currently not supported by my dotfiles. But in upcoming releases, I will try to setup Hyprland for NVIDIA based on the article above.
 
 ## Display Manager SDDM
 
