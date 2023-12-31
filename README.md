@@ -46,7 +46,7 @@ Please note: To get the default Linux folder structure incl. Downloads, etc plea
 cd ~/Downloads
 
 # 2.) Clone the dotfiles repository into the Downloads folder
-git clone https://gitlab.com/stephan-raabe/dotfiles.git
+git clone --depth=1 https://gitlab.com/stephan-raabe/dotfiles.git
 
 # 3.) Change into the dotfiles folder
 cd dotfiles
@@ -80,7 +80,7 @@ cd ~/Downloads
 rm -rf ~/Downloads/dotfiles
 
 # 3.) Clone the dotfiles repository into the Downloads folder
-git clone https://gitlab.com/stephan-raabe/dotfiles.git
+git clone --depth=1 https://gitlab.com/stephan-raabe/dotfiles.git
 
 # 4.) Change into the dotfiles folder
 cd dotfiles
