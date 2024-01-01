@@ -138,9 +138,18 @@ https://wiki.hyprland.org/Nvidia/
 
 ## Display Manager SDDM
 
-The suggested method to start Hyprland is with the tty with the command Hyprland. But I made good experiences with the Display Manager SDDM (https://github.com/sddm/sddm) but you can also install a custom issue to improve the tty based login.
+The suggested method to start Hyprland is from tty with the command Hyprland. 
+
+```
+Hyprland
+```
+
+You can install a custom tty login issue (layout) with the dotfiles installer.
+
+But I made good experiences with the Display Manager SDDM (https://github.com/sddm/sddm). Also gdm could work. 
 
 Important is that you use the package sddm-git. You can replace sddm with sddm-git with
+
 ```
 yay -S sddm-git
 ```
@@ -150,6 +159,8 @@ The dotfiles installation script will offer to deactivate the installed display 
 The dotfiles package also includes a configuration for the SDDM theme sdd-sugar-candy (https://github.com/Kangie/sddm-sugar-candy) and a configuration to run SDDM in X11 mode to get the best compatibility.
 
 With the Hyprland settings script you can copy the current wallpaper into SDDM and use it as a background.
+
+Please check the troubleshooting section in case of issues.
 
 ## Installation in a KVM virtual machine
 
