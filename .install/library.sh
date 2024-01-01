@@ -230,3 +230,46 @@ _replaceInFile() {
         sleep 2
     fi
 }
+
+# replaceLineInFile $findText $customtext $targetFile
+_replaceLineInFile() {
+   # Set function parameters
+    find_string="$1"
+    new_string="$2"
+    file_path=$3
+
+    # Counters
+    find_line_counter=0
+    line_found=0
+
+    if [ -f $file_path ] ;then
+
+        # Detect Line
+        while read -r line
+        do
+            ((find_line_counter++))
+            if [[ $line = *$find_string* ]]; then
+                # echo "Start found in $start_line_counter"
+                line_found=$find_line_counter
+                break
+            fi 
+        done < "$file_path"
+
+        if [[ ! "$line_found" == "0" ]] ;then
+            
+            #Remove the line
+            sed -i "$line_found d" $file_path
+
+            # Add the new line
+            sed -i "$line_found i $new_string" $file_path            
+
+        else
+            echo "ERROR: Target line not found."
+            sleep 2
+        fi   
+
+    else
+        echo "ERROR: Target file not found."
+        sleep 2
+    fi
+}

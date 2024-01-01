@@ -269,5 +269,15 @@ echo -e "${NONE}"
         echo "nm-applet restored."
     fi
 
+    # Restore Keyboard natural_scroll
+    targetFile="$HOME/dotfiles-versions/$version/hypr/conf/keyboard.conf"
+    settingsFile="$HOME/dotfiles/.settings/keyboard_naturalscroll"
+    if [ -f $settingsFile ] ;then
+        findMarker="natural_scroll"
+        customtext="$(cat $settingsFile)"
+        _replaceLineInFile "$findMarker" "$customtext" "$targetFile"
+        echo "keyboard natural_scroll restored."
+    fi
+
     echo ""
 fi
