@@ -163,7 +163,9 @@ To fix the mouse issue on Hyprland, open the Hyprland settings with <kbd>SUPER</
 
 If you want to install only the core packages of Hyprland as a starting point for your Hyprland experiments please also try my Hyprland Starter script: https://gitlab.com/stephan-raabe/hyprland-starter
 
-## Known issues
+# Troubleshooting
+
+## Missing icons in waybar
 
 In case of missing icons on waybar, it's due to a conflict between several installed fonts (can happen especially on Arco Linux). Please make sure that ttf-ms-fonts is uninstalled and ttf-font-awesome and otf-font-awesome are installed with
 
@@ -171,6 +173,29 @@ In case of missing icons on waybar, it's due to a conflict between several insta
 yay -R ttf-ms-fonts
 yay -S ttf-font-awesome otf-font-awesome
 ```
+
+## SDDM not showing (only black screen with cursor)
+
+Switch to another tty with <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>F3</kbd> Now you can login with your user.
+
+Start Hyprland with Hyprland.
+
+You can try to reinstall all sddm related packages.
+
+```
+yay -S sddm-git sddm-sugar-candy-git
+```
+
+Or you can install another display manager.
+
+To stop, disable and remove sddm service.
+
+```
+sudo systemctl stop sddm.service
+sudo systemctl disable sddm.service
+sudo rm /etc/systemd/system/display-manager.service
+```
+
 
 # Some important key bindings
 
