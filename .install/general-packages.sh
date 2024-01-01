@@ -38,6 +38,7 @@ packagesPacman=(
     "gum"
     "man-pages"
     "xdg-desktop-portal" 
+    "nm-connection-editor"
 );
 
 packagesYay=(

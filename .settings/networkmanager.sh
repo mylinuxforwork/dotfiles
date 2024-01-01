@@ -1,1 +1,1 @@
-alacritty -e nmtui
+nm-connection-editor

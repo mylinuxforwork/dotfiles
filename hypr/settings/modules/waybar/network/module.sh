@@ -1,27 +1,27 @@
 #!/bin/bash
 _getHeader "$name" "$author"
 
-echo "Hide or show the bluetooth module in ML4W waybar themes."
+echo "Hide or show the network module in ML4W waybar themes."
 
 # Define File
 targetFile1="$HOME/dotfiles/waybar/themes/ml4w/config"
 targetFile2="$HOME/dotfiles/waybar/themes/ml4w-blur/config"
 targetFile3="$HOME/dotfiles/waybar/themes/ml4w-blur-bottom/config"
 targetFile4="$HOME/dotfiles/waybar/themes/ml4w-bottom/config"
-settingsFile="$HOME/dotfiles/.settings/waybar_bluetooth"
+settingsFile="$HOME/dotfiles/.settings/waybar_network"
 
 # Define Markers
-startMarker="START BT TOOGLE"
-endMarker="END BT TOOGLE"
+startMarker="START NETWORK TOOGLE"
+endMarker="END NETWORK TOOGLE"
 
 # Select Value
 customvalue=$(gum choose "SHOW" "HIDE")
 
 if [ ! -z $customvalue ]; then
     if [ "$customvalue" == "SHOW" ] ;then
-        customtext="        \"bluetooth\","
+        customtext="        \"network\","
     else
-        customtext="        \/\/\"bluetooth\","
+        customtext="        \/\/\"network\","
     fi
     
     _replaceInFile $startMarker $endMarker $customtext $targetFile1

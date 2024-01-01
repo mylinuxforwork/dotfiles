@@ -408,6 +408,7 @@ window#waybar.empty #window {
 
 #tray {
     padding: 0px 15px 0px 0px;
+    color: @textcolor3;
 }
 
 #tray > .passive {
@@ -421,7 +422,7 @@ window#waybar.empty #window {
 /* -----------------------------------------------------
  * Other
  * ----------------------------------------------------- */
-
+/*
 label:focus {
     background-color: #000000;
 }
@@ -437,4 +438,4 @@ label:focus {
 #network.disconnected {
     background-color: #f53c3c;
 }
-
+*/

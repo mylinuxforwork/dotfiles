@@ -1,7 +1,8 @@
 #!/bin/bash
 _getHeader "$name" "$author"
 
-echo "Define the start command to start the networkmanager."
+echo "Define the start command to start the networkmanager (Must be installed on your system)."
+echo "Possible values: alacritty -e nmtui, nm-connection-editor, etc."
 
 # Define File
 targetFile="$HOME/dotfiles/.settings/networkmanager.sh"

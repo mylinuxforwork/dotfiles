@@ -1,3 +1,10 @@
+Version 2.7.1
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.7.1
+--------------------------------------------------------
+Hyprland:
+- Add optional network-manager applet support. Can be activated in Settings script System/nm-applet
+- Settings: Show/Hide network module 
+
 Version 2.7
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.7
 --------------------------------------------------------

@@ -175,14 +175,7 @@ _startRestore() {
 if [ -d ~/dotfiles ]; then
 
 echo -e "${GREEN}"
-cat <<"EOF"
- ____           _                 
-|  _ \ ___  ___| |_ ___  _ __ ___ 
-| |_) / _ \/ __| __/ _ \| '__/ _ \
-|  _ <  __/\__ \ || (_) | | |  __/
-|_| \_\___||___/\__\___/|_|  \___|
-                                  
-EOF
+figlet "Restore"
 echo -e "${NONE}"
     restored=0
     echo "The script will try to restore existing configurations."
@@ -246,6 +239,34 @@ echo -e "${NONE}"
         _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile3"
         _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile4"
         echo "Waybar Systray restored."
+    fi
+
+    # Restore Waybar Network
+    targetFile1="$HOME/dotfiles-versions/$version/waybar/themes/ml4w/config"
+    targetFile2="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-blur/config"
+    targetFile3="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-blur-bottom/config"
+    targetFile4="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-bottom/config"
+    settingsFile="$HOME/dotfiles/.settings/waybar_network"
+    if [ -f $settingsFile ] ;then
+        startMarker="START NETWORK TOOGLE"
+        endMarker="END NETWORK TOOGLE"
+        customtext="$(cat $settingsFile)"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile1"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile2"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile3"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile4"
+        echo "Waybar Network restored."
+    fi
+
+    # Restore Waybar nmapplet
+    targetFile="$HOME/dotfiles-versions/$version/hypr/conf/autostart.conf"
+    settingsFile="$HOME/dotfiles/.settings/waybar_nmapplet"
+    if [ -f $settingsFile ] ;then
+        startMarker="START NM APPLET"
+        endMarker="END NM APPLET"
+        customtext="$(cat $settingsFile)"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile"
+        echo "nm-applet restored."
     fi
 
     echo ""
