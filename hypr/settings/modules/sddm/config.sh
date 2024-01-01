@@ -1,2 +1,2 @@
-name="SDDM Display Manager"
+name="SDDM"
 order=40
