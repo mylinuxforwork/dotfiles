@@ -276,6 +276,9 @@
     "group/quicklinks": {
         "orientation": "horizontal",
         "modules": [
+            // START CHATGPT TOOGLE
+            "custom/chatgpt",
+            // END CHATGPT TOOGLE
             "custom/filemanager",
             "custom/browser"
          ]

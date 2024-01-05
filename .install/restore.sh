@@ -207,6 +207,17 @@ echo -e "${NONE}"
         echo "Waybar Appslabel restored."
     fi
 
+    # Restore Waybar ChatGPT
+    targetFile="$HOME/dotfiles/waybar/modules.json"
+    settingsFile="$HOME/dotfiles/.settings/waybar_chatgpt"
+    if [ -f $settingsFile ] ;then
+        startMarker="START CHATGPT TOOGLE"
+        endMarker="END CHATGPT TOOGLE"
+        customtext="$(cat $settingsFile)"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile"
+        echo "Waybar ChatGPT restored."
+    fi
+
     # Restore Waybar Bluetooth
     targetFile1="$HOME/dotfiles-versions/$version/waybar/themes/ml4w/config"
     targetFile2="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-blur/config"
