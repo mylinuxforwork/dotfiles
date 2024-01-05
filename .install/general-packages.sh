@@ -40,6 +40,8 @@ packagesPacman=(
     "man-pages"
     "xdg-desktop-portal" 
     "nm-connection-editor"
+    "gvfs"
+    "xdg-user-dirs"
 );
 
 packagesYay=(
