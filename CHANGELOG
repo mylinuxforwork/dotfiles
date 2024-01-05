@@ -5,6 +5,7 @@ Hyprland:
 - Add optional network-manager applet support. Can be activated in Settings script System/nm-applet
 - Show/Hide network module in Settings script
 - New Settings for keyboard (incl. natural_scroll for touchpads)
+- Add ChatGPT Icon to Waybar. Can be disabled in settings
 
 Version 2.7
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.7
