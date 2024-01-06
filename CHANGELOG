@@ -8,7 +8,7 @@ Hyprland:
 - Add ChatGPT Icon to Waybar. Can be disabled in settings
 
 Qtile:
-- Removed polybar from the installation. Please make sure that you check the keyboard layout in qtile/autostart.sh after an update.
+- Removed polybar from the installation for stability reasons.
 
 Version 2.7
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.7
