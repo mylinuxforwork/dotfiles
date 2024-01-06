@@ -27,10 +27,5 @@ xfce4-power-manager &
 # Load notification service
 dunst &
 
-# Launch polybar
-~/dotfiles/qtile/scripts/loadbar.sh
-
-sleep 1
-
 # Setup Wallpaper and update colors
 ~/dotfiles/qtile/scripts/wallpaper.sh init

@@ -43,8 +43,8 @@ else
     REPLACE="$keyboard_layout"
     sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
 
-    SEARCH="\"KEYBOARD_LAYOUT\""
-    REPLACE="\"$keyboard_layout\""
+    SEARCH="KEYBOARD_LAYOUT"
+    REPLACE="$keyboard_layout"
     sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/qtile/autostart.sh
 
     echo ""
