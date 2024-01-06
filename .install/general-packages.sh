@@ -1,6 +1,8 @@
 packagesPacman=(
     "pacman-contrib"
     "vim"
+    "bluez"
+    "bluez-utils"
     "neovim"
     "wget"
     "unzip"
