@@ -1,11 +1,13 @@
 packagesPacman=(
     "qtile" 
-    "polybar"
     "picom"
     "scrot"
     "slock"
     "xorg"
     "xorg-xinit"
+    "nitrogen"
+    "python-dbus-next"
+    "python-iwlib"
 );
 
 packagesYay=(

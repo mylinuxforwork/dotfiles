@@ -301,10 +301,6 @@ Included is a pywal configuration that changes the color scheme based on a rando
 
 <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>W</kbd> opens rofi with a list of installed wallpapers in ~/wallpaper/ for your individual selection. 
 
-## Qtile status bar switcher
-
-With <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd>, you can switch between the Qtile standard status bar and Polybar and back. 
-
 ## Main Packages
 
 - Terminal: alacritty
@@ -317,7 +313,7 @@ With <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd>, you can switch between 
 - Filemanager: Thunar
 - Cursor: Bibata Modern Ice
 - Icons: Papirus-Icon-Theme
-- Status Bar: Qtile status bar + Polybar (optional)
+- Status Bar: Qtile status bar
 - Compositor: picom
 - Screenshots: scrot
 

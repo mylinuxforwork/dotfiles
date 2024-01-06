@@ -7,6 +7,9 @@ Hyprland:
 - New Settings for keyboard (incl. natural_scroll for touchpads)
 - Add ChatGPT Icon to Waybar. Can be disabled in settings
 
+Qtile:
+- Removed polybar from the installation. Please make sure that you check the keyboard layout in qtile/autostart.sh after an update.
+
 Version 2.7
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.7
 --------------------------------------------------------

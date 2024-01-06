@@ -30,13 +30,12 @@ from libqtile.backend.wayland import InputConfig
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 from qtile_extras.widget.decorations import PowerLineDecoration
-from conf.keyboard import *
 
 # --------------------------------------------------------
 # Your configuration
 # --------------------------------------------------------
 
-# Keyboard layout in conf/keyboard.py
+# Keyboard layout in autostart.sh
 
 # Show wlan status bar widget (set to False if wired network)
 # show_wlan = True
@@ -52,21 +51,6 @@ show_bluetooth = False
 
 # Get home path
 home = str(Path.home())
-
-# Get Core name: x11 or wayland
-core_name = qtile.core.name
-logger.warning("Using config.py with " + core_name)
-
-# --------------------------------------------------------
-# Define Status Bar
-# --------------------------------------------------------
-try:
-    wm_bar = Path(home + "/.cache/.qtile_bar_x11.sh").read_text().replace("\n", "")
-except:
-    wm_bar = "qtile"
-
-
-logger.warning("Status bar: " + wm_bar)
 
 # --------------------------------------------------------
 # Check for Desktop/Laptop
@@ -129,7 +113,6 @@ keys = [
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.spawn(home + "/dotfiles/qtile/scripts/powermenu.sh"), desc="Open Powermenu"),
-    Key([mod, "shift"], "s", lazy.spawn(home + "/dotfiles/qtile/scripts/barswitcher.sh"), desc="Switch Status Bar"),
 
     # Apps
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
@@ -369,14 +352,6 @@ widget_list = [
         **decor_right,
         background=Color2+".4",     
         padding=5,    
-        text="",
-        fontsize=20,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + "/dotfiles/scripts/cliphist.sh")},
-    ),
-    widget.TextBox(
-        **decor_right,
-        background=Color2+".4",     
-        padding=5,    
         text=" ",
         fontsize=20,
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + "/dotfiles/qtile/scripts/powermenu.sh")},
@@ -390,34 +365,23 @@ if (show_wlan == False):
 if (show_bluetooth == False):
     del widget_list[12:13]
 
-if (core_name == "x11"):
-    del widget_list[13:14]
-
 # --------------------------------------------------------
 # Screens
 # --------------------------------------------------------
 
-if (wm_bar == "qtile"):
-    logger.warning("Loading qtile bar")
-    screens = [
-        Screen(
-            top=bar.Bar(
-    		    widget_list,
-                30,
-                padding=20,
-                opacity=0.7,
-                border_width=[0, 0, 0, 0],
-                margin=[0,0,0,0],
-                background="#000000.3"
-            ),
+screens = [
+    Screen(
+        top=bar.Bar(
+            widget_list,
+            30,
+            padding=20,
+            opacity=0.7,
+            border_width=[0, 0, 0, 0],
+            margin=[0,0,0,0],
+            background="#000000.3"
         ),
-    ]
-else:
-    screens = [Screen(top=bar.Gap(size=28))]
-    if (core_name == "x11"):
-        screens = [Screen(top=bar.Gap(size=28))]
-    else:
-        screens = [Screen(top=bar.Gap(size=0))]
+    ),
+]
 
 # --------------------------------------------------------
 # Drag floating layouts
