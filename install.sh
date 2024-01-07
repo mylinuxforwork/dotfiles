@@ -24,7 +24,7 @@ EOF
 echo -e "${NONE}"
 
 echo "Version: $version"
-echo "by Stephan Raabe 2023"
+echo "by Stephan Raabe 2024"
 echo ""
 if [ -d ~/dotfiles ] ;then
     echo "A ML4W dotfiles installation has been detected."
