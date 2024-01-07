@@ -1,13 +1,13 @@
-# ML4W dotfiles 2.7.1RC2
+# ML4W dotfiles 2.7.1
 
 This is my configuration of Hyprland (Wayland) and Qtile (X11) for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
-<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v27/screenshot-27-1.png" alt="Click to watch on YouTube" /></a>
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v271/screenshot-271-1.png" alt="Click to watch on YouTube" /></a>
 
 PLEASE NOTE: This branch is the rolling release of my dotfiles and includes the latest changes. 
 Please be aware that this version is not a tested release. 
 
-You can find the video on YouTube: <a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Dotfiles Configuration and Installation</a>
+You can find the installation video on YouTube: <a href="https://youtu.be/kHG5czrQ7WA" target="_blank">Install Arch Linux with Hyprland & Qtile</a>
 
 [TOC]
 
@@ -38,6 +38,12 @@ PLEASE READ THIS README until the end before starting the installation.
 The installation script will try to create a backup from an previous dotfiles installation.
 
 Please note: To get the default Linux folder structure incl. Downloads, etc please install the packages xdg-user-dirs and run xdg-user-dirs-update.
+
+## Reference Installation
+
+The reference installation on the dotfiles is based on Arch Linux installed with a minimal profile. 
+
+Please watch the video on YouTube: https://youtu.be/kHG5czrQ7WA
 
 ## Installation with GIT (Rolling Release of main branch)
 

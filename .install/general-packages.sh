@@ -44,6 +44,8 @@ packagesPacman=(
     "nm-connection-editor"
     "gvfs"
     "xdg-user-dirs"
+    "networkmanager"
+    "network-manager-applet"
 );
 
 packagesYay=(
