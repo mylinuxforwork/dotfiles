@@ -12,5 +12,4 @@ packagesYay=(
     "swww" 
     "swaylock-effects-git" 
     "wlogout"
-    "wlr-randr"
 );
