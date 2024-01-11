@@ -52,7 +52,7 @@ if [ "$dmsel" == "Install sddm-git" ] ;then
 
     # Try to force the installation of sddm-git
     echo "Install sddm-git"
-    yay -S --noconfirm sddm-git --ask 4
+    yay -S --noconfirm sddm-git sddm-sugar-candy-git --ask 4
 
     if [ -f /etc/systemd/system/display-manager.service ]; then
         sudo rm /etc/systemd/system/display-manager.service

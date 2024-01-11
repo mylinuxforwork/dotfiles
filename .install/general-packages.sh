@@ -53,5 +53,4 @@ packagesYay=(
     "bibata-cursor-theme" 
     "trizen"
     "pacseek"
-    "sddm-sugar-candy-git"
 );
