@@ -8,7 +8,7 @@ echo -e "${NONE}"
 hyprland_installed=0
 hyprlandgit_installed=0
 hyprland_package=""
-echo "Hyprland is available in two differnet versions: "
+echo "Hyprland is available in two different versions: "
 echo "hyprland with the lastest official release "
 echo "hyprland-git compiled from latest source."
 echo
