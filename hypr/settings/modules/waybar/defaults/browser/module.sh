@@ -1,7 +1,7 @@
 #!/bin/bash
 _getHeader "$name" "$author"
 
-echo "Define the start command to start the browser."
+echo "Define the start command to start the browser (Default: chromium)."
 
 # Define File
 targetFile="$HOME/dotfiles/.settings/browser.sh"

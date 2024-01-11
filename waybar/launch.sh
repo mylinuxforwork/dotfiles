@@ -12,7 +12,9 @@
 # Quit all running waybar instances
 # ----------------------------------------------------- 
 killall waybar
+pkill waybar
 sleep 0.2
+
 # ----------------------------------------------------- 
 # Default theme: /THEMEFOLDER;/VARIATION
 # ----------------------------------------------------- 
@@ -29,7 +31,7 @@ else
 fi
 
 IFS=';' read -ra arrThemes <<< "$themestyle"
-echo ${arrThemes[0]}
+echo "Theme: ${arrThemes[0]}"
 
 if [ ! -f ~/dotfiles/waybar/themes${arrThemes[1]}/style.css ]; then
     themestyle="/ml4w;/ml4w/light"
@@ -48,9 +50,5 @@ fi
 if [ -f ~/dotfiles/waybar/themes${arrThemes[1]}/style-custom.css ] ;then
     style_file="style-custom.css"
 fi
-
-# Check used files
-echo "Config: $config_file"
-echo "Style: $style_file"
 
 waybar -c ~/dotfiles/waybar/themes${arrThemes[0]}/$config_file -s ~/dotfiles/waybar/themes${arrThemes[1]}/$style_file &

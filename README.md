@@ -1,11 +1,12 @@
-# ML4W dotfiles 2.7.1
+# ML4W dotfiles 2.7.2 RC1
 
 This is my configuration of Hyprland (Wayland) and Qtile (X11) for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v271/screenshot-271-1.png" alt="Click to watch on YouTube" /></a>
 
-PLEASE NOTE: This branch is the rolling release of my dotfiles and includes the latest changes. 
-Please be aware that this version is not a tested release. 
+PLEASE NOTE: This branch is the rolling release of the ML4W dotfiles and includes the latest changes. 
+
+Latest official release
 
 You can find the installation video on YouTube: <a href="https://youtu.be/kHG5czrQ7WA" target="_blank">Install Arch Linux with Hyprland & Qtile</a>
 
@@ -45,14 +46,14 @@ The reference installation on the dotfiles is based on Arch Linux installed with
 
 Please watch the video on YouTube: https://youtu.be/kHG5czrQ7WA
 
-## Installation with GIT (Rolling Release of main branch)
+## Installation with GIT of Rolling Release
 
 ```
 # 1.) Change into your Downloads folder
 cd ~/Downloads
 
 # 2.) Clone the dotfiles repository into the Downloads folder
-git clone --depth=1 https://gitlab.com/stephan-raabe/dotfiles.git
+git clone https://gitlab.com/stephan-raabe/dotfiles.git
 
 # 3.) Change into the dotfiles folder
 cd dotfiles
@@ -61,10 +62,35 @@ cd dotfiles
 ./install.sh
 
 ```
-## Update with GIT (Rolling Release of main branch)
+
+## Installation with GIT of the latest release
+
+```
+# 1.) Change into your Downloads folder where you have downloaded the release to
+cd ~/Downloads
+
+# 2.) Unzip
+git clone --branch 2.7.1 https://gitlab.com/stephan-raabe/dotfiles.git
+
+# 3.) Change into the new dotfiles folder
+cd dotfiles
+
+# 4.) Start the installation to update
+./install.sh
+
+```
+
+## Update with GIT
+
 ```
 # 1.) Change into your Downloads folder
 cd ~/Downloads/dotfiles
+
+# Switch to rolling release
+# git checkout origin/main
+
+# Switch to other version
+# git checkout 2.7.1
 
 # 2.) Pull the latest version and update the repository
 git stash; git pull
@@ -74,46 +100,7 @@ git stash; git pull
 
 ```
 
-## Update with GIT (Rolling Release of main branch) (fresh update)
-
-You can also update by deleting the ~/Downloads/dotfiles folder and clone again.
-
-```
-# 1.) Change into your Downloads folder
-cd ~/Downloads
-
-# 2.) Delete existing dotfiles folder from Downloads folder
-rm -rf ~/Downloads/dotfiles
-
-# 3.) Clone the dotfiles repository into the Downloads folder
-git clone --depth=1 https://gitlab.com/stephan-raabe/dotfiles.git
-
-# 4.) Change into the dotfiles folder
-cd dotfiles
-
-# 5.) Start the installation to update
-./install.sh
-
-```
-
-## Installation by downloading the latest release
-
-If you don't want to use the rolling release, you can download the latest release the latest release https://gitlab.com/stephan-raabe/dotfiles/-/releases or choose the the latest tag https://gitlab.com/stephan-raabe/dotfiles/-/tags and download the zip.
-
-```
-# 1.) Change into your Downloads folder where you have downloaded the release to
-cd ~/Downloads
-
-# 2.) Unzip
-unzip dotfiles-2.6.zip
-
-# 3.) Change into the new dotfiles folder
-cd dotfiles-2.6
-
-# 4.) Start the installation to update
-./install.sh
-
-```
+## Dotfiles Installer
 
 You can also use the dotfiles installer script to download and install the latest release: https://gitlab.com/stephan-raabe/installer
 

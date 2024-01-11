@@ -1,7 +1,7 @@
 #!/bin/bash
 _getHeader "$name" "$author"
 
-echo "Define the label of the Apps Starter"
+echo "Define the label of the Apps Starter (Default is Apps). "
 
 # Define File
 targetFile="$HOME/dotfiles/waybar/modules.json"

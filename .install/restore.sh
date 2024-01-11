@@ -269,6 +269,23 @@ echo -e "${NONE}"
         echo "Waybar Network restored."
     fi
 
+    # Restore Waybar Idle
+    targetFile1="$HOME/dotfiles/waybar/themes/ml4w/config"
+    targetFile2="$HOME/dotfiles/waybar/themes/ml4w-blur/config"
+    targetFile3="$HOME/dotfiles/waybar/themes/ml4w-blur-bottom/config"
+    targetFile4="$HOME/dotfiles/waybar/themes/ml4w-bottom/config"
+    settingsFile="$HOME/dotfiles/.settings/waybar_swaylock"
+    if [ -f $settingsFile ] ;then
+        startMarker="START IDLE TOOGLE"
+        endMarker="END IDLE TOOGLE"
+        customtext="$(cat $settingsFile)"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile1"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile2"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile3"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile4"
+        echo "Waybar Idle restored."
+    fi
+
     # Restore Waybar nmapplet
     targetFile="$HOME/dotfiles-versions/$version/hypr/conf/autostart.conf"
     settingsFile="$HOME/dotfiles/.settings/waybar_nmapplet"
@@ -288,6 +305,17 @@ echo -e "${NONE}"
         customtext="$(cat $settingsFile)"
         _replaceLineInFile "$findMarker" "$customtext" "$targetFile"
         echo "keyboard natural_scroll restored."
+    fi
+
+    # Restore Start Swaylock
+    targetFile="$HOME/dotfiles/hypr/scripts/lockscreentime.sh"
+    settingsFile="$HOME/dotfiles/.settings/hypr_lockscreen"
+    if [ -f $settingsFile ] ;then
+        startMarker="START SWAYIDLE"
+        endMarker="END SWAYIDLE"
+        customtext="$(cat $settingsFile)"
+        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile"
+        echo "Swaylock start restored."
     fi
 
     echo ""

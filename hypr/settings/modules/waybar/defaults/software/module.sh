@@ -1,7 +1,7 @@
 #!/bin/bash
 _getHeader "$name" "$author"
 
-echo "Define the start command to start the software manager."
+echo "Define the start command to start the software manager (Default: alacritty -e pacseek)."
 
 # Define File
 targetFile="$HOME/dotfiles/.settings/software.sh"

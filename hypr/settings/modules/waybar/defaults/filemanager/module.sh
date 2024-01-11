@@ -1,7 +1,7 @@
 #!/bin/bash
 _getHeader "$name" "$author"
 
-echo "Define the start command to start the filemanager."
+echo "Define the start command to start the filemanager (Default: thunar)."
 
 # Define File
 targetFile="$HOME/dotfiles/.settings/filemanager.sh"

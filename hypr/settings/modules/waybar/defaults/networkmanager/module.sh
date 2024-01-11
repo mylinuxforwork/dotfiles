@@ -2,6 +2,7 @@
 _getHeader "$name" "$author"
 
 echo "Define the start command to start the networkmanager (Must be installed on your system)."
+echo "(Default: nm-connection-editor)"
 echo "Possible values: alacritty -e nmtui, nm-connection-editor, etc."
 
 # Define File

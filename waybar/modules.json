@@ -353,10 +353,11 @@
 
     "idle_inhibitor": {
         "format": "{icon}",
-        "tooltip": false,
+        "tooltip": true,
         "format-icons":{
-            "activated": "Auto lock OFF",
-            "deactivated": "ON"
-        }
+            "activated": "",
+            "deactivated": ""
+        },
+        "on-click-right": "swaylock"        
     }
 }

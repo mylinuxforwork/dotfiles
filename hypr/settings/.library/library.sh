@@ -95,7 +95,7 @@ _getModules() {
             nameList+=("BACK")
         fi
         echo ""
-        selected=$(gum choose ${nameList[@]})
+        selected=$(gum choose --height 12 ${nameList[@]})
         case $selected in
             BACK)
                 _goBack

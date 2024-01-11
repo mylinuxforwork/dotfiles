@@ -61,7 +61,9 @@
         "group/hardware",
         "group/settings",
         "custom/cliphist",
+        // START IDLE TOOGLE
         "idle_inhibitor",
+        // END IDLE TOOGLE
         // START TRAY TOOGLE
         "tray",
         // END TRAY TOOGLE

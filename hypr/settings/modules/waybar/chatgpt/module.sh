@@ -12,10 +12,12 @@ startMarker="START CHATGPT TOOGLE"
 endMarker="END CHATGPT TOOGLE"
 
 # Select Value
-customvalue=$(gum choose "SHOW" "HIDE")
+customvalue=$(gum choose "SHOW" "HIDE" "DEFAULT")
 
 if [ ! -z $customvalue ]; then
     if [ "$customvalue" == "SHOW" ] ;then
+        customtext="        \"custom\/chatgpt\","
+    elif [ "$customvalue" == "DEFAULT" ] ;then
         customtext="        \"custom\/chatgpt\","
     else
         customtext="        \/\/\"custom\/chatgpt\","

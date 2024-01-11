@@ -1,29 +1,27 @@
 #!/bin/bash
 _getHeader "$name" "$author"
 
-echo "Hide or show the bluetooth module in ML4W waybar themes."
+echo "Hide or show the swaylock (idle_inhibitor) module in ML4W waybar themes."
 
 # Define File
 targetFile1="$HOME/dotfiles/waybar/themes/ml4w/config"
 targetFile2="$HOME/dotfiles/waybar/themes/ml4w-blur/config"
 targetFile3="$HOME/dotfiles/waybar/themes/ml4w-blur-bottom/config"
 targetFile4="$HOME/dotfiles/waybar/themes/ml4w-bottom/config"
-settingsFile="$HOME/dotfiles/.settings/waybar_bluetooth"
+settingsFile="$HOME/dotfiles/.settings/waybar_swaylock"
 
 # Define Markers
-startMarker="START BT TOOGLE"
-endMarker="END BT TOOGLE"
+startMarker="START IDLE TOOGLE"
+endMarker="END IDLE TOOGLE"
 
 # Select Value
-customvalue=$(gum choose "SHOW" "HIDE" "DEFAULT")
+customvalue=$(gum choose "SHOW" "HIDE")
 
 if [ ! -z $customvalue ]; then
     if [ "$customvalue" == "SHOW" ] ;then
-        customtext="        \"bluetooth\","
-    elif [ "$customvalue" == "DEFAULT" ] ;then
-        customtext="        \"bluetooth\","
+        customtext="        \"idle_inhibitor\","
     else
-        customtext="        \/\/\"bluetooth\","
+        customtext="        \/\/\"idle_inhibitor\","
     fi
     
     _replaceInFile $startMarker $endMarker $customtext $targetFile1

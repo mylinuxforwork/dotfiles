@@ -35,13 +35,13 @@ alias od='~/private/onedrive.sh'
 alias rw='~/dotfiles/waybar/reload.sh'
 alias winclass="xprop | grep 'CLASS'"
 alias dot="cd ~/dotfiles"
+alias cleanup='~/dotfiles/scripts/cleanup.sh'
 
 # -----------------------------------------------------
 # Window Managers
 # -----------------------------------------------------
 
 alias Qtile='startx'
-# alias QtileWayland='qtile start -b wayland'
 # Hyprland with Hyprland
 
 # -----------------------------------------------------

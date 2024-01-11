@@ -1,3 +1,17 @@
+Version 2.7.2
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.7.2
+--------------------------------------------------------
+Hyprland:
+- New waybar icon to enable/disable swaylock. Left mouse click to toggle swaylock, right mouse click to start swaylock
+- Show/Hide idle_inhibitor module (swaylock) in Settings script
+- Start of swayidle can be deactivated in the settings script
+- New animation variation animation-moving.conf
+
+General:
+- Installation script bug fixing
+- Alias cleanup added to .bashrc for Arch Linux maintenance
+- New Hyprland configuration variation script to roll back to default variations via tty
+
 Version 2.7.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.7.1
 --------------------------------------------------------

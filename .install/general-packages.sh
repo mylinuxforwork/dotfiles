@@ -46,6 +46,7 @@ packagesPacman=(
     "xdg-user-dirs"
     "networkmanager"
     "network-manager-applet"
+    "xclip"
 );
 
 packagesYay=(
