@@ -31,6 +31,11 @@ else
     echo "bluetooth.service activated successfully."    
 fi
 
+if [ -d ~/dotfiles/hypr/settings/modules/waybar/defaults ] ;then
+    rm -rf ~/dotfiles/hypr/settings/modules/waybar/defaults
+    echo "~/dotfiles/hypr/settings/modules/waybar/defaults removed."
+fi
+
 # Create default folder structure
 xdg-user-dirs-update
 echo "Default folders created..."
