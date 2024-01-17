@@ -40,13 +40,13 @@ packagesPacman=(
     "brightnessctl"
     "gum"
     "man-pages"
-    "xdg-desktop-portal" 
+    "xdg-desktop-portal"
+    "xdg-desktop-portal-gnome"
     "nm-connection-editor"
     "gvfs"
     "xdg-user-dirs"
     "networkmanager"
     "network-manager-applet"
-    "xclip"
 );
 
 packagesYay=(
