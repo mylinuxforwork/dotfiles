@@ -1,4 +1,4 @@
-# ML4W dotfiles 2.7.2 RC1
+# ML4W dotfiles 2.7.2
 
 This is my configuration of Hyprland (Wayland) and Qtile (X11) for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
