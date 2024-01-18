@@ -1,2 +1,2 @@
-name="Enable/Disable Swaylock"
+name="Toggle Swaylock"
 order=1
