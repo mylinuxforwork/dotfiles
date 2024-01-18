@@ -41,7 +41,6 @@ packagesPacman=(
     "gum"
     "man-pages"
     "xdg-desktop-portal"
-    "xdg-desktop-portal-gnome"
     "nm-connection-editor"
     "gvfs"
     "xdg-user-dirs"
