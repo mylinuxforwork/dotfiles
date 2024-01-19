@@ -12,4 +12,5 @@ packagesYay=(
     "swww" 
     "swaylock-effects-git" 
     "wlogout"
+    "nwg-look"
 );
