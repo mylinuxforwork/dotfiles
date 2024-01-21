@@ -58,6 +58,13 @@
         "separate-outputs": true
     },
 
+    // ML4W Welcome App
+    "custom/ml4w-welcome": {
+        "on-click": "cd ~/dotfiles/hypr/apps/ml4w-welcome; python ml4w-welcome.py",
+        "format": " ",
+        "tooltip": false
+    },
+
     // Youtube Subscriber Count
     "custom/youtube": {
         "format": " {}",
