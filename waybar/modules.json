@@ -60,7 +60,7 @@
 
     // ML4W Welcome App
     "custom/ml4w-welcome": {
-        "on-click": "cd ~/dotfiles/hypr/apps/ml4w-welcome; python ml4w-welcome.py",
+        "on-click": "~/dotfiles/apps/ML4W_Welcome-x86_64.AppImage",
         "format": " ",
         "tooltip": false
     },
