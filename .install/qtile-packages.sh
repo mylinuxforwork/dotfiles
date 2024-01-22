@@ -9,6 +9,7 @@ packagesPacman=(
     "python-dbus-next"
     "python-iwlib"
     "xclip"
+    "xautolock" 
 );
 
 packagesYay=(

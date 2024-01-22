@@ -150,30 +150,59 @@ window#waybar.empty #window {
  * Custom Quicklinks
  * ----------------------------------------------------- */
 
- #custom-brave, 
- #custom-browser, 
- #custom-keybindings, 
- #custom-outlook, 
- #custom-filemanager, 
- #custom-teams, 
- #custom-chatgpt, 
- #custom-calculator, 
- #custom-windowsvm, 
- #custom-cliphist, 
- #custom-wallpaper, 
- #custom-settings, 
- #custom-wallpaper, 
- #custom-system,
- #custom-waybarthemes {
-     margin-right: 23px;
-     font-size: 20px;
-     font-weight: bold;
-     color: @iconcolor;
- }
+#custom-brave, 
+#custom-browser, 
+#custom-keybindings, 
+#custom-outlook, 
+#custom-filemanager, 
+#custom-teams, 
+#custom-chatgpt, 
+#custom-calculator, 
+#custom-windowsvm, 
+#custom-cliphist, 
+#custom-wallpaper, 
+#custom-settings, 
+#custom-wallpaper, 
+#custom-system,
+#custom-waybarthemes {
+    margin-right: 23px;
+    font-size: 20px;
+    font-weight: bold;
+    color: @iconcolor;
+}
  
  #custom-waybarthemes,#custom-system {
      margin-right:15px;
  }
+
+
+ #custom-ml4w-welcome {
+    margin-right: 15px;
+    background-image: url("../assets/ml4w-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 24px;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibator
+ * ----------------------------------------------------- */
+
+ #idle_inhibitor {
+    margin-right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: @iconcolor;
+}
+
+#idle_inhibitor.activated {
+    margin-right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: #dc2f2f;
+}
 
 /* -----------------------------------------------------
  * Custom Modules

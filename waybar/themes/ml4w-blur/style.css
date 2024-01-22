@@ -185,7 +185,7 @@ window#waybar.empty #window {
 
 #custom-ml4w-welcome {
     margin-right: 15px;
-    background-image: url("../../../hypr/apps/ml4w-welcome/src/icon-small.png");
+    background-image: url("../assets/ml4w-icon.png");
     background-repeat: no-repeat;
     background-position: center;
     padding-right: 24px;
