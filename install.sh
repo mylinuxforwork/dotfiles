@@ -76,6 +76,7 @@ fi
 if [[ $profile == *"Qtile"* ]]; then
     source .install/qtile-dotfiles.sh
 fi
+source .install/gtk.sh
 source .install/bashrc.sh
 source .install/monitor.sh
 source .install/cleanup.sh

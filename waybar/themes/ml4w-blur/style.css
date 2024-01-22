@@ -183,6 +183,14 @@ window#waybar.empty #window {
     margin-right:20px;
 }
 
+#custom-ml4w-welcome {
+    margin-right: 15px;
+    background-image: url("../assets/ml4w-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 24px;
+}
+
 /* -----------------------------------------------------
  * Idle Inhibator
  * ----------------------------------------------------- */

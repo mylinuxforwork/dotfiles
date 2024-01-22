@@ -56,15 +56,6 @@
         "separate-outputs": true
     },
 
-    // Youtube Subscriber Count
-    "custom/youtube": {
-        "format": " {}",
-        "exec": "python ~/private/youtube.py",
-        "restart-interval": 600,
-        "on-click": "chromium https://studio.youtube.com",
-        "tooltip": false
-    },
-    
     // Cliphist
     "custom/cliphist": {
         "format": "",
@@ -86,7 +77,7 @@
         "tooltip": false
     },
 
-    // Wallpaper
+    // Theme Starter Label
     "custom/starter": {
         "format": "THEME STARTER",
         "tooltip": false
@@ -128,45 +119,24 @@
         "tooltip": false
     },
 
-    // Outlook Launcher
-    "custom/outlook": {
-        "format": "",
-        "on-click": "chromium --app=https://outlook.office.com/mail/",
-        "tooltip": false
-    },
-
-    // Teams Launcher
-    "custom/teams": {
-        "format": "",
-        "on-click": "chromium --app=https://teams.microsoft.com/go",
-        "tooltip": false
-    },
-
     // Browser Launcher
     "custom/browser": {
         "format": "",
-        "on-click": "chromium",
+        "on-click": "~/dotfiles/.settings/browser.sh",
         "tooltip": false
     },    
+
+    // ML4W Welcome App
+    "custom/ml4w-welcome": {
+        "on-click": "~/dotfiles/apps/ML4W_Welcome-x86_64.AppImage",
+        "format": " ",
+        "tooltip": false
+    },
 
     // ChatGPT Launcher
     "custom/chatgpt": {
         "format": "",
         "on-click": "chromium --app=https://chat.openai.com",
-        "tooltip": false
-    },
-
-    // Calculator
-    "custom/calculator": {
-        "format": "",
-        "on-click": "qalculate-gtk",
-        "tooltip": false
-    },
-
-    // Windows VM
-    "custom/windowsvm": {
-        "format": "",
-        "on-click": "~/dotfiles/scripts/launchvm.sh",
         "tooltip": false
     },
 
@@ -344,5 +314,16 @@
         "format": "{user}",
         "interval": 60,
         "icon": false,
+    },
+
+    // Idle Inhibator
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "tooltip": true,
+        "format-icons":{
+            "activated": "",
+            "deactivated": ""
+        },
+        "on-click-right": "swaylock"        
     }
 }
