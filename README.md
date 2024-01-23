@@ -33,7 +33,7 @@ For Arco Linux users: Please reinstall/force the installation of all packages du
 
 ## Before you start
 
-PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIONAL INSTALLTION.
+PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIAL INSTALLTION.
 PLEASE READ THIS README until the end before starting the installation.
 
 The installation script will try to create a backup from an previous dotfiles installation.
