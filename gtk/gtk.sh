@@ -15,3 +15,5 @@ gsettings set "$gnome_schema" icon-theme "$icon_theme"
 gsettings set "$gnome_schema" cursor-theme "$cursor_theme"
 gsettings set "$gnome_schema" font-name "$font_name"
 gsettings set "$gnome_schema" color-scheme "prefer-dark"
+
+echo "exec-once = hyprctl setcursor $cursor_theme 24" > ~/dotfiles/hypr/conf/cursor.conf
