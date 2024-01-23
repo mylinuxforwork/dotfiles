@@ -1,4 +1,4 @@
-# ML4W dotfiles 2.7.2
+# ML4W dotfiles 2.8RC1
 
 This is my configuration of Hyprland (Wayland) and Qtile (X11) for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
@@ -70,7 +70,7 @@ cd dotfiles
 cd ~/Downloads
 
 # 2.) Unzip
-git clone --branch 2.7.1 https://gitlab.com/stephan-raabe/dotfiles.git
+git clone --branch 2.7.2 https://gitlab.com/stephan-raabe/dotfiles.git
 
 # 3.) Change into the new dotfiles folder
 cd dotfiles
@@ -90,7 +90,7 @@ cd ~/Downloads/dotfiles
 # git checkout origin/main
 
 # Switch to other version
-# git checkout 2.7.1
+# git checkout 2.7.2
 
 # 2.) Pull the latest version and update the repository
 git stash; git pull
