@@ -1,0 +1,66 @@
+// __        __          _                 
+// \ \      / /_ _ _   _| |__   __ _ _ __  
+//  \ \ /\ / / _` | | | | '_ \ / _` | '__| 
+//   \ V  V / (_| | |_| | |_) | (_| | |    
+//    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    
+//                 |___/                   
+//  
+// by Stephan Raabe (2023) 
+// ----------------------------------------------------- 
+//
+{
+    // General Settings
+
+    // Position TOP
+    "layer": "top",
+    "margin-bottom": 0,
+
+    // Position BOTTOM
+    // "position": "bottom",
+    // "margin-top": 0,
+    // "margin-bottom": 14,
+    
+    "layer": "top",
+    "margin-left": 0,
+    "margin-right": 0,    
+    "spacing": 0,
+
+    // Load Modules
+    "include": ["~/dotfiles/waybar/themes/ml4w-minimal/modules.json"],
+
+    // Modules Left
+    "modules-left": [
+        "custom/appmenu",
+        "hyprland/workspaces",
+        "group/quicklinks"
+    ],
+
+    // Modules Center
+    "modules-center": [
+        "hyprland/window"
+    ],
+
+    // Modules Right    
+    "modules-right": [
+        "custom/updates",
+        "pulseaudio",
+        // START BT TOOGLE
+        "bluetooth",
+        // END BT TOOGLE
+        "battery", 
+        // START NETWORK TOOGLE
+        "network",
+        // END NETWORK TOOGLE
+        "group/hardware",
+        "custom/cliphist",
+        // START IDLE TOOGLE
+        "idle_inhibitor",
+        // END IDLE TOOGLE
+        // START TRAY TOOGLE
+        "tray",
+        // END TRAY TOOGLE
+        "custom/exit",
+        "clock",
+        "custom/ml4w-welcome"
+    ]
+}

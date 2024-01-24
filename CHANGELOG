@@ -6,6 +6,7 @@ Hyprland:
 - nwg-look to define a custom GTK Theme
 - Updated waybar starter theme
 - New waybar idle-inhibator icon
+- New waybar theme ml4w-minimal
 
 Version 2.7.2
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.7.2
