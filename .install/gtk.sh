@@ -1,13 +1,7 @@
 #!/bin/bash
-cat <<"EOF"
-  ____ _____ _  __
- / ___|_   _| |/ /
-| |  _  | | | ' / 
-| |_| | | | | . \ 
- \____| |_| |_|\_\
-                  
-EOF
-
+echo -e "${GREEN}"
+figlet "GTK"
+echo -e "${NONE}"
 # version="dotfiles"
 
 # Remove existing symbolic links
