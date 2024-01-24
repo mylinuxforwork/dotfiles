@@ -41,6 +41,9 @@ packagesPacman=(
     "xdg-user-dirs"
     "networkmanager"
     "network-manager-applet"
+    "fuse2"
+    "gtk4"
+    "libadwaita"
 );
 
 packagesYay=(
