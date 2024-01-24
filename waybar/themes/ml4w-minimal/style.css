@@ -339,7 +339,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #tray {
-    background-color: #2980b9;
+    margin:0px 10px 0px 0px;
 }
 
 #tray > .passive {

@@ -56,11 +56,11 @@
         // START IDLE TOOGLE
         "idle_inhibitor",
         // END IDLE TOOGLE
+        "custom/exit",
+        "clock",
         // START TRAY TOOGLE
         "tray",
         // END TRAY TOOGLE
-        "custom/exit",
-        "clock",
         "custom/ml4w-welcome"
     ]
 }
