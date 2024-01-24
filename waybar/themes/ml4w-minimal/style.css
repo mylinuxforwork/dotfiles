@@ -247,7 +247,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #clock {
-    font-size: 14px;
+    font-size: 15px;
     color: @textcolor;
     margin: 0px 15px 0px 0px;
 }
