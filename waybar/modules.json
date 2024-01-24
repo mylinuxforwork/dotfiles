@@ -183,7 +183,15 @@
         "on-click-right": "~/dotfiles/hypr/scripts/keybindings.sh",
         "tooltip": false
     },
-    
+
+    // Rofi Application Launcher
+    "custom/appmenuicon": {
+        "format": "",
+        "on-click": "rofi -show drun -replace",
+        "on-click-right": "~/dotfiles/hypr/scripts/keybindings.sh",
+        "tooltip": false
+    },    
+
     // Power Menu
     "custom/exit": {
         "format": "",

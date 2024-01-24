@@ -26,11 +26,11 @@
     "spacing": 0,
 
     // Load Modules
-    "include": ["~/dotfiles/waybar/themes/ml4w-minimal/modules.json"],
+    "include": ["~/dotfiles/waybar/modules.json"],
 
     // Modules Left
     "modules-left": [
-        "custom/appmenu",
+        "custom/appmenuicon",
         "hyprland/workspaces",
         "group/quicklinks"
     ],

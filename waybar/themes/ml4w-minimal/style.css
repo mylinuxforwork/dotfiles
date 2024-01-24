@@ -176,7 +176,7 @@ window#waybar.empty #window {
  * Custom Modules
  * ----------------------------------------------------- */
 
-#custom-appmenu {
+#custom-appmenuicon {
     font-size: 20px;
     color: @textcolor;
     margin: 0px 15px 0px 10px;
