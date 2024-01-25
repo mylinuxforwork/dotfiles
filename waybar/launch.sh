@@ -8,6 +8,13 @@
 # by Stephan Raabe (2023) 
 # ----------------------------------------------------- 
 
+# Check if waybar-disabled file exists
+if [ -f $HOME/.cache/waybar-disabled ] ;then 
+    killall waybar
+    pkill waybar
+    exit 1 
+fi
+
 # ----------------------------------------------------- 
 # Quit all running waybar instances
 # ----------------------------------------------------- 
