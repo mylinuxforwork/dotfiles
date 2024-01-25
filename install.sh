@@ -42,9 +42,7 @@ source .install/profile.sh
 if [[ $profile == *"Hyprland"* ]]; then
     source .install/hyprland-version.sh
 fi
-
 source .install/installer.sh
-
 source .install/general.sh
 source .install/general-packages.sh
 source .install/install-packages.sh
