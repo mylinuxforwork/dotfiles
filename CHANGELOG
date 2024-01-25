@@ -2,11 +2,12 @@ Version 2.8
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8
 --------------------------------------------------------
 Hyprland:
-- New Welcome app based on GTK4. Can be launched with the icon on waybar
-- nwg-look to define a custom GTK Theme
+- New Welcome app based on GTK4. Can be launched with the icon on waybar or with the command ml4w
+- nwg-look-bin to define a custom GTK Theme
 - Updated waybar starter theme
 - New waybar idle-inhibator icon
 - New waybar theme ml4w-minimal
+- New window animation variation animation-moving.conf
 
 Version 2.7.2
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.7.2
