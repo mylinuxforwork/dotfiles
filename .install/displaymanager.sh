@@ -27,10 +27,12 @@ fi
 
 if [ ! -d ~/dotfiles ];then
     if [ -f /etc/systemd/system/display-manager.service ]; then
+        disman=0
         echo "You have already installed a display manager on your system."
         echo "How do you want to proceed? (ESC = Keep current setup)"
         dmsel=$(gum choose "Keep current setup" "Deactivate current display manager" "Install sddm-git")
     else
+        disman=1
         echo "There is no display manager installed on your system."
         echo "After the installation/update of the dotfiles, you can start Hyprland with command Hyprland and Qtile with commmand Qtile (or startx)."
         echo "How do you want to proceed? (ESC = Keep current setup)"
@@ -38,10 +40,12 @@ if [ ! -d ~/dotfiles ];then
     fi
 else
     if [ -f /etc/systemd/system/display-manager.service ]; then
+        disman=0
         echo "You have already installed a display manager. If your display manager is working fine, you can keep the current setup."
         echo "How do you want to proceed? (ESC = Keep current setup)"
         dmsel=$(gum choose "Keep current setup" "Deactivate current display manager" "Install sddm-git")
     else
+        disman=1
         echo "There is no display manager installed on your system. You're starting Hyprland/Qtile with commands on tty."
         echo "How do you want to proceed? (ESC = Keep current setup)"
         dmsel=$(gum choose "Keep current setup" "Install sddm-git")
@@ -50,6 +54,7 @@ fi
 
 if [ "$dmsel" == "Install sddm-git" ] ;then
 
+    disman=0
     # Try to force the installation of sddm-git
     echo "Install sddm-git"
     yay -S --noconfirm sddm-git sddm-sugar-candy-git --ask 4
