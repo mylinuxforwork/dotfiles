@@ -4,19 +4,19 @@
 echo -e "${GREEN}"
 figlet "Preparation"
 echo -e "${NONE}"
-echo "Preparing temporary folders for the installation."
+echo ":: Preparing temporary folders for the installation."
 if [ ! -d ~/dotfiles-versions ]; then
     mkdir ~/dotfiles-versions
-    echo "~/dotfiles-versions folder created."
+    echo ":: ~/dotfiles-versions folder created."
 fi
 if [ ! -d ~/dotfiles-versions/$version ]; then
     mkdir ~/dotfiles-versions/$version
-    echo "~/dotfiles-versions/$version folder created."
+    echo ":: ~/dotfiles-versions/$version folder created."
 else
-    echo "The folder ~/dotfiles-versions/$version already exists from previous installations."
+    echo ":: The folder ~/dotfiles-versions/$version already exists from previous installations."
     rm -rf ~/dotfiles-versions/$version
     mkdir ~/dotfiles-versions/$version
-    echo "Clean build prepared for the installation."
+    echo ":: Clean build prepared for the installation."
 fi
 rsync -a -I --exclude-from=.install/excludes.txt . ~/dotfiles-versions/$version/
 if [[ $(_isFolderEmpty ~/dotfiles-versions/$version/) == 0 ]] ;then
@@ -25,5 +25,5 @@ if [[ $(_isFolderEmpty ~/dotfiles-versions/$version/) == 0 ]] ;then
     echo "Execution of rsync -a -I --exclude-from=.install/excludes.txt . ~/dotfiles-versions/$version/ is required."
     exit
 fi
-echo "dotfiles $version successfully prepared in ~/dotfiles-versions/$version/"
+echo ":: dotfiles $version successfully prepared in ~/dotfiles-versions/$version/"
 echo ""

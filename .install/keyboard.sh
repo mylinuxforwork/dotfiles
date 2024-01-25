@@ -14,7 +14,7 @@ _setupKeyboardLayout() {
     echo "Start typing = Search, RETURN = Confirm, CTRL-C = Cancel"
     keyboard_layout=$(localectl list-x11-keymap-layouts | gum filter --height 15 --placeholder "Find your keyboard layout...")
     echo ""
-    echo "Keyboard layout changed to $keyboard_layout"
+    echo ":: Keyboard layout changed to $keyboard_layout"
     echo ""
     _confirmKeyboard
 }
@@ -32,7 +32,7 @@ _confirmKeyboard() {
 }
 
 if [ "$restored" == "1" ]; then
-    echo "You have already restored your settings into the new installation."
+    echo ":: You have already restored your settings into the new installation."
 else
     _confirmKeyboard
     
@@ -48,6 +48,6 @@ else
     sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/qtile/autostart.sh
 
     echo ""
-    echo "Keyboard setup updated successfully."
+    echo ":: Keyboard setup updated successfully."
     echo "PLEASE NOTE: You can update your keyboard layout later in ~/dotfiles/hypr/conf/keyboard.conf"
 fi

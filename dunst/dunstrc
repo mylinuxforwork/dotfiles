@@ -137,7 +137,7 @@
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
-    line_height = 3
+    line_height = 1
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -181,7 +181,7 @@
 
     # Vertical alignment of message text and icon.
     # Possible values are "top", "center" and "bottom".
-    vertical_alignment = center
+    vertical_alignment = top
 
     # Show age of message if message is older than show_age_threshold
     # seconds.
@@ -211,7 +211,7 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Adwaita
+    icon_theme = "Papirus-Dark,Adwaita"
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 

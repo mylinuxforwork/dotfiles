@@ -23,7 +23,7 @@ if [[ ! $(tty) == *"pts"* ]] && [ -d ~/dotfiles ]; then
     echo ""
 else
     if [ -d ~/dotfiles ]; then
-        echo "The script will overwrite existing files but will not remove additional files or folders of your custom configuration."
+        echo "The script will overwrite existing files but will not remove additional files or folders from your custom configuration."
     fi
 fi
 if [ ! -d ~/dotfiles ]; then

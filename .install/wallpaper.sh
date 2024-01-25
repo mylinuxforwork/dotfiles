@@ -28,7 +28,7 @@ if [ ! -d ~/wallpaper ]; then
         echo "Default wallpapers installed successfully."
     fi
 else
-    echo "~/wallpaper folder already exists."
+    echo ":: ~/wallpaper folder already exists."
 fi
 echo ""
 
