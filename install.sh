@@ -38,7 +38,7 @@ source .install/confirm-start.sh
 source .install/yay.sh
 source .install/backup.sh
 source .install/preparation.sh
-source .install/pre-hook.sh
+source .install/pre-version-hook.sh
 source .install/profile.sh
 if [[ $profile == *"Hyprland"* ]]; then
     source .install/hyprland-version.sh
@@ -66,6 +66,7 @@ source .install/restore.sh
 source .install/vm.sh
 source .install/keyboard.sh
 source .install/hook.sh
+source .install/version-hook.sh
 source .install/copy.sh
 source .install/config-folder.sh
 source .install/init-pywal.sh
@@ -79,5 +80,5 @@ source .install/gtk.sh
 source .install/bashrc.sh
 source .install/monitor.sh
 source .install/cleanup.sh
-source .install/post-hook.sh
+source .install/post-version-hook.sh
 source .install/done.sh
