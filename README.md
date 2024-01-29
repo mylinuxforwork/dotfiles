@@ -191,6 +191,8 @@ All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v28/screenshot-28-2.png" alt="Click to watch on YouTube" /></a>
 
+<a href="https://youtu.be/e9ro_P9rbFk" target="_blank"><img src="screenshots/v28/screenshot-28-3.png" alt="Click to watch on YouTube" /></a>
+
 <b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
