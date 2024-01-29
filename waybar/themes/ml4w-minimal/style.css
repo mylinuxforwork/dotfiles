@@ -140,13 +140,26 @@ window#waybar.empty #window {
     font-weight: bold;
     color: @iconcolor;
 }
- 
- #custom-waybarthemes,#custom-system {
-     margin-right:15px;
- }
+
+#custom-settings {
+    margin-right: 15;
+
+}
+
+#custom-chatgpt {
+    margin-right: 15px;
+    background-image: url("../assets/ai-icon-20.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 23px;
+}
+
+#custom-waybarthemes,#custom-system {
+    margin-right:15px;
+}
 
 
- #custom-ml4w-welcome {
+#custom-ml4w-welcome {
     margin-right: 15px;
     background-image: url("../assets/ml4w-icon-20.png");
     background-repeat: no-repeat;

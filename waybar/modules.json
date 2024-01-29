@@ -127,7 +127,7 @@
 
     // Filemanager Launcher
     "custom/filemanager": {
-        "format": "",
+        "format": "",
         "on-click": "~/dotfiles/.settings/filemanager.sh",
         "tooltip": false
     },
@@ -148,14 +148,14 @@
 
     // Browser Launcher
     "custom/browser": {
-        "format": "",
+        "format": "",
         "on-click": "~/dotfiles/.settings/browser.sh",
         "tooltip": false
     },    
 
     // ChatGPT Launcher
     "custom/chatgpt": {
-        "format": "",
+        "format": " ",
         "on-click": "chromium --app=https://chat.openai.com",
         "tooltip": false
     },
@@ -274,13 +274,11 @@
     
     // Group Settings
     "group/settings": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 300,
-            "children-class": "not-memory",
-            "transition-left-to-right": false
-        },        
+        "orientation": "horizontal",
         "modules": [
+            // START CHATGPT TOOGLE
+            "custom/chatgpt",
+            // END CHATGPT TOOGLE
             "custom/settings",
             "custom/waybarthemes",
             "custom/wallpaper"
@@ -291,11 +289,8 @@
     "group/quicklinks": {
         "orientation": "horizontal",
         "modules": [
-            // START CHATGPT TOOGLE
-            "custom/chatgpt",
-            // END CHATGPT TOOGLE
+            "custom/browser",
             "custom/filemanager",
-            "custom/browser"
          ]
     },
 

@@ -8,6 +8,7 @@ Hyprland:
 - New waybar idle-inhibator icon
 - New waybar theme ml4w-minimal
 - New window animation variation animation-moving.conf
+- New AI icon to open ChatGPT
 
 Version 2.7.2
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.7.2

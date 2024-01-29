@@ -191,6 +191,14 @@ window#waybar.empty #window {
     padding-right: 24px;
 }
 
+#custom-chatgpt {
+    margin-right: 15px;
+    background-image: url("../assets/ai-icon-20.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 24px;
+}
+
 /* -----------------------------------------------------
  * Idle Inhibator
  * ----------------------------------------------------- */
