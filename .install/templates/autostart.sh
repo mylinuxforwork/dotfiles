@@ -19,7 +19,7 @@
 setxkbmap KEYBOARD_LAYOUT
 
 # Load picom
-picom &
+# picom &
 
 # Load power manager
 xfce4-power-manager &

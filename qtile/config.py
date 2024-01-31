@@ -25,7 +25,6 @@ from libqtile.widget.image import Image
 from libqtile.dgroups import simple_key_binder
 from pathlib import Path
 from libqtile.log_utils import logger
-from libqtile.backend.wayland import InputConfig
 
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration

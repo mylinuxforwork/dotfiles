@@ -19,7 +19,7 @@
 setxkbmap us
 
 # Load picom
-picom &
+# picom &
 
 # Load power manager
 xfce4-power-manager &
