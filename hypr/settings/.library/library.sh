@@ -156,13 +156,13 @@ _getConfEditor() {
             _reloadModule
         break;;            
         COPY)
-            echo "Define the new file name. Please use [a-zA-Z1-9_-]+.conf"
+            echo "Define the new file name. Please use *.conf"
             filename=$(gum input --value="custom-${sel##*/}" --placeholder "Enter your filename")
             if [ -z $filename ] ;then
                 echo "ERROR: No filename specified."
             else
-                if ! [[ $filename =~ ^[a-zA-Z1-9_-]+.conf ]]; then
-                    echo "ERROR: Wrong filename format. Please use [a-zA-Z1-9_-]+.conf"
+                if ! [[ $filename =~ [^\s]+.conf ]]; then
+                    echo "ERROR: Wrong filename format. Please use *.conf"
                 else
                     if [ -f $(dirname $sel)/$filename ] ;then
                         echo "ERROR: File already exists."
