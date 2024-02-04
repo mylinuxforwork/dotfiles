@@ -6,9 +6,9 @@ This is my configuration of Hyprland (Wayland) and Qtile (X11) for Arch Linux ba
 
 PLEASE NOTE: This branch is the rolling release of the ML4W dotfiles and includes the latest changes. 
 
-Latest official release
+Latest official release 2.8: <a href="https://youtu.be/6RNaBRSy-Zs" target="_blank">Watch on YouTube</a>
 
-You can find the installation video on YouTube: <a href="https://youtu.be/kHG5czrQ7WA" target="_blank">Install Arch Linux with Hyprland & Qtile</a>
+You can find the installation video (Version 2.7.1) on YouTube: <a href="https://youtu.be/kHG5czrQ7WA" target="_blank">Install Arch Linux with Hyprland & Qtile</a>
 
 [TOC]
 
