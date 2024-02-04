@@ -26,7 +26,7 @@ echo -e "${NONE}"
 echo "Version: $version"
 echo "by Stephan Raabe 2024"
 echo ""
-if [ -d ~/dotfiles ] ;then
+if [ -d ~/dotfiles ]; then
     echo "A ML4W dotfiles installation has been detected."
     echo "This script will guide you through the update process of the ML4W dotfiles."
 else
@@ -38,6 +38,7 @@ source .install/confirm-start.sh
 source .install/yay.sh
 source .install/backup.sh
 source .install/preparation.sh
+source .install/pre-version-hook.sh
 source .install/profile.sh
 source .install/installer.sh
 source .install/general.sh
@@ -62,6 +63,7 @@ source .install/restore.sh
 source .install/vm.sh
 source .install/keyboard.sh
 source .install/hook.sh
+source .install/version-hook.sh
 source .install/copy.sh
 source .install/config-folder.sh
 source .install/init-pywal.sh
@@ -75,4 +77,5 @@ source .install/gtk.sh
 source .install/bashrc.sh
 source .install/monitor.sh
 source .install/cleanup.sh
+source .install/post-version-hook.sh
 source .install/done.sh
