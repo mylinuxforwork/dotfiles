@@ -1,7 +1,14 @@
 #!/bin/bash
 _getHeader "$name" "$author"
 
-echo "Define the start command to start the browser (Default: chromium)."
+echo "Define the start command to start your preferred browser (Default: chromium)."
+echo
+echo "Executable (if installed) are:"
+echo "chromium for Chromium"
+echo "google-chrome-stable for Google Chrome"
+echo "brave for Brave"
+echo "firefox for Firefox"
+echo
 
 # Define File
 targetFile="$HOME/dotfiles/.settings/browser.sh"
@@ -18,6 +25,4 @@ else
     echo "Please define a command"
     sleep 1
 fi
-    _goBack
-
-
+_goBack
