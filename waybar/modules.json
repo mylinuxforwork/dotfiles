@@ -186,7 +186,7 @@
 
     // Rofi Application Launcher
     "custom/appmenuicon": {
-        "format": "",
+        "format": "",
         "on-click": "rofi -show drun -replace",
         "on-click-right": "~/dotfiles/hypr/scripts/keybindings.sh",
         "tooltip": false

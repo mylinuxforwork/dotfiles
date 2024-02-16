@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces","custom/waybarthemes"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
+    "modules-right": ["custom/ml4w-welcome","mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -34,6 +34,12 @@
             "unlocked": ""
         }
     },
+    // ML4W Welcome App
+    "custom/ml4w-welcome": {
+        "on-click": "~/dotfiles/apps/ML4W_Welcome-x86_64.AppImage",
+        "format": " ",
+        "tooltip": false
+    },    
     // Waybar Themes
     "custom/waybarthemes": {
         "format": "Themes",

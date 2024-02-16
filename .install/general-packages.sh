@@ -42,6 +42,8 @@ packagesPacman=(
     "xdg-user-dirs"
     "networkmanager"
     "network-manager-applet"
+    "xarchiver"
+    "thunar-archive-plugin"
     "fuse2"
     "gtk4"
     "libadwaita"

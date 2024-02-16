@@ -1,2 +1,2 @@
 #!/bin/bash
-theme_name="Default"
+theme_name="Waybar Default Theme"
