@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 if [ -f ~/dotfiles/.settings/terminal.sh ]; then
     terminal="$(cat ~/dotfiles/.settings/terminal.sh)"
     echo ":: Installing $terminal"
@@ -14,3 +15,4 @@ if [ -f ~/dotfiles/.settings/terminal.sh ]; then
 else
     echo "ERROR: ~/dotfiles/.settings/terminal.sh not found"
 fi
+sleep 3
