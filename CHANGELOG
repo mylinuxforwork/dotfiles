@@ -1,3 +1,16 @@
+Version 2.8.1
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8
+--------------------------------------------------------
+ML4W Welcome App: 
+- Terminal can be set for Thunar
+- Opens systeminfo of Hyprland 
+
+Hyprland:
+- Bugfix timeshift detection in installupdates.sh 
+
+Qtile:
+- 
+
 Version 2.8
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8
 --------------------------------------------------------

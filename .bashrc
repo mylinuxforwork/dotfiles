@@ -28,6 +28,7 @@ alias ll='eza -al --icons'
 alias lt='eza -a --tree --level=1 --icons'
 alias shutdown='systemctl poweroff'
 alias v='$EDITOR'
+alias vim='$EDITOR'
 alias ts='~/dotfiles/scripts/snapshot.sh'
 alias matrix='cmatrix'
 alias wifi='nmtui'
@@ -73,8 +74,6 @@ alias ascii='~/dotfiles/scripts/figlet.sh'
 
 alias vm='~/private/launchvm.sh'
 alias lg='~/dotfiles/scripts/looking-glass.sh'
-alias vmstart='virsh --connect qemu:///system start win11'
-alias vmstop='virsh --connect qemu:///system destroy win11'
 
 # -----------------------------------------------------
 # EDIT CONFIG FILES
@@ -106,6 +105,11 @@ alias res1='xrandr --output DisplayPort-0 --mode 2560x1440 --rate 120'
 alias res2='xrandr --output DisplayPort-0 --mode 1920x1080 --rate 120'
 
 export PATH="/usr/lib/ccache/bin/:$PATH"
+
+# -----------------------------------------------------
+# DEVELOPMENT
+# -----------------------------------------------------
+alias dotsync="~/dotfiles-versions/dotfiles/.dev/sync.sh dotfiles"
 
 # -----------------------------------------------------
 # START STARSHIP
