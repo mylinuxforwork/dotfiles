@@ -44,6 +44,7 @@ packagesPacman=(
     "network-manager-applet"
     "xarchiver"
     "thunar-archive-plugin"
+    "zip"
     "fuse2"
     "gtk4"
     "libadwaita"

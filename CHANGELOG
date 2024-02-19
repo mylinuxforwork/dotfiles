@@ -1,15 +1,19 @@
 Version 2.8.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8
 --------------------------------------------------------
+General:
+- xarchiver and zip added for thunar
+
 ML4W Welcome App: 
-- Terminal can be set for Thunar
-- Opens systeminfo of Hyprland 
+- Opens Hyprland systeminfo from the about menu
+- Timeshift can be installed from the settings menu
+- Terminal for Thunar can be set from the settings menu
 
 Hyprland:
 - Bugfix timeshift detection in installupdates.sh 
 
 Qtile:
-- 
+- Polybar removed from the dotfiles
 
 Version 2.8
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8
