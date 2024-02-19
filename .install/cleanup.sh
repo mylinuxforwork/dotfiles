@@ -36,6 +36,21 @@ if [ -d ~/dotfiles/hypr/settings/modules/waybar/defaults ] ;then
     echo "~/dotfiles/hypr/settings/modules/waybar/defaults removed."
 fi
 
+if [ -d ~/dotfiles/hypr/settings/modules/sddm ] ;then
+    rm -rf ~/dotfiles/hypr/settings/modules/sddm
+    echo "~/dotfiles/hypr/settings/modules/sddm removed."
+fi
+
+if [ -d ~/dotfiles/hypr/settings/modules/appearance/wallpaper ] ;then
+    rm -rf ~/dotfiles/hypr/settings/modules/appearance/wallpaper
+    echo "~/dotfiles/hypr/settings/modules/appearance/wallpaper removed."
+fi
+
+if [ -d ~/dotfiles/hypr/settings/modules/system/swaylock ] ;then
+    rm -rf ~/dotfiles/hypr/settings/modules/system/swaylock
+    echo "~/dotfiles/hypr/settings/modules/system/swaylock removed."
+fi
+
 # Create default folder structure
 xdg-user-dirs-update
 echo "Default folders created..."
