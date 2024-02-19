@@ -3,6 +3,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8
 --------------------------------------------------------
 General:
 - xarchiver and zip added for thunar
+- Rofi border width can be adjusted in dotfiles/.settings/rofi-border.rasi
 
 ML4W Welcome App: 
 - Opens Hyprland systeminfo from the about menu

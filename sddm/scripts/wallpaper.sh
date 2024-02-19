@@ -11,7 +11,7 @@
 cache_file="$HOME/.cache/current_wallpaper"
 sleep 1
 clear
-figlet "Set SDDM Wallpaper"
+figlet "Set Wallpaper"
 echo
 echo "Set the current wallpaper as SDDM wallpaper."
 echo
@@ -20,7 +20,7 @@ if [ ! -d /etc/sddm.conf.d/ ]; then
     echo "Folder /etc/sddm.conf.d created."
 fi
 
-sudo cp sddm.conf /etc/sddm.conf.d/
+sudo cp $HOME/dotfiles/sddm/sddm.conf /etc/sddm.conf.d/
 echo "File /etc/sddm.conf.d/sddm.conf updated."
 
 current_wallpaper=$(cat "$cache_file")

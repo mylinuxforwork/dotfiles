@@ -36,7 +36,6 @@ packagesPacman=(
     "brightnessctl"
     "gum"
     "man-pages"
-    "xdg-desktop-portal"
     "nm-connection-editor"
     "gvfs"
     "xdg-user-dirs"
@@ -49,6 +48,7 @@ packagesPacman=(
     "gtk4"
     "libadwaita"
     "python-pywal"
+    "xdg-desktop-portal"
 );
 
 packagesYay=(
