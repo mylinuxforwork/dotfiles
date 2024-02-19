@@ -43,7 +43,6 @@ _showRestoreOptions() {
         if [ -f ~/dotfiles/hypr/conf/monitor.conf ] && [ -d ~/dotfiles/hypr/conf/monitors/ ]; then
             restorelist+="~/dotfiles/hypr/conf/monitor.conf "
             selectedlist+="~/dotfiles/hypr/conf/monitor.conf,"
-            monitorrestored=1
         fi
         if [ -f ~/dotfiles/hypr/conf/animation.conf ] && [ -d ~/dotfiles/hypr/conf/animations/ ]; then
             restorelist+="~/dotfiles/hypr/conf/animation.conf "
@@ -81,6 +80,10 @@ _showRestoreOptions() {
     else
         echo "No files selected to restore."
         confirmrestore=$(gum choose "Change restore" "Cancel restore")
+        if [ -z "${confirmrestore}" ] ;then
+            echo "Installation canceled."
+            exit
+        fi
         if [ "$confirmrestore" == "Change restore" ]; then 
             echo ""
             _showRestoreOptions

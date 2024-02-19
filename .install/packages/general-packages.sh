@@ -48,6 +48,7 @@ packagesPacman=(
     "fuse2"
     "gtk4"
     "libadwaita"
+    "python-pywal"
 );
 
 packagesYay=(
@@ -56,7 +57,3 @@ packagesYay=(
     "trizen"
     "pacseek"
 );
-
-# Removed packages
-# "xfce4-power-manager" 
-# "ttf-font-awesome"

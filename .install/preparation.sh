@@ -4,6 +4,13 @@
 echo -e "${GREEN}"
 figlet "Preparation"
 echo -e "${NONE}"
+if [ -d ~/.config ]; then
+    echo ".config folder already exists."
+else
+    mkdir ~/.config
+    echo ".config folder created."
+fi
+echo
 echo ":: Preparing temporary folders for the installation."
 if [ ! -d ~/dotfiles-versions ]; then
     mkdir ~/dotfiles-versions
@@ -18,11 +25,11 @@ else
     mkdir ~/dotfiles-versions/$version
     echo ":: Clean build prepared for the installation."
 fi
-rsync -a -I --exclude-from=.install/excludes.txt . ~/dotfiles-versions/$version/
+rsync -a -I --exclude-from=.install/includes/excludes.txt . ~/dotfiles-versions/$version/
 if [[ $(_isFolderEmpty ~/dotfiles-versions/$version/) == 0 ]] ;then
     echo "AN ERROR HAS OCCURED. Preparation of ~/dotfiles-versions/$version/ failed" 
     echo "Please check that rsync is installad on your system."
-    echo "Execution of rsync -a -I --exclude-from=.install/excludes.txt . ~/dotfiles-versions/$version/ is required."
+    echo "Execution of rsync -a -I --exclude-from=.install/includes/excludes.txt . ~/dotfiles-versions/$version/ is required."
     exit
 fi
 echo ":: dotfiles $version successfully prepared in ~/dotfiles-versions/$version/"
