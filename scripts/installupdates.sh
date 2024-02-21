@@ -13,7 +13,6 @@
 sleep 1
 clear
 figlet "Updates"
-EOF
 
 _isInstalledYay() {
     package="$1";
