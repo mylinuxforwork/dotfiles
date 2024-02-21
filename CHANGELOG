@@ -2,6 +2,7 @@ Version 2.8.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8
 --------------------------------------------------------
 General:
+- New default wallpaper in Hyprland style
 - xarchiver and zip added for thunar
 - Rofi border width can be adjusted in dotfiles/.settings/rofi-border.rasi
 
