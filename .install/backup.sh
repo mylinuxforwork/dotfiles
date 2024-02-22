@@ -36,6 +36,8 @@ echo -e "${NONE}"
             cp ~/.bashrc ~/dotfiles-versions/backups/$datets/.bashrc-old
             echo ":: Existing .bashrc file found in homefolder. .bashrc-old created"
         fi
+        echo
+        echo ":: PLEASE NOTE: You can create a fresh installation of teh dotfiles by removing the folder ~/dotfiles"
     elif [ $? -eq 130 ]; then
         exit 130
     else
