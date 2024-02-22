@@ -97,6 +97,8 @@ git stash; git pull
 
 ```
 
+You can create a clean reinstallation by removing the folder ~/dotfiles Please note that you can create a backup of your exsiting configuration with the backup feature of the install script. It's recommended to remove the folder ~/dotfiles only after creating a backup. 
+
 ## Dotfiles Installer
 
 You can also use the dotfiles installer script to download and install the latest release: https://gitlab.com/stephan-raabe/installer
