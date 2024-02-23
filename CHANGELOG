@@ -5,6 +5,7 @@ General:
 - New default wallpaper in Hyprland style
 - xarchiver and zip added for thunar
 - Rofi border width can be adjusted in dotfiles/.settings/rofi-border.rasi
+- emote added to installer script to select an Emoji (SUPER+.)
 
 ML4W Welcome App: 
 - Opens Hyprland systeminfo from the about menu
