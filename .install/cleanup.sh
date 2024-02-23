@@ -51,16 +51,6 @@ if [ -d ~/dotfiles/hypr/settings/modules/system/swaylock ] ;then
     echo "~/dotfiles/hypr/settings/modules/system/swaylock removed."
 fi
 
-# Remove Swayidle
-if [[ $(_isInstalledPacman "swayidle") == 0 ]]; then
-    sudo pacman --noconfirm -Rns swayidle
-fi
-
-# Remove Swaylock
-if [[ $(_isInstalledYay "swaylock-effects-git") == 0 ]]; then
-    yay --noconfirm -Rns swaylock-effects-git
-fi
-
 # Create default folder structure
 xdg-user-dirs-update
 echo "Default folders created..."
