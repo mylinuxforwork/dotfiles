@@ -25,7 +25,7 @@ _isInstalledPacman() {
 
 _isInstalledYay() {
     package="$1";
-    check="$(yay -Qs --color always "${package}" | grep "local" | grep "${package} ")";
+    check="$(yay -Qs --color always "${package}" | grep "local" | grep "\." | grep "${package} ")";
     if [ -n "${check}" ] ; then
         echo 0; #'0' means 'true' in Bash
         return; #true
