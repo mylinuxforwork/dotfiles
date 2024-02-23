@@ -4,14 +4,14 @@ packagesPacman=(
     "waybar" 
     "grim" 
     "slurp"
-    "swayidle"
     "swappy"
     "cliphist"
 );
 
 packagesYay=(
     "swww" 
-    "swaylock-effects-git" 
+    "hypridle-git"
+    "hyprlock-git"
     "wlogout"
     "nwg-look"
     "emote"
