@@ -133,15 +133,18 @@ button selected {
 /* ---- Listview ---- */
 listview {
     enabled:                      true;
-    columns:                      1;
+    columns:                      6;
+    lines:                        3;
     cycle:                        true;
-    dynamic:                      false;
+    dynamic:                      true;
     scrollbar:                    true;
-    layout:                       horizontal;
+    layout:                       vertical;
     reverse:                      false;
     spacing:                      10px;
     padding:                      10px;
     margin:                       0px;
+    fixed-height:                true;
+    fixed-columns:               true;    
     background-color:             @background;
     border:                       0px;
 }
@@ -155,7 +158,7 @@ element {
     background-color:             @background;
     border-radius:                10px;
     border:                       @border-width;
-    layout:                       vertical;
+    orientation:                  vertical;
 }
 
 element normal.normal {

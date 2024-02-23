@@ -25,5 +25,8 @@ if [[ $(_isInstalledYay "hypridle-git") == 1 ]] || [[ $(_isInstalledYay "hyprloc
     fi
 else
     echo ":: hypridle and hyprlock are already installed."
+    if gum confirm "Do you want to force a reinstallation to get the latest versions?" ;then
+        yay --noconfirm -S hypridle-git hyprlock-git
+    fi
 fi
 echo
