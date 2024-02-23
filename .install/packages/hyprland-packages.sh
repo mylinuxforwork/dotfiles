@@ -10,8 +10,6 @@ packagesPacman=(
 
 packagesYay=(
     "swww" 
-    "hypridle-git"
-    "hyprlock-git"
     "wlogout"
     "nwg-look"
     "emote"

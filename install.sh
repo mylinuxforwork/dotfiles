@@ -49,6 +49,7 @@ if [[ $profile == *"Hyprland"* ]]; then
     echo -e "${NONE}"
     source .install/packages/hyprland-packages.sh
     source .install/install-packages.sh
+    source .install/screenlock.sh
 fi
 if [[ $profile == *"Qtile"* ]]; then
     echo -e "${GREEN}"
