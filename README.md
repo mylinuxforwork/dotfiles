@@ -1,4 +1,4 @@
-# ML4W dotfiles 2.8.1 RC1
+# ML4W dotfiles 2.8.1 RC2
 
 This is my configuration of Hyprland (Wayland) and Qtile (X11) for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
@@ -334,6 +334,14 @@ To stop, disable and remove sddm service.
 sudo systemctl stop sddm.service
 sudo systemctl disable sddm.service
 sudo rm /etc/systemd/system/display-manager.service
+```
+
+## Waybar is not loading
+
+There could be a conflict with xdg-desktop-portal-gtk. Please try to remove the package if installed with:
+
+```
+sudo pacman -R xdg-desktop-portal-gtk
 ```
 
 # Wallpaper repository

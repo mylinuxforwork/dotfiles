@@ -14,4 +14,5 @@ packagesYay=(
     "swaylock-effects-git" 
     "wlogout"
     "nwg-look"
+    "emote"
 );
