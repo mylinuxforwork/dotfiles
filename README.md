@@ -273,7 +273,8 @@ Please note that every Arch Linux system is different and I cannot guarantee tha
 - Screenshots: grim & slurp
 - Clipboard Manager: cliphist
 - Logout: wlogout 
-- Screenlock: swaylock-effects
+- Idle Manager: hypridle
+- Screenlock: hyprlock
 
 # Qtile X11
 
