@@ -12,7 +12,7 @@
 }
 {
     "label" : "logout",
-    "action" : "hyprctl dispatch exit",
+    "action" : "$HOME/dotfiles/hypr/scripts/exit.sh",
     "text" : "Exit",
     "keybind" : "e"
 }
