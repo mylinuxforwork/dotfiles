@@ -1,12 +1,12 @@
-# ML4W dotfiles 2.8.1 RC3
+# ML4W dotfiles 2.8.1
 
 This is my configuration of Hyprland (Wayland) and Qtile (X11) for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
-<a href="https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/screenshots/v28/screenshot-28-1.png?ref_type=heads" target="_blank"><img src="screenshots/v28/screenshot-28-1.png" /></a>
+<a href="https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/screenshots/v281/screenshot-281-1.png?ref_type=heads" target="_blank"><img src="screenshots/v281/screenshot-281-1.png" /></a>
 
 PLEASE NOTE: This branch is the rolling release of the ML4W dotfiles and includes the latest changes. 
 
-Latest official release 2.8: <a href="https://youtu.be/6RNaBRSy-Zs" target="_blank">Watch on YouTube</a>
+Latest official release 2.8.1: <a href="https://youtu.be/KHwJxpV_L1g" target="_blank">Watch on YouTube</a>
 
 You can find the installation video (Version 2.7.1) on YouTube: <a href="https://youtu.be/kHG5czrQ7WA" target="_blank">Install Arch Linux with Hyprland & Qtile</a>
 
@@ -46,7 +46,7 @@ The reference installation on the dotfiles is based on Arch Linux installed with
 
 Please watch the video on YouTube: https://youtu.be/kHG5czrQ7WA
 
-## Installation with GIT of Rolling Release
+## Installation with GIT
 
 ```
 # 1.) Change into your Downloads folder
@@ -63,17 +63,20 @@ cd dotfiles
 
 ```
 
-## Installation with GIT of the latest release
+## Installation with GIT of the rolling release
 
 ```
 # 1.) Change into your Downloads folder where you have downloaded the release to
 cd ~/Downloads
 
 # 2.) Unzip
-git clone --branch 2.8 https://gitlab.com/stephan-raabe/dotfiles.git
+git clone https://gitlab.com/stephan-raabe/dotfiles.git
 
 # 3.) Change into the new dotfiles folder
 cd dotfiles
+
+# 4.) Switch to dev branch
+git checkout dev
 
 # 4.) Start the installation to update
 ./install.sh
@@ -143,13 +146,11 @@ You can install a custom tty login issue (layout) with the dotfiles installer.
 
 I made good experiences with the Display Manager SDDM (https://github.com/sddm/sddm). Also gdm could work. 
 
-Important is that you use the package sddm-git. You can replace sddm with sddm-git with
-
 ```
-yay -S sddm-git
+yay -S sddm
 ```
 
-The dotfiles installation script will offer to deactivate the installed display manager and to activate  SDDM. 
+The dotfiles installation script will offer to deactivate the installed display manager and to activate SDDM. 
 
 The dotfiles package also includes a configuration for the SDDM theme sdd-sugar-candy (https://github.com/Kangie/sddm-sugar-candy) and a configuration to run SDDM in X11 mode to get the best compatibility.
 

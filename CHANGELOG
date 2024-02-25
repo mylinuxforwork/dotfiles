@@ -1,5 +1,5 @@
 Version 2.8.1
-https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.1
 --------------------------------------------------------
 General:
 - Swayidle replaced with hypridle (config in dotfiles/hypr/hypridle.conf)
