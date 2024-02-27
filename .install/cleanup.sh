@@ -58,7 +58,6 @@ fi
 
 # Create default folder structure
 xdg-user-dirs-update
-echo "Default folders created..."
 echo 
 
 echo "Cleanup done."
