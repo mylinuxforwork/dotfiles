@@ -4,6 +4,8 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.2
 General:
 - Force installation of sddm to fix theme issue with sddm-sugar-candy theme. sddm-git doesn't work
 - Wallpaper script creates a blurred version with imagemagick for wlogout background
+- snapshot.sh script check now for required timeshift and (optional) grub-btrfs packages
+- Waybar Bluetooth module now hides automatically if no bluetooth device is detected
 
 Version 2.8.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.1

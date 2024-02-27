@@ -51,6 +51,11 @@ if [ -d ~/dotfiles/hypr/settings/modules/system/swaylock ] ;then
     echo "~/dotfiles/hypr/settings/modules/system/swaylock removed."
 fi
 
+if [ -d ~/dotfiles/hypr/settings/modules/waybar/bluetooth ] ;then
+    rm -rf ~/dotfiles/hypr/settings/modules/waybar/bluetooth
+    echo "~/dotfiles/hypr/settings/modules/waybar/bluetooth removed."
+fi
+
 # Create default folder structure
 xdg-user-dirs-update
 echo "Default folders created..."
