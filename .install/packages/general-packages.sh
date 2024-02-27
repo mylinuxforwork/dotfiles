@@ -50,6 +50,7 @@ packagesPacman=(
     "python-pywal"
     "xdg-desktop-portal"
     "qalculate-gtk"
+    "imagemagick"
 );
 
 packagesYay=(

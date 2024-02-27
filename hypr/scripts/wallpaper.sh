@@ -63,7 +63,7 @@ esac
 # Load current pywal color scheme
 # ----------------------------------------------------- 
 source "$HOME/.cache/wal/colors.sh"
-echo "Wallpaper: $wallpaper"
+echo ":: Wallpaper: $wallpaper"
 
 # ----------------------------------------------------- 
 # Write selected wallpaper into .cache files
@@ -100,5 +100,9 @@ swww img $wallpaper \
 # ----------------------------------------------------- 
 sleep 1
 notify-send "Colors and Wallpaper updated" "with image $newwall"
+
+# Create blurred version of new wallaper
+magick $wallpaper -blur 0x8 ~/.cache/current_wallpaper_blur
+echo ":: Blurred version of wallaper created in ~/.cache/current_wallpaper_blur."
 
 echo "DONE!"

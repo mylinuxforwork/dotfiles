@@ -59,7 +59,7 @@ fi
 if [ "$dmsel" == "Install sddm" ] ;then
 
     disman=0
-    # Try to force the installation of sddm-git
+    # Try to force the installation of sddm
     echo "Install sddm"
     yay -S --noconfirm sddm sddm-sugar-candy-git --ask 4
 

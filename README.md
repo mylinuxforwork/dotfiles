@@ -131,6 +131,20 @@ Users have reported that Hyprland with dotfiles could be installed successfully 
 There is no official Hyprland support for Nvidia hardware. However, you might make it work properly following this page.
 https://wiki.hyprland.org/Nvidia/
 
+In case you don't see the mouse cursor please add the folling line to your .bashrc 
+
+```
+WLR_NO_HARDWARE_CURSORS=1
+```
+
+Or create a environment variation for nvidia in ~/dotfiles/hypr/conf/environments/nvidia.conf by copying the default.conf and add the line
+
+```
+env = WLR_NO_HARDWARE_CURSORS, 1
+```
+
+Then select the file in the settings script in system/environment
+
 ## Launch Hyprland from tty
 
 The suggested method to start Hyprland is from tty with the command Hyprland bacause login managers (display managers) are not official supported (https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#launching-hyprland)
