@@ -40,6 +40,7 @@ source .install/backup.sh
 source .install/preparation.sh
 source .install/installer.sh
 source .install/general.sh
+source .install/remove.sh
 source .install/packages/general-packages.sh
 source .install/install-packages.sh
 source .install/profile.sh
@@ -49,7 +50,6 @@ if [[ $profile == *"Hyprland"* ]]; then
     echo -e "${NONE}"
     source .install/packages/hyprland-packages.sh
     source .install/install-packages.sh
-    source .install/screenlock.sh
 fi
 if [[ $profile == *"Qtile"* ]]; then
     echo -e "${GREEN}"

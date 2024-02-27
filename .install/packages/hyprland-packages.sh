@@ -13,4 +13,6 @@ packagesYay=(
     "wlogout"
     "nwg-look"
     "emote"
+    "hypridle"
+    "hyprlock"
 );
