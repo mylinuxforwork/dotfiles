@@ -58,6 +58,7 @@ alias gpl="git pull"
 alias gst="git stash"
 alias gsp="git stash; git pull"
 alias gcheck="git checkout"
+alias gcredential="git config credential.helper store"
 
 # -----------------------------------------------------
 # SCRIPTS
