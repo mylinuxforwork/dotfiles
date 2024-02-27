@@ -321,6 +321,27 @@ Included is a pywal configuration that changes the color scheme based on a rando
 
 # Troubleshooting
 
+## hypridle and hyprlock is not starting after an update of the dotfiles
+
+Please make sure that hypridle and hyprlock has been installed successfully with
+
+```
+yay -S hypridle hyprlock
+```
+
+If there is an file conflict the remove the files manually with:
+
+```
+sudo rm /usr/lib/debug/usr/bin/hypridle.debug
+sudo rm /usr/lib/debug/usr/bin/hyprlock.debug
+```
+
+and start the installation again with
+
+```
+yay -S hypridle hyprlock
+```
+
 ## Missing icons in waybar
 
 In case of missing icons on waybar, it's due to a conflict between several installed fonts (can happen especially on Arco Linux). Please make sure that ttf-ms-fonts is uninstalled and ttf-font-awesome and otf-font-awesome are installed with

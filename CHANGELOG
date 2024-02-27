@@ -5,6 +5,7 @@ General:
 - Force installation of sddm to fix theme issue with sddm-sugar-candy theme. sddm-git doesn't work with themes at the moment
 - snapshot.sh script check now for required timeshift and (optional) grub-btrfs packages
 - Waybar Bluetooth module now hides automatically if no bluetooth device is detected. Please check that "bluetooth" is not commented out in ~/dotfiles/waybar/modules.json
+- Replace hypridle-git with hypridle and hyprlock-git with hyprlock
 
 Version 2.8.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.1
