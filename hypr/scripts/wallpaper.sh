@@ -98,7 +98,12 @@ swww img $wallpaper \
 # ----------------------------------------------------- 
 # Send notification
 # ----------------------------------------------------- 
-sleep 1
-notify-send "Colors and Wallpaper updated" "with image $newwall"
+
+if [ "$1" == "init" ] ;then
+    echo ":: Init"
+else
+    sleep 1
+    notify-send "Colors and Wallpaper updated" "with image $newwall"
+fi
 
 echo "DONE!"
