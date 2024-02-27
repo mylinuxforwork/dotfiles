@@ -49,6 +49,7 @@ packagesPacman=(
     "libadwaita"
     "python-pywal"
     "xdg-desktop-portal"
+    "qalculate-gtk"
 );
 
 packagesYay=(
