@@ -27,9 +27,7 @@ by Stephan Raabe (2023)
 }
 
 window {
-	background-image: url("../../.cache/current_wallpaper_blur");
-	background-position: center;
-	background-size: cover;
+	background-color: rgba(12, 12, 12, 0.1);
 }
 
 button {
