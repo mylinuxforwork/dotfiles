@@ -21,11 +21,22 @@ _isInstalledYay() {
     return; #false
 }
 
-if [[ $(_isInstalledYay "timeshift") == "0" ]] ;then
+timeshift_installed=$(_isInstalledYay "timeshift")
+grubbtrfs_installed=$(_isInstalledYay "grub-btrfs")
+
+if [[ $timeshift_installed == "0" ]] ;then
     echo ":: Timeshift is already installed"
-    sleep 3
 else
     if gum confirm "DO YOU WANT TO INSTALL Timeshift now?" ;then
         yay -S timeshift
     fi
 fi
+if [[ -d /boot/grub ]] && [[ $grubbtrfs_installed == "0" ]] ;then
+    echo ":: grub-btrfs is already installed"
+else
+    echo ":: grub-btrfs is required to select a snapshot on grub bootloader."
+    if gum confirm "DO YOU WANT TO INSTALL grub-btrfs now?" ;then
+        yay -S grub-btrfs
+    fi
+fi
+sleep 3

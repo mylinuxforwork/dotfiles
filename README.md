@@ -1,12 +1,10 @@
-# ML4W dotfiles 2.8.1
+# ML4W dotfiles 2.8.2
 
 This is my configuration of Hyprland (Wayland) and Qtile (X11) for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
 <a href="https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/screenshots/v281/screenshot-281-1.png?ref_type=heads" target="_blank"><img src="screenshots/v281/screenshot-281-1.png" /></a>
 
 PLEASE NOTE: This branch is the rolling release of the ML4W dotfiles and includes the latest changes. 
-
-Latest official release 2.8.1: <a href="https://youtu.be/KHwJxpV_L1g" target="_blank">Watch on YouTube</a>
 
 You can find the installation video (Version 2.7.1) on YouTube: <a href="https://youtu.be/kHG5czrQ7WA" target="_blank">Install Arch Linux with Hyprland & Qtile</a>
 
@@ -53,7 +51,7 @@ Please watch the video on YouTube: https://youtu.be/kHG5czrQ7WA
 cd ~/Downloads
 
 # 2.) Clone the dotfiles repository into the Downloads folder
-git clone https://gitlab.com/stephan-raabe/dotfiles.git
+git clone --depth=1 https://gitlab.com/stephan-raabe/dotfiles.git
 
 # 3.) Change into the dotfiles folder
 cd dotfiles
@@ -130,6 +128,12 @@ Users have reported that Hyprland with dotfiles could be installed successfully 
 
 There is no official Hyprland support for Nvidia hardware. However, you might make it work properly following this page.
 https://wiki.hyprland.org/Nvidia/
+
+Please select the following variation in the settings script (system/environment):
+
+https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/conf/environments/nvidia.conf
+
+Or set the included environment variables in hyprland.conf
 
 ## Launch Hyprland from tty
 
@@ -306,6 +310,27 @@ Included is a pywal configuration that changes the color scheme based on a rando
 - Screenshots: scrot
 
 # Troubleshooting
+
+## hypridle and hyprlock is not starting after an update of the dotfiles
+
+Please make sure that hypridle and hyprlock has been installed successfully with
+
+```
+yay -S hypridle hyprlock
+```
+
+If there is an file conflict the remove the files manually with:
+
+```
+sudo rm /usr/lib/debug/usr/bin/hypridle.debug
+sudo rm /usr/lib/debug/usr/bin/hyprlock.debug
+```
+
+and start the installation again with
+
+```
+yay -S hypridle hyprlock
+```
 
 ## Missing icons in waybar
 

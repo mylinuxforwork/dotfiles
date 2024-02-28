@@ -63,7 +63,7 @@ esac
 # Load current pywal color scheme
 # ----------------------------------------------------- 
 source "$HOME/.cache/wal/colors.sh"
-echo "Wallpaper: $wallpaper"
+echo ":: Wallpaper: $wallpaper"
 
 # ----------------------------------------------------- 
 # Write selected wallpaper into .cache files
@@ -98,7 +98,12 @@ swww img $wallpaper \
 # ----------------------------------------------------- 
 # Send notification
 # ----------------------------------------------------- 
-sleep 1
-notify-send "Colors and Wallpaper updated" "with image $newwall"
+
+if [ "$1" == "init" ] ;then
+    echo ":: Init"
+else
+    sleep 1
+    notify-send "Colors and Wallpaper updated" "with image $newwall"
+fi
 
 echo "DONE!"

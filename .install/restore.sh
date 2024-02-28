@@ -221,25 +221,6 @@ echo -e "${NONE}"
         echo "Waybar ChatGPT restored."
     fi
 
-    # Restore Waybar Bluetooth
-    targetFile1="$HOME/dotfiles-versions/$version/waybar/themes/ml4w/config"
-    targetFile2="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-blur/config"
-    targetFile3="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-blur-bottom/config"
-    targetFile4="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-bottom/config"
-    targetFile5="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-minimal/config"
-    settingsFile="$HOME/dotfiles/.settings/waybar_bluetooth"
-    if [ -f $settingsFile ] ;then
-        startMarker="START BT TOOGLE"
-        endMarker="END BT TOOGLE"
-        customtext="$(cat $settingsFile)"
-        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile1"
-        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile2"
-        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile3"
-        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile4"
-        _replaceInFile "$startMarker" "$endMarker" "$customtext" "$targetFile5"
-        echo "Waybar Bluetooth restored."
-    fi
-
     # Restore Waybar Systray
     targetFile1="$HOME/dotfiles-versions/$version/waybar/themes/ml4w/config"
     targetFile2="$HOME/dotfiles-versions/$version/waybar/themes/ml4w-blur/config"
