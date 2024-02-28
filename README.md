@@ -53,7 +53,7 @@ Please watch the video on YouTube: https://youtu.be/kHG5czrQ7WA
 cd ~/Downloads
 
 # 2.) Clone the dotfiles repository into the Downloads folder
-git clone https://gitlab.com/stephan-raabe/dotfiles.git
+git clone --depth=1 https://gitlab.com/stephan-raabe/dotfiles.git
 
 # 3.) Change into the dotfiles folder
 cd dotfiles
