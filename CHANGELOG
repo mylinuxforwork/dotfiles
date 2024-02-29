@@ -6,6 +6,7 @@ General:
 - snapshot.sh script check now for required timeshift and (optional) grub-btrfs packages
 - Waybar Bluetooth module now hides automatically if no bluetooth device is detected. Please check that "bluetooth" is not commented out in ~/dotfiles/waybar/modules.json
 - Replace hypridle-git with hypridle and hyprlock-git with hyprlock
+- Desktop file for ML4W Welcome App to be listed in application launcher + icon
 
 Version 2.8.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.1
