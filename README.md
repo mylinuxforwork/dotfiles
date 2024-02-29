@@ -67,7 +67,7 @@ cd dotfiles
 # 1.) Change into your Downloads folder where you have downloaded the release to
 cd ~/Downloads
 
-# 2.) Unzip
+# 2.) Clone the dotfiles repository into the Downloads folder
 git clone https://gitlab.com/stephan-raabe/dotfiles.git
 
 # 3.) Change into the new dotfiles folder
@@ -76,24 +76,28 @@ cd dotfiles
 # 4.) Switch to dev branch
 git checkout dev
 
-# 4.) Start the installation to update
+# 4.) Start the installation or update
 ./install.sh
 
 ```
 
-## Update with GIT
+## Update
 
 ```
-# 1.) Change into your Downloads folder
-cd ~/Downloads/dotfiles
 
-# Switch to rolling release
-# git checkout origin/main
+# 1.) Remove existing downloaded dotfiles
+rm -rf ~/Downloads/dotfiles
 
-# 2.) Pull the latest version and update the repository
-git stash; git pull
+# 2.) Change into your Downloads folder
+cd ~/Downloads
 
-# 3.) Start the installation to update
+# 3.) Clone the dotfiles repository into the Downloads folder
+git clone --depth=1 https://gitlab.com/stephan-raabe/dotfiles.git
+
+# 4.) Change into the dotfiles folder
+cd dotfiles
+
+# 5.) Start the installation
 ./install.sh
 
 ```
