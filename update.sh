@@ -12,7 +12,16 @@ figlet "Update"
 echo
 if gum confirm "Do you want to start the update now?" ;then
 
-    # Remove existing download folder 
+    # Remove existing download folder and zip files 
+    if [ -f $HOME/Downloads/dotfiles-main.zip ] ;then
+        rm $HOME/Downloads/dotfiles-main.zip
+    fi
+    if [ -f $HOME/Downloads/dotfiles-dev.zip ] ;then
+        rm $HOME/Downloads/dotfiles-dev.zip
+    fi
+    if [ -f $HOME/Downloads/dotfiles.zip ] ;then
+        rm $HOME/Downloads/dotfiles.zip
+    fi
     if [ -d $HOME/Downloads/dotfiles ] ;then
         rm -rf $HOME/Downloads/dotfiles
     fi
