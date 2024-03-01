@@ -83,3 +83,4 @@ figlet "Done"
 echo -e "${NONE}"
 echo "Please reboot your system!"
 echo
+sleep 3
