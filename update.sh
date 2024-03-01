@@ -9,7 +9,10 @@
 clear
 sleep 1
 figlet "Update"
-echo
+if [ ! -d $HOME/Downloads ] ;then
+    echo "ERROR:: $HOME/Downloads folder not found."
+    exit
+fi
 if gum confirm "Do you want to start the update now?" ;then
 
     # Remove existing download folder and zip files 
@@ -31,11 +34,10 @@ if gum confirm "Do you want to start the update now?" ;then
     if [ -d $HOME/Downloads/dotfiles-dev ] ;then
         rm -rf $HOME/Downloads/dotfiles-dev
     fi
-
-    echo "Please choose between the main-release or the rolling-release:"
+    echo 
+    echo "Please choose between the main-release or the rolling-release (development version):"
     version=$(gum choose "main-release" "rolling-release")
     if [ "$version" == "main-release" ] ;then
-    # Download dotfiles zip into ~/Downloads
         wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/archive/main/dotfiles-main.zip
         v="main"
     elif [ "$version" == "rolling-release" ] ;then
@@ -45,13 +47,13 @@ if gum confirm "Do you want to start the update now?" ;then
         exit 130
     fi
     echo ":: Download complete."
-    echo ""
 
     # Unzip
-    unzip -o ~/Downloads/dotfiles-$v.zip -d ~/Downloads/
+    unzip -o -q ~/Downloads/dotfiles-$v.zip -d ~/Downloads/
     echo ":: Unzip complete."
     cd ~/Downloads/dotfiles-$v/
-
+    echo ":: Changed into ~/Downloads/dotfiles-$v/"
+    
     # Start the installatiom
     if gum confirm "Do you want to start the update now?" ;then
         echo 

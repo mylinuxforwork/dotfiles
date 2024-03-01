@@ -51,6 +51,7 @@ packagesPacman=(
     "xdg-desktop-portal"
     "qalculate-gtk"
     "imagemagick"
+    "guvcview"
 );
 
 packagesYay=(
