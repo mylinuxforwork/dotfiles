@@ -104,7 +104,7 @@ From 2.8.2 onwards you can use the integrated update feature to update your dotf
 
 <img src="screenshots/welcome-update-dotfiles.png" />
 
-You can also use the ML4W installer to update the the main-release (Latest Version) or the Rolling Release: https://gitlab.com/stephan-raabe/installer
+You can also use the ML4W installer to update to the main-release (Latest Version) or the Rolling Release: https://gitlab.com/stephan-raabe/installer
 
 You can force a clean re-installation of the dotfiles by removing the folder ~/dotfiles before starting the installation.
 
