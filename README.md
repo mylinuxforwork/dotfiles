@@ -16,6 +16,8 @@ To make it easy for you to get started with the ML4W dotfiles, here's a list of 
 
 The package includes an installation script install.sh that will guide you through all steps of the installation or update process.
 
+PLEASE NOTE: Every Linux distribution and setup can be different. Therefore, I cannot guarantee that the installation will work smoothly everywhere. Installation on your own risk.
+
 ## Supported platforms
 
 The dotfiles are tested with the following Arch based distributions:
@@ -83,8 +85,9 @@ git checkout dev
 
 ## Update
 
-```
+Please follow the steps to update from earlier dotfiles versions to 2.8.2
 
+```
 # 1.) Remove existing downloaded dotfiles
 rm -rf ~/Downloads/dotfiles
 
@@ -102,7 +105,13 @@ cd dotfiles
 
 ```
 
-You can create a clean reinstallation by removing the folder ~/dotfiles Please note that you can create a backup of your exsiting configuration with the backup feature of the install script. It's recommended to remove the folder ~/dotfiles only after creating a backup. 
+From 2.8.2 onwards you can use the integrated update feature to update your dotfiles to the main or rolling release whenever you want.
+
+<img src="screenshots/welcome-update-dotfiles.png" />
+
+You can force a clean re-installation of the dotfiles by removing the folder ~/dotfiles.
+
+Please note that you can create a backup of your exsiting configuration with the backup feature of the install script. It's recommended to remove the folder ~/dotfiles only after creating a backup. 
 
 ## Dotfiles Installer
 
