@@ -1,4 +1,11 @@
 #!/bin/bash
+#  _   _           _       _       
+# | | | |_ __   __| | __ _| |_ ___ 
+# | | | | '_ \ / _` |/ _` | __/ _ \
+# | |_| | |_) | (_| | (_| | ||  __/
+#  \___/| .__/ \__,_|\__,_|\__\___|
+#       |_|                        
+# 
 clear
 sleep 1
 figlet "Update"
@@ -38,6 +45,7 @@ if gum confirm "Do you want to start the update now?" ;then
 
     # Start the installatiom
     if gum confirm "Do you want to start the update now?" ;then
+        echo 
         echo "Starting the installation now..."
         sleep 2
         cd $HOME/Downloads/dotfiles-$v
@@ -46,7 +54,6 @@ if gum confirm "Do you want to start the update now?" ;then
             exit 130
     else
         echo "Installation canceled."
-        echo "You can start the installation manually with ~/Downloads/dotfiles-$version/install.sh"
         exit;
     fi
 elif [ $? -eq 130 ]; then
