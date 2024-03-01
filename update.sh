@@ -46,7 +46,7 @@ if gum confirm "Do you want to start the update now?" ;then
     # Start the installatiom
     if gum confirm "Do you want to start the update now?" ;then
         echo 
-        echo "Starting the installation now..."
+        echo "Starting the update now..."
         sleep 2
         cd $HOME/Downloads/dotfiles-$v
         ./install.sh
