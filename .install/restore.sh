@@ -20,6 +20,10 @@ _showRestoreOptions() {
         selectedlist+="~/dotfiles/.settings,"
     fi
     if [[ $profile == *"Hyprland"* ]]; then
+        if [ -f ~/dotfiles/hypr/hypridle.conf ]; then
+            restorelist+="~/dotfiles/hypr/hypridle.conf "
+            selectedlist+="~/dotfiles/hypr/hypridle.conf,"
+        fi
         if [ -f ~/dotfiles/hypr/conf/custom.conf ]; then
             restorelist+="~/dotfiles/hypr/conf/custom.conf "
             selectedlist+="~/dotfiles/hypr/conf/custom.conf,"
@@ -108,6 +112,12 @@ _startRestore() {
         fi
     fi
     if [[ $profile == *"Hyprland"* ]]; then
+        if [[ $restoreselect == *"~/dotfiles/hypr/hypridle.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/hypr/hypridle.conf ]; then
+                cp ~/dotfiles/hypr/hypridle.conf ~/dotfiles-versions/$version/hypr/
+                echo "Hyprland hypridle.conf restored!"
+            fi
+        fi
         if [[ $restoreselect == *"~/dotfiles/hypr/conf/custom.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/dotfiles/hypr/conf/custom.conf ]; then
                 cp ~/dotfiles/hypr/conf/custom.conf ~/dotfiles-versions/$version/hypr/conf/
