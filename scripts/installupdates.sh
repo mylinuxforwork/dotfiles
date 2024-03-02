@@ -31,15 +31,14 @@ _isInstalledYay() {
 
 if gum confirm "DO YOU WANT TO START THE UPDATE NOW?" ;then
     echo 
-    echo "Update started."
+    echo ":: Update started."
 elif [ $? -eq 130 ]; then
         exit 130
 else
     echo
-    echo "Update canceled."
+    echo ":: Update canceled."
     exit;
 fi
-echo ""
 
 if [[ $(_isInstalledYay "timeshift") == "0" ]] ;then
     if gum confirm "DO YOU WANT TO CREATE A SNAPSHOT?" ;then
@@ -48,13 +47,13 @@ if [[ $(_isInstalledYay "timeshift") == "0" ]] ;then
         sudo timeshift --create --comments "$c"
         sudo timeshift --list
         sudo grub-mkconfig -o /boot/grub/grub.cfg
-        echo "DONE. Snapshot $c created!"
+        echo ":: DONE. Snapshot $c created!"
         echo
     elif [ $? -eq 130 ]; then
-        echo "Snapshot canceled."
+        echo ":: Snapshot canceled."
         exit 130
     else
-        echo "Snapshot canceled."
+        echo ":: Snapshot canceled."
     fi
     echo
 fi
@@ -62,3 +61,6 @@ fi
 yay
 
 notify-send "Update complete"
+echo 
+echo ":: Update complete"
+sleep 2
