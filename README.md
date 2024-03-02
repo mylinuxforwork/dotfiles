@@ -22,10 +22,12 @@ The dotfiles are tested with the following Arch based distributions:
 
 - Arch Linux (recommended)
 - EndeavourOS
-- Manjaro Linux
 - Arco Linux
+- Manjaro Linux
 
 The installation should work on all Arch Linux based distributions as well.
+
+For Manjaro users: Hyprland and required components are under ongoing development. That's why it's possible that some packages are not immediatly available on Manjaro e.g., hyprlock or hypridle. But usually, the packages will be published later.
 
 For Arco Linux users: Please reinstall/force the installation of all packages during the installation/update process of the install script. The script will also offer to remove ttf-ms-fonts if installed to avoid issues with icons on waybar. 
 
@@ -171,6 +173,14 @@ The dotfiles package also includes a configuration for the SDDM theme sdd-sugar-
 With the Hyprland settings script you can copy the current wallpaper into SDDM and use it as a background.
 
 Please check the troubleshooting section in case of issues.
+
+## Screenlock and suspend
+
+Hypridle will start Hyprlock after 10 minutes of inactivity and will try to suspend one minutes later.
+
+When you're using a desktop computer you can switch from laptop mode to desktop mode by uncomment the corresponding lines in this file
+
+https://gitlab.com/stephan-raabe/dotfiles/-/blob/dev/hypr/hypridle.conf
 
 ## Installation in a KVM virtual machine
 
