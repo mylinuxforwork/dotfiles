@@ -180,6 +180,8 @@ Hypridle will start Hyprlock after 10 minutes of inactivity and will try to susp
 
 In the ML4W welcome app you can switch between a Laptop (systemctl) and Desktop PC configuration (dpms). The prepared hypridle templates are stored in /hypr/conf/hypridle/ and will overwrite the file /hypr/hypridle.conf
 
+The selected hypridle configuration can be restored from the ML4W installer during a dotfiles update.
+
 ## Installation in a KVM virtual machine
 
 Qtile X11 works fine in a KVM virtual machine. The Hyprland performance is low but it's enough for testing new features.
