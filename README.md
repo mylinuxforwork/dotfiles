@@ -178,9 +178,7 @@ Please check the troubleshooting section in case of issues.
 
 Hypridle will start Hyprlock after 10 minutes of inactivity and will try to suspend one minutes later.
 
-When you're using a desktop computer you can switch from laptop mode to desktop mode by uncomment the corresponding lines in this file
-
-https://gitlab.com/stephan-raabe/dotfiles/-/blob/dev/hypr/hypridle.conf
+In the ML4W welcome app you can switch between a Laptop (systemctl) and Desktop PC configuration (dpms). The prepared hypridle templates are stored in /hypr/conf/hypridle/ and will overwrite the file /hypr/hypridle.conf
 
 ## Installation in a KVM virtual machine
 
