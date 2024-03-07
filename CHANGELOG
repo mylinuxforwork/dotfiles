@@ -1,3 +1,11 @@
+Version 2.8.3
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.3
+--------------------------------------------------------
+- New ML4W Dotfiles Settings App based on GTK4
+- Hyprlock now using a blurred version of the current wallpaper as background
+- Hyprlock is now showing the current time
+- Rofi now uses a blurred version of the current wallpaper as background
+
 Version 2.8.2.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.2
 --------------------------------------------------------

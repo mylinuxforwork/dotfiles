@@ -31,29 +31,9 @@ else
     echo "bluetooth.service activated successfully."    
 fi
 
-if [ -d ~/dotfiles/hypr/settings/modules/waybar/defaults ] ;then
-    rm -rf ~/dotfiles/hypr/settings/modules/waybar/defaults
-    echo "~/dotfiles/hypr/settings/modules/waybar/defaults removed."
-fi
-
-if [ -d ~/dotfiles/hypr/settings/modules/sddm ] ;then
-    rm -rf ~/dotfiles/hypr/settings/modules/sddm
-    echo "~/dotfiles/hypr/settings/modules/sddm removed."
-fi
-
-if [ -d ~/dotfiles/hypr/settings/modules/appearance/wallpaper ] ;then
-    rm -rf ~/dotfiles/hypr/settings/modules/appearance/wallpaper
-    echo "~/dotfiles/hypr/settings/modules/appearance/wallpaper removed."
-fi
-
-if [ -d ~/dotfiles/hypr/settings/modules/system/swaylock ] ;then
-    rm -rf ~/dotfiles/hypr/settings/modules/system/swaylock
-    echo "~/dotfiles/hypr/settings/modules/system/swaylock removed."
-fi
-
-if [ -d ~/dotfiles/hypr/settings/modules/waybar/bluetooth ] ;then
-    rm -rf ~/dotfiles/hypr/settings/modules/waybar/bluetooth
-    echo "~/dotfiles/hypr/settings/modules/waybar/bluetooth removed."
+if [ -d ~/dotfiles/hypr/settings/ ] ;then
+    rm -rf ~/dotfiles/hypr/settings
+    echo "~/dotfiles/hypr/settings removed."
 fi
 
 # Create default folder structure

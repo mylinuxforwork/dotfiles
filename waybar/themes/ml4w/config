@@ -10,17 +10,9 @@
 //
 {
     // General Settings
-
-    // Position TOP
     "layer": "top",
     "margin-top": 14,
     "margin-bottom": 0,
-
-    // Position BOTTOM
-    // "position": "bottom",
-    // "margin-top": 0,
-    // "margin-bottom": 14,
-    
     "layer": "top",
     "margin-left": 0,
     "margin-right": 0,    
@@ -33,11 +25,10 @@
     "modules-left": [
         "custom/appmenu",
         "group/settings",
-        // START TASK TOOGLE
         "wlr/taskbar",
-        // END TASK TOOGLE
         "group/quicklinks",
-        "hyprland/window"
+        "hyprland/window",
+        "custom/empty"
     ],
 
     // Modules Center
@@ -49,21 +40,13 @@
     "modules-right": [
         "custom/updates",
         "pulseaudio",
-        // START BT TOOGLE
         "bluetooth",
-        // END BT TOOGLE
         "battery", 
-        // START NETWORK TOOGLE
         "network",
-        // END NETWORK TOOGLE
         "group/hardware",
         "custom/cliphist",
-        // START IDLE TOOGLE
         "idle_inhibitor",
-        // END IDLE TOOGLE
-        // START TRAY TOOGLE
         "tray",
-        // END TRAY TOOGLE
         "custom/exit",
         "custom/ml4w-welcome",
         "clock"

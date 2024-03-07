@@ -10,16 +10,8 @@
 //
 {
     // General Settings
-
-    // Position TOP
     "layer": "top",
     "margin-bottom": 0,
-
-    // Position BOTTOM
-    // "position": "bottom",
-    // "margin-top": 0,
-    // "margin-bottom": 14,
-    
     "layer": "top",
     "margin-left": 0,
     "margin-right": 0,    
@@ -38,30 +30,23 @@
 
     // Modules Center
     "modules-center": [
-        "hyprland/window"
+        "hyprland/window",
+        "custom/empty"
     ],
 
     // Modules Right    
     "modules-right": [
         "custom/updates",
         "pulseaudio",
-        // START BT TOOGLE
         "bluetooth",
-        // END BT TOOGLE
         "battery", 
-        // START NETWORK TOOGLE
         "network",
-        // END NETWORK TOOGLE
         "group/hardware",
         "custom/cliphist",
-        // START IDLE TOOGLE
         "idle_inhibitor",
-        // END IDLE TOOGLE
         "custom/exit",
         "clock",
-        // START TRAY TOOGLE
         "tray",
-        // END TRAY TOOGLE
         "custom/ml4w-welcome"
     ]
 }

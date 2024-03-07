@@ -73,6 +73,7 @@ fi
 if [[ $profile == *"Qtile"* ]]; then
     source .install/qtile-dotfiles.sh
 fi
+source .install/settings.sh
 source .install/apps.sh
 source .install/gtk.sh
 source .install/bashrc.sh
