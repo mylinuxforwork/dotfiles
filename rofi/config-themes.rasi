@@ -12,7 +12,7 @@
 /* ---- Configuration ---- */
 configuration {
     modi:                       "drun,run";
-    font:                       "Fira Sans Bold 10";
+    font:                       "Fira Sans 11";
     show-icons:                 true;
     icon-theme:                 "kora";
     display-drun:               "APPS";

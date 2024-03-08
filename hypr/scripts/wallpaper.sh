@@ -92,8 +92,11 @@ swww img $wallpaper \
 
 # ----------------------------------------------------- 
 # Created blurred wallpaper
-# ----------------------------------------------------- 
-magick $wallpaper -blur 0x20 $blurred
+# -----------------------------------------------------
+magick $wallpaper -resize 50% $blurred
+echo ":: Resized to 50%"
+magick $blurred -blur 0x20 $blurred
+echo ":: Blurred"
 
 # ----------------------------------------------------- 
 # Write selected wallpaper into .cache files
