@@ -74,8 +74,10 @@ newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
 # ----------------------------------------------------- 
 # Created blurred wallpaper
 # ----------------------------------------------------- 
-magick $wallpaper -blur 0x20 $blurred
-
+magick $wallpaper -resize 50% $blurred
+echo ":: Resized to 50%"
+magick $blurred -blur 50x30 $blurred
+echo ":: Blurred"
 # ----------------------------------------------------- 
 # Write selected wallpaper into .cache files
 # ----------------------------------------------------- 
