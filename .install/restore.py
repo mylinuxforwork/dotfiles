@@ -31,15 +31,11 @@ class ML4WRestore:
         "waybar_custom_timedateformat": "",
         "waybar_workspaces": 5,
         "rofi_bordersize": 3,
-        "waybar_toggle": True,
         "waybar_network": True,
         "waybar_chatgpt": True,
         "waybar_systray": True,
         "waybar_screenlock": True,
-        "waybar_window": True,
-        "hypridle_hyprlock_timeout": 600,
-        "hypridle_dpms_timeout": 680,
-        "hypridle_suspend_timeout": 1800        
+        "waybar_window": True
     }    
 
     path_name = pathname # Path of Application
