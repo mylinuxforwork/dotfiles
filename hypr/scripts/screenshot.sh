@@ -21,12 +21,16 @@ choice=$(echo -e "$options" | rofi -dmenu -replace -config ~/dotfiles/rofi/confi
 
 case $choice in
     $option2)
-        grim -g "$(slurp)" - | swappy -f -
-        notify-send "Screenshot created" "Mode: Selected area"
+        grim -g "$(slurp)" "$DIR$NAME"
+        xclip -selection clipboard -t image/png -i "$DIR$NAME"
+        notify-send "Screenshot created and copied to clipboard" "Mode: Selected area"
+        swappy -f "$DIR$NAME"
     ;;
     $option3)
         sleep 3
-        grim - | swappy -f -
-        notify-send "Screenshot created" "Mode: Fullscreen"
+        grim "$DIR$NAME" 
+        xclip -selection clipboard -t image/png -i "$DIR$NAME"
+        notify-send "Screenshot created and copied to clipboard" "Mode: Fullscreen"
+        swappy -f "$DIR$NAME"
     ;;
 esac
