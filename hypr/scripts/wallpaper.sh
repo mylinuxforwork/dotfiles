@@ -13,6 +13,10 @@
 cache_file="$HOME/.cache/current_wallpaper"
 blurred="$HOME/.cache/blurred_wallpaper.png"
 rasi_file="$HOME/.cache/current_wallpaper.rasi"
+blur_file="$HOME/dotfiles/.settings/blur.sh"
+
+blur="50x30"
+blur=$(cat $blur_file)
 
 # Create cache file if not exists
 if [ ! -f $cache_file ] ;then
@@ -95,7 +99,7 @@ swww img $wallpaper \
 # -----------------------------------------------------
 magick $wallpaper -resize 50% $blurred
 echo ":: Resized to 50%"
-magick $blurred -blur 50x30 $blurred
+magick $blurred -blur $blur $blurred
 echo ":: Blurred"
 
 # ----------------------------------------------------- 

@@ -21,8 +21,11 @@ _showRestoreOptions() {
     fi
     if [[ $profile == *"Hyprland"* ]]; then
         if [ -f ~/dotfiles/hypr/hypridle.conf ]; then
-            restorelist+="~/dotfiles/hypr/hypridle.conf "
-            selectedlist+="~/dotfiles/hypr/hypridle.conf,"
+            if grep -Fxq "# Version 2.8.3" ~/dotfiles/hypr/hypridle.conf
+            then
+                restorelist+="~/dotfiles/hypr/hypridle.conf "
+                selectedlist+="~/dotfiles/hypr/hypridle.conf,"
+            fi        
         fi
         if [ -f ~/dotfiles/hypr/conf/custom.conf ]; then
             restorelist+="~/dotfiles/hypr/conf/custom.conf "
