@@ -6,6 +6,11 @@ An advanced configuration of Hyprland and Qtile for Arch Linux based distributio
 
 You can find the installation video (Version 2.7.1) on YouTube: <a href="https://youtu.be/kHG5czrQ7WA" target="_blank">Install Arch Linux with Hyprland & Qtile</a>
 
+The ML4W Dotfiles are available as 
+
+- main release (Official release): https://gitlab.com/stephan-raabe/dotfiles
+- rolling release (Development release): https://gitlab.com/stephan-raabe/dotfiles/-/tree/dev
+
 [TOC]
 
 # Installation

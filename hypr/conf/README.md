@@ -2,6 +2,8 @@
 
 With configuration variations, you can prepare different settings and configurations for your Hyprland installation.
 
+<img src="../../variations/variation1.png" />
+
 ## How to use configuration variations
 
 Open the ML4W dotfiles settings app via the ML4W Welcome App, the application launcher or the wheel icon in Waybar.
@@ -18,7 +20,7 @@ You can find several variation within the three settings pages.
 
 Select the variation that you want to use from the corresponding drop down menu.
 
-Please don't edit the shipped configuration variations. These will be overwritten with every update of the ML4W dotfiles. Create your own custom variation instead.
+Please don't edit the shipped configuration variations. These will be overwritten with every update of the ML4W dotfiles. <b>Create your own custom variation instead.</b>
 
 ## Create your own variation
 
@@ -26,12 +28,18 @@ Open the ML4W dotfiles settings app via the ML4W Welcome App, the application la
 
 Select "Open Variation Folder" from the variation context menu.
 
-Copy an existing variation as a starting point.
+<img src="../../variations/variation1.png" />
 
-Rename the new file accordingly.
+Copy an existing variation as a starting point and rename the new file accordingly.
+
+<img src="../../variations/variation2.png" />
 
 Edit the configuration of your new variation and save.
 
-Go back to the ML4W dotfiles settings app and select "Reload Variations" from the variation context menu.
+Go back to the ML4W dotfiles settings app and select "Reload Variations" from the variation context menu and select your new variation.
 
-Select your new variation.
+<img src="../../variations/variation3.png" />
+
+You can also modify teh variation from the settings app directly.
+
+<img src="../../variations/variation4.png" />
