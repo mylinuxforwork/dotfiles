@@ -40,6 +40,6 @@ Go back to the ML4W dotfiles settings app and select "Reload Variations" from th
 
 <img src="https://gitlab.com/stephan-raabe/dotfiles/-/blob/dev/screenshots/variations/variations3.png" />
 
-You can also modify teh variation from the settings app directly.
+You can also modify the variation from the settings app directly.
 
 <img src="https://gitlab.com/stephan-raabe/dotfiles/-/blob/dev/screenshots/variations/variations4.png" />
