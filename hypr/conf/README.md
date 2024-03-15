@@ -28,18 +28,18 @@ Open the ML4W dotfiles settings app via the ML4W Welcome App, the application la
 
 Select "Open Variation Folder" from the variation context menu.
 
-<img src="https://gitlab.com/stephan-raabe/dotfiles/-/blob/dev/screenshots/variations/variations1.png" />
+<img src="../../screenshots/variations/variations1.png" />
 
 Copy an existing variation as a starting point and rename the new file accordingly.
 
-<img src="https://gitlab.com/stephan-raabe/dotfiles/-/blob/dev/screenshots/variations/variations2.png" />
+<img src="../../screenshots/variations/variations2.png" />
 
 Edit the configuration of your new variation and save.
 
 Go back to the ML4W dotfiles settings app and select "Reload Variations" from the variation context menu and select your new variation.
 
-<img src="https://gitlab.com/stephan-raabe/dotfiles/-/blob/dev/screenshots/variations/variations3.png" />
+<img src="../../screenshots/variations/variations3.png" />
 
 You can also modify the variation from the settings app directly.
 
-<img src="https://gitlab.com/stephan-raabe/dotfiles/-/blob/dev/screenshots/variations/variations4.png" />
+<img src="../../screenshots/variations/variations4.png" />
