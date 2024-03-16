@@ -30,7 +30,7 @@ Select "Open Variation Folder" from the variation context menu.
 
 <img src="https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/screenshots/variations/variations1.png" />
 
-Copy an existing variation as a starting point and rename the new file accordingly.
+Copy an existing variation as a starting point and rename the new file accordingly. 
 
 <img src="https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/screenshots/variations/variations2.png" />
 
