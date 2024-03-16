@@ -2,7 +2,7 @@
 
 With configuration variations, you can prepare different settings and configurations for your Hyprland installation.
 
-<img src="../../screenshots/variations/variation1.png" />
+<img src="https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/screenshots/variations/variations1.png" />
 
 ## How to use configuration variations
 
