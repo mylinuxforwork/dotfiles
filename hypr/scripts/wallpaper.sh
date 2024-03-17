@@ -97,9 +97,7 @@ swww img $wallpaper \
 # ----------------------------------------------------- 
 # Created blurred wallpaper
 # -----------------------------------------------------
-magick $wallpaper -resize 50% $blurred
-echo ":: Resized to 50%"
-magick $blurred -blur $blur $blurred
+magick $wallpaper -blur $blur $blurred
 echo ":: Blurred"
 
 # ----------------------------------------------------- 
