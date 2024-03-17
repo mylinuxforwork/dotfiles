@@ -8,7 +8,7 @@ monitorrestored=0
 
 _showRestoreOptions() {
     echo "The following configurations can be transferred into the new installation."
-    echo "(SPACE = select/unselect a profile. RETURN = confirm. No selection = CANCEL)"
+    echo "(SPACE = select/unselect a profile. RETURN = confirm. ESC/No selection = Skip Restore)"
     echo ""
     restorelist=""
     if [ -f ~/dotfiles/.bashrc ]; then
@@ -75,18 +75,18 @@ _showRestoreOptions() {
         echo "Selected to restore:" 
         echo "$restoreselect"
         echo ""
-        confirmrestore=$(gum choose "Start restore" "Change restore" "Cancel restore")
+        confirmrestore=$(gum choose "Start restore" "Change restore" "Skip restore")
         if [ "$confirmrestore" == "Start restore" ] ;then
             _startRestore
         elif [ "$confirmrestore" == "Change restore" ]; then 
             _showRestoreOptions
         else
-            echo "Restore skipped."
+            echo ":: Restore skipped."
             return 0
         fi
     else
         echo "No files selected to restore."
-        confirmrestore=$(gum choose "Change restore" "Cancel restore")
+        confirmrestore=$(gum choose "Change restore" "Skip restore")
         if [ -z "${confirmrestore}" ] ;then
             echo "Installation canceled."
             exit
@@ -95,7 +95,7 @@ _showRestoreOptions() {
             echo ""
             _showRestoreOptions
         else
-            echo "Restore skipped."
+            echo ":: Restore skipped."
             return 0
         fi
     fi
@@ -110,7 +110,7 @@ _startRestore() {
     fi
     if [[ $restoreselect == *"~/dotfiles/.settings"* ]] || [[ $restoreselect == *"All"* ]] ; then
         if [ -d ~/dotfiles/.settings ]; then
-            rsync -a -I ~/dotfiles/.settings/ ~/dotfiles-versions/$version/.settings/
+            rsync -avhp -I ~/dotfiles/.settings/ ~/dotfiles-versions/$version/.settings/
             echo ":: .settings restored!"
         fi
     fi
@@ -189,15 +189,14 @@ _startRestore() {
 }
 
 if [ -d ~/dotfiles ]; then
-
-echo -e "${GREEN}"
-figlet "Restore"
-echo -e "${NONE}"
-    restored=0
-    echo "The script will try to restore existing configurations."
-    echo "PLEASE NOTE: Restoring is not possible with version < 2.6 of the dotfiles."
-    echo "In that case, please use the automated backup or create your own backup manually."
-    echo ""
-    _showRestoreOptions
-    echo ""
+    echo -e "${GREEN}"
+    figlet "Restore"
+    echo -e "${NONE}"
+        restored=0
+        echo "The script will try to restore existing configurations."
+        echo "PLEASE NOTE: Restoring is not possible with version < 2.6 of the dotfiles."
+        echo "In that case, please use the automated backup or create your own backup manually."
+        echo ""
+        _showRestoreOptions
+        echo ""
 fi
