@@ -97,8 +97,13 @@ swww img $wallpaper \
 # ----------------------------------------------------- 
 # Created blurred wallpaper
 # -----------------------------------------------------
-magick $wallpaper -blur $blur $blurred
-echo ":: Blurred"
+magick $wallpaper -resize 75% $blurred
+echo ":: Resized to 75%"
+if [ ! "$blur" == "0x0" ] ;then
+    magick $blurred -blur $blur $blurred
+    echo ":: Blurred"
+fi
+
 
 # ----------------------------------------------------- 
 # Write selected wallpaper into .cache files
@@ -113,7 +118,6 @@ echo "* { current-image: url(\"$blurred\", height); }" > "$rasi_file"
 if [ "$1" == "init" ] ;then
     echo ":: Init"
 else
-    sleep 1
     notify-send "Colors and Wallpaper updated" "with image $newwall"
 fi
 
