@@ -42,6 +42,8 @@ PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING TH
 
 The installation script will create a backup from an previous dotfiles installation.
 
+If possible, please create a snapshot of your current system if snapper or Timeshift is installed and available.
+
 ## Reference Installation
 
 The reference installation for the ML4W dotfiles is based on Arch Linux installed with archinstal and the minimal profile. 
