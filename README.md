@@ -4,7 +4,9 @@ An advanced configuration of Hyprland and Qtile for Arch Linux based distributio
 
 <a href="screenshots/v283/screenshot-283-2.png?ref_type=heads" target="_blank"><img src="screenshots/v283/screenshot-283-2.png" /></a>
 
-You can find the installation video (Version 2.7.1) on YouTube: <a href="https://youtu.be/kHG5czrQ7WA" target="_blank">Install Arch Linux with Hyprland & Qtile</a>
+You can find the overview video (Version 2.8.3) on Youtube: <a href="https://youtu.be/zM2AYue0o8s" target="_blank">ML4W Dotfiles 2.8.3</a>
+
+You can find the installation video (Version 2.8.2) on YouTube: <a href="https://youtu.be/n6Yg232bCOU" target="_blank">Install/Update the ML4W Dotfiles</a>
 
 The ML4W Dotfiles are available as 
 
@@ -265,6 +267,9 @@ You can create custom variations by copying a file from the ~/dotfiles/hypr/conf
 The ML4W Dotfiles Settings App replaces strings from several configuration files directly or based on replacement comments e.g., // START WORKSPACES That's why you shouldn't remove any of theses comments or markers to ensure full functionality of the app.
 
 You can also edit the file custom.conf which is included at the bottom of the hyprland.conf and can hold you personal configurations.
+
+You can find the sourcecode of the ML4W Dotfiles Settings App in this repository:
+https://gitlab.com/stephan-raabe/ml4w-dotfiles-settings
 
 ## Wallpaper and Pywal
 
