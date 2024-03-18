@@ -2,7 +2,7 @@ Version 2.8.3
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.3
 --------------------------------------------------------
 - New ML4W Dotfiles Settings App based on GTK4 with many new customization options
-- Hyprlock with blurred version of the current wallpaper as background
+- Hyprlock with blurred version of the current wallpaper as background. Blur strength can be adjusted in the ML4W Dotfiles Settings app
 - Hyprlock now showing the current time and username
 
 Version 2.8.2.1
