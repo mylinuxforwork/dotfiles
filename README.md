@@ -1,4 +1,4 @@
-# ML4W dotfiles 2.8.3 RC3
+# ML4W dotfiles 2.8.3
 
 An advanced configuration of Hyprland and Qtile for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
@@ -259,6 +259,8 @@ You can open the ML4W dotfiles settings app with <kbd>SUPER</kbd> + <kbd>CTRL</k
 <img src="screenshots/screenshot-dotfiles-settings-app.png" />
 
 You can create custom variations by copying a file from the ~/dotfiles/hypr/conf subfolders like monitor/default.conf, give the file a custom name (e.g., mymonitor.conf) and select the variation in the dotfiles settings app in the corresponding section.
+
+The ML4W Dotfiles Settings App replaces strings from several configuration files directly or based on replacement comments e.g., // START WORKSPACES That's why you shouldn't remove any of theses comments or markers to ensure full functionality of the app.
 
 You can also edit the file custom.conf which is included at the bottom of the hyprland.conf and can hold you personal configurations.
 
