@@ -51,6 +51,12 @@ If possible, please create a snapshot of your current system if snapper or Times
 The easiest way to install the ML4W Dotfiles is to use the ML4W Dotfiles Installer App. <a href="https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage">You can download the app here.</a> (Right click + Save link as...)
 
 ```
+# Change to the download location (normally the Downloads folder)
+cd ~/Downloads
+
+# Make the file executable
+chmod +x ML4W_Dotfiles_Installer.AppImage
+
 # Start the App from your terminal with
 ./ML4W_Dotfiles_Installer.AppImage
 ```
