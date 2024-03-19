@@ -1,4 +1,4 @@
-# ML4W dotfiles 2.8.3
+# ML4W Dotfiles 2.8.3.1
 
 An advanced configuration of Hyprland and Qtile for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
@@ -46,13 +46,18 @@ The installation script will create a backup from an previous dotfiles installat
 
 If possible, please create a snapshot of your current system if snapper or Timeshift is installed and available.
 
-## Reference Installation
+## ML4W Installer App
 
-The reference installation for the ML4W dotfiles is based on Arch Linux installed with archinstal and the minimal profile. 
+The easiest way to install the ML4W Dotfiles is to use the ML4W Dotfiles Installer App. <a href="https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/apps/ML4W_Dotfiles_Installer.AppImage">You can download the app here.</a> (Right click + Save link as...)
 
-Please watch the video on YouTube: https://youtu.be/kHG5czrQ7WA
+```
+# Start the App from your terminal with
+./ML4W_Dotfiles_Installer.AppImage
+```
 
 ## Installation with GIT
+
+You can also install the dotfiles by cloning the latest main release:
 
 ```
 # 1.) Change into your Downloads folder (create the folder if not available)
@@ -70,6 +75,8 @@ cd dotfiles
 ```
 
 ## Installation with GIT of the rolling release
+
+You can install the dotfiles by cloning the latest development version from the rolling release:
 
 ```
 # 1.) Change into your Downloads folder (create the folder if not available)
@@ -120,10 +127,6 @@ cd dotfiles
 ./install.sh
 
 ```
-
-## ML4W dotfiles Installer
-
-You can also use the ML4W dotfiles installer script to download and install the latest release: https://gitlab.com/stephan-raabe/installer
 
 ## Installation Hook
 

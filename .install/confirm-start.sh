@@ -2,9 +2,7 @@
 # Confirm Start
 # ------------------------------------------------------
 
-echo "IMPORTANT: Please make sure that your system and your packages are up to date (sudo pacman -Syu or yay)."
 echo "You can cancel the installation at any time with CTRL + C"
-echo "If you have already installed a window manager like sway, please backup your .config folder."
 SCRIPT=$(realpath "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 if [ $SCRIPTPATH = "/home/$USER/dotfiles" ]; then
@@ -17,21 +15,21 @@ if [ $SCRIPTPATH = "/home/$USER/dotfiles" ]; then
     fi
 fi
 if [ ! -d ~/dotfiles ];then
-    if gum confirm "DO YOU WANT TO START THE INSTALLATION NOW?" ;then
+    if gum confirm "DO YOU WANT TO START THE INSTALLATION OF THE ML4W DOTFILES NOW?" ;then
         echo "Installation started."
     elif [ $? -eq 130 ]; then
             exit 130
     else
-        echo "Installation canceled."
+        echo ":: Installation canceled."
         exit;
     fi
 else
-    if gum confirm "DO YOU WANT TO START THE UPDATE NOW?" ;then
-        echo "Update started."
+    if gum confirm "DO YOU WANT TO START THE UPDATE OF YOUR ML4W DOTFILES NOW?" ;then
+        echo ":: Update started."
     elif [ $? -eq 130 ]; then
             exit 130
     else
-        echo "Update canceled."
+        echo ":: Update canceled."
         exit;
     fi
 fi

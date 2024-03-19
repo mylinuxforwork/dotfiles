@@ -36,6 +36,7 @@ echo ""
 source .install/required.sh
 source .install/confirm-start.sh
 source .install/yay.sh
+source .install/updatesystem.sh
 source .install/backup.sh
 source .install/preparation.sh
 source .install/installer.sh
