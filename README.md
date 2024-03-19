@@ -48,7 +48,7 @@ If possible, please create a snapshot of your current system if snapper or Times
 
 ## ML4W Installer App
 
-The easiest way to install the ML4W Dotfiles is to use the ML4W Dotfiles Installer App. <a href="https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/apps/ML4W_Dotfiles_Installer.AppImage">You can download the app here.</a> (Right click + Save link as...)
+The easiest way to install the ML4W Dotfiles is to use the ML4W Dotfiles Installer App. <a href="https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage">You can download the app here.</a> (Right click + Save link as...)
 
 ```
 # Start the App from your terminal with
