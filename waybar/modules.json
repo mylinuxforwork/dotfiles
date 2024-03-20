@@ -184,7 +184,7 @@
         // START APPS LABEL
         "format": "Apps",
         // END APPS LABEL
-        "on-click": "rofi -show drun -replace",
+        "on-click": "sleep 0.2;rofi -show drun -replace",
         "on-click-right": "~/dotfiles/hypr/scripts/keybindings.sh",
         "tooltip": false
     },
