@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Remove Rofi
+if [[ $(_isInstalledPacman "rofi") == 0 ]]; then
+    sudo pacman --noconfirm -Rns rofi
+    echo ":: rofi removed"
+    echo
+fi
+
 # Remove Swayidle
 if [[ $(_isInstalledPacman "swayidle") == 0 ]]; then
     sudo pacman --noconfirm -Rns swayidle

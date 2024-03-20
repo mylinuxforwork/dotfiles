@@ -7,7 +7,6 @@ packagesPacman=(
     "wget"
     "unzip"
     "alacritty" 
-    "rofi" 
     "chromium" 
     "dunst" 
     "starship"
@@ -59,4 +58,5 @@ packagesYay=(
     "bibata-cursor-theme" 
     "trizen"
     "pacseek"
+    "rofi-lbonn-wayland"
 );

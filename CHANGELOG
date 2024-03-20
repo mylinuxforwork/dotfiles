@@ -1,3 +1,8 @@
+Version 2.8.3.2
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.3.2
+--------------------------------------------------------
+- Replace rofi with rofi-lbonn-wayland to get rofi wayland support
+
 Version 2.8.3.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.3.1
 --------------------------------------------------------
