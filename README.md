@@ -282,6 +282,16 @@ You can also edit the file custom.conf which is included at the bottom of the hy
 You can find the sourcecode of the ML4W Dotfiles Settings App in this repository:
 https://gitlab.com/stephan-raabe/ml4w-dotfiles-settings
 
+## Hyprland Configuration Variations
+
+With configuration variations, you can customize settings and configurations for your Hyprland installation. You can manage, create and edit Hyprland Configuration Variations in the ML4W Dotfiles Settings App.
+
+<img src="https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/screenshots/variations/variations1.png" />
+
+[You can find more information here.](hypr/conf/README.md)
+
+> Please don't edit the shipped configuration variations. These will be overwritten with every update of the ML4W dotfiles. <b>Create your own custom variation instead.</b>
+
 ## Wallpaper and Pywal
 
 Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> you can change the wallpaper coming from the folder ~/wallpaper/. 
