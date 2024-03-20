@@ -8,6 +8,8 @@ You can find the overview video (Version 2.8.3) on Youtube: <a href="https://you
 
 You can find the installation video (Version 2.8.2) on YouTube: <a href="https://youtu.be/n6Yg232bCOU" target="_blank">Install/Update the ML4W Dotfiles</a>
 
+PLEASE NOTE: In case of issues with the latest Hyprland versio 0.37.1, please update your ML4W Dotfiles installation to the latest version. See the troubleshooting section for more information.
+
 The ML4W Dotfiles are available as 
 
 - main release (Official release): https://gitlab.com/stephan-raabe/dotfiles
@@ -349,6 +351,21 @@ Included is a pywal configuration that changes the color scheme based on a rando
 - Screenshots: scrot
 
 # Troubleshooting
+
+## Issues after Hyprland 0.37.1 Updates
+
+Hyprland has released the version 0.37.1. This comes with many changes of the system and required dependencies.
+
+Please update to the latest version of the ML4W Dotfiles 2.8.3.2
+
+If you don't have access to Waybar because of overlayed error messages you can start the ML4W app with the application launcher <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>RETURN</kbd> and search for the ML4W Welcome App.
+
+Or you open a terminal with <kbd>SUPER</kbd> + <kbd>RETURN</kbd> and enter
+
+```
+ml4w
+```
+Then select in the upper right side menu the entry "Update/ Dotfiles"
 
 ## hypridle and hyprlock is not starting after an update of the dotfiles
 
