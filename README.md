@@ -225,9 +225,9 @@ If you want to install only the core packages of Hyprland as a starting point fo
 - <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd>: Reload waybar on Hyprland
 
 All keybindings for Hyprland with right mouse click on Apps in waybar or here: 
-https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/conf/keybindings.conf
 
-All keybindings for Qtile: https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/qtile/config.py
+- [Hyprland keybindings overview](hypr/conf/keybindings.conf)
+- [Qtile keybindings overview](qtile/config.py)
 
 # Hyprland
 
@@ -304,7 +304,7 @@ In addition, you can switch the Waybar Template with <kbd>SUPER</kbd> + <kbd>CTR
 
 The templates are available in ~/dotfiles/waybar/themes. You can add your own personal themes into this folder. 
 
-More information here: https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/waybar
+[You can find more information here.](waybar/README.md)
 
 ## Screensharing and recording
 
