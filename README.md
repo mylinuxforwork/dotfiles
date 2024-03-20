@@ -8,7 +8,7 @@ You can find the overview video (Version 2.8.3) on Youtube: [ML4W Dotfiles 2.8.3
 
 You can find the installation video (Version 2.8.2) on YouTube: [Install/Update the ML4W Dotfiles](https://youtu.be/n6Yg232bCOU)
 
-> PLEASE NOTE: In case of issues with the latest Hyprland versio 0.37.1, please update your ML4W Dotfiles installation to the latest version. See the troubleshooting section for more information.
+> PLEASE NOTE: In case of issues with the latest Hyprland version 0.37.1, please update your ML4W Dotfiles installation to the latest version. See the troubleshooting section for more information.
 
 The ML4W Dotfiles are available as 
 
