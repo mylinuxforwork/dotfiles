@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Remove Rofi Calc
+if [[ $(_isInstalledPacman "rofi-calc") == 0 ]]; then
+    sudo pacman --noconfirm -Rns rofi-calc
+    echo ":: rofi-calc removed"
+    echo
+fi
+
 # Remove Rofi
 if [[ $(_isInstalledPacman "rofi") == 0 ]]; then
     sudo pacman --noconfirm -Rns rofi
