@@ -21,7 +21,8 @@ listNames=""
 
 # ----------------------------------------------------- 
 # Read theme folder
-# ----------------------------------------------------- 
+# -----------------------------------------------------
+sleep 0.2 
 options=$(find $themes_path -maxdepth 2 -type d)
 for value in $options
 do
@@ -46,7 +47,7 @@ done
 # Show rofi dialog
 # ----------------------------------------------------- 
 listNames=${listNames::-2}
-choice=$(echo -e "$listNames" | $(sleep 0.2; rofi -dmenu -replace -config ~/dotfiles/rofi/config-themes.rasi -no-show-icons -width 30 -p "Themes" -format i))
+choice=$(echo -e "$listNames" | rofi -dmenu -replace -config ~/dotfiles/rofi/config-themes.rasi -no-show-icons -width 30 -p "Themes" -format i)
 
 # ----------------------------------------------------- 
 # Set new theme by writing the theme information to ~/.cache/.themestyle.sh
