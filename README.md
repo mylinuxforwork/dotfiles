@@ -226,7 +226,7 @@ If you want to install only the core packages of Hyprland as a starting point fo
 
 All keybindings for Hyprland with right mouse click on Apps in waybar or here: 
 
-- [Hyprland keybindings overview](hypr/conf/keybindings.conf)
+- [Hyprland keybindings overview](hypr/conf/keybinding.conf)
 - [Qtile keybindings overview](qtile/config.py)
 
 # Hyprland
