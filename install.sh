@@ -64,6 +64,7 @@ source .install/displaymanager.sh
 source .install/issue.sh
 source .install/restore.sh
 source .install/keyboard.sh
+source .install/neovim.sh
 source .install/vm.sh
 source .install/hook.sh
 source .install/copy.sh
@@ -79,10 +80,5 @@ source .install/apps.sh
 source .install/gtk.sh
 source .install/bashrc.sh
 source .install/cleanup.sh
-
-echo -e "${GREEN}"
-figlet "Done"
-echo -e "${NONE}"
-echo "Please reboot your system!"
-echo
+source .install/reboot.sh
 sleep 3
