@@ -1,4 +1,4 @@
-# ML4W Dotfiles 2.8.3.1
+# ML4W Dotfiles 2.8.3.2
 
 An advanced configuration of Hyprland and Qtile for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
@@ -307,7 +307,7 @@ Please note that every Arch Linux system is different and I cannot guarantee tha
 - Editor: nvim
 - Prompt: starship
 - Icons: Font Awesome
-- Launch Menus: Rofi
+- Launch Menus: Rofi (Wayland fork)
 - Colorscheme: pywal
 - Browsers: chromium (brave optional)
 - Filemanager: Thunar
@@ -338,7 +338,7 @@ Included is a pywal configuration that changes the color scheme based on a rando
 - Editor: nvim
 - Prompt: starship
 - Icons: Font Awesome
-- Launch Menus: Rofi
+- Launch Menus: Rofi (Wayland fork)
 - Colorscheme: pywal
 - Browsers: chromium (brave optional)
 - Filemanager: Thunar
