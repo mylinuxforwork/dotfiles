@@ -27,7 +27,8 @@ by Stephan Raabe (2023)
 }
 
 window {
-	background-color: rgba(12, 12, 12, 0.1);
+	background: url("../../.cache/blurred_wallpaper.png");
+	background-size: cover;
 }
 
 button {
