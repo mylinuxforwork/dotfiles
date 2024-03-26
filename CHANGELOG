@@ -1,3 +1,8 @@
+Version 2.8.3.3
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.3.3
+--------------------------------------------------------
+- Fix swww gray backgrou issue. New command on autostart.conf is exec-once = swww-daemon &
+
 Version 2.8.3.2
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.3.2
 --------------------------------------------------------

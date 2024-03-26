@@ -21,9 +21,7 @@
 			"default": ""
         },
         "persistent-workspaces": {
-            // START WORKSPACES
-    "*": 5
-            // END WORKSPACES
+            "*": 5
         }       
     },
 
@@ -223,7 +221,6 @@
 
     // Clock
     "clock": {
-        // TIMEDATEFORMAT
         "format": "{:%H:%M %a}",
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",

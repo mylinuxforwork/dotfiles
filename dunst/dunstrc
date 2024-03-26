@@ -102,7 +102,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 1
 
     # Defines color of the frame around the notification window.
     frame_color = "#ffffff"
@@ -133,7 +133,7 @@
 
     ### Text ###
 
-    font = "Fira Sans Semibold" 11
+    font = "Fira Sans Semibold" 9
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -181,7 +181,7 @@
 
     # Vertical alignment of message text and icon.
     # Possible values are "top", "center" and "bottom".
-    vertical_alignment = top
+    vertical_alignment = center
 
     # Show age of message if message is older than show_age_threshold
     # seconds.
@@ -323,21 +323,21 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#00000070"
+    background = "#000000CC"
     foreground = "#888888"
     timeout = 6
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#00000070"
+    background = "#000000CC"
     foreground = "#ffffff"
     timeout = 6
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_critical]
-    background = "#90000070"
+    background = "#900000CC"
     foreground = "#ffffff"
     frame_color = "#ffffff"
     timeout = 6
