@@ -11,3 +11,5 @@ cat <<"EOF"
 EOF
 
 sudo pacman -Rns $(pacman -Qtdq)
+
+yay -Scc
