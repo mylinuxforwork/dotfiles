@@ -362,6 +362,18 @@ Included is a pywal configuration that changes the color scheme based on a rando
 
 # Troubleshooting
 
+## Wallpaper issues (grey or distroyed image) with latest swww 0.9.1
+
+Please install the latest version of the ML4W Dotfiles > 2.8.3.4
+
+Or replace the swww launch command in /dotfiles/hypr/conf/autostart.conf with
+
+```
+exec-once = swww init || swww-daemon --format xrgb
+```
+
+swww is currently extremly under development. Upcoming updates could require different launch commands. I will monitor the development as well and update the dotfiles accordingly.
+
 ## Issues after Hyprland 0.37.1 Updates
 
 Hyprland has released the version 0.37.1. This comes with many changes of the system and required dependencies.

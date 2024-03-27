@@ -1,14 +1,10 @@
 Version 2.8.3.4
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.3.4
 --------------------------------------------------------
-- Fix swww gray backgroud issue. New command on autostart.conf is exec-once = swww-daemon --format xrgb
+- Fix swww gray background issue. New command on autostart.conf is 
+exec-once = swww init || swww-daemon --format xrgb
 - Using blurred version of background image for wlogout
-- Add progress bar to dunst notification for wallpaper change
-
-Version 2.8.3.3
-https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.3.3
---------------------------------------------------------
-- Fix swww gray backgroud issue. New command on autostart.conf is exec-once = swww-daemon &
+- Add progress bar to dunst notification for wallpaper change and processing
 
 Version 2.8.3.2
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.3.2
