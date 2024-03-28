@@ -1,5 +1,6 @@
 packagesPacman=(
     "hyprland"
+    "hyprpaper"
     "xdg-desktop-portal-hyprland" 
     "waybar" 
     "grim" 

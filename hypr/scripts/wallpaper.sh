@@ -88,12 +88,28 @@ transition_type="wipe"
 # transition_type="outer"
 # transition_type="random"
 
-swww img $wallpaper \
-    --transition-bezier .43,1.19,1,.4 \
-    --transition-fps=60 \
-    --transition-type=$transition_type \
-    --transition-duration=0.7 \
-    --transition-pos "$( hyprctl cursorpos )"
+wallpaper_engine=$(cat $HOME/dotfiles/.settings/wallpaper-engine.sh)
+if [ "$wallpaper_engine" == "swww" ] ;then
+    # swww
+    echo ":: Using swww"
+    swww img $wallpaper \
+        --transition-bezier .43,1.19,1,.4 \
+        --transition-fps=60 \
+        --transition-type=$transition_type \
+        --transition-duration=0.7 \
+        --transition-pos "$( hyprctl cursorpos )"
+elif [ "$wallpaper_engine" == "hyprpaper" ] ;then
+    # hyprpaper
+    echo ":: Using hyprpaper"
+    killall hyprpaper
+    echo -n "" > $HOME/dotfiles/hypr/hyprpaper.conf
+    echo "preload = $wallpaper" >> $HOME/dotfiles/hypr/hyprpaper.conf
+    echo "wallpaper = ,$wallpaper" >> $HOME/dotfiles/hypr/hyprpaper.conf
+    echo "splash = false" >> $HOME/dotfiles/hypr/hyprpaper.conf
+    hyprpaper &
+else
+    echo ":: Wallpaper Engine disabled"
+fi
 
 if [ "$1" == "init" ] ;then
     echo ":: Init"
