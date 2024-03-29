@@ -5,13 +5,13 @@ echo -e "${GREEN}"
 figlet "Preparation"
 echo -e "${NONE}"
 if [ -d ~/.config ]; then
-    echo ".config folder already exists."
+    echo ":: $HOME/.config folder already exists."
 else
     mkdir ~/.config
-    echo ".config folder created."
+    echo ":: $HOME/.config folder created."
 fi
 echo
-echo ":: Preparing temporary folders for the installation."
+echo "Preparing temporary folders for the installation."
 if [ ! -d ~/dotfiles-versions ]; then
     mkdir ~/dotfiles-versions
     echo ":: ~/dotfiles-versions folder created."
@@ -32,5 +32,5 @@ if [[ $(_isFolderEmpty ~/dotfiles-versions/$version/) == 0 ]] ;then
     echo "Execution of rsync -a -I --exclude-from=.install/includes/excludes.txt . ~/dotfiles-versions/$version/ is required."
     exit
 fi
-echo ":: dotfiles $version successfully prepared in ~/dotfiles-versions/$version/"
-echo ""
+echo ":: ML4W Dotfiles $version successfully prepared in ~/dotfiles-versions/$version/"
+echo
