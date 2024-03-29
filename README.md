@@ -385,22 +385,9 @@ Or replace the swww launch command in /dotfiles/hypr/conf/autostart.conf with
 exec-once = swww init || swww-daemon --format xrgb
 ```
 
-swww is currently extremly under development. Upcoming updates could require different launch commands. I will monitor the development as well and update the dotfiles accordingly.
+> swww is currently extremly under development. Upcoming updates could require different launch commands. I will monitor the development as well and update the dotfiles accordingly.
 
-## Issues after Hyprland 0.37.1 Updates
-
-Hyprland has released the version 0.37.1. This comes with many changes of the system and required dependencies.
-
-Please update to the latest version of the ML4W Dotfiles 2.8.3.2
-
-If you don't have access to Waybar because of overlayed error messages you can start the ML4W app with the application launcher <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>RETURN</kbd> and search for the ML4W Welcome App.
-
-Or you open a terminal with <kbd>SUPER</kbd> + <kbd>RETURN</kbd> and enter
-
-```
-ml4w
-```
-Then select in the upper right side menu the entry "Update/ Dotfiles"
+You can use the ML4W Dotfiles Settings app to replace swww with hyprpaper.
 
 ## hypridle and hyprlock is not starting after an update of the dotfiles
 
@@ -456,7 +443,7 @@ sudo rm /etc/systemd/system/display-manager.service
 
 ## Waybar is not loading
 
-There could be a conflict with xdg-desktop-portal-gtk. Please try to remove the package if installed with:
+There could be a conflict with xdg-desktop-portal-gtk or xdg-desktop-portal-gnome. Please try to remove the package if installed with:
 
 ```
 sudo pacman -R xdg-desktop-portal-gtk
