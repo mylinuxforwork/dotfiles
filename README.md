@@ -1,14 +1,10 @@
-# ML4W Dotfiles 2.8.4 BETA 2
+# ML4W Dotfiles 2.8.4 RC1
 
 An advanced configuration of Hyprland and Qtile for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
 [![Screenshot](screenshots/v283/screenshot-283-2.png "Title Text")](screenshots/v283/screenshot-283-2.png)
 
 You can find the overview video (Version 2.8.3) on Youtube: [ML4W Dotfiles 2.8.3](https://youtu.be/zM2AYue0o8s)
-
-You can find the installation video (Version 2.8.2) on YouTube: [Install/Update the ML4W Dotfiles](https://youtu.be/n6Yg232bCOU)
-
-> PLEASE NOTE: In case of issues with the latest Hyprland version 0.37.1, please update your ML4W Dotfiles installation to the latest version. See the troubleshooting section for more information.
 
 The ML4W Dotfiles are available as 
 
@@ -19,11 +15,9 @@ The ML4W Dotfiles are available as
 
 # Installation
 
-To make it easy for you to get started with the ML4W dotfiles, here's a list of recommended next steps.
+The package includes an installation script that will guide you through all steps of the installation or update process.
 
-The package includes an installation script install.sh that will guide you through all steps of the installation or update process.
-
-> PLEASE NOTE: Every Linux distribution and setup can be different. Therefore, I cannot guarantee that the installation will work smoothly everywhere. Installation on your own risk.
+> PLEASE NOTE: Every Linux distribution and setup can be different. Therefore, I cannot guarantee that the installation will work everywhere. Installation on your own risk.
 
 ## Supported platforms
 
@@ -44,16 +38,26 @@ The installation should work on all Arch Linux based distributions as well.
 
 **PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIAL INSTALLTION.**
 
-The installation script will create a backup from an previous dotfiles installation.
+The installation script will create a backups from configurations of your .config folder that will be overwritten from the installation procedure and previous ML4W Dotfiles installation.
 
 If possible, please create a snapshot of your current system if snapper or Timeshift is installed and available.
 
 ## Installation
 
-The easiest way to install the ML4W Dotfiles is to use the ML4W Dotfiles Installer App. [You can download the app here.](https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage) (Right click + Save link as...)
+The easiest way to install the ML4W Dotfiles is to use the ML4W Dotfiles Installer App. 
+
+[You can download the app here.](https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage) (Right click + Save link as...)
+
+Or with wget if your starting point is a minimal Arch Linux installation without DE:
 
 ```
-# Change to the download location (normally the Downloads folder)
+mkdir ~/Downloads # If Downloads folder doesn't exists
+wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage
+
+```
+
+```
+# Change to the Downloads folder
 cd ~/Downloads
 
 # Make the file executable
@@ -77,6 +81,37 @@ You can force a clean re-installation of the dotfiles by removing the folder ~/d
 
 > Please note that you can create a backup of your existing configuration with the backup feature of the install script. It's recommended to remove the folder ~/dotfiles only after creating a backup. 
 
+## Uninstall
+
+You can use the integrated uninstallation function (ML4W Dotfiles Uninstaller App) to remove the ML4W Dotfiles from your system.
+
+Please select "Uninstall Dotfiles" from the ML4W Welcome App or execute ~/dotfiles/uninstall.sh
+
+The ML4W Dotfiles Uninstaller App will remove the dotfiles folder, related symbolic links and the desktop files of the ML4W Apps.
+
+The script will also try to restore old configurations back into .config if available and restored during the installation of the ML4W Dotfiles.
+
+## Installation in a KVM virtual machine
+
+Qtile X11 works fine in a KVM virtual machine. The Hyprland performance is low but it's enough for testing new features.
+
+In virt-manager please make sure that 3D acceleration is enabled in Video Virtio and the Listen type is set to None in Display Spice.
+
+To fix the mouse issue on Hyprland, open the Hyprland settings with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> and select in Environments the variation kvm.conf
+
+## Hyprland & NVIDIA 
+
+There is no official Hyprland support for Nvidia hardware. However, you might make it work properly following this page.
+https://wiki.hyprland.org/Nvidia/
+
+Users have reported that Hyprland with dotfiles could be installed successfully on setups with NVDIA GPUs using the nouveau open source drivers. 
+
+Please select the following variation in the settings script (system/environment):
+
+https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/conf/environments/nvidia.conf
+
+Or set the included environment variables in hyprland.conf
+
 ## Installation Hook
 
 The installation script will prepare the configuration files in a folder ~/dotfiles-versions/[version] before copy the files into the final destination in ~/dotfiles
@@ -94,19 +129,6 @@ rm -rf ~/dotfiles-versions/$version/nvim/
 This script will for example remove the vim and nvim folder before the installation. The symbolic link will not be created because the source folder doesn't exits.
 
 You can find a template in .install/templates/hook.sh
-
-## Hyprland & NVIDIA 
-
-There is no official Hyprland support for Nvidia hardware. However, you might make it work properly following this page.
-https://wiki.hyprland.org/Nvidia/
-
-Users have reported that Hyprland with dotfiles could be installed successfully on setups with NVDIA GPUs using the nouveau open source drivers. 
-
-Please select the following variation in the settings script (system/environment):
-
-https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/conf/environments/nvidia.conf
-
-Or set the included environment variables in hyprland.conf
 
 ## Launch Hyprland from tty
 
@@ -143,13 +165,7 @@ In the ML4W Dotfiles Settings App you can define the timeouts for Hyprlock, susp
 
 The selected hypridle configuration can be restored from the ML4W installer during a dotfiles update.
 
-## Installation in a KVM virtual machine
-
-Qtile X11 works fine in a KVM virtual machine. The Hyprland performance is low but it's enough for testing new features.
-
-In virt-manager please make sure that 3D acceleration is enabled in Video Virtio and the Listen type is set to None in Display Spice.
-
-To fix the mouse issue on Hyprland, open the Hyprland settings with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> and select in Environments the variation kvm.conf
+The ML4W Dotfiles are using the recommended configuration from https://wiki.hyprland.org/Hypr-Ecosystem/hypridle/
 
 # Some important key bindings
 
@@ -377,7 +393,7 @@ If you want to install only the core packages of Hyprland as a starting point fo
 
 ## Wallpaper issues (grey or distroyed image) with latest swww 0.9.1
 
-Please install the latest version of the ML4W Dotfiles > 2.8.3.4
+Please install the latest version of the ML4W Dotfiles > 2.8.4
 
 Or replace the swww launch command in /dotfiles/hypr/conf/autostart.conf with
 
