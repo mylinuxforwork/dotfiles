@@ -100,55 +100,55 @@ if [ -d ~/dotfiles ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d ~/.
             mkdir ~/dotfiles-versions/backup/config
         fi
         if ! test -L ~/.config/qtile && [ -d ~/.config/qtile ] ;then
-            cp ~/.config/qtile ~/dotfiles-versions/backup/config
+            cp -r ~/.config/qtile ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/qtile created in ~/dotfiles-versions/backup/config/"
         fi
         if ! test -L ~/.config/hypr && [ -d ~/.config/hypr ] ;then
-            cp ~/.config/hypr ~/dotfiles-versions/backup/config
+            cp -r ~/.config/hypr ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/hypr created in ~/dotfiles-versions/backup/config/"
         fi
         if ! test -L ~/.config/qtile && [ -d ~/.config/rofi ] ;then
-            cp ~/.config/rofi ~/dotfiles-versions/backup/config
+            cp -r ~/.config/rofi ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/rofi created in ~/dotfiles-versions/backup/config/"
         fi
         if ! test -L ~/.config/wal && [ -d ~/.config/wal ] ;then
-            cp ~/.config/wal ~/dotfiles-versions/backup/config
+            cp -r ~/.config/wal ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/wal created in ~/dotfiles-versions/backup/config/"
         fi
         if ! test -L ~/.config/waybar && [ -d ~/.config/waybar ] ;then
-            cp ~/.config/waybar ~/dotfiles-versions/backup/config
+            cp -r ~/.config/waybar ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/waybar created in ~/dotfiles-versions/backup/config/"
         fi
         if ! test -L ~/.config/wlogout && [ -d ~/.config/wlogout ] ;then
-            cp ~/.config/wlogout ~/dotfiles-versions/backup/config
+            cp -r ~/.config/wlogout ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/wlogout created in ~/dotfiles-versions/backup/config/"
         fi
         if ! test -L ~/.config/alacritty && [ -d ~/.config/alacritty ] ;then
-            cp ~/.config/alacritty ~/dotfiles-versions/backup/config
+            cp -r ~/.config/alacritty ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/alacritty created in ~/dotfiles-versions/backup/config/"
         fi
         if ! test -L ~/.config/starship && [ -d ~/.config/starship ] ;then
-            cp ~/.config/starship ~/dotfiles-versions/backup/config
+            cp -r ~/.config/starship ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/starship created in ~/dotfiles-versions/backup/config/"
         fi
         if ! test -L ~/.config/picom && [ -d ~/.config/picom ] ;then
-            cp ~/.config/picom ~/dotfiles-versions/backup/config
+            cp -r ~/.config/picom ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/picom created in ~/dotfiles-versions/backup/config/"
         fi
         if ! test -L ~/.config/nvim && [ -d ~/.config/nvim ] ;then
-            cp ~/.config/nvim ~/dotfiles-versions/backup/config
+            cp -r ~/.config/nvim ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/nvim created in ~/dotfiles-versions/backup/config/"
         fi
         if ! test -L ~/.config/vim && [ -d ~/.config/vim ] ;then
-            cp ~/.config/vim ~/dotfiles-versions/backup/config
+            cp -r ~/.config/vim ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/vim created in ~/dotfiles-versions/backup/config/"
         fi
         if ! test -L ~/.config/dunst && [ -d ~/.config/dunst ] ;then
-            cp ~/.config/dunst ~/dotfiles-versions/backup/config
+            cp -r ~/.config/dunst ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/dunst created in ~/dotfiles-versions/backup/config/"
         fi
         if ! test -L ~/.config/swappy && [ -d ~/.config/swappy ] ;then
-            cp ~/.config/swappy ~/dotfiles-versions/backup/config
+            cp -r ~/.config/swappy ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/swappy created in ~/dotfiles-versions/backup/config/"
         fi        
     elif [ $? -eq 130 ]; then
