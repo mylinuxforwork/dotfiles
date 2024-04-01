@@ -10,7 +10,6 @@ if [ "$wallpaper_engine" == "swww" ] ;then
 elif [ "$wallpaper_engine" == "hyprpaper" ] ;then    
     # hyprpaper
     echo ":: Using hyprpaper"
-    # hyprpaper
     sleep 0.5
     ~/dotfiles/hypr/scripts/wallpaper.sh init
 else
