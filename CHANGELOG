@@ -4,6 +4,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.4
 - In the ML4W Dotfiles Settings App you can now switch between the wallpaper applications swww or hyprpaper. In case of issues with the default application swww you can select hyprpaper. The wallpaper application can also be disabled but background images for wlogout, hyprlock and rofi will be generated with the selected wallpaper. 
 PLEASE NOTE: Logout & Login is required after a change.
 - You can uninstall the ML4W dotfiles with the new uninstaller script starting from the ML4W dotfiles or by executing ~/dotfiles/uninstall.sh
+- Using the hypridle.conf suggested by https://wiki.hyprland.org/Hypr-Ecosystem/hypridle/
 
 Version 2.8.3.4
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.3.4
