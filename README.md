@@ -46,7 +46,7 @@ If possible, please create a snapshot of your current system if snapper or Times
 
 The easiest way to install the ML4W Dotfiles is to use the ML4W Dotfiles Installer App. 
 
-[You can download the app here.](https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage) (Right click + Save link as...)
+[You can download the app here.](https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage) (Right click + Save link as... into your Downloads Folder)
 
 Or with wget if your starting point is a minimal Arch Linux installation without DE:
 
