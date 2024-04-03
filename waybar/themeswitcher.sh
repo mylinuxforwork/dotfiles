@@ -18,6 +18,7 @@ themes_path="$HOME/dotfiles/waybar/themes"
 # ----------------------------------------------------- 
 listThemes=""
 listNames=""
+listNames2=""
 
 # ----------------------------------------------------- 
 # Read theme folder
@@ -35,8 +36,10 @@ do
                 if [ -f $themes_path$result/config.sh ]; then
                     source $themes_path$result/config.sh
                     listNames+="$theme_name\n"
+                    listNames2+="$theme_name~"
                 else
                     listNames+="/${arrThemes[1]};$result\n"
+                    listNames2+="/${arrThemes[1]};$result~"
                 fi
             fi
         fi
@@ -49,6 +52,15 @@ done
 listNames=${listNames::-2}
 choice=$(echo -e "$listNames" | rofi -dmenu -replace -i -config ~/dotfiles/rofi/config-themes.rasi -no-show-icons -width 30 -p "Themes" -format i)
 
+# Set the IFS variable to the desired delimiter
+IFS="~"
+# Input string to be split
+input=$listNames2
+# Use the read command to split the input string
+read -ra array <<< "$input"
+# Iterate over the elements of the array
+count=1
+
 # ----------------------------------------------------- 
 # Set new theme by writing the theme information to ~/.cache/.themestyle.sh
 # ----------------------------------------------------- 
@@ -56,4 +68,5 @@ if [ "$choice" ]; then
     echo "Loading waybar theme..."
     echo "${listThemes[$choice+1]}" > ~/.cache/.themestyle.sh
     ~/dotfiles/waybar/launch.sh
+    notify-send "Waybar Theme changed" "to ${array[$choice]}"
 fi
