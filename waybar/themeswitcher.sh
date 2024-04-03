@@ -51,15 +51,9 @@ done
 # ----------------------------------------------------- 
 listNames=${listNames::-2}
 choice=$(echo -e "$listNames" | rofi -dmenu -replace -i -config ~/dotfiles/rofi/config-themes.rasi -no-show-icons -width 30 -p "Themes" -format i)
-
-# Set the IFS variable to the desired delimiter
 IFS="~"
-# Input string to be split
 input=$listNames2
-# Use the read command to split the input string
 read -ra array <<< "$input"
-# Iterate over the elements of the array
-count=1
 
 # ----------------------------------------------------- 
 # Set new theme by writing the theme information to ~/.cache/.themestyle.sh
