@@ -47,6 +47,7 @@
         "custom/exit",
         "clock",
         "tray",
+        "custom/ml4w-hyprland-settings",
         "custom/ml4w-welcome"
     ]
 }

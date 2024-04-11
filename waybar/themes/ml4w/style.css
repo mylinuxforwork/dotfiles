@@ -193,11 +193,19 @@ window#waybar.empty #window {
 }
 
 #custom-ml4w-welcome {
-    margin-right: 15px;
+    margin-right: 12px;
     background-image: url("../assets/ml4w-icon.png");
     background-repeat: no-repeat;
     background-position: center;
     padding-right: 24px;
+}
+
+#custom-ml4w-hyprland-settings {
+    margin-right: 12px;
+    background-image: url("../assets/hyprland-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 16px;
 }
 
 /* -----------------------------------------------------

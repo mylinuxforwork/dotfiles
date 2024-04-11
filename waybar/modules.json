@@ -63,6 +63,13 @@
         "tooltip": false
     },
 
+    // ML4W Welcome App
+    "custom/ml4w-hyprland-settings": {
+        "on-click": "~/dotfiles/apps/ML4W_Hyprland_Settings-x86_64.AppImage",
+        "format": " ",
+        "tooltip": false
+    },
+    
     // Empty
     "custom/empty": {
         "format": ""
