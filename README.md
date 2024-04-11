@@ -1,4 +1,4 @@
-# ML4W Dotfiles 2.8.4
+# ML4W Dotfiles 2.9 BETA 1
 
 An advanced configuration of Hyprland and Qtile for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
