@@ -44,6 +44,9 @@ if [ -d ~/dotfiles ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d ~/.
     if ! test -L ~/.config/hypr && [ -d ~/.config/hypr ] ;then
         echo "   - $HOME/.config/hypr/"
     fi
+    if ! test -L ~/.config/ml4w-hyprland-settings && [ -d ~/.config/ml4w-hyprland-settings ] ;then
+        echo "   - $HOME/.config/ml4w-hyprland-settings/"
+    fi
     if ! test -L ~/.config/rofi && [ -d ~/.config/rofi ] ;then
         echo "   - $HOME/.config/rofi/"
     fi
@@ -106,6 +109,10 @@ if [ -d ~/dotfiles ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d ~/.
         if ! test -L ~/.config/hypr && [ -d ~/.config/hypr ] ;then
             cp -r ~/.config/hypr ~/dotfiles-versions/backup/config
             echo ":: Backup of $HOME/.config/hypr created in ~/dotfiles-versions/backup/config/"
+        fi
+        if ! test -L ~/.config/ml4w-hyprland-settings && [ -d ~/.config/ml4w-hyprland-settings ] ;then
+            cp -r ~/.config/ml4w-hyprland-settings ~/dotfiles-versions/backup/config
+            echo ":: Backup of $HOME/.config/ml4w-hyprland-settings created in ~/dotfiles-versions/backup/config/"
         fi
         if ! test -L ~/.config/qtile && [ -d ~/.config/rofi ] ;then
             cp -r ~/.config/rofi ~/dotfiles-versions/backup/config
