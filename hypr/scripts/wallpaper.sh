@@ -12,6 +12,7 @@
 # Cache file for holding the current wallpaper
 cache_file="$HOME/.cache/current_wallpaper"
 blurred="$HOME/.cache/blurred_wallpaper.png"
+square="$HOME/.cache/square_wallpaper.png"
 rasi_file="$HOME/.cache/current_wallpaper.rasi"
 blur_file="$HOME/dotfiles/.settings/blur.sh"
 
@@ -114,7 +115,7 @@ if [ "$1" == "init" ] ;then
     echo ":: Init"
 else
     sleep 1
-    dunstify "Changing wallpaper ..." "with image $newwall" -h int:value:33 -h string:x-dunst-stack-tag:wallpaper
+    dunstify "Changing wallpaper ..." "with image $newwall" -h int:value:25 -h string:x-dunst-stack-tag:wallpaper
     sleep 2
 fi
 
@@ -124,7 +125,7 @@ fi
 if [ "$1" == "init" ] ;then
     echo ":: Init"
 else
-    dunstify "Creating blurred version ..." "with image $newwall" -h int:value:66 -h string:x-dunst-stack-tag:wallpaper
+    dunstify "Creating blurred version ..." "with image $newwall" -h int:value:50 -h string:x-dunst-stack-tag:wallpaper
 fi
 
 magick $wallpaper -resize 75% $blurred
@@ -133,6 +134,17 @@ if [ ! "$blur" == "0x0" ] ;then
     magick $blurred -blur $blur $blurred
     echo ":: Blurred"
 fi
+
+# ----------------------------------------------------- 
+# Created quare wallpaper
+# -----------------------------------------------------
+if [ "$1" == "init" ] ;then
+    echo ":: Init"
+else
+    dunstify "Creating square version ..." "with image $newwall" -h int:value:75 -h string:x-dunst-stack-tag:wallpaper
+fi
+magick $wallpaper -gravity Center -extent 1:1 $square
+echo ":: Square version created"
 
 # ----------------------------------------------------- 
 # Write selected wallpaper into .cache files

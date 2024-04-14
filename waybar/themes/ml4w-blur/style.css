@@ -212,8 +212,8 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #idle_inhibitor {
-    margin-right: 15px;
-    font-size: 22px;
+    margin-right: 17px;
+    font-size: 20px;
     font-weight: bold;
     opacity: 0.8;
     color: @iconcolor;
