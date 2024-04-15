@@ -34,7 +34,7 @@
         "custom/settings",
         "custom/waybarthemes",
         "custom/wallpaper",
-        // "wlr/taskbar",
+        //"wlr/taskbar",
         "group/quicklinks",
         "hyprland/window",
         "custom/starter"

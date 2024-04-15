@@ -59,6 +59,7 @@
     // ML4W Welcome App
     "custom/ml4w-welcome": {
         "on-click": "~/dotfiles/apps/ML4W_Welcome-x86_64.AppImage",
+        "on-click-right": "~/dotfiles/hypr/scripts/ml4w-launcher.sh",
         "format": " ",
         "tooltip": false
     },
@@ -284,15 +285,28 @@
     },
     
     // Group Settings
-    "group/settings": {
+    "group/links": {
         "orientation": "horizontal",
         "modules": [
             // START CHATGPT TOOGLE
             "custom/chatgpt",
             // END CHATGPT TOOGLE
+            "custom/wallpaper"
+        ]
+    },
+
+    // Group Settings
+    "group/settings": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "not-memory",
+            "transition-left-to-right": false
+        },            
+        "modules": [
             "custom/settings",
             "custom/waybarthemes",
-            "custom/wallpaper"
+            "custom/ml4w-hyprland-settings"
         ]
     },
 

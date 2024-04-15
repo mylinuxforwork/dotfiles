@@ -24,8 +24,9 @@
     // Modules Left
     "modules-left": [
         "custom/appmenu",
+        "group/links",
         "group/settings",
-        "wlr/taskbar",
+        //"wlr/taskbar",
         "group/quicklinks",
         "hyprland/window",
         "custom/empty"
@@ -49,7 +50,6 @@
         "idle_inhibitor",
         "tray",
         "custom/exit",
-        "custom/ml4w-hyprland-settings",
         "custom/ml4w-welcome",
         "clock"
     ]
