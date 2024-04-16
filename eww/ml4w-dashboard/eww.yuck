@@ -1,9 +1,4 @@
-;; **
-;; ** Widgets config for EWW
-;; ** Created by : @adi1090x
-;; **
-
-;; ** Variables ***********************************************************************
+;; Variables
 
 ;; System vars
 (defpoll HOST :interval "5s" `hostname`)
@@ -14,7 +9,7 @@
 (defpoll BATTERY :interval "5s" `../scripts/sys_info --bat`)
 (defpoll QUOTE :interval "5m" `../scripts/quotes`)
 
-;; ** Widgets *************************************************************************
+;; Widgets
 
 ;; resources
 (defwidget resources [] 
