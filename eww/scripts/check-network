@@ -1,0 +1,27 @@
+#!/bin/bash
+
+count=0
+
+ID="$(ip link | awk '/state UP/ {print $2}')"
+SSID="$(iwgetid -r)"
+
+net_stat () {
+	if (ping -c 1 archlinux.org || ping -c 1 google.com || ping -c 1 bitbucket.org || ping -c 1 github.com || ping -c 1 sourceforge.net) &>/dev/null; then
+		if [[ $ID == e* ]]; then
+			echo "Online"
+			echo "images/icons/system/wifi.png"
+		else
+			echo "$SSID"
+			echo "images/icons/system/wifi.png"
+		fi
+	else
+		echo "Offline"
+		echo "images/icons/system/no-wifi.png"	
+	fi
+}
+
+if [[ $1 == '--stat' ]]; then
+	net_stat | head -n1
+elif [[ $1 == '--icon' ]]; then
+	net_stat | tail -n1
+fi
