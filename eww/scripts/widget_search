@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [[ "$1" == "--menu" ]]; then
-	rofi -show drun
-
-elif [[ "$1" == "--search" ]]; then
-	firefox --new-tab "https://google.com"
-
-fi

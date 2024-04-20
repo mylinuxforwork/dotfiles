@@ -1,3 +1,3 @@
 #!/bin/bash
-sleep 1
+sleep 0.5
 killall -9 Hyprland sleep 2

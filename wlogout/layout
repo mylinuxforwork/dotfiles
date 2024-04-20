@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "sleep 1; hyprlock",
+    "action" : "$HOME/dotfiles/hypr/scripts/lock.sh",
     "text" : "Lock",
     "keybind" : "l"
 }
@@ -18,19 +18,19 @@
 }
 {
     "label" : "shutdown",
-    "action" : "sleep 1; systemctl poweroff",
+    "action" : "$HOME/dotfiles/hypr/scripts/shutdown.sh",
     "text" : "Shutdown",
     "keybind" : "s"
 }
 {
     "label" : "suspend",
-    "action" : "sleep 1; systemctl suspend",
+    "action" : "$HOME/dotfiles/hypr/scripts/suspend.sh",
     "text" : "Suspend",
     "keybind" : "u"
 }
 {
     "label" : "reboot",
-    "action" : "sleep 1; systemctl reboot",
+    "action" : "$HOME/dotfiles/hypr/scripts/reboot.sh",
     "text" : "Reboot",
     "keybind" : "r"
 }

@@ -1,0 +1,168 @@
+;; Variables
+
+;; System vars
+(defpoll HOST :interval "5s" `hostname`)
+(defpoll CPU_USAGE :interval "1s" `../scripts/sys_info.sh --cpu`)
+(defpoll MEM_USAGE :interval "1s" `../scripts/sys_info.sh --mem`)
+(defpoll DISK_USAGE :interval "1s" `../scripts/sys_info.sh --disk`)
+
+;; Widgets
+
+;; resources
+(defwidget ml4wlauncher [] 
+    (box :class "winbox"
+        (centerbox :orientation "h"
+            (box :class "ml4w-welcome" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
+                (button :style "background-image: url('../../apps/ml4w-welcome.png');" :class "ml4w_icon" :orientation "v" :valign "center" :halign "center" :onclick "../scripts/launch_app.sh --welcome")
+                (label :class "res_text" :valign "end" :halign "center" :text "Welcome App")
+            )
+            (box :class "ml4w-dotfiles" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
+                (button :style "background-image: url('../../apps/ml4w-dotfiles-settings.png');" :class "ml4w_icon" :orientation "v" :valign "center" :halign "center" :onclick "../scripts/launch_app.sh --dotfiles")
+                (label :class "res_text" :valign "end" :halign "center" :text "Dotfiles App")
+            )
+            (box :class "ml4w-hyprland" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
+                (button :style "background-image: url('../../apps/ml4w-hyprland-settings.png');" :class "ml4w_icon" :orientation "v" :valign "center" :halign "center" :onclick "../scripts/launch_app.sh --hyprland")
+                (label :class "res_text" :valign "end" :halign "center" :text "Hyprland App")
+            )
+        )
+    )
+)
+
+(defwidget resources [] 
+    (box :class "winbox"
+        (centerbox :orientation "h"
+            (box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
+                (box :class "res_circle" :orientation "v" :valign "center" :halign "center"
+                    (circular-progress :class "res_cpu" :value CPU_USAGE :thickness 15
+                        (label :class "res_circle_small" :text "CPU")
+                    )
+                )
+                (label :class "res_text" :valign "end" :halign "center" :text "${CPU_USAGE}%")
+            )
+            (box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
+                (box :class "res_circle" :orientation "v" :valign "center" :halign "center"
+                    (circular-progress :class "res_mem" :value MEM_USAGE :thickness 15
+                        (label :class "res_circle_small" :text "MEMORY")
+                    )
+                )
+                (label :class "res_text" :valign "end" :halign "center" :text "${MEM_USAGE}%")
+            )
+            (box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
+                (box :class "res_circle" :orientation "v" :valign "center" :halign "center"
+                    (circular-progress :class "res_disk" :value DISK_USAGE :thickness 15
+                        (label :class "res_circle_small" :text "DISK")
+                    )
+                )
+                (label :class "res_text" :valign "end" :halign "center" :text "${DISK_USAGE}%")
+            )
+        )
+    )
+)
+
+;; powermenus
+(defwidget logout [] 
+    (box :class "winbox"
+        (button :class "powericons_logout" :valign "center" :halign "center" :onclick "../scripts/system.sh logout &" "")
+    )
+)
+(defwidget suspend [] 
+    (box :class "winbox"
+        (button :class "powericons_suspend" :valign "center" :halign "center" :onclick "../scripts/system.sh suspend &" "")
+    )
+)
+(defwidget lock [] 
+    (box :class "winbox"
+        (button :class "powericons_lock" :valign "center" :halign "center" :onclick "../scripts/system.sh lock &" "")
+    )
+)
+(defwidget reboot [] 
+    (box :class "winbox"
+        (button :class "powericons_reboot" :valign "center" :halign "center" :onclick "../scripts/system.sh reboot &" "")
+    )
+)
+(defwidget shutdown [] 
+    (box :class "winbox"
+        (button :class "powericons_shutdown" :valign "center" :halign "center" :onclick "../scripts/system.sh shutdown &" "")
+    )
+)
+
+;; ** Windows *************************************************************************
+
+(defwindow ml4wlauncher
+           :monitor 0
+           :geometry (geometry :x "15px"
+                               :y "15px"
+                               :width "480px"
+                               :height "140px"
+                               :anchor "top right")
+           :stacking "fg"
+           :wm-ignore false
+(ml4wlauncher))
+
+;; resources
+(defwindow resources
+           :monitor 0
+           :geometry (geometry :x "15px"
+                               :y "170px"
+                               :width "480px"
+                               :height "180px"
+                               :anchor "top right")
+           :stacking "fg"
+           :wm-ignore false
+(resources))
+
+;; powermenu
+(defwindow logout
+           :monitor 0
+           :geometry (geometry :x "15px"
+                               :y "365px"
+                               :width "80px"
+                               :height "80px"
+                               :anchor "top right")
+           :stacking "fg"
+           :wm-ignore false
+(logout))
+
+(defwindow suspend
+           :monitor 0
+           :geometry (geometry :x "114px"
+                               :y "365px"
+                               :width "80px"
+                               :height "80px"
+                               :anchor "top right")
+           :stacking "fg"
+           :wm-ignore false
+(suspend))
+
+(defwindow lock
+           :monitor 0
+           :geometry (geometry :x "214px"
+                               :y "365px"
+                               :width "80px"
+                               :height "80px"
+                               :anchor "top right")
+           :stacking "fg"
+           :wm-ignore false
+(lock))
+
+(defwindow reboot
+           :monitor 0
+           :geometry (geometry :x "315px"
+                               :y "365px"
+                               :width "80px"
+                               :height "80px"
+                               :anchor "top right")
+           :stacking "fg"
+           :wm-ignore false
+(reboot))
+
+(defwindow shutdown
+           :monitor 0
+           :geometry (geometry :x "415px"
+                               :y "365px"
+                               :width "80px"
+                               :height "80px"
+                               :anchor "top right")
+           :stacking "fg"
+           :wm-ignore false
+(shutdown))

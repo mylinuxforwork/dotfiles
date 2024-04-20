@@ -142,12 +142,19 @@ window#waybar.empty #window {
 }
 
 #custom-settings {
-    margin-right: 15;
+    margin-right: 15px;
+}
 
+#custom-browser {
+    margin-right: 16px;
+}
+
+#custom-wallpaper {
+    margin-right: 14px;
 }
 
 #custom-chatgpt {
-    margin-right: 15px;
+    margin-right: 10px;
     background-image: url("../assets/ai-icon-20.png");
     background-repeat: no-repeat;
     background-position: center;

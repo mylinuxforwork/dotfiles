@@ -16,4 +16,5 @@ packagesYay=(
     "wlogout"
     "nwg-look"
     "emote"
+    "eww"
 );
