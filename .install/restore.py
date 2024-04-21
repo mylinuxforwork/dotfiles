@@ -31,7 +31,6 @@ class ML4WRestore:
         "waybar_custom_timedateformat": "",
         "waybar_workspaces": 5,
         "rofi_bordersize": 3,
-        "waybar_taskbar": False,
         "waybar_network": True,
         "waybar_chatgpt": True,
         "waybar_systray": True,
@@ -51,7 +50,6 @@ class ML4WRestore:
         for row in settings_arr:
             self.settings[row["key"]] = row["value"]
 
-        self.loadSwitchAll("waybar_taskbar","wlr/taskbar")
         self.loadSwitchAll("waybar_network","network")
         self.loadSwitchAll("waybar_systray","tray")
         self.loadSwitchAll("waybar_window","hyprland/window")
@@ -146,5 +144,6 @@ class ML4WRestore:
             lines[found] = replace + "\n"
             with open(self.dotfiles + f, 'w') as file:
                 file.writelines(lines)
+
 
 ml4wrestore = ML4WRestore()

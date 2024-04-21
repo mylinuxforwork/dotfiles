@@ -274,9 +274,7 @@
     "group/links": {
         "orientation": "horizontal",
         "modules": [
-            // START CHATGPT TOOGLE
             "custom/chatgpt",
-            // END CHATGPT TOOGLE
             "custom/empty"
         ]
     },
