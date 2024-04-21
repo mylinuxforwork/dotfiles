@@ -90,8 +90,8 @@
 
 (defwindow ml4wlauncher
            :monitor 0
-           :geometry (geometry :x "15px"
-                               :y "15px"
+           :geometry (geometry :x "5px"
+                               :y "5px"
                                :width "480px"
                                :height "140px"
                                :anchor "top right")
@@ -102,8 +102,8 @@
 ;; resources
 (defwindow resources
            :monitor 0
-           :geometry (geometry :x "15px"
-                               :y "170px"
+           :geometry (geometry :x "5px"
+                               :y "140px"
                                :width "480px"
                                :height "180px"
                                :anchor "top right")
@@ -114,8 +114,8 @@
 ;; powermenu
 (defwindow logout
            :monitor 0
-           :geometry (geometry :x "15px"
-                               :y "365px"
+           :geometry (geometry :x "5px"
+                               :y "318px"
                                :width "80px"
                                :height "80px"
                                :anchor "top right")
@@ -125,8 +125,8 @@
 
 (defwindow suspend
            :monitor 0
-           :geometry (geometry :x "114px"
-                               :y "365px"
+           :geometry (geometry :x "102px"
+                               :y "318px"
                                :width "80px"
                                :height "80px"
                                :anchor "top right")
@@ -136,8 +136,8 @@
 
 (defwindow lock
            :monitor 0
-           :geometry (geometry :x "214px"
-                               :y "365px"
+           :geometry (geometry :x "204px"
+                               :y "318px"
                                :width "80px"
                                :height "80px"
                                :anchor "top right")
@@ -147,8 +147,8 @@
 
 (defwindow reboot
            :monitor 0
-           :geometry (geometry :x "315px"
-                               :y "365px"
+           :geometry (geometry :x "305px"
+                               :y "318px"
                                :width "80px"
                                :height "80px"
                                :anchor "top right")
@@ -158,8 +158,8 @@
 
 (defwindow shutdown
            :monitor 0
-           :geometry (geometry :x "415px"
-                               :y "365px"
+           :geometry (geometry :x "405px"
+                               :y "318px"
                                :width "80px"
                                :height "80px"
                                :anchor "top right")
