@@ -2,10 +2,12 @@ Version 2.9
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
 --------------------------------------------------------
 - New Hyprland Settings App. Can be launched from the App Launcher, the ML4W Welcome App or the new ML4W logo context menu (right click)
-- Added context menu (right click) to ML4W Logo in Waybar.
+- Added sidebar menu. Start with click on ML4W Logo in Waybar. Right click starts the welcome app
 - Updated hyprlock screen showing the wallpaper in a circle. hyprlock 3 required
 - Waybar Taskbar Module hidden by default. Can be enabled again in the ML4W Settings App
 - Hyprpaper is now the default wallpaper engine. swww can be activiated 
+- Animations can be disabled in the Dotfiles Settings app
+- Animations can be toggled (enabled/disabled) with SUPER + SHIFT + A
 
 Version 2.8.4
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.4
