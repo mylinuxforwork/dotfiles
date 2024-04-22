@@ -63,27 +63,16 @@
 	color: #cfb3ff;
 }
 
-.powericons_logout {
-	font-size: 32px;
-	padding-left: 4px;
+.powericons {
+		background-repeat: no-repeat;
+		background-size: 30px;
+		min-height: 30px;
+		min-width: 30px;
 }
 
-.powericons_shutdown {
-	font-size: 32px;
-	padding-right: 9px;
-}
-
-.powericons_reboot {
-	font-size: 32px;
-	padding-right: 7px;
-}
-
-.powericons_lock {
-	font-size: 32px;
-	padding-right: 5px;
-}
-
-.powericons_suspend {
-	font-size: 32px;
-	padding-left: 2px;
+.closeicon {
+	background-repeat: no-repeat;
+	background-size: 16px;
+	min-height: 16px;
+	min-width: 16px;
 }

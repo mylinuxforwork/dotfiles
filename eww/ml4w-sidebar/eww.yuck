@@ -1,3 +1,5 @@
+;; Icons: https://github.com/GNOME/adwaita-icon-theme/tree/master/Adwaita
+
 ;; Variables
 
 ;; System vars
@@ -59,34 +61,55 @@
     )
 )
 
+(defwidget close [] 
+    (box :class "winbox"
+        (button :tooltip "Logout" :style "background-image: url('../assets/window-close-symbolic.svg');" :class "closeicon" :valign "center" :halign "center" :onclick "../scripts/eww.sh &")
+    )
+)
+
 ;; powermenus
 (defwidget logout [] 
     (box :class "winbox"
-        (button :class "powericons_logout" :valign "center" :halign "center" :onclick "../scripts/system.sh logout &" "")
+        (button :tooltip "Logout" :style "background-image: url('../assets/application-exit-symbolic-rtl.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system.sh logout &")
     )
 )
+
 (defwidget suspend [] 
     (box :class "winbox"
-        (button :class "powericons_suspend" :valign "center" :halign "center" :onclick "../scripts/system.sh suspend &" "")
+        (button :tooltip "Suspend" :style "background-image: url('../assets/media-playback-pause-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system.sh suspend &")
     )
 )
+
 (defwidget lock [] 
     (box :class "winbox"
-        (button :class "powericons_lock" :valign "center" :halign "center" :onclick "../scripts/system.sh lock &" "")
+        (button :tooltip "Lock" :style "background-image: url('../assets/system-lock-screen-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system.sh lock &")
     )
 )
+
 (defwidget reboot [] 
     (box :class "winbox"
-        (button :class "powericons_reboot" :valign "center" :halign "center" :onclick "../scripts/system.sh reboot &" "")
+        (button :tooltip "Reboot" :style "background-image: url('../assets/system-reboot-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system.sh reboot &")
     )
 )
+
 (defwidget shutdown [] 
     (box :class "winbox"
-        (button :class "powericons_shutdown" :valign "center" :halign "center" :onclick "../scripts/system.sh shutdown &" "")
+        (button :tooltip "Shutdown" :style "background-image: url('../assets/system-shutdown-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system.sh shutdown &")
     )
 )
 
 ;; ** Windows *************************************************************************
+
+(defwindow close
+           :monitor 0
+           :geometry (geometry :x "455px"
+                               :y "-7px"
+                               :width "44px"
+                               :height "44px"
+                               :anchor "top right")
+           :stacking "fg"
+           :wm-ignore false
+(close))
 
 (defwindow ml4wlauncher
            :monitor 0
@@ -166,3 +189,4 @@
            :stacking "fg"
            :wm-ignore false
 (shutdown))
+

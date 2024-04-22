@@ -10,8 +10,8 @@ fi
 
 if [[ ! -f "$FILE" ]]; then
 	touch "$FILE"
-	${EWW} --config "$CFG" open-many ml4wlauncher resources logout suspend lock reboot shutdown
+	${EWW} --config "$CFG" open-many ml4wlauncher resources logout suspend lock reboot shutdown close
 else
-	${EWW} --config "$CFG" close resources ml4wlauncher logout suspend lock reboot shutdown
+	${EWW} --config "$CFG" close resources ml4wlauncher logout suspend lock reboot shutdown close
 	rm "$FILE"
 fi
