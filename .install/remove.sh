@@ -28,6 +28,13 @@ if [[ $(_isInstalledYay "swaylock-effects-git") == 0 ]]; then
     echo
 fi
 
+# Remove rofi-lbonn-wayland
+if [[ $(_isInstalledYay "rofi-lbonn-wayland") == 0 ]]; then
+    yay --noconfirm -Rns rofi-lbonn-wayland
+    echo ":: rofi-lbonn-wayland removed"
+    echo
+fi
+
 # Remove hypridle-bin
 if [[ $(_isInstalledYay "hypridle-git") == 0 ]]; then
     yay --noconfirm -Rns hypridle-git
