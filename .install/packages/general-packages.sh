@@ -52,6 +52,7 @@ packagesPacman=(
     "imagemagick"
     "guvcview"
     "jq"
+    "rofi-wayland"
 );
 
 packagesYay=(
@@ -59,5 +60,4 @@ packagesYay=(
     "bibata-cursor-theme" 
     "trizen"
     "pacseek"
-    "rofi-lbonn-wayland"
 );
