@@ -51,6 +51,7 @@ packagesPacman=(
     "qalculate-gtk"
     "imagemagick"
     "guvcview"
+    "jq"
 );
 
 packagesYay=(

@@ -40,7 +40,7 @@ if [[ $(_isInstalledYay "hypridle-git") == 0 ]]; then
     echo 
 fi
 
-# Remove hypridle-bin
+# Remove hyprlock-bin
 if [[ $(_isInstalledYay "hyprlock-git") == 0 ]]; then
     yay --noconfirm -Rns hyprlock-git
     if [ -f /usr/lib/debug/usr/bin/hyprlock.debug ] ;then

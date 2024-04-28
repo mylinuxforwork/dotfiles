@@ -1,4 +1,4 @@
-# ML4W Dotfiles 2.9 BETA 4
+# ML4W Dotfiles 2.9 RC1
 
 An advanced configuration of Hyprland and Qtile for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
@@ -46,23 +46,42 @@ The easiest way to install the ML4W Dotfiles is to use the ML4W Dotfiles Install
 
 [You can download the app here.](https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage) (Right click + Save link as... into your Downloads Folder)
 
-Or with wget if your starting point is a minimal Arch Linux installation without DE:
 
 ```
-mkdir ~/Downloads # If Downloads folder doesn't exists
-wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage
+# 0.) Install required packages
+sudo pacman -S wget fuse2 # If wget or libfuse.so.2 is not installed
 
-```
-
-```
-# Change to the Downloads folder
+# 1.) Change to the Downloads folder
 cd ~/Downloads
 
-# Make the file executable
+# 2.) Make the file executable
 chmod +x ML4W_Dotfiles_Installer.AppImage
 
-# Start the App from your terminal with
+# 3.) Start the App from your terminal with
 ./ML4W_Dotfiles_Installer.AppImage
+```
+
+Or with download the Installer App with wget if your starting point is a minimal Arch Linux with without DE from tty:
+
+```
+# 0.) Install required packages
+sudo pacman -S wget fuse2 # If wget or libfuse.so.2 is not installed
+
+# 1.) Create Downloads folder
+mkdir ~/Downloads # If Downloads folder doesn't exists
+
+# 2.) Download the installer
+wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage
+
+# 3.) Change to the Downloads folder
+cd ~/Downloads
+
+# 4.) Make the file executable
+chmod +x ML4W_Dotfiles_Installer.AppImage
+
+# 5.) Start the App from your terminal with
+./ML4W_Dotfiles_Installer.AppImage
+
 ```
 
 Alternatively you can install with GIT.
