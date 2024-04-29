@@ -215,11 +215,21 @@ All keybindings for Hyprland with right mouse click on Apps in waybar or here:
 
 With the ML4W Sidebar you have access to all included ML4W Applications and some system information. In addition, you start the main power features for your system.
 
+You can also start the sidebar from the terminal with 
+```
+ml4w-sidebar
+```
+
 <img src="screenshots/screenshot-sidebar.png" />
 
 ## ML4W Welcome App
 
 After starting the ML4W dotfiles for the first time, the ML4W Welcome App opens. This app is the starting point to discover the Hyprland setup.
+
+You can also start the Welcome App from the terminal with 
+```
+ml4w
+```
 
 <img src="screenshots/screenshot-welcome.app.png" />
 
@@ -258,6 +268,11 @@ You can also edit the file custom.conf which is included at the bottom of the hy
 You can find the sourcecode of the ML4W Dotfiles Settings App in this repository:
 https://gitlab.com/stephan-raabe/ml4w-dotfiles-settings
 
+You can also start the Dotfiles App from the terminal with 
+```
+ml4w-settings
+```
+
 ## ML4W Hyprland Settings App
 
 This applications supports you to customize your Hyprland installation. You can overwrite the existing configuration with custom values without adding complex configuration files.
@@ -271,6 +286,11 @@ The app shows variables and current values of your running Hyprland.
 You can change the values and overwrite the existing values. The change will be axecuted immediatly.
 
 In the Set Variables tab you can see which values you have overwritten and can restore the old values be removing the entry.
+
+You can also start the Hyprland App from the terminal with 
+```
+ml4w-hyprland
+```
 
 ## Hyprland Configuration Variations
 
