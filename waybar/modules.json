@@ -96,7 +96,7 @@
 
     // Updates Count
     "custom/updates": {
-        "format": "  {}",
+        "format": "   {}",
         "tooltip-format": "{}",
         "escape": true,
         "return-type": "json",       
@@ -337,8 +337,8 @@
     // Pulseaudio
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon}  {volume}%",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format": "{icon}   {volume}%",
+        "format-bluetooth": "{volume}%  {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
         "format-source": "{volume}% ",
