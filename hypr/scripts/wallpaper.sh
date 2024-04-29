@@ -83,6 +83,11 @@ newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
 ~/dotfiles/waybar/launch.sh
 
 # ----------------------------------------------------- 
+# Reload Hyprctl.sh
+# -----------------------------------------------------
+$HOME/.config/ml4w-hyprland-settings/hyprctl.sh
+
+# ----------------------------------------------------- 
 # Set the new wallpaper
 # -----------------------------------------------------
 transition_type="wipe"
