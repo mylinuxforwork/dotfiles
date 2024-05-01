@@ -120,7 +120,7 @@ else
     # ----------------------------------------------------- 
     # Reload Hyprctl.sh
     # -----------------------------------------------------
-    $HOME/.config/ml4w-hyprland-settings/hyprctl.sh
+    $HOME/.config/ml4w-hyprland-settings/hyprctl.sh &
 fi
 
 # ----------------------------------------------------- 
