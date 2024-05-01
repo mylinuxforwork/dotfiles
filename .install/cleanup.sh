@@ -37,7 +37,7 @@ if [ -d ~/dotfiles/hypr/settings/ ] ;then
 fi
 
 if [ -f ~/dotfiles/.settings/eww-monitor.sh ] ;then
-    if grep -q "echo" "~/dotfiles/.settings/eww-monitor.sh" ; then
+    if grep -q "echo" $HOME/dotfiles/.settings/eww-monitor.sh ; then
        rm ~/dotfiles/.settings/eww-monitor.sh
        echo "::  ~/dotfiles/.settings/eww-monitor.sh removed."
     fi
