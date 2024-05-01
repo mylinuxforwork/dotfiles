@@ -1,6 +1,4 @@
 #!/bin/bash
-$HOME/dotfiles/eww/ml4w-sidebar/launch.sh
-
 if [[ "$1" == "--welcome" ]]; then
     $HOME/dotfiles/apps/ML4W_Welcome-x86_64.AppImage
 elif [[ "$1" == "--dotfiles" ]]; then
