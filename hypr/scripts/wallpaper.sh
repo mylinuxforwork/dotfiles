@@ -83,11 +83,6 @@ newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
 ~/dotfiles/waybar/launch.sh
 
 # ----------------------------------------------------- 
-# Reload Hyprctl.sh
-# -----------------------------------------------------
-$HOME/.config/ml4w-hyprland-settings/hyprctl.sh
-
-# ----------------------------------------------------- 
 # Set the new wallpaper
 # -----------------------------------------------------
 transition_type="wipe"
@@ -121,7 +116,11 @@ if [ "$1" == "init" ] ;then
 else
     sleep 1
     dunstify "Changing wallpaper ..." "with image $newwall" -h int:value:25 -h string:x-dunst-stack-tag:wallpaper
-    sleep 2
+    
+    # ----------------------------------------------------- 
+    # Reload Hyprctl.sh
+    # -----------------------------------------------------
+    $HOME/.config/ml4w-hyprland-settings/hyprctl.sh
 fi
 
 # ----------------------------------------------------- 
