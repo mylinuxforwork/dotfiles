@@ -10,6 +10,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
 - Animations can be toggled (enabled/disabled) temporarily with SUPER + SHIFT + A
 - Keyboard layout is part of the system information module of waybar
 - nm-applet can be started from the ML4W Welcome App menu Settings/System
+- New diagnosis features checks that essential command are available. Enter ml4w-diagnosis in a terminal or from the ML4W Welcome App
 
 Version 2.8.4
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.4

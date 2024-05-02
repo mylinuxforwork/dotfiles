@@ -63,7 +63,7 @@
 
 (defwidget close [] 
     (box :class "winbox"
-        (button :tooltip "Logout" :style "background-image: url('../assets/window-close-symbolic.svg');" :class "closeicon" :valign "center" :halign "center" :onclick "../scripts/eww.sh &")
+        (button :tooltip "Close" :style "background-image: url('../assets/window-close-symbolic.svg');" :class "closeicon" :valign "center" :halign "center" :onclick "../scripts/eww.sh &")
     )
 )
 
