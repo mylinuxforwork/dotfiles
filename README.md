@@ -2,7 +2,7 @@
 
 An advanced configuration of Hyprland and Qtile for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
-[![Screenshot](screenshots/v29/screenshot-29-1.png "Title Text")](screenshots/v29/screenshot-29-1.png)
+[![Screenshot](screenshots/v29/screenshot-29-1.png "Screenshot")](screenshots/v29/screenshot-29-1.png)
 
 The ML4W Dotfiles are available as 
 
@@ -201,13 +201,11 @@ All keybindings for Hyprland with right mouse click on Apps in waybar or here:
 
 # Hyprland
 
-<a href="https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/screenshots/v284/screenshot-284-1.png?ref_type=heads" target="_blank"><img src="screenshots/v284/screenshot-284-1.png" /></a>
+[![Screenshot](screenshots/v29/screenshot-29-2.png "Screenshot")](screenshots/v29/screenshot-29-2.png)
 
-<a href="https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/screenshots/v28/screenshot-28-2.png?ref_type=heads" target="_blank"><img src="screenshots/v28/screenshot-28-2.png" /></a>
 
-<a href="https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/screenshots/v28/screenshot-28-3.png?ref_type=heads" target="_blank"><img src="screenshots/v28/screenshot-28-3.png" /></a>
+[![Screenshot](screenshots/v29/screenshot-29-3.png "Screenshot")](screenshots/v29/screenshot-29-3.png)
 
-<b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
 
