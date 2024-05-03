@@ -70,7 +70,7 @@ sudo pacman -S wget fuse2 # If wget or libfuse.so.2 is not installed
 mkdir ~/Downloads # If Downloads folder doesn't exists
 
 # 2.) Download the installer
-wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/apps/installer.AppImage
+wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/apps/installer.AppImage
 
 # 3.) Change to the Downloads folder
 cd ~/Downloads
