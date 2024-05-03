@@ -11,7 +11,6 @@ packagesPacman=(
     "dunst" 
     "starship"
     "mpv" 
-    "freerdp" 
     "thunar" 
     "mousepad"
     "noto-fonts" 
@@ -26,6 +25,8 @@ packagesPacman=(
     "python-psutil" 
     "python-rich" 
     "python-click" 
+    "python-pywal"
+    "python-gobject"
     "pavucontrol" 
     "tumbler" 
     "blueman"
@@ -46,11 +47,12 @@ packagesPacman=(
     "fuse2"
     "gtk4"
     "libadwaita"
-    "python-pywal"
     "xdg-desktop-portal"
     "qalculate-gtk"
     "imagemagick"
     "guvcview"
+    "jq"
+    "rofi-wayland"
 );
 
 packagesYay=(
@@ -58,5 +60,4 @@ packagesYay=(
     "bibata-cursor-theme" 
     "trizen"
     "pacseek"
-    "rofi-lbonn-wayland"
 );

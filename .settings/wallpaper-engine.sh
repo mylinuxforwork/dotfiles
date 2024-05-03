@@ -1,1 +1,1 @@
-swww
+hyprpaper

@@ -6,7 +6,8 @@ if [ -d ~/dotfiles/nvim ]; then
 echo -e "${GREEN}"
 figlet "Neovim"
 echo -e "${NONE}"
-    if gum confirm "Do you want to install the ML4W Neovim configuration and overwrite your existing configuration?"; then
+    echo ":: The script has detected a nvim folder."
+    if gum confirm "Do you want to install the ML4W Neovim configuration?"; then
         echo ":: ML4W Neovim configuration will be installed"
         neovim=1
     else

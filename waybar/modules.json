@@ -58,11 +58,19 @@
 
     // ML4W Welcome App
     "custom/ml4w-welcome": {
-        "on-click": "~/dotfiles/apps/ML4W_Welcome-x86_64.AppImage",
+        "on-click": "sleep 0.1 && ~/dotfiles/eww/ml4w-sidebar/launch.sh",
+        "on-click-right": "sleep 0.1 && ~/dotfiles/apps/ML4W_Welcome-x86_64.AppImage",
         "format": " ",
         "tooltip": false
     },
 
+    // ML4W Welcome App
+    "custom/ml4w-hyprland-settings": {
+        "on-click": "~/dotfiles/apps/ML4W_Hyprland_Settings-x86_64.AppImage",
+        "format": " ",
+        "tooltip": false
+    },
+    
     // Empty
     "custom/empty": {
         "format": ""
@@ -88,7 +96,7 @@
 
     // Updates Count
     "custom/updates": {
-        "format": "  {}",
+        "format": "   {}",
         "tooltip-format": "{}",
         "escape": true,
         "return-type": "json",       
@@ -132,20 +140,6 @@
     "custom/filemanager": {
         "format": "",
         "on-click": "~/dotfiles/.settings/filemanager.sh",
-        "tooltip": false
-    },
-
-    // Outlook Launcher
-    "custom/outlook": {
-        "format": "",
-        "on-click": "chromium --app=https://outlook.office.com/mail/",
-        "tooltip": false
-    },
-
-    // Teams Launcher
-    "custom/teams": {
-        "format": "",
-        "on-click": "chromium --app=https://teams.microsoft.com/go",
         "tooltip": false
     },
 
@@ -277,15 +271,27 @@
     },
     
     // Group Settings
-    "group/settings": {
+    "group/links": {
         "orientation": "horizontal",
         "modules": [
-            // START CHATGPT TOOGLE
             "custom/chatgpt",
-            // END CHATGPT TOOGLE
+            "custom/empty"
+        ]
+    },
+
+    // Group Settings
+    "group/settings": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "not-memory",
+            "transition-left-to-right": false
+        },            
+        "modules": [
             "custom/settings",
             "custom/waybarthemes",
-            "custom/wallpaper"
+            "custom/wallpaper",
+            "custom/ml4w-hyprland-settings"
         ]
     },
 
@@ -331,8 +337,8 @@
     // Pulseaudio
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format": "{icon}   {volume}%",
+        "format-bluetooth": "{volume}%  {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
         "format-source": "{volume}% ",

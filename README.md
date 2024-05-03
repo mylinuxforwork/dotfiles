@@ -1,8 +1,8 @@
-# ML4W Dotfiles 2.8.4
+# ML4W Dotfiles 2.9
 
 An advanced configuration of Hyprland and Qtile for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
-[![Screenshot](screenshots/v284/screenshot-284-1.png "Title Text")](screenshots/v283/screenshot-284-1.png)
+[![Screenshot](screenshots/v29/screenshot-29-1.png "Screenshot")](screenshots/v29/screenshot-29-1.png)
 
 The ML4W Dotfiles are available as 
 
@@ -44,25 +44,43 @@ If possible, please create a snapshot of your current system if snapper or Times
 
 The easiest way to install the ML4W Dotfiles is to use the ML4W Dotfiles Installer App. 
 
-[You can download the app here.](https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage) (Right click + Save link as... into your Downloads Folder)
-
-Or with wget if your starting point is a minimal Arch Linux installation without DE:
+[You can download the app here.](https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/apps/installer.AppImage) (Right click + Save link as... into your Downloads Folder)
 
 ```
-mkdir ~/Downloads # If Downloads folder doesn't exists
-wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage
+# 0.) Install required packages
+sudo pacman -S wget fuse2 # If wget or libfuse.so.2 is not installed
 
-```
-
-```
-# Change to the Downloads folder
+# 1.) Change to the Downloads folder
 cd ~/Downloads
 
-# Make the file executable
-chmod +x ML4W_Dotfiles_Installer.AppImage
+# 2.) Make the file executable
+chmod +x installer.AppImage
 
-# Start the App from your terminal with
-./ML4W_Dotfiles_Installer.AppImage
+# 3.) Start the App from your terminal with
+./installer.AppImage
+```
+
+Or with download the Installer App with wget if your starting point is a minimal Arch Linux with without DE from tty:
+
+```
+# 0.) Install required packages
+sudo pacman -S wget fuse2 # If wget or libfuse.so.2 is not installed
+
+# 1.) Create Downloads folder
+mkdir ~/Downloads # If Downloads folder doesn't exists
+
+# 2.) Download the installer
+wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/apps/installer.AppImage
+
+# 3.) Change to the Downloads folder
+cd ~/Downloads
+
+# 4.) Make the file executable
+chmod +x installer.AppImage
+
+# 5.) Start the App from your terminal with
+./installer.AppImage
+
 ```
 
 Alternatively you can install with GIT.
@@ -182,19 +200,33 @@ All keybindings for Hyprland with right mouse click on Apps in waybar or here:
 
 # Hyprland
 
-<a href="https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/screenshots/v284/screenshot-284-1.png?ref_type=heads" target="_blank"><img src="screenshots/v284/screenshot-284-1.png" /></a>
+[![Screenshot](screenshots/v29/screenshot-29-2.png "Screenshot")](screenshots/v29/screenshot-29-2.png)
 
-<a href="https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/screenshots/v28/screenshot-28-2.png?ref_type=heads" target="_blank"><img src="screenshots/v28/screenshot-28-2.png" /></a>
 
-<a href="https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/screenshots/v28/screenshot-28-3.png?ref_type=heads" target="_blank"><img src="screenshots/v28/screenshot-28-3.png" /></a>
+[![Screenshot](screenshots/v29/screenshot-29-3.png "Screenshot")](screenshots/v29/screenshot-29-3.png)
 
-<b><a href="https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/screenshots?ref_type=heads">You can find more screenshots here.</a></b>
 
 <a href="https://youtu.be/e9ro_P9rbFk" target="_blank">Watch on YouTube</a>
+
+## ML4W Sidebar
+
+With the ML4W Sidebar you have access to all included ML4W Applications and some system information. In addition, you start the main power features for your system.
+
+You can also start the sidebar from the terminal with 
+```
+ml4w-sidebar
+```
+
+<img src="screenshots/screenshot-sidebar.png" />
 
 ## ML4W Welcome App
 
 After starting the ML4W dotfiles for the first time, the ML4W Welcome App opens. This app is the starting point to discover the Hyprland setup.
+
+You can also start the Welcome App from the terminal with 
+```
+ml4w
+```
 
 <img src="screenshots/screenshot-welcome.app.png" />
 
@@ -232,6 +264,30 @@ You can also edit the file custom.conf which is included at the bottom of the hy
 
 You can find the sourcecode of the ML4W Dotfiles Settings App in this repository:
 https://gitlab.com/stephan-raabe/ml4w-dotfiles-settings
+
+You can also start the Dotfiles App from the terminal with 
+```
+ml4w-settings
+```
+
+## ML4W Hyprland Settings App
+
+This applications supports you to customize your Hyprland installation. You can overwrite the existing configuration with custom values without adding complex configuration files.
+
+[![Screenshot](screenshots/screenshot-hyprland-settings.png "ML4W Hyprland Settings")](screenshots/screenshot.png)
+
+YOu can start the application from the application launcher, the ML4W Sidebar by clicking the ML4W Logo or from the welcome app.
+
+The app shows variables and current values of your running Hyprland.
+
+You can change the values and overwrite the existing values. The change will be axecuted immediatly.
+
+In the Set Variables tab you can see which values you have overwritten and can restore the old values be removing the entry.
+
+You can also start the Hyprland App from the terminal with 
+```
+ml4w-hyprland
+```
 
 ## Hyprland Configuration Variations
 

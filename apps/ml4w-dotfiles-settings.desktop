@@ -2,6 +2,6 @@
 Type=Application
 Name=ML4W Dotfiles Settings App
 Exec=HOME/dotfiles/apps/ML4W_Dotfiles_Settings-x86_64.AppImage
-Icon=HOME/dotfiles/apps/ml4w-icon.png
+Icon=HOME/dotfiles/apps/ml4w-dotfiles-settings.png
 Terminal=false
 Categories=Utility

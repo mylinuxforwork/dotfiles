@@ -1,0 +1,78 @@
+*{
+	all: unset;
+	font-family: "Fira Sans";
+	color: #FFFFFF;
+}
+
+.winbox {
+	background-color: #242424;
+	opacity: 0.85;
+	border: 1px solid #444444;
+	border-radius: 12px;
+	box-shadow: 0 0 4px 2px #000000;
+	margin: 10px;
+}
+
+.res_box {
+	background-color: #242424;
+	border-radius: 12px;
+	padding: 14px 18px 14px 18px;
+}
+
+.res_circle {
+	background-color: #FFFFFF;
+	border: 0px solid #161616;
+	color:#FFFFFF;
+	border-radius: 100%;
+	padding: 0px;
+}
+
+.ml4w_icon {
+    background-repeat: no-repeat;
+	background-size: 48px;
+	min-height: 48px;
+	min-width: 48px;
+}
+
+.res_circle_small {
+	background-color: #242424;
+	border: 0px solid #161616;
+	border-radius: 100%;
+	padding: 40px;
+	color:#FFFFFF;
+}
+
+.res_text {
+	border-radius: 16px;
+	color: #FFFFFF;
+	font-size : 16px;
+	padding: 0px 8px 0px 8px;
+	margin: 0px 0px 0px 0px;
+	font-weight : bold;
+}
+
+.res_cpu {
+	color: #19cddb;
+}
+
+.res_mem {
+	color: #a5deb7;
+}
+
+.res_disk {
+	color: #cfb3ff;
+}
+
+.powericons {
+		background-repeat: no-repeat;
+		background-size: 30px;
+		min-height: 30px;
+		min-width: 30px;
+}
+
+.closeicon {
+	background-repeat: no-repeat;
+	background-size: 16px;
+	min-height: 16px;
+	min-width: 16px;
+}

@@ -24,6 +24,7 @@
     "modules-left": [
         "custom/appmenuicon",
         "hyprland/workspaces",
+        "group/links",
         "group/settings",
         "group/quicklinks"
     ],

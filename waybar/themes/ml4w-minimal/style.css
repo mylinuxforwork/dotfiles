@@ -142,12 +142,19 @@ window#waybar.empty #window {
 }
 
 #custom-settings {
-    margin-right: 15;
+    margin-right: 15px;
+}
 
+#custom-browser {
+    margin-right: 16px;
+}
+
+#custom-wallpaper {
+    margin-right: 14px;
 }
 
 #custom-chatgpt {
-    margin-right: 15px;
+    margin-right: 10px;
     background-image: url("../assets/ai-icon-20.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -166,6 +173,15 @@ window#waybar.empty #window {
     background-position: center;
     padding-right: 24px;
 }
+
+#custom-ml4w-hyprland-settings {
+    margin-right: 12px;
+    background-image: url("../assets/hyprland-icon-20.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 16px;
+}
+
 
 /* -----------------------------------------------------
  * Idle Inhibator

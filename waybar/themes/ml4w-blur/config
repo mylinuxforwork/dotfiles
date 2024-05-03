@@ -24,8 +24,9 @@
     // Modules Left
     "modules-left": [
         "custom/appmenu",
+        "group/links",
         "group/settings",
-        "wlr/taskbar",
+        //"wlr/taskbar",
         "group/quicklinks",
         "hyprland/window",
         "custom/empty"

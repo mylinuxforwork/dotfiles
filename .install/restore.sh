@@ -8,7 +8,7 @@ monitorrestored=0
 
 _showRestoreOptions() {
     echo "The following configurations can be transferred into the new installation."
-    echo "(SPACE = select/unselect a profile. RETURN = confirm. ESC/No selection = Skip Restore)"
+    echo "(SPACE = select/unselect a profile. RETURN = confirm. CTRL-C/No selection = Skip Restore)"
     echo ""
     restorelist=""
     if [ -f ~/dotfiles/.bashrc ]; then

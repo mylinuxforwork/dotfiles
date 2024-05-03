@@ -21,4 +21,12 @@ sed -i "s|HOME|${HOME}|g" $HOME/dotfiles/apps/ml4w-dotfiles-settings.desktop
 cp $HOME/dotfiles/apps/ml4w-dotfiles-settings.desktop $HOME/.local/share/applications
 echo ":: ML4W Dotfiles Settings App installed successfully"
 
+sed -i "s|HOME|${HOME}|g" $HOME/dotfiles/apps/ml4w-hyprland-settings.desktop
+cp $HOME/dotfiles/apps/ml4w-hyprland-settings.desktop $HOME/.local/share/applications
+echo ":: ML4W Hyprland Settings App installed successfully"
 echo 
+if [ -f ~/.config/ml4w-hyprland-settings/hyprctl.sh ] ;then
+    echo ":: Starting restore from ML4W Hyprland Settings App"
+    ~/.config/ml4w-hyprland-settings/hyprctl.sh
+fi
+echo

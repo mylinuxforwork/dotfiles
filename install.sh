@@ -63,10 +63,10 @@ source .install/wallpaper.sh
 source .install/displaymanager.sh
 source .install/issue.sh
 source .install/restore.sh
-source .install/keyboard.sh
 source .install/neovim.sh
-source .install/vm.sh
+source .install/keyboard.sh
 source .install/hook.sh
+source .install/vm.sh
 source .install/copy.sh
 source .install/init-pywal.sh
 if [[ $profile == *"Hyprland"* ]]; then
@@ -80,5 +80,6 @@ source .install/apps.sh
 source .install/gtk.sh
 source .install/bashrc.sh
 source .install/cleanup.sh
+source .install/diagnosis.sh
 source .install/reboot.sh
 sleep 3
