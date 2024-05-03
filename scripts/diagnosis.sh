@@ -9,8 +9,8 @@ echo
 
 _commandExists() {
     package="$1";
-    if ! type $package > /dev/null; then
-        echo ":: ERROR: $package doesn't exists. Please install it."
+    if ! type $package > /dev/null 2>&1; then
+        echo ":: ERROR: $package doesn't exists. Please install it with yay -S $2"
     else
         echo ":: OK: $package found."
     fi
@@ -25,21 +25,20 @@ _folderExists() {
     fi
 }
 
-_commandExists "rofi"
-_commandExists "dunst"
-_commandExists "waybar"
-_commandExists "hyprpaper"
-_commandExists "hyprlock"
-_commandExists "hypridle"
-_commandExists "wal"
-_commandExists "gum"
-_commandExists "wlogout"
-_commandExists "wal"
-_commandExists "swww"
-_commandExists "eww"
-_commandExists "magick"
-_commandExists "figlet"
+_commandExists "rofi" "rofi-wayland"
+_commandExists "dunst" "dunst"
+_commandExists "waybar" "waybar"
+_commandExists "hyprpaper" "hyprpaper"
+_commandExists "hyprlock" "hyprpaper"
+_commandExists "hypridle" "hyprpaper"
+_commandExists "wal" "python-pywal"
+_commandExists "gum" "gum"
+_commandExists "wlogout" "wlogout"
+_commandExists "swww" "swww"
+_commandExists "eww" "eww"
+_commandExists "magick2" "imagemagick"
+_commandExists "figlet2" "figlet"
 
 echo
-echo "Press return to close the window"
+echo "Press return to exit"
 read

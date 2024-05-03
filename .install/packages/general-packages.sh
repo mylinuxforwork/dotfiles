@@ -11,7 +11,6 @@ packagesPacman=(
     "dunst" 
     "starship"
     "mpv" 
-    "freerdp" 
     "thunar" 
     "mousepad"
     "noto-fonts" 
