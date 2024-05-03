@@ -44,8 +44,7 @@ If possible, please create a snapshot of your current system if snapper or Times
 
 The easiest way to install the ML4W Dotfiles is to use the ML4W Dotfiles Installer App. 
 
-[You can download the app here.](https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage) (Right click + Save link as... into your Downloads Folder)
-
+[You can download the app here.](apps/installer.AppImage) (Right click + Save link as... into your Downloads Folder)
 
 ```
 # 0.) Install required packages
@@ -55,10 +54,10 @@ sudo pacman -S wget fuse2 # If wget or libfuse.so.2 is not installed
 cd ~/Downloads
 
 # 2.) Make the file executable
-chmod +x ML4W_Dotfiles_Installer.AppImage
+chmod +x installer.AppImage
 
 # 3.) Start the App from your terminal with
-./ML4W_Dotfiles_Installer.AppImage
+./installer.AppImage
 ```
 
 Or with download the Installer App with wget if your starting point is a minimal Arch Linux with without DE from tty:
@@ -71,16 +70,16 @@ sudo pacman -S wget fuse2 # If wget or libfuse.so.2 is not installed
 mkdir ~/Downloads # If Downloads folder doesn't exists
 
 # 2.) Download the installer
-wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/ML4W_Dotfiles_Installer.AppImage
+wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/installer.AppImage
 
 # 3.) Change to the Downloads folder
 cd ~/Downloads
 
 # 4.) Make the file executable
-chmod +x ML4W_Dotfiles_Installer.AppImage
+chmod +x installer.AppImage
 
 # 5.) Start the App from your terminal with
-./ML4W_Dotfiles_Installer.AppImage
+./installer.AppImage
 
 ```
 
