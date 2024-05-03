@@ -44,7 +44,7 @@ If possible, please create a snapshot of your current system if snapper or Times
 
 The easiest way to install the ML4W Dotfiles is to use the ML4W Dotfiles Installer App. 
 
-[You can download the app here.](apps/installer.AppImage) (Right click + Save link as... into your Downloads Folder)
+[You can download the app here.](https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/apps/installer.AppImage) (Right click + Save link as... into your Downloads Folder)
 
 ```
 # 0.) Install required packages
@@ -70,7 +70,7 @@ sudo pacman -S wget fuse2 # If wget or libfuse.so.2 is not installed
 mkdir ~/Downloads # If Downloads folder doesn't exists
 
 # 2.) Download the installer
-wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/installer.AppImage
+wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/apps/installer.AppImage
 
 # 3.) Change to the Downloads folder
 cd ~/Downloads
