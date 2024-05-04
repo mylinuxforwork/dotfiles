@@ -334,11 +334,11 @@ https://gist.github.com/PowerBall253/2dea6ddf6974ba4e5d26c3139ffb7580
 - Terminal: alacritty
 - Editor: nvim
 - Prompt: starship
-- Wallpaper: swww or hyprpaper
+- Wallpaper: hyprpaper (swww optional)
 - Icons: Font Awesome
-- Launch Menus: Rofi (Wayland fork)
+- Launch Menus: Rofi (Wayland)
 - Colorscheme: pywal
-- Browsers: chromium (brave optional)
+- Browsers: Chromium
 - Filemanager: Thunar
 - Cursor: Bibata Modern Ice
 - Icons: Papirus-Icon-Theme
@@ -367,14 +367,14 @@ Included is a pywal configuration that changes the color scheme based on a rando
 - Editor: nvim
 - Prompt: starship
 - Icons: Font Awesome
-- Launch Menus: Rofi (Wayland fork)
+- Launch Menus: Rofi
 - Colorscheme: pywal
-- Browsers: chromium (brave optional)
+- Browsers: Chromium
 - Filemanager: Thunar
 - Cursor: Bibata Modern Ice
 - Icons: Papirus-Icon-Theme
 - Status Bar: Qtile status bar
-- Compositor: picom
+- Compositor: picom (optional)
 - Screenshots: scrot
 
 # Installation/Update with GIT
