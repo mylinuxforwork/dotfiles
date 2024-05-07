@@ -12,7 +12,7 @@ if [ -f ~/dotfiles-versions/backups/$datets/.bashrc-old ]; then
     echo "Backup is already available here ~/dotfiles-versions/backups/$datets/.bashrc-old"
 fi
 if [ ! -L ~/.bashrc ] && [ -f ~/.bashrc ]; then
-    bash_confirm="Do you want to replace your existing .bashrc file with the dotfiles .bashrc file?"
+    bash_confirm="Do you want to replace your existing .bashrc file with the ML4W dotfiles .bashrc file?"
     if gum confirm "$bash_confirm" ;then
         rm ~/.bashrc
         _installSymLink .bashrc ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
@@ -22,7 +22,7 @@ if [ ! -L ~/.bashrc ] && [ -f ~/.bashrc ]; then
         echo "Installation of the .bashrc file skipped."
     fi
 else
-    bash_confirm="Do you want to install the dotfiles .bashrc file now?"
+    bash_confirm="Do you want to install the ML4W dotfiles .bashrc file now?"
     if gum confirm "$bash_confirm" ;then
         if [ -L ~/.bashrc ] || [ -f ~/.bashrc ]; then
             rm ~/.bashrc
