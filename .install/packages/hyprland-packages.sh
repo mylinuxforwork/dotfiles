@@ -12,9 +12,7 @@ packagesPacman=(
 );
 
 packagesYay=(
-    "swww" 
     "wlogout"
     "nwg-look"
-    "emote"
     "eww"
 );

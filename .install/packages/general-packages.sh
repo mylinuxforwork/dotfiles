@@ -53,10 +53,10 @@ packagesPacman=(
     "guvcview"
     "jq"
     "rofi-wayland"
+    "fastfetch"
 );
 
 packagesYay=(
-    "pfetch" 
     "bibata-cursor-theme" 
     "trizen"
     "pacseek"
