@@ -36,7 +36,7 @@
             (box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
                 (box :class "res_circle" :orientation "v" :valign "center" :halign "center"
                     (circular-progress :class "res_cpu" :value CPU_USAGE :thickness 15
-                        (label :class "res_circle_small" :text "CPU")
+                        (label :class "res_circle_small" :text "CPU" :show-truncated false)
                     )
                 )
                 (label :class "res_text" :valign "end" :halign "center" :text "${CPU_USAGE}%")
@@ -44,7 +44,7 @@
             (box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
                 (box :class "res_circle" :orientation "v" :valign "center" :halign "center"
                     (circular-progress :class "res_mem" :value MEM_USAGE :thickness 15
-                        (label :class "res_circle_small" :text "MEMORY")
+                        (label :class "res_circle_small" :text "MEMORY" :show-truncated false)
                     )
                 )
                 (label :class "res_text" :valign "end" :halign "center" :text "${MEM_USAGE}%")
@@ -52,7 +52,7 @@
             (box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
                 (box :class "res_circle" :orientation "v" :valign "center" :halign "center"
                     (circular-progress :class "res_disk" :value DISK_USAGE :thickness 15
-                        (label :class "res_circle_small" :text "DISK")
+                        (label :class "res_circle_small" :text "DISK" :show-truncated false)
                     )
                 )
                 (label :class "res_text" :valign "end" :halign "center" :text "${DISK_USAGE}%")
