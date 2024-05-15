@@ -1,14 +1,15 @@
 packagesPacman=(
     "hyprland"
     "hyprpaper"
+    "hyprlock"
+    "hypridle"
+    "hyprpicker"
     "xdg-desktop-portal-hyprland" 
     "waybar" 
     "grim" 
     "slurp"
     "swappy"
     "cliphist"
-    "hyprlock"
-    "hypridle"
 );
 
 packagesYay=(

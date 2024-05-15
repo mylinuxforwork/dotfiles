@@ -29,7 +29,6 @@ packagesPacman=(
     "python-gobject"
     "pavucontrol" 
     "tumbler" 
-    "blueman"
     "papirus-icon-theme"
     "breeze-icons"
     "polkit-gnome"
@@ -60,4 +59,5 @@ packagesYay=(
     "bibata-cursor-theme" 
     "trizen"
     "pacseek"
+    "overskride"
 );
