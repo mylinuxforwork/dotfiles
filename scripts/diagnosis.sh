@@ -36,8 +36,8 @@ _commandExists "gum" "gum"
 _commandExists "wlogout" "wlogout"
 _commandExists "swww" "swww"
 _commandExists "eww" "eww"
-_commandExists "magick2" "imagemagick"
-_commandExists "figlet2" "figlet"
+_commandExists "magick" "imagemagick"
+_commandExists "figlet" "figlet"
 
 echo
 echo "Press return to exit"
