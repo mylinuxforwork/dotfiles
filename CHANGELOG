@@ -6,6 +6,8 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
 - Directory for wallpapers can be customized with new .settings/wallpaper-folder.sh
 - Added hyprpicker and Keybinding SUPER+CTRL+P
 - Replaced blueman with overskride to manage bluetooth devices
+- Screen shading possible with hyprshade. SUPER+SHIFT+S to toggle the hyprshade. The filter can be defined in ~/dotfiles/.settings/hyprshade.sh 
+For auto-activation at a dedicated time please set the filter to off and follow the instructions here https://github.com/loqusion/hyprshade
 
 Version 2.9
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
