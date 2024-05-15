@@ -3,7 +3,6 @@ packagesPacman=(
     "hyprpaper"
     "hyprlock"
     "hypridle"
-    "hyprpicker"
     "xdg-desktop-portal-hyprland" 
     "waybar" 
     "grim" 
@@ -17,4 +16,5 @@ packagesYay=(
     "nwg-look"
     "eww"
     "hyprshade"
+    "hyprpicker-git"
 );
