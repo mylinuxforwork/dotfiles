@@ -3,6 +3,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
 --------------------------------------------------------
 - Hyprpaper is the default wallpaper engine. swww will not be installed by the installer anymore. You can still switch to swww in the Dotfiles Settings App (System tab) but you need to install swww manually with yay -S swww
 - pfetch has been replaced with fastfetch (requires an update of the .bashrc)
+- Directory for wallpapers can be customized with new .settings/wallpaper-folder.sh
 
 Version 2.9
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
