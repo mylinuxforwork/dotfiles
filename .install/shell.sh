@@ -50,6 +50,7 @@ else
             rm ~/.zshrc
             _installSymLink .zshrc ~/.zshrc ~/dotfiles/.zshrc ~/.zshrc
             _installPackagesPacman "fzf" "zoxide"
+            _installPackagesYay "zinit"
             chsh -s /bin/zsh
         elif [ $? -eq 130 ]; then
                 exit 130
@@ -65,6 +66,7 @@ else
             fi
             _installSymLink .zshrc ~/.zshrc ~/dotfiles/.zshrc ~/.zshrc
             _installPackagesPacman "fzf" "zoxide"
+            _installPackagesYay "zinit"
             chsh -s /bin/zsh
         elif [ $? -eq 130 ]; then
                 exit 130
