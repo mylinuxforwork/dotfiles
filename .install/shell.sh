@@ -17,6 +17,7 @@ if gum confirm "What shell do you want to use?" --affirmative "bash" --negative 
         if gum confirm "$bash_confirm" ;then
             rm ~/.bashrc
             _installSymLink .bashrc ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
+            chsh -s /bin/bash
         elif [ $? -eq 130 ]; then
                 exit 130
         else
@@ -30,6 +31,7 @@ if gum confirm "What shell do you want to use?" --affirmative "bash" --negative 
                 echo "Existing .bashrc removed."
             fi
             _installSymLink .bashrc ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
+            chsh -s /bin/bash
         elif [ $? -eq 130 ]; then
                 exit 130
         else
