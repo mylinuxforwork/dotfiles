@@ -16,5 +16,5 @@ packagesYay=(
     "nwg-look"
     "hyprshade"
     "hyprpicker-git"
-    "eww-git"
+    "eww"
 );
