@@ -25,7 +25,7 @@ fi
 
 # Backup Existing Dotfiles
 
-if [ -d ~/dotfiles ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d ~/.config/qtile ]; then
+if [ -d ~/dotfiles ] || ! test -L ~/.bashrc || ! test -L ~/.zshrc || [ -d ~/.config/hypr ] || [ -d ~/.config/qtile ]; then
 
     echo -e "${GREEN}"
     figlet "Backup"
@@ -37,6 +37,9 @@ if [ -d ~/dotfiles ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d ~/.
     fi
     if ! test -L ~/.bashrc ;then
         echo "   - $HOME/.bashrc"
+    fi
+    if ! test -L ~/.zshrc ;then
+        echo "   - $HOME/.zshrc"
     fi
     if ! test -L ~/.config/qtile && [ -d ~/.config/qtile ] ;then
         echo "   - $HOME/.config/qtile/"
@@ -98,6 +101,10 @@ if [ -d ~/dotfiles ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d ~/.
         if ! test -L ~/.bashrc ;then
             cp ~/.bashrc ~/dotfiles-versions/backup
             echo ":: Backup of $HOME/.bashrc created in ~/dotfiles-versions/backup"
+        fi
+        if ! test -L ~/.zshrc ;then
+            cp ~/.zshrc ~/dotfiles-versions/backup
+            echo ":: Backup of $HOME/.zshrc created in ~/dotfiles-versions/backup"
         fi
         if [ ! -d ~/dotfiles-versions/backup/config ] ;then
             mkdir ~/dotfiles-versions/backup/config
