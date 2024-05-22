@@ -137,7 +137,7 @@ cat ~/.cache/wal/sequences
 # -----------------------------------------------------
 echo ""
 if [[ $(tty) == *"pts"* ]]; then
-    fastfetch
+    fastfetch --config examples/13
 else
     if [ -f /bin/qtile ]; then
         echo "Start Qtile X11 with command Qtile"
