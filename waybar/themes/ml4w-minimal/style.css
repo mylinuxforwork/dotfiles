@@ -134,11 +134,17 @@ window#waybar.empty #window {
 #custom-settings, 
 #custom-wallpaper, 
 #custom-system,
+#custom-hyprshade,
 #custom-waybarthemes {
     margin-right: 23px;
     font-size: 14px;
     font-weight: bold;
     color: @iconcolor;
+}
+
+#custom-hyprshade {
+    margin-left:4px;
+    margin-right:12px;
 }
 
 #custom-settings {

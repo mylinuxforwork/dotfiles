@@ -45,6 +45,7 @@
         "group/hardware",
         "custom/cliphist",
         "idle_inhibitor",
+        "custom/hyprshade",
         "custom/exit",
         "clock",
         "tray",

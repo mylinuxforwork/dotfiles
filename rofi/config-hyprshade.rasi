@@ -13,17 +13,16 @@
 configuration {
     modi:                       "drun,run";
     font:                       "Fira Sans 11";
-    show-icons:                 true;
+    show-icons:                 false;
     icon-theme:                 "kora";
     display-drun:               "APPS";
     display-run:                "RUN";
     display-filebrowser:        "FILES";
     display-window:             "WINDOW";
-	drun-display-format:        "{name}";
-    hover-select:               false;
-    scroll-method:              1;
+	hover-select:               true;
     me-select-entry:            "";
     me-accept-entry:            "MousePrimary";
+    drun-display-format:        "{name}";
     window-format:              "{w} · {c} · {t}";
     
 }
@@ -42,9 +41,9 @@ configuration {
 
 /* ---- Window ---- */
 window {
-    width:                        900px;
-    x-offset:                     0px;
-    y-offset:                     0px;
+    width:                        400px;
+    x-offset:                     -14px;
+    y-offset:                     65px;
     spacing:                      0px;
     padding:                      0px;
     margin:                       0px; 
@@ -69,7 +68,7 @@ mainbox {
     margin:                       0px;
     background-color:             @background;
     background-image:             @current-image;
-    children:                     ["imagebox","listbox"];
+    children:                     ["listbox"];
 }
 
 /* ---- Imagebox ---- */
@@ -85,7 +84,7 @@ listbox {
     spacing:                     20px;
     background-color:            transparent;
     orientation:                 vertical;
-    children:                    [ "message", "listview" ];
+    children:                    [ "listview" ];
 }
 
 /* ---- Dummy ---- */
@@ -99,7 +98,7 @@ inputbar {
     text-color:                   @foreground;
     spacing:                      10px;
     padding:                      15px;
-    border-radius:                10px;
+    border-radius:                0px;
     border-color:                 @foreground;
     background-color:             @background;
     children:                     [ "textbox-prompt-colon", "entry" ];
@@ -108,8 +107,8 @@ inputbar {
 textbox-prompt-colon {
     enabled:                      true;
     expand:                       false;
-    str:                          "";
     padding:                      0px 5px 0px 0px;
+    str:                          "";
     background-color:             transparent;
     text-color:                   inherit;
 }
@@ -149,9 +148,9 @@ button selected {
 listview {
     enabled:                      true;
     columns:                      1;
-    lines:                        8;
-    cycle:                        false;
-    dynamic:                      false;
+    lines:                        2;
+    cycle:                        true;
+    dynamic:                      true;
     scrollbar:                    false;
     layout:                       vertical;
     reverse:                      false;

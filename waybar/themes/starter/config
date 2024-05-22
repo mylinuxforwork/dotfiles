@@ -55,6 +55,7 @@
         "group/hardware",
         "custom/cliphist",
         "idle_inhibitor",
+        "custom/hyprshade",
         "tray",
         "custom/exit",
         "custom/ml4w-welcome",

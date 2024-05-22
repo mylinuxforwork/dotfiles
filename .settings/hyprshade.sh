@@ -3,4 +3,4 @@
 # - vibrance 
 # - off
 # get available filters with hyprshade ls
-hyprshade_filter="blue-light-filter"
+hyprshade_filter="grayscale"
