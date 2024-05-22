@@ -6,14 +6,9 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
 - Directory for wallpapers can be customized with new .settings/wallpaper-folder.sh
 - Added hyprpicker and Keybinding SUPER+CTRL+P
 - Replaced blueman with overskride to manage bluetooth devices
-<<<<<<< HEAD
-- Screen shading possible with hyprshade. SUPER+SHIFT+S to toggle hyprshade. The filter can be defined in ~/dotfiles/.settings/hyprshade.sh 
+- Screen shading possible with hyprshade. SUPER+SHIFT+S to toggle hyprshade. The shader can be defined with the shader module in waybar or in ~/dotfiles/.settings/hyprshade.sh 
 For auto-activation at a dedicated time please set the filter to off and follow the instructions here https://github.com/loqusion/hyprshade
-=======
-- Screen shading possible with hyprshade. SUPER+SHIFT+S to toggle the hyprshade. The shader can be selected in the new Shader module in Waybar.
-For individual customization and auto-activation at a dedicated time please set the filter to off and follow the instructions here https://github.com/loqusion/hyprshade
-- Nautilus defined as new default file manager. Thunar available in addition.
->>>>>>> e633c2b (Updates)
+- Nautilus defined as the new default file manager. Thunar is still available.
 
 Version 2.9
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
