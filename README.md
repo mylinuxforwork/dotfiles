@@ -45,45 +45,15 @@ If possible, please create a snapshot of your current system if snapper or Times
 
 ## Installation
 
-The easiest way to install the ML4W Dotfiles is to use the ML4W Dotfiles Installer App. 
+The easiest way is to use the setup.sh script. The script will download all files from GitLab and start the installation.
 
-[You can download the app here.](https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/installer.AppImage) (Right click + Save link as... into your Downloads Folder)
-
-```
-# 1.) Change to the Downloads folder
-cd ~/Downloads
-
-# 2.) Make the file executable
-chmod +x installer.AppImage
-
-# 3.) Start the App from your terminal with
-./installer.AppImage
-```
-
-Or with download the Installer App with wget if your starting point is a minimal Arch Linux with without DE from tty:
+Just copy/enter the following command into your terminal.
 
 ```
-# 0.) Install required packages
-sudo pacman -S wget fuse2 # Only required for Minimal Arch installations. If wget or libfuse.so.2 is not installed. 
-
-# 1.) Create Downloads folder
-mkdir ~/Downloads # If Downloads folder doesn't exists
-
-# 2.) Download the installer
-wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/apps/installer.AppImage
-
-# 3.) Change to the Downloads folder
-cd ~/Downloads
-
-# 4.) Make the file executable
-chmod +x installer.AppImage
-
-# 5.) Start the App from your terminal with
-./installer.AppImage
-
+bash <(curl -s "https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/setup.sh")
 ```
 
-Alternatively you can install with GIT.
+Alternatively you can install with GIT (see below).
 
 ## Update
 
