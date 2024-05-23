@@ -14,8 +14,6 @@ wallpaper_folder="$HOME/wallpaper"
 if [ -f ~/dotfiles/.settings/wallpaper-folder.sh ] ;then
     source ~/dotfiles/.settings/wallpaper-folder.sh
 fi
-echo $wallpaper_folder
-
 cache_file="$HOME/.cache/current_wallpaper"
 blurred="$HOME/.cache/blurred_wallpaper.png"
 square="$HOME/.cache/square_wallpaper.png"

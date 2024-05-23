@@ -70,31 +70,31 @@
 ;; powermenus
 (defwidget logout [] 
     (box :class "winbox"
-        (button :tooltip "Logout" :style "background-image: url('../assets/application-exit-symbolic-rtl.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system.sh logout &")
+        (button :tooltip "Logout" :style "background-image: url('../assets/application-exit-symbolic-rtl.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../../hypr/scripts/power.sh exit &")
     )
 )
 
 (defwidget suspend [] 
     (box :class "winbox"
-        (button :tooltip "Suspend" :style "background-image: url('../assets/media-playback-pause-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system.sh suspend &")
+        (button :tooltip "Suspend" :style "background-image: url('../assets/media-playback-pause-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../../hypr/scripts/power.sh suspend &")
     )
 )
 
 (defwidget lock [] 
     (box :class "winbox"
-        (button :tooltip "Lock" :style "background-image: url('../assets/system-lock-screen-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system.sh lock &")
+        (button :tooltip "Lock" :style "background-image: url('../assets/system-lock-screen-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../../hypr/scripts/power.sh lock &")
     )
 )
 
 (defwidget reboot [] 
     (box :class "winbox"
-        (button :tooltip "Reboot" :style "background-image: url('../assets/system-reboot-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system.sh reboot &")
+        (button :tooltip "Reboot" :style "background-image: url('../assets/system-reboot-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../../hypr/scripts/power.sh reboot &")
     )
 )
 
 (defwidget shutdown [] 
     (box :class "winbox"
-        (button :tooltip "Shutdown" :style "background-image: url('../assets/system-shutdown-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system.sh shutdown &")
+        (button :tooltip "Shutdown" :style "background-image: url('../assets/system-shutdown-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../../hypr/scripts/power.sh shutdown &")
     )
 )
 
