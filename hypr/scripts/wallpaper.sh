@@ -6,7 +6,7 @@
 #   \_/\_/ \__,_|_|_| .__/ \__,_| .__/ \___|_|    
 #                   |_|         |_|               
 #  
-# by Stephan Raabe (2023) 
+# by Stephan Raabe (2024) 
 # ----------------------------------------------------- 
 
 # Cache file for holding the current wallpaper
