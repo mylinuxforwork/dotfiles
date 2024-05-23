@@ -11,7 +11,7 @@ if gum confirm "Do you want to update your system with yay now?" ;then
     yay
 elif [ $? -eq 130 ]; then
     exit 130
-else    
+else
     echo ":: System update skipped"
 fi
 echo

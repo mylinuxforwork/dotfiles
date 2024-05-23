@@ -25,6 +25,7 @@ The dotfiles are tested with the following Arch based distributions:
 
 - Arch Linux (recommended)
 - EndeavourOS
+- Manjaro Linux
 - Garuda Linux
 - Arco Linux
 

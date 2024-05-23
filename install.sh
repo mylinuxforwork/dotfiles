@@ -35,6 +35,7 @@ fi
 echo ""
 source .install/required.sh
 source .install/confirm-start.sh
+source .install/paralleldownloads.sh
 source .install/yay.sh
 source .install/updatesystem.sh
 source .install/backup.sh

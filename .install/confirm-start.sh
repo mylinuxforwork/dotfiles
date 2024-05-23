@@ -2,7 +2,6 @@
 # Confirm Start
 # ------------------------------------------------------
 
-echo "You can cancel the installation at any time with CTRL + C"
 SCRIPT=$(realpath "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 if [ $SCRIPTPATH = "/home/$USER/dotfiles" ]; then
