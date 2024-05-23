@@ -9,6 +9,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
 - Screen shading possible with hyprshade. SUPER+SHIFT+S to toggle hyprshade. The shader can be defined with the shader module in waybar or in ~/dotfiles/.settings/hyprshade.sh 
 For auto-activation at a dedicated time please set the filter to off and follow the instructions here https://github.com/loqusion/hyprshade
 - Nautilus defined as the new default file manager. Thunar is still available.
+- Waybar can be toggles with SUPER+CTRL+B
 
 Version 2.9
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
