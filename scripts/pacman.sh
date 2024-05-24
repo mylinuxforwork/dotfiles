@@ -6,6 +6,8 @@
 # |_|   \__,_|\___|_| |_| |_|\__,_|_| |_|
 #   
 
+sleep 1
+clear
 figlet "pacman.conf"
 echo
 echo ":: This script will activate or deactivate additions for your pacman.conf."
@@ -53,3 +55,4 @@ else
         echo ":: Activation of ILoveCandy skipped."
     fi
 fi
+sleep 2

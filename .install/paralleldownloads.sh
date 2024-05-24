@@ -2,6 +2,7 @@
 # ------------------------------------------------------
 # Activate parallel downloads
 # ------------------------------------------------------
+
 # Search for the line containing "ParallelDownloads = 5"
 line=$(grep "ParallelDownloads = 5" /etc/pacman.conf)
 
@@ -10,7 +11,7 @@ if [[ $line == \#* ]]; then
     echo -e "${GREEN}"
     figlet "Downloads"
     echo -e "${NONE}"
-    echo ":: You can activate 5 parallel downloads in pacman.conf to speedup the download of the packages?"
+    echo ":: You can activate parallel downloads in pacman.conf to speedup the download of packages?"
     if gum confirm "Do you want to activate parallel downloads?"; then
 
         # Remove the '#' character from the beginning of the line
@@ -36,5 +37,19 @@ else
         # Display a message indicating that the line is missing or commented out
         echo ":: Parallel downloads could not be activated. Required configuration in /etc/pacman.conf could not found."
     fi
+fi
+
+# Activate Color in pacman.conf
+if grep -Fxq "#Color" /etc/pacman.conf
+then
+    sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
+    echo ":: Color activated in pacman.conf"
+else
+    echo ":: Color is already activated in pacman.conf"
+fi
+if grep -Fxq "# Color" /etc/pacman.conf
+then
+    sudo sed -i 's/^# Color/Color/' /etc/pacman.conf
+    echo ":: Color activated in pacman.conf"
 fi
 echo
