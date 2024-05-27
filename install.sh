@@ -79,7 +79,7 @@ fi
 source .install/settings.sh
 source .install/apps.sh
 source .install/gtk.sh
-source .install/bashrc.sh
+source .install/shell.sh
 source .install/cleanup.sh
 source .install/diagnosis.sh
 source .install/reboot.sh
