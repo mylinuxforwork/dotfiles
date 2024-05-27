@@ -10,7 +10,7 @@ For auto-activation at a dedicated time please set the filter to off and follow 
 - Nautilus defined as the new default file manager. Thunar is still available.
 - Waybar can be toggles with SUPER+CTRL+B https://gitlab.com/stephan-raabe/dotfiles/-/issues/299
 - Installation script optimized for new gum
-- During the installation of the keyboard, it can be selected between a desktop and laptop optimized configuration [@dianaw353]. 
+- During the installation of the keyboard, it can be selected between a desktop and laptop optimized configuration https://gitlab.com/stephan-raabe/dotfiles/-/issues/319. 
 - RDP launch script updated https://gitlab.com/stephan-raabe/dotfiles/-/issues/336
 - Nvidia environment configuration updated https://gitlab.com/stephan-raabe/dotfiles/-/issues/327
 - Pacman can be configured for parallel downloads, colors and more during the installation and with the ML4W Settings app https://gitlab.com/stephan-raabe/dotfiles/-/issues/316
