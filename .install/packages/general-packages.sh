@@ -54,11 +54,11 @@ packagesPacman=(
     "jq"
     "rofi-wayland"
     "fastfetch"
+    "blueman"
 );
 
 packagesYay=(
     "bibata-cursor-theme" 
     "trizen"
     "pacseek"
-    "overskride"
 );
