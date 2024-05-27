@@ -62,14 +62,14 @@ while true; do
     read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
     case $yn in
         [Yy]* )
-            echo "Installation started."
+            echo ":: Installation started."
             echo
         break;;
         [Nn]* ) 
-            echo "Installation canceled."
+            echo ":: Installation canceled."
             exit;
         break;;
-        * ) echo "Please answer yes or no.";;
+        * ) echo ":: Please answer yes or no.";;
     esac
 done
 
@@ -111,17 +111,16 @@ unzip -o -q ~/Downloads/dotfiles-$v.zip -d ~/Downloads/
 echo ":: Unzip complete."
 cd $HOME/Downloads/dotfiles-$v
 echo ":: Changed into ~/Downloads/dotfiles-$v/"
-
+echo 
 # Start the installatiom
 if gum confirm "DO YOU WANT TO START THE INSTALLATION NOW?" ;then
     echo
-    echo "Starting the installation now..."
-    sleep 2
+    gum spin --spinner dot --title "Starting the installation now..." -- sleep 3
     ./install.sh
 elif [ $? -eq 130 ]; then
         exit 130
 else
-    echo "Installation canceled."
-    echo "You can start the installation manually with ~/Downloads/dotfiles-$version/install.sh"
+    echo ":: Installation canceled."
+    echo "You can also start the installation manually with ~/Downloads/dotfiles-$version/install.sh"
     exit;
 fi
