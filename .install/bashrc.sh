@@ -11,6 +11,7 @@ fi
 if [ -f ~/dotfiles-versions/backups/$datets/.bashrc-old ]; then
     echo "Backup is already available here ~/dotfiles-versions/backups/$datets/.bashrc-old"
 fi
+echo
 if [ ! -L ~/.bashrc ] && [ -f ~/.bashrc ]; then
     bash_confirm="Do you want to replace your existing .bashrc file with the ML4W dotfiles .bashrc file?"
     if gum confirm "$bash_confirm" ;then
