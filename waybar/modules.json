@@ -199,8 +199,8 @@
     // Hyprshade
     "custom/hyprshade": {
         "format": "",
-        "on-click": "sleep 0.1; ~/dotfiles/hypr/scripts/hyprshade.sh",
-        "on-click-right": "sleep 0.1; ~/dotfiles/hypr/scripts/hyprshade.sh rofi",
+        "on-click": "sleep 0.5; ~/dotfiles/hypr/scripts/hyprshade.sh",
+        "on-click-right": "sleep 0.5; ~/dotfiles/hypr/scripts/hyprshade.sh rofi",
         "tooltip": false
     },
 
