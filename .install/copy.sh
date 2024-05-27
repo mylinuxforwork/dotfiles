@@ -51,10 +51,10 @@ if gum confirm "Do you want to install the prepared dotfiles now?" ;then
         echo "Skipped: DEV MODE!"
     fi
 elif [ $? -eq 130 ]; then
-    echo ":: Installation cancelled"
+    echo ":: Installation canceled"
     exit 130
 else
-    echo ":: Installation cancelled"
+    echo ":: Installation canceled"
     exit
 fi
 echo

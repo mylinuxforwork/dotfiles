@@ -42,6 +42,10 @@ _showRestoreOptions() {
             restorelist+="~/dotfiles/hypr/conf/environment.conf "
             selectedlist+="~/dotfiles/hypr/conf/environment.conf,"
         fi
+        if [ -f ~/dotfiles/hypr/conf/layout.conf ] && [ -d ~/dotfiles/hypr/conf/layouts/ ]; then
+            restorelist+="~/dotfiles/hypr/conf/layout.conf "
+            selectedlist+="~/dotfiles/hypr/conf/layout.conf,"
+        fi
         if [ -f ~/dotfiles/hypr/conf/windowrule.conf ] && [ -d ~/dotfiles/hypr/conf/windowrules/ ]; then
             restorelist+="~/dotfiles/hypr/conf/windowrule.conf "
             selectedlist+="~/dotfiles/hypr/conf/windowrule.conf,"
@@ -148,6 +152,12 @@ _startRestore() {
             if [ -f ~/dotfiles/hypr/conf/environment.conf ]; then
                 cp ~/dotfiles/hypr/conf/environment.conf ~/dotfiles-versions/$version/hypr/conf/
                 echo ":: Hyprland environment.conf restored!"
+            fi
+        fi        
+        if [[ $restoreselect == *"~/dotfiles/hypr/conf/layout.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/hypr/conf/layout.conf ]; then
+                cp ~/dotfiles/hypr/conf/layout.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo ":: Hyprland layout.conf restored!"
             fi
         fi        
         if [[ $restoreselect == *"~/dotfiles/hypr/conf/windowrule.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then

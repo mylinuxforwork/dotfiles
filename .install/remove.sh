@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# Remove blueman
-if [[ $(_isInstalledPacman "blueman") == 0 ]]; then
-    sudo pacman --noconfirm -Rns blueman
-    echo ":: blueman removed"
-    echo
-fi
-
 # Remove Rofi Calc
 if [[ $(_isInstalledPacman "rofi-calc") == 0 ]]; then
     sudo pacman --noconfirm -Rns rofi-calc

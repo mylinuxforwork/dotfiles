@@ -6,37 +6,61 @@ echo -e "${GREEN}"
 figlet "Keyboard"
 echo -e "${NONE}"
 
-# Default layout and variants
-keyboard_layout="us"
-
-_setupKeyboardLayout() {
-    echo ""
-    echo "Start typing = Search, RETURN = Confirm, CTRL-C = Cancel"
-    keyboard_layout=$(localectl list-x11-keymap-layouts | gum filter --height 15 --placeholder "Find your keyboard layout...")
-    echo ""
-    echo ":: Keyboard layout changed to $keyboard_layout"
-    echo ""
-    _confirmKeyboard
-}
-
-_confirmKeyboard() {
-    echo "Current selected keyboard setup:"
-    echo "Keyboard layout: $keyboard_layout"
-    if gum confirm "Do you want proceed with this keyboard setup?" --affirmative "Proceed" --negative "Change" ;then
-        return 0
-    elif [ $? -eq 130 ]; then
-        exit 130
-    else
-        _setupKeyboardLayout
-    fi
-}
-
+setkeyboard=0
 if [ "$restored" == "1" ]; then
     echo ":: You have already restored your settings into the new installation."
-else
+    echo "You can repeat the keyboard setup again to choose between a desktop and laptop optimized configuration."
+    echo
+    if gum confirm "Do you want to setup your keyboard again?" ;then
+        setkeyboard=0
+    elif [ $? -eq 130 ]; then
+        echo ":: Installation canceled."
+        exit 130
+    else
+        echo ":: Keyboard setup skipped."
+        setkeyboard=1
+    fi
+fi
+
+if [ "$setkeyboard" == "0" ] ;then
+
+    # Default layout and variants
+    keyboard_layout="us"
+
+    _setupKeyboardLayout() {
+        echo
+        keyboard_layout=$(localectl list-x11-keymap-layouts | gum filter --height 15 --placeholder "Find your keyboard layout...")
+        echo
+        echo ":: Keyboard layout changed to $keyboard_layout"
+        echo
+        _confirmKeyboard
+    }
+
+    _confirmKeyboard() {
+        
+        echo "Current selected keyboard setup:"
+        echo "Keyboard layout: $keyboard_layout"
+        echo
+        if gum confirm "Do you want proceed with this keyboard setup?" --affirmative "Proceed" --negative "Change" ;then
+            return 0
+        elif [ $? -eq 130 ]; then
+            exit 130
+        else
+            _setupKeyboardLayout
+        fi
+    }
+
     _confirmKeyboard
-    
-    cp .install/templates/keyboard.conf ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
+
+    if gum confirm "Are you using a laptop and would you like to enable the laptop presets?"; then
+        cp .install/templates/keyboard-laptop.conf ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
+        echo "source = ~/dotfiles/hypr/conf/layouts/laptop.conf" >  ~/dotfiles-versions/$version/hypr/conf/layout.conf
+    elif [ $? -eq 130 ]; then
+        echo ":: Installation canceled."
+        exit 130
+    else
+        cp .install/templates/keyboard-default.conf ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
+    fi
     cp .install/templates/autostart.sh ~/dotfiles-versions/$version/qtile/autostart.sh
 
     SEARCH="KEYBOARD_LAYOUT"
@@ -47,7 +71,9 @@ else
     REPLACE="$keyboard_layout"
     sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/qtile/autostart.sh
 
-    echo ""
-    echo ":: Keyboard setup updated successfully."
+    echo
+    echo ":: Keyboard setup complete."
+    echo
     echo "PLEASE NOTE: You can update your keyboard layout later in ~/dotfiles/hypr/conf/keyboard.conf"
-fi
+
+fi 

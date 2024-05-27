@@ -64,8 +64,8 @@ source .install/wallpaper.sh
 source .install/displaymanager.sh
 source .install/issue.sh
 source .install/restore.sh
-source .install/neovim.sh
 source .install/keyboard.sh
+source .install/neovim.sh
 source .install/hook.sh
 source .install/vm.sh
 source .install/copy.sh
