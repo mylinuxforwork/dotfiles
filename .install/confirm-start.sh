@@ -17,7 +17,8 @@ if [ ! -d ~/dotfiles ];then
     if gum confirm "DO YOU WANT TO START THE INSTALLATION OF THE ML4W DOTFILES NOW?" ;then
         echo "Installation started."
     elif [ $? -eq 130 ]; then
-            exit 130
+        echo ":: Installation canceled."
+        exit 130
     else
         echo ":: Installation canceled."
         exit;
@@ -26,7 +27,8 @@ else
     if gum confirm "DO YOU WANT TO START THE UPDATE OF YOUR ML4W DOTFILES NOW?" ;then
         echo ":: Update started."
     elif [ $? -eq 130 ]; then
-            exit 130
+        echo ":: Update canceled."
+        exit 130
     else
         echo ":: Update canceled."
         exit;

@@ -8,8 +8,7 @@ monitorrestored=0
 
 _showRestoreOptions() {
     echo "The following configurations can be transferred into the new installation."
-    echo "(SPACE = select/unselect a profile. RETURN = confirm. CTRL-C/No selection = Skip Restore)"
-    echo ""
+    echo
     restorelist=""
     if [ -f ~/dotfiles/.bashrc ]; then
         restorelist+="~/dotfiles/.bashrc "
@@ -88,7 +87,7 @@ _showRestoreOptions() {
         echo "No files selected to restore."
         confirmrestore=$(gum choose "Change restore" "Skip restore")
         if [ -z "${confirmrestore}" ] ;then
-            echo "Installation canceled."
+            echo ":: Installation canceled."
             exit
         fi
         if [ "$confirmrestore" == "Change restore" ]; then 

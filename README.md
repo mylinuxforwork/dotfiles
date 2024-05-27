@@ -1,4 +1,4 @@
-# ML4W Dotfiles 2.9.1 BETA3
+# ML4W Dotfiles 2.9.1 RC1
 
 An advanced configuration of Hyprland and Qtile for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
@@ -50,7 +50,7 @@ The easiest way is to use the setup.sh script. The script will download all file
 Just copy/enter the following command into your terminal.
 
 ```
-bash <(curl -s "https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/setup.sh")
+bash <(curl -s https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/setup.sh)
 ```
 
 Alternatively you can install with GIT (see below).
