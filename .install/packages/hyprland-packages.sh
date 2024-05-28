@@ -14,7 +14,7 @@ packagesPacman=(
 packagesYay=(
     "wlogout"
     "nwg-look"
-    "eww"
     "hyprshade"
     "hyprpicker-git"
+    "eww"
 );
