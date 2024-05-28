@@ -14,6 +14,7 @@ For auto-activation at a dedicated time please set the filter to off and follow 
 - RDP launch script updated https://gitlab.com/stephan-raabe/dotfiles/-/issues/336
 - Nvidia environment configuration updated https://gitlab.com/stephan-raabe/dotfiles/-/issues/327
 - Pacman can be configured for parallel downloads, colors and more during the installation and with the ML4W Settings app https://gitlab.com/stephan-raabe/dotfiles/-/issues/316
+- Image conversions with imagemagick can be enabled for wallpapers. Right click on wallpaper module in waybar. You can add more effects in ~/dotfiles/hypr/effects/wallpaper
 
 Version 2.9
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
