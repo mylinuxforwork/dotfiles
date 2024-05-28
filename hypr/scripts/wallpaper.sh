@@ -14,6 +14,7 @@ wallpaper_folder="$HOME/wallpaper"
 if [ -f ~/dotfiles/.settings/wallpaper-folder.sh ] ;then
     source ~/dotfiles/.settings/wallpaper-folder.sh
 fi
+used_wallpaper="$HOME/.cache/used_wallpaper"
 cache_file="$HOME/.cache/current_wallpaper"
 blurred="$HOME/.cache/blurred_wallpaper.png"
 square="$HOME/.cache/square_wallpaper.png"
@@ -74,7 +75,6 @@ esac
 # Load current pywal color scheme
 # ----------------------------------------------------- 
 source "$HOME/.cache/wal/colors.sh"
-echo ":: Wallpaper: $wallpaper"
 
 # ----------------------------------------------------- 
 # get wallpaper image name
@@ -93,11 +93,27 @@ transition_type="wipe"
 # transition_type="outer"
 # transition_type="random"
 
+cp $wallpaper $HOME/.cache/
+mv $HOME/.cache/$newwall $used_wallpaper
+
+# Load Wallpaper Effect
+if [ -f $HOME/dotfiles/.settings/wallpaper-effect.sh ] ;then
+    effect=$(cat $HOME/dotfiles/.settings/wallpaper-effect.sh)
+    if [ ! "$effect" == "off" ] ;then
+        if [ "$1" == "init" ] ;then
+            echo ":: Init"
+        else
+            dunstify "Using wallpaper effect $effect..." "with image $newwall" -h int:value:10 -h string:x-dunst-stack-tag:wallpaper
+        fi
+        source $HOME/dotfiles/hypr/effects/wallpaper/$effect
+    fi
+fi
+
 wallpaper_engine=$(cat $HOME/dotfiles/.settings/wallpaper-engine.sh)
 if [ "$wallpaper_engine" == "swww" ] ;then
     # swww
     echo ":: Using swww"
-    swww img $wallpaper \
+    swww img $used_wallpaper \
         --transition-bezier .43,1.19,1,.4 \
         --transition-fps=60 \
         --transition-type=$transition_type \
@@ -108,7 +124,7 @@ elif [ "$wallpaper_engine" == "hyprpaper" ] ;then
     echo ":: Using hyprpaper"
     killall hyprpaper
     wal_tpl=$(cat $HOME/dotfiles/.settings/hyprpaper.tpl)
-    output=${wal_tpl//WALLPAPER/$wallpaper}
+    output=${wal_tpl//WALLPAPER/$used_wallpaper}
     echo "$output" > $HOME/dotfiles/hypr/hyprpaper.conf
     hyprpaper &
 else

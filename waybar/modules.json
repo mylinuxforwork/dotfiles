@@ -111,7 +111,7 @@
     "custom/wallpaper": {
         "format": "",
         "on-click": "~/dotfiles/hypr/scripts/wallpaper.sh select",
-        "on-click-right": "~/dotfiles/hypr/scripts/wallpaper.sh",
+        "on-click-right": "~/dotfiles/hypr/scripts/wallpaper-effects.sh",
         "tooltip": false
     },
 
