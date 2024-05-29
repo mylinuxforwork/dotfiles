@@ -4,7 +4,6 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
 - Hyprpaper is the default wallpaper engine. swww will not be installed by the installer anymore. You can still switch to swww in the Dotfiles Settings App (System tab) but you need to install swww manually with yay -S swww
 - pfetch has been replaced with fastfetch (requires an update of the .bashrc) https://gitlab.com/stephan-raabe/dotfiles/-/issues/315
 - Directory for wallpapers can be customized with new .settings/wallpaper-folder.sh https://gitlab.com/stephan-raabe/dotfiles/-/issues/325
-- Added hyprpicker and Keybinding SUPER+CTRL+P
 - Screen shading possible with hyprshade. SUPER+SHIFT+S to toggle hyprshade. The shader can be defined with the shader module in waybar or in ~/dotfiles/.settings/hyprshade.sh 
 For auto-activation at a dedicated time please set the filter to off and follow the instructions here https://github.com/loqusion/hyprshade. https://gitlab.com/stephan-raabe/dotfiles/-/issues/329
 - Nautilus defined as the new default file manager. Thunar is still available.
@@ -15,6 +14,7 @@ For auto-activation at a dedicated time please set the filter to off and follow 
 - Nvidia environment configuration updated https://gitlab.com/stephan-raabe/dotfiles/-/issues/327
 - Pacman can be configured for parallel downloads, colors and more during the installation and with the ML4W Settings app https://gitlab.com/stephan-raabe/dotfiles/-/issues/316
 - Image conversions with imagemagick can be enabled for wallpapers. Right click on wallpaper module in waybar. You can add more effects in ~/dotfiles/hypr/effects/wallpaper
+- New default wallpaper 
 
 Version 2.9
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
