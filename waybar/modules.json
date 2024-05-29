@@ -293,7 +293,7 @@
         "drawer": {
             "transition-duration": 300,
             "children-class": "not-memory",
-            "transition-left-to-right": false
+            "transition-left-to-right": true
         },            
         "modules": [
             "custom/settings",
