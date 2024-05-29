@@ -26,20 +26,27 @@ if [ "$setkeyboard" == "0" ] ;then
 
     # Default layout and variants
     keyboard_layout="us"
+    keyboard_variant=""
 
     _setupKeyboardLayout() {
-        echo
         keyboard_layout=$(localectl list-x11-keymap-layouts | gum filter --height 15 --placeholder "Find your keyboard layout...")
-        echo
         echo ":: Keyboard layout changed to $keyboard_layout"
-        echo
+        _setupKeyboardVariant
+    }
+
+    _setupKeyboardVariant() {
+        if gum confirm "Do you want to set a variant of the keyboard?" ; then
+            keyboard_variant=$(localectl list-x11-keymap-variants | gum filter --height 15 --placeholder "Find your keyboard layout...")
+            echo ":: Keyboard variant changed to $keyboard_variant"
+        fi
         _confirmKeyboard
     }
 
     _confirmKeyboard() {
-        
+        echo
         echo "Current selected keyboard setup:"
         echo "Keyboard layout: $keyboard_layout"
+        echo "Keyboard variant: $keyboard_variant"
         echo
         if gum confirm "Do you want proceed with this keyboard setup?" --affirmative "Proceed" --negative "Change" ;then
             return 0
@@ -65,6 +72,10 @@ if [ "$setkeyboard" == "0" ] ;then
 
     SEARCH="KEYBOARD_LAYOUT"
     REPLACE="$keyboard_layout"
+    sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
+
+    SEARCH="KEYBOARD_VARIANT"
+    REPLACE="$keyboard_variant"
     sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
 
     SEARCH="KEYBOARD_LAYOUT"
