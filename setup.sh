@@ -73,6 +73,26 @@ while true; do
     esac
 done
 
+# Remove existing download folder and zip files 
+if [ -f $HOME/Downloads/dotfiles-main.zip ] ;then
+    rm $HOME/Downloads/dotfiles-main.zip
+fi
+if [ -f $HOME/Downloads/dotfiles-dev.zip ] ;then
+    rm $HOME/Downloads/dotfiles-dev.zip
+fi
+if [ -f $HOME/Downloads/dotfiles.zip ] ;then
+    rm $HOME/Downloads/dotfiles.zip
+fi
+if [ -d $HOME/Downloads/dotfiles ] ;then
+    rm -rf $HOME/Downloads/dotfiles
+fi
+if [ -d $HOME/Downloads/dotfiles-main ] ;then
+    rm -rf $HOME/Downloads/dotfiles-main
+fi
+if [ -d $HOME/Downloads/dotfiles-dev ] ;then
+    rm -rf $HOME/Downloads/dotfiles-dev
+fi
+
 # Synchronizing package databases
 sudo pacman -Sy
 echo
@@ -112,15 +132,5 @@ echo ":: Unzip complete."
 cd $HOME/Downloads/dotfiles-$v
 echo ":: Changed into ~/Downloads/dotfiles-$v/"
 echo 
-# Start the installatiom
-if gum confirm "DO YOU WANT TO START THE INSTALLATION NOW?" ;then
-    echo
-    gum spin --spinner dot --title "Starting the installation now..." -- sleep 3
-    ./install.sh
-elif [ $? -eq 130 ]; then
-        exit 130
-else
-    echo ":: Installation canceled."
-    echo "You can also start the installation manually with ~/Downloads/dotfiles-$version/install.sh"
-    exit;
-fi
+gum spin --spinner dot --title "Starting the installation now..." -- sleep 3
+./install.sh
