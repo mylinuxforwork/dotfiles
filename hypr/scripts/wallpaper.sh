@@ -152,7 +152,7 @@ else
     dunstify "Creating blurred version ..." "with image $newwall" -h int:value:50 -h string:x-dunst-stack-tag:wallpaper
 fi
 
-magick $wallpaper -resize 75% $blurred
+magick $used_wallpaper -resize 75% $blurred
 echo ":: Resized to 75%"
 if [ ! "$blur" == "0x0" ] ;then
     magick $blurred -blur $blur $blurred
