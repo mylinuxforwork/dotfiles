@@ -64,7 +64,7 @@ if [ "$dmsel" == "Install sddm and theme" ] ;then
 
     disman=0
     # Try to force the installation of sddm
-    echo "Install sddm"
+    echo ":: Install sddm and Sugar Candy Thema"
     yay -S --noconfirm sddm sddm-sugar-candy-git --ask 4
 
     if [ -f /etc/systemd/system/display-manager.service ]; then
@@ -74,32 +74,32 @@ if [ "$dmsel" == "Install sddm and theme" ] ;then
 
     if [ ! -d /etc/sddm.conf.d/ ]; then
         sudo mkdir /etc/sddm.conf.d
-        echo "Folder /etc/sddm.conf.d created."
+        echo ":: Folder /etc/sddm.conf.d created."
     fi
 
     sudo cp sddm/sddm.conf /etc/sddm.conf.d/
-    echo "File /etc/sddm.conf.d/sddm.conf updated."
+    echo ":: File /etc/sddm.conf.d/sddm.conf updated."
 
     if [ -f /usr/share/sddm/themes/sugar-candy/theme.conf ]; then
 
         # Cache file for holding the current wallpaper
         sudo cp wallpapers/default.jpg /usr/share/sddm/themes/sugar-candy/Backgrounds/current_wallpaper.jpg
-        echo "Default wallpaper copied into /usr/share/sddm/themes/sugar-candy/Backgrounds/"
+        echo ":: Default wallpaper copied into /usr/share/sddm/themes/sugar-candy/Backgrounds/"
 
         sudo cp sddm/theme.conf /usr/share/sddm/themes/sugar-candy/
         sudo sed -i 's/CURRENTWALLPAPER/'"current_wallpaper.jpg"'/' /usr/share/sddm/themes/sugar-candy/theme.conf
-        echo "File theme.conf updated in /usr/share/sddm/themes/sugar-candy/"
+        echo ":: File theme.conf updated in /usr/share/sddm/themes/sugar-candy/"
 
     fi
 
 elif [ "$dmsel" == "Deactivate current display manager" ] ;then
 
     sudo rm /etc/systemd/system/display-manager.service
-    echo "Current display manager deactivated."
+    echo ":: Current display manager deactivated."
     disman=1
 
 elif [ "$dmsel" == "Keep current setup" ] ;then
-    echo "Keep current setup."
+    echo ":: sddm setup skipped."
 else
-    echo "Keep current setup."
+    echo ":: sddm setup skipped."
 fi
