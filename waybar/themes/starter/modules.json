@@ -73,9 +73,21 @@
         "tooltip": false
     },
 
+    // Hypridle inhibitor
+    "custom/hypridle": {
+        "format": "",
+        "return-type": "json",
+        "escape": true,
+        "exec-on-event": true,
+        "interval": 60,
+        "exec": "~/dotfiles/hypr/scripts/hypridle.sh status",
+        "on-click": "~/dotfiles/hypr/scripts/hypridle.sh toggle",
+        "on-click-right": "hyprlock"
+    },
+
     // Updates Count
     "custom/updates": {
-        "format": "  {}",
+        "format": "   {}",
         "tooltip-format": "{}",
         "escape": true,
         "return-type": "json",       
@@ -95,7 +107,7 @@
     "custom/wallpaper": {
         "format": "",
         "on-click": "~/dotfiles/hypr/scripts/wallpaper.sh select",
-        "on-click-right": "~/dotfiles/hypr/scripts/wallpaper.sh",
+        "on-click-right": "~/dotfiles/hypr/scripts/wallpaper-effects.sh",
         "tooltip": false
     },
 
@@ -291,7 +303,7 @@
     // Pulseaudio
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}%",
+        "format": "{icon}  {volume}%",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",

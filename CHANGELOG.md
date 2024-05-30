@@ -16,6 +16,8 @@ For auto-activation at a dedicated time please set the filter to off and follow 
 - Image conversions with imagemagick can be enabled for wallpapers. Right click on wallpaper module in waybar. You can add more effects in ~/dotfiles/hypr/effects/wallpaper
 - ChatGPT Window opens on the left screen side in floating mode
 - New default wallpaper 
+- Added hypridle inhibitor waybar module to toggle screen locking with hyprlock
+- Tooltips added to all waybar modules
 
 Version 2.9
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
