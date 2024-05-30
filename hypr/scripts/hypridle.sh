@@ -20,6 +20,6 @@ if [[ "$1" == "toggle" ]]; then
     if pgrep -x "$SERVICE" >/dev/null ;then
         killall hypridle
     else
-        hypridle &
+        hypridle
     fi
 fi
