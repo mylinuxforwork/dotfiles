@@ -2,7 +2,7 @@
 
 An advanced configuration of Hyprland and Qtile for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
-[![Screenshot](screenshots/v291/screenshot-291-3.png "Screenshot")](screenshots/v291/screenshot-291-3.png)
+[![Screenshot](screenshots/v291/screenshot-291-2.png "Screenshot")](screenshots/v291/screenshot-291-2.png)
 
 The ML4W Dotfiles are available as 
 
@@ -170,10 +170,10 @@ All keybindings for Hyprland with right mouse click on Apps in waybar or here:
 
 # Hyprland
 
-[![Screenshot](screenshots/v291/screenshot-291-2.png "Screenshot")](screenshots/v291/screenshot-291-2.png)
+[![Screenshot](screenshots/v291/screenshot-291-3.png "Screenshot")](screenshots/v291/screenshot-291-3.png)
 
 
-[![Screenshot](screenshots/v291/screenshot-291-4.png "Screenshot")](screenshots/v291/screenshot-291-4.png)
+[![Screenshot](screenshots/v291/screenshot-291-1.png "Screenshot")](screenshots/v291/screenshot-291-1.png)
 
 
 <a href="https://youtu.be/HMxHUvN6VGo" target="_blank">Watch on YouTube</a>
