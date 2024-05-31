@@ -2,7 +2,7 @@
 
 An advanced configuration of Hyprland and Qtile for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
-[![Screenshot](screenshots/v291/screenshot-291-1.png "Screenshot")](screenshots/v291/screenshot-291-1.png)
+[![Screenshot](screenshots/v291/screenshot-291-3.png "Screenshot")](screenshots/v291/screenshot-291-3.png)
 
 The ML4W Dotfiles are available as 
 
@@ -170,10 +170,10 @@ All keybindings for Hyprland with right mouse click on Apps in waybar or here:
 
 # Hyprland
 
-[![Screenshot](screenshots/v29/screenshot-29-2.png "Screenshot")](screenshots/v29/screenshot-29-2.png)
+[![Screenshot](screenshots/v291/screenshot-291-2.png "Screenshot")](screenshots/v291/screenshot-291-2.png)
 
 
-[![Screenshot](screenshots/v29/screenshot-29-3.png "Screenshot")](screenshots/v29/screenshot-29-3.png)
+[![Screenshot](screenshots/v291/screenshot-291-4.png "Screenshot")](screenshots/v291/screenshot-291-4.png)
 
 
 <a href="https://youtu.be/HMxHUvN6VGo" target="_blank">Watch on YouTube</a>
@@ -267,23 +267,41 @@ https://gitlab.com/stephan-raabe/ml4w-hyprland-settings
 
 With configuration variations, you can customize settings and configurations for your Hyprland installation. You can manage, create and edit Hyprland Configuration Variations in the ML4W Dotfiles Settings App.
 
+[![Screenshot](screenshots/variations/variations1.png.png "Configuration Variations")](screenshots/variations/variations1.png)
+
 <img src="https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/screenshots/variations/variations1.png" />
 
 [You can find more information here.](hypr/conf/README.md)
 
 > Please don't edit the shipped configuration variations. These will be overwritten with every update of the ML4W dotfiles. <b>Create your own custom variation instead.</b>
 
-## Wallpaper with swww or hyprpaper and Pywal
+## Wallpaper with hyprpaper and Pywal (swww optional supported)
 
 Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> you can change the wallpaper coming from the folder ~/wallpaper/. 
 
 <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>W</kbd> opens rofi with a list of installed wallpapers in ~/wallpaper/ for your individual selection. 
 
-In case of issues with swww, you can switch between the Wallpaper application swww and hyprpaper. Open the ML4W Dotfiles Settings app and select the tab system. At the top you can find the Wallpaper Engine Selector.
+The default wallpaper engine is hyprpaper. But you can optionally install swww manually and switch in the ML4W Dotfiles Settings app from hyprpaper to swww.
+Open the ML4W Dotfiles Settings app and select the tab system. At the top you can find the Wallpaper Engine Selector.
 
 > PLEASE NOTE: A logout and login is required to activate the new wallpaper application.
 
 The hyprpaper engine uses a template stored in dotfiles/.settings/hyprpaper.tpl You can add additional configurations there. The WALLPAPER placeholder will be replaced with the current wallpaper.
+
+## Wallpaper effects
+
+You can enable wallpaper effects to completely change the visualization of your selected wallpaper. Right click on the wallpaper icon in waybar will open a menu to select the wallpaper effect.
+
+[![Screenshot](screenshots/screenshot-wallpaper-effects.png "Wallpaper Effects")](screenshots/screenshot-wallpaper-effects.png)
+
+You can add you own effects in the folder /dotfiles/hypr/effects/wallpaper
+
+You can execute multiple magick commands. $wallpaper is the selected wallpaper, $used_wallpaper the executed wallpaper.
+
+```
+magick $wallpaper -negate $used_wallpaper
+magick $used_wallpaper -brightness-contrast -20% $used_wallpaper
+```
 
 ## Waybar themes and themeswitcher
 
@@ -292,6 +310,8 @@ In addition, you can switch the Waybar Template with <kbd>SUPER</kbd> + <kbd>CTR
 The templates are available in ~/dotfiles/waybar/themes. You can add your own personal themes into this folder. 
 
 [You can find more information here.](waybar/README.md)
+
+You can toggle waybar with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>B</kbd>
 
 ## Screensharing and recording
 
