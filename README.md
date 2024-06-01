@@ -25,9 +25,7 @@ bash <(curl -s https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/setup.sh)
 
 ## Wiki
 
-You can find the complete documentation of the ML4W Dotfiles in the Wiki.
-
-[Open the Wiki here](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/home)
+You can find the complete documentation of the ML4W Dotfiles in the Wiki. [Open the Wiki here](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/home)
 
 ## Screenshots
 
