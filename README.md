@@ -18,7 +18,7 @@ The easiest way is to use the setup.sh script. The script will download all file
 Just copy/enter the following command into your terminal.
 
 ```
-bash <(curl -s https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/setup.sh)
+bash <(curl -s https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/setup.sh)
 ```
 
 > PLEASE NOTE: Every Linux distribution and setup can be different. Therefore, I cannot guarantee that the installation will work everywhere. Installation on your own risk.
