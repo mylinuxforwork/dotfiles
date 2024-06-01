@@ -25,7 +25,7 @@ bash <(curl -s https://gitlab.com/stephan-raabe/dotfiles/-/raw/dev/setup.sh)
 
 ## Wiki
 
-You can find the complete documentation of the ML4W Dotfiles in the Wiki. [Open the Wiki here](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/home)
+You can find the complete documentation of the ML4W Dotfiles in the Wiki. <b>[Open the Wiki here](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/home)</b>
 
 ## Screenshots
 
@@ -34,7 +34,6 @@ You can find the complete documentation of the ML4W Dotfiles in the Wiki. [Open 
 [![Screenshot](screenshots/screenshot3.png "Screenshot")](screenshots/screenshot3.png)
 
 [![Screenshot](screenshots/screenshot4.png "Screenshot")](screenshots/screenshot5.png)
-
 
 ## Wallpaper repository
 
@@ -58,8 +57,8 @@ Thanks to all YouTube subscribers for all your great feedback.
 
 The following projects have inspired me:
 
-- https://github.com/dianaw353/hyprland-configuration-rootfs
 - https://github.com/prasanthrangan/hyprdots
 - https://github.com/sudo-harun/dotfiles
+- https://github.com/dianaw353/hyprland-configuration-rootfs
 
 and many more...
