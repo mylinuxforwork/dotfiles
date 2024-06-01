@@ -4,7 +4,7 @@ echo -e "${NONE}"
 
 echo "The system check will test that essential packages and "
 echo "execution commands are available now on your system."
-
+echo 
 if gum confirm "Do you want to run a short system check?" ;then
 
     _folderExists "$HOME/dotfiles" "Please repeat the installation."

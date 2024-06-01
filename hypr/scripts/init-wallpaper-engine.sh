@@ -1,4 +1,12 @@
 #!/bin/bash
+# __        ______    _____             _            
+# \ \      / /  _ \  | ____|_ __   __ _(_)_ __   ___ 
+#  \ \ /\ / /| |_) | |  _| | '_ \ / _` | | '_ \ / _ \
+#   \ V  V / |  __/  | |___| | | | (_| | | | | |  __/
+#    \_/\_/  |_|     |_____|_| |_|\__, |_|_| |_|\___|
+#                                 |___/              
+# 
+
 wallpaper_engine=$(cat $HOME/dotfiles/.settings/wallpaper-engine.sh)
 if [ "$wallpaper_engine" == "swww" ] ;then
     # swww

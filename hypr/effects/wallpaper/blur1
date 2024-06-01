@@ -1,0 +1,1 @@
+magick $wallpaper -blur "50x30" $used_wallpaper

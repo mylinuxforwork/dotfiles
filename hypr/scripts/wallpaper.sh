@@ -6,10 +6,15 @@
 #   \_/\_/ \__,_|_|_| .__/ \__,_| .__/ \___|_|    
 #                   |_|         |_|               
 #  
-# by Stephan Raabe (2023) 
+# by Stephan Raabe (2024) 
 # ----------------------------------------------------- 
 
 # Cache file for holding the current wallpaper
+wallpaper_folder="$HOME/wallpaper"
+if [ -f ~/dotfiles/.settings/wallpaper-folder.sh ] ;then
+    source ~/dotfiles/.settings/wallpaper-folder.sh
+fi
+used_wallpaper="$HOME/.cache/used_wallpaper"
 cache_file="$HOME/.cache/current_wallpaper"
 blurred="$HOME/.cache/blurred_wallpaper.png"
 square="$HOME/.cache/square_wallpaper.png"
@@ -22,13 +27,13 @@ blur=$(cat $blur_file)
 # Create cache file if not exists
 if [ ! -f $cache_file ] ;then
     touch $cache_file
-    echo "$HOME/wallpaper/default.jpg" > "$cache_file"
+    echo "$wallpaper_folder/default.jpg" > "$cache_file"
 fi
 
 # Create rasi file if not exists
 if [ ! -f $rasi_file ] ;then
     touch $rasi_file
-    echo "* { current-image: url(\"$HOME/wallpaper/default.jpg\", height); }" > "$rasi_file"
+    echo "* { current-image: url(\"$wallpaper_folder/default.jpg\", height); }" > "$rasi_file"
 fi
 
 current_wallpaper=$(cat "$cache_file")
@@ -41,27 +46,27 @@ case $1 in
         if [ -f $cache_file ]; then
             wal -q -i $current_wallpaper
         else
-            wal -q -i ~/wallpaper/
+            wal -q -i $wallpaper_folder/
         fi
     ;;
 
     # Select wallpaper with rofi
     "select")
         sleep 0.2
-        selected=$( find "$HOME/wallpaper" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -exec basename {} \; | sort -R | while read rfile
+        selected=$( find "$wallpaper_folder" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -exec basename {} \; | sort -R | while read rfile
         do
-            echo -en "$rfile\x00icon\x1f$HOME/wallpaper/${rfile}\n"
+            echo -en "$rfile\x00icon\x1f$wallpaper_folder/${rfile}\n"
         done | rofi -dmenu -i -replace -config ~/dotfiles/rofi/config-wallpaper.rasi)
         if [ ! "$selected" ]; then
             echo "No wallpaper selected"
             exit
         fi
-        wal -q -i ~/wallpaper/$selected
+        wal -q -i $wallpaper_folder/$selected
     ;;
 
     # Randomly select wallpaper 
     *)
-        wal -q -i ~/wallpaper/
+        wal -q -i $wallpaper_folder/
     ;;
 
 esac
@@ -70,12 +75,11 @@ esac
 # Load current pywal color scheme
 # ----------------------------------------------------- 
 source "$HOME/.cache/wal/colors.sh"
-echo ":: Wallpaper: $wallpaper"
 
 # ----------------------------------------------------- 
 # get wallpaper image name
 # ----------------------------------------------------- 
-newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
+newwall=$(echo $wallpaper | sed "s|$wallpaper_folder/||g")
 
 # ----------------------------------------------------- 
 # Reload waybar with new colors
@@ -89,11 +93,27 @@ transition_type="wipe"
 # transition_type="outer"
 # transition_type="random"
 
+cp $wallpaper $HOME/.cache/
+mv $HOME/.cache/$newwall $used_wallpaper
+
+# Load Wallpaper Effect
+if [ -f $HOME/dotfiles/.settings/wallpaper-effect.sh ] ;then
+    effect=$(cat $HOME/dotfiles/.settings/wallpaper-effect.sh)
+    if [ ! "$effect" == "off" ] ;then
+        if [ "$1" == "init" ] ;then
+            echo ":: Init"
+        else
+            dunstify "Using wallpaper effect $effect..." "with image $newwall" -h int:value:10 -h string:x-dunst-stack-tag:wallpaper
+        fi
+        source $HOME/dotfiles/hypr/effects/wallpaper/$effect
+    fi
+fi
+
 wallpaper_engine=$(cat $HOME/dotfiles/.settings/wallpaper-engine.sh)
 if [ "$wallpaper_engine" == "swww" ] ;then
     # swww
     echo ":: Using swww"
-    swww img $wallpaper \
+    swww img $used_wallpaper \
         --transition-bezier .43,1.19,1,.4 \
         --transition-fps=60 \
         --transition-type=$transition_type \
@@ -104,7 +124,7 @@ elif [ "$wallpaper_engine" == "hyprpaper" ] ;then
     echo ":: Using hyprpaper"
     killall hyprpaper
     wal_tpl=$(cat $HOME/dotfiles/.settings/hyprpaper.tpl)
-    output=${wal_tpl//WALLPAPER/$wallpaper}
+    output=${wal_tpl//WALLPAPER/$used_wallpaper}
     echo "$output" > $HOME/dotfiles/hypr/hyprpaper.conf
     hyprpaper &
 else
@@ -132,7 +152,7 @@ else
     dunstify "Creating blurred version ..." "with image $newwall" -h int:value:50 -h string:x-dunst-stack-tag:wallpaper
 fi
 
-magick $wallpaper -resize 75% $blurred
+magick $used_wallpaper -resize 75% $blurred
 echo ":: Resized to 75%"
 if [ ! "$blur" == "0x0" ] ;then
     magick $blurred -blur $blur $blurred

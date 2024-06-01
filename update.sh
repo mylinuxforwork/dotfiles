@@ -13,6 +13,7 @@ if [ ! -d $HOME/Downloads ] ;then
     echo "ERROR:: $HOME/Downloads folder not found."
     exit
 fi
+echo
 if gum confirm "Do you want to start the update now?" ;then
 
     # Remove existing download folder and zip files 
@@ -56,9 +57,7 @@ if gum confirm "Do you want to start the update now?" ;then
     
     # Start the installatiom
     if gum confirm "Do you want to start the update now?" ;then
-        echo 
-        echo "Starting the update now..."
-        sleep 2
+        gum spin --spinner dot --title "Starting the update now..." -- sleep 3
         cd $HOME/Downloads/dotfiles-$v
         ./install.sh
     elif [ $? -eq 130 ]; then

@@ -164,12 +164,30 @@ window#waybar.empty #window {
 #custom-settings, 
 #custom-wallpaper, 
 #custom-system,
+#custom-hyprshade,
+#custom-hypridle,
 #custom-waybarthemes {
     margin-right: 23px;
     font-size: 20px;
     font-weight: bold;
     opacity: 0.8;
     color: @iconcolor;
+}
+
+#custom-hyprshade {
+    margin-right:12px;
+}
+
+#custom-hypridle {
+    margin-right:18px;
+}
+
+#custom-hypridle.active {
+    color: @iconcolor;
+}
+
+#custom-hypridle.notactive {
+    color: #dc2f2f;
 }
 
 #custom-system {

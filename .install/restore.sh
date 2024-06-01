@@ -8,8 +8,7 @@ monitorrestored=0
 
 _showRestoreOptions() {
     echo "The following configurations can be transferred into the new installation."
-    echo "(SPACE = select/unselect a profile. RETURN = confirm. CTRL-C/No selection = Skip Restore)"
-    echo ""
+    echo
     restorelist=""
     if [ -f ~/dotfiles/.bashrc ]; then
         restorelist+="~/dotfiles/.bashrc "
@@ -42,6 +41,10 @@ _showRestoreOptions() {
         if [ -f ~/dotfiles/hypr/conf/environment.conf ] && [ -d ~/dotfiles/hypr/conf/environments/ ]; then
             restorelist+="~/dotfiles/hypr/conf/environment.conf "
             selectedlist+="~/dotfiles/hypr/conf/environment.conf,"
+        fi
+        if [ -f ~/dotfiles/hypr/conf/layout.conf ] && [ -d ~/dotfiles/hypr/conf/layouts/ ]; then
+            restorelist+="~/dotfiles/hypr/conf/layout.conf "
+            selectedlist+="~/dotfiles/hypr/conf/layout.conf,"
         fi
         if [ -f ~/dotfiles/hypr/conf/windowrule.conf ] && [ -d ~/dotfiles/hypr/conf/windowrules/ ]; then
             restorelist+="~/dotfiles/hypr/conf/windowrule.conf "
@@ -88,7 +91,7 @@ _showRestoreOptions() {
         echo "No files selected to restore."
         confirmrestore=$(gum choose "Change restore" "Skip restore")
         if [ -z "${confirmrestore}" ] ;then
-            echo "Installation canceled."
+            echo ":: Installation canceled."
             exit
         fi
         if [ "$confirmrestore" == "Change restore" ]; then 
@@ -149,6 +152,12 @@ _startRestore() {
             if [ -f ~/dotfiles/hypr/conf/environment.conf ]; then
                 cp ~/dotfiles/hypr/conf/environment.conf ~/dotfiles-versions/$version/hypr/conf/
                 echo ":: Hyprland environment.conf restored!"
+            fi
+        fi        
+        if [[ $restoreselect == *"~/dotfiles/hypr/conf/layout.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
+            if [ -f ~/dotfiles/hypr/conf/layout.conf ]; then
+                cp ~/dotfiles/hypr/conf/layout.conf ~/dotfiles-versions/$version/hypr/conf/
+                echo ":: Hyprland layout.conf restored!"
             fi
         fi        
         if [[ $restoreselect == *"~/dotfiles/hypr/conf/windowrule.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then

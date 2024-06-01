@@ -14,12 +14,12 @@ configuration {
     modi:                       "drun,run";
     font:                       "Fira Sans 11";
     show-icons:                 true;
-	hover-select:               true;
+	hover-select:               false;
     me-select-entry:            "";
     me-accept-entry:            "MousePrimary";
     drun-display-format:        "{name}";
     window-format:              "{w} · {c} · {t}";
-    
+    scroll-method: 1;
 }
 
 /* ---- Load font ---- */
@@ -143,8 +143,8 @@ listview {
     enabled:                      true;
     columns:                      6;
     lines:                        3;
-    cycle:                        true;
-    dynamic:                      true;
+    cycle:                        false;
+    dynamic:                      false;
     scrollbar:                    true;
     layout:                       vertical;
     reverse:                      false;

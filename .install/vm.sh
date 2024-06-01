@@ -4,6 +4,7 @@ echo -e "${GREEN}"
 figlet "KVM VM"
 echo -e "${NONE}"
     echo "The script has detected that you run the installation in a KVM virtual machine."
+    echo
     if grep -Fxq "kvm.conf" ~/dotfiles-versions/$version/hypr/conf/environment.conf
     then
         echo ":: KVM Environment already set."
