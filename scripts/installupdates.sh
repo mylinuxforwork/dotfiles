@@ -13,7 +13,7 @@
 sleep 1
 clear
 figlet "Updates"
-
+echo
 _isInstalledYay() {
     package="$1";
     check="$(yay -Qs --color always "${package}" | grep "local" | grep "${package} ")";

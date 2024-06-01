@@ -164,6 +164,8 @@ window#waybar.empty #window {
 #custom-settings, 
 #custom-wallpaper, 
 #custom-system,
+#custom-hyprshade,
+#custom-hypridle,
 #custom-waybarthemes {
     margin-right: 23px;
     font-size: 20px;
@@ -171,12 +173,27 @@ window#waybar.empty #window {
     color: @iconcolor;
 }
  
- #custom-waybarthemes,#custom-system {
+#custom-hyprshade {
+    margin-right:12px;
+}
+
+#custom-hypridle {
+    margin-right:16px;
+}
+
+#custom-hypridle.active {
+    color: @iconcolor;
+}
+
+#custom-hypridle.notactive {
+    color: #dc2f2f;
+}
+
+#custom-waybarthemes,#custom-system {
      margin-right:15px;
- }
+}
 
-
- #custom-ml4w-welcome {
+#custom-ml4w-welcome {
     margin-right: 15px;
     background-image: url("../assets/ml4w-icon.png");
     background-repeat: no-repeat;
@@ -396,7 +413,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #tray {
-    background-color: #2980b9;
+    margin:0px 10px 0px 0px;
 }
 
 #tray > .passive {

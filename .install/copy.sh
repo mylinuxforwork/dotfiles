@@ -13,22 +13,23 @@ fi
 if [ ! -d ~/dotfiles ]; then
 echo "The script will now remove existing directories and files from ~/.config/"
 echo "and copy your prepared configuration from ~/dotfiles-versions/$version to ~/dotfiles"
-echo ""
+echo
 echo "Symbolic links will then be created from ~/dotfiles into your ~/.config/ directory."
-echo ""
+echo
 fi
 if [[ ! $(tty) == *"pts"* ]] && [ -d ~/dotfiles ]; then
     echo "You're running the script in tty. You can delete the existing ~/dotfiles folder now for a clean installation."
     echo "If not, the script will overwrite existing files but will not remove additional files or folders of your custom configuration."
-    echo ""
+    echo
 else
     if [ -d ~/dotfiles ]; then
         echo "The script will overwrite existing files but will not remove additional files or folders from your custom configuration."
+        echo
     fi
 fi
 if [ ! -d ~/dotfiles ]; then
     echo "PLEASE BACKUP YOUR EXISTING CONFIGURATIONS in .config IF NEEDED!"
-    echo ""
+    echo
 fi
 
 if gum confirm "Do you want to install the prepared dotfiles now?" ;then
@@ -50,8 +51,10 @@ if gum confirm "Do you want to install the prepared dotfiles now?" ;then
         echo "Skipped: DEV MODE!"
     fi
 elif [ $? -eq 130 ]; then
-        exit 130
+    echo ":: Installation canceled"
+    exit 130
 else
+    echo ":: Installation canceled"
     exit
 fi
-echo ""
+echo

@@ -1,20 +1,19 @@
 packagesPacman=(
     "hyprland"
     "hyprpaper"
+    "hyprlock"
+    "hypridle"
     "xdg-desktop-portal-hyprland" 
     "waybar" 
     "grim" 
     "slurp"
     "swappy"
     "cliphist"
-    "hyprlock"
-    "hypridle"
 );
 
 packagesYay=(
-    "swww" 
     "wlogout"
     "nwg-look"
-    "emote"
     "eww"
+    "hyprshade"
 );

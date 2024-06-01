@@ -134,11 +134,29 @@ window#waybar.empty #window {
 #custom-settings, 
 #custom-wallpaper, 
 #custom-system,
+#custom-hyprshade,
+#custom-hypridle,
 #custom-waybarthemes {
     margin-right: 23px;
     font-size: 14px;
     font-weight: bold;
     color: @iconcolor;
+}
+
+#custom-hyprshade {
+    margin-right:12px;
+}
+
+#custom-hypridle {
+    margin-right:16px;
+}
+
+#custom-hypridle.active {
+    color: @iconcolor;
+}
+
+#custom-hypridle.notactive {
+    color: #dc2f2f;
 }
 
 #custom-settings {
