@@ -333,7 +333,8 @@
         "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
         "tooltip-format-disconnected": "Disconnected",
         "max-length": 50,
-        "on-click": "~/dotfiles/.settings/networkmanager.sh"
+        "on-click": "alacritty --class dotfiles-floating -e nmtui",
+        "on-click-right": "~/dotfiles/.settings/networkmanager.sh"
     },
 
     // Battery
