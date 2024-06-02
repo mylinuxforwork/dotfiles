@@ -13,7 +13,9 @@ YouTube Video [https://youtu.be/HMxHUvN6VGo](https://youtu.be/HMxHUvN6VGo)
 
 ## Installation
 
-The easiest way is to use the setup.sh script. The script will download all files from GitLab and start the installation.
+The installation should work on all Arch Linux based distributions. [You can find more information here](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/home).
+
+The easiest way is to use the setup.sh script. The script will download all files from GitLab and start the installation automatically.
 
 Just copy/enter the following command into your terminal.
 
@@ -21,11 +23,18 @@ Just copy/enter the following command into your terminal.
 bash <(curl -s https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/setup.sh)
 ```
 
-> PLEASE NOTE: Every Linux distribution and setup can be different. Therefore, I cannot guarantee that the installation will work everywhere. Installation on your own risk.
+> PLEASE NOTE: Every Linux distribution, setup and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. Installation at your own risk.
+
 
 ## Wiki
 
 You can find the complete documentation of the ML4W Dotfiles in the Wiki. <b>[Open the Wiki here](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/home)</b>
+
+## Contribution
+
+Thanks for using the ML4W Dotfiles on your system. If you find a problem or a bug, please [report your issue on this page](https://gitlab.com/stephan-raabe/dotfiles/-/issues/?sort=created_date&state=opened).
+
+You can also visit the [ML4W Discord Server](https://discord.gg/c4fJK7Za3g) to start a discussion with other users.
 
 ## Screenshots
 
