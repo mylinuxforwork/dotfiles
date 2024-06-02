@@ -25,12 +25,11 @@ bash <(curl -s https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/setup.sh)
 
 > PLEASE NOTE: Every Linux distribution, setup and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. Installation at your own risk.
 
-
 ## Wiki
 
 You can find the complete documentation of the ML4W Dotfiles in the Wiki. <b>[Open the Wiki here](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/home)</b>
 
-## Contribution
+## Contributing
 
 Thanks for using the ML4W Dotfiles on your system. If you find a problem or a bug, please [report your issue on this page](https://gitlab.com/stephan-raabe/dotfiles/-/issues/?sort=created_date&state=opened).
 
