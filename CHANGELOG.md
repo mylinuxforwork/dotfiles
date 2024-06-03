@@ -3,6 +3,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.1
 --------------------------------------------------------
 - New installation method for sddm sugar candy theme. Instead of using yay, the installer will download the ZIP from the repository, extract it to the Downloads folder and copy the files to the destination folder.
 - A gamemode can be toggled with SUPER+ALT+G. The gaming mode will disable the animations and blur.
+- Added a black ML4W Icon for black waybar themes
 
 Version 2.9.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1
