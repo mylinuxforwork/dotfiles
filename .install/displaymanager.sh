@@ -90,12 +90,16 @@ if [ "$dmsel" == "Install sddm and theme" ] ;then
             rm ~/Downloads/sddm-sugar-candy-master.zip
         fi
         wget -P ~/Downloads/ https://framagit.org/MarianArlt/sddm-sugar-candy/-/archive/master/sddm-sugar-candy-master.zip
-        unzip -o -q ~/Downloads/sddm-sugar-candy-master.zip -d ~/Downloads/
-        if [ ! -d /usr/share/sddm/themes/sugar-candy ] ;then
-            sudo mkdir -p /usr/share/sddm/themes/sugar-candy
+        if [ -f ~/Downloads/sddm-sugar-candy-master.zip ] ;then
+            unzip -o -q ~/Downloads/sddm-sugar-candy-master.zip -d ~/Downloads/
+            if [ ! -d /usr/share/sddm/themes/sugar-candy ] ;then
+                sudo mkdir -p /usr/share/sddm/themes/sugar-candy
+            fi
+            sudo cp -r ~/Downloads/sddm-sugar-candy-master/* /usr/share/sddm/themes/sugar-candy
+            echo ":: SDDM Sugar Candy Theme installed"
+        else
+            echo "ERROR: Sugar Candy Download not found"
         fi
-        sudo cp -r ~/Downloads/sddm-sugar-candy-master/* /usr/share/sddm/themes/sugar-candy
-        echo ":: SDDM Sugar Candy Theme installed"
     fi    
 
     # Install background wallpaper for sddm
