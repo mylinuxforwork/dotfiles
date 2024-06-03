@@ -2,6 +2,7 @@
 # Disable display manager
 # ------------------------------------------------------
 disman=0
+profile="Hyprland"
 echo -e "${GREEN}"
 figlet "Display Manager"
 echo -e "${NONE}"
@@ -65,7 +66,7 @@ if [ "$dmsel" == "Install sddm and theme" ] ;then
     disman=0
     # Try to force the installation of sddm
     echo ":: Install sddm and Sugar Candy Thema"
-    yay -S --noconfirm sddm sddm-sugar-candy-git --ask 4
+    yay -S --noconfirm sddm --ask 4
 
     if [ -f /etc/systemd/system/display-manager.service ]; then
         sudo rm /etc/systemd/system/display-manager.service
@@ -79,6 +80,19 @@ if [ "$dmsel" == "Install sddm and theme" ] ;then
 
     sudo cp sddm/sddm.conf /etc/sddm.conf.d/
     echo ":: File /etc/sddm.conf.d/sddm.conf updated."
+
+    if [ ! -f /usr/share/sddm/themes/sugar-candy/theme.conf ]; then
+        if [ -f ~/Downloads/sddm-sugar-candy-master.zip ] ;then
+            rm ~/Downloads/sddm-sugar-candy-master.zip
+        fi
+        wget -P ~/Downloads/ https://framagit.org/MarianArlt/sddm-sugar-candy/-/archive/master/sddm-sugar-candy-master.zip
+        unzip -o -q ~/Downloads/sddm-sugar-candy-master.zip -d ~/Downloads/
+        if [ ! -d /usr/share/sddm/themes/sugar-candy ] ;then
+            sudo mkdir -p /usr/share/sddm/themes/sugar-candy
+        fi
+        sudo cp -r ~/Downloads/sddm-sugar-candy-master/* /usr/share/sddm/themes/sugar-candy
+        echo ":: SDDM Sugar Candy Theme installed"
+    fi    
 
     if [ -f /usr/share/sddm/themes/sugar-candy/theme.conf ]; then
 
