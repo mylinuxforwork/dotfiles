@@ -9,11 +9,7 @@
 # by Stephan Raabe (2023) 
 # ----------------------------------------------------- 
 echo $XDG_SESSION_TYPE
-if [ $XDG_SESSION_TYPE == "wayland" ]; then
-	lockapp=swaylock
-else
-	lockapp=slock
-fi
+lockapp=slock
 echo "Using $lockapp to lock the screen."
 
 option1="  lock"

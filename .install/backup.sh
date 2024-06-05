@@ -80,7 +80,7 @@ if [ -d ~/dotfiles ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d ~/.
     if ! test -L ~/.config/swappy && [ -d ~/.config/swappy ] ;then
         echo "   - $HOME/.config/swappy/"
     fi
-
+    echo 
     # Start Backup
 
     if gum confirm "Do you want to create a backup?" ;then

@@ -15,3 +15,6 @@
  
  @import '../style.css';
  
+ #custom-ml4w-welcome {
+    background-image: url("../../assets/ml4w-icon-dark.png");
+}

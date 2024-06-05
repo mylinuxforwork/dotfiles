@@ -27,14 +27,15 @@ echo "Version: $version"
 echo "by Stephan Raabe 2024"
 echo ""
 if [ -d ~/dotfiles ] ;then
-    echo "A ML4W Dotfiles installation has been detected."
-    echo "This script will guide you through the update process of the ML4W Dotfiles."
+    echo ":: An existing ML4W Dotfiles installation has been detected."
+    echo ":: This script will guide you through the update process of the ML4W Dotfiles."
 else
-    echo "This script will guide you through the installation process of the ML4W dotfiles."
+    echo ":: This script will guide you through the installation process of the ML4W dotfiles."
 fi
 echo ""
 source .install/required.sh
 source .install/confirm-start.sh
+source .install/paralleldownloads.sh
 source .install/yay.sh
 source .install/updatesystem.sh
 source .install/backup.sh
@@ -63,8 +64,8 @@ source .install/wallpaper.sh
 source .install/displaymanager.sh
 source .install/issue.sh
 source .install/restore.sh
-source .install/neovim.sh
 source .install/keyboard.sh
+source .install/neovim.sh
 source .install/hook.sh
 source .install/vm.sh
 source .install/copy.sh

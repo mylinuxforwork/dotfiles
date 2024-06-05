@@ -20,7 +20,8 @@ configuration {
     display-filebrowser:        "FILES";
     display-window:             "WINDOW";
 	drun-display-format:        "{name}";
-    hover-select:               true;
+    hover-select:               false;
+    scroll-method:              1;
     me-select-entry:            "";
     me-accept-entry:            "MousePrimary";
     window-format:              "{w} · {c} · {t}";
@@ -149,8 +150,8 @@ listview {
     enabled:                      true;
     columns:                      1;
     lines:                        8;
-    cycle:                        true;
-    dynamic:                      true;
+    cycle:                        false;
+    dynamic:                      false;
     scrollbar:                    false;
     layout:                       vertical;
     reverse:                      false;

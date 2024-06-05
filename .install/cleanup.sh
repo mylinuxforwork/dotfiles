@@ -43,6 +43,10 @@ if [ -f ~/dotfiles/.settings/eww-monitor.sh ] ;then
     fi
 fi
 
+# Replace pfetch and neofetch with fastfetch
+sed -i "s/pfetch/fastfetch/g" ~/dotfiles/.bashrc
+sed -i "s/neofetch/fastfetch/g" ~/dotfiles/.bashrc
+
 # Create default folder structure
 xdg-user-dirs-update
 echo 

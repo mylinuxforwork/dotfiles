@@ -40,5 +40,8 @@ fi
 if [ -d ~/dotfiles-versions/$version/swappy ]; then
     _installSymLink eww ~/.config/eww ~/dotfiles/eww/ ~/.config
 fi
+if [ -d ~/dotfiles-versions/$version/fastfetch ]; then
+    _installSymLink fastfetch ~/.config/fastfetch ~/dotfiles/fastfetch/ ~/.config
+fi
 echo ":: Symbolic links created."
 echo
