@@ -11,6 +11,8 @@
 {
     // Workspaces
     "hyprland/workspaces" : {
+        "on-scroll-up": "hyprctl dispatch workspace r-1",
+        "on-scroll-down": "hyprctl dispatch workspace r+1",        
         "on-click": "activate",
         "active-only": false,
         "all-outputs": true,
