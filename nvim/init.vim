@@ -31,3 +31,13 @@ set ttyfast                 " Speed up scrolling in Vim
 " set spell                 " enable spell check (may need to download language package)
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
+
+hi NonText ctermbg=none guibg=NONE
+hi Normal guibg=NONE ctermbg=NONE
+hi NormalNC guibg=NONE ctermbg=NONE
+hi SignColumn ctermbg=NONE ctermfg=NONE guibg=NONE
+
+hi Pmenu ctermbg=NONE ctermfg=NONE guibg=NONE
+hi FloatBorder ctermbg=NONE ctermfg=NONE guibg=NONE
+hi NormalFloat ctermbg=NONE ctermfg=NONE guibg=NONE
+hi TabLine ctermbg=None ctermfg=None guibg=None

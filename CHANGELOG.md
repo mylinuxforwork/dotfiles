@@ -1,3 +1,9 @@
+Version 2.9.1.2
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.1
+--------------------------------------------------------
+- Workspaces module in waybar updated to enable scroll to change the workspace https://gitlab.com/stephan-raabe/dotfiles/-/merge_requests/114
+- More functions deactivated in Game Mode (SUPER+ALT+G)
+
 Version 2.9.1.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.1
 --------------------------------------------------------
