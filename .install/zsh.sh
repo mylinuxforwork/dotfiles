@@ -5,7 +5,7 @@ packagesPacman=("zsh");
 
 echo "Please select the zsh plugin manager:"
 zsh_manager=$(gum choose --limit=1 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " "oh my zsh" "zinit")
-if [ ${zsh_manager}=="oh my zsh" ]; then
+if [[ "${zsh_manager}" == *"oh my zsh"* ]]; then
     source .install/install-packages.sh
     RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
