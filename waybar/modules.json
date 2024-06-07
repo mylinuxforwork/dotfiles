@@ -140,14 +140,14 @@
     "custom/filemanager": {
         "format": "",
         "on-click": "~/dotfiles/.settings/filemanager.sh",
-        "tooltip-format": "Open the filemanager"
+        "tooltip-format": "Open filemanager"
     },
 
     // Browser Launcher
     "custom/browser": {
         "format": "",
         "on-click": "~/dotfiles/.settings/browser.sh",
-        "tooltip-format": "Open the browser"
+        "tooltip-format": "Open browser"
     },    
 
     // ChatGPT Launcher
@@ -161,7 +161,7 @@
     "custom/calculator": {
         "format": "",
         "on-click": "qalculate-gtk",
-        "tooltip": false
+        "tooltip-format": "Open calculator"
     },
 
     // Windows VM
