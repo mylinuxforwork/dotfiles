@@ -14,6 +14,14 @@ _showRestoreOptions() {
         restorelist+="~/dotfiles/.bashrc "
         selectedlist+="~/dotfiles/.bashrc,"
     fi
+    if [ -f ~/dotfiles/.zshrc ]; then
+        restorelist+="~/dotfiles/.zshrc "
+        selectedlist+="~/dotfiles/.zshrc,"
+    fi
+    if [ -f ~/dotfiles/.p10k.zsh ]; then
+        restorelist+="~/dotfiles/.p10k.zsh "
+        selectedlist+="~/dotfiles/.p10k.zsh,"
+    fi
     if [ -d ~/dotfiles/.settings ]; then
         restorelist+="~/dotfiles/.settings "
         selectedlist+="~/dotfiles/.settings,"
@@ -24,7 +32,7 @@ _showRestoreOptions() {
             then
                 restorelist+="~/dotfiles/hypr/hypridle.conf "
                 selectedlist+="~/dotfiles/hypr/hypridle.conf,"
-            fi        
+            fi
         fi
         if [ -f ~/dotfiles/hypr/conf/custom.conf ]; then
             restorelist+="~/dotfiles/hypr/conf/custom.conf "
@@ -75,13 +83,13 @@ _showRestoreOptions() {
     fi
     restoreselect=$(gum choose --no-limit --height 20 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " --selected="$selectedlist" $restorelist)
     if [ ! -z "$restoreselect" ] ;then
-        echo "Selected to restore:" 
+        echo "Selected to restore:"
         echo "$restoreselect"
         echo ""
         confirmrestore=$(gum choose "Start restore" "Change restore" "Skip restore")
         if [ "$confirmrestore" == "Start restore" ] ;then
             _startRestore
-        elif [ "$confirmrestore" == "Change restore" ]; then 
+        elif [ "$confirmrestore" == "Change restore" ]; then
             _showRestoreOptions
         else
             echo ":: Restore skipped."
@@ -94,7 +102,7 @@ _showRestoreOptions() {
             echo ":: Installation canceled."
             exit
         fi
-        if [ "$confirmrestore" == "Change restore" ]; then 
+        if [ "$confirmrestore" == "Change restore" ]; then
             echo ""
             _showRestoreOptions
         else
@@ -135,11 +143,11 @@ _startRestore() {
                 cp ~/dotfiles/hypr/conf/keyboard.conf ~/dotfiles-versions/$version/hypr/conf/
                 echo ":: Hyprland keyboard.conf restored!"
             fi
-        fi        
+        fi
         if [[ $restoreselect == *"~/dotfiles/hypr/conf/monitor.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/dotfiles/hypr/conf/monitor.conf ]; then
                 cp ~/dotfiles/hypr/conf/monitor.conf ~/dotfiles-versions/$version/hypr/conf/
-                echo ":: Hyprland monitor.conf restored!"                
+                echo ":: Hyprland monitor.conf restored!"
             fi
         fi
         if [[ $restoreselect == *"~/dotfiles/hypr/conf/keybinding.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
@@ -153,19 +161,19 @@ _startRestore() {
                 cp ~/dotfiles/hypr/conf/environment.conf ~/dotfiles-versions/$version/hypr/conf/
                 echo ":: Hyprland environment.conf restored!"
             fi
-        fi        
+        fi
         if [[ $restoreselect == *"~/dotfiles/hypr/conf/layout.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/dotfiles/hypr/conf/layout.conf ]; then
                 cp ~/dotfiles/hypr/conf/layout.conf ~/dotfiles-versions/$version/hypr/conf/
                 echo ":: Hyprland layout.conf restored!"
             fi
-        fi        
+        fi
         if [[ $restoreselect == *"~/dotfiles/hypr/conf/windowrule.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/dotfiles/hypr/conf/windowrule.conf ]; then
                 cp ~/dotfiles/hypr/conf/windowrule.conf ~/dotfiles-versions/$version/hypr/conf/
                 echo ":: Hyprland windowrule.conf restored!"
             fi
-        fi        
+        fi
         if [[ $restoreselect == *"~/dotfiles/hypr/conf/animation.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/dotfiles/hypr/conf/animation.conf ]; then
                 cp ~/dotfiles/hypr/conf/animation.conf ~/dotfiles-versions/$version/hypr/conf/
