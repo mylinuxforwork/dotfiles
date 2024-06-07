@@ -14,6 +14,6 @@ if [[ "${zsh_manager}" == *"oh my zsh"* ]]; then
 else
     packagesYay=("zinit");
 	source .install/install-packages.sh
-    _installSymLink zshrc ~/.zshrc ~/dotfiles/.zshrc_zinit ~
+    _installSymLink zshrc ~/.zshrc ~/dotfiles/.zshrc_zinit ~/.zshrc
 fi
-_installSymLink p10k ~/.p10k.zsh ~/dotfiles/.p10k.zsh ~
+_installSymLink p10k ~/.p10k.zsh ~/dotfiles/.p10k.zsh ~/.zshrc
