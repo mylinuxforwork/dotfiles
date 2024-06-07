@@ -13,8 +13,7 @@ if [ -z "${zshfish}" ] ;then
 else
     echo "Please select your default shell."
 	echo
-	shell=$(echo "bash\n$zshfish" | gum choose --limit=1 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) ")
-	sudo chsh -s $(which $shell) $(whoami)
+	shell=$(echo -e "bash\n$zshfish" | gum choose --limit=1 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) ")
     if [[ $zshfish == *"zsh"* ]]; then
 		echo ":: zsh selected"
 		source .install/zsh.sh
