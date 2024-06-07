@@ -1,11 +1,6 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# load zinit
+# ---------------------------------------------------
+# Zinit and plugins
+# ---------------------------------------------------
 source /usr/share/zinit/zinit.zsh
 
 # Load powerlevel10k theme
@@ -16,11 +11,13 @@ zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 # oh-my-zsh plugins
+zi snippet OMZL::git.zsh
 zi snippet OMZP::git
 zi snippet OMZP::sudo
 zi snippet OMZP::colored-man-pages
 zi snippet OMZP::eza
-#others
+zi snippet OMZP::z
+# others
 zplugin ice as"program" pick"bin/git-dsf"
 zplugin light zdharma-continuum/zsh-diff-so-fancy
 

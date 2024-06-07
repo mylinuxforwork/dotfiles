@@ -1,0 +1,80 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# -----------------------------------------------------
+# Oh my zsh settings
+# -----------------------------------------------------
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+zstyle ':omz:update' mode auto
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+COMPLETION_WAITING_DOTS="true"
+
+# -----------------------------------------------------
+# Plugins
+# -----------------------------------------------------
+plugins=(git colored-man-pages eza z sudo zsh-autosuggestions fast-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
+
+# -----------------------------------------------------
+# Variables
+# -----------------------------------------------------
+export PATH=$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
+
+export LANG=en_US.UTF-8
+
+export EDITOR='vim'
+
+export MAKEFLAGS='-j$(nproc)'
+export CFLAGS='-march=native -O2 -pipe'
+
+# -----------------------------------------------------
+# Alias
+# -----------------------------------------------------
+alias sshkoko="TERM=xterm-256color ssh ywang2020@koko-login.hpc.fau.edu"
+alias wakemac="wakeonlan  18:C0:4D:8D:56:0E"
+alias ls="eza --icons=auto"
+alias githashselector="git log --oneline | gum filter | cut -d' ' -f1"
+alias bat="bat --paging=never"
+# fix ssh if in kitty
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
+# -----------------------------------------------------
+# evals
+# -----------------------------------------------------
+eval $(thefuck --alias)
+eval "$(fzf --zsh)"
+
+# -----------------------------------------------------
+# PYWAL
+# -----------------------------------------------------
+cat ~/.cache/wal/sequences
+
+# -----------------------------------------------------
+# Custom
+# -----------------------------------------------------
+[[ ! -f ~/.custom.zsh ]] || source ~/.custom.zsh
+
+# -----------------------------------------------------
+# miscs
+# -----------------------------------------------------
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
