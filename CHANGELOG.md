@@ -4,6 +4,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.1
 - Workspaces module in waybar updated to enable scroll to change the workspace https://gitlab.com/stephan-raabe/dotfiles/-/merge_requests/114
 - More functions deactivated in Game Mode (SUPER+ALT+G)
 - Keybindings rofi menu updated with keybinding description. Open with right mouse click on Apps waybar module
+- Fixed bug of ML4W Hyprland Settings App with Hyprland 0.41.0
 
 Version 2.9.1.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.1
