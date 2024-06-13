@@ -1,5 +1,11 @@
+Version 2.9.1.3
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.3
+--------------------------------------------------------
+- Wallpaper cache to cache generated images. Will speed up the change between wallpapers if cached files exists. https://gitlab.com/stephan-raabe/dotfiles/-/wikis/Home/Wallpapers#wallpaper-cache
+
+
 Version 2.9.1.2
-https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.1
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.2
 --------------------------------------------------------
 - Workspaces module in waybar updated to enable scroll to change the workspace https://gitlab.com/stephan-raabe/dotfiles/-/merge_requests/114
 - More functions deactivated in Game Mode (SUPER+ALT+G)

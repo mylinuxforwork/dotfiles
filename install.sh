@@ -34,7 +34,7 @@ else
 fi
 echo ""
 source .install/required.sh
-source .install/confirm-start.sh
+source .install/confirm_start.sh
 source .install/paralleldownloads.sh
 source .install/yay.sh
 source .install/updatesystem.sh
@@ -44,37 +44,45 @@ source .install/installer.sh
 source .install/remove.sh
 source .install/general.sh
 source .install/packages/general-packages.sh
-source .install/install-packages.sh
+source .install/install_packages.sh
 source .install/profile.sh
 if [[ $profile == *"Hyprland"* ]]; then
     echo -e "${GREEN}"
     figlet "Hyprland"
     echo -e "${NONE}"
     source .install/packages/hyprland-packages.sh
-    source .install/install-packages.sh
+    source .install/install_packages.sh
 fi
 if [[ $profile == *"Qtile"* ]]; then
     echo -e "${GREEN}"
     figlet "Qtile"
     echo -e "${NONE}"
     source .install/packages/qtile-packages.sh
-    source .install/install-packages.sh
+    source .install/install_packages.sh
 fi
 source .install/wallpaper.sh
 source .install/displaymanager.sh
 source .install/issue.sh
+
+# Modify existing files before restore starts
+source .install/before_restore.sh
+
+# Restore configuration and settings
 source .install/restore.sh
+
+# Setup the input devices
 source .install/keyboard.sh
+
 source .install/neovim.sh
 source .install/hook.sh
 source .install/vm.sh
 source .install/copy.sh
 source .install/init-pywal.sh
 if [[ $profile == *"Hyprland"* ]]; then
-    source .install/hyprland-dotfiles.sh
+    source .install/hyprland_dotfiles.sh
 fi
 if [[ $profile == *"Qtile"* ]]; then
-    source .install/qtile-dotfiles.sh
+    source .install/qtile_dotfiles.sh
 fi
 source .install/settings.sh
 source .install/apps.sh
