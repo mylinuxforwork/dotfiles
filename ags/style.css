@@ -1,0 +1,36 @@
+@import url('../../.cache/wal/colors-waybar.css');
+
+* {
+    all: unset;
+    font-size: 14px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+    padding: 0;
+    margin: 0; }
+
+
+.sidebar {
+    background: #222222;
+    padding: 10px;
+    margin:20px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.btn {
+    border-radius: 20px;
+    background-color: @color4;
+    padding:10px;
+    color: #222222;
+}
+
+.clock {
+    font-size: 20px;
+}
+
+.circularprocess {
+    min-width:100px;
+    min-height:100px;
+    color:@color4;
+    background-color:#ccc;
+}

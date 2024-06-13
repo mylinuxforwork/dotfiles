@@ -1,0 +1,11 @@
+<svg width="256" height="256" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <ellipse stroke="#fff" ry="128" rx="128" id="svg_1" cy="127.99999" cx="128" fill="#000"/>
+  <rect stroke-width="0" id="svg_3" height="130" width="15" y="55" x="71" stroke="#000" fill="#fff"/>
+  <rect stroke-width="0" id="svg_4" height="15" width="129" y="170" x="71" stroke="#000" fill="#fff"/>
+  <rect stroke-width="0" id="svg_5" height="88" width="15" y="51" x="119" stroke="#000" fill="#fff"/>
+  <rect stroke-width="0" id="svg_6" height="15" width="84" y="124" x="119" stroke="#000" fill="#fff"/>
+ </g>
+</svg>
