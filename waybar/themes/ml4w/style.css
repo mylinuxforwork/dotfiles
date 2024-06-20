@@ -205,8 +205,9 @@ window#waybar.empty #window {
 #custom-chatgpt {
     margin-right: 12px;
     background-image: url("../assets/ai-icon.png");
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; 
     padding-right: 24px;
 }
 
