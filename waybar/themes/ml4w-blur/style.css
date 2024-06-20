@@ -203,9 +203,10 @@ window#waybar.empty #window {
 
 #custom-ml4w-welcome {
     margin-right: 12px;
-    background-image: url("../assets/ml4w-icon.png");
-    background-repeat: no-repeat;
+    background-image: url("../assets/ml4w-icon.svg");
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; 
     padding-right: 24px;
 }
 

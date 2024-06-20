@@ -185,11 +185,12 @@ window#waybar.empty #window {
 
 
 #custom-ml4w-welcome {
-    margin-right: 15px;
-    background-image: url("../assets/ml4w-icon-20.png");
-    background-repeat: no-repeat;
+    margin-right: 12px;
+    background-image: url("../assets/ml4w-icon.svg");
     background-position: center;
-    padding-right: 24px;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    padding-right: 20px;
 }
 
 #custom-ml4w-hyprland-settings {
