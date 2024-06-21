@@ -205,11 +205,10 @@ window#waybar.empty #window {
 #custom-chatgpt {
     margin-right: 12px;
     background-image: url("../assets/openai.svg");
-    background-position: center;
     background-repeat: no-repeat;
+    background-position: center;
     background-size: contain; 
-    padding-right: 24px;
-    color: #FFFFFF;
+    padding-right: 16px;
 }
 
 #custom-ml4w-welcome {

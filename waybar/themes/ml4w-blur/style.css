@@ -220,10 +220,11 @@ window#waybar.empty #window {
 
 #custom-chatgpt {
     margin-right: 12px;
-    background-image: url("../assets/ai-icon-20.png");
+    background-image: url("../assets/openai.svg");
     background-repeat: no-repeat;
     background-position: center;
-    padding-right: 24px;
+    background-size: contain; 
+    padding-right: 16px;
 }
 
 /* -----------------------------------------------------
