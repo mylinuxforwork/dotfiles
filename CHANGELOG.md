@@ -2,7 +2,8 @@ Version 2.9.1.3
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.3
 --------------------------------------------------------
 - Wallpaper cache to cache generated images. Will speed up the change between wallpapers if cached files exists. https://gitlab.com/stephan-raabe/dotfiles/-/wikis/Home/Wallpapers#wallpaper-cache
-
+- New SVG icons in waybar for ML4W and ChatGPT
+- Alacritty: selected text will be copied to the primary clipboard
 
 Version 2.9.1.2
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.2
