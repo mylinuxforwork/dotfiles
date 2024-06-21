@@ -207,7 +207,7 @@ window#waybar.empty #window {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain; 
-    padding-right: 24px;
+    padding-right: 20px;
 }
 
 #custom-ml4w-hyprland-settings {

@@ -14,5 +14,5 @@
   </mask>
 
   <!-- Circle with cutouts -->
-  <circle fill="black" cx="120" cy="120" r="120" mask="url(#cutoutMask)" />
+  <circle fill="white" cx="120" cy="120" r="120" mask="url(#cutoutMask)" />
 </svg>

@@ -14,3 +14,7 @@
 @define-color iconcolor #FFFFFF;
 
 @import '../../ml4w/style.css';
+
+#custom-ml4w-welcome {
+    background-image: url("../../assets/ml4w-icon-white.svg");
+}
