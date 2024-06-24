@@ -1,6 +1,7 @@
 Version 2.9.1.3
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.3
 --------------------------------------------------------
+- Introducing waypaper as new wallpaper selector
 - Wallpaper cache for generated wallpaper variants. Will speed up the change between wallpapers if cached files exists. https://gitlab.com/stephan-raabe/dotfiles/-/wikis/Home/Wallpapers#wallpaper-cache
 - New SVG icons in waybar for ML4W and ChatGPT
 - Default waybar theme changed to ml4w-blur/white
