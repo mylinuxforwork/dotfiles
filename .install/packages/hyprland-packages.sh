@@ -16,4 +16,5 @@ packagesYay=(
     "nwg-look"
     "eww"
     "hyprshade"
+    "waypaper"
 );

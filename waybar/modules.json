@@ -110,7 +110,7 @@
     // Wallpaper
     "custom/wallpaper": {
         "format": "",
-        "on-click": "~/dotfiles/hypr/scripts/wallpaper.sh select",
+        "on-click": "waypaper",
         "on-click-right": "~/dotfiles/hypr/scripts/wallpaper-effects.sh",
         "tooltip-format": "Left: Select a wallpaper\nRight: Select wallpaper effect"
     },
