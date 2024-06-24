@@ -19,6 +19,7 @@ if gum confirm "Do you want to run a short system check?" ;then
     _commandExists "wlogout" "wlogout"
     _commandExists "eww" "eww"
     _commandExists "magick" "imagemagick"
+    _commandExists "waypaper" "waypaper"
 
 elif [ $? -eq 130 ]; then
     exit 130

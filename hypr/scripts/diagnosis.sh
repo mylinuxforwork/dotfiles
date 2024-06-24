@@ -46,6 +46,7 @@ _commandExists "swww" "swww"
 _commandExists "eww" "eww"
 _commandExists "magick" "imagemagick"
 _commandExists "figlet" "figlet"
+_commandExists "waypaper" "waypaper"
 
 echo
 echo "Press return to exit"
