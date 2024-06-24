@@ -64,7 +64,7 @@ fi
 if [ "$dmsel" == "Install sddm and theme" ] ;then
 
     if [ -d /usr/share/sddm/themes/sugar-candy/ ] ;then
-        rm -rf /usr/share/sddm/themes/sugar-candy/
+        sudo rm -rf /usr/share/sddm/themes/sugar-candy/
         echo ":: Sugar Candy folder removed"
     fi
 
