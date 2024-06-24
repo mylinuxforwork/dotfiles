@@ -43,5 +43,8 @@ fi
 if [ -d ~/dotfiles-versions/$version/fastfetch ]; then
     _installSymLink fastfetch ~/.config/fastfetch ~/dotfiles/fastfetch/ ~/.config
 fi
+if [ -d ~/dotfiles-versions/$version/waypaper ]; then
+    _installSymLink waypaper ~/.config/waypaper ~/dotfiles/waypaper/ ~/.config
+fi
 echo ":: Symbolic links created."
 echo
