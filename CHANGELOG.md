@@ -1,5 +1,5 @@
-Version 2.9.1.3
-https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.3
+Version 2.9.2
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2
 --------------------------------------------------------
 - Introducing waypaper as new wallpaper selector
 - Wallpaper cache for generated wallpaper variants. Will speed up the change between wallpapers if cached files exists. https://gitlab.com/stephan-raabe/dotfiles/-/wikis/Home/Wallpapers#wallpaper-cache
@@ -7,6 +7,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.3
 - Default waybar theme changed to ml4w-blur/white
 - Alacritty: selected text will be copied to the primary clipboard
 - General/standard Hyprland environment configuration moved to ml4w.conf (will be re-used in kvm.conf and nvidia.conf)
+- The time format in hyprlock is now aligned with the waybar clock time format that is defined in the ML4W Settings App
 
 Version 2.9.1.2
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1.2
