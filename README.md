@@ -2,7 +2,7 @@
 
 An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
-[![Screenshot](screenshots/screenshot2.png "Screenshot")](screenshots/screenshot2.png)
+[![Screenshot](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/uploads/5715487b0af68f36295f4e37b634f17a/screenshot-20240627-113621.png "Screenshot")](![screenshots/screenshot2.png](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/uploads/5715487b0af68f36295f4e37b634f17a/screenshot-20240627-113621.png))
 
 The ML4W Dotfiles are available as 
 
