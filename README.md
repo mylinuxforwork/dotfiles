@@ -37,11 +37,7 @@ You can also visit the [ML4W Discord Server](https://discord.gg/c4fJK7Za3g) to s
 
 ## Screenshots
 
-[![Screenshot](screenshots/screenshot1.png "Screenshot")](screenshots/screenshot1.png)
-
-[![Screenshot](screenshots/screenshot3.png "Screenshot")](screenshots/screenshot3.png)
-
-[![Screenshot](screenshots/screenshot4.png "Screenshot")](screenshots/screenshot5.png)
+[![Screenshot](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/uploads/b8dc6a841b6b04fe0b2d380377117a50/screenshot-20240627-113733.png "Screenshot")](![screenshots/screenshot1.png](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/uploads/b8dc6a841b6b04fe0b2d380377117a50/screenshot-20240627-113733.png))
 
 ## Wallpaper repository
 
