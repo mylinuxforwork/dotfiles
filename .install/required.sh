@@ -8,7 +8,7 @@ echo
 
 # Check for required packages
 echo "Checking that required packages for the installation are installed..."
-_installPackagesPacman "rsync" "gum" "figlet" "python";
+_installPackagesPacman "rsync" "gum" "figlet" "python" "git";
 
 # Double check rsync
 if ! command -v rsync &> /dev/null; then
