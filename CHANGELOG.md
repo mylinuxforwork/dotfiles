@@ -4,6 +4,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2
 - Works with Hyprland 0.41.2
 - Introducing waypaper as new wallpaper selector
 - Wallpaper cache for generated wallpaper variants. Will speed up the change between wallpapers if cached files exists. https://gitlab.com/stephan-raabe/dotfiles/-/wikis/Home/Wallpapers#wallpaper-cache
+- You can define custom quicklinks in waybar: https://gitlab.com/stephan-raabe/dotfiles/-/wikis/Home/Waybar#define-your-quicklinks
 - New SVG icons in waybar for ML4W and ChatGPT
 - Default waybar theme changed to ml4w-blur/white
 - Alacritty: selected text will be copied to the primary clipboard
