@@ -15,7 +15,7 @@ killall -e xdg-desktop-portal-kde
 killall -e xdg-desktop-portal-lxqt
 killall -e xdg-desktop-portal-wlr
 killall -e xdg-desktop-portal-gtk
-killall xdg-desktop-portal
+killall -e xdg-desktop-portal
 sleep 1
 
 # start xdg-desktop-portal-hyprland
