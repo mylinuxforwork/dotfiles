@@ -26,7 +26,10 @@
     "spacing": 0,
 
     // Load Modules
-    "include": ["~/dotfiles/waybar/themes/starter/modules.json"],
+    "include": [
+        "~/dotfiles/.settings/waybar-quicklinks.json",
+        "~/dotfiles/waybar/themes/starter/modules.json"
+    ],
 
     // Modules Left
     "modules-left": [

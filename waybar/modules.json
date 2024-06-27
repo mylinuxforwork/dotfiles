@@ -136,20 +136,6 @@
         "tooltip": false
     },
 
-    // Filemanager Launcher
-    "custom/filemanager": {
-        "format": "",
-        "on-click": "~/dotfiles/.settings/filemanager.sh",
-        "tooltip-format": "Open filemanager"
-    },
-
-    // Browser Launcher
-    "custom/browser": {
-        "format": "",
-        "on-click": "~/dotfiles/.settings/browser.sh",
-        "tooltip-format": "Open browser"
-    },    
-
     // ChatGPT Launcher
     "custom/chatgpt": {
         "format": " ",
@@ -313,15 +299,6 @@
             "custom/wallpaper",
             "custom/ml4w-hyprland-settings"
         ]
-    },
-
-    // Group Quicklinks
-    "group/quicklinks": {
-        "orientation": "horizontal",
-        "modules": [
-            "custom/browser",
-            "custom/filemanager",
-         ]
     },
 
     // Network

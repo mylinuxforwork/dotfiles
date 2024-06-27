@@ -1,0 +1,26 @@
+{
+    "custom/quicklink1": {
+        "format": "",
+        "on-click": "~/dotfiles/.settings/browser.sh",
+        "tooltip-format": "Open browser"
+    }, 
+    /*
+    "custom/quicklink1": {
+        "format": "",
+        "on-click": "firefox",
+        "tooltip-format": "Open Firefox"
+    },
+    */ 
+    "custom/quicklink2": {
+        "format": "",
+        "on-click": "~/dotfiles/.settings/filemanager.sh",
+        "tooltip-format": "Open filemanager"
+    }, 
+    "group/quicklinks": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/quicklink1",
+            "custom/quicklink2"
+         ]
+    }
+}
