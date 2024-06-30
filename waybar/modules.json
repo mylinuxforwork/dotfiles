@@ -78,15 +78,6 @@
         "format": ""
     },
 
-    // Youtube Subscriber Count
-    "custom/youtube": {
-        "format": " {}",
-        "exec": "python ~/private/youtube.py",
-        "restart-interval": 600,
-        "on-click": "chromium https://studio.youtube.com",
-        "tooltip": false
-    },
-    
     // Cliphist
     "custom/cliphist": {
         "format": "",
@@ -139,8 +130,8 @@
     // ChatGPT Launcher
     "custom/chatgpt": {
         "format": " ",
-        "on-click": "chromium --app=https://chat.openai.com",
-        "tooltip-format": "Open ChatGPT"
+        "on-click": "~/dotfiles/.settings/ai.sh",
+        "tooltip-format": "AI Support"
     },
 
     // Calculator

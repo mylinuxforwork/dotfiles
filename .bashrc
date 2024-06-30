@@ -48,6 +48,7 @@ alias ml4w-hyprland='~/dotfiles/apps/ML4W_Hyprland_Settings-x86_64.AppImage'
 alias ml4w-diagnosis='~/dotfiles/hypr/scripts/diagnosis.sh'
 alias ml4w-hyprland-diagnosis='~/dotfiles/hypr/scripts/diagnosis.sh'
 alias ml4w-qtile-diagnosis='~/dotfiles/qtile/scripts/diagnosis.sh'
+alias ml4w-update='~/dotfiles/update.sh'
 
 # -----------------------------------------------------
 # Window Managers
