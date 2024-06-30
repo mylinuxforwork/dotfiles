@@ -1,0 +1,1 @@
+magick $wallpaper -negate $used_wallpaper

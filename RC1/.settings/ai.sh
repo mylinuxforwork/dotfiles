@@ -1,0 +1,1 @@
+firefox https://chat.openai.com

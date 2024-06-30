@@ -12,11 +12,11 @@ else
 fi
 echo
 echo "Preparing temporary folders for the installation."
-if [ ! -d ~/dotfiles-versions ]; then
+if [ ! -d ~/dotfiles-versions ] ;then
     mkdir ~/dotfiles-versions
     echo ":: ~/dotfiles-versions folder created."
 fi
-if [ ! -d ~/dotfiles-versions/$version ]; then
+if [ ! -d ~/dotfiles-versions/$version ] ;then
     mkdir ~/dotfiles-versions/$version
     echo ":: ~/dotfiles-versions/$version folder created."
 else
