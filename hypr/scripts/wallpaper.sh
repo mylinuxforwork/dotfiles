@@ -64,6 +64,15 @@ echo ":: Current Wallpaper Filename: $current_wallpaper_filename"
 newwall=$current_wallpaper_filename
 
 # ----------------------------------------------------- 
+# Copy path of current wallpaper to cache file
+# ----------------------------------------------------- 
+if [ ! -f $cache_file ] ;then
+    touch $cache_file
+fi
+echo "$current_wallpaper" > $cache_file
+echo ":: Path of current wallpaper copied to $cache_file"
+
+# ----------------------------------------------------- 
 # Execute pywal
 # ----------------------------------------------------- 
 echo ":: Execute wallpaper"
