@@ -53,6 +53,7 @@ THANK YOU very much for all your support, contributions and ideas:
 - Jamie Deppeler: https://gitlab.com/bknight2k
 - Yingjie Wang: https://gitlab.com/GaugeAndGravity
 - Daniel Gerber: https://gitlab.com/dan.john.gerber
+- Sarthak Siddhpura: https://gitlab.com/Codesmith28
 - https://gitlab.com/muee
 
 and many more...
