@@ -22,7 +22,6 @@ if [ -d ~/dotfiles ] ;then
             exit 130
         else
             echo ":: Installation of Firefox skipped"
-            exit;
         fi
     fi
 else
