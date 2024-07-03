@@ -18,16 +18,12 @@ fi
 if [[ ! -f "$FILE" ]]; then
 	touch "$FILE"
 	echo ":: Opening on Monitor $sc"
-	${EWW} --config "$CFG" open ml4wlauncher --screen $sc
-	${EWW} --config "$CFG" open resources --screen $sc
-	${EWW} --config "$CFG" open logout --screen $sc
-	${EWW} --config "$CFG" open suspend --screen $sc
-	${EWW} --config "$CFG" open lock --screen $sc
-	${EWW} --config "$CFG" open reboot --screen $sc
-	${EWW} --config "$CFG" open shutdown --screen $sc
-	${EWW} --config "$CFG" open close --screen $sc
+	${EWW} --config "$CFG" open ml4wlauncher --force-wayland --screen $sc
+	${EWW} --config "$CFG" open close --force-wayland --screen $sc
+	# ${EWW} --config "$CFG" open resources --screen $sc
+	# ${EWW} --config "$CFG" open powerbox --force-wayland --screen $sc
 else
-	${EWW} --config "$CFG" close resources ml4wlauncher logout suspend lock reboot shutdown close
+	${EWW} --config "$CFG" close ml4wlauncher close
 	echo ":: Closing widgets"
 	rm "$FILE"
 fi

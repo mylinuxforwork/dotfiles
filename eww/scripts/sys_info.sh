@@ -41,7 +41,8 @@ get_cpu() {
 
 ## Get Used memory
 get_mem() {
-	printf "%.0f\n" $(free -m | grep Mem | awk '{print ($3/$2)*100}')
+	float=$(free -m | grep Mem | awk '{print ($3/$2)*100}')
+	echo ${float%.*}
 }
 
 ## Get Brightness
