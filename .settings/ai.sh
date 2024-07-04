@@ -1,1 +1,1 @@
-firefox https://chat.openai.com
+firefox --new-window https://chat.openai.com
