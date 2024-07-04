@@ -71,8 +71,8 @@ if [ "$dmsel" == "Install sddm and theme" ] ;then
     disman=0
     # Try to force the installation of sddm
     echo ":: Installing sddm"
-    sudo pacman -S --noconfirm sddm --ask 4
-
+    sudo pacman -S --noconfirm --needed sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg --ask 4
+    
     # Enable sddm
     if [ -f /etc/systemd/system/display-manager.service ]; then
         sudo rm /etc/systemd/system/display-manager.service
