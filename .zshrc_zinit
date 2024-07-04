@@ -1,0 +1,62 @@
+# ---------------------------------------------------
+# Zinit and plugins
+# ---------------------------------------------------
+source /usr/share/zinit/zinit.zsh
+
+# Load powerlevel10k theme
+zinit ice depth"1" # git clone depth
+zinit light romkatv/powerlevel10k
+
+# Load plugins
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/fast-syntax-highlighting
+# oh-my-zsh plugins
+zi snippet OMZL::git.zsh
+zi snippet OMZP::git
+zi snippet OMZP::sudo
+zi snippet OMZP::colored-man-pages
+zi snippet OMZP::eza
+zi snippet OMZP::z
+# others
+zplugin ice as"program" pick"bin/git-dsf"
+zplugin light zdharma-continuum/zsh-diff-so-fancy
+
+# ----------------------------------------------------
+# Variables
+# ----------------------------------------------------
+export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export EDITOR=vim
+
+# ----------------------------------------------------
+# Alias
+# ----------------------------------------------------
+alias sshkoko="TERM=xterm-256color ssh ywang2020@koko-login.hpc.fau.edu"
+alias wakemac="wakeonlan  18:C0:4D:8D:56:0E"
+alias eza="eza --icons=auto"
+alias githashselector="git log --oneline | gum filter | cut -d' ' -f1"
+alias bat="bat --paging=never"
+
+# -----------------------------------------------------
+# evals
+# -----------------------------------------------------
+eval $(thefuck --alias)
+eval "$(fzf --zsh)"
+
+# -----------------------------------------------------
+# Miscs
+# -----------------------------------------------------
+# fix ssh if in kitty
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# -----------------------------------------------------
+# PYWAL
+# -----------------------------------------------------
+cat ~/.cache/wal/sequences
+
+# -----------------------------------------------------
+# Custom
+# -----------------------------------------------------
+[[ ! -f ~/.custom.zsh ]] || source ~/.custom.zsh

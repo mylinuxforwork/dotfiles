@@ -85,6 +85,7 @@ fi
 if [[ $profile == *"Qtile"* ]]; then
     source .install/qtile_dotfiles.sh
 fi
+source .install/zshfish.sh
 source .install/settings.sh
 source .install/apps.sh
 source .install/gtk.sh
