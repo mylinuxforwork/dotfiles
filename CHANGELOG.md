@@ -3,7 +3,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2.1
 --------------------------------------------------------
 - ML4W Sidebar performance optimized. Bug fixed of memory script. 
 - Alternatively to the ML4W Welcome App you can start the Update script from a terminal with the command ml4w-update (ML4W .bashrc must be used)
-- Switched from Chromium to Firefox as default browser. Firefox performes much better on Wayland. Update script will offer the installation of Firefox in case that another browser is currently activated
+- Switched from Chromium to Firefox as default browser. Firefox performs much better on Wayland. Update script will offer the installation of Firefox in case that another browser is currently activated
 - New key binding to move all windows to another workspace with SUPER+CTRL+"workspace"
 - New key binding to start the automatic wallpaper change script with SUPER+ALT+W. The delay time can be set in ~/dotfiles/.settings/wallpaper-automation.sh https://gitlab.com/stephan-raabe/dotfiles/-/wikis/Home/Wallpapers#wallpaper-automation
 - Screenshader will be deactivated during screenshot creation
