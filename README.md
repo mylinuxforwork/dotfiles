@@ -2,14 +2,14 @@
 
 An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
-[![Screenshot](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/uploads/5715487b0af68f36295f4e37b634f17a/screenshot-20240627-113621.png "Screenshot")](![screenshots/screenshot2.png](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/uploads/5715487b0af68f36295f4e37b634f17a/screenshot-20240627-113621.png))
+[![Screenshot](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/uploads/5402287acd05825a9581e8bb261c465c/image.png "Screenshot")](![screenshots/screenshot2.png](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/uploads/5402287acd05825a9581e8bb261c465c/image.png))
 
 The ML4W Dotfiles are available as 
 
 - main release (Official release): [https://gitlab.com/stephan-raabe/dotfiles](https://gitlab.com/stephan-raabe/dotfiles)
 - rolling release (Development release): [https://gitlab.com/stephan-raabe/dotfiles/-/tree/dev](https://gitlab.com/stephan-raabe/dotfiles/-/tree/dev)
 
-YouTube Video [https://youtu.be/HMxHUvN6VGo](https://youtu.be/HMxHUvN6VGo)
+YouTube Video [https://youtu.be/HMxHUvN6VGo](https://youtu.be/GHYk1Iv4GkY)
 
 ## Installation
 
@@ -25,7 +25,7 @@ bash <(curl -s https://gitlab.com/stephan-raabe/dotfiles/-/raw/main/setup.sh)
 
 > PLEASE NOTE: Every Linux distribution, setup and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. Installation at your own risk.
 
-## Wiki
+## Documentation (Wiki)
 
 You can find the complete documentation of the ML4W Dotfiles in the Wiki. <b>[Open the Wiki here](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/home)</b>
 
