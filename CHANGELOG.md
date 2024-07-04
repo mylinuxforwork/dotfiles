@@ -5,6 +5,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2.1
 - Alternatively to the ML4W Welcome App you can start the Update script from a terminal with the command ml4w-update (ML4W .bashrc must be used)
 - Switched from Chromium to Firefox as default browser. Firefox performes much better on Wayland. Update script will offer the installation of Firefox in case that another browser is currently activated
 - New key binding to move all windows to another workspace with SUPER+CTRL+"workspace"
+- New key binding to start the random wallpaper script with SUPER+ALT+W. The delay time can be set in ~/dotfiles/.settings/wallpaper-random.sh
 - Screenshader will be deactivated during screenshot creation
 
 Version 2.9.2

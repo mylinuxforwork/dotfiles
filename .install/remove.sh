@@ -35,6 +35,13 @@ if [[ $(_isInstalledYay "rofi-lbonn-wayland") == 0 ]]; then
     echo
 fi
 
+# Remove sddm-sugar-candy-git
+if [[ $(_isInstalledYay "sddm-sugar-candy-git") == 0 ]]; then
+    yay --noconfirm -Rns sddm-sugar-candy-git
+    echo ":: sddm-sugar-candy-git removed"
+    echo
+fi
+
 # Remove hypridle-bin
 if [[ $(_isInstalledYay "hypridle-git") == 0 ]]; then
     yay --noconfirm -Rns hypridle-git
