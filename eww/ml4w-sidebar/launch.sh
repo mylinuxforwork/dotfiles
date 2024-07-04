@@ -20,8 +20,6 @@ if [[ ! -f "$FILE" ]]; then
 	echo ":: Opening on Monitor $sc"
 	${EWW} --config "$CFG" open ml4wlauncher --force-wayland --screen $sc
 	${EWW} --config "$CFG" open close --force-wayland --screen $sc
-	# ${EWW} --config "$CFG" open resources --screen $sc
-	# ${EWW} --config "$CFG" open powerbox --force-wayland --screen $sc
 else
 	${EWW} --config "$CFG" close ml4wlauncher close
 	echo ":: Closing widgets"

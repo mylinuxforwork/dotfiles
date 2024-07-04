@@ -71,7 +71,7 @@ if [ "$dmsel" == "Install sddm and theme" ] ;then
     disman=0
     # Try to force the installation of sddm
     echo ":: Installing sddm"
-    yay -S --noconfirm sddm --ask 4
+    sudo pacman -S --noconfirm sddm --ask 4
 
     # Enable sddm
     if [ -f /etc/systemd/system/display-manager.service ]; then
@@ -79,10 +79,20 @@ if [ "$dmsel" == "Install sddm and theme" ] ;then
     fi
     sudo systemctl enable sddm.service
 
-    echo
+    echo 
     if gum confirm "Do you want to install the sddm-sugar-candy theme?" ;then
         echo ":: Installing sddm-sugar-candy-git"
-        yay -S --noconfirm sddm-sugar-candy-git --ask 4
+
+        if [ -d ~/Downloads/sddm-sugar-candy ] ;then
+            rm -rf ~/Downloads/sddm-sugar-candy
+            echo ":: ~/Downloads/sddm-sugar-candy removed"
+        fi 
+        wget -P ~/Downloads/sddm-sugar-candy https://github.com/Kangie/sddm-sugar-candy/archive/refs/heads/master.zip
+        echo ":: Download of sddm-sugar-candy complete"
+        unzip -o -q ~/Downloads/sddm-sugar-candy/master.zip -d ~/Downloads/sddm-sugar-candy
+        echo ":: Unzip of sddm-sugar-candy complete"
+        sudo cp -r ~/Downloads/sddm-sugar-candy/sddm-sugar-candy-master /usr/share/sddm/themes/sugar-candy
+        echo ":: sddm-sugar-candy copied to target location"
 
         if [ ! -d /etc/sddm.conf.d/ ]; then
             sudo mkdir /etc/sddm.conf.d
