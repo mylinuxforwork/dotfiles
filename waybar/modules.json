@@ -18,9 +18,9 @@
         "all-outputs": true,
         "format": "{}",
         "format-icons": {
-			"urgent": "",
-			"active": "",
-			"default": ""
+            "urgent": "",
+            "active": "",
+            "default": ""
         },
         "persistent-workspaces": {
             "*": 5
@@ -358,6 +358,6 @@
     "user": {
         "format": "{user}",
         "interval": 60,
-        "icon": false,
+        "icon": false
     }
 }
