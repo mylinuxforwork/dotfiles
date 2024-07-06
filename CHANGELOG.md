@@ -1,3 +1,7 @@
+Version 2.9.2.2
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2.2
+--------------------------------------------------------
+
 Version 2.9.2.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2.1
 --------------------------------------------------------
