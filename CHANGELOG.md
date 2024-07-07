@@ -1,9 +1,8 @@
 Version 2.9.2.2
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2.2
 --------------------------------------------------------
-- ML4W .bashrc can be extended by adding a file .bashrc_custom to create for example custom aliases and more
+- ML4W .bashrc can be extended by adding a file .bashrc_custom in your home directory to create custom aliases and more
 - Adding Missioncontrol as new systeminfo app
-- Important: Moved general environment variables back to files in the ~/dotfiles/hypr/conf/environments folder. Improves the creation of custom setups. Please check if you have created already your own custom environment variation
 
 Version 2.9.2.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2.1
