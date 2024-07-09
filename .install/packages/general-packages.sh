@@ -1,5 +1,6 @@
 packagesPacman=(
     "pacman-contrib"
+    "gnome-keyring"
     "vim"
     "bluez"
     "bluez-utils"

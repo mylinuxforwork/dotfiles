@@ -106,6 +106,39 @@ eval "$(starship init bash)"
 cat ~/.cache/wal/sequences
 
 # -----------------------------------------------------
+# Package Managers
+# -----------------------------------------------------
+# Checking the Aur helper
+if pacman -Qi paru &>/dev/null; then
+  helper="paru"
+elif pacman -Qi yay &>/dev/null; then
+  helper="yay"
+fi
+# Define the function 'install'
+
+install() {
+  local -a inPkg=("$@")
+  local -a arch=()
+  local -a aur=()
+
+  for pkg in "${inPkg[@]}"; do
+    if pacman -Si "${pkg}" &>/dev/null; then
+      arch+=("${pkg}")
+    else
+      aur+=("${pkg}")
+    fi
+  done
+
+  if [[ ${#arch[@]} -gt 0 ]]; then
+    sudo pacman -S "${arch[@]}"
+  fi
+
+  if [[ ${#aur[@]} -gt 0 ]]; then
+    ${helper} -S "${aur[@]}"
+  fi
+}
+
+# -----------------------------------------------------
 # Fastfetch if on wm
 # -----------------------------------------------------
 if [[ $(tty) == *"pts"* ]]; then
