@@ -63,6 +63,9 @@ echo ":: Current Wallpaper: $current_wallpaper"
 echo ":: Current Wallpaper Filename: $current_wallpaper_filename"
 newwall=$current_wallpaper_filename
 
+# Update rasi file
+echo "* { current-image: url(\"$current_wallpaper_filename\", height); }" >"$rasi_file"
+
 # ----------------------------------------------------- 
 # Copy path of current wallpaper to cache file
 # ----------------------------------------------------- 
