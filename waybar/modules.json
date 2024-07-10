@@ -66,7 +66,7 @@
         "tooltip-format": "Open Sidebar"
     },
 
-    // ML4W Welcome App
+    // ML4W Hyprladn Settings App
     "custom/ml4w-hyprland-settings": {
         "on-click": "~/dotfiles/apps/ML4W_Hyprland_Settings-x86_64.AppImage",
         "format": " ",
