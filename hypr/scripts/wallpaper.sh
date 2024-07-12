@@ -46,8 +46,8 @@ blur=$(cat $blur_file)
 # Create rasi file if not exists
 if [ ! -f $rasi_file ] ;then
     touch $rasi_file
-    echo "* { current-image: url(\"$wallpaper_folder/default.jpg\", height); }" > "$rasi_file"
 fi
+echo "* { current-image: url(\"$blurred_wallpaper\", height); }" > "$rasi_file"
 
 # Create folder with generated versions of wallpaper if not exists
 if [ ! -d $generated_versions ] ;then
@@ -130,7 +130,6 @@ else
         cp $blurred_wallpaper $generated_versions/blur-$blur-$newwall.png
         echo ":: Blurred"
     fi
-    cp $generated_versions/blur-$blur-$newwall.png $blurred_wallpaper
 fi
 cp $generated_versions/blur-$blur-$newwall.png $blurred_wallpaper
 
@@ -149,4 +148,3 @@ else
     magick $wallpaper -gravity Center -extent 1:1 $square_wallpaper
     cp $square_wallpaper $generated_versions/square-$newwall.png
 fi
-cp $generated_versions/square-$newwall.png $square_wallpaper
