@@ -36,30 +36,33 @@ if gum confirm "Do you want to start the update now?" ;then
         rm -rf $HOME/Downloads/dotfiles-dev
     fi
     echo 
+
+    # Change into Downloads Directory
+    cd ~/Downloads
+
+    # Select the dotfiles version
     echo "Please choose between the main-release or the rolling-release (development version):"
     version=$(gum choose "main-release" "rolling-release")
     if [ "$version" == "main-release" ] ;then
-        wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/archive/main/dotfiles-main.zip
-        v="main"
+        git clone -b main --single-branch --depth 1 https://gitlab.com/stephan-raabe/dotfiles.git
     elif [ "$version" == "rolling-release" ] ;then
-        wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/archive/dev/dotfiles-dev.zip
-        v="dev"
+        git clone -b dev --single-branch --depth 1 https://gitlab.com/stephan-raabe/dotfiles.git
     else
         exit 130
     fi
     echo ":: Download complete."
 
-    # Unzip
-    unzip -o -q ~/Downloads/dotfiles-$v.zip -d ~/Downloads/
-    echo ":: Unzip complete."
-    cd ~/Downloads/dotfiles-$v/
-    echo ":: Changed into ~/Downloads/dotfiles-$v/"
-    
     # Start the installatiom
     if gum confirm "Do you want to start the update now?" ;then
+
+        # Change into dotfiles folder
+        cd $HOME/Downloads/dotfiles/
+        echo ":: Changed into ~/Downloads/dotfiles/"
+
+        # Start Spinner
         gum spin --spinner dot --title "Starting the update now..." -- sleep 3
-        cd $HOME/Downloads/dotfiles-$v
         ./install.sh
+        
     elif [ $? -eq 130 ]; then
             exit 130
     else
