@@ -51,7 +51,7 @@ if gum confirm "Do you want to start the update now?" ;then
         exit 130
     fi
     echo ":: Download complete."
-
+    echo 
     # Start the installatiom
     if gum confirm "Do you want to start the update now?" ;then
 
@@ -62,7 +62,7 @@ if gum confirm "Do you want to start the update now?" ;then
         # Start Spinner
         gum spin --spinner dot --title "Starting the update now..." -- sleep 3
         ./install.sh
-        
+
     elif [ $? -eq 130 ]; then
             exit 130
     else
