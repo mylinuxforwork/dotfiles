@@ -25,7 +25,9 @@ else
     mkdir ~/dotfiles-versions/$version
     echo ":: Clean build prepared for the installation."
 fi
-rsync -a -I --exclude-from=.install/includes/excludes.txt . ~/dotfiles-versions/$version/
+
+rsync -a -I --exclude-from=.install/includes/excludes.txt dotfiles/. ~/dotfiles-versions/$version/
+
 if [[ $(_isFolderEmpty ~/dotfiles-versions/$version/) == 0 ]] ;then
     echo "AN ERROR HAS OCCURED. Preparation of ~/dotfiles-versions/$version/ failed" 
     echo "Please check that rsync is installad on your system."
