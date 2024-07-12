@@ -1,5 +1,5 @@
 #!/bin/bash
-version=$(cat .version/name)
+version=$(cat dotfiles/.version/name)
 source .install/includes/colors.sh
 source .install/includes/library.sh
 clear
