@@ -5,22 +5,24 @@ echo -e "${GREEN}"
 figlet "Wallpapers"
 echo -e "${NONE}"
 if [ ! -d ~/wallpaper ]; then
-    echo "Do you want to download the wallpapers from repository https://gitlab.com/stephan-raabe/wallpaper/ ?"
+    echo "Do you want to download the wallpapers from repository https://github.com/mylinuxforwork/wallpaper/ ?"
     echo "If not, the script will install 3 default wallpapers in ~/wallpaper/"
     echo ""
     if gum confirm "Do you want to download the repository?" ;then
-        wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/wallpaper/-/archive/main/wallpaper-main.zip
-        unzip -o ~/Downloads/wallpaper-main.zip -d ~/Downloads/
+        if [ -d ~/Downloads/wallpaper ] ;then
+            rm -rf ~/Downloads/wallpaper
+        fi
+        git clone --depth 1 https://github.com/mylinuxforwork/wallpaper.git ~/Downloads/wallpaper
         if [ ! -d ~/wallpaper/ ]; then
             mkdir ~/wallpaper
         fi
-        cp ~/Downloads/wallpaper-main/* ~/wallpaper/
+        rsync -a -I --exclude-from=.install/includes/excludes.txt ~/Downloads/wallpaper/. ~/wallpaper/
         echo "Wallpapers from the repository installed successfully."
     elif [ $? -eq 130 ]; then
         exit 130
     else
         if [ -d ~/wallpaper/ ]; then
-            echo "wallpaper folder already exists."
+            echo "~/wallpaper folder already exists."
         else
             mkdir ~/wallpaper
         fi
