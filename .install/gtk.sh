@@ -41,10 +41,10 @@ if [ -d ~/.config/gtk-3.0 ] ;then
 fi
 
 if [ "$gtk_overwrite" == "1" ] ;then
-  cp -r gtk/gtk-3.0 ~/.config/
-  cp -r gtk/gtk-4.0 ~/.config/
-  cp -r gtk/xsettingsd ~/.config/
-  cp gtk/.gtkrc-2.0 ~/
-  cp gtk/.Xresources ~/
+  cp -r dotfiles/gtk/gtk-3.0 ~/.config/
+  cp -r dotfiles/gtk/gtk-4.0 ~/.config/
+  cp -r dotfiles/gtk/xsettingsd ~/.config/
+  cp dotfiles/gtk/.gtkrc-2.0 ~/
+  cp dotfiles/gtk/.Xresources ~/
   echo ":: GTK Theme installed"
 fi

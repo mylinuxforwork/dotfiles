@@ -11,14 +11,14 @@ if [ "$restored" == "1" ]; then
     echo ":: You have already restored your settings into the new installation."
     echo "You can repeat the keyboard setup again to choose between a desktop and laptop optimized configuration."
     echo
-    if gum confirm "Do you want to setup your keyboard again?" ;then
-        setkeyboard=0
+    if gum confirm "Do you want to proceed with your existing keyboard configuration?" ;then
+        setkeyboard=1
     elif [ $? -eq 130 ]; then
         echo ":: Installation canceled."
         exit 130
     else
         echo ":: Keyboard setup skipped."
-        setkeyboard=1
+        setkeyboard=0
     fi
 fi
 
