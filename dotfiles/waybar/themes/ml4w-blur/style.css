@@ -165,6 +165,7 @@ window#waybar.empty #window {
 #custom-system,
 #custom-hyprshade,
 #custom-hypridle,
+#custom-tools,
 #custom-quicklink1,
 #custom-quicklink2,
 #custom-quicklink3,
@@ -181,6 +182,10 @@ window#waybar.empty #window {
     font-weight: bold;
     opacity: 0.8;
     color: @iconcolor;
+}
+
+#custom-tools {
+    margin-right:12px;
 }
 
 #custom-hyprshade {
@@ -218,6 +223,7 @@ window#waybar.empty #window {
     background-repeat: no-repeat;
     background-size: contain; 
     padding-right: 20px;
+    opacity: 0.8;
 }
 
 #custom-ml4w-hyprland-settings {
@@ -226,6 +232,7 @@ window#waybar.empty #window {
     background-repeat: no-repeat;
     background-position: center;
     padding-right: 16px;
+    opacity: 0.8;
 }
 
 #custom-chatgpt {
@@ -235,6 +242,7 @@ window#waybar.empty #window {
     background-position: center;
     background-size: contain; 
     padding-right: 16px;
+    opacity: 0.8;
 }
 
 /* -----------------------------------------------------
@@ -281,6 +289,7 @@ window#waybar.empty #window {
     padding:0px;
     font-size:20px;
     color: @iconcolor;
+    opacity: 0.8;
 }
 
 /* -----------------------------------------------------

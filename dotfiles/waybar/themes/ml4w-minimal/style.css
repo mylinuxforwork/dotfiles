@@ -136,6 +136,7 @@ window#waybar.empty #window {
 #custom-system,
 #custom-hyprshade,
 #custom-hypridle,
+#custom-tools,
 #custom-quicklink1,
 #custom-quicklink2,
 #custom-quicklink3,
@@ -147,10 +148,14 @@ window#waybar.empty #window {
 #custom-quicklink9,
 #custom-quicklink10,
 #custom-waybarthemes {
-    margin-right: 23px;
+    margin-right: 16px;
     font-size: 14px;
     font-weight: bold;
     color: @iconcolor;
+}
+
+#custom-tools {
+    margin-right:12px;
 }
 
 #custom-hyprshade {
@@ -174,7 +179,7 @@ window#waybar.empty #window {
 }
 
 #custom-browser {
-    margin-right: 16px;
+    margin-right: 12px;
 }
 
 #custom-wallpaper {

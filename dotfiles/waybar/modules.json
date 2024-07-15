@@ -66,7 +66,7 @@
         "tooltip-format": "Open Sidebar"
     },
 
-    // ML4W Hyprladn Settings App
+    // ML4W Hyprland Settings App
     "custom/ml4w-hyprland-settings": {
         "on-click": "~/dotfiles/apps/ML4W_Hyprland_Settings-x86_64.AppImage",
         "format": " ",
@@ -78,6 +78,12 @@
         "format": ""
     },
 
+    // Empty
+    "custom/tools": {
+        "format": "",
+        "tooltip-format": "Tools"
+    },
+    
     // Cliphist
     "custom/cliphist": {
         "format": "",
@@ -267,7 +273,23 @@
         ]
     },
     
-    // Group Settings
+    // Group Tools
+    "group/tools": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "not-memory",
+            "transition-left-to-right": false
+        },            
+        "modules": [
+            "custom/tools",
+            "custom/cliphist",
+            "custom/hypridle",
+            "custom/hyprshade"
+        ]
+    },
+
+    // Group Links
     "group/links": {
         "orientation": "horizontal",
         "modules": [

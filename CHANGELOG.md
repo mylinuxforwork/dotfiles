@@ -3,7 +3,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2.2
 --------------------------------------------------------
 - ML4W .bashrc can be extended by adding a file .bashrc_custom in your home directory to create custom aliases and more
 - Adding Missioncontrol as new systeminfo app
-- New enhanced default animation variation. Can be selected in the ML4W Dotfiles Settings app.
+- New animation variation animations-dynamic.conf. Requires some resources and is therefore not recommended for installations on virtual machines or slower systems. Can be selected in the ML4W Dotfiles Settings app.
 - New repository folder structure. All configuration dotfiles are now separated from the installer in the folder dotfiles
 
 Version 2.9.2.1
