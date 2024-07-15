@@ -5,6 +5,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2.2
 - Adding Missioncontrol as new systeminfo app
 - New animation variation animations-dynamic.conf. Requires some resources and is therefore not recommended for installations on virtual machines or slower systems. Can be selected in the ML4W Dotfiles Settings app.
 - New repository folder structure. All configuration dotfiles are now separated from the installer in the folder dotfiles
+- Switched from polkit-gnome to polkit-kde-agent due to it's recommendation on Hyprland Wiki
 
 Version 2.9.2.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2.1
