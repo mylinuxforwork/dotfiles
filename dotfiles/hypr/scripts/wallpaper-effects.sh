@@ -8,5 +8,5 @@
     if [ ! -z $choice ] ;then
         echo "$choice" > ~/dotfiles/.settings/wallpaper-effect.sh
         dunstify "Changing Wallpaper Effect to " "$choice"
-        ~/dotfiles/hypr/scripts/wallpaper.sh init
+        ~/dotfiles/hypr/scripts/wallpaper.sh
     fi
