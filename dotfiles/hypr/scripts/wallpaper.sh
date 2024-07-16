@@ -121,18 +121,13 @@ hyprpaper & > /dev/null 2>&1
 # Created blurred wallpaper
 # -----------------------------------------------------
 
-if [ -f $generated_versions/blur-$blur-$wallpaper_filename.png ] && [ "$force_generate" == "0" ] && [ "$use_cache" == "1" ] ;then
-    echo ":: Use cached wallpaper blur-$blur-$wallpaper_filename.png"
-else
-    echo ":: Generate new cached wallpaper blur-$blur-$wallpaper_filename with blur $blur"
-    dunstify "Creating blurred version ..." "with image $wallpaper_filename" -h int:value:50 -h string:x-dunst-stack-tag:wallpaper
-    magick $wallpaper -resize 75% $blurred_wallpaper
-    echo ":: Resized to 75%"
-    if [ ! "$blur" == "0x0" ] ;then
-        magick $blurred_wallpaper -blur $blur $blurred_wallpaper
-        cp $blurred_wallpaper $generated_versions/blur-$blur-$wallpaper_filename.png
-        echo ":: Blurred"
-    fi
+echo ":: Generate new cached wallpaper blur-$blur-$wallpaper_filename with blur $blur"
+magick $wallpaper -resize 75% $blurred_wallpaper
+echo ":: Resized to 75%"
+if [ ! "$blur" == "0x0" ] ;then
+    magick $blurred_wallpaper -blur $blur $blurred_wallpaper
+    cp $blurred_wallpaper $generated_versions/blur-$blur-$wallpaper_filename.png
+    echo ":: Blurred"
 fi
 cp $generated_versions/blur-$blur-$wallpaper_filename.png $blurred_wallpaper
 
@@ -149,11 +144,6 @@ echo "* { current-image: url(\"$blurred_wallpaper\", height); }" > "$rasi_file"
 # Created square wallpaper
 # -----------------------------------------------------
 
-if [ -f $generated_versions/square-$wallpaper_filename.png ] && [ "$force_generate" == "0" ] && [ "$use_cache" == "1" ] ;then
-    echo ":: Use cached wallpaper square-$wallpaper_filename.png"
-else
-    echo ":: Generate new cached wallpaper square-$wallpaper_filename"
-    dunstify "Creating square version ..." "with image $wallpaper_filename" -h int:value:75 -h string:x-dunst-stack-tag:wallpaper
-    magick $wallpaper -gravity Center -extent 1:1 $square_wallpaper
-    cp $square_wallpaper $generated_versions/square-$wallpaper_filename.png
-fi
+echo ":: Generate new cached wallpaper square-$wallpaper_filename"
+magick $wallpaper -gravity Center -extent 1:1 $square_wallpaper
+cp $square_wallpaper $generated_versions/square-$wallpaper_filename.png
