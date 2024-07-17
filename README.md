@@ -1,4 +1,4 @@
-# ML4W Dotfiles 2.9.2.1
+# ML4W Dotfiles 2.9.2.2 BETA1
 
 An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
@@ -49,6 +49,7 @@ THANK YOU very much for all your support, contributions and ideas:
 
 - Diana Ward: https://github.com/dianaw353
 - Don Williams: https://github.com/dwilliam62
+- Guido De Gobbis
 - Teodor Orzechowski: https://gitlab.com/sq6gtt
 - Jamie Deppeler: https://gitlab.com/bknight2k
 - Yingjie Wang: https://gitlab.com/GaugeAndGravity

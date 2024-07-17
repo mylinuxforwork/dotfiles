@@ -9,7 +9,8 @@
 if [[ "$1" == "exit" ]]; then
     echo ":: Exit"
     sleep 0.5
-    killall -9 Hyprland sleep 2
+    killall -9 Hyprland 
+    sleep 2
 fi
 
 if [[ "$1" == "lock" ]]; then

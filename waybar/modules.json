@@ -18,9 +18,9 @@
         "all-outputs": true,
         "format": "{}",
         "format-icons": {
-			"urgent": "",
-			"active": "",
-			"default": ""
+            "urgent": "",
+            "active": "",
+            "default": ""
         },
         "persistent-workspaces": {
             "*": 5
@@ -229,13 +229,13 @@
     // CPU
     "cpu": {
         "format": "/ C {usage}% ",
-        "on-click": "alacritty -e htop"
+        "on-click": "~/dotfiles/.settings/systeminfo.sh"
     },
 
     // Memory
     "memory": {
         "format": "/ M {}% ",
-        "on-click": "alacritty -e htop"
+        "on-click": "~/dotfiles/.settings/systeminfo.sh"
     },
 
     // Harddisc space used
@@ -243,7 +243,7 @@
         "interval": 30,
         "format": "D {percentage_used}% ",
         "path": "/",
-        "on-click": "alacritty -e htop"
+        "on-click": "~/dotfiles/.settings/systeminfo.sh"
     }, 
 
     "hyprland/language": {
@@ -358,6 +358,6 @@
     "user": {
         "format": "{user}",
         "interval": 60,
-        "icon": false,
+        "icon": false
     }
 }

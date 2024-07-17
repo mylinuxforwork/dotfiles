@@ -10,7 +10,7 @@
 # ----------------------------------------------------- 
 
 DIR="$HOME/Pictures/screenshots/"
-NAME="screenshot_$(date +%d%m%Y_%H%M%S).png"
+NAME="screenshot_$(date +%d%m%Y_%H%M%S).jpg"
 
 option2="Selected area"
 option3="Fullscreen (delay 3 sec)"
@@ -32,7 +32,7 @@ case $choice in
         if [ ! -z $current_hyprshade ] ;then
             hyprshade on $current_hyprshade
         fi
-        xclip -selection clipboard -t image/png -i "$DIR$NAME"
+        xclip -selection clipboard -t image/jpeg -i "$DIR$NAME"
         notify-send "Screenshot created and copied to clipboard" "Mode: Selected area"
         swappy -f "$DIR$NAME"
     ;;
@@ -42,7 +42,7 @@ case $choice in
         if [ ! -z $current_hyprshade ] ;then
             hyprshade on $current_hyprshade
         fi
-        xclip -selection clipboard -t image/png -i "$DIR$NAME"
+        xclip -selection clipboard -t image/jpeg -i "$DIR$NAME"
         notify-send "Screenshot created and copied to clipboard" "Mode: Fullscreen"
         swappy -f "$DIR$NAME"
     ;;
@@ -53,7 +53,7 @@ case $choice in
         if [ ! -z $current_hyprshade ] ;then
             hyprshade on $current_hyprshade
         fi
-        xclip -selection clipboard -t image/png -i "$DIR$NAME"
+        xclip -selection clipboard -t image/jpeg -i "$DIR$NAME"
         notify-send "Screenshot created and copied to clipboard" "Mode: Fullscreen"
         swappy -f "$DIR$NAME"
     ;;

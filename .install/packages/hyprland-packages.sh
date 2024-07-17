@@ -17,4 +17,5 @@ packagesYay=(
     "eww"
     "hyprshade"
     "waypaper"
+    "mission-center"
 );
