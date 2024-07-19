@@ -1,11 +1,10 @@
-Version 2.9.2.2
-https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2.2
+Version 2.9.3
+https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.3
 --------------------------------------------------------
 - ML4W .bashrc can be extended by adding a file .bashrc_custom in your home directory to create custom aliases and more
 - Adding Missioncontrol as new systeminfo app
 - New animation variation animations-dynamic.conf. Requires some resources and is therefore not recommended for installations on virtual machines or slower systems. Can be selected in the ML4W Dotfiles Settings app.
 - New repository folder structure. All configuration dotfiles are now separated from the installer in the folder dotfiles
-- Switched from polkit-gnome to polkit-kde-agent due to it's recommendation on Hyprland Wiki
 
 Version 2.9.2.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2.1
