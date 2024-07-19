@@ -1,5 +1,5 @@
 Version 2.9.3
-https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.3
+https://github.com/mylinuxforwork/dotfiles/blob/main/CHANGELOG.md
 --------------------------------------------------------
 - ML4W .bashrc can be extended by adding a file .bashrc_custom in your home directory to create custom aliases and more
 - Adding Missioncontrol as new systeminfo app
