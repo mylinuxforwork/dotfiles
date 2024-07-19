@@ -80,7 +80,7 @@ if [ "$version" == "main-release" ] ;then
     echo ":: Unzip complete."
 
     zip_folder="$(ls ~/Downloads/dotfiles_temp/)"
-    mv ~/Downloads/dotfiles_temp/$zip_folder/* ~/Downloads/dotfiles/
+    cp -r ~/Downloads/dotfiles_temp/$zip_folder/. ~/Downloads/dotfiles/
     echo ":: Dotfiles moved into installation directory"
 
     if [ -d $HOME/Downloads/dotfiles_temp ] ;then
