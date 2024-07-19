@@ -80,6 +80,15 @@ source .install/profile.sh
 source .install/browser.sh
 
 # ----------------------------------------------------- 
+# Nvidia Proprietary Drivers
+# ----------------------------------------------------- 
+echo -e "${YELLOW}Do you have an NVIDIA graphics card? (yes/no)${NONE}"
+read nvidia_response
+if [[ $nvidia_response == "yes" ]]; then
+    source .install/nvidia.sh
+fi
+
+# ----------------------------------------------------- 
 # Install flatpak
 # ----------------------------------------------------- 
 source .install/flatpak.sh
