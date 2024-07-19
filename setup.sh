@@ -1,6 +1,22 @@
 #!/bin/bash
 clear
 
+repo="mylinuxforwork/dotfiles"
+
+# Get latest tag from GitHub
+get_latest_release() {
+  curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
+    grep '"tag_name":' |                                            # Get tag line
+    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+}
+
+# Get latest zip from GitHub
+get_latest_zip() {
+  curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
+    grep '"zipball_url":' |                                            # Get tag line
+    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+}
+
 # Check if package is installed
 _isInstalledPacman() {
     package="$1";
@@ -53,7 +69,7 @@ cat <<"EOF"
 |___|_| |_|___/\__\__,_|_|_|\___|_|   
                                       
 EOF
-echo "for ML4W Dotfiles"
+echo "for ML4W Dotfiles $(get_latest_release)"
 echo
 echo -e "${NONE}"
 echo "This script will support you to download and install the ML4W Dotfiles".
@@ -73,6 +89,12 @@ while true; do
     esac
 done
 
+# Create Downloads folder if not exists
+if [ ! -d ~/Downloads ] ;then
+    mkdir ~/Downloads
+    echo ":: Downloads folder created"
+fi 
+
 # Remove existing download folder and zip files 
 if [ -f $HOME/Downloads/dotfiles-main.zip ] ;then
     rm $HOME/Downloads/dotfiles-main.zip
@@ -85,6 +107,9 @@ if [ -f $HOME/Downloads/dotfiles.zip ] ;then
 fi
 if [ -d $HOME/Downloads/dotfiles ] ;then
     rm -rf $HOME/Downloads/dotfiles
+fi
+if [ -d $HOME/Downloads/dotfiles_temp ] ;then
+    rm -rf $HOME/Downloads/dotfiles_temp
 fi
 if [ -d $HOME/Downloads/dotfiles-main ] ;then
     rm -rf $HOME/Downloads/dotfiles-main
@@ -115,22 +140,38 @@ echo
 echo "Please choose between the main-release or the rolling-release (development version):"
 version=$(gum choose "main-release" "rolling-release")
 if [ "$version" == "main-release" ] ;then
-    wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/archive/main/dotfiles-main.zip
-    v="main"
+    wget -O ~/Downloads/dotfiles.zip $(get_latest_zip)
+    echo ":: Download complete."
+
+    mkdir -p ~/Downloads/dotfiles_temp
+    mkdir -p ~/Downloads/dotfiles
+
+    unzip -o -q ~/Downloads/dotfiles.zip -d ~/Downloads/dotfiles_temp/
+    echo ":: Unzip complete."
+
+    zip_folder="$(ls ~/Downloads/dotfiles_temp/)"
+    mv ~/Downloads/dotfiles_temp/$zip_folder/* ~/Downloads/dotfiles/
+    echo ":: Dotfiles moved into installation directory"
+
+    if [ -d $HOME/Downloads/dotfiles_temp ] ;then
+        rm -rf $HOME/Downloads/dotfiles_temp
+    fi
+    if [ -f $HOME/Downloads/dotfiles.zip ] ;then
+        rm $HOME/Downloads/dotfiles.zip
+    fi
+    echo ":: Cleanup complete"
+
 elif [ "$version" == "rolling-release" ] ;then
-    wget -P ~/Downloads/ https://gitlab.com/stephan-raabe/dotfiles/-/archive/dev/dotfiles-dev.zip
-    v="dev"
+    git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+    echo ":: Clone complete."
 else
     exit 130
 fi
-echo ":: Download complete."
-echo
 
-# Unzip
-unzip -o -q ~/Downloads/dotfiles-$v.zip -d ~/Downloads/
-echo ":: Unzip complete."
-cd $HOME/Downloads/dotfiles-$v
-echo ":: Changed into ~/Downloads/dotfiles-$v/"
+# Change into dotfiles folder
+cd $HOME/Downloads/dotfiles
+echo ":: Changed into ~/Downloads/dotfiles/"
 echo 
+# Start Spinner
 gum spin --spinner dot --title "Starting the installation now..." -- sleep 3
 ./install.sh
