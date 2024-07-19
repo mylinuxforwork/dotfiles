@@ -2,7 +2,7 @@
 
 An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
-[![Screenshot](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/uploads/964d54d46d1a602bb414311df48b1695/image.png "Screenshot")](![screenshots/screenshot2.png](hhttps://gitlab.com/stephan-raabe/dotfiles/-/wikis/uploads/964d54d46d1a602bb414311df48b1695/image.png))
+![image](https://github.com/user-attachments/assets/b5f45894-f29e-4b75-83fb-01784fcda3ff)
 
 YouTube Video [https://youtu.be/HMxHUvN6VGo](https://youtu.be/GHYk1Iv4GkY)
 
@@ -37,7 +37,7 @@ You can also visit the [ML4W Discord Server](https://discord.gg/c4fJK7Za3g) to s
 
 ## Screenshots
 
-[![Screenshot](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/uploads/b8dc6a841b6b04fe0b2d380377117a50/screenshot-20240627-113733.png "Screenshot")](![screenshots/screenshot1.png](https://gitlab.com/stephan-raabe/dotfiles/-/wikis/uploads/b8dc6a841b6b04fe0b2d380377117a50/screenshot-20240627-113733.png))
+![image](https://github.com/user-attachments/assets/d85c0910-45fc-440c-9911-a2c2b4d32c12)
 
 ## Wallpaper repository
 
