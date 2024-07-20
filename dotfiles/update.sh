@@ -66,37 +66,8 @@ if [ -d $HOME/Downloads/dotfiles-dev ] ;then
     rm -rf $HOME/Downloads/dotfiles-dev
 fi
 
-# Select the dotfiles version
-echo "Please choose between the main-release or the rolling-release (development version):"
-version=$(gum choose "main-release" "rolling-release")
-if [ "$version" == "main-release" ] ;then
-    wget -O ~/Downloads/dotfiles.zip $(get_latest_zip)
-    echo ":: Download complete."
-
-    mkdir -p ~/Downloads/dotfiles_temp
-    mkdir -p ~/Downloads/dotfiles
-
-    unzip -o -q ~/Downloads/dotfiles.zip -d ~/Downloads/dotfiles_temp/
-    echo ":: Unzip complete."
-
-    zip_folder="$(ls ~/Downloads/dotfiles_temp/)"
-    cp -r ~/Downloads/dotfiles_temp/$zip_folder/. ~/Downloads/dotfiles/
-    echo ":: Dotfiles moved into installation directory"
-
-    if [ -d $HOME/Downloads/dotfiles_temp ] ;then
-        rm -rf $HOME/Downloads/dotfiles_temp
-    fi
-    if [ -f $HOME/Downloads/dotfiles.zip ] ;then
-        rm $HOME/Downloads/dotfiles.zip
-    fi
-    echo ":: Cleanup complete"
-
-elif [ "$version" == "rolling-release" ] ;then
-    git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
-    echo ":: Clone complete."
-else
-    exit 130
-fi
+git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+echo ":: Clone complete."
 
 # Change into dotfiles folder
 cd $HOME/Downloads/dotfiles
