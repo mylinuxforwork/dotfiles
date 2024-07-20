@@ -18,11 +18,6 @@ Just copy/enter the following command into your terminal.
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup.sh)
 ```
 
-The installer will ask you to select between:
-
-- main release (Latest official release): [https://github.com/mylinuxforwork/dotfiles/releases/latest](https://github.com/mylinuxforwork/dotfiles/releases/latest)
-- rolling release (Development release): [https://github.com/mylinuxforwork/dotfiles](https://github.com/mylinuxforwork/dotfiles)
-
 > PLEASE NOTE: Every Linux distribution, setup and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. Installation at your own risk.
 
 ## Documentation (Wiki)
