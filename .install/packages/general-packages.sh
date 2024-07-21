@@ -55,6 +55,7 @@ packagesPacman=(
     "rofi-wayland"
     "fastfetch"
     "blueman"
+    "xclip"
 );
 
 packagesYay=(
