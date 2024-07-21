@@ -36,7 +36,7 @@
         "on-click-middle": "close",
         "ignore-list": [
            "Alacritty",
-           "Kitty"
+           "kitty"
         ],
         "app_ids-mapping": {
             "firefoxdeveloperedition": "firefox-developer-edition"
