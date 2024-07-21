@@ -35,7 +35,8 @@
         "on-click": "activate",
         "on-click-middle": "close",
         "ignore-list": [
-           "Alacritty"
+           "Alacritty",
+           "Kitty"
         ],
         "app_ids-mapping": {
             "firefoxdeveloperedition": "firefox-developer-edition"
@@ -100,7 +101,7 @@
         "return-type": "json",       
         "exec": "~/dotfiles/scripts/updates.sh",
         "restart-interval": 60,
-        "on-click": "$TERM --class dotfiles-floating -e ~/dotfiles/scripts/installupdates.sh",
+        "on-click": "$(cat ~/dotfiles/.settings/terminal.sh) --class dotfiles-floating -e ~/dotfiles/scripts/installupdates.sh",
         "on-click-right": "~/dotfiles/.settings/software.sh"
     },
     
@@ -325,7 +326,7 @@
         "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
         "tooltip-format-disconnected": "Disconnected",
         "max-length": 50,
-        "on-click": "$TERM --class dotfiles-floating -e nmtui",
+        "on-click": "$(cat ~/dotfiles/.settings/terminal.sh) --class dotfiles-floating -e nmtui",
         "on-click-right": "~/dotfiles/.settings/networkmanager.sh"
     },
 
