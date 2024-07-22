@@ -60,6 +60,8 @@ class ML4WRestore:
         if "waybar_workspaces" in self.settings:
             value = int(self.settings["waybar_workspaces"])
             text = '            "*": ' + str(value)
+            self.replaceInFileCheckpoint("waybar/modules.json", "persistent-workspaces",'"*"', text)
+            
             self.replaceInFileNext("waybar/modules.json", "// START WORKSPACES", text)
             print (":: waybar_workspaces restored")
 
@@ -142,6 +144,34 @@ class ML4WRestore:
                 found = count
         if found > 0:
             lines[found] = replace + "\n"
+            with open(self.dotfiles + f, 'w') as file:
+                file.writelines(lines)
+
+    def replaceInFileCheckpoint(self, f, checkpoint, search, replace):
+        file = open(self.dotfiles + f, 'r')
+        lines = file.readlines()
+        count = 0
+        checkpoint_found = 0
+        found = 0
+        for l in lines:
+            count += 1
+            if checkpoint in l:
+                checkpoint_found = count
+                break
+        # print("Checkpoint: " + str(checkpoint_found))
+
+        count = 0
+        if checkpoint_found > 0:
+            for l in lines:
+                count += 1
+                if count > checkpoint_found:
+                    if search in l:
+                        found = count
+                        break
+        # print("Found: " + str(found))
+
+        if found > 0:
+            lines[found-1] = replace + "\n"
             with open(self.dotfiles + f, 'w') as file:
                 file.writelines(lines)
 
