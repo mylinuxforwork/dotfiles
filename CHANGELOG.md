@@ -1,3 +1,7 @@
+Version 2.9.3 (Rolling Release)
+--------------------------------------------------------
+- Add Flatpak installatio option to the installation script https://github.com/mylinuxforwork/dotfiles/issues/43
+
 Version 2.9.3
 https://github.com/mylinuxforwork/dotfiles/blob/main/CHANGELOG.md
 --------------------------------------------------------

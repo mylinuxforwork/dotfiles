@@ -61,6 +61,7 @@ if [[ $profile == *"Qtile"* ]]; then
     source .install/install_packages.sh
 fi
 source .install/browser.sh
+source .install/flatpak.sh
 source .install/wallpaper.sh
 source .install/displaymanager.sh
 source .install/issue.sh
