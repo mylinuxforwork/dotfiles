@@ -9,7 +9,8 @@ source library/scripts.sh
 echo ":: Running hook for ML4W Dotfiles $version"
 
 # Install additional packages
-# sudo pacman -S kitty
+_installPackagesPacman "kitty";
+_installPackagesYay "wlogout";
 
 # Remove installed packages
-# sudo pacman -S alacritty
+# sudo pacman -R alacritty

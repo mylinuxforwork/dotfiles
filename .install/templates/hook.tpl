@@ -8,8 +8,8 @@ source library/scripts.sh
 # Show Current version
 echo ":: Running hook for ML4W Dotfiles $version"
 
-# If you made customizations on files on the ~/dotfiles folder 
-# you can protect selected folders or files from the update.
+# If you made adjustments on files on the ~/dotfiles folder 
+# you can protect the files and folders from being overwritten by updates.
 
 _protect nvim
 _protect .bashrc
