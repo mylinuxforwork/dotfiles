@@ -8,10 +8,8 @@ fi
 if [ -d ~/dotfiles-versions/$version/vim ]; then
     _installSymLink vim ~/.config/vim ~/dotfiles/vim/ ~/.config
 fi
-if [ $neovim == "1" ] ;then
-    if [ -d ~/dotfiles-versions/$version/nvim ]; then
-        _installSymLink nvim ~/.config/nvim ~/dotfiles/nvim/ ~/.config
-    fi
+if [ -d ~/dotfiles-versions/$version/nvim ]; then
+    _installSymLink nvim ~/.config/nvim ~/dotfiles/nvim/ ~/.config
 fi
 if [ -d ~/dotfiles-versions/$version/starship ]; then
     _installSymLink starship ~/.config/starship.toml ~/dotfiles/starship/starship.toml ~/.config/starship.toml
@@ -45,6 +43,12 @@ if [ -d ~/dotfiles-versions/$version/fastfetch ]; then
 fi
 if [ -d ~/dotfiles-versions/$version/waypaper ]; then
     _installSymLink waypaper ~/.config/waypaper ~/dotfiles/waypaper/ ~/.config
+fi
+if [ -d ~/dotfiles-versions/$version/nvim ]; then
+    _installSymLink nvim ~/.config/nvim ~/dotfiles/nvim/ ~/.config
+fi
+if [ -f ~/dotfiles-versions/$version/.bashrc ]; then
+    _installSymLink .bashrc ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
 fi
 echo ":: Symbolic links created."
 echo

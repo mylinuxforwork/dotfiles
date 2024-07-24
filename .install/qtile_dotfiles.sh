@@ -35,4 +35,7 @@ fi
 if [ -d ~/dotfiles-versions/$version/swappy ]; then
     _installSymLink swappy ~/.config/swappy ~/dotfiles/swappy/ ~/.config
 fi
+if [ -f ~/dotfiles-versions/$version/.bashrc ]; then
+    _installSymLink .bashrc ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
+fi
 echo ":: Symbolic links created."

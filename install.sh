@@ -1,96 +1,186 @@
 #!/bin/bash
+
+# ----------------------------------------------------- 
+# Include files and set variables
+# ----------------------------------------------------- 
 version=$(cat dotfiles/.version/name)
+install_directory=$(pwd)
 source .install/includes/colors.sh
 source .install/includes/library.sh
 clear
 
+# ----------------------------------------------------- 
 # Set installation mode
-mode="live"
-if [ ! -z $1 ]; then
-    mode="dev"
-    echo "IMPORTANT: DEV MODE ACTIVATED. "
-    echo "Existing dotfiles folder will not be modified."
-    echo "Symbolic links will not be created."
-fi
-echo -e "${GREEN}"
-cat <<"EOF"
- __  __ _    _  ___        __  ____        _    __ _ _           
-|  \/  | |  | || \ \      / / |  _ \  ___ | |_ / _(_) | ___  ___ 
-| |\/| | |  | || |\ \ /\ / /  | | | |/ _ \| __| |_| | |/ _ \/ __|
-| |  | | |__|__   _\ V  V /   | |_| | (_) | |_|  _| | |  __/\__ \
-|_|  |_|_____| |_|  \_/\_/    |____/ \___/ \__|_| |_|_|\___||___/
-                                                                 
-EOF
-echo -e "${NONE}"
+# ----------------------------------------------------- 
+source .install/installmode.sh
 
-echo "Version: $version"
-echo "by Stephan Raabe 2024"
-echo ""
-if [ -d ~/dotfiles ] ;then
-    echo ":: An existing ML4W Dotfiles installation has been detected."
-    echo ":: This script will guide you through the update process of the ML4W Dotfiles."
-else
-    echo ":: This script will guide you through the installation process of the ML4W dotfiles."
-fi
-echo ""
+# ----------------------------------------------------- 
+# Load header
+# ----------------------------------------------------- 
+source .install/header.sh
+
+# ----------------------------------------------------- 
+# Check for required packages
+# ----------------------------------------------------- 
 source .install/required.sh
+
+# ----------------------------------------------------- 
+# Confirm the start of the installation
+# ----------------------------------------------------- 
 source .install/confirm_start.sh
+
+# ----------------------------------------------------- 
+# Activate parallel downloads
+# ----------------------------------------------------- 
 source .install/paralleldownloads.sh
+
+# ----------------------------------------------------- 
+# Install yay
+# ----------------------------------------------------- 
 source .install/yay.sh
+
+# ----------------------------------------------------- 
+# Update the system
+# ----------------------------------------------------- 
 source .install/updatesystem.sh
+
+# ----------------------------------------------------- 
+# Backup files
+# ----------------------------------------------------- 
 source .install/backup.sh
+
+# ----------------------------------------------------- 
+# Prepare files for the installation
+# ----------------------------------------------------- 
 source .install/preparation.sh
+
+# ----------------------------------------------------- 
+# Decide on installation method
+# ----------------------------------------------------- 
 source .install/installer.sh
+
+# ----------------------------------------------------- 
+# Remove not required packages
+# ----------------------------------------------------- 
 source .install/remove.sh
+
+# ----------------------------------------------------- 
+# Install general packages
+# ----------------------------------------------------- 
 source .install/general.sh
-source .install/packages/general-packages.sh
-source .install/install_packages.sh
+
+# ----------------------------------------------------- 
+# Install profile
+# ----------------------------------------------------- 
 source .install/profile.sh
-if [[ $profile == *"Hyprland"* ]]; then
-    echo -e "${GREEN}"
-    figlet "Hyprland"
-    echo -e "${NONE}"
-    source .install/packages/hyprland-packages.sh
-    source .install/install_packages.sh
-fi
-if [[ $profile == *"Qtile"* ]]; then
-    echo -e "${GREEN}"
-    figlet "Qtile"
-    echo -e "${NONE}"
-    source .install/packages/qtile-packages.sh
-    source .install/install_packages.sh
-fi
+
+# ----------------------------------------------------- 
+# Check for browser
+# ----------------------------------------------------- 
 source .install/browser.sh
+
+# ----------------------------------------------------- 
+# Install flatpak
+# ----------------------------------------------------- 
 source .install/flatpak.sh
+
+# ----------------------------------------------------- 
+# Check if running in Qemu VM
+# ----------------------------------------------------- 
+source .install/vm.sh
+
+# ----------------------------------------------------- 
+# Install wallpapers
+# ----------------------------------------------------- 
 source .install/wallpaper.sh
+
+# ----------------------------------------------------- 
+# Install Display Manager
+# ----------------------------------------------------- 
 source .install/displaymanager.sh
+
+# ----------------------------------------------------- 
+# Install tty issue
+# ----------------------------------------------------- 
 source .install/issue.sh
 
+# ----------------------------------------------------- 
 # Modify existing files before restore starts
+# ----------------------------------------------------- 
 source .install/before_restore.sh
 
+# ----------------------------------------------------- 
 # Restore configuration and settings
+# ----------------------------------------------------- 
 source .install/restore.sh
 
+# ----------------------------------------------------- 
 # Setup the input devices
+# ----------------------------------------------------- 
 source .install/keyboard.sh
 
-source .install/neovim.sh
+# ----------------------------------------------------- 
+# Execute hook.sh if exists
+# ----------------------------------------------------- 
 source .install/hook.sh
-source .install/vm.sh
-source .install/copy.sh
-source .install/init-pywal.sh
-if [[ $profile == *"Hyprland"* ]]; then
-    source .install/hyprland_dotfiles.sh
-fi
-if [[ $profile == *"Qtile"* ]]; then
-    source .install/qtile_dotfiles.sh
-fi
-source .install/settings.sh
-source .install/apps.sh
-source .install/gtk.sh
+
+# ----------------------------------------------------- 
+# Check installation of .bashrc
+# ----------------------------------------------------- 
 source .install/bashrc.sh
+
+# ----------------------------------------------------- 
+# Check installation of neovim
+# ----------------------------------------------------- 
+source .install/neovim.sh
+
+# ----------------------------------------------------- 
+# Copy files to target directory
+# ----------------------------------------------------- 
+source .install/copy.sh
+
+# ----------------------------------------------------- 
+# Initialize pywal color scheme
+# ----------------------------------------------------- 
+source .install/init-pywal.sh
+
+# ----------------------------------------------------- 
+# Install profile symlinks
+# ----------------------------------------------------- 
+source .install/symlinks.sh
+
+# ----------------------------------------------------- 
+# Restore hyprland settings
+# ----------------------------------------------------- 
+source .install/settings.sh
+
+# ----------------------------------------------------- 
+# Install ML4W Apps
+# ----------------------------------------------------- 
+source .install/apps.sh
+
+# ----------------------------------------------------- 
+# Check installation of GTK Themes
+# ----------------------------------------------------- 
+source .install/gtk.sh
+
+# ----------------------------------------------------- 
+# Final cleanup
+# ----------------------------------------------------- 
 source .install/cleanup.sh
+
+# ----------------------------------------------------- 
+# Check executables of important apps
+# ----------------------------------------------------- 
 source .install/diagnosis.sh
+
+# ----------------------------------------------------- 
+# Execute post.sh if exists
+# ----------------------------------------------------- 
+source .install/post.sh
+
+# ----------------------------------------------------- 
+# Offer Reboot
+# ----------------------------------------------------- 
 source .install/reboot.sh
-sleep 3
+
