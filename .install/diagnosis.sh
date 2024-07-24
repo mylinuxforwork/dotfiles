@@ -1,5 +1,5 @@
 echo -e "${GREEN}"
-figlet "System check"
+figlet "Diagnosis"
 echo -e "${NONE}"
 
 echo "The system check will test that essential packages and "
