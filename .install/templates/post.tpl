@@ -11,7 +11,7 @@ echo ":: Running hook for ML4W Dotfiles $version"
 # Install additional packages
 _installPackagesPacman "kitty";
 _installPackagesYay "wlogout";
-_installPackagesFlatpak "ccom.spotify.Client"
+_installPackagesFlatpak "com.spotify.Client"
 
 # Remove installed packages
 # sudo pacman -R alacritty
