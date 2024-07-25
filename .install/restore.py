@@ -28,6 +28,7 @@ class ML4WRestore:
     defaults = {
         "waybar_timeformat": "%H:%M",
         "waybar_dateformat": "%a",
+        "dunst_position": "top-center",
         "waybar_custom_timedateformat": "",
         "waybar_workspaces": 5,
         "rofi_bordersize": 3,
@@ -72,6 +73,13 @@ class ML4WRestore:
             self.overwriteFile(".settings/rofi-border.rasi",text)
             print (":: rofi_bordersize restored")
         
+        # Dunst Position
+        if "dunst_position" in self.settings:
+            dunstposition = self.settings["dunst_position"]
+            dunstorigin = '    origin = ' + dunstposition
+            self.replaceInFile("dunst/dunstrc","origin =",dunstorigin)
+            print (":: dunst_position restored")
+
         # Time/DateFormat
         if "waybar_timeformat" in self.settings:
             timeformat = self.settings["waybar_timeformat"]
