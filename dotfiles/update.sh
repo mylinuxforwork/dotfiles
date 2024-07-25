@@ -24,6 +24,8 @@ get_latest_zip() {
     sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
 }
 
+latest_version=$(get_latest_release)
+
 sleep 1
 figlet "Update"
 echo
@@ -35,6 +37,7 @@ fi
 echo
 if gum confirm "Do you want to start the update now?" ;then
     echo ":: Update started"
+    echo
 elif [ $? -eq 130 ]; then
     echo ":: Update canceled"
     exit
@@ -66,8 +69,28 @@ if [ -d $HOME/Downloads/dotfiles-dev ] ;then
     rm -rf $HOME/Downloads/dotfiles-dev
 fi
 
-git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
-echo ":: Clone complete."
+# Select the dotfiles version
+echo "Please choose between: "
+echo "- ML4W Dotfiles Rolling Release (main branch including the latest commits)"
+echo "- ML4W Dotfiles $latest_version (latest tagged release)"
+echo
+version=$(gum choose "rolling-release" "main-release" "cancel")
+if [ "$version" == "main-release" ] ;then
+    echo ":: Installing Main Release"
+    echo
+    git clone --branch $latest_version --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+elif [ "$version" == "rolling-release" ] ;then
+    echo ":: Installing Rolling Release"
+    echo
+    git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+elif [ "$version" == "cancel" ] ;then
+    echo ":: Setup canceled"
+    exit 130    
+else
+    echo ":: Setup canceled"
+    exit 130
+fi
+echo ":: Download complete."
 
 # Change into dotfiles folder
 cd $HOME/Downloads/dotfiles
