@@ -34,7 +34,7 @@ _installPackagesPacman() {
     toInstall=();
     for pkg; do
         if [[ $(_isInstalledPacman "${pkg}") == 0 ]]; then
-            echo "${pkg} is already installed.";
+            echo ":: ${pkg} is already installed.";
             continue;
         fi;
         toInstall+=("${pkg}");
@@ -56,6 +56,8 @@ packages=(
     "git"
 )
 
+latest_version=$(get_latest_release)
+
 # Some colors
 GREEN='\033[0;32m'
 NONE='\033[0m'
@@ -70,7 +72,7 @@ cat <<"EOF"
 |___|_| |_|___/\__\__,_|_|_|\___|_|   
                                       
 EOF
-echo "for ML4W Dotfiles $(get_latest_release)"
+echo "for ML4W Dotfiles $latest_version"
 echo
 echo -e "${NONE}"
 echo "This script will support you to download and install the ML4W Dotfiles".
@@ -126,7 +128,6 @@ echo
 # Install required packages
 echo ":: Checking that required packages are installed..."
 _installPackagesPacman "${packages[@]}";
-echo
 
 # Double check rsync
 if ! command -v rsync &> /dev/null; then
@@ -137,8 +138,28 @@ else
 fi
 echo
 
-git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
-echo ":: Clone complete."
+# Select the dotfiles version
+echo "Please choose between: "
+echo "- ML4W Dotfiles Rolling Release (main branch including the latest commits)"
+echo "- ML4W Dotfiles $latest_version (latest tagged release)"
+echo
+version=$(gum choose "rolling-release" "main-release" "cancel")
+if [ "$version" == "main-release" ] ;then
+    echo ":: Installing Main Release"
+    echo
+    git clone --branch $latest_version --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+elif [ "$version" == "rolling-release" ] ;then
+    echo ":: Installing Rolling Release"
+    echo
+    git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+elif [ "$version" == "cancel" ] ;then
+    echo ":: Setup canceled"
+    exit 130    
+else
+    echo ":: Setup canceled"
+    exit 130
+fi
+echo ":: Download complete."
 
 # Change into dotfiles folder
 cd $HOME/Downloads/dotfiles
