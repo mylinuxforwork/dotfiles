@@ -1,7 +1,8 @@
 Version 2.9.3 (Rolling Release)
 --------------------------------------------------------
 - New hook.sh and post.sh installation scripts. https://github.com/mylinuxforwork/dotfiles/wiki/Hook-and-Post-Installation-Scripts
-- Add Flatpak installatio option to the installation script https://github.com/mylinuxforwork/dotfiles/issues/43
+- Add Flatpak installation option to the installation script https://github.com/mylinuxforwork/dotfiles/issues/43
+- Position of dunst can be changed in the ML4W Dotfiles App
 
 Version 2.9.3
 https://github.com/mylinuxforwork/dotfiles/blob/main/CHANGELOG.md
