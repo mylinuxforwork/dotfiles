@@ -28,6 +28,17 @@ _isInstalledYay() {
     return; #false
 }
 
+_isInstalledFlatpak() {
+    package="$1";
+    check="$(flatpak list --columns="application" | grep "${package} ")";
+    if [ -n "${check}" ] ; then
+        echo 0; #'0' means 'true' in Bash
+        return; #true
+    fi;
+    echo 1; #'1' means 'false' in Bash
+    return; #false
+}
+
 # ------------------------------------------------------
 # Install packages if not installed
 # ------------------------------------------------------
@@ -97,6 +108,20 @@ _forcePackagesYay() {
 
     # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
     yay --noconfirm -S "${toInstall[@]}" --ask 4;
+}
+
+_installPackagesFlatpak() {
+     toInstall=();
+    for pkg; do
+        sudo flatpak install -y flathub "${pkg[@]}";
+        if [[ $(_isInstalledFlatpak "${pkg}") == 0 ]]; then
+            echo ":: ${pkg} is installed.";
+            toInstall+=("${pkg}");
+            continue;
+        fi;
+    done;
+
+    sudo flatpak install -y flathub "${toInstall[@]}";
 }
 
 # ------------------------------------------------------
