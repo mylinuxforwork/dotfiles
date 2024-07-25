@@ -9,8 +9,8 @@ source library/scripts.sh
 echo ":: Running hook for ML4W Dotfiles $version"
 
 # Install additional packages
-_installPackagesPacman "kitty";
-_installPackagesYay "wlogout";
+_installPackagesPacman "kitty"
+_installPackagesYay "wlogout"
 _installPackagesFlatpak "com.spotify.Client"
 
 # Remove installed packages
