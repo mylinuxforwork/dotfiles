@@ -6,55 +6,200 @@
 # |____/ \___|_|  \___|\___|_| |_|___/_| |_|\___/ \__| 
 #                                                      
 #  
-# by Stephan Raabe (2023) 
+# by Stephan Raabe (2024)
+# Based on https://github.com/hyprwm/contrib/blob/main/grimblast/screenshot.sh 
 # ----------------------------------------------------- 
 
-DIR="$HOME/Pictures/screenshots/"
+# Screenshots will be stored in $HOME/Pictures by default.
+# Add this to ~/.config/user-dirs.dirs to save screenshots in a custom folder: 
+# XDG_SCREENSHOTS_DIR="$HOME/Screenshots"
+
+prompt='Screenshot'
+mesg="DIR: ~/Screenshots"
 NAME="screenshot_$(date +%d%m%Y_%H%M%S).jpg"
+export GRIMBLAST_EDITOR="$(cat ~/dotfiles/.settings/screenshot-editor.sh)"
 
-option2="Selected area"
-option3="Fullscreen (delay 3 sec)"
-option4="Current display (delay 3 sec)"
+# Example for keybindings
+# bind = SUPER, p, exec, grimblast save active
+# bind = SUPER SHIFT, p, exec, grimblast save area
+# bind = SUPER ALT, p, exec, grimblast save output
+# bind = SUPER CTRL, p, exec, grimblast save screen
 
-options="$option2\n$option3\n$option4"
-current_hyprshade=""
-choice=$(echo -e "$options" | rofi -dmenu -replace -config ~/dotfiles/rofi/config-screenshot.rasi -i -no-show-icons -l 3 -width 30 -p "Take Screenshot")
-if [ ! -z $(hyprshade current) ] ;then
-    current_hyprshade=$(hyprshade current)
-    echo ":: Switch hyprshade off"
-    hyprshade off
-fi
+# Options
+option_1="Capture"
+option_2="Timer Capture"
 
-case $choice in
-    $option2)
-        grim -g "$(slurp)" "$DIR$NAME"
-        echo $current_hyprshade
-        if [ ! -z $current_hyprshade ] ;then
-            hyprshade on $current_hyprshade
-        fi
-        xclip -selection clipboard -t image/jpeg -i "$DIR$NAME"
-        notify-send "Screenshot created and copied to clipboard" "Mode: Selected area"
-        swappy -f "$DIR$NAME"
+option_capture_1="All Screen"
+option_capture_2="Capture Active Screen"
+option_capture_3="Capture Area/Window/Application"
+
+option_time_1="5s"
+option_time_2="10s"
+option_time_3="20s"
+option_time_4="30s"
+option_time_5="60s"
+#option_time_4="Custom (in seconds)" # Roadmap or someone contribute :)
+
+list_col='1'
+list_row='2'
+
+copy='Copy'
+save='Save'
+copy_save='Copy & Save'
+edit='Edit Screenshot'
+
+# Rofi CMD
+rofi_cmd() {
+    rofi -dmenu -replace -config ~/dotfiles/rofi/config-screenshot.rasi -i -no-show-icons -l 2 -width 30 -p "Take Screenshot"
+}
+
+# Pass variables to rofi dmenu
+run_rofi() {
+    echo -e "$option_1\n$option_2" | rofi_cmd
+}
+
+####
+# Choose Timer
+# CMD
+timer_cmd() {
+    rofi -dmenu -replace -config ~/dotfiles/rofi/config-screenshot.rasi -i -no-show-icons -l 5 -width 30 -p "Choose timer"
+}
+
+# Ask for confirmation
+timer_exit() {
+    echo -e "$option_time_1\n$option_time_2\n$option_time_3\n$option_time_4\n$option_time_5" | timer_cmd
+}
+
+# Confirm and execute
+timer_run() {
+    selected_timer="$(timer_exit)"
+    if [[ "$selected_timer" == "$option_time_1" ]]; then
+        countdown=5
+        ${1}
+    elif [[ "$selected_timer" == "$option_time_2" ]]; then
+        countdown=10
+        ${1}
+    elif [[ "$selected_timer" == "$option_time_3" ]]; then
+        countdown=20
+        ${1}
+    elif [[ "$selected_timer" == "$option_time_4" ]]; then
+        countdown=30
+        ${1}
+    elif [[ "$selected_timer" == "$option_time_5" ]]; then
+        countdown=60
+        ${1}
+    else
+        exit
+    fi
+}
+###
+
+####
+# Chose Screenshot Type
+# CMD
+type_screenshot_cmd() {
+    rofi -dmenu -replace -config ~/dotfiles/rofi/config-screenshot.rasi -i -no-show-icons -l 3 -width 30 -p "Type of Screenshot"
+}
+
+# Ask for confirmation
+type_screenshot_exit() {
+  echo -e "$option_capture_1\n$option_capture_2\n$option_capture_3" | type_screenshot_cmd
+}
+
+# Confirm and execute
+type_screenshot_run() {
+    selected_type_screenshot="$(type_screenshot_exit)"
+    if [[ "$selected_type_screenshot" == "$option_capture_1" ]]; then
+        option_type_screenshot=screen
+        ${1}
+    elif [[ "$selected_type_screenshot" == "$option_capture_2" ]]; then
+        option_type_screenshot=output
+        ${1}
+    elif [[ "$selected_type_screenshot" == "$option_capture_3" ]]; then
+        option_type_screenshot=area
+        ${1}
+    else
+        exit
+    fi
+}
+###
+
+####
+# Choose to save or copy photo
+# CMD
+copy_save_editor_cmd() {
+    rofi -dmenu -replace -config ~/dotfiles/rofi/config-screenshot.rasi -i -no-show-icons -l 4 -width 30 -p "How to save"
+}
+
+# Ask for confirmation
+copy_save_editor_exit() {
+    echo -e "$copy\n$save\n$copy_save\n$edit" | copy_save_editor_cmd
+}
+
+# Confirm and execute
+copy_save_editor_run() {
+    selected_chosen="$(copy_save_editor_exit)"
+    if [[ "$selected_chosen" == "$copy" ]]; then
+        option_chosen=copy
+        ${1}
+    elif [[ "$selected_chosen" == "$save" ]]; then
+        option_chosen=save
+        ${1}
+    elif [[ "$selected_chosen" == "$copy_save" ]]; then
+        option_chosen=copysave
+        ${1}
+    elif [[ "$selected_chosen" == "$edit" ]]; then
+        option_chosen=edit
+        ${1}
+    else
+        exit
+    fi
+}
+###
+
+timer() {
+    if [[ $countdown -gt 10 ]]; then
+        notify-send -t 1000 "Taking Screenshot in ${countdown} seconds"
+        countdown_less_10=$((countdown - 10))
+        sleep $countdown_less_10
+        countdown=10
+    fi
+    while [[ $countdown -ne 0 ]]; do
+        notify-send -t 1000 "Taking Screenshot in ${countdown}"
+        countdown=$((countdown - 1))
+        sleep 1
+    done
+}
+
+# take shots
+takescreenshot() {
+    grimblast --notify "$option_chosen" "$option_type_screenshot" $NAME
+}
+
+takescreenshot_timer() {
+    timer
+    grimblast --notify "$option_chosen" "$option_type_screenshot" $NAME
+}
+
+# Execute Command
+run_cmd() {
+    if [[ "$1" == '--opt1' ]]; then
+        type_screenshot_run
+        copy_save_editor_run "takescreenshot"
+    elif [[ "$1" == '--opt2' ]]; then
+        timer_run
+        type_screenshot_run
+        copy_save_editor_run "takescreenshot_timer"
+    fi
+}
+
+# Actions
+chosen="$(run_rofi)"
+case ${chosen} in
+$option_1)
+    run_cmd --opt1
     ;;
-    $option3)
-        sleep 3
-        grim "$DIR$NAME" 
-        if [ ! -z $current_hyprshade ] ;then
-            hyprshade on $current_hyprshade
-        fi
-        xclip -selection clipboard -t image/jpeg -i "$DIR$NAME"
-        notify-send "Screenshot created and copied to clipboard" "Mode: Fullscreen"
-        swappy -f "$DIR$NAME"
-    ;;
-    $option4)
-        sleep 3
-        monitor="$(hyprctl monitors | awk '/Monitor/{monitor=$2} /focused: yes/{print monitor; exit}')"
-        grim -o "$monitor" "$DIR$NAME"
-        if [ ! -z $current_hyprshade ] ;then
-            hyprshade on $current_hyprshade
-        fi
-        xclip -selection clipboard -t image/jpeg -i "$DIR$NAME"
-        notify-send "Screenshot created and copied to clipboard" "Mode: Fullscreen"
-        swappy -f "$DIR$NAME"
+$option_2)
+    run_cmd --opt2
     ;;
 esac

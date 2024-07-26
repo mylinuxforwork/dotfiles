@@ -7,7 +7,6 @@ packagesPacman=(
     "waybar" 
     "grim" 
     "slurp"
-    "swappy"
     "cliphist"
 );
 
@@ -18,4 +17,5 @@ packagesYay=(
     "hyprshade"
     "waypaper"
     "mission-center"
+    "grimblast"
 );
