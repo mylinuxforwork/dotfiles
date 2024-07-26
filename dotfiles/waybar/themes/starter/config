@@ -28,7 +28,7 @@
     // Load Modules
     "include": [
         "~/dotfiles/.settings/waybar-quicklinks.json",
-        "~/dotfiles/waybar/themes/starter/modules.json"
+        "~/dotfiles/waybar/themes/starter/modules.jsonc"
     ],
 
     // Modules Left
