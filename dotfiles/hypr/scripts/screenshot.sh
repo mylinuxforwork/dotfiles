@@ -171,10 +171,12 @@ timer() {
 
 # take shots
 takescreenshot() {
+    sleep 1
     grimblast --notify "$option_chosen" "$option_type_screenshot" $NAME
 }
 
 takescreenshot_timer() {
+    sleep 1
     timer
     grimblast --notify "$option_chosen" "$option_type_screenshot" $NAME
 }
