@@ -56,6 +56,7 @@ packagesPacman=(
     "fastfetch"
     "blueman"
     "xclip"
+    "pinta"
 );
 
 packagesYay=(
