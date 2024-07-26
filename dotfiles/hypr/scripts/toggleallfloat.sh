@@ -5,8 +5,6 @@
 #  / ___ \| | |  _| | (_) | (_| | |_  
 # /_/   \_\_|_|_| |_|\___/ \__,_|\__| 
 #                                     
-# by Stephan Raabe (2023) 
-# ----------------------------------------------------- 
 
 hyprctl dispatch workspaceopt allfloat
 notify-send "Windows on this workspace toggled to floating/tiling"

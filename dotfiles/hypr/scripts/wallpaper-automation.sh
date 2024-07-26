@@ -1,4 +1,11 @@
 #!/bin/bash
+#     _         _         __        ______  
+#    / \  _   _| |_ ___   \ \      / /  _ \ 
+#   / _ \| | | | __/ _ \   \ \ /\ / /| |_) |
+#  / ___ \ |_| | || (_) |   \ V  V / |  __/ 
+# /_/   \_\__,_|\__\___/     \_/\_/  |_|    
+#                                          
+
 sec=$(cat ~/dotfiles/.settings/wallpaper-automation.sh)
 _setWallpaperRandomly() {
     waypaper --random

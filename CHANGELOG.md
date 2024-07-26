@@ -1,4 +1,5 @@
 Version 2.9.3 (Rolling Release)
+https://github.com/mylinuxforwork/dotfiles/milestone/1?closed=1
 --------------------------------------------------------
 - New hook.sh and post.sh installation scripts. https://github.com/mylinuxforwork/dotfiles/wiki/Hook-and-Post-Installation-Scripts
 - Add Flatpak installation option to the installation script https://github.com/mylinuxforwork/dotfiles/issues/43

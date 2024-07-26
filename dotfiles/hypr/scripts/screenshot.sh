@@ -5,8 +5,6 @@
 #  ___) | (__| | |  __/  __/ | | \__ \ | | | (_) | |_  
 # |____/ \___|_|  \___|\___|_| |_|___/_| |_|\___/ \__| 
 #                                                      
-#  
-# by Stephan Raabe (2024)
 # Based on https://github.com/hyprwm/contrib/blob/main/grimblast/screenshot.sh 
 # ----------------------------------------------------- 
 
