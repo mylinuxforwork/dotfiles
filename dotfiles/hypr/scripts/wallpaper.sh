@@ -56,6 +56,7 @@ else
 fi
 used_wallpaper=$wallpaper
 echo ":: Setting wallpaper with original image $wallpaper"
+tmp_wallpaper=$wallpaper
 
 # ----------------------------------------------------- 
 # Copy path of current wallpaper to cache file
@@ -72,14 +73,6 @@ echo ":: Path of current wallpaper copied to $cache_file"
 # ----------------------------------------------------- 
 wallpaper_filename=$(basename $wallpaper)
 echo ":: Wallpaper Filename: $wallpaper_filename"
-
-# ----------------------------------------------------- 
-# Execute pywal
-# ----------------------------------------------------- 
-
-echo ":: Execute pywal with $wallpaper"
-wal -q -i $wallpaper
-source "$HOME/.cache/wal/colors.sh"
 
 # ----------------------------------------------------- 
 # Wallpaper Effects
@@ -103,6 +96,15 @@ if [ -f $HOME/dotfiles/.settings/wallpaper-effect.sh ] ;then
 fi
 
 # ----------------------------------------------------- 
+# Execute pywal
+# ----------------------------------------------------- 
+
+echo ":: Execute pywal with $used_wallpaper"
+wal -q -i $used_wallpaper
+source "$HOME/.cache/wal/colors.sh"
+
+
+# ----------------------------------------------------- 
 # Write hyprpaper.conf
 # -----------------------------------------------------
 
@@ -124,7 +126,7 @@ hyprpaper & > /dev/null 2>&1
 # -----------------------------------------------------
 
 echo ":: Generate new cached wallpaper blur-$blur-$wallpaper_filename with blur $blur"
-magick $wallpaper -resize 75% $blurred_wallpaper
+magick $used_wallpaper -resize 75% $blurred_wallpaper
 echo ":: Resized to 75%"
 if [ ! "$blur" == "0x0" ] ;then
     magick $blurred_wallpaper -blur $blur $blurred_wallpaper
@@ -147,5 +149,5 @@ echo "* { current-image: url(\"$blurred_wallpaper\", height); }" > "$rasi_file"
 # -----------------------------------------------------
 
 echo ":: Generate new cached wallpaper square-$wallpaper_filename"
-magick $wallpaper -gravity Center -extent 1:1 $square_wallpaper
+magick $tmp_wallpaper -gravity Center -extent 1:1 $square_wallpaper
 cp $square_wallpaper $generated_versions/square-$wallpaper_filename.png
