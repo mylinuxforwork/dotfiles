@@ -6,8 +6,6 @@
 #  \___/| .__/ \__,_|\__,_|\__\___||___/ 
 #       |_|                              
 #  
-# by Stephan Raabe (2023) 
-# ----------------------------------------------------- 
 # Requires pacman-contrib trizen
 
 # ----------------------------------------------------- 
@@ -29,6 +27,8 @@ fi
 if ! updates_aur=$(yay -Qu --aur --quiet | wc -l); then
     updates_aur=0
 fi
+
+# flatpak remote-ls --updates
 
 updates=$(("$updates_arch" + "$updates_aur"))
 

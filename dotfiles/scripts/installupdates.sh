@@ -60,6 +60,10 @@ fi
 
 trizen -Syu --noconfirm --noedit --noinfo
 
+if [[ $(_isInstalledYay "flatpak") == "0" ]] ;then
+    flatpak upgrade
+fi
+
 notify-send "Update complete"
 echo 
 echo ":: Update complete"
