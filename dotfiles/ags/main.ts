@@ -216,7 +216,7 @@ let config = {
         SideBarWindow, // can be instantiated for each monitor
     ],
     closeWindowDelay: {
-        'sidebar': 350,
+        'sidebar': 50,
     },    
 }
 
