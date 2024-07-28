@@ -35,8 +35,8 @@ fi
 if [ -d ~/dotfiles-versions/$version/swappy ]; then
     _installSymLink swappy ~/.config/swappy ~/dotfiles/swappy/ ~/.config
 fi
-if [ -d ~/dotfiles-versions/$version/eww ]; then
-    _installSymLink eww ~/.config/eww ~/dotfiles/eww/ ~/.config
+if [ -d ~/dotfiles-versions/$version/ags ]; then
+    _installSymLink ags ~/.config/ags ~/dotfiles/ags/ ~/.config
 fi
 if [ -d ~/dotfiles-versions/$version/fastfetch ]; then
     _installSymLink fastfetch ~/.config/fastfetch ~/dotfiles/fastfetch/ ~/.config
