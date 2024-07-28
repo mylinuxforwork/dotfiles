@@ -18,7 +18,7 @@ if gum confirm "Do you want to run a short system check?" ;then
     _commandExists "wal" "python-pywal"
     _commandExists "gum" "gum"
     _commandExists "wlogout" "wlogout"
-    _commandExists "eww" "eww"
+    _commandExists "ags" "ags"
     _commandExists "magick" "imagemagick"
     _commandExists "waypaper" "waypaper"
 
