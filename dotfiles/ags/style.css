@@ -11,9 +11,10 @@
 .sidebar {
     background: #222222;
     padding: 10px;
-    margin:20px;
+    margin:40px;
     border-radius: 12px;
     font-weight: bold;
+    border: 3px solid @color11;
 }
 
 .row {
@@ -55,7 +56,7 @@
 .circularprocess {
     min-width:100px;
     min-height:100px;
-    color:@color4;
+    color:@color11;
     background-color:#ccc;
 }
 
