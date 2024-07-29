@@ -68,8 +68,8 @@
     // Hyprshade
     "custom/hyprshade": {
         "format": "",
-        "on-click": "sleep 0.1; ~/dotfiles/hypr/scripts/hyprshade.sh",
-        "on-click-right": "sleep 0.1; ~/dotfiles/hypr/scripts/hyprshade.sh rofi",
+        "on-click": "sleep 0.1; ~/.config/hypr/scripts/hyprshade.sh",
+        "on-click-right": "sleep 0.1; ~/.config/hypr/scripts/hyprshade.sh rofi",
         "tooltip": false
     },
 
@@ -80,8 +80,8 @@
         "escape": true,
         "exec-on-event": true,
         "interval": 60,
-        "exec": "~/dotfiles/hypr/scripts/hypridle.sh status",
-        "on-click": "~/dotfiles/hypr/scripts/hypridle.sh toggle",
+        "exec": "~/.config/hypr/scripts/hypridle.sh status",
+        "on-click": "~/.config/hypr/scripts/hypridle.sh toggle",
         "on-click-right": "hyprlock"
     },
 
@@ -106,8 +106,8 @@
     // Wallpaper
     "custom/wallpaper": {
         "format": "",
-        "on-click": "~/dotfiles/hypr/scripts/wallpaper.sh select",
-        "on-click-right": "~/dotfiles/hypr/scripts/wallpaper-effects.sh",
+        "on-click": "~/.config/hypr/scripts/wallpaper.sh select",
+        "on-click-right": "~/.config/hypr/scripts/wallpaper-effects.sh",
         "tooltip": false
     },
 
@@ -128,7 +128,7 @@
     // Keybindings
     "custom/keybindings": {
         "format": "",
-        "on-click": "~/dotfiles/hypr/scripts/keybindings.sh",
+        "on-click": "~/.config/hypr/scripts/keybindings.sh",
         "tooltip": false
     },
 
@@ -164,7 +164,7 @@
     "custom/appmenu": {
         "format": "Apps",
         "on-click": "rofi -show drun -replace",
-        "on-click-right": "~/dotfiles/hypr/scripts/keybindings.sh",
+        "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
         "tooltip": false
     },
     

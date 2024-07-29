@@ -11,7 +11,7 @@
 # ----------------------------------------------------- 
 
 use_cache=0
-if [ -f $HOME/dotfiles/.settings/wallpaper_cache ] ;then
+if [ -f ~/dotfiles/.settings/wallpaper_cache ] ;then
     use_cache=1
 fi
 
@@ -26,12 +26,12 @@ fi
 # ----------------------------------------------------- 
 
 force_generate=0
-generated_versions="$HOME/.cache/ml4w-wallpaper-generated"
-cache_file="$HOME/.cache/current_wallpaper"
-blurred_wallpaper="$HOME/.cache/blurred_wallpaper.png"
-square_wallpaper="$HOME/.cache/square_wallpaper.png"
-rasi_file="$HOME/.cache/current_wallpaper.rasi"
-blur_file="$HOME/dotfiles/.settings/blur.sh"
+generated_versions="~/.cache/ml4w-wallpaper-generated"
+cache_file="~/.cache/current_wallpaper"
+blurred_wallpaper="~/.cache/blurred_wallpaper.png"
+square_wallpaper="~/.cache/square_wallpaper.png"
+rasi_file="~/.cache/current_wallpaper.rasi"
+blur_file="~/dotfiles/.settings/blur.sh"
 default_wallpaper="~/wallpaper/default.jpg"
 blur="50x30"
 blur=$(cat $blur_file)

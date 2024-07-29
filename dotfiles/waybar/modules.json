@@ -109,7 +109,7 @@
     "custom/wallpaper": {
         "format": "",
         "on-click": "waypaper",
-        "on-click-right": "~/dotfiles/hypr/scripts/wallpaper-effects.sh",
+        "on-click-right": "~/.config/hypr/scripts/wallpaper-effects.sh",
         "tooltip-format": "Left: Select a wallpaper\nRight: Select wallpaper effect"
     },
 
@@ -130,7 +130,7 @@
     // Keybindings
     "custom/keybindings": {
         "format": "",
-        "on-click": "~/dotfiles/hypr/scripts/keybindings.sh",
+        "on-click": "~/.config/hypr/scripts/keybindings.sh",
         "tooltip": false
     },
 
@@ -161,7 +161,7 @@
         "format": "Apps",
         // END APPS LABEL
         "on-click": "sleep 0.2;rofi -show drun -replace",
-        "on-click-right": "~/dotfiles/hypr/scripts/keybindings.sh",
+        "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
         "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
     },
 
@@ -169,7 +169,7 @@
     "custom/appmenuicon": {
         "format": "",
         "on-click": "rofi -show drun -replace",
-        "on-click-right": "~/dotfiles/hypr/scripts/keybindings.sh",
+        "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
         "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
     },    
 
@@ -184,8 +184,8 @@
     "custom/hyprshade": {
         "format": "",
         "tooltip-format": "Toggle Screen Shader",
-        "on-click": "sleep 0.5; ~/dotfiles/hypr/scripts/hyprshade.sh",
-        "on-click-right": "sleep 0.5; ~/dotfiles/hypr/scripts/hyprshade.sh rofi"
+        "on-click": "sleep 0.5; ~/.config/hypr/scripts/hyprshade.sh",
+        "on-click-right": "sleep 0.5; ~/.config/hypr/scripts/hyprshade.sh rofi"
     },
 
     // Hypridle inhibitor
@@ -195,8 +195,8 @@
         "escape": true,
         "exec-on-event": true,
         "interval": 60,
-        "exec": "~/dotfiles/hypr/scripts/hypridle.sh status",
-        "on-click": "~/dotfiles/hypr/scripts/hypridle.sh toggle",
+        "exec": "~/.config/hypr/scripts/hypridle.sh status",
+        "on-click": "~/.config/hypr/scripts/hypridle.sh toggle",
         "on-click-right": "hyprlock"
     },
 
