@@ -57,6 +57,8 @@ packagesPacman=(
     "blueman"
     "xclip"
     "pinta"
+    "breeze"
+    "qt6ct"
 );
 
 packagesYay=(
