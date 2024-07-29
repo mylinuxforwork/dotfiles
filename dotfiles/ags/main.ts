@@ -55,6 +55,7 @@ const cld = Widget.Calendar({
     showDetails: false,
     showHeading: true,
     showWeekNumbers: true,
+    className:"calendar",
     detail: (self, y, m, d) => {
         return `<span color="white">${y}. ${m}. ${d}.</span>`
     },
@@ -175,6 +176,43 @@ const ramProgressBox = Widget.Box({
     ]
 })
 
+const audio = await Service.import('audio')
+
+/** @param {'speaker' | 'microphone'} type */
+const VolumeSlider = (type = 'speaker') => Widget.Slider({
+    hexpand: true,
+    drawValue: false,
+    onChange: ({ value }) => audio[type].volume = value,
+    value: audio[type].bind('volume'),
+})
+
+const speakerSlider = VolumeSlider('speaker')
+const micSlider = VolumeSlider('microphone')
+
+const speakerBox = Widget.Box({
+    vertical: true,
+    children:[
+        Widget.Label({
+            className: "sliderlabel",
+            label: "Speaker",
+            xalign: 0
+        }),        
+        speakerSlider
+    ]
+})
+
+const micBox = Widget.Box({
+    vertical: true,
+    children:[
+        Widget.Label({
+            className: "sliderlabel",
+            label: "Mic",
+            xalign: 0
+        }),        
+        micSlider
+    ]
+})
+
 // Sidebar Box
 const Sidebar = Widget.Box({
     spacing: 8,
@@ -192,13 +230,20 @@ const Sidebar = Widget.Box({
             homogeneous: true,
             children:[cpuProgressBox,ramProgressBox]
         }),
-        cld
+        speakerBox,
+        micBox,
+        Widget.Box({
+            homogeneous: true,
+            className: "lastrow",
+            children:[cld]
+        })
     ]
 })
 
 // Sidebar Window
 const SideBarWindow = Widget.Window({
     name: 'sidebar',
+    className:"window",
     anchor: ['top', 'right'],
     // Start with hidden window, toggle with ags -t sidebar
     // visible: true,
@@ -215,6 +260,9 @@ let config = {
     windows: [
         SideBarWindow, // can be instantiated for each monitor
     ],
+    openWindowDelay: {
+        'sidebar':100,
+    },
     closeWindowDelay: {
         'sidebar': 50,
     },    

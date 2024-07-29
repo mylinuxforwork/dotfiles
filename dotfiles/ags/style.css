@@ -1,12 +1,11 @@
 @import url('../../.cache/wal/colors-waybar.css');
 
 * {
-    all: unset;
+    all:unset;
     font-size: 14px;
     font-family: "Fira Sans", sans-serif;
-    font-weight: 500;
-    padding: 0;
-    margin: 0; }
+    font-weight: normal;
+}
 
 .sidebar {
     background: #222222;
@@ -16,14 +15,24 @@
     font-weight: bold;
     border: 3px solid @color11;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.8);
+    padding:20px;
+}
+
+.window {
+    background:transparent;
 }
 
 .row {
     padding-bottom: 20px;
 }
 
+.lastrow {
+    padding-top: 20px;
+}
+
 .btn {
     color: #FFFFFF;
+    padding:0px;
 }
 
 .ml4wwelcomeicon {
@@ -31,7 +40,7 @@
     background-size:50px;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 50px;
+    padding: 40px 50px 40px 50px;
 }
 
 .ml4wsettingsicon {
@@ -39,7 +48,7 @@
     background-size:50px;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 50px;
+    padding: 40px 50px 40px 50px;
 }
 
 .ml4whyprlandicon {
@@ -47,7 +56,7 @@
     background-size:50px;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 50px;
+    padding: 40px 50px 40px 50px;
 }
 
 .clock {
@@ -64,4 +73,44 @@
 .circularlabel {
     padding-top:10px;
     font-weight: normal;
+}
+
+calendar:selected {
+    background-color:@color11;
+    padding:0px;
+}
+
+scale {
+    background-color:@color11;
+    border-radius:12px;
+}
+
+scale contents {
+    min-height: 20px;
+    background-color:@color15;
+    border-radius:12px;
+}
+
+scale value {
+    min-height: 20px;
+    background-color: #222222;
+}
+
+scale slider {
+    min-height: 20px;
+    background-color:@color15;
+    border-radius:12px;
+}
+
+scale highlight {
+    min-height:20px;
+    background-color:@color11;
+    border-radius:12px;
+    outline-width:3px;
+}
+
+scale fill {
+    min-height:20px;
+    background-color:@color11;
+    border-radius:12px;
 }
