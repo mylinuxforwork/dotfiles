@@ -47,6 +47,9 @@ fi
 if [ -d ~/dotfiles-versions/$version/nvim ]; then
     _installSymLink nvim ~/.config/nvim ~/dotfiles/nvim/ ~/.config
 fi
+if [ -d ~/dotfiles-versions/$version/qt6ct ]; then
+    _installSymLink qt6ct ~/.config/qt6ct ~/dotfiles/qt6ct/ ~/.config
+fi
 if [ -f ~/dotfiles-versions/$version/.bashrc ]; then
     _installSymLink .bashrc ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc
 fi
