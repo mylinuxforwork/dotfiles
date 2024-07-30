@@ -1,1 +1,1 @@
-firefox --new-window https://chat.openai.com
+$(cat ~/dotfiles/.settings/browser.sh) --new-window https://chat.openai.com
