@@ -35,8 +35,8 @@ fi
 if [ -d ~/dotfiles-versions/$version/swappy ]; then
     _installSymLink swappy ~/.config/swappy ~/dotfiles/swappy/ ~/.config
 fi
-if [ -d ~/dotfiles-versions/$version/eww ]; then
-    _installSymLink eww ~/.config/eww ~/dotfiles/eww/ ~/.config
+if [ -d ~/dotfiles-versions/$version/ags ]; then
+    _installSymLink ags ~/.config/ags ~/dotfiles/ags/ ~/.config
 fi
 if [ -d ~/dotfiles-versions/$version/fastfetch ]; then
     _installSymLink fastfetch ~/.config/fastfetch ~/dotfiles/fastfetch/ ~/.config
@@ -46,6 +46,9 @@ if [ -d ~/dotfiles-versions/$version/waypaper ]; then
 fi
 if [ -d ~/dotfiles-versions/$version/nvim ]; then
     _installSymLink nvim ~/.config/nvim ~/dotfiles/nvim/ ~/.config
+fi
+if [ -d ~/dotfiles-versions/$version/qt6ct ]; then
+    _installSymLink qt6ct ~/.config/qt6ct ~/dotfiles/qt6ct/ ~/.config
 fi
 if [ -f ~/dotfiles-versions/$version/.bashrc ]; then
     _installSymLink .bashrc ~/.bashrc ~/dotfiles/.bashrc ~/.bashrc

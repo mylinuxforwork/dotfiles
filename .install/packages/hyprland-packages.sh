@@ -13,9 +13,10 @@ packagesPacman=(
 packagesYay=(
     "wlogout"
     "nwg-look"
-    "eww"
     "hyprshade"
     "waypaper"
     "mission-center"
     "grimblast"
+    "bun-bin"
+    "aylurs-gtk-shell"
 );

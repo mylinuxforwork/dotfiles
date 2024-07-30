@@ -2,9 +2,9 @@
 
 An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
-![image](https://github.com/user-attachments/assets/b5f45894-f29e-4b75-83fb-01784fcda3ff)
+![image](https://private-user-images.githubusercontent.com/145253254/352987610-1a240ebd-79b9-4a23-81cc-2af461c5d4d9.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjIyNDQ4MDcsIm5iZiI6MTcyMjI0NDUwNywicGF0aCI6Ii8xNDUyNTMyNTQvMzUyOTg3NjEwLTFhMjQwZWJkLTc5YjktNGEyMy04MWNjLTJhZjQ2MWM1ZDRkOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNzI5JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDcyOVQwOTE1MDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00MzVhNGI5NTRlMDRiMzRjZDM4ZTk5OTMzMzM4ZTQ1ZmFiMTJhODE0MmQ2ZjIxMGE4OGZiMjRmNGJkOWM3Y2MxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.fcrKA8ipb_gnqvGJhtDkeXnfSKeea_bLguF5amgO3SY)
 
-YouTube Video [https://youtu.be/HMxHUvN6VGo](https://youtu.be/GHYk1Iv4GkY)
+YouTube Video [https://youtu.be/7xfepawIEz8](https://youtu.be/7xfepawIEz8)
 
 ## Installation
 

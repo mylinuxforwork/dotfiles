@@ -1,6 +1,9 @@
-Version 2.9.3 (Rolling Release)
+Version 2.9.5RL
+
+Version 2.9.4
 https://github.com/mylinuxforwork/dotfiles/milestone/1?closed=1
 --------------------------------------------------------
+- EWW replaced with AGS. New ML4W Sidebar based on AGS
 - New hook.sh and post.sh installation scripts. https://github.com/mylinuxforwork/dotfiles/wiki/Hook-and-Post-Installation-Scripts
 - Add Flatpak installation option to the installation script https://github.com/mylinuxforwork/dotfiles/issues/43
 - Position of dunst can be changed in the ML4W Dotfiles App
