@@ -1,4 +1,6 @@
 Version 2.9.5RL
+--------------------------------------------------------
+- Add backlight module to waybar for laptop users
 
 Version 2.9.4
 https://github.com/mylinuxforwork/dotfiles/milestone/1?closed=1
