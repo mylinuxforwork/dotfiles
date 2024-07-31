@@ -105,7 +105,7 @@ if [ "$dmsel" == "Install sddm and theme" ] ;then
         if [ -f /usr/share/sddm/themes/sugar-candy/theme.conf ]; then
 
             # Cache file for holding the current wallpaper
-            sudo cp .install/wallpapers/default.jpg /usr/share/sddm/themes/sugar-candy/Backgrounds/current_wallpaper.jpg
+            sudo cp install/wallpapers/default.jpg /usr/share/sddm/themes/sugar-candy/Backgrounds/current_wallpaper.jpg
             echo "Default wallpaper copied into /usr/share/sddm/themes/sugar-candy/Backgrounds/"
 
             sudo cp dotfiles/sddm/theme.conf /usr/share/sddm/themes/sugar-candy/

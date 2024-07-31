@@ -35,20 +35,20 @@ if [ ! -d ~/dotfiles-versions/library ] ;then
 fi
 
 # Copy files to the destination
-rsync -a -I --exclude-from=.install/includes/excludes.txt dotfiles/. ~/dotfiles-versions/$version/
+rsync -a -I --exclude-from=install/includes/excludes.txt dotfiles/. ~/dotfiles-versions/$version/
 
 # Check copy success
 if [[ $(_isFolderEmpty ~/dotfiles-versions/$version/) == 0 ]] ;then
     echo "AN ERROR HAS OCCURED. Preparation of ~/dotfiles-versions/$version/ failed" 
     echo "Please check that rsync is installad on your system."
-    echo "Execution of rsync -a -I --exclude-from=.install/includes/excludes.txt . ~/dotfiles-versions/$version/ is required."
+    echo "Execution of rsync -a -I --exclude-from=install/includes/excludes.txt . ~/dotfiles-versions/$version/ is required."
     exit
 fi
 echo ":: ML4W Dotfiles $version successfully prepared in ~/dotfiles-versions/$version/"
 
 # Copy hook.tpl if hook.sh not exists
 if [ ! -f ~/dotfiles-versions/hook.sh ] ;then
-    cp .install/templates/hook.tpl ~/dotfiles-versions/
+    cp install/templates/hook.tpl ~/dotfiles-versions/
     echo ":: hook.tpl created"
 else
     chmod +x ~/dotfiles-versions/hook.sh
@@ -57,7 +57,7 @@ fi
 
 # Copy post.tpl if post.sh not exists
 if [ ! -f ~/dotfiles-versions/post.sh ] ;then
-    cp .install/templates/post.tpl ~/dotfiles-versions/
+    cp install/templates/post.tpl ~/dotfiles-versions/
     echo ":: post.tpl created"
 else
     chmod +x ~/dotfiles-versions/post.sh
@@ -65,7 +65,7 @@ else
 fi
 
 # Prepare library folder
-cp .install/includes/scripts.sh ~/dotfiles-versions/library/
+cp install/includes/scripts.sh ~/dotfiles-versions/library/
 echo ":: scripts.sh for $version updated in ~/dotfiles-versions/library"
 if [ ! -f ~/dotfiles-versions/library/version.sh ] ;then
     touch ~/dotfiles-versions/library/version.sh
