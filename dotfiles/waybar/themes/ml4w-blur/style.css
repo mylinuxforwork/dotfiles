@@ -182,7 +182,7 @@ window#waybar.empty #window {
 #custom-quicklink9,
 #custom-quicklink10,
 #custom-waybarthemes {
-    margin-right: 16px;
+    margin-right: 14px;
     font-size: 20px;
     font-weight: bold;
     opacity: 0.8;
@@ -199,7 +199,11 @@ window#waybar.empty #window {
 #custom-quicklink8,
 #custom-quicklink9,
 #custom-quicklink10 {
-    margin-right: 24px;   
+    margin-right: 20px;   
+}
+
+#custom-settings {
+    margin-right:12px;
 }
 
 #custom-tools {
@@ -225,7 +229,7 @@ window#waybar.empty #window {
 }
 
 #custom-chatgpt {
-    margin-right: 16px;
+    margin-right: 12px;
     background-image: url("../assets/openai.svg");
     background-repeat: no-repeat;
     background-position: center;

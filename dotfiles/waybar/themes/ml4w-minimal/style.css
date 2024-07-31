@@ -425,11 +425,3 @@ window#waybar.empty #window {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
 }
-
-/* -----------------------------------------------------
- * Other
- * ----------------------------------------------------- */
-
-label:focus {
-    background-color: #000000;
-}
