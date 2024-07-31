@@ -6,7 +6,6 @@
  *    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    |____/ \__|\__, |_|\___| 
  *                 |___/                              |___/         
  *  
- * by Stephan Raabe (2023) 
  * ----------------------------------------------------- 
 */
 
@@ -20,7 +19,7 @@
  * ----------------------------------------------------- */
 
 * {
-    font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     border: none;
     border-radius: 0px;
 }
@@ -167,7 +166,6 @@ window#waybar.empty #window {
 #custom-calculator, 
 #custom-windowsvm, 
 #custom-cliphist, 
-#custom-wallpaper, 
 #custom-settings, 
 #custom-wallpaper, 
 #custom-system,
@@ -185,23 +183,28 @@ window#waybar.empty #window {
 #custom-quicklink9,
 #custom-quicklink10,
 #custom-waybarthemes {
-    margin-right: 23px;
+    margin-right: 16px;
     font-size: 20px;
     font-weight: bold;
     opacity: 0.8;
     color: @iconcolor;
 }
 
+#custom-quicklink1,
+#custom-quicklink2,
+#custom-quicklink3,
+#custom-quicklink4,
+#custom-quicklink5,
+#custom-quicklink6,
+#custom-quicklink7,
+#custom-quicklink8,
+#custom-quicklink9,
+#custom-quicklink10 {
+    margin-right: 24px;   
+}
+
 #custom-tools {
     margin-right:12px;
-}
-
-#custom-hyprshade {
-    margin-right:12px;
-}
-
-#custom-hypridle {
-    margin-right:18px;
 }
 
 #custom-hypridle.active {
@@ -210,28 +213,6 @@ window#waybar.empty #window {
 
 #custom-hypridle.notactive {
     color: #dc2f2f;
-}
-
-#custom-system {
-    margin-right:15px;
-}
-
-#custom-wallpaper {
-    margin-right:25px;
-}
-
-#custom-waybarthemes, #custom-settings {
-    margin-right:20px;
-}
-
-#custom-chatgpt {
-    margin-right: 12px;
-    background-image: url("../assets/openai.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain; 
-    padding-right: 16px;
-    opacity: 0.8;
 }
 
 #custom-ml4w-welcome {
@@ -243,12 +224,13 @@ window#waybar.empty #window {
     padding-right: 20px;
 }
 
-#custom-ml4w-hyprland-settings {
-    margin-right: 12px;
-    background-image: url("../assets/hyprland-icon.png");
+#custom-chatgpt {
+    margin-right: 16px;
+    background-image: url("../assets/openai.svg");
     background-repeat: no-repeat;
     background-position: center;
-    padding-right: 16px;
+    background-size: contain; 
+    padding-right: 18px;
     opacity: 0.8;
 }
 
@@ -276,13 +258,13 @@ window#waybar.empty #window {
  * Custom Modules
  * ----------------------------------------------------- */
 
-#custom-appmenu, #custom-appmenuwlr {
+#custom-appmenu {
     background-color: @backgrounddark;
     font-size: 16px;
     color: @textcolor1;
     border-radius: 15px;
     padding: 0px 10px 0px 10px;
-    margin: 3px 15px 3px 14px;
+    margin: 3px 17px 3px 14px;
     opacity:0.8;
     border:3px solid @bordercolor;
 }
@@ -292,7 +274,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-exit {
-    margin: 0px 20px 0px 0px;
+    margin: 0px 13px 0px 0px;
     padding:0px;
     font-size:20px;
     color: @iconcolor;
@@ -325,20 +307,6 @@ window#waybar.empty #window {
 #custom-updates.red {
     background-color: #dc2f2f;
     color: #FFFFFF;
-}
-
-/* -----------------------------------------------------
- * Custom Youtube
- * ----------------------------------------------------- */
-
-#custom-youtube {
-    background-color: @backgroundlight;
-    font-size: 16px;
-    color: @textcolor2;
-    border-radius: 15px;
-    padding: 2px 10px 0px 10px;
-    margin: 5px 15px 5px 0px;
-    opacity:0.8;
 }
 
 /* -----------------------------------------------------
