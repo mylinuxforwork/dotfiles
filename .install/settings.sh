@@ -3,7 +3,7 @@ if [ "$restored" == "1" ]; then
         echo -e "${GREEN}"
         figlet "Restore Settings"
         echo -e "${NONE}"
-        python .install/restore.py
+        python install/restore.py
     fi
 else
     if [ -f ~/dotfiles/.settings/settings.json ] ;then

@@ -1,6 +1,6 @@
 .gitignore
 .git
-.install
+install
 .dev
 README.md
 CHANGELOG
