@@ -33,23 +33,19 @@ if [ ! -d ~/$dot_folder ]; then
 fi
 
 if gum confirm "Do you want to install the prepared dotfiles now?" ;then
-    if [ ! $mode == "dev" ]; then
-        echo "Copy started"
-        if [ ! -d ~/$dot_folder ]; then
-            mkdir ~/$dot_folder
-            echo "~/$dot_folder folder created."
-        fi   
-        rsync -avhp -I ~/dotfiles-versions/$version/ ~/$dot_folder/
-        if [[ $(_isFolderEmpty ~/$dot_folder/) == 0 ]] ;then
-            echo "AN ERROR HAS OCCURED. Copy prepared dofiles from ~/dotfiles-versions/$version/ to ~/$dot_folder/ failed" 
-            echo "Please check that rsync is installad on your system."
-            echo "Execution of rsync -a -I ~/dotfiles-versions/$version/ ~/$dot_folder/ is required."
-            exit
-        fi
-        echo "All files from ~/dotfiles-versions/$version/ to ~/$dot_folder/ copied."
-    else
-        echo "Skipped: DEV MODE!"
+    echo "Copy started"
+    if [ ! -d ~/$dot_folder ]; then
+        mkdir ~/$dot_folder
+        echo "~/$dot_folder folder created."
+    fi   
+    rsync -avhp -I ~/dotfiles-versions/$version/ ~/$dot_folder/
+    if [[ $(_isFolderEmpty ~/$dot_folder/) == 0 ]] ;then
+        echo "AN ERROR HAS OCCURED. Copy prepared dofiles from ~/dotfiles-versions/$version/ to ~/$dot_folder/ failed" 
+        echo "Please check that rsync is installad on your system."
+        echo "Execution of rsync -a -I ~/dotfiles-versions/$version/ ~/$dot_folder/ is required."
+        exit
     fi
+    echo "All files from ~/dotfiles-versions/$version/ to ~/$dot_folder/ copied."
 elif [ $? -eq 130 ]; then
     echo ":: Installation canceled"
     exit 130

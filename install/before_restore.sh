@@ -42,10 +42,8 @@ if [ -d ~/dotfiles ] ;then
     _move_folder ~/dotfiles/gtk/xsettings ~/dotfiles/.config/xsettings
     _move_file ~/dotfiles/gtk/.gtkrc-2.0 ~/dotfiles/.gtkrc-2.0
     _move_file ~/dotfiles/gtk/.Xresources ~/dotfiles/.Xresources
-    _move_file ~/dotfiles/starship/startship.toml ~/dotfiles/startship.toml
+    _move_file ~/dotfiles/starship/starship.toml ~/dotfiles/starship.toml
     _del_folder ~/dotfiles/gtk
     _del_folder ~/dotfiles/eww
     _del_folder ~/dotfiles/starship
-    _del_file ~/.Xresources
-    _del_file ~/.gtkrc-2.0    
 fi

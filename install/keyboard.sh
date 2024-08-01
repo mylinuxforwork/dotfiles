@@ -85,6 +85,6 @@ if [ "$setkeyboard" == "0" ] ;then
     echo
     echo ":: Keyboard setup complete."
     echo
-    echo "PLEASE NOTE: You can update your keyboard layout later in ~/$dot_folder/.config/hypr/conf/keyboard.conf"
+    echo "PLEASE NOTE: You can update your keyboard layout later in ~/.config/hypr/conf/keyboard.conf"
 
 fi 
