@@ -144,8 +144,64 @@ _installPackagesFlatpak() {
 }
 
 # ------------------------------------------------------
+# Cleanup
+# ------------------------------------------------------
+
+_move_folder() {
+    source=$1
+    target=$2
+    if [ ! -d $target ] ;then
+        if [ -d $source ] ;then
+            mv $source $target
+            echo ":: $source moved to $target"
+        fi
+    fi    
+}
+
+_del_folder() {
+    source=$1
+    if [ -d $source ] ;then
+        rm -rf $source
+        echo ":: $source deleted"
+    fi    
+}
+
+_move_file() {
+    source=$1
+    target=$2
+    if [ ! -f $target ] ;then
+        if [ -f $source ] ;then
+            mv $source $target
+            echo ":: $source moved to $target"
+        fi
+    fi    
+}
+
+_del_file() {
+    source=$1
+    if [ -f $source ] ;then
+        rm $source
+        echo ":: $source deleted"
+    fi    
+}
+
+# ------------------------------------------------------
 # Create symbolic links
 # ------------------------------------------------------
+_del_symlink() {
+    source=$1
+    if [ -L $source ]; then
+        rm $source
+        echo ":: Symlink $sources deleted"
+    elif [ -d $source ]; then
+        rm -rf $source
+        echo ":: Folder for symlink $sources deleted"
+    elif [ -f $source ]; then
+        rm -rf $source
+        echo ":: File for symlink $sources deleted"
+    fi
+}
+
 _installSymLink() {
     name="$1"
     symlink="$2";

@@ -59,6 +59,7 @@ packagesPacman=(
     "pinta"
     "breeze"
     "qt6ct"
+    "stow"
 );
 
 packagesYay=(
