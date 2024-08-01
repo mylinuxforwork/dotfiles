@@ -6,18 +6,6 @@
 files=$(ls -a ~/$dot_folder)
 for f in $files; do
     if [ ! "$f" == "." ] && [ ! "$f" == ".." ] && [ ! "$f" == ".config" ]; then
-        if [ -d  ~/$dot_folder/$f ] ;then
-            echo ":: Checking for directory ~/$f"
-            if [ -L ~/$f ] ;then
-                rm ~/$f
-            fi
-            if [ -f ~/$f ] ;then
-                rm ~/$f
-            fi
-            if [ -d ~/$f ] ;then
-                rm -rf ~/$f
-            fi
-        fi
         if [ -f  ~/$dot_folder/$f ] ;then
             echo ":: Checking for file ~/$f"
             if [ -L ~/$f ] ;then
