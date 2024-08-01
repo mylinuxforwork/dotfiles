@@ -11,7 +11,7 @@ echo ":: Running hook for ML4W Dotfiles $version"
 # If you made adjustments on files on the ~/dotfiles folder 
 # you can protect the files and folders from being overwritten by updates.
 
-_protect nvim
+_protect .config/nvim
 _protect .bashrc
 
 # You can add more command to get executed before the prepared Dotfiles 

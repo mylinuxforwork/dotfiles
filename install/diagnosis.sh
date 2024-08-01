@@ -7,7 +7,7 @@ echo "execution commands are available now on your system."
 echo 
 if gum confirm "Do you want to run a short system check?" ;then
 
-    _folderExists "$HOME/dotfiles" "Please repeat the installation."
+    _folderExists "$HOME/$dot_folder" "Please repeat the installation."
     _commandExists "rofi" "rofi-wayland"
     _commandExists "dunst" "dunst"
     _commandExists "waybar" "waybar"

@@ -2,17 +2,13 @@
 
 # ----------------------------------------------------- 
 # Include files and set variables
-# ----------------------------------------------------- 
-version=$(cat dotfiles/.version/name)
+# -----------------------------------------------------
+dot_folder="dotfiles" 
+version=$(cat dotfiles/.config/ml4w/version/name)
 install_directory=$(pwd)
 source install/includes/colors.sh
 source install/includes/library.sh
 clear
-
-# ----------------------------------------------------- 
-# Set installation mode
-# ----------------------------------------------------- 
-source install/installmode.sh
 
 # ----------------------------------------------------- 
 # Load header
@@ -73,11 +69,6 @@ source install/general.sh
 # Install profile
 # ----------------------------------------------------- 
 source install/profile.sh
-
-# ----------------------------------------------------- 
-# Check for browser
-# ----------------------------------------------------- 
-source install/browser.sh
 
 # ----------------------------------------------------- 
 # Install flatpak
@@ -158,11 +149,6 @@ source install/settings.sh
 # Install ML4W Apps
 # ----------------------------------------------------- 
 source install/apps.sh
-
-# ----------------------------------------------------- 
-# Check installation of GTK Themes
-# ----------------------------------------------------- 
-source install/gtk.sh
 
 # ----------------------------------------------------- 
 # Final cleanup

@@ -60,31 +60,31 @@ if [ "$setkeyboard" == "0" ] ;then
     _confirmKeyboard
 
     if gum confirm "Are you using a laptop and would you like to enable the laptop presets?"; then
-        cp install/templates/keyboard-laptop.conf ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
-        echo "source = ~/dotfiles/hypr/conf/layouts/laptop.conf" >  ~/dotfiles-versions/$version/hypr/conf/layout.conf
+        cp install/templates/keyboard-laptop.conf ~/dotfiles-versions/$version/.config/hypr/conf/keyboard.conf
+        echo "source = ~/$dot_folder/.config/hypr/conf/layouts/laptop.conf" >  ~/dotfiles-versions/$version/.config/hypr/conf/layout.conf
     elif [ $? -eq 130 ]; then
         echo ":: Installation canceled."
         exit 130
     else
-        cp install/templates/keyboard-default.conf ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
+        cp install/templates/keyboard-default.conf ~/dotfiles-versions/$version/.config/hypr/conf/keyboard.conf
     fi
-    cp install/templates/autostart.sh ~/dotfiles-versions/$version/qtile/autostart.sh
+    cp install/templates/autostart.sh ~/dotfiles-versions/$version/.config/qtile/autostart.sh
 
     SEARCH="KEYBOARD_LAYOUT"
     REPLACE="$keyboard_layout"
-    sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
+    sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/.config/hypr/conf/keyboard.conf
 
     SEARCH="KEYBOARD_VARIANT"
     REPLACE="$keyboard_variant"
-    sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/hypr/conf/keyboard.conf
+    sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/.config/hypr/conf/keyboard.conf
 
     SEARCH="KEYBOARD_LAYOUT"
     REPLACE="$keyboard_layout"
-    sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/qtile/autostart.sh
+    sed -i "s/$SEARCH/$REPLACE/g" ~/dotfiles-versions/$version/.config/qtile/autostart.sh
 
     echo
     echo ":: Keyboard setup complete."
     echo
-    echo "PLEASE NOTE: You can update your keyboard layout later in ~/dotfiles/hypr/conf/keyboard.conf"
+    echo "PLEASE NOTE: You can update your keyboard layout later in ~/$dot_folder/.config/hypr/conf/keyboard.conf"
 
 fi 

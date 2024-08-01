@@ -60,6 +60,7 @@ packagesPacman=(
     "breeze"
     "qt6ct"
     "stow"
+    "firefox"
 );
 
 packagesYay=(
