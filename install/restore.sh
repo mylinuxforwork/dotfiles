@@ -136,48 +136,56 @@ _startRestore() {
         if [[ $restoreselect == *"~/$dot_folder/.config/hypr/conf/monitor.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/$dot_folder/.config/hypr/conf/monitor.conf ]; then
                 cp ~/$dot_folder/.config/hypr/conf/monitor.conf ~/dotfiles-versions/$version/.config/hypr/conf/
+                _replaceLineInFile "dotfiles" ".config" ~/dotfiles-versions/$version/.config/hypr/conf/monitor.conf
                 echo ":: Hyprland monitor.conf restored!"                
             fi
         fi
         if [[ $restoreselect == *"~/$dot_folder/.config/hypr/conf/keybinding.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/$dot_folder/.config/hypr/conf/keybinding.conf ]; then
                 cp ~/$dot_folder/.config/hypr/conf/keybinding.conf ~/dotfiles-versions/$version/.config/hypr/conf/
+                _replaceLineInFile "dotfiles" ".config" ~/dotfiles-versions/$version/.config/hypr/conf/keybinding.conf
                 echo ":: Hyprland keybinding.conf restored!"
             fi
         fi
         if [[ $restoreselect == *"~/$dot_folder/.config/hypr/conf/environment.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/$dot_folder/.config/hypr/conf/environment.conf ]; then
                 cp ~/$dot_folder/.config/hypr/conf/environment.conf ~/dotfiles-versions/$version/.config/hypr/conf/
+                _replaceLineInFile "dotfiles" ".config" ~/dotfiles-versions/$version/.config/hypr/conf/environment.conf
                 echo ":: Hyprland environment.conf restored!"
             fi
         fi        
         if [[ $restoreselect == *"~/$dot_folder/.config/hypr/conf/layout.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/$dot_folder/.config/hypr/conf/layout.conf ]; then
                 cp ~/$dot_folder/.config/hypr/conf/layout.conf ~/dotfiles-versions/$version/.config/hypr/conf/
+                _replaceLineInFile "dotfiles" ".config" ~/dotfiles-versions/$version/.config/hypr/conf/layout.conf
                 echo ":: Hyprland layout.conf restored!"
             fi
         fi        
         if [[ $restoreselect == *"~/$dot_folder/.config/hypr/conf/windowrule.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/$dot_folder/.config/hypr/conf/windowrule.conf ]; then
                 cp ~/$dot_folder/.config/hypr/conf/windowrule.conf ~/dotfiles-versions/$version/.config/hypr/conf/
+                _replaceLineInFile "dotfiles" ".config" ~/dotfiles-versions/$version/.config/hypr/conf/windowrule.conf
                 echo ":: Hyprland windowrule.conf restored!"
             fi
         fi        
         if [[ $restoreselect == *"~/$dot_folder/.config/hypr/conf/animation.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/$dot_folder/.config/hypr/conf/animation.conf ]; then
                 cp ~/$dot_folder/.config/hypr/conf/animation.conf ~/dotfiles-versions/$version/.config/hypr/conf/
+                _replaceLineInFile "dotfiles" ".config" ~/dotfiles-versions/$version/.config/hypr/conf/animation.conf
                 echo ":: Hyprland animation.conf restored!"
             fi
         fi
         if [[ $restoreselect == *"~/$dot_folder/.config/hypr/conf/decoration.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/$dot_folder/.config/hypr/conf/decoration.conf ]; then
                 cp ~/$dot_folder/.config/hypr/conf/decoration.conf ~/dotfiles-versions/$version/.config/hypr/conf/
+                _replaceLineInFile "dotfiles" ".config" ~/dotfiles-versions/$version/.config/hypr/conf/decoration.conf
                 echo ":: Hyprland decoration.conf restored!"
             fi
         fi
         if [[ $restoreselect == *"~/$dot_folder/.config/hypr/conf/window.conf"* ]] || [[ $restoreselect == *"All"* ]] ; then
             if [ -f ~/$dot_folder/.config/hypr/conf/window.conf ]; then
                 cp ~/$dot_folder/.config/hypr/conf/window.conf ~/dotfiles-versions/$version/.config/hypr/conf/
+                _replaceLineInFile "dotfiles" ".config" ~/dotfiles-versions/$version/.config/hypr/conf/window.conf
                 echo ":: Hyprland window.conf restored!"
             fi
         fi
