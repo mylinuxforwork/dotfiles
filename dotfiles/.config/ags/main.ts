@@ -96,7 +96,7 @@ const ml4wSettingsBox = Widget.Box({
             className:"ml4wsettingsicon",
             onClicked: () => {
                 print(':: Start Settings App')
-                Utils.subprocess('/home/' + username + '.config/ml4w/apps/ML4W_Dotfiles_Settings-x86_64.AppImage')
+                Utils.subprocess('/home/' + username + '/.config/ml4w/apps/ML4W_Dotfiles_Settings-x86_64.AppImage')
                 App.closeWindow("sidebar")
             }
         }),

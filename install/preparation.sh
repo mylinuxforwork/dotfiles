@@ -72,3 +72,6 @@ if [ ! -f ~/dotfiles-versions/library/version.sh ] ;then
 fi
 echo "$version" > ~/dotfiles-versions/library/version.sh
 echo ":: version.sh updated with $version"
+
+# Write dot folder into settings
+echo "$dot_folder" > ~/dotfiles-versions/$version/.config/ml4w/settings/dotfiles_folder.sh

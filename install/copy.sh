@@ -12,13 +12,13 @@ echo -e "${NONE}"
 fi
 if [ ! -d ~/$dot_folder ]; then
 echo "The script will now remove existing directories and files from ~/.config/"
-echo "and copy your prepared configuration from ~/dotfiles-versions/$version to ~/dotfiles"
+echo "and copy your prepared configuration from ~/dotfiles-versions/$version to ~/$dot_folder"
 echo
-echo "Symbolic links will then be created from ~/dotfiles into your ~/.config/ directory."
+echo "Symbolic links will then be created from ~/$dot_folder into your ~/.config/ directory."
 echo
 fi
 if [[ ! $(tty) == *"pts"* ]] && [ -d ~/$dot_folder ]; then
-    echo "You're running the script in tty. You can delete the existing ~/dotfiles folder now for a clean installation."
+    echo "You're running the script in tty. You can delete the existing ~/$dot_folder folder now for a clean installation."
     echo "If not, the script will overwrite existing files but will not remove additional files or folders of your custom configuration."
     echo
 else
@@ -32,7 +32,7 @@ if [ ! -d ~/$dot_folder ]; then
     echo
 fi
 
-if gum confirm "Do you want to install the prepared dotfiles now?" ;then
+if gum confirm "Do you to install the prepared ML4W Dotfiles now?" ;then
     echo "Copy started"
     if [ ! -d ~/$dot_folder ]; then
         mkdir ~/$dot_folder

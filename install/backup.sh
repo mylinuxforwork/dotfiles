@@ -25,15 +25,15 @@ fi
 
 # Backup Existing Dotfiles
 
-if [ -d ~/dotfiles ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d ~/.config/qtile ]; then
+if [ -d ~/$dot_folder ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d ~/.config/qtile ]; then
 
     echo -e "${GREEN}"
     figlet "Backup"
     echo -e "${NONE}"
     echo "The script has detected the following files and folders for a backup:"
 
-    if [ -d ~/dotfiles ]; then
-        echo "   - $HOME/dotfiles"
+    if [ -d ~/$dot_folder ]; then
+        echo "   - $HOME/$dot_folder"
     fi
     if ! test -L ~/.bashrc ;then
         echo "   - $HOME/.bashrc"
@@ -91,9 +91,9 @@ if [ -d ~/dotfiles ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d ~/.
                 echo ":: Current backup archived in ~/dotfiles-versions/archive/$datets"
             fi
         fi
-        if [ -d ~/dotfiles ]; then
-            rsync -a ~/dotfiles ~/dotfiles-versions/backup/
-            echo ":: Backup of $HOME/dotfiles created in ~/dotfiles-versions/backup"
+        if [ -d ~/$dot_folder ]; then
+            rsync -a ~/$dot_folder ~/dotfiles-versions/backup/
+            echo ":: Backup of $HOME/$dot_folder created in ~/dotfiles-versions/backup"
         fi
         if ! test -L ~/.bashrc ;then
             cp ~/.bashrc ~/dotfiles-versions/backup

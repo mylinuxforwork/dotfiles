@@ -3,7 +3,6 @@
 # ----------------------------------------------------- 
 # Include files and set variables
 # -----------------------------------------------------
-dot_folder="dotfiles" 
 version=$(cat dotfiles/.config/ml4w/version/name)
 install_directory=$(pwd)
 source install/includes/colors.sh
@@ -39,6 +38,11 @@ source install/yay.sh
 # Update the system
 # ----------------------------------------------------- 
 source install/updatesystem.sh
+
+# ----------------------------------------------------- 
+# Dotfiles target folder
+# ----------------------------------------------------- 
+source install/dotfiles.sh
 
 # ----------------------------------------------------- 
 # Backup files

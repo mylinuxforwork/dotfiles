@@ -13,7 +13,7 @@ if [ $SCRIPTPATH = "/home/$USER/dotfiles" ]; then
         exit
     fi
 fi
-if [ ! -d ~/dotfiles ];then
+if [ -f ~/.config/ml4w/settings/dotfiles-folder.sh ] || [ -d ~/dotfiles ] ;then
     if gum confirm "DO YOU WANT TO START THE INSTALLATION OF THE ML4W DOTFILES NOW?" ;then
         echo "Installation started."
     elif [ $? -eq 130 ]; then

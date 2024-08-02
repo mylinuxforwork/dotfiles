@@ -4,7 +4,7 @@
 
 if [ $disman == 1 ]; then
 echo -e "${GREEN}"
-figlet "TTY issue"
+figlet "TTY login issue"
 echo -e "${NONE}"
     if gum confirm "Do you want to install the custom tty login issue?" ;then
         sudo cp dotfiles/.config/ml4w/login/issue /etc/issue

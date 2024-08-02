@@ -10,7 +10,7 @@ echo -e "${NONE}"
         echo ":: KVM Environment already set."
     else
         if gum confirm "Do you want to install the KVM environment variables?" ;then
-            echo "source = ~/$dot_folder/hypr/conf/environments/kvm.conf" >  ~/dotfiles-versions/$version/hypr/conf/environment.conf
+            echo "source = ~/.config/hypr/conf/environments/kvm.conf" >  ~/dotfiles-versions/$version/hypr/conf/environment.conf
             echo "Environment set to KVM."
         fi
     fi

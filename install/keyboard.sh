@@ -61,7 +61,7 @@ if [ "$setkeyboard" == "0" ] ;then
 
     if gum confirm "Are you using a laptop and would you like to enable the laptop presets?"; then
         cp install/templates/keyboard-laptop.conf ~/dotfiles-versions/$version/.config/hypr/conf/keyboard.conf
-        echo "source = ~/$dot_folder/.config/hypr/conf/layouts/laptop.conf" >  ~/dotfiles-versions/$version/.config/hypr/conf/layout.conf
+        echo "source = ~/.config/hypr/conf/layouts/laptop.conf" >  ~/dotfiles-versions/$version/.config/hypr/conf/layout.conf
     elif [ $? -eq 130 ]; then
         echo ":: Installation canceled."
         exit 130
