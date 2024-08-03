@@ -1,8 +1,6 @@
 # ------------------------------------------------------
 # Modify existing files before restore starts
 # ------------------------------------------------------
-dot_folder="dotfiles2"
-source includes/library.sh
 
 if [ -d ~/$dot_folder ] ;then
     echo ":: Modify existing files"
