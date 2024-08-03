@@ -35,7 +35,7 @@ fi
 if gum confirm "Do you to install the prepared ML4W Dotfiles now?" ;then
     echo "Copy started"
     if [ ! -d ~/$dot_folder ]; then
-        mkdir ~/$dot_folder
+        mkdir -p ~/$dot_folder
         echo "~/$dot_folder folder created."
     fi   
     rsync -avhp -I ~/dotfiles-versions/$version/ ~/$dot_folder/
