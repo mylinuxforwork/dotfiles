@@ -15,16 +15,16 @@ if [ ! -d $HOME/.local/share/applications/ ] ;then
 fi
 
 # Copy desktop files to the correct locations
-sed -i "s|HOME|${HOME}|g" $HOME/dotfiles/apps/ml4w-welcome.desktop
-cp $HOME/dotfiles/apps/ml4w-welcome.desktop $HOME/.local/share/applications
+sed -i "s|HOME|${HOME}|g" $HOME/.config/ml4w/apps/ml4w-welcome.desktop
+cp $HOME/.config/ml4w/apps/ml4w-welcome.desktop $HOME/.local/share/applications
 echo ":: ML4W Welcome App installed successfully"
 
-sed -i "s|HOME|${HOME}|g" $HOME/dotfiles/apps/ml4w-dotfiles-settings.desktop
-cp $HOME/dotfiles/apps/ml4w-dotfiles-settings.desktop $HOME/.local/share/applications
+sed -i "s|HOME|${HOME}|g" $HOME/.config/ml4w/apps/ml4w-dotfiles-settings.desktop
+cp $HOME/.config/ml4w/apps/ml4w-dotfiles-settings.desktop $HOME/.local/share/applications
 echo ":: ML4W Dotfiles Settings App installed successfully"
 
-sed -i "s|HOME|${HOME}|g" $HOME/dotfiles/apps/ml4w-hyprland-settings.desktop
-cp $HOME/dotfiles/apps/ml4w-hyprland-settings.desktop $HOME/.local/share/applications
+sed -i "s|HOME|${HOME}|g" $HOME/.config/ml4w/apps/ml4w-hyprland-settings.desktop
+cp $HOME/.config/ml4w/apps/ml4w-hyprland-settings.desktop $HOME/.local/share/applications
 echo ":: ML4W Hyprland Settings App installed successfully"
 echo 
 

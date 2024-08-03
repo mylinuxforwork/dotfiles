@@ -59,6 +59,8 @@ packagesPacman=(
     "pinta"
     "breeze"
     "qt6ct"
+    "stow"
+    "firefox"
 );
 
 packagesYay=(

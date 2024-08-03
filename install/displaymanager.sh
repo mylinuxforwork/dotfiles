@@ -26,35 +26,18 @@ if [[ $profile == *"Qtile"* ]]; then
     echo ""
 fi
 
-if [ ! -d ~/dotfiles ];then
-    if [ -f /etc/systemd/system/display-manager.service ]; then
-        disman=0
-        echo "You have already installed a display manager on your system."
-        echo "How do you want to proceed?"
-        echo
-        dmsel=$(gum choose "Keep current setup" "Deactivate current display manager" "Install sddm and theme")
-    else
-        disman=1
-        echo "There is no display manager installed on your system."
-        echo "After the installation/update of the dotfiles, you can start Hyprland with command Hyprland and Qtile with commmand Qtile (or startx)."
-        echo "How do you want to proceed?"
-        echo
-        dmsel=$(gum choose "Keep current setup" "Install sddm and theme")
-    fi
+if [ -f /etc/systemd/system/display-manager.service ]; then
+    disman=0
+    echo "You have already installed a display manager. If your display manager is working fine, you can keep the current setup."
+    echo "How do you want to proceed?"
+    echo
+    dmsel=$(gum choose "Keep current setup" "Deactivate current display manager" "Install sddm and theme")
 else
-    if [ -f /etc/systemd/system/display-manager.service ]; then
-        disman=0
-        echo "You have already installed a display manager. If your display manager is working fine, you can keep the current setup."
-        echo "How do you want to proceed?"
-        echo
-        dmsel=$(gum choose "Keep current setup" "Deactivate current display manager" "Install sddm and theme")
-    else
-        disman=1
-        echo "There is no display manager installed on your system. You're starting Hyprland/Qtile with commands on tty."
-        echo "How do you want to proceed?"
-        echo
-        dmsel=$(gum choose "Keep current setup" "Install sddm and theme")
-    fi
+    disman=1
+    echo "There is no display manager installed on your system. You're starting Hyprland/Qtile with commands on tty."
+    echo "How do you want to proceed?"
+    echo
+    dmsel=$(gum choose "Keep current setup" "Install sddm and theme")
 fi
 
 if [ -z "${dmsel}" ] ;then
@@ -99,7 +82,7 @@ if [ "$dmsel" == "Install sddm and theme" ] ;then
             echo "Folder /etc/sddm.conf.d created."
         fi
 
-        sudo cp dotfiles/sddm/sddm.conf /etc/sddm.conf.d/
+        sudo cp dotfiles/.config/ml4w/sddm/sddm.conf /etc/sddm.conf.d/
         echo "File /etc/sddm.conf.d/sddm.conf updated."
 
         if [ -f /usr/share/sddm/themes/sugar-candy/theme.conf ]; then
@@ -108,7 +91,7 @@ if [ "$dmsel" == "Install sddm and theme" ] ;then
             sudo cp install/wallpapers/default.jpg /usr/share/sddm/themes/sugar-candy/Backgrounds/current_wallpaper.jpg
             echo "Default wallpaper copied into /usr/share/sddm/themes/sugar-candy/Backgrounds/"
 
-            sudo cp dotfiles/sddm/theme.conf /usr/share/sddm/themes/sugar-candy/
+            sudo cp dotfiles/.config/ml4w/sddm/theme.conf /usr/share/sddm/themes/sugar-candy/
             sudo sed -i 's/CURRENTWALLPAPER/'"current_wallpaper.jpg"'/' /usr/share/sddm/themes/sugar-candy/theme.conf
             echo "File theme.conf updated in /usr/share/sddm/themes/sugar-candy/"
 

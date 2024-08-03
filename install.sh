@@ -2,17 +2,12 @@
 
 # ----------------------------------------------------- 
 # Include files and set variables
-# ----------------------------------------------------- 
-version=$(cat dotfiles/.version/name)
+# -----------------------------------------------------
+version=$(cat dotfiles/.config/ml4w/version/name)
 install_directory=$(pwd)
 source install/includes/colors.sh
 source install/includes/library.sh
 clear
-
-# ----------------------------------------------------- 
-# Set installation mode
-# ----------------------------------------------------- 
-source install/installmode.sh
 
 # ----------------------------------------------------- 
 # Load header
@@ -45,6 +40,11 @@ source install/yay.sh
 source install/updatesystem.sh
 
 # ----------------------------------------------------- 
+# Dotfiles target folder
+# ----------------------------------------------------- 
+source install/dotfiles.sh
+
+# ----------------------------------------------------- 
 # Backup files
 # ----------------------------------------------------- 
 source install/backup.sh
@@ -73,11 +73,6 @@ source install/general.sh
 # Install profile
 # ----------------------------------------------------- 
 source install/profile.sh
-
-# ----------------------------------------------------- 
-# Check for browser
-# ----------------------------------------------------- 
-source install/browser.sh
 
 # ----------------------------------------------------- 
 # Install flatpak
@@ -140,14 +135,14 @@ source install/neovim.sh
 source install/copy.sh
 
 # ----------------------------------------------------- 
-# Initialize pywal color scheme
-# ----------------------------------------------------- 
-source install/init-pywal.sh
-
-# ----------------------------------------------------- 
 # Install profile symlinks
 # ----------------------------------------------------- 
 source install/symlinks.sh
+
+# ----------------------------------------------------- 
+# Initialize pywal color scheme
+# ----------------------------------------------------- 
+source install/init-pywal.sh
 
 # ----------------------------------------------------- 
 # Restore hyprland settings
@@ -158,11 +153,6 @@ source install/settings.sh
 # Install ML4W Apps
 # ----------------------------------------------------- 
 source install/apps.sh
-
-# ----------------------------------------------------- 
-# Check installation of GTK Themes
-# ----------------------------------------------------- 
-source install/gtk.sh
 
 # ----------------------------------------------------- 
 # Final cleanup

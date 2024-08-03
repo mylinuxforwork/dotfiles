@@ -28,4 +28,4 @@ xfce4-power-manager &
 dunst &
 
 # Setup Wallpaper and update colors
-~/dotfiles/qtile/scripts/wallpaper.sh init
+~/.config/qtile/scripts/wallpaper.sh init

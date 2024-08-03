@@ -30,22 +30,21 @@ alias lt='eza -a --tree --level=1 --icons'
 alias shutdown='systemctl poweroff'
 alias v='$EDITOR'
 alias vim='$EDITOR'
-alias ts='~/dotfiles/scripts/snapshot.sh'
+alias ts='~/.config/ml4w/scripts/snapshot.sh'
 alias wifi='nmtui'
-alias dot="cd ~/dotfiles"
-alias cleanup='~/dotfiles/scripts/cleanup.sh'
+alias cleanup='~/.config/ml4w/scripts/cleanup.sh'
 
 # -----------------------------------------------------
 # ML4W Apps
 # -----------------------------------------------------
-alias ml4w='~/dotfiles/apps/ML4W_Welcome-x86_64.AppImage'
-alias ml4w-settings='~/dotfiles/apps/ML4W_Dotfiles_Settings-x86_64.AppImage'
+alias ml4w='~/.config/ml4w/apps/ML4W_Welcome-x86_64.AppImage'
+alias ml4w-settings='~/.config/ml4w/apps/ML4W_Dotfiles_Settings-x86_64.AppImage'
 alias ml4w-sidebar='ags -t sidebar'
-alias ml4w-hyprland='~/dotfiles/apps/ML4W_Hyprland_Settings-x86_64.AppImage'
+alias ml4w-hyprland='~/.config/ml4w/apps/ML4W_Hyprland_Settings-x86_64.AppImage'
 alias ml4w-diagnosis='~/.config/hypr/scripts/diagnosis.sh'
 alias ml4w-hyprland-diagnosis='~/.config/hypr/scripts/diagnosis.sh'
-alias ml4w-qtile-diagnosis='~/dotfiles/qtile/scripts/diagnosis.sh'
-alias ml4w-update='~/dotfiles/update.sh'
+alias ml4w-qtile-diagnosis='~/.config/ml4w/qtile/scripts/diagnosis.sh'
+alias ml4w-update='~/.config/ml4w/update.sh'
 
 # -----------------------------------------------------
 # Window Managers
@@ -70,7 +69,7 @@ alias gcredential="git config credential.helper store"
 # -----------------------------------------------------
 # SCRIPTS
 # -----------------------------------------------------
-alias ascii='~/dotfiles/scripts/figlet.sh'
+alias ascii='~/.config/ml4w/scripts/figlet.sh'
 
 # -----------------------------------------------------
 # SYSTEM

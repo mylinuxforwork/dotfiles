@@ -31,21 +31,14 @@ else
     echo ":: bluetooth.service activated successfully."    
 fi
 
-if [ -d ~/dotfiles/hypr/settings/ ] ;then
+if [ -d ~/$dot_folder/hypr/settings/ ] ;then
     rm -rf ~/dotfiles/hypr/settings
     echo ":: ~/dotfiles/hypr/settings removed."
 fi
 
-if [ -f ~/dotfiles/.settings/eww-monitor.sh ] ;then
-    if grep -q "echo" $HOME/dotfiles/.settings/eww-monitor.sh ; then
-       rm ~/dotfiles/.settings/eww-monitor.sh
-       echo "::  ~/dotfiles/.settings/eww-monitor.sh removed."
-    fi
-fi
-
 # Replace pfetch and neofetch with fastfetch
-sed -i "s/pfetch/fastfetch/g" ~/dotfiles/.bashrc
-sed -i "s/neofetch/fastfetch/g" ~/dotfiles/.bashrc
+sed -i "s/pfetch/fastfetch/g" ~/$dot_folder/.bashrc
+sed -i "s/neofetch/fastfetch/g" ~/$dot_folder/.bashrc
 
 # Create default folder structure
 xdg-user-dirs-update

@@ -1,0 +1,58 @@
+// __        __          _                 
+// \ \      / /_ _ _   _| |__   __ _ _ __  
+//  \ \ /\ / / _` | | | | '_ \ / _` | '__| 
+//   \ V  V / (_| | |_| | |_) | (_| | |    
+//    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    
+//                 |___/                   
+//  
+// by Stephan Raabe (2023) 
+// ----------------------------------------------------- 
+//
+{
+    // General Settings
+    "position": "bottom",
+    "margin-top": 0,
+    "margin-bottom": 14,
+    "layer": "top",
+    "margin-left": 0,
+    "margin-right": 0,    
+    "spacing": 0,
+
+    // Load Modules
+    "include": [
+        "~/.config/ml4w/settings/waybar-quicklinks.json",
+        "~/.config/waybar/modules.json"
+    ],
+
+    // Modules Left
+    "modules-left": [
+        "custom/appmenu",
+        "group/links",
+        "group/settings",
+        //"wlr/taskbar",
+        "group/quicklinks",
+        "hyprland/window"
+    ],
+
+    // Modules Center
+    "modules-center": [
+        "hyprland/workspaces",
+        "custom/empty"
+    ],
+
+    // Modules Right    
+    "modules-right": [
+        "custom/updates",
+        "pulseaudio",
+        "backlight",
+        "bluetooth",
+        "battery", 
+        "network",
+        "group/hardware",
+        "group/tools",
+        "tray",
+        "custom/exit",
+        "custom/ml4w-welcome",
+        "clock"
+    ]
+}
