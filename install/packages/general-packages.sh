@@ -38,7 +38,6 @@ packagesPacman=(
     "nm-connection-editor"
     "gvfs"
     "xdg-user-dirs"
-    "xdg-desktop-portal-gtk"
     "networkmanager"
     "network-manager-applet"
     "xarchiver"

@@ -46,9 +46,7 @@ for f in $files; do
     fi
 done
 
-cd ~/$dot_folder
-stow .
-cd $install_directory
+stow --dir="$HOME/$dot_folder" --target="$HOME" .
 
 echo ":: Symbolic links created."
 echo
