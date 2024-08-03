@@ -41,12 +41,12 @@ class ML4WRestore:
 
     path_name = pathname # Path of Application
     homeFolder = os.path.expanduser('~') # Path to home folder
-    dotfiles = homeFolder + "/dotfiles/"
+    dotfiles = homeFolder + "/.config/"
     settings = {}
 
     def __init__(self):
         # Load settings.json
-        settings_file = open(self.dotfiles + ".settings/settings.json")
+        settings_file = open(self.dotfiles + "ml4w/settings/settings.json")
         settings_arr = json.load(settings_file)
         for row in settings_arr:
             self.settings[row["key"]] = row["value"]
@@ -70,7 +70,7 @@ class ML4WRestore:
         if "rofi_bordersize" in self.settings:
             value = int(self.settings["rofi_bordersize"])
             text = "* { border-width: " + str(value) + "px; }"
-            self.overwriteFile(".settings/rofi-border.rasi",text)
+            self.overwriteFile("ml4w/settings/rofi-border.rasi",text)
             print (":: rofi_bordersize restored")
         
         # Dunst Position
