@@ -135,14 +135,14 @@ source install/neovim.sh
 source install/copy.sh
 
 # ----------------------------------------------------- 
-# Initialize pywal color scheme
-# ----------------------------------------------------- 
-source install/init-pywal.sh
-
-# ----------------------------------------------------- 
 # Install profile symlinks
 # ----------------------------------------------------- 
 source install/symlinks.sh
+
+# ----------------------------------------------------- 
+# Initialize pywal color scheme
+# ----------------------------------------------------- 
+source install/init-pywal.sh
 
 # ----------------------------------------------------- 
 # Restore hyprland settings
