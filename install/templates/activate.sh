@@ -86,7 +86,7 @@ _confirm_dotfiles_folder() {
     fi
 }
 
-figlet "Activate ML4W"
+figlet "Activate"
 echo ":: You can activate an exiting ML4W Dotfiles installation."
 echo
 echo ":: Please enter the name of the installation folder starting from your home directory."
