@@ -29,7 +29,6 @@ latest_version=$(get_latest_release)
 sleep 1
 figlet "Update"
 echo
-echo "to ML4W Dotfiles $(get_latest_release)"
 if [ ! -d $HOME/Downloads ] ;then
     echo "ERROR:: $HOME/Downloads folder not found."
     exit
