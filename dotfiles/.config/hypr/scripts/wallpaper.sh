@@ -26,13 +26,14 @@ fi
 # ----------------------------------------------------- 
 
 force_generate=0
-generated_versions="$HOME/.cache/ml4w-wallpaper-generated"
-cache_file="$HOME/.cache/current_wallpaper"
-blurred_wallpaper="$HOME/.cache/blurred_wallpaper.png"
-square_wallpaper="$HOME/.cache/square_wallpaper.png"
-rasi_file="$HOME/.cache/current_wallpaper.rasi"
+generated_versions="$HOME/.config/ml4w/cache/wallpaper-generated"
+cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
+blurred_wallpaper="$HOME/.config/ml4w/cache/blurred_wallpaper.png"
+square_wallpaper="$HOME/.config/ml4w/cache/square_wallpaper.png"
+rasi_file="$HOME/.config/ml4w/cache/current_wallpaper.rasi"
 blur_file="$HOME/.config/ml4w/settings/blur.sh"
 default_wallpaper="$HOME/wallpaper/default.jpg"
+wallpaper_effect="$HOME/.config/ml4w/settings/wallpaper-effect.sh"
 blur="50x30"
 blur=$(cat $blur_file)
 
@@ -78,8 +79,8 @@ echo ":: Wallpaper Filename: $wallpaper_filename"
 # Wallpaper Effects
 # -----------------------------------------------------
 
-if [ -f $HOME/.config/ml4w/settings/wallpaper-effect.sh ] ;then
-    effect=$(cat $HOME/.config/ml4w/settings/wallpaper-effect.sh)
+if [ -f $wallpaper_effect ] ;then
+    effect=$(cat $wallpaper_effect)
     if [ ! "$effect" == "off" ] ;then
         used_wallpaper=$generated_versions/$effect-$wallpaper_filename
         if [ -f $generated_versions/$effect-$wallpaper_filename ] && [ "$force_generate" == "0" ] && [ "$use_cache" == "1" ] ;then

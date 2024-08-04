@@ -85,11 +85,6 @@ source install/flatpak.sh
 source install/vm.sh
 
 # ----------------------------------------------------- 
-# Install wallpapers
-# ----------------------------------------------------- 
-source install/wallpaper.sh
-
-# ----------------------------------------------------- 
 # Install Display Manager
 # ----------------------------------------------------- 
 source install/displaymanager.sh
@@ -138,6 +133,11 @@ source install/copy.sh
 # Install profile symlinks
 # ----------------------------------------------------- 
 source install/symlinks.sh
+
+# ----------------------------------------------------- 
+# Install wallpapers
+# ----------------------------------------------------- 
+source install/wallpaper.sh
 
 # ----------------------------------------------------- 
 # Initialize pywal color scheme

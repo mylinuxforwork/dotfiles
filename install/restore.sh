@@ -189,6 +189,21 @@ _startRestore() {
                 echo ":: Hyprland window.conf restored!"
             fi
         fi
+
+        # Check Wallpaper
+        if [ -f ~/.config/ml4w/cache/blurred_wallpaper.png ] ;then
+            rm ~/dotfiles-versions/$version/.config/ml4w/cache/blurred_wallpaper.png
+        fi
+        if [ -f ~/.config/ml4w/cache/current_wallpaper ] ;then
+            rm ~/dotfiles-versions/$version/.config/ml4w/cache/current_wallpaper
+        fi
+        if [ -f ~/.config/ml4w/cache/current_wallpaper.rasi ] ;then
+            rm ~/dotfiles-versions/$version/.config/ml4w/cache/current_wallpaper.rasi
+        fi
+        if [ -f ~/.config/ml4w/cache/square_wallpaper.png ] ;then
+            rm ~/dotfiles-versions/$version/.config/ml4w/cache/square_wallpaper.png
+        fi
+
     fi
     if [[ $profile == *"Qtile"* ]]; then
         if [[ $restoreselect == *"~/$dot_folder/.config/qtile/autostart.sh"* ]] || [[ $restoreselect == *"All"* ]] ; then
@@ -208,8 +223,6 @@ if [ -d ~/$dot_folder ]; then
     echo -e "${NONE}"
         restored=0
         echo "The script will try to restore existing configurations."
-        echo "PLEASE NOTE: Restoring is not possible with version < 2.6 of the dotfiles."
-        echo "In that case, please use the automated backup or create your own backup manually."
         echo ""
         _showRestoreOptions
         echo ""

@@ -39,8 +39,8 @@ echo ""
 # ------------------------------------------------------
 
 # Cache file for holding the current wallpaper
-cache_file="$HOME/.cache/current_wallpaper"
-rasi_file="$HOME/.cache/current_wallpaper.rasi"
+cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
+rasi_file="$HOME/.config/ml4w/cache/current_wallpaper.rasi"
 
 # Create cache file if not exists
 if [ ! -f $cache_file ] ;then

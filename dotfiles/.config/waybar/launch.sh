@@ -28,13 +28,13 @@ sleep 0.2
 themestyle="/ml4w-blur;/ml4w-blur/white"
 
 # ----------------------------------------------------- 
-# Get current theme information from .cache/.themestyle.sh
+# Get current theme information from ~/.config/ml4w/settings/waybar-theme.sh
 # ----------------------------------------------------- 
-if [ -f ~/.cache/.themestyle.sh ]; then
-    themestyle=$(cat ~/.cache/.themestyle.sh)
+if [ -f ~/.config/ml4w/settings/waybar-theme.sh ]; then
+    themestyle=$(cat ~/.config/ml4w/settings/waybar-theme.sh)
 else
-    touch ~/.cache/.themestyle.sh
-    echo "$themestyle" > ~/.cache/.themestyle.sh
+    touch ~/.config/ml4w/settings/waybar-theme.sh
+    echo "$themestyle" > ~/.config/ml4w/settings/waybar-theme.sh
 fi
 
 IFS=';' read -ra arrThemes <<< "$themestyle"
