@@ -52,7 +52,22 @@ _activate_dotfiles_folder() {
     stow --dir="$HOME/$dot_folder" --target="$HOME" .
     echo
     echo ":: Activation of ~/$dot_folder completed. "
-    echo ":: Please reboot or exit your session and login again."
+    echo
+    echo -e "${GREEN}"
+    figlet "Logout"
+    echo -e "${NONE}"
+    echo "A new login into your system is recommended."
+    echo
+    if gum confirm "Do you want to exit your system now?" ;then
+        gum spin --spinner dot --title "Logout has started..." -- sleep 3
+        killall -9 Hyprland
+    elif [ $? -eq 130 ]; then
+        exit 130
+    else
+        echo ":: Logout skipped"
+    fi
+    echo ""
+
     echo
 
     exit
