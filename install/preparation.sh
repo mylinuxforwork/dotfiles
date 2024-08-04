@@ -64,6 +64,11 @@ else
     echo ":: post.sh already exists"
 fi
 
+# Copy activate.sh
+cp install/templates/activate.sh ~/dotfiles-versions/
+chmod +x ~/dotfiles-versions/activate.sh
+echo ":: activate.sh updated"
+
 # Prepare library folder
 cp install/includes/scripts.sh ~/dotfiles-versions/library/
 echo ":: scripts.sh for $version updated in ~/dotfiles-versions/library"
