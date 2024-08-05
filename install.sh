@@ -36,7 +36,7 @@ if [ -z $automation_paralleldownloads ] ;then
     source install/paralleldownloads.sh
 else
     if [[ "$automation_paralleldownloads" = true ]] ;then
-        source install/paralleldownloads-auto.sh
+        source install/automation/paralleldownloads.sh
     fi
 fi
 
@@ -52,7 +52,7 @@ source install/yay.sh
 if [ -z $automation_checkforupdates ] ;then
     source install/updatesystem.sh
 else
-    source install/updatesystem-auto.sh
+    source install/automation/updatesystem.sh
 fi 
 
 # ----------------------------------------------------- 
@@ -61,7 +61,7 @@ fi
 if [ -z $automation_dotfilesfolder ] ;then
     source install/dotfiles.sh
 else
-    source install/dotfiles-auto.sh
+    source install/automation/dotfiles.sh
 fi
 # ----------------------------------------------------- 
 # Backup files
@@ -69,7 +69,7 @@ fi
 if [ -z $automation_backup ] ;then
     source install/backup.sh
 else
-    source install/backup-auto.sh
+    source install/automation/backup.sh
 fi
 # ----------------------------------------------------- 
 # Prepare files for the installation
@@ -83,7 +83,7 @@ if [ -z $automation_installation ] ;then
     source install/installer.sh
 else
     if [[ "$automation_installation" = true ]] ;then
-        source install/installer-auto.sh
+        source install/automation/installer.sh
     else
         source install/installer.sh
     fi
@@ -105,7 +105,7 @@ source install/general.sh
 if [ -z $automation_profile ] ;then
     source install/profile.sh
 else
-    source install/profile-auto.sh
+    source install/automation/profile.sh
 fi
 
 # ----------------------------------------------------- 
@@ -115,7 +115,7 @@ if [ -z $automation_flatpak ] ;then
     source install/flatpak.sh
 else
     if [[ "$automation_flatpak" = true ]] ;then
-        source install/flatpak-auto.sh
+        source install/automation/flatpak.sh
     fi
 fi
 
@@ -125,7 +125,7 @@ fi
 if [ -z $automation_vm ] ;then
     source install/vm.sh
 else
-    source install/vm-auto.sh
+    source install/automation/vm.sh
 fi
 # ----------------------------------------------------- 
 # Install Display Manager
@@ -134,7 +134,7 @@ if [ -z $automation_displaymanager ] ;then
     source install/displaymanager.sh
 else
     if [[ "$automation_displaymanager" = true ]] ;then
-        source install/displaymanager-auto.sh
+        source install/automation/displaymanager.sh
     else
         source install/displaymanager.sh
     fi
@@ -157,7 +157,7 @@ if [ -z $automation_vm ] ;then
     source install/restore.sh
 else
     if [[ "$automation_restore" = true ]] ;then
-        source install/restore-auto.sh
+        source install/automation/restore.sh
     else
         restored=0
     fi
@@ -170,7 +170,7 @@ if [ -z $automation_keyboard ] ;then
     source install/keyboard.sh
 else
     if [[ "$automation_keyboard" = true ]] && [[ "$restored" = 1 ]] ;then
-        source install/keyboard-auto.sh
+        source install/automation/keyboard.sh
     else
         source install/keyboard.sh        
     fi
@@ -182,7 +182,7 @@ fi
 if [ -z $automation_hook ] ;then
     source install/hook.sh
 else
-    source install/hook-auto.sh
+    source install/automation/hook.sh
 fi
 
 # ----------------------------------------------------- 
@@ -191,7 +191,7 @@ fi
 if [ -z $automation_bashrc ] ;then
     source install/bashrc.sh
 else
-    source install/bashrc-auto.sh
+    source install/automation/bashrc.sh
 fi
 
 # ----------------------------------------------------- 
@@ -200,7 +200,7 @@ fi
 if [ -z $automation_bashrc ] ;then
     source install/neovim.sh
 else
-    source install/neovim-auto.sh
+    source install/automation/neovim.sh
 fi
 # ----------------------------------------------------- 
 # Copy files to target directory
@@ -209,7 +209,7 @@ if [ -z $automation_copy ] ;then
     source install/copy.sh
 else 
     if [[ "$automation_copy" = true ]] ;then
-        source install/copy-auto.sh    
+        source install/automation/copy.sh    
     else
         source install/copy.sh    
     fi
@@ -252,7 +252,7 @@ if [ -z $automation_diagnosis ] ;then
     source install/diagnosis.sh
 else
     if [[ "$automation_diagnosis" = true ]] ;then
-        source install/diagnosis-auto.sh
+        source install/automation/diagnosis.sh
     fi
 fi
 
@@ -262,7 +262,7 @@ fi
 if [ -z $automation_post ] ;then
     source install/post.sh
 else
-    source install/post-auto.sh
+    source install/automation/post.sh
 fi
 
 # ----------------------------------------------------- 

@@ -5,12 +5,12 @@ figlet "KVM VM"
 echo -e "${NONE}"
     echo "The script has detected that you run the installation in a KVM virtual machine."
     echo
-    if grep -Fxq "kvm.conf" ~/dotfiles-versions/$version/hypr/conf/environment.conf
+    if grep -Fxq "kvm.conf" ~/dotfiles-versions/$version/.config/hypr/conf/environment.conf
     then
         echo ":: KVM Environment already set."
     else
         if gum confirm "Do you want to install the KVM environment variables?" ;then
-            echo "source = ~/.config/hypr/conf/environments/kvm.conf" >  ~/dotfiles-versions/$version/hypr/conf/environment.conf
+            echo "source = ~/.config/hypr/conf/environments/kvm.conf" >  ~/dotfiles-versions/$version/.config/hypr/conf/environment.conf
             echo "Environment set to KVM."
         fi
     fi

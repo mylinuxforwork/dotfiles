@@ -1,6 +1,6 @@
 #!/bin/bash
-# Find the latest automation features here:
-# URL
+# Find the latest automation variables here:
+# https://github.com/mylinuxforwork/dotfiles/wiki/Automation-of-the-installation-and-update
 
 # -----------------------------------------------------
 # SYSTEM UPDATES
