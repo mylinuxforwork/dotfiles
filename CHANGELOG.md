@@ -1,5 +1,6 @@
 Version 2.9.5RL
 --------------------------------------------------------
+- The folder name and location of the dotfiles folder can be now individual defined.
 - Add backlight module to waybar for laptop users
 
 Version 2.9.4
