@@ -48,6 +48,9 @@ _activate_dotfiles_folder() {
             fi
         fi
     done
+    
+    # Write dot folder into settings
+    echo "$dot_folder" > $HOME/$dot_folder/.config/ml4w/settings/dotfiles-folder.sh
 
     stow --dir="$HOME/$dot_folder" --target="$HOME" .
     echo

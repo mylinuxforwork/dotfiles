@@ -8,7 +8,7 @@
 #  
 # by Stephan Raabe (2024) 
 # ----------------------------------------------------- 
-cache_file="$HOME/.cache/current_wallpaper"
+cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
 sleep 1
 clear
 figlet "Set Wallpaper"
