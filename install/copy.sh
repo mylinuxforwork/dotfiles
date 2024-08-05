@@ -1,15 +1,9 @@
 # ------------------------------------------------------
 # Copy dotfiles
 # ------------------------------------------------------
-if [ ! -d ~/$dot_folder ]; then
 echo -e "${GREEN}"
-figlet "Installation"
+figlet "Copy dotfiles"
 echo -e "${NONE}"
-else
-echo -e "${GREEN}"
-figlet "Update"
-echo -e "${NONE}"
-fi
 if [ ! -d ~/$dot_folder ]; then
 echo "The script will now remove existing directories and files from ~/.config/"
 echo "and copy your prepared configuration from ~/dotfiles-versions/$version to ~/$dot_folder"

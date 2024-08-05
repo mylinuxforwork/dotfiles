@@ -2,6 +2,10 @@
 # Install dotfiles
 # ------------------------------------------------------
 
+echo -e "${GREEN}"
+figlet "Symlinks"
+echo -e "${NONE}"
+
 # Check home
 files=$(ls -a ~/$dot_folder)
 for f in $files; do

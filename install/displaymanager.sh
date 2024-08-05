@@ -1,8 +1,6 @@
 # ------------------------------------------------------
 # Disable display manager
 # ------------------------------------------------------
-disman=0
-profile="Hyprland"
 echo -e "${GREEN}"
 figlet "Display Manager"
 echo -e "${NONE}"

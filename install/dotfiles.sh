@@ -50,6 +50,7 @@ fi
 
 if [ $dot_files_update == "0" ] ;then
     echo ":: Update will be executed in ~/$dot_folder"
+    echo
 else
     _confirm_dotfiles_folder
 fi

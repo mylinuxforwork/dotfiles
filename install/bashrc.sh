@@ -1,6 +1,9 @@
 # ------------------------------------------------------
 # Install .bashrc
 # ------------------------------------------------------
+echo -e "${GREEN}"
+figlet ".bashrc"
+echo -e "${NONE}"
 
 if [ ! -L ~/.bashrc ] && [ -f ~/.bashrc ]; then
     echo "PLEASE NOTE: The script has detected an existing .bashrc file."
@@ -10,9 +13,6 @@ if [ -f ~/dotfiles-versions/backups/$datets/.bashrc-old ]; then
     echo
 fi
 if [ -f ~/dotfiles-versions/$version/.bashrc ] ;then
-    echo -e "${GREEN}"
-    figlet ".bashrc"
-    echo -e "${NONE}"
     if [ -f ~/$dot_folder/.bashrc ] ;then
         echo ":: The script has detected an existing .bashrc in your ~/$dot_version folder."
         echo ":: You can replace it with the latest version of ML4W Dotfiles $version."

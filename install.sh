@@ -15,6 +15,11 @@ clear
 source install/header.sh
 
 # ----------------------------------------------------- 
+# Load automation variables
+# ----------------------------------------------------- 
+source install/automation.sh
+
+# ----------------------------------------------------- 
 # Check for required packages
 # ----------------------------------------------------- 
 source install/required.sh
@@ -27,7 +32,14 @@ source install/confirm_start.sh
 # ----------------------------------------------------- 
 # Activate parallel downloads
 # ----------------------------------------------------- 
-source install/paralleldownloads.sh
+if [ -z $automation_paralleldownloads ] ;then
+    source install/paralleldownloads.sh
+else
+    if [[ "$automation_paralleldownloads" = true ]] ;then
+        source install/paralleldownloads-auto.sh
+    fi
+fi
+
 
 # ----------------------------------------------------- 
 # Install yay
@@ -36,19 +48,29 @@ source install/yay.sh
 
 # ----------------------------------------------------- 
 # Update the system
-# ----------------------------------------------------- 
-source install/updatesystem.sh
+# -----------------------------------------------------
+if [ -z $automation_checkforupdates ] ;then
+    source install/updatesystem.sh
+else
+    source install/updatesystem-auto.sh
+fi 
 
 # ----------------------------------------------------- 
 # Dotfiles target folder
 # ----------------------------------------------------- 
-source install/dotfiles.sh
-
+if [ -z $automation_dotfilesfolder ] ;then
+    source install/dotfiles.sh
+else
+    source install/dotfiles-auto.sh
+fi
 # ----------------------------------------------------- 
 # Backup files
 # ----------------------------------------------------- 
-source install/backup.sh
-
+if [ -z $automation_backup ] ;then
+    source install/backup.sh
+else
+    source install/backup-auto.sh
+fi
 # ----------------------------------------------------- 
 # Prepare files for the installation
 # ----------------------------------------------------- 
@@ -57,7 +79,15 @@ source install/preparation.sh
 # ----------------------------------------------------- 
 # Decide on installation method
 # ----------------------------------------------------- 
-source install/installer.sh
+if [ -z $automation_installation ] ;then
+    source install/installer.sh
+else
+    if [[ "$automation_installation" = true ]] ;then
+        source install/installer-auto.sh
+    else
+        source install/installer.sh
+    fi
+fi
 
 # ----------------------------------------------------- 
 # Remove not required packages
@@ -72,22 +102,43 @@ source install/general.sh
 # ----------------------------------------------------- 
 # Install profile
 # ----------------------------------------------------- 
-source install/profile.sh
+if [ -z $automation_profile ] ;then
+    source install/profile.sh
+else
+    source install/profile-auto.sh
+fi
 
 # ----------------------------------------------------- 
 # Install flatpak
 # ----------------------------------------------------- 
-source install/flatpak.sh
+if [ -z $automation_flatpak ] ;then
+    source install/flatpak.sh
+else
+    if [[ "$automation_flatpak" = true ]] ;then
+        source install/flatpak-auto.sh
+    fi
+fi
 
 # ----------------------------------------------------- 
 # Check if running in Qemu VM
 # ----------------------------------------------------- 
-source install/vm.sh
-
+if [ -z $automation_vm ] ;then
+    source install/vm.sh
+else
+    source install/vm-auto.sh
+fi
 # ----------------------------------------------------- 
 # Install Display Manager
-# ----------------------------------------------------- 
-source install/displaymanager.sh
+# -----------------------------------------------------
+if [ -z $automation_displaymanager ] ;then
+    source install/displaymanager.sh
+else
+    if [[ "$automation_displaymanager" = true ]] ;then
+        source install/displaymanager-auto.sh
+    else
+        source install/displaymanager.sh
+    fi
+fi
 
 # ----------------------------------------------------- 
 # Install tty issue
@@ -102,32 +153,67 @@ source install/before_restore.sh
 # ----------------------------------------------------- 
 # Restore configuration and settings
 # ----------------------------------------------------- 
-source install/restore.sh
+if [ -z $automation_vm ] ;then
+    source install/restore.sh
+else
+    if [[ "$automation_restore" = true ]] ;then
+        source install/restore-auto.sh
+    else
+        restored=0
+    fi
+fi
 
 # ----------------------------------------------------- 
 # Setup the input devices
 # ----------------------------------------------------- 
-source install/keyboard.sh
+if [ -z $automation_keyboard ] ;then
+    source install/keyboard.sh
+else
+    if [[ "$automation_keyboard" = true ]] && [[ "$restored" = 1 ]] ;then
+        source install/keyboard-auto.sh
+    else
+        source install/keyboard.sh        
+    fi
+fi
 
 # ----------------------------------------------------- 
 # Execute hook.sh if exists
 # ----------------------------------------------------- 
-source install/hook.sh
+if [ -z $automation_hook ] ;then
+    source install/hook.sh
+else
+    source install/hook-auto.sh
+fi
 
 # ----------------------------------------------------- 
 # Check installation of .bashrc
 # ----------------------------------------------------- 
-source install/bashrc.sh
+if [ -z $automation_bashrc ] ;then
+    source install/bashrc.sh
+else
+    source install/bashrc-auto.sh
+fi
 
 # ----------------------------------------------------- 
 # Check installation of neovim
 # ----------------------------------------------------- 
-source install/neovim.sh
-
+if [ -z $automation_bashrc ] ;then
+    source install/neovim.sh
+else
+    source install/neovim-auto.sh
+fi
 # ----------------------------------------------------- 
 # Copy files to target directory
 # ----------------------------------------------------- 
-source install/copy.sh
+if [ -z $automation_copy ] ;then
+    source install/copy.sh
+else 
+    if [[ "$automation_copy" = true ]] ;then
+        source install/copy-auto.sh    
+    else
+        source install/copy.sh    
+    fi
+fi
 
 # ----------------------------------------------------- 
 # Install profile symlinks
@@ -162,12 +248,22 @@ source install/cleanup.sh
 # ----------------------------------------------------- 
 # Check executables of important apps
 # ----------------------------------------------------- 
-source install/diagnosis.sh
+if [ -z $automation_diagnosis ] ;then
+    source install/diagnosis.sh
+else
+    if [[ "$automation_diagnosis" = true ]] ;then
+        source install/diagnosis-auto.sh
+    fi
+fi
 
 # ----------------------------------------------------- 
 # Execute post.sh if exists
 # ----------------------------------------------------- 
-source install/post.sh
+if [ -z $automation_post ] ;then
+    source install/post.sh
+else
+    source install/post-auto.sh
+fi
 
 # ----------------------------------------------------- 
 # Offer Reboot

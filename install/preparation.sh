@@ -64,6 +64,10 @@ else
     echo ":: post.sh already exists"
 fi
 
+# Copy automation.tpl
+cp install/templates/automation.tpl ~/dotfiles-versions/
+echo ":: automation.tpl created"
+
 # Copy activate.sh
 cp install/templates/activate.sh ~/dotfiles-versions/
 chmod +x ~/dotfiles-versions/activate.sh
