@@ -116,7 +116,7 @@ keys = [
     # Apps
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
-    Key([mod], "b", lazy.spawn("sh " + home + "/.config/ml4w/settings/browser.sh"), desc="Launch Browser"),
+    Key([mod], "b", lazy.spawn("bash " + home + "/.config/ml4w/settings/browser.sh"), desc="Launch Browser"),
     Key([mod, "shift"], "w", lazy.spawn(home + "/.config/qtile/scripts/wallpaper.sh"), desc="Update Theme and Wallpaper"),
     Key([mod, "control"], "w", lazy.spawn(home + "/.config/qtile/scripts/wallpaper.sh select"), desc="Select Theme and Wallpaper"),
 
@@ -143,7 +143,7 @@ dgroups_key_binder = simple_key_binder(mod)
 # --------------------------------------------------------
 
 groups.append(ScratchPad("6", [
-    DropDown("chatgpt", "chromium --app=https://chat.openai.com", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),
+    DropDown("chatgpt", lazy.spawn("bash " + home + "/.config/ml4w/settings/ai.sh"), x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),
     DropDown("mousepad", "mousepad", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),
     DropDown("terminal", "alacritty", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),
     DropDown("scrcpy", "scrcpy -d", x=0.8, y=0.05, width=0.15, height=0.6, on_focus_lost_hide=False )
@@ -282,7 +282,7 @@ widget_list = [
         text=" ",
         foreground="000000.6",
         fontsize=18,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("bash " + home + "/.config/.settings/browser.sh")},
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("bash " + home + "/.config/ml4w/settings/browser.sh")},
     ),
     widget.TextBox(
         **decor_left,
@@ -290,7 +290,7 @@ widget_list = [
         text=" ",
         foreground="000000.6",
         fontsize=18,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("bash " + home + "/.config/.settings/filemanager.sh")}
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("bash " + home + "/.config/ml4w/settings/filemanager.sh")}
     ),
     
     widget.WindowName(

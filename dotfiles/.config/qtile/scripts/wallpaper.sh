@@ -14,9 +14,9 @@ wallpaper_folder="$HOME/wallpaper"
 if [ -f ~/.config/ml4w/settings/wallpaper-folder.sh ] ;then
     source ~/.config/ml4w/settings/wallpaper-folder.sh
 fi
-cache_file="$HOME/.cache/current_wallpaper"
-blurred="$HOME/.cache/blurred_wallpaper.png"
-rasi_file="$HOME/.cache/current_wallpaper.rasi"
+cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
+blurred="$HOME/.config/ml4w/cache/blurred_wallpaper.png"
+rasi_file="$HOME/.config/ml4w/cache/current_wallpaper.rasi"
 
 # Create cache file if not exists
 if [ ! -f $cache_file ] ;then
