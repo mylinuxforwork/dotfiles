@@ -1,5 +1,5 @@
 #!/bin/bash
-# Find the latest automation variables here:
+# Find the latest automation parameters here:
 # https://github.com/mylinuxforwork/dotfiles/wiki/Automation-of-the-installation-and-update
 
 # -----------------------------------------------------
