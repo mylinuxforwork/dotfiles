@@ -5,6 +5,7 @@ Version 2.9.5
 - The installation and update steps can be fully automated with the new automation.sh script.
 - Backlight module to waybar for laptop users added.
 - Post Installation Script added. Will be executed once after the first installation to install needed packages like xdg-desktop-portal-gtk
+- New wallpaper effects added. Right click on waybar wallpaper icon 
 
 Version 2.9.4
 https://github.com/mylinuxforwork/dotfiles/milestone/1?closed=1

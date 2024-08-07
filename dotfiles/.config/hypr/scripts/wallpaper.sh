@@ -104,7 +104,6 @@ echo ":: Execute pywal with $used_wallpaper"
 wal -q -i $used_wallpaper
 source "$HOME/.cache/wal/colors.sh"
 
-
 # ----------------------------------------------------- 
 # Write hyprpaper.conf
 # -----------------------------------------------------
