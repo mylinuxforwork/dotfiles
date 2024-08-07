@@ -55,26 +55,16 @@ else
     source install/automation/updatesystem.sh
 fi 
 
+clear
+
 # ----------------------------------------------------- 
-# Dotfiles target folder
+# Install profile
 # ----------------------------------------------------- 
-if [ -z $automation_dotfilesfolder ] ;then
-    source install/dotfiles.sh
+if [ -z $automation_profile ] ;then
+    source install/profile.sh
 else
-    source install/automation/dotfiles.sh
+    source install/automation/profile.sh
 fi
-# ----------------------------------------------------- 
-# Backup files
-# ----------------------------------------------------- 
-if [ -z $automation_backup ] ;then
-    source install/backup.sh
-else
-    source install/automation/backup.sh
-fi
-# ----------------------------------------------------- 
-# Prepare files for the installation
-# ----------------------------------------------------- 
-source install/preparation.sh
 
 # ----------------------------------------------------- 
 # Decide on installation method
@@ -100,15 +90,6 @@ source install/remove.sh
 source install/general.sh
 
 # ----------------------------------------------------- 
-# Install profile
-# ----------------------------------------------------- 
-if [ -z $automation_profile ] ;then
-    source install/profile.sh
-else
-    source install/automation/profile.sh
-fi
-
-# ----------------------------------------------------- 
 # Install flatpak
 # ----------------------------------------------------- 
 if [ -z $automation_flatpak ] ;then
@@ -120,6 +101,40 @@ else
 fi
 
 # ----------------------------------------------------- 
+# Check executables of important apps
+# ----------------------------------------------------- 
+if [ -z $automation_diagnosis ] ;then
+    source install/diagnosis.sh
+else
+    if [[ "$automation_diagnosis" = true ]] ;then
+        source install/automation/diagnosis.sh
+    fi
+fi
+
+clear
+
+# ----------------------------------------------------- 
+# Dotfiles target folder
+# ----------------------------------------------------- 
+if [ -z $automation_dotfilesfolder ] ;then
+    source install/dotfiles.sh
+else
+    source install/automation/dotfiles.sh
+fi
+# ----------------------------------------------------- 
+# Backup files
+# ----------------------------------------------------- 
+if [ -z $automation_backup ] ;then
+    source install/backup.sh
+else
+    source install/automation/backup.sh
+fi
+# ----------------------------------------------------- 
+# Prepare files for the installation
+# ----------------------------------------------------- 
+source install/preparation.sh
+
+# ----------------------------------------------------- 
 # Check if running in Qemu VM
 # ----------------------------------------------------- 
 if [ -z $automation_vm ] ;then
@@ -127,6 +142,7 @@ if [ -z $automation_vm ] ;then
 else
     source install/automation/vm.sh
 fi
+
 # ----------------------------------------------------- 
 # Install Display Manager
 # -----------------------------------------------------
@@ -244,17 +260,6 @@ source install/apps.sh
 # Final cleanup
 # ----------------------------------------------------- 
 source install/cleanup.sh
-
-# ----------------------------------------------------- 
-# Check executables of important apps
-# ----------------------------------------------------- 
-if [ -z $automation_diagnosis ] ;then
-    source install/diagnosis.sh
-else
-    if [[ "$automation_diagnosis" = true ]] ;then
-        source install/automation/diagnosis.sh
-    fi
-fi
 
 # ----------------------------------------------------- 
 # Execute post.sh if exists

@@ -372,7 +372,9 @@ _folderExists() {
     folder="$1";
     if [ ! -d $folder ]; then
         echo ":: ERROR: $folder doesn't exists. $2"
+        return 0
     else
         echo ":: OK: $folder found."
+        return 1
     fi
 }

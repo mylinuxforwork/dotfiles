@@ -2,7 +2,7 @@
 dot_folder="dotfiles"
 dot_files_update=1
 echo -e "${GREEN}"
-figlet "Folder"
+figlet "ML4W Dotfiles"
 echo -e "${NONE}"
 
 _define_dotfiles_folder() {
