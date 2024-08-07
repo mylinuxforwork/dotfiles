@@ -203,6 +203,9 @@ _startRestore() {
         if [ -f ~/.config/ml4w/cache/square_wallpaper.png ] ;then
             rm ~/dotfiles-versions/$version/.config/ml4w/cache/square_wallpaper.png
         fi
+        if [ -f ~/.config/hypr/hyprpaper.conf ] ;then
+            rm ~/dotfiles-versions/$version/.config/hypr/hyprpaper.conf
+        fi
 
     fi
     if [[ $profile == *"Qtile"* ]]; then
