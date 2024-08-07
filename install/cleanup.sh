@@ -42,6 +42,6 @@ sed -i "s/neofetch/fastfetch/g" ~/$dot_folder/.bashrc
 
 # Create default folder structure
 xdg-user-dirs-update
-echo 
 
+echo 
 echo ":: Cleanup done."

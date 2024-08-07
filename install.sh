@@ -7,6 +7,7 @@ version=$(cat dotfiles/.config/ml4w/version/name)
 install_directory=$(pwd)
 source install/includes/colors.sh
 source install/includes/library.sh
+
 clear
 
 # ----------------------------------------------------- 
@@ -90,17 +91,6 @@ source install/remove.sh
 source install/general.sh
 
 # ----------------------------------------------------- 
-# Install flatpak
-# ----------------------------------------------------- 
-if [ -z $automation_flatpak ] ;then
-    source install/flatpak.sh
-else
-    if [[ "$automation_flatpak" = true ]] ;then
-        source install/automation/flatpak.sh
-    fi
-fi
-
-# ----------------------------------------------------- 
 # Check executables of important apps
 # ----------------------------------------------------- 
 if [ -z $automation_diagnosis ] ;then
@@ -110,6 +100,11 @@ else
         source install/automation/diagnosis.sh
     fi
 fi
+
+# ----------------------------------------------------- 
+# Post Installation
+# ----------------------------------------------------- 
+source install/postinstall.sh
 
 clear
 

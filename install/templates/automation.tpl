@@ -45,13 +45,6 @@ automation_installation=true
 automation_profile="Hyprland"
 
 # -----------------------------------------------------
-# FLATPAK
-# true: Flatpak will be installed
-# true: Flatpak will be skipped
-# -----------------------------------------------------
-automation_flatpak=false
-
-# -----------------------------------------------------
 # VM SUPPORT
 # true: VM Support will be installed
 # -----------------------------------------------------
