@@ -72,7 +72,7 @@ cat <<"EOF"
 |___|_| |_|___/\__\__,_|_|_|\___|_|   
                                       
 EOF
-echo "for ML4W Dotfiles $latest_version"
+echo "for ML4W Dotfiles"
 echo
 echo -e "${NONE}"
 echo "This script will support you to download and install the ML4W Dotfiles".
