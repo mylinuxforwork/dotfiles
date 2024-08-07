@@ -14,4 +14,5 @@ if [ -z "${profile}" ] ;then
 else
     echo ":: Profile/s selected:" $profile
 fi
+echo
 
