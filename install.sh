@@ -90,17 +90,6 @@ source install/remove.sh
 source install/general.sh
 
 # ----------------------------------------------------- 
-# Install flatpak
-# ----------------------------------------------------- 
-if [ -z $automation_flatpak ] ;then
-    source install/flatpak.sh
-else
-    if [[ "$automation_flatpak" = true ]] ;then
-        source install/automation/flatpak.sh
-    fi
-fi
-
-# ----------------------------------------------------- 
 # Check executables of important apps
 # ----------------------------------------------------- 
 if [ -z $automation_diagnosis ] ;then
