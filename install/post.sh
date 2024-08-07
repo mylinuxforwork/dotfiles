@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Execute post.sh
 # ------------------------------------------------------
+
 if [ -f ~/dotfiles-versions/post.sh ]; then
 echo -e "${GREEN}"
 figlet "Post Script"

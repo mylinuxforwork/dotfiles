@@ -1,4 +1,7 @@
-#!/bin/bash
+# ------------------------------------------------------
+# Define dotfiles folder
+# ------------------------------------------------------
+
 dot_folder="dotfiles"
 dot_files_update=1
 echo -e "${GREEN}"

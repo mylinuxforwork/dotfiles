@@ -1,3 +1,7 @@
+# ------------------------------------------------------
+# Installation method
+# ------------------------------------------------------
+
 if [[ "$force_install" == "1" ]] ;then
     echo "Force installation of all packages..."
     _forcePackagesPacman "${packagesPacman[@]}";

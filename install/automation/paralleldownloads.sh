@@ -1,3 +1,7 @@
+# ------------------------------------------------------
+# Parallel Downloads
+# ------------------------------------------------------
+
 # Search for the line containing "ParallelDownloads = 5"
 line=$(grep "ParallelDownloads = 5" /etc/pacman.conf)
 

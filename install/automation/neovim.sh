@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Neovim
 # ------------------------------------------------------
+
 if [ -d ~/dotfiles-versions/$version/dotfiles/.config/nvim ] ;then
     if [ -d ~/$dot_folder/nvim ]; then
         echo -e "${GREEN}"

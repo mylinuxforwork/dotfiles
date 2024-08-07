@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Disable display manager
 # ------------------------------------------------------
+
 echo -e "${GREEN}"
 figlet "Display Manager"
 echo -e "${NONE}"

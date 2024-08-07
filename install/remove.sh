@@ -1,4 +1,6 @@
-#!/bin/bash
+# ------------------------------------------------------
+# Remove packages
+# ------------------------------------------------------
 
 # Remove Rofi Calc
 if [[ $(_isInstalledPacman "rofi-calc") == 0 ]]; then

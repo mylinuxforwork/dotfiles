@@ -1,3 +1,7 @@
+# ------------------------------------------------------
+# Execute post.sh
+# ------------------------------------------------------
+
 if [[ "$automation_post" = true ]] ;then
     if [ -f ~/dotfiles-versions/post.sh ]; then
         echo -e "${GREEN}"

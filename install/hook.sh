@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Execute hook.sh
 # ------------------------------------------------------
+
 if [ -f ~/dotfiles-versions/hook.sh ]; then
 echo -e "${GREEN}"
 figlet "Hook Script"

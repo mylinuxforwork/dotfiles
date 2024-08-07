@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Install required packages
 # ------------------------------------------------------
+
 echo "Do you want to check for new packages only (faster installation)"
 echo "or do you want to reinstall all packages again? (more robust and can help to fix issues)"
 echo

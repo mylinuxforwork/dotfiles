@@ -1,3 +1,7 @@
+# ------------------------------------------------------
+# Restore ML4W Hyprland Settings app
+# ------------------------------------------------------
+
 if [ "$restored" == "1" ]; then
     if [ -f ~/.config/ml4w/settings/settings.json ] ;then
         echo -e "${GREEN}"

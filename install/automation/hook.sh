@@ -1,3 +1,7 @@
+# ------------------------------------------------------
+# Execute hook.sh
+# ------------------------------------------------------
+
 if [[ "$automation_hook" = true ]] ;then
     if [ -f ~/dotfiles-versions/hook.sh ]; then
         echo -e "${GREEN}"

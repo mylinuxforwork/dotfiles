@@ -1,14 +1,6 @@
 #!/bin/bash
 clear
-cat <<"EOF"
- ____  _           _     _      ____  __  __ 
-|  _ \(_)___  __ _| |__ | | ___|  _ \|  \/  |
-| | | | / __|/ _` | '_ \| |/ _ \ | | | |\/| |
-| |_| | \__ \ (_| | |_) | |  __/ |_| | |  | |
-|____/|_|___/\__,_|_.__/|_|\___|____/|_|  |_|
-                                             
-EOF
-
+figlet "Disable DM"
 echo "Hyprland recommends the start with the tty login."
 echo "You can deactivate the current display manager (if exists)."
 echo ""

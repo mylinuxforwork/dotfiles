@@ -1,6 +1,7 @@
 # ------------------------------------------------------
-# Install tty login and issue
+# Clean up
 # ------------------------------------------------------
+
 echo -e "${GREEN}"
 figlet "Cleanup"
 echo -e "${NONE}"
