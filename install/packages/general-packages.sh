@@ -1,5 +1,6 @@
 packagesPacman=(
     "pacman-contrib"
+    "sed"
     "vim"
     "bluez"
     "bluez-utils"
