@@ -37,7 +37,7 @@ _isInstalledPacman() {
 }
 
 echo -e "${GREEN}"
-figlet "Post Installer"
+figlet "Post Install"
 echo -e "${NONE}"
 echo ":: The script will install additional packages for your ML4W Dotfiles."
 echo

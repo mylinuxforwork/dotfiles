@@ -1,9 +1,10 @@
-Version 2.9.5RL
+Version 2.9.5
 --------------------------------------------------------
 - The folder name and location of the dotfiles folder can be now individual defined during the update and installation.
 - You can copy the dotfiles folder to another location and rename it. The folder can the be activated with the ML4W Welcome App.
 - The installation and update steps can be fully automated with the new automation.sh script.
 - Backlight module to waybar for laptop users added.
+- Post Installation Script added. Will be executed once after the first installation to install needed packages like xdg-desktop-portal-gtk
 
 Version 2.9.4
 https://github.com/mylinuxforwork/dotfiles/milestone/1?closed=1
