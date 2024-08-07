@@ -7,6 +7,7 @@ version=$(cat dotfiles/.config/ml4w/version/name)
 install_directory=$(pwd)
 source install/includes/colors.sh
 source install/includes/library.sh
+
 clear
 
 # ----------------------------------------------------- 
@@ -99,6 +100,11 @@ else
         source install/automation/diagnosis.sh
     fi
 fi
+
+# ----------------------------------------------------- 
+# Post Installation
+# ----------------------------------------------------- 
+source install/postinstall.sh
 
 clear
 

@@ -14,8 +14,8 @@ if [ ! -f ~/.cache/ml4w-post-install ] ;then
         echo ":: Autostart of ML4W Welcome App disabled."
     fi
 else
+    rm ~/.cache/ml4w-post-install
     terminal=$(cat ~/.config/ml4w/settings/terminal.sh)
     $terminal --class dotfiles-floating -e ~/.config/ml4w/postinstall.sh
-    rm ~/.cache/ml4w-post-install
     $HOME/.config/ml4w/apps/ML4W_Welcome-x86_64.AppImage
 fi
