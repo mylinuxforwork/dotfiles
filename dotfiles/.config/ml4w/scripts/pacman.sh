@@ -55,4 +55,6 @@ else
         echo ":: Activation of ILoveCandy skipped."
     fi
 fi
-sleep 2
+echo
+echo "Press [ENTER] to close."
+read
