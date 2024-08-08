@@ -6,7 +6,7 @@
     }, 
     "custom/quicklink2": {
         "format": "",
-        "on-click": "firefox",
+        "on-click": "~/.config/ml4w/settings/browser.sh",
         "tooltip-format": "Open Firefox"
     },
     "custom/quicklink3": {
