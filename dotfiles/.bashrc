@@ -10,10 +10,6 @@
 # -----------------------------------------------------
 # You can add your custom configuration by creating a file ~/.bashrc_custom
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-PS1='[\u@\h \W]\$ '
-
 # Define Editor
 export EDITOR=nvim
 
