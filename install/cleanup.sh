@@ -37,10 +37,6 @@ if [ -d ~/$dot_folder/hypr/settings/ ] ;then
     echo ":: ~/dotfiles/hypr/settings removed."
 fi
 
-# Replace pfetch and neofetch with fastfetch
-sed -i "s/pfetch/fastfetch/g" ~/$dot_folder/.bashrc
-sed -i "s/neofetch/fastfetch/g" ~/$dot_folder/.bashrc
-
 # Create default folder structure
 xdg-user-dirs-update
 

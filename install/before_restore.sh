@@ -41,3 +41,8 @@ if [ -d ~/$dot_folder/.settings ] ;then
         sed -i -e 's/dotfiles\/.settings/.config\/ml4w\/settings/g' ~/$dot_folder/.config/ml4w/settings/waybar-quicklinks.json
     fi
 fi
+
+# Move legacy .bashrc_custom to ~/.config/bashrc/bashrc_custom
+if [ -f ~/.bashrc_custom ] ;then
+    mv ~/.bashrc_custom ~/$dot_folder/.config/bashrc/bashrc_custom
+fi

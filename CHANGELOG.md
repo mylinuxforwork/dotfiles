@@ -1,3 +1,8 @@
+Version 2.9.6RL
+--------------------------------------------------------
+- New modular and extendable bashrc structure in ~/.config/bashrc
+- .bashrc_custom moved into folder ~/.config/bashrc
+
 Version 2.9.5
 --------------------------------------------------------
 - The folder name and location of the dotfiles folder can be now individual defined during the update and installation.
