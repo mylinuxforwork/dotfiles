@@ -10,10 +10,6 @@ _showRestoreOptions() {
     echo "The following configurations can be transferred into the new installation."
     echo
     restorelist=""
-    if [ -f ~/$dot_folder/.bashrc ]; then
-        restorelist+="~/$dot_folder/.bashrc "
-        selectedlist+="~/$dot_folder/.bashrc,"
-    fi
     if [ -d ~/dotfiles/.settings ]; then
         restorelist+="~/$dot_folder/.config/ml4w/settings "
         selectedlist+="~/$dot_folder/.config/ml4w/settings,"
@@ -102,12 +98,6 @@ _showRestoreOptions() {
 }
 
 _startRestore() {
-    if [[ $restoreselect == *"~/$dot_folder/.bashrc"* ]] || [[ $restoreselect == *"All"* ]] ; then
-        if [ -f ~/$dot_folder/.bashrc ]; then
-            cp ~/$dot_folder/.bashrc ~/dotfiles-versions/$version/
-            echo ":: .bashrc restored!"
-        fi
-    fi
     if [[ $restoreselect == *"~/$dot_folder/.config/ml4w/settings"* ]] || [[ $restoreselect == *"All"* ]] ; then
         if [ -d ~/$dot_folder/.config/ml4w/settings ]; then
             rsync -avhp -I ~/$dot_folder/.config/ml4w/settings/ ~/dotfiles-versions/$version/.config/ml4w/settings/
