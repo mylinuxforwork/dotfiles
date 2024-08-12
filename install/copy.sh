@@ -27,7 +27,7 @@ if [ ! -d ~/$dot_folder ]; then
     echo
 fi
 
-if gum confirm "Do you to install the prepared ML4W Dotfiles now?" ;then
+if gum confirm "Do you want to install the prepared ML4W Dotfiles now?" ;then
     echo "Copy started"
     if [ ! -d ~/$dot_folder ]; then
         mkdir -p ~/$dot_folder
