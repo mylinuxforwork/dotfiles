@@ -48,7 +48,7 @@ packagesPacman=(
     "gtk4"
     "libadwaita"
     "xdg-desktop-portal"
-    "qalculate-gtk"
+    "gnome-calculator"
     "imagemagick"
     "guvcview"
     "jq"

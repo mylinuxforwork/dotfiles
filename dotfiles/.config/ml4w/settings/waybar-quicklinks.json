@@ -19,6 +19,16 @@
         "on-click": "betterbird",
         "tooltip-format": "Open Betterbird"
     }, 
+    "custom/quicklink5": {
+        "format": "",
+        "on-click": "~/.config/ml4w/settings/calculator.sh",
+        "tooltip-format": "Open calculator"
+    }, 
+    "custom/quicklink6": {
+        "format": "",
+        "on-click": "~/.config/ml4w/settings/emojipicker.sh",
+        "tooltip-format": "Open emoji picker"
+    }, 
     "custom/quicklinkempty": {
     }, 
     "group/quicklinks": {
