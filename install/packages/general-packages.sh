@@ -67,4 +67,5 @@ packagesYay=(
     "bibata-cursor-theme" 
     "trizen"
     "pacseek"
+    "smile"
 );
