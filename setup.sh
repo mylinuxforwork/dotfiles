@@ -159,6 +159,13 @@ else
     echo ":: Setup canceled"
     exit 130
 fi
+
+# Check if the clone was successful
+if [ $? -ne 0 ] || [ ! -d ~/Downloads/dotfiles ] ; then
+    echo ":: Error during cloning the repository. Please check error output and your internet connection."
+    exit 1
+fi
+
 echo ":: Download complete."
 
 # Change into dotfiles folder
