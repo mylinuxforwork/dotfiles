@@ -1,21 +1,21 @@
 # ------------------------------------------------------
-# Install .bashrc
+# Install .zshrc
 # ------------------------------------------------------
 
-if ! test -L ~/.bashrc ;then
+if ! test -L ~/.zshrc ;then
     echo -e "${GREEN}"
-    figlet ".bashrc"
+    figlet ".zshrc"
     echo -e "${NONE}"
-    echo ":: The script has detected an existing .bashrc file."
+    echo ":: The script has detected an existing .zshrc file."
     echo ":: You can replace it with the latest version of ML4W Dotfiles $version (Recommended)."
     echo
-    if gum confirm "Do you want to replace your existing .bashrc?" ;then
-        rm ~/.bashrc
-        echo ":: .bashrc will be installed"
+    if gum confirm "Do you want to replace your existing .zshrc?" ;then
+        rm ~/.zshrc
+        echo ":: .zshrc will be installed"
     elif [ $? -eq 130 ]; then
             exit 130
     else
-        echo ":: Installation of the .bashrc file skipped."
+        echo ":: Installation of the .zshrc file skipped."
     fi
 fi
-echo 
+echo

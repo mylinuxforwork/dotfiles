@@ -47,6 +47,9 @@ reboot=0
 if [[ $(_isInstalledPacman "xdg-desktop-portal-gtk") == 0 ]]; then
     echo ":: xdg-desktop-portal-gtk already installed"
 else
+    echo -e "${GREEN}"
+    figlet "xdg-desktop-portal-gtk"
+    echo -e "${NONE}"
     echo "xdg-desktop-portal-gtk is required to use dark mode in GTK4 Apps." 
     echo
     if gum confirm "Do you want to install xdg-desktop-portal-gtk?"; then
@@ -65,6 +68,10 @@ fi
 if [[ $(_isInstalledPacman "flatpak") == 0 ]]; then
     echo ":: Flatpak already installed"
 else
+    clear
+    echo -e "${GREEN}"
+    figlet "Flatpak"
+    echo -e "${NONE}"
     echo "Flatpak is a framework for distributing desktop applications across various Linux distributions." 
     echo "Flatpak applications: these are the applications the user installs via the flatpak command"
     echo
@@ -78,19 +85,22 @@ else
     fi
 fi
 
-if [[ $reboot == "1" ]] ;then
-    echo -e "${GREEN}"
-    figlet "Reboot"
-    echo -e "${NONE}"
-    echo "A reboot of your system is recommended."
-    echo
-    if gum confirm "Do you want to reboot your system now?" ;then
-        gum spin --spinner dot --title "Rebooting now..." -- sleep 3
-        systemctl reboot
-    elif [ $? -eq 130 ]; then
-        exit 130
-    else
-        gum spin --spinner dot --title "Reboot skipped..." -- sleep 3
-    fi
-    echo ""
+# Select shell
+source ~/.config/ml4w/scripts/shell.sh
+
+# Reboot
+clear
+echo -e "${GREEN}"
+figlet "Reboot"
+echo -e "${NONE}"
+echo "A reboot of your system is recommended."
+echo
+if gum confirm "Do you want to reboot your system now?" ;then
+    gum spin --spinner dot --title "Rebooting now..." -- sleep 3
+    systemctl reboot
+elif [ $? -eq 130 ]; then
+    exit 130
+else
+    gum spin --spinner dot --title "Reboot skipped..." -- sleep 3
 fi
+echo ""

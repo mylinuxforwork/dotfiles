@@ -76,10 +76,17 @@ automation_hook=false
 
 # -----------------------------------------------------
 # BASH RC
-# true: Install the .bashrc
+# true: Install the ML4W .bashrc
 # false: Keep existing .bashrc
 # -----------------------------------------------------
 automation_bashrc=true
+
+# -----------------------------------------------------
+# ZSH RC
+# true: Install the ML4W .zshrc
+# false: Keep existing .zshrc
+# -----------------------------------------------------
+automation_zshrc=true
 
 # -----------------------------------------------------
 # NEOVIM

@@ -61,6 +61,9 @@ packagesPacman=(
     "qt6ct"
     "stow"
     "firefox"
+    "zsh"
+    "fzf"
+    "zsh-completions"
 );
 
 packagesYay=(

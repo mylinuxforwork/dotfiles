@@ -38,6 +38,9 @@ if [ -d ~/$dot_folder ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d 
     if ! test -L ~/.bashrc ;then
         echo "   - $HOME/.bashrc"
     fi
+    if ! test -L ~/.zshrc ;then
+        echo "   - $HOME/.zshrc"
+    fi
     if ! test -L ~/.config/qtile && [ -d ~/.config/qtile ] ;then
         echo "   - $HOME/.config/qtile/"
     fi
@@ -86,10 +89,8 @@ if [ -d ~/$dot_folder ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d 
     if gum confirm "Do you want to create a backup?" ;then
 
         if [ ! -z "$(ls -A ~/dotfiles-versions/backup)" ] ;then
-            if gum confirm "Do you want to archive the existing backup?" ;then
-                rsync -a ~/dotfiles-versions/backup/ ~/dotfiles-versions/archive/$datets/
-                echo ":: Current backup archived in ~/dotfiles-versions/archive/$datets"
-            fi
+            rsync -a ~/dotfiles-versions/backup/ ~/dotfiles-versions/archive/$datets/
+            echo ":: Current backup archived in ~/dotfiles-versions/archive/$datets"
         fi
         if [ -d ~/$dot_folder ]; then
             rsync -a ~/$dot_folder ~/dotfiles-versions/backup/
@@ -98,6 +99,10 @@ if [ -d ~/$dot_folder ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d 
         if ! test -L ~/.bashrc ;then
             cp ~/.bashrc ~/dotfiles-versions/backup
             echo ":: Backup of $HOME/.bashrc created in ~/dotfiles-versions/backup"
+        fi
+        if ! test -L ~/.zshrc ;then
+            cp ~/.zshrc ~/dotfiles-versions/backup
+            echo ":: Backup of $HOME/.zshrc created in ~/dotfiles-versions/backup"
         fi
         if [ ! -d ~/dotfiles-versions/backup/config ] ;then
             mkdir ~/dotfiles-versions/backup/config
