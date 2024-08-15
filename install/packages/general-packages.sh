@@ -71,4 +71,5 @@ packagesYay=(
     "trizen"
     "pacseek"
     "smile"
+    "oh-my-posh"
 );
