@@ -206,6 +206,15 @@ else
 fi
 
 # ----------------------------------------------------- 
+# Check installation of .bashrc
+# ----------------------------------------------------- 
+if [ -z $automation_zshrc ] ;then
+    source install/zshrc.sh
+else
+    source install/automation/zshrc.sh
+fi
+
+# ----------------------------------------------------- 
 # Check installation of neovim
 # ----------------------------------------------------- 
 if [ -z $automation_bashrc ] ;then

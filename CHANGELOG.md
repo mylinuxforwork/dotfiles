@@ -1,7 +1,9 @@
 Version 2.9.6RL
 --------------------------------------------------------
+- Switch between bash and zsh from the ML4W Welcome App (Settings -> System -> Change shell)
 - New modular and extendable bashrc structure in ~/.config/bashrc
 - .bashrc_custom moved into folder ~/.config/bashrc/bashrc_custom
+- New modular and extendable zshrc structure in ~/.config/zshrc
 - Gnome Calculator (SUPER+CTRL+C) and Emoji Picker Smile (SUPER+CTRL+C) added (Can be changed in the ML4W Dotfiles Settings App)
 
 Version 2.9.5
