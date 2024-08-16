@@ -217,7 +217,7 @@ fi
 # ----------------------------------------------------- 
 # Check installation of neovim
 # ----------------------------------------------------- 
-if [ -z $automation_bashrc ] ;then
+if [ -z $automation_neovim ] ;then
     source install/neovim.sh
 else
     source install/automation/neovim.sh
