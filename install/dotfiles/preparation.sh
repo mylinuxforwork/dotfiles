@@ -49,7 +49,7 @@ echo ":: ML4W Dotfiles $version successfully prepared in ~/$ml4w_directory/$vers
 
 # Copy hook.tpl if hook.sh not exists
 if [ ! -f ~/$ml4w_directory/hook.sh ] ;then
-    cp $lib_directory/templates/hook.tpl ~/$ml4w_directory/
+    cp $template_directory/hook.tpl ~/$ml4w_directory/
     echo ":: hook.tpl created"
 else
     chmod +x ~/$ml4w_directory/hook.sh
@@ -58,7 +58,7 @@ fi
 
 # Copy post.tpl if post.sh not exists
 if [ ! -f ~/$ml4w_directory/post.sh ] ;then
-    cp $lib_directory/templates/post.tpl ~/$ml4w_directory/
+    cp $template_directory/post.tpl ~/$ml4w_directory/
     echo ":: post.tpl created"
 else
     chmod +x ~/$ml4w_directory/post.sh
@@ -66,7 +66,7 @@ else
 fi
 
 # Copy automation.tpl
-cp $lib_directory/templates/automation.tpl ~/$ml4w_directory/
+cp $template_directory/automation.tpl ~/$ml4w_directory/
 echo ":: automation.tpl created"
 
 # Copy activate.sh

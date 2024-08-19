@@ -1,0 +1,87 @@
+#!/bin/bash
+#  __  __ _    _  ___        __  ____        _    __ _ _           
+# |  \/  | |  | || \ \      / / |  _ \  ___ | |_ / _(_) | ___  ___ 
+# | |\/| | |  | || |\ \ /\ / /  | | | |/ _ \| __| |_| | |/ _ \/ __|
+# | |  | | |__|__   _\ V  V /   | |_| | (_) | |_|  _| | |  __/\__ \
+# |_|  |_|_____| |_|  \_/\_/    |____/ \___/ \__|_| |_|_|\___||___/
+#                                                                 
+
+# ----------------------------------------------------- 
+# Version
+# -----------------------------------------------------
+version="2.9.6RL"
+
+# ----------------------------------------------------- 
+# Folders
+# -----------------------------------------------------
+install_directory=$(pwd)
+ml4w_directory=".ml4w-dotfiles"
+backup_directory="$ml4w_directory/backup"
+archive_directory="$ml4w_directory/archive"
+lib_directory="$install_directory/install"
+template_directory="$install_directory/templates"
+wallpaper_directory="$install_directory/wallpaper"
+packages_directory="$install_directory/packages"
+
+# ----------------------------------------------------- 
+# Colors
+# ----------------------------------------------------- 
+source $lib_directory/includes/colors.sh
+
+# ----------------------------------------------------- 
+# Library
+# ----------------------------------------------------- 
+source $lib_directory/includes/library.sh
+
+# ----------------------------------------------------- 
+# Run full installation
+# ----------------------------------------------------- 
+_run_fullinstall() {
+    source $lib_directory/packages.sh
+    source $lib_directory/dotfiles.sh
+}
+
+# ----------------------------------------------------- 
+# Run packages installation
+# ----------------------------------------------------- 
+_run_packages() {
+    source $lib_directory/packages.sh
+}
+
+# ----------------------------------------------------- 
+# Run dotfiles installation
+# ----------------------------------------------------- 
+_run_dotfiles() {
+    source $lib_directory/dotfiles.sh
+}
+
+# ----------------------------------------------------- 
+# Header
+# ----------------------------------------------------- 
+source $lib_directory/header.sh
+
+# ----------------------------------------------------- 
+# Get script parameter
+# ----------------------------------------------------- 
+if [[ -z $1 ]] ;then
+    _run_fullinstall
+else
+    while getopts m: flag
+    do
+        case "${flag}" in
+            m) 
+                case ${OPTARG} in
+                    full)
+                        _run_fullinstall
+                    ;;
+                    packages)
+                        _run_packages
+                    ;;
+                    dotfiles)
+                        _run_dotfiles
+                    ;;
+                esac
+            ;;
+        esac
+    done
+fi

@@ -2,15 +2,6 @@
 # Confirm Start
 # ------------------------------------------------------
 
-SCRIPT=$(realpath "$0")
-SCRIPTPATH=$(dirname "$SCRIPT")
-if [ $SCRIPTPATH = "/home/$USER/dotfiles" ]; then
-    echo ""
-    echo "IMPORTANT: You're running the installation script from the installation target directory."
-    echo "Please move the installation folder dotfiles e.g. to ~/Downloads/ and start the script again."
-    echo "Proceeding is not recommended!"
-    exit
-fi
 if [ -f ~/.config/ml4w/settings/dotfiles-folder.sh ] && [ -d ~/dotfiles ] ;then
     if gum confirm "DO YOU WANT TO START THE UPDATE OF YOUR ML4W DOTFILES NOW?" ;then
         echo ":: Update started."

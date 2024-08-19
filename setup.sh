@@ -172,6 +172,14 @@ echo ":: Download complete."
 cd $HOME/Downloads/dotfiles
 echo ":: Changed into ~/Downloads/dotfiles/"
 echo 
+
 # Start Spinner
 gum spin --spinner dot --title "Starting the installation now..." -- sleep 3
-./install.sh
+
+# Start Installation Script
+if [ -f install.sh ] ;then
+    ./install.sh
+fi
+if [ -f ml4w-dotfiles ] ;then
+    ./ml4w-dotfiles
+fi

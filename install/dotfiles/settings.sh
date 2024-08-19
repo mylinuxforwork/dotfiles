@@ -7,7 +7,7 @@ if [ "$restored" == "1" ]; then
         echo -e "${GREEN}"
         figlet "Restore Settings"
         echo -e "${NONE}"
-        python install/restore.py
+        python $lib_directory/dotfiles/restore.py
     fi
 else
     if [ -f ~/.config/ml4w/settings/settings.json ] ;then

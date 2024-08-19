@@ -1,64 +1,117 @@
-# ------------------------------------------------------
-# Define dotfiles folder
-# ------------------------------------------------------
+#!/bin/bash
 
-dot_folder="dotfiles"
-dot_files_update=1
-echo -e "${GREEN}"
-figlet "ML4W Dotfiles"
-echo -e "${NONE}"
+# ----------------------------------------------------- 
+# Load automation variables
+# ----------------------------------------------------- 
+source $lib_directory/packages/automation.sh
 
-_define_dotfiles_folder() {
-    echo ":: The ML4W Dotfiles will be installed in ~/$dot_folder"
-    echo ":: You can change the folder name if required (please avoid spaces)"
-    echo
-    dot_folder_tmp=$(gum input --value "$dot_folder" --placeholder "Enter your installation folder name")
-    dot_folder=${dot_folder_tmp//[[:blank:]]/}
-    if [ ! -z $dot_folder ] ;then
-        _confirm_dotfiles_folder
-    else
-        echo "ERROR: Please define a folder name"
-        _define_dotfiles_folder
-    fi
-}
+# ----------------------------------------------------- 
+# Dotfiles target folder
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/dotfiles.sh
 
-_confirm_dotfiles_folder() {
-    echo ":: The ML4W Dotfiles will be installed in ~/$dot_folder"
-    if [ -d ~/$dot_folder ] ;then
-        echo ":: The folder ~/$dot_folder already exists and the files will be updated."
-    fi
-    echo
-    if gum confirm "Do you want use this folder?" ;then
-        echo ":: ML4W Dotfiles will be installed in ~/$dot_folder"
-    elif [ $? -eq 130 ]; then
-        echo ":: Installation canceled."
-        exit 130
-    else
-        _define_dotfiles_folder
-    fi
-}
+# ----------------------------------------------------- 
+# Post Installation
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/postinstall.sh
 
-if [ -z $automation_dotfilesfolder ] ;then
-    if [ -f ~/.config/ml4w/settings/dotfiles-folder.sh ] ;then
-        echo ":: An existing ML4W Dotfiles folder has been detected: ~/$(cat ~/.config/ml4w/settings/dotfiles-folder.sh)"
-        echo ":: You can update your existing ML4W Dotfiles in $(cat ~/.config/ml4w/settings/dotfiles-folder.sh) or install in a new folder."
-        echo
-        if gum confirm "Do you want to start the update in ~/$(cat ~/.config/ml4w/settings/dotfiles-folder.sh)"; then
-            dot_folder=$(cat ~/.config/ml4w/settings/dotfiles-folder.sh)
-            dot_files_update=0
-        elif [ $? -eq 130 ]; then
-            echo ":: Installation canceled."
-            exit 130
-        fi
-    fi
+# ----------------------------------------------------- 
+# Backup files
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/backup.sh
 
-    if [ $dot_files_update == "0" ] ;then
-        echo ":: Update will be executed in ~/$dot_folder"
-        echo
-    else
-        _confirm_dotfiles_folder
-    fi
-else
-    dot_folder=$automation_dotfilesfolder
-    echo "AUTOMATION: Installation folder set to ~/$automation_dotfilesfolder"
-fi
+# ----------------------------------------------------- 
+# Prepare files for the installation
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/preparation.sh
+
+# ----------------------------------------------------- 
+# Check if running in Qemu VM
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/vm.sh
+
+# ----------------------------------------------------- 
+# Install Display Manager
+# -----------------------------------------------------
+source $lib_directory/dotfiles/displaymanager.sh
+
+# ----------------------------------------------------- 
+# Modify existing files before restore starts
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/before_restore.sh
+
+# ----------------------------------------------------- 
+# Restore configuration and settings
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/restore.sh
+
+# ----------------------------------------------------- 
+# Setup the input devices
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/keyboard.sh
+
+# ----------------------------------------------------- 
+# Execute hook.sh if exists
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/hook.sh
+
+# ----------------------------------------------------- 
+# Check installation of .bashrc
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/bashrc.sh
+
+# ----------------------------------------------------- 
+# Check installation of .zshrc
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/zshrc.sh
+
+# ----------------------------------------------------- 
+# Check installation of neovim
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/neovim.sh
+
+# ----------------------------------------------------- 
+# Copy files to target directory
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/copy.sh
+
+# ----------------------------------------------------- 
+# Install profile symlinks
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/symlinks.sh
+
+# ----------------------------------------------------- 
+# Install wallpapers
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/wallpaper.sh
+
+# ----------------------------------------------------- 
+# Initialize pywal color scheme
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/init-pywal.sh
+
+# ----------------------------------------------------- 
+# Restore hyprland settings
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/settings.sh
+
+# ----------------------------------------------------- 
+# Install ML4W Apps
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/apps.sh
+
+# ----------------------------------------------------- 
+# Final cleanup
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/cleanup.sh
+
+# ----------------------------------------------------- 
+# Execute post.sh if exists
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/post.sh
+
+# ----------------------------------------------------- 
+# Offer Reboot
+# ----------------------------------------------------- 
+source $lib_directory/dotfiles/reboot.sh
+
