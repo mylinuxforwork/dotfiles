@@ -12,7 +12,7 @@ install_directory=$(pwd)
 ml4w_directory=".ml4w-dotfiles"
 backup_directory="$ml4w_directory/backup"
 archive_directory="$ml4w_directory/archive"
-lib_directory="$install_directory/lib"
+lib_directory="$install_directory/install"
 
 # ----------------------------------------------------- 
 # Functions

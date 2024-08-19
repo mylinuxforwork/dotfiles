@@ -10,7 +10,7 @@ version=$(cat dotfiles/.config/ml4w/version/name)
 # -----------------------------------------------------
 install_directory=$(pwd)
 ml4w_directory=".ml4w-dotfiles"
-lib_directory="$install_directory/lib"
+lib_directory="$install_directory/install"
 
 # ----------------------------------------------------- 
 # Functions
