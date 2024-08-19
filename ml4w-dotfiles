@@ -20,7 +20,7 @@ backup_directory="$ml4w_directory/backup"
 archive_directory="$ml4w_directory/archive"
 lib_directory="$install_directory/install"
 template_directory="$install_directory/templates"
-wallpaper_directory="$install_directory/wallpaper"
+wallpaper_directory="$install_directory/wallpapers"
 packages_directory="$install_directory/packages"
 
 # ----------------------------------------------------- 
