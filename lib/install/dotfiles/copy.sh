@@ -9,14 +9,14 @@ _copy_confirm() {
             mkdir -p ~/$dot_folder
             echo "~/$dot_folder folder created."
         fi   
-        rsync -avhp -I ~/$ml4w_directory/$version/ ~/$dot_folder/
+        rsync -avhp -I $ml4w_directory/$version/ ~/$dot_folder/
         if [[ $(_isFolderEmpty ~/$dot_folder/) == 0 ]] ;then
-            echo "AN ERROR HAS OCCURED. Copy prepared dofiles from ~/$ml4w_directory/$version/ to ~/$dot_folder/ failed" 
+            echo "AN ERROR HAS OCCURED. Copy prepared dofiles from $ml4w_directory/$version/ to ~/$dot_folder/ failed" 
             echo "Please check that rsync is installad on your system."
-            echo "Execution of rsync -a -I ~/$ml4w_directory/$version/ ~/$dot_folder/ is required."
+            echo "Execution of rsync -a -I $ml4w_directory/$version/ ~/$dot_folder/ is required."
             exit
         fi
-        echo "All files from ~/$ml4w_directory/$version/ to ~/$dot_folder/ copied."
+        echo "All files from $ml4w_directory/$version/ to ~/$dot_folder/ copied."
     elif [ $? -eq 130 ]; then
         echo ":: Installation canceled"
         exit 130
@@ -31,11 +31,11 @@ _copy_automation() {
         mkdir -p ~/$dot_folder
         echo ":: AUTOMATION: ~/$dot_folder folder created."
     fi   
-    rsync -avhp -I ~/$ml4w_directory/$version/ ~/$dot_folder/
+    rsync -avhp -I $ml4w_directory/$version/ ~/$dot_folder/
     if [[ $(_isFolderEmpty ~/$dot_folder/) == 0 ]] ;then
-        echo "AN ERROR HAS OCCURED. Copy prepared dofiles from ~/$ml4w_directory/$version/ to ~/$dot_folder/ failed" 
+        echo "AN ERROR HAS OCCURED. Copy prepared dofiles from $ml4w_directory/$version/ to ~/$dot_folder/ failed" 
         echo "Please check that rsync is installad on your system."
-        echo "Execution of rsync -a -I ~/$ml4w_directory/$version/ ~/$dot_folder/ is required."
+        echo "Execution of rsync -a -I $ml4w_directory/$version/ ~/$dot_folder/ is required."
         exit
     fi
     echo ":: AUTOMATION: Prepared dotfiles copied to ~/$dot_folder"
@@ -46,7 +46,7 @@ figlet "Copy dotfiles"
 echo -e "${NONE}"
 if [ ! -d ~/$dot_folder ]; then
 echo "The script will now remove existing directories and files from ~/.config/"
-echo "and copy your prepared configuration from ~/$ml4w_directory/$version to ~/$dot_folder"
+echo "and copy your prepared configuration from $ml4w_directory/$version to ~/$dot_folder"
 echo
 echo "Symbolic links will then be created from ~/$dot_folder into your ~/.config/ directory."
 echo

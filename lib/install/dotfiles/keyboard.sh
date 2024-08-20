@@ -57,27 +57,27 @@ _keyboard_confirm() {
         _confirmKeyboard
 
         if gum confirm "Are you using a laptop and would you like to enable the laptop presets?"; then
-            cp $template_directory/keyboard-laptop.conf ~/$ml4w_directory/$version/.config/hypr/conf/keyboard.conf
-            echo "source = ~/.config/hypr/conf/layouts/laptop.conf" >  ~/$ml4w_directory/$version/.config/hypr/conf/layout.conf
+            cp $template_directory/keyboard-laptop.conf $ml4w_directory/$version/.config/hypr/conf/keyboard.conf
+            echo "source = ~/.config/hypr/conf/layouts/laptop.conf" >  $ml4w_directory/$version/.config/hypr/conf/layout.conf
         elif [ $? -eq 130 ]; then
             echo ":: Installation canceled."
             exit 130
         else
-            cp $template_directory/keyboard-default.conf ~/$ml4w_directory/$version/.config/hypr/conf/keyboard.conf
+            cp $template_directory/keyboard-default.conf $ml4w_directory/$version/.config/hypr/conf/keyboard.conf
         fi
-        cp $template_directory/autostart.sh ~/$ml4w_directory/$version/.config/qtile/autostart.sh
+        cp $template_directory/autostart.sh $ml4w_directory/$version/.config/qtile/autostart.sh
 
         SEARCH="KEYBOARD_LAYOUT"
         REPLACE="$keyboard_layout"
-        sed -i "s/$SEARCH/$REPLACE/g" ~/$ml4w_directory/$version/.config/hypr/conf/keyboard.conf
+        sed -i "s/$SEARCH/$REPLACE/g" $ml4w_directory/$version/.config/hypr/conf/keyboard.conf
 
         SEARCH="KEYBOARD_VARIANT"
         REPLACE="$keyboard_variant"
-        sed -i "s/$SEARCH/$REPLACE/g" ~/$ml4w_directory/$version/.config/hypr/conf/keyboard.conf
+        sed -i "s/$SEARCH/$REPLACE/g" $ml4w_directory/$version/.config/hypr/conf/keyboard.conf
 
         SEARCH="KEYBOARD_LAYOUT"
         REPLACE="$keyboard_layout"
-        sed -i "s/$SEARCH/$REPLACE/g" ~/$ml4w_directory/$version/.config/qtile/autostart.sh
+        sed -i "s/$SEARCH/$REPLACE/g" $ml4w_directory/$version/.config/qtile/autostart.sh
 
         echo
         echo ":: Keyboard setup complete."

@@ -181,5 +181,5 @@ if [ -f install.sh ] ;then
     ./install.sh
 fi
 if [ -f ml4w-dotfiles ] ;then
-    ./ml4w-dotfiles
+    ./bin/ml4w-dotfiles
 fi

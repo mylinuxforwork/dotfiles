@@ -17,7 +17,7 @@ if [ ! -d ~/wallpaper ]; then
         if [ ! -d ~/wallpaper/ ]; then
             mkdir ~/wallpaper
         fi
-        rsync -a -I --exclude-from=$lib_directory/includes/excludes.txt ~/Downloads/wallpaper/. ~/wallpaper/
+        rsync -a -I --exclude-from=$install_directory/includes/excludes.txt ~/Downloads/wallpaper/. ~/wallpaper/
         echo "Wallpapers from the repository installed successfully."
     elif [ $? -eq 130 ]; then
         exit 130

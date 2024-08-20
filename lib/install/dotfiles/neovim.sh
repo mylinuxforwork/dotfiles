@@ -2,7 +2,7 @@
 # Neovim
 # ------------------------------------------------------
 
-if [ -d ~/$ml4w_directory/$version/dotfiles/.config/nvim ] ;then
+if [ -d $ml4w_directory/$version/dotfiles/.config/nvim ] ;then
     if [ -d ~/$dot_folder/nvim ]; then
         echo -e "${GREEN}"
         figlet "Neovim"
@@ -17,14 +17,14 @@ if [ -d ~/$ml4w_directory/$version/dotfiles/.config/nvim ] ;then
                 echo ":: Installation canceled."
                 exit 130
             else
-                rm -rf ~/$ml4w_directory/$version/.config/nvim/
+                rm -rf $ml4w_directory/$version/.config/nvim/
                 echo ":: Installation of ML4W Neovim configuration skipped."
             fi
         else
             if [[ "$automation_neovim" = true ]] ;then
                 echo ":: AUTOMATION: neovim configuration will be installed."
             elif [[ "$automation_neovim" = false ]] ;then
-                rm -rf ~/$ml4w_directory/$version/.config/nvim/
+                rm -rf $ml4w_directory/$version/.config/nvim/
                 echo ":: AUTOMATION: Installation of the neovim configuration skipped."
             else
                 echo ":: AUTOMATION ERROR: Neovim."

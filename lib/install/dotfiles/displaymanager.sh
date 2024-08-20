@@ -82,7 +82,7 @@ if [ -z $automation_displaymanager ] ;then
                 echo "Folder /etc/sddm.conf.d created."
             fi
 
-            sudo cp dotfiles/.config/ml4w/sddm/sddm.conf /etc/sddm.conf.d/
+            sudo cp $dotfiles_directory/.config/ml4w/sddm/sddm.conf /etc/sddm.conf.d/
             echo "File /etc/sddm.conf.d/sddm.conf updated."
 
             if [ -f /usr/share/sddm/themes/sugar-candy/theme.conf ]; then
@@ -91,7 +91,7 @@ if [ -z $automation_displaymanager ] ;then
                 sudo cp $wallpaper_directory/default.jpg /usr/share/sddm/themes/sugar-candy/Backgrounds/current_wallpaper.jpg
                 echo "Default wallpaper copied into /usr/share/sddm/themes/sugar-candy/Backgrounds/"
 
-                sudo cp dotfiles/.config/ml4w/sddm/theme.conf /usr/share/sddm/themes/sugar-candy/
+                sudo cp $dotfiles_directory/.config/ml4w/sddm/theme.conf /usr/share/sddm/themes/sugar-candy/
                 sudo sed -i 's/CURRENTWALLPAPER/'"current_wallpaper.jpg"'/' /usr/share/sddm/themes/sugar-candy/theme.conf
                 echo "File theme.conf updated in /usr/share/sddm/themes/sugar-candy/"
 

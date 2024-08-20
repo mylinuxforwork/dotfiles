@@ -17,7 +17,7 @@ _zsh_automation() {
     if [[ "$automation_zshrc" = true ]] ;then
         echo ":: AUTOMATION: .zshrc will be installed."
     elif [[ "$automation_zshrc" = false ]] ;then
-        rm ~/$ml4w_directory/$version/.zshrc
+        rm $ml4w_directory/$version/.zshrc
         echo ":: AUTOMATION: Installation of the .zshrc file skipped."
     else
         echo ":: AUTOMATION ERROR: zshrc"
