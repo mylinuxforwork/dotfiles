@@ -180,6 +180,7 @@ gum spin --spinner dot --title "Starting the installation now..." -- sleep 3
 if [ -f install.sh ] ;then
     ./install.sh
 fi
-if [ -f ./bin/ml4w-dotfiles ] ;then
-    ./bin/ml4w-dotfiles
+if [ -f bin/ml4w-dotfiles ] ;then
+    cd bin
+    ./ml4w-dotfiles
 fi
