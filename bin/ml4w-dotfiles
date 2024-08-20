@@ -9,56 +9,75 @@
 # ----------------------------------------------------- 
 # Version
 # -----------------------------------------------------
-version="2.9.6RL"
+version="2.9.6"
 
 # ----------------------------------------------------- 
 # Folders
 # -----------------------------------------------------
-install_directory=$(pwd)
-ml4w_directory=".ml4w-dotfiles"
+
+if [[ $(pwd) = "/usr/bin" ]] ;then
+    # AUR
+    $install_mode="aur"
+    $package_name="ml4w-dotfiles"
+    base_directory="/usr"
+    bin_directory="$base_directory/bin/$package_name"
+    share_directory="$base_directory/share/$package_name"
+    lib_directory="$base_directory/lib/$package_name"
+else
+    # Filesystem
+    $install_mode="filesystem"
+    base_directory="$(dirname $(pwd))"
+    bin_directory="$base_directory/bin"
+    share_directory="$base_directory/share"
+    lib_directory="$base_directory/lib"
+fi
+
+install_directory="$lib_directory/install"
+dotfiles_directory="$share_directory/dotfiles"
+template_directory="$share_directory/templates"
+wallpaper_directory="$share_directory/wallpapers"
+packages_directory="$share_directory/packages"
+
+ml4w_directory="$HOME/.ml4w-dotfiles"
 backup_directory="$ml4w_directory/backup"
 archive_directory="$ml4w_directory/archive"
-lib_directory="$install_directory/install"
-template_directory="$install_directory/templates"
-wallpaper_directory="$install_directory/wallpapers"
-packages_directory="$install_directory/packages"
 
 # ----------------------------------------------------- 
 # Colors
 # ----------------------------------------------------- 
-source $lib_directory/includes/colors.sh
+source $install_directory/includes/colors.sh
 
 # ----------------------------------------------------- 
 # Library
 # ----------------------------------------------------- 
-source $lib_directory/includes/library.sh
+source $install_directory/includes/library.sh
 
 # ----------------------------------------------------- 
 # Run full installation
 # ----------------------------------------------------- 
 _run_fullinstall() {
-    source $lib_directory/packages.sh
-    source $lib_directory/dotfiles.sh
+    source $install_directory/packages.sh
+    source $install_directory/dotfiles.sh
 }
 
 # ----------------------------------------------------- 
 # Run packages installation
 # ----------------------------------------------------- 
 _run_packages() {
-    source $lib_directory/packages.sh
+    source $install_directory/packages.sh
 }
 
 # ----------------------------------------------------- 
 # Run dotfiles installation
 # ----------------------------------------------------- 
 _run_dotfiles() {
-    source $lib_directory/dotfiles.sh
+    source $install_directory/dotfiles.sh
 }
 
 # ----------------------------------------------------- 
 # Header
 # ----------------------------------------------------- 
-source $lib_directory/header.sh
+source $install_directory/header.sh
 
 # ----------------------------------------------------- 
 # Get script parameter

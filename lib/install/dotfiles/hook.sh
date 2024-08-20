@@ -2,7 +2,7 @@
 # Execute hook.sh
 # ------------------------------------------------------
 
-if [ -f ~/$ml4w_directory/hook.sh ]; then
+if [ -f $ml4w_directory/hook.sh ]; then
     echo -e "${GREEN}"
     figlet "Hook Script"
     echo -e "${NONE}"
@@ -10,9 +10,9 @@ if [ -f ~/$ml4w_directory/hook.sh ]; then
     echo
     if [ -z $automation_hook ] ;then
         if gum confirm "Do you want to run the script now?"; then
-            cd ~/$ml4w_directory
-            ~/$ml4w_directory/hook.sh
-            cd $install_directory
+            cd $ml4w_directory
+            ./hook.sh
+            cd $base_directory
             echo ":: hook.sh executed!"
         elif [ $? -eq 130 ]; then
             echo ":: Installation canceled."
@@ -22,9 +22,9 @@ if [ -f ~/$ml4w_directory/hook.sh ]; then
         fi
     else
         if [[ "$automation_hook" = true ]] ;then
-            cd ~/$ml4w_directory
-            ~/$ml4w_directory/hook.sh
-            cd $install_directory
+            cd $ml4w_directory
+            ./hook.sh
+            cd $base_directory
             echo ":: AUTOMATION: hook.sh executed!"
             echo
         elif [[ "$automation_hook" = false ]] ;then

@@ -17,7 +17,7 @@ echo -e "${NONE}"
 echo "Version: $version"
 echo "by Stephan Raabe"
 echo ""
-echo ":: You're running the script in $install_directory"
+echo ":: You're running the script in $(pwd)"
 if [ -f ~/.config/ml4w/settings/dotfiles-folder.sh ] || [ -d ~/dotfiles ] ;then
     echo ":: An existing ML4W Dotfiles installation has been detected."
     echo ":: This script will guide you through the update process of the ML4W Dotfiles."
