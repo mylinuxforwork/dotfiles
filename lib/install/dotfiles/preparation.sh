@@ -79,6 +79,8 @@ if [ ! -f $ml4w_directory/library/version.sh ] ;then
 fi
 echo "$version" > $ml4w_directory/library/version.sh
 echo ":: version.sh updated with $version"
+echo "$version" > $ml4w_directory/$version/.config/ml4w/version/name
+echo ":: name updated with $version"
 
 # Write dot folder into settings
 echo "$dot_folder" > $ml4w_directory/$version/.config/ml4w/settings/dotfiles-folder.sh
