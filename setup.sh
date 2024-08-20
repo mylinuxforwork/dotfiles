@@ -122,7 +122,7 @@ if [ -d $HOME/Downloads/dotfiles-dev ] ;then
 fi
 
 # Synchronizing package databases
-sudo pacman -Sy
+sudo pacman -Syu
 echo
 
 # Install required packages
