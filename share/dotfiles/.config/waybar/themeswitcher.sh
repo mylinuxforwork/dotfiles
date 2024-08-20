@@ -56,7 +56,7 @@ input=$listNames2
 read -ra array <<< "$input"
 
 # ----------------------------------------------------- 
-# Set new theme by writing the theme information to ~/.cache/.themestyle.sh
+# Set new theme by writing the theme information to ~/.config/ml4w/settings/waybar-theme.sh
 # ----------------------------------------------------- 
 if [ "$choice" ]; then
     echo "Loading waybar theme..."

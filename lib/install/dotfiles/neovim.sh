@@ -2,15 +2,15 @@
 # Neovim
 # ------------------------------------------------------
 
-if [ -d $ml4w_directory/$version/dotfiles/.config/nvim ] ;then
-    if [ -d ~/$dot_folder/nvim ]; then
+if [ -d $ml4w_directory/$version/.config/nvim ] ;then
+    if [ -d ~/.config/nvim ]; then
         echo -e "${GREEN}"
         figlet "Neovim"
         echo -e "${NONE}"
         echo ":: The script has detected a nvim folder in your ~/$dot_folder folder."
         echo ":: You can replace it with the latest version of ML4W Dotfiles $version."
         echo
-        if [ -z $automation_copy ] ;then
+        if [ -z $automation_neovim ] ;then
             if gum confirm "Do you want to replace your configuration?"; then
                 echo ":: ML4W Neovim configuration will be installed"
             elif [ $? -eq 130 ]; then
