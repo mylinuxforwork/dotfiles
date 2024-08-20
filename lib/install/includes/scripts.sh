@@ -2,6 +2,7 @@
 # Helper functions for hook and post
 # ------------------------------------------------------
 version=$(cat library/version.sh)
+ml4w_directory=$(cat library/ml4w_directory.sh)
 
 # ------------------------------------------------------
 # Function: Is package installed

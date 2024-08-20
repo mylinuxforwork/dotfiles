@@ -74,11 +74,19 @@ echo ":: activate.sh updated"
 # Prepare library folder
 cp $install_directory/includes/scripts.sh $ml4w_directory/library/
 echo ":: scripts.sh for $version updated in $ml4w_directory/library"
+
 if [ ! -f $ml4w_directory/library/version.sh ] ;then
     touch $ml4w_directory/library/version.sh
 fi
 echo "$version" > $ml4w_directory/library/version.sh
 echo ":: version.sh updated with $version"
+
+if [ ! -f $ml4w_directory/library/ml4w_directory.sh ] ;then
+    touch $ml4w_directory/library/ml4w_directory.sh
+fi
+echo $ml4w_directory > $ml4w_directory/library/ml4w_directory.sh
+echo ":: ml4w_directory.sh updated with $ml4w_directory"
+
 echo "$version" > $ml4w_directory/$version/.config/ml4w/version/name
 echo ":: name updated with $version"
 
