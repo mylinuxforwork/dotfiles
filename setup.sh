@@ -121,10 +121,6 @@ if [ -d $HOME/Downloads/dotfiles-dev ] ;then
     rm -rf $HOME/Downloads/dotfiles-dev
 fi
 
-# Synchronizing package databases
-sudo pacman -Sy
-echo
-
 # Install required packages
 echo ":: Checking that required packages are installed..."
 _installPackagesPacman "${packages[@]}";
