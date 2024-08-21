@@ -83,7 +83,10 @@ _create_backup() {
 }
 
 # Create Backup File Structure
-
+if [ ! -d $ml4w_directory ] ;then
+    mkdir $ml4w_directory
+    echo ":: $ml4w_directory folder created."
+fi
 if [ ! -d $backup_directory ]; then
     mkdir $backup_directory
     echo "$backup_directory created"

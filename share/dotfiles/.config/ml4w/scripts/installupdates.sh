@@ -12,11 +12,12 @@
 
 sleep 1
 clear
+aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
 figlet "Updates"
 echo
-_isInstalledYay() {
+_isInstalledAUR() {
     package="$1";
-    check="$(yay -Qs --color always "${package}" | grep "local" | grep "${package} ")";
+    check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "${package} ")";
     if [ -n "${check}" ] ; then
         echo 0; #'0' means 'true' in Bash
         return; #true
@@ -40,7 +41,7 @@ else
     exit;
 fi
 
-if [[ $(_isInstalledYay "timeshift") == "0" ]] ;then
+if [[ $(_isInstalledAUR "timeshift") == "0" ]] ;then
     if gum confirm "DO YOU WANT TO CREATE A SNAPSHOT?" ;then
         echo
         c=$(gum input --placeholder "Enter a comment for the snapshot...")
@@ -58,9 +59,9 @@ if [[ $(_isInstalledYay "timeshift") == "0" ]] ;then
     echo
 fi
 
-trizen -Syu --noconfirm --noedit --noinfo
+$aur_helper
 
-if [[ $(_isInstalledYay "flatpak") == "0" ]] ;then
+if [[ $(_isInstalledAUR "flatpak") == "0" ]] ;then
     flatpak upgrade
 fi
 

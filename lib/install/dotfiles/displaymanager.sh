@@ -5,12 +5,6 @@
 echo -e "${GREEN}"
 figlet "Display Manager"
 echo -e "${NONE}"
-echo "IMPORTANT: Starting Hyprland works from tty (terminal) with command Hyprland (recommended)." 
-echo "or you can try the display manager SDDM (> 0.20.0 already installed) or the latest git version (yay -S sddm)."
-echo "Please check: https://wiki.hyprland.org/hyprland-wiki/pages/Getting-Started/Master-Tutorial/#launching-hyprland"
-echo "Login with other display managers could fail and could have negative side effects on some devices."
-echo "If you have issues with SDDM or other display managers, you can deactivate the display manager"
-echo "at any time with the Hyprland settings script (Start from Waybar or with SUPER+CTRL+S)."
 echo
 
 if [ -z $automation_displaymanager ] ;then

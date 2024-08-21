@@ -11,19 +11,24 @@ source $install_directory/packages/automation.sh
 source $install_directory/dotfiles/dotfiles.sh
 
 # ----------------------------------------------------- 
+# AUR Helper
+# ----------------------------------------------------- 
+source $install_directory/packages/aur.sh
+
+# ----------------------------------------------------- 
 # Post Installation
 # ----------------------------------------------------- 
 source $install_directory/dotfiles/postinstall.sh
 
 # ----------------------------------------------------- 
-# Prepare files for the installation
-# ----------------------------------------------------- 
-source $install_directory/dotfiles/preparation.sh
-
-# ----------------------------------------------------- 
 # Backup files
 # ----------------------------------------------------- 
 source $install_directory/dotfiles/backup.sh
+
+# ----------------------------------------------------- 
+# Prepare files for the installation
+# ----------------------------------------------------- 
+source $install_directory/dotfiles/preparation.sh
 
 # ----------------------------------------------------- 
 # Check if running in Qemu VM

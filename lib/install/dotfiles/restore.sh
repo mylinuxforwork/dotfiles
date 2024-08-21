@@ -58,10 +58,6 @@ _showRestoreOptions() {
         restorelist+="~/$dot_folder/.config/hypr/conf/window.conf "
         selectedlist+="~/$dot_folder/.config/hypr/conf/window.conf,"
     fi
-    if [ -f ~/$dot_folder/.config/qtile/autostart.sh ]; then
-        restorelist+="~/$dot_folder/.config/qtile/autostart.sh "
-        selectedlist+="~/$dot_folder/.config/qtile/autostart.sh,"
-    fi
     restoreselect=$(gum choose --no-limit --height 20 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " --selected="$selectedlist" $restorelist)
     if [ ! -z "$restoreselect" ] ;then
         echo "Selected to restore:" 
@@ -209,12 +205,6 @@ _startRestore() {
         rm $ml4w_directory/$version/.config/hypr/hyprpaper.conf
     fi
 
-    if [[ $restoreselect == *"~/$dot_folder/.config/qtile/autostart.sh"* ]] || [[ $restoreselect == *"All"* ]] ; then
-        if [ -f ~/$dot_folder/.config/qtile/autostart.sh ]; then
-            cp ~/$dot_folder/.config/qtile/autostart.sh $ml4w_directory/$version/.config/qtile/
-            echo ":: Qtile autostart.sh restored!"
-        fi
-    fi
     restored=1
     return 0
 }

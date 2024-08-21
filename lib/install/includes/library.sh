@@ -23,15 +23,19 @@ _isInstalledPacman() {
     return; #false
 }
 
-_isInstalledYay() {
+_isInstalledAUR() {
     package="$1";
-    check="$(yay -Qs --color always "${package}" | grep "local" | grep "\." | grep "${package} ")";
+    check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "\." | grep "${package} ")";
     if [ -n "${check}" ] ; then
         echo 0; #'0' means 'true' in Bash
         return; #true
     fi;
     echo 1; #'1' means 'false' in Bash
     return; #false
+}
+
+_isInstalledYay() {
+    _isInstalledAUR $1
 }
 
 _isInstalledFlatpak() {
@@ -111,7 +115,41 @@ _installPackagesYay() {
     fi;
 
     # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
-    yay --noconfirm -S "${toInstall[@]}";
+    $aur_helper --noconfirm -S "${toInstall[@]}";
+}
+
+_installPackagesAUR() {
+    toInstall=();
+    for pkg; do
+        if [[ $(_isInstalledYay "${pkg}") == 0 ]]; then
+            echo ":: ${pkg} is already installed.";
+            continue;
+        fi;
+        toInstall+=("${pkg}");
+    done;
+
+    if [[ "${toInstall[@]}" == "" ]] ; then
+        # echo "All packages are already installed.";
+        return;
+    fi;
+
+    # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
+    $aur_helper --noconfirm -S "${toInstall[@]}";
+}
+
+_forcePackagesAUR() {
+    toInstall=();
+    for pkg; do
+        toInstall+=("${pkg}");
+    done;
+
+    if [[ "${toInstall[@]}" == "" ]] ; then
+        # echo "All packages are already installed.";
+        return;
+    fi;
+
+    # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
+    $aur_helper --noconfirm -S "${toInstall[@]}" --ask 4;
 }
 
 _forcePackagesYay() {
@@ -126,7 +164,7 @@ _forcePackagesYay() {
     fi;
 
     # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
-    yay --noconfirm -S "${toInstall[@]}" --ask 4;
+    $aur_helper --noconfirm -S "${toInstall[@]}" --ask 4;
 }
 
 _installPackagesFlatpak() {
@@ -359,10 +397,19 @@ _replaceLineInFile() {
 # System check
 # ------------------------------------------------------
 
-_commandExists() {
+_checkCommandExists() {
     package="$1";
     if ! type $package > /dev/null 2>&1; then
-        echo ":: ERROR: $package doesn't exists. Please install it with yay -S $2"
+        echo "1"
+    else
+        echo "0"
+    fi
+}
+
+_commandExists() {
+    package="$1";
+    if [[ $(_checkCommandExists $package) == "1" ]]; then
+        echo ":: ERROR: $package doesn't exists. Please install it manually."
     else
         echo ":: OK: $package command found."
     fi

@@ -8,9 +8,9 @@ echo -e "${NONE}"
 echo "It's recommended to update your system before you proceed."
 echo
 if [ -z $automation_checkforupdates ] ;then
-    if gum confirm "Do you want to update your system with yay now?" ;then
+    if gum confirm "Do you want to update your system now?" ;then
         echo ":: Update started"
-        yay
+        $aur_helper
     elif [ $? -eq 130 ]; then
         echo ":: Installation canceled."
         exit 130
@@ -21,7 +21,7 @@ else
     if [[ "$automation_checkforupdates" = true ]] ;then
         echo ":: AUTOMATION: Installing system updates"
         echo
-        yay --noconfirm
+        $aur_helper --noconfirm
     elif [[ "$automation_checkforupdates" = false ]] ;then
         echo ":: AUTOMATION: Installation of system updates skipped"
         echo

@@ -15,6 +15,7 @@
 threshhold_green=0
 threshhold_yellow=25
 threshhold_red=100
+aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
 
 # ----------------------------------------------------- 
 # Calculate available updates pacman and aur (with trizen)
@@ -24,7 +25,7 @@ if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
     updates_arch=0
 fi
 
-if ! updates_aur=$(yay -Qu --aur --quiet | wc -l); then
+if ! updates_aur=$($aur_helper -Qu --aur --quiet | wc -l); then
     updates_aur=0
 fi
 
