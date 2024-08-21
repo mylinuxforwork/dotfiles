@@ -8,6 +8,7 @@ Version 2.9.6
 - Gnome Calculator (SUPER+CTRL+C) and Emoji Picker Smile (SUPER+CTRL+C) added (Can be changed in the ML4W Dotfiles Settings App)
 - Add Swapsplit keybinding: SUPER + K
 - Folder and filename format for screenshots can be defined in screenshot-filename.sh and screenshot-folder.sh in ~/.config/ml4w/settings/
+- The installer detects the AUR Helper in use. You can use paru instead of yay by installing paru and add paru to ~/.config/ml4w/settings/aur.sh
 
 Version 2.9.5
 --------------------------------------------------------
