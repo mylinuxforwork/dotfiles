@@ -7,16 +7,8 @@
 #                                                                 
 
 # ----------------------------------------------------- 
-# Version
-# -----------------------------------------------------
-pkgver="2.9.6"
-pkgrel=1
-version="${pkgver}"
-
-# ----------------------------------------------------- 
 # Folders
 # -----------------------------------------------------
-
 dir=$(dirname "$(realpath $0)")
 
 if [[ $dir == "/usr/bin" ]] ;then
@@ -45,6 +37,11 @@ packages_directory="$share_directory/packages"
 ml4w_directory="$HOME/.ml4w-hyprland"
 backup_directory="$ml4w_directory/backup"
 archive_directory="$ml4w_directory/archive"
+
+# ----------------------------------------------------- 
+# Version
+# -----------------------------------------------------
+version="$(cat $dotfiles_directory/.config/ml4w/version/name)"
 
 # ----------------------------------------------------- 
 # Colors
