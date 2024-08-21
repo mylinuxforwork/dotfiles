@@ -36,11 +36,6 @@ source $install_directory/packages/yay.sh
 source $install_directory/packages/updatesystem.sh
 
 # ----------------------------------------------------- 
-# Install profile
-# ----------------------------------------------------- 
-source $install_directory/packages/profile.sh
-
-# ----------------------------------------------------- 
 # Remove not required packages
 # ----------------------------------------------------- 
 source $install_directory/packages/remove.sh

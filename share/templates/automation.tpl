@@ -37,14 +37,6 @@ automation_backup=true
 automation_installation=true
 
 # -----------------------------------------------------
-# INSTALLATION PROFILE
-# Hyprland: Will install Hyprland
-# Qtile: Will install Qtile
-# Hyprland,Qtile: Will install Hyprland and Qtile
-# -----------------------------------------------------
-automation_profile="Hyprland"
-
-# -----------------------------------------------------
 # VM SUPPORT
 # true: VM Support will be installed
 # -----------------------------------------------------

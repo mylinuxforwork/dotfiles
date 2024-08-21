@@ -5,25 +5,13 @@
 echo -e "${GREEN}"
 figlet "Display Manager"
 echo -e "${NONE}"
-if [[ $profile == *"Hyprland"* ]]; then
-    echo "IMPORTANT: Starting Hyprland works from tty (terminal) with command Hyprland (recommended)." 
-    echo "or you can try the display manager SDDM (> 0.20.0 already installed) or the latest git version (yay -S sddm)."
-    echo "Please check: https://wiki.hyprland.org/hyprland-wiki/pages/Getting-Started/Master-Tutorial/#launching-hyprland"
-    echo "Login with other display managers could fail and could have negative side effects on some devices."
-    echo "If you have issues with SDDM or other display managers, you can deactivate the display manager"
-    echo "at any time with the Hyprland settings script (Start from Waybar or with SUPER+CTRL+S)."
-    echo ""
-fi
-if [[ $profile == *"Qtile"* ]]; then
-    if [ -f /usr/share/wayland-sessions/qtile-wayland.desktop ]; then
-        sudo mv /usr/share/wayland-sessions/qtile-wayland.desktop /usr/share/wayland-sessions/qtile-wayland.bak
-        echo "Qtile Wayland Session removed."
-    fi
-    echo "PLEASE NOTE: Qtile works with Display Managers."
-    echo "But if you want to use the tty based (terminal) login instead, you can disable the display manager now."
-    echo "If you install the aliases with the included .bashrc, you can start Qtile with the command Qtile."
-    echo ""
-fi
+echo "IMPORTANT: Starting Hyprland works from tty (terminal) with command Hyprland (recommended)." 
+echo "or you can try the display manager SDDM (> 0.20.0 already installed) or the latest git version (yay -S sddm)."
+echo "Please check: https://wiki.hyprland.org/hyprland-wiki/pages/Getting-Started/Master-Tutorial/#launching-hyprland"
+echo "Login with other display managers could fail and could have negative side effects on some devices."
+echo "If you have issues with SDDM or other display managers, you can deactivate the display manager"
+echo "at any time with the Hyprland settings script (Start from Waybar or with SUPER+CTRL+S)."
+echo
 
 if [ -z $automation_displaymanager ] ;then
     if [ -f /etc/systemd/system/display-manager.service ]; then
