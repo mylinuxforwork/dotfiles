@@ -10,7 +10,11 @@ YouTube Video [https://youtu.be/_S0C53xaoAo](https://youtu.be/_S0C53xaoAo)
 
 The installation should work on all Arch Linux based distributions. [You can find more information here](hhttps://github.com/mylinuxforwork/dotfiles/wiki).
 
-The easiest way is to use the setup.sh script. The script will download all files from GitLab and start the installation automatically.
+> PLEASE NOTE: Every Linux distribution, setup and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. Installation at your own risk.
+
+### Main Release
+
+The easiest way is to use the setup.sh script.
 
 Just copy/enter the following command into your terminal.
 
@@ -18,7 +22,13 @@ Just copy/enter the following command into your terminal.
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup.sh)
 ```
 
-> PLEASE NOTE: Every Linux distribution, setup and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. Installation at your own risk.
+### Rolling Release (Latest commits)
+
+You can use your preferred AUR helper.
+
+```
+yay -S ml4w-hyprland-git
+```
 
 ## Documentation (Wiki)
 
