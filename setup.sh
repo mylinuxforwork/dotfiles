@@ -182,5 +182,5 @@ if [ -f install.sh ] ;then
 fi
 if [ -f bin/ml4w-hyprland ] ;then
     cd bin
-    ./ml4w-hyprland
+    ./ml4w-hyprland-setup
 fi

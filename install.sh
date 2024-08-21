@@ -1,3 +1,3 @@
 #!/bin/bash
 cd bin
-./ml4w-hyprland
+./ml4w-hyprland-setup

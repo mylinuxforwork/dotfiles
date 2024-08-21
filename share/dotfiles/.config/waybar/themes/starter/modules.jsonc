@@ -135,7 +135,7 @@
     // Filemanager Launcher
     "custom/filemanager": {
         "format": "",
-        "on-click": "thunar",
+        "on-click": "nautilus",
         "tooltip": false
     },
 
