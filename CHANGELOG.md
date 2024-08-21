@@ -7,6 +7,7 @@ Version 2.9.6
 - New modular and extendable zshrc structure in ~/.config/zshrc
 - Gnome Calculator (SUPER+CTRL+C) and Emoji Picker Smile (SUPER+CTRL+C) added (Can be changed in the ML4W Dotfiles Settings App)
 - Add Swapsplit keybinding: SUPER + K
+- Folder and filename format for screenshots an be defined in screenshot-filename.sh and screenshot-folder.sh in ~/.config/ml4w/settings/
 
 Version 2.9.5
 --------------------------------------------------------
