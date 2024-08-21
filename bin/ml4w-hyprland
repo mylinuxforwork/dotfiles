@@ -20,7 +20,7 @@ version="${pkgver}"
 if [[ $(pwd) = "/usr/bin" ]] ;then
     # AUR
     $install_mode="aur"
-    $package_name="ml4w-dotfiles"
+    $package_name="ml4w-hyprland"
     base_directory="/usr"
     bin_directory="$base_directory/bin/$package_name"
     share_directory="$base_directory/share/$package_name"
@@ -40,7 +40,7 @@ template_directory="$share_directory/templates"
 wallpaper_directory="$share_directory/wallpapers"
 packages_directory="$share_directory/packages"
 
-ml4w_directory="$HOME/.ml4w-dotfiles"
+ml4w_directory="$HOME/.ml4w-hyprland"
 backup_directory="$ml4w_directory/backup"
 archive_directory="$ml4w_directory/archive"
 

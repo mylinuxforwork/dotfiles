@@ -2,6 +2,7 @@
 clear
 
 repo="mylinuxforwork/dotfiles"
+download_folder="ml4w-hyprland"
 
 # Get latest tag from GitHub
 get_latest_release() {
@@ -72,10 +73,10 @@ cat <<"EOF"
 |___|_| |_|___/\__\__,_|_|_|\___|_|   
                                       
 EOF
-echo "for ML4W Dotfiles"
+echo "for ML4W Hyprland"
 echo
 echo -e "${NONE}"
-echo "This script will support you to download and install the ML4W Dotfiles".
+echo "This script will support you to download and install the ML4W Hyprland".
 echo
 while true; do
     read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
@@ -111,6 +112,9 @@ fi
 if [ -d $HOME/Downloads/dotfiles ] ;then
     rm -rf $HOME/Downloads/dotfiles
 fi
+if [ -d $HOME/Downloads/$download_folder ] ;then
+    rm -rf $HOME/Downloads/$download_folder
+fi
 if [ -d $HOME/Downloads/dotfiles_temp ] ;then
     rm -rf $HOME/Downloads/dotfiles_temp
 fi
@@ -136,18 +140,18 @@ echo
 
 # Select the dotfiles version
 echo "Please choose between: "
-echo "- ML4W Dotfiles Rolling Release (main branch including the latest commits)"
-echo "- ML4W Dotfiles $latest_version (latest tagged release)"
+echo "- Rolling Release (main branch including the latest commits)"
+echo "- $latest_version (latest tagged release)"
 echo
 version=$(gum choose "rolling-release" "main-release" "cancel")
 if [ "$version" == "main-release" ] ;then
     echo ":: Installing Main Release"
     echo
-    git clone --branch $latest_version --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+    git clone --branch $latest_version --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/$download_folder
 elif [ "$version" == "rolling-release" ] ;then
     echo ":: Installing Rolling Release"
     echo
-    git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+    git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/$download_folder
 elif [ "$version" == "cancel" ] ;then
     echo ":: Setup canceled"
     exit 130    
@@ -157,7 +161,7 @@ else
 fi
 
 # Check if the clone was successful
-if [ $? -ne 0 ] || [ ! -d ~/Downloads/dotfiles ] ; then
+if [ $? -ne 0 ] || [ ! -d ~/Downloads/$download_folder ] ; then
     echo ":: Error during cloning the repository. Please check error output and your internet connection."
     exit 1
 fi
@@ -165,8 +169,8 @@ fi
 echo ":: Download complete."
 
 # Change into dotfiles folder
-cd $HOME/Downloads/dotfiles
-echo ":: Changed into ~/Downloads/dotfiles/"
+cd $HOME/Downloads/$download_folder
+echo ":: Changed into ~/Downloads/$download_folder/"
 echo 
 
 # Start Spinner
@@ -176,7 +180,7 @@ gum spin --spinner dot --title "Starting the installation now..." -- sleep 3
 if [ -f install.sh ] ;then
     ./install.sh
 fi
-if [ -f bin/ml4w-dotfiles ] ;then
+if [ -f bin/ml4w-hyprland ] ;then
     cd bin
-    ./ml4w-dotfiles
+    ./ml4w-hyprland
 fi
