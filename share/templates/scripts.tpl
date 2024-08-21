@@ -1,12 +1,23 @@
 # ------------------------------------------------------
 # Helper functions for hook and post
 # ------------------------------------------------------
-version=$(cat library/version.sh)
-ml4w_directory=$(cat library/ml4w_directory.sh)
+version="ML4WVERSION"
+ml4w_directory="ML4WDIRECTORY"
+aur_helper="ML4WAURHELPER"
 
 # ------------------------------------------------------
 # Function: Is package installed
 # ------------------------------------------------------
+
+_checkCommandExists() {
+    package="$1";
+    if ! type $package > /dev/null 2>&1; then
+        echo "1"
+    else
+        echo "0"
+    fi
+}
+
 _isInstalledPacman() {
     package="$1";
     check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")";
@@ -18,15 +29,19 @@ _isInstalledPacman() {
     return; #false
 }
 
-_isInstalledYay() {
+_isInstalledAUR() {
     package="$1";
-    check="$(yay -Qs --color always "${package}" | grep "local" | grep "\." | grep "${package} ")";
+    check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "\." | grep "${package} ")";
     if [ -n "${check}" ] ; then
         echo 0; #'0' means 'true' in Bash
         return; #true
     fi;
     echo 1; #'1' means 'false' in Bash
     return; #false
+}
+
+_isInstalledYay() {
+    _isInstalledAUR $1
 }
 
 _isInstalledFlatpak() {
@@ -93,7 +108,26 @@ _installPackagesYay() {
     fi;
 
     # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
-    yay --noconfirm -S "${toInstall[@]}";
+    $aur_helper --noconfirm -S "${toInstall[@]}";
+}
+
+_installPackagesAUR() {
+    toInstall=();
+    for pkg; do
+        if [[ $(_isInstalledYay "${pkg}") == 0 ]]; then
+            echo ":: ${pkg} is already installed.";
+            continue;
+        fi;
+        toInstall+=("${pkg}");
+    done;
+
+    if [[ "${toInstall[@]}" == "" ]] ; then
+        # echo "All packages are already installed.";
+        return;
+    fi;
+
+    # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
+    $aur_helper --noconfirm -S "${toInstall[@]}";
 }
 
 _forcePackagesYay() {
@@ -108,7 +142,22 @@ _forcePackagesYay() {
     fi;
 
     # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
-    yay --noconfirm -S "${toInstall[@]}" --ask 4;
+    $aur_helper --noconfirm -S "${toInstall[@]}" --ask 4;
+}
+
+_forcePackagesAUR() {
+    toInstall=();
+    for pkg; do
+        toInstall+=("${pkg}");
+    done;
+
+    if [[ "${toInstall[@]}" == "" ]] ; then
+        # echo "All packages are already installed.";
+        return;
+    fi;
+
+    # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
+    $aur_helper --noconfirm -S "${toInstall[@]}" --ask 4;
 }
 
 _installPackagesFlatpak() {

@@ -1,5 +1,6 @@
 #!/bin/bash
 clear
+aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
 cat <<"EOF"
   ____ _                                
  / ___| | ___  __ _ _ __    _   _ _ __  
@@ -12,4 +13,4 @@ EOF
 
 sudo pacman -Rns $(pacman -Qtdq)
 
-yay -Scc
+$aur_helper -Scc

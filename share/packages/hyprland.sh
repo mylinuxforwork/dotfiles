@@ -10,7 +10,7 @@ packagesPacman=(
     "cliphist"
 );
 
-packagesYay=(
+packagesAUR=(
     "wlogout"
     "nwg-look"
     "hyprshade"

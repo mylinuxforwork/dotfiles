@@ -26,9 +26,9 @@ source $install_directory/packages/confirm_start.sh
 source $install_directory/packages/paralleldownloads.sh
 
 # ----------------------------------------------------- 
-# Install yay
+# Install AUR Helper
 # ----------------------------------------------------- 
-source $install_directory/packages/yay.sh
+source $install_directory/packages/aur.sh
 
 # ----------------------------------------------------- 
 # Update the system

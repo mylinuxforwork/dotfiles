@@ -64,7 +64,7 @@ packagesPacman=(
     "zsh-completions"
 );
 
-packagesYay=(
+packagesAUR=(
     "bibata-cursor-theme" 
     "trizen"
     "pacseek"
