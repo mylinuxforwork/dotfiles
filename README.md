@@ -30,6 +30,12 @@ You can use your preferred AUR helper.
 yay -S ml4w-hyprland-git
 ```
 
+After the installation, you can start the setup with
+
+```
+ml4w-hyprland-setup
+```
+
 ## Documentation (Wiki)
 
 You can find the complete documentation of the ML4W Dotfiles in the Wiki. <b>[Open the Wiki here](https://github.com/mylinuxforwork/dotfiles/wiki)</b>
