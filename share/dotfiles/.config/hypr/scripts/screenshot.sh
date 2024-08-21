@@ -8,13 +8,22 @@
 # Based on https://github.com/hyprwm/contrib/blob/main/grimblast/screenshot.sh 
 # ----------------------------------------------------- 
 
-# Screenshots will be stored in $HOME/Pictures by default.
+# Screenshots will be stored in $HOME by default.
+# The screenshot will be moved into the screenshot directory
+
 # Add this to ~/.config/user-dirs.dirs to save screenshots in a custom folder: 
 # XDG_SCREENSHOTS_DIR="$HOME/Screenshots"
 
 prompt='Screenshot'
 mesg="DIR: ~/Screenshots"
-NAME="screenshot_$(date +%d%m%Y_%H%M%S).jpg"
+
+# Screenshot Filename
+source ~/.config/ml4w/settings/screenshot-filename.sh
+
+# Screenshot Folder
+source ~/.config/ml4w/settings/screenshot-folder.sh
+
+# Screenshot Editor
 export GRIMBLAST_EDITOR="$(cat ~/.config/ml4w/settings/screenshot-editor.sh)"
 
 # Example for keybindings
@@ -24,12 +33,12 @@ export GRIMBLAST_EDITOR="$(cat ~/.config/ml4w/settings/screenshot-editor.sh)"
 # bind = SUPER CTRL, p, exec, grimblast save screen
 
 # Options
-option_1="Capture"
-option_2="Timer Capture"
+option_1="Immediate"
+option_2="Delayed"
 
-option_capture_1="All Screen"
-option_capture_2="Capture Active Screen"
-option_capture_3="Capture Area/Window/Application"
+option_capture_1="Capture Everything"
+option_capture_2="Capture Active Display"
+option_capture_3="Capture Selection"
 
 option_time_1="5s"
 option_time_2="10s"
@@ -44,11 +53,11 @@ list_row='2'
 copy='Copy'
 save='Save'
 copy_save='Copy & Save'
-edit='Edit Screenshot'
+edit='Edit'
 
 # Rofi CMD
 rofi_cmd() {
-    rofi -dmenu -replace -config ~/.config/rofi/config-screenshot.rasi -i -no-show-icons -l 2 -width 30 -p "Take Screenshot"
+    rofi -dmenu -replace -config ~/.config/rofi/config-screenshot.rasi -i -no-show-icons -l 2 -width 30 -p "Take screenshot"
 }
 
 # Pass variables to rofi dmenu
@@ -96,7 +105,7 @@ timer_run() {
 # Chose Screenshot Type
 # CMD
 type_screenshot_cmd() {
-    rofi -dmenu -replace -config ~/.config/rofi/config-screenshot.rasi -i -no-show-icons -l 3 -width 30 -p "Type of Screenshot"
+    rofi -dmenu -replace -config ~/.config/rofi/config-screenshot.rasi -i -no-show-icons -l 3 -width 30 -p "Type of screenshot"
 }
 
 # Ask for confirmation
@@ -157,13 +166,13 @@ copy_save_editor_run() {
 
 timer() {
     if [[ $countdown -gt 10 ]]; then
-        notify-send -t 1000 "Taking Screenshot in ${countdown} seconds"
+        notify-send -t 1000 "Taking screenshot in ${countdown} seconds"
         countdown_less_10=$((countdown - 10))
         sleep $countdown_less_10
         countdown=10
     fi
     while [[ $countdown -ne 0 ]]; do
-        notify-send -t 1000 "Taking Screenshot in ${countdown}"
+        notify-send -t 1000 "Taking screenshot in ${countdown} seconds"
         countdown=$((countdown - 1))
         sleep 1
     done
@@ -173,12 +182,18 @@ timer() {
 takescreenshot() {
     sleep 1
     grimblast --notify "$option_chosen" "$option_type_screenshot" $NAME
+    if [ -f $HOME/$NAME ] ;then
+        mv $HOME/$NAME $screenshot_folder
+    fi
 }
 
 takescreenshot_timer() {
     sleep 1
     timer
     grimblast --notify "$option_chosen" "$option_type_screenshot" $NAME
+    if [ -f $HOME/$NAME ] ;then
+        mv $HOME/$NAME $screenshot_folder
+    fi
 }
 
 # Execute Command
