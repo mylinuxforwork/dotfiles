@@ -23,8 +23,6 @@ packagesPacman=(
     "eza" 
     "python-pip" 
     "python-psutil" 
-    "python-rich" 
-    "python-click" 
     "python-pywal"
     "python-gobject"
     "pavucontrol" 
