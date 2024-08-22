@@ -27,7 +27,7 @@ if [ ! -d ~/wallpaper ]; then
         else
             mkdir ~/wallpaper
         fi
-        cp $wallpaper_directory/wallpapers/* ~/wallpaper/
+        cp $wallpaper_directory/* ~/wallpaper/
         echo "Default wallpapers installed successfully."
     fi
 else
