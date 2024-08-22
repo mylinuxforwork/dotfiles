@@ -2,9 +2,7 @@
 # Prepare dotfiles
 # ------------------------------------------------------
 
-echo -e "${GREEN}"
-figlet "Preparations"
-echo -e "${NONE}"
+echo ":: Preparing the folders"
 
 # Check existing .config folder
 if [ ! -d ~/.config ]; then

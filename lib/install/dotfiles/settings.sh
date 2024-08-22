@@ -2,11 +2,9 @@
 # Restore ML4W Hyprland Settings app
 # ------------------------------------------------------
 
+echo ":: Starting restore settings"
 if [ "$restored" == "1" ]; then
     if [ -f ~/.config/ml4w/settings/settings.json ] ;then
-        echo -e "${GREEN}"
-        figlet "Restore Settings"
-        echo -e "${NONE}"
         python $install_directory/dotfiles/restore.py
     fi
 else

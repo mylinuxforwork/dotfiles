@@ -18,33 +18,35 @@ _run_diagnosis(){
     _commandExists "waypaper" "waypaper"
 }
 
-echo -e "${GREEN}"
-figlet "Diagnosis"
-echo -e "${NONE}"
-if [ -z $automation_diagnosis ] ;then
-    echo "The system check will test that essential packages and "
-    echo "execution commands are available now on your system."
-    echo 
-    if gum confirm "Do you want to run a short system check?" ;then
-        _run_diagnosis
-        echo
-        if gum confirm "Do you want to proceed?" ;then
+if [[ $(_check_update) == "false" ]] ;then
+    echo -e "${GREEN}"
+    figlet "Diagnosis"
+    echo -e "${NONE}"
+    if [ -z $automation_diagnosis ] ;then
+        echo "The system check will test that essential packages and "
+        echo "execution commands are available now on your system."
+        echo 
+        if gum confirm "Do you want to run a short system check?" ;then
+            _run_diagnosis
             echo
+            if gum confirm "Do you want to proceed?" ;then
+                echo
+            elif [ $? -eq 130 ]; then
+                echo ":: Installation canceled."
+                exit 130
+            else
+                echo ":: Installation canceled"
+                exit
+            fi
         elif [ $? -eq 130 ]; then
-            echo ":: Installation canceled."
             exit 130
         else
-            echo ":: Installation canceled"
-            exit
+            echo ":: System check skipped"
         fi
-    elif [ $? -eq 130 ]; then
-        exit 130
     else
-        echo ":: System check skipped"
+        if [[ "$automation_diagnosis" = true ]] ;then
+            _run_diagnosis
+        fi
     fi
-else
-    if [[ "$automation_diagnosis" = true ]] ;then
-        _run_diagnosis
-    fi
+    echo
 fi
-echo

@@ -24,21 +24,21 @@ if [[ $(_isInstalledPacman "swayidle") == 0 ]]; then
 fi
 
 # Remove Swaylock
-if [[ $(_isInstalledYay "swaylock-effects-git") == 0 ]]; then
+if [[ $(_isInstalledAUR "swaylock-effects-git") == 0 ]]; then
     $aur_helper --noconfirm -Rns swaylock-effects-git
     echo ":: swaylock removed"
     echo
 fi
 
 # Remove rofi-lbonn-wayland
-if [[ $(_isInstalledYay "rofi-lbonn-wayland") == 0 ]]; then
+if [[ $(_isInstalledAUR "rofi-lbonn-wayland") == 0 ]]; then
     $aur_helper --noconfirm -Rns rofi-lbonn-wayland
     echo ":: rofi-lbonn-wayland removed"
     echo
 fi
 
 # Remove hypridle-bin
-if [[ $(_isInstalledYay "hypridle-git") == 0 ]]; then
+if [[ $(_isInstalledAUR "hypridle-git") == 0 ]]; then
     $aur_helper --noconfirm -Rns hypridle-git
     if [ -f /usr/lib/debug/usr/bin/hypridle.debug ] ;then
         sudo rm /usr/lib/debug/usr/bin/hypridle.debug
@@ -50,7 +50,7 @@ if [[ $(_isInstalledYay "hypridle-git") == 0 ]]; then
 fi
 
 # Remove hyprlock-bin
-if [[ $(_isInstalledYay "hyprlock-git") == 0 ]]; then
+if [[ $(_isInstalledAUR "hyprlock-git") == 0 ]]; then
     $aur_helper --noconfirm -Rns hyprlock-git
     if [ -f /usr/lib/debug/usr/bin/hyprlock.debug ] ;then
         sudo rm /usr/lib/debug/usr/bin/hyprlock.debug

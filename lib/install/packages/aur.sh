@@ -53,20 +53,24 @@ _checkAURHelper() {
         echo ":: Using AUR Helper paru"
         aur_helper="paru"
     elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "false" ]] ;then
-        _selectAURHelper
-        if [[ $aur_helper == "yay" ]] ;then
-            _installYay
-        else
-            _installParu
+        if [[ $(_check_update) == "false" ]] ;then
+            _selectAURHelper
+            if [[ $aur_helper == "yay" ]] ;then
+                _installYay
+            else
+                _installParu
+            fi
         fi
     else
         _selectAURHelper
     fi
 }
 
-echo -e "${GREEN}"
-figlet "AUR Helper"
-echo -e "${NONE}"
-echo
+if [[ $(_check_update) == "false" ]] ;then
+    echo -e "${GREEN}"
+    figlet "AUR Helper"
+    echo -e "${NONE}"
+    echo
+fi
 _checkAURHelper
 

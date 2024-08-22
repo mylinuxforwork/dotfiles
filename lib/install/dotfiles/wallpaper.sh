@@ -2,10 +2,10 @@
 # Install wallpapers
 # ------------------------------------------------------
 
-echo -e "${GREEN}"
-figlet "Wallpapers"
-echo -e "${NONE}"
 if [ ! -d ~/wallpaper ]; then
+    echo -e "${GREEN}"
+    figlet "Wallpapers"
+    echo -e "${NONE}"
     echo "Do you want to download the wallpapers from repository https://github.com/mylinuxforwork/wallpaper/ ?"
     echo "If not, the script will install some default wallpapers in ~/wallpaper/"
     echo ""

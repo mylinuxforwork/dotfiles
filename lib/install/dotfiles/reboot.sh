@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 
 echo -e "${GREEN}"
-figlet "Reboot"
+figlet "Done"
 echo -e "${NONE}"
 echo "A reboot of your system is recommended."
 echo

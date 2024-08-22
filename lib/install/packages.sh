@@ -6,34 +6,19 @@
 source $install_directory/packages/before_start.sh
 
 # ----------------------------------------------------- 
+# Confirm start
+# ----------------------------------------------------- 
+source $install_directory/packages/confirm_start.sh
+
+# ----------------------------------------------------- 
 # Load automation variables
 # ----------------------------------------------------- 
 source $install_directory/packages/automation.sh
 
 # ----------------------------------------------------- 
-# Check for required packages
-# ----------------------------------------------------- 
-source $install_directory/packages/required.sh
-
-# ----------------------------------------------------- 
-# Confirm the start of the installation
-# ----------------------------------------------------- 
-source $install_directory/packages/confirm_start.sh
-
-# ----------------------------------------------------- 
-# Activate parallel downloads
-# ----------------------------------------------------- 
-source $install_directory/packages/paralleldownloads.sh
-
-# ----------------------------------------------------- 
 # Install AUR Helper
 # ----------------------------------------------------- 
 source $install_directory/packages/aur.sh
-
-# ----------------------------------------------------- 
-# Update the system
-# -----------------------------------------------------
-source $install_directory/packages/updatesystem.sh
 
 # ----------------------------------------------------- 
 # Remove not required packages

@@ -2,10 +2,6 @@
 # Apps Installation
 # ------------------------------------------------------
 
-echo -e "${GREEN}"
-figlet "ML4W Apps"
-echo -e "${NONE}"
-
 # Create local applications folder if not exits
 if [ ! -d $HOME/.local/share/applications/ ] ;then
     mkdir $HOME/.local/share/applications

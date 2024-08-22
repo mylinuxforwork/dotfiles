@@ -62,6 +62,17 @@ _run_fullinstall() {
 }
 
 # ----------------------------------------------------- 
+# Check for update
+# ----------------------------------------------------- 
+_check_update() {
+    if [ -f ~/.config/ml4w/settings/dotfiles-folder.sh ] ;then
+        echo "true"
+    else
+        echo "false"
+    fi
+}
+
+# ----------------------------------------------------- 
 # Run packages installation
 # ----------------------------------------------------- 
 _run_packages() {
