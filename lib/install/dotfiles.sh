@@ -46,6 +46,11 @@ source $install_directory/dotfiles/browser.sh
 source $install_directory/dotfiles/filemanager.sh
 
 # ----------------------------------------------------- 
+# System Monitor
+# -----------------------------------------------------
+source $install_directory/dotfiles/system-monitor.sh
+
+# ----------------------------------------------------- 
 # Install Display Manager
 # -----------------------------------------------------
 source $install_directory/dotfiles/displaymanager.sh
