@@ -1,4 +1,8 @@
 #!/bin/bash
+if [ -f ~/.config/ml4w/version/compare.sh ] ;then
+    ~/.config/ml4w/version/compare.sh
+fi
+
 if [ ! -f ~/.cache/ml4w-post-install ] ;then
     if [ ! -f $HOME/.cache/ml4w-welcome-autostart ] ;then
         echo ":: Autostart of ML4W Welcome App enabled."
