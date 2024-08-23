@@ -36,6 +36,16 @@ source $install_directory/dotfiles/preparation.sh
 source $install_directory/dotfiles/vm.sh
 
 # ----------------------------------------------------- 
+# Browser
+# -----------------------------------------------------
+source $install_directory/dotfiles/browser.sh
+
+# ----------------------------------------------------- 
+# File Manager
+# -----------------------------------------------------
+source $install_directory/dotfiles/filemanager.sh
+
+# ----------------------------------------------------- 
 # Install Display Manager
 # -----------------------------------------------------
 source $install_directory/dotfiles/displaymanager.sh

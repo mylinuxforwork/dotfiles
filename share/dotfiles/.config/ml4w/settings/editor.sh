@@ -1,1 +1,1 @@
-mousepad
+gnome-text-editor

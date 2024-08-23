@@ -1,7 +1,5 @@
 #!/bin/bash
 
-repo="mylinuxforwork/dotfiles"
-
 vercomp () {
     if [[ $1 == $2 ]]
     then
@@ -47,9 +45,9 @@ testvercomp () {
 
 # Get latest tag from GitHub
 get_latest_release() {
-  curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
-    grep '"tag_name":' |                                            # Get tag line
-    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+    v_online=$(curl --silent "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=ml4w-hyprland")
+    v_full_online=$(grep -m 1 'pkgver' <<< $v_online | sed 's/^$/pkgver/')
+    echo ${v_full_online/pkgver=/}
 }
 
 # Check for internet connection
