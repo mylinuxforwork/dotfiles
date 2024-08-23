@@ -87,16 +87,17 @@ _keyboard_confirm() {
     fi 
 }
 
-echo -e "${GREEN}"
-figlet "Keyboard"
-echo -e "${NONE}"
-if [ -z $automation_keyboard ] ;then
-    _keyboard_confirm
-else
-    if [[ "$automation_keyboard" = true ]] && [[ "$restored" = 1 ]] ;then
-        echo ":: AUTOMATION: Proceed with existing keyboard configuration."
+if [[ $(_check_update) == "false" ]] ;then
+    echo -e "${GREEN}"
+    figlet "Keyboard"
+    echo -e "${NONE}"
+    if [ -z $automation_keyboard ] ;then
+        _keyboard_confirm
     else
-        _keyboard_confirm        
+        if [[ "$automation_keyboard" = true ]] && [[ "$restored" = 1 ]] ;then
+            echo ":: AUTOMATION: Proceed with existing keyboard configuration."
+        else
+            _keyboard_confirm        
+        fi
     fi
 fi
-

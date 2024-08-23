@@ -73,4 +73,5 @@ if [[ $(_check_update) == "false" ]] ;then
     echo
 fi
 _checkAURHelper
+aur_helper_checked="true"
 

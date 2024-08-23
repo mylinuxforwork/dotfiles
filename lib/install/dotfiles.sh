@@ -13,8 +13,9 @@ source $install_directory/dotfiles/dotfiles.sh
 # ----------------------------------------------------- 
 # AUR Helper
 # ----------------------------------------------------- 
-source $install_directory/packages/aur.sh
-
+if [ -z $aur_helper_checked ] ;then
+    source $install_directory/packages/aur.sh
+fi
 # ----------------------------------------------------- 
 # Post Installation
 # ----------------------------------------------------- 
