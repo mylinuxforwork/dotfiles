@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-figlet "Disable DM"
+figlet -f smslant "Disable DM"
 echo "Hyprland recommends the start with the tty login."
 echo "You can deactivate the current display manager (if exists)."
 echo ""

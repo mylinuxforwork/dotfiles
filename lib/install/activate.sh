@@ -64,7 +64,7 @@ _activate_dotfiles_folder() {
     echo ":: Activation of ~/$dot_folder completed. "
     echo
     echo -e "${GREEN}"
-    figlet "Logout"
+    figlet -f smslant "Logout"
     echo -e "${NONE}"
     echo "A new login into your system is recommended."
     echo
@@ -111,7 +111,7 @@ _confirm_dotfiles_folder() {
     fi
 }
 
-figlet "Activate"
+figlet -f smslant "Activate"
 echo ":: You can activate an exiting ML4W Dotfiles installation."
 echo
 echo ":: Please enter the name of the installation folder starting from your home directory."

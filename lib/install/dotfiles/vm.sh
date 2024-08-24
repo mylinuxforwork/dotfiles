@@ -23,7 +23,7 @@ _install_vm() {
 
 if [ $(_isKVM) == "0" ] ;then
     echo -e "${GREEN}"
-    figlet "KVM VM"
+    figlet -f smslant "KVM VM"
     echo -e "${NONE}"
     if [ -z $automation_vm ] ;then
         echo "The script has detected that you run the installation in a KVM virtual machine."

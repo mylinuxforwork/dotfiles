@@ -7,7 +7,7 @@
 #       |_|                        
 # 
 clear
-figlet "Update"
+figlet -f smslant "Update"
 echo
 echo ":: Please choose your version:"
 echo

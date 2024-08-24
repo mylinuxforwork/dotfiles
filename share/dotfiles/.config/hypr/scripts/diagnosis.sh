@@ -9,7 +9,7 @@
 
 clear
 sleep 0.5
-figlet "Diagnosis"
+figlet -f smslant "Diagnosis"
 echo
 echo "This script will check that essential packages and "
 echo "execution commands are available on your system."

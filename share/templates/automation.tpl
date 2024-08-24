@@ -24,6 +24,13 @@ automation_paralleldownloads=true
 automation_dotfilesfolder="dotfiles"
 
 # -----------------------------------------------------
+# OPTIONAL PACKAGES
+# true: Offer the installation of optional packages
+# false: Skip the installation of optional packages
+# -----------------------------------------------------
+automation_optional=false
+
+# -----------------------------------------------------
 # BACKUP OF YOUR DOTFILES
 # true: Create a backup and archive it
 # false: Skip the backup

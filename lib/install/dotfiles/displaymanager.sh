@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 
 echo -e "${GREEN}"
-figlet "Display Manager"
+figlet -f smslant "Display Manager"
 echo -e "${NONE}"
 echo
 

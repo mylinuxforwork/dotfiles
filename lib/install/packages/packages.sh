@@ -4,7 +4,7 @@
 
 if [[ $install_mode == "filesystem" ]] ;then
     echo -e "${GREEN}"
-    figlet "Packages"
+    figlet -f smslant "Packages"
     echo -e "${NONE}"
 
     # General packages
@@ -13,7 +13,7 @@ if [[ $install_mode == "filesystem" ]] ;then
     _installPackagesAUR "${packagesAUR[@]}";
 
     echo -e "${GREEN}"
-    figlet "Hyprland"
+    figlet -f smslant "Hyprland"
     echo -e "${NONE}"
     source $packages_directory/hyprland.sh
     _installPackagesPacman "${packagesPacman[@]}";

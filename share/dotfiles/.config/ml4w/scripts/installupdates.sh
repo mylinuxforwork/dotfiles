@@ -13,7 +13,7 @@
 sleep 1
 clear
 aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
-figlet "Updates"
+figlet -f smslant "Updates"
 echo
 _isInstalledAUR() {
     package="$1";

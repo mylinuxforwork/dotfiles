@@ -211,7 +211,7 @@ _startRestore() {
 
 if [ -d ~/$dot_folder ]; then
     echo -e "${GREEN}"
-    figlet "Restore"
+    figlet -f smslant "Restore"
     echo -e "${NONE}"
         restored=0
         echo "The script will try to restore existing configurations."

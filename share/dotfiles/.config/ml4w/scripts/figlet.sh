@@ -1,14 +1,12 @@
 #!/bin/bash
 cat <<"EOF"
- _____ _       _      _   
-|  ___(_) __ _| | ___| |_ 
-| |_  | |/ _` | |/ _ \ __|
-|  _| | | (_| | |  __/ |_ 
-|_|   |_|\__, |_|\___|\__|
-         |___/            
+   _____      __    __ 
+  / __(_)__ _/ /__ / /_
+ / _// / _ `/ / -_) __/
+/_/ /_/\_, /_/\__/\__/ 
+      /___/            
 
 EOF
-
 # -----------------------------------------------------
 # Script to create ascii font based header on user input
 # and copy the result to the clipboard
@@ -21,7 +19,7 @@ if [ -f ~/figlet.txt ]; then
 fi
 
 echo "cat <<\"EOF\"" > ~/figlet.txt
-figlet "$mytext" >> ~/figlet.txt
+figlet -f smslant "$mytext" >> ~/figlet.txt
 echo "" >> ~/figlet.txt
 echo "EOF" >> ~/figlet.txt
 

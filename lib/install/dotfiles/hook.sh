@@ -4,7 +4,7 @@
 
 if [ -f $ml4w_directory/hook.sh ]; then
     echo -e "${GREEN}"
-    figlet "Hook Script"
+    figlet -f smslant "Hook Script"
     echo -e "${NONE}"
     echo ":: The script has detected a hook.sh script."
     echo

@@ -89,7 +89,7 @@ _keyboard_confirm() {
 
 if [[ $(_check_update) == "false" ]] ;then
     echo -e "${GREEN}"
-    figlet "Keyboard"
+    figlet -f smslant "Keyboard"
     echo -e "${NONE}"
     if [ -z $automation_keyboard ] ;then
         _keyboard_confirm

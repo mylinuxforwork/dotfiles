@@ -1,0 +1,11 @@
+optdepends=(
+    "firefox"
+    "nautilus"
+    "gnome-text-editor"
+    "gnome-calculator"
+    "smile"
+    "breeze"
+    "breeze-icons"
+    "mpv" 
+    "mission-center"
+);

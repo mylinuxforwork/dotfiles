@@ -37,7 +37,7 @@ _isInstalledPacman() {
 }
 
 echo -e "${GREEN}"
-figlet "Post Install"
+figlet -f smslant "Post Install"
 echo -e "${NONE}"
 echo ":: The script helps you to install additional packages for your ML4W Dotfiles."
 echo
@@ -48,7 +48,7 @@ if [[ $(_isInstalledPacman "xdg-desktop-portal-gtk") == 0 ]]; then
     echo ":: xdg-desktop-portal-gtk already installed"
 else
     echo -e "${GREEN}"
-    figlet "xdg-desktop-portal-gtk"
+    figlet -f smslant "xdg-desktop-portal-gtk"
     echo -e "${NONE}"
     echo "xdg-desktop-portal-gtk is required to use dark mode in GTK4 Apps." 
     echo
@@ -70,7 +70,7 @@ if [[ $(_isInstalledPacman "flatpak") == 0 ]]; then
 else
     clear
     echo -e "${GREEN}"
-    figlet "Flatpak"
+    figlet -f smslant "Flatpak"
     echo -e "${NONE}"
     echo "Flatpak is a framework for distributing desktop applications across various Linux distributions." 
     echo "Flatpak applications: these are the applications the user installs via the flatpak command"
@@ -91,7 +91,7 @@ source ~/.config/ml4w/scripts/shell.sh
 # Reboot
 clear
 echo -e "${GREEN}"
-figlet "Reboot"
+figlet -f smslant "Reboot"
 echo -e "${NONE}"
 echo "A reboot of your system is recommended."
 echo

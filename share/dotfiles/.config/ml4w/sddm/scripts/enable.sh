@@ -1,5 +1,5 @@
 #!/bin/bash
-figlet "Enable SDDM"
+figlet -f smslant "Enable SDDM"
 if [ -f /etc/systemd/system/display-manager.service ]; then
     echo ":: Display Manager is already enabled."
 else

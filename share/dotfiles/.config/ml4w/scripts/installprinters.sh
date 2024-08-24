@@ -10,7 +10,7 @@
 
 sleep 1
 clear
-figlet "Printers"
+figlet -f smslant "Printers"
 
 # ------------------------------------------------------
 # Confirm Start

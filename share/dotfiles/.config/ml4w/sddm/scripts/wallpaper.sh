@@ -11,7 +11,7 @@
 cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
 sleep 1
 clear
-figlet "Set Wallpaper"
+figlet -f smslant "Set Wallpaper"
 echo
 echo "Set the current wallpaper as SDDM wallpaper."
 echo

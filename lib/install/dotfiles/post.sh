@@ -4,7 +4,7 @@
 
 if [ -f $ml4w_directory/post.sh ]; then
     echo -e "${GREEN}"
-    figlet "Post Script"
+    figlet -f smslant "Post Script"
     echo -e "${NONE}"
     echo ":: The script has detected a post.sh script."
     echo

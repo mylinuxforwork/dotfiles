@@ -13,7 +13,7 @@ source $install_directory/dotfiles/dotfiles.sh
 # ----------------------------------------------------- 
 # AUR Helper
 # ----------------------------------------------------- 
-if [ -z $aur_helper_checked ] ;then
+if [ -z $aur_helper ] ;then
     source $install_directory/packages/aur.sh
 fi
 # ----------------------------------------------------- 
@@ -35,21 +35,6 @@ source $install_directory/dotfiles/preparation.sh
 # Check if running in Qemu VM
 # ----------------------------------------------------- 
 source $install_directory/dotfiles/vm.sh
-
-# ----------------------------------------------------- 
-# Browser
-# -----------------------------------------------------
-source $install_directory/dotfiles/browser.sh
-
-# ----------------------------------------------------- 
-# File Manager
-# -----------------------------------------------------
-source $install_directory/dotfiles/filemanager.sh
-
-# ----------------------------------------------------- 
-# System Monitor
-# -----------------------------------------------------
-source $install_directory/dotfiles/system-monitor.sh
 
 # ----------------------------------------------------- 
 # Install Display Manager

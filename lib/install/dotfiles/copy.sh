@@ -42,7 +42,7 @@ _copy_automation() {
 }
 
 echo -e "${GREEN}"
-figlet "Copy dotfiles"
+figlet -f smslant "Copy dotfiles"
 echo -e "${NONE}"
 if [ ! -d ~/$dot_folder ]; then
 echo "The script will now remove existing directories and files from ~/.config/"

@@ -1,5 +1,5 @@
 #!/bin/bash
-figlet "Disable SDDM"
+figlet -f smslant "Disable SDDM"
 if [ -f /etc/systemd/system/display-manager.service ]; then
     if gum confirm "Do you want to disable the current display manager?" ;then
         sudo rm /etc/systemd/system/display-manager.service

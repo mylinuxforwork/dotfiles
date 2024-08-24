@@ -5,7 +5,7 @@
 if [ -f ~/.bashrc ] ;then
     if ! test -L ~/.bashrc ;then
         echo -e "${GREEN}"
-        figlet ".bashrc"
+        figlet -f smslant ".bashrc"
         echo -e "${NONE}"
         echo ":: The script has detected an existing .bashrc file."
         echo ":: You can replace it with the latest version of ML4W Dotfiles $version (Recommended)."

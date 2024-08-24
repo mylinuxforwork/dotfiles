@@ -20,7 +20,7 @@ _run_diagnosis(){
 
 if [[ $(_check_update) == "false" ]] ;then
     echo -e "${GREEN}"
-    figlet "Diagnosis"
+    figlet -f smslant "Diagnosis"
     echo -e "${NONE}"
     if [ -z $automation_diagnosis ] ;then
         echo "The system check will test that essential packages and "

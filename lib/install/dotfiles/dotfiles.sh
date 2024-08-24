@@ -5,7 +5,7 @@
 dot_folder="dotfiles"
 dot_files_update=1
 echo -e "${GREEN}"
-figlet "Dotfiles"
+figlet -f smslant "Dotfiles"
 echo -e "${NONE}"
 
 _define_dotfiles_folder() {

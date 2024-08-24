@@ -5,7 +5,7 @@
 if [ -d $ml4w_directory/$version/.config/nvim ] ;then
     if [ -d ~/.config/nvim ]; then
         echo -e "${GREEN}"
-        figlet "Neovim"
+        figlet -f smslant "Neovim"
         echo -e "${NONE}"
         echo ":: The script has detected a nvim folder in your ~/$dot_folder folder."
         echo ":: You can replace it with the latest version of ML4W Dotfiles $version."

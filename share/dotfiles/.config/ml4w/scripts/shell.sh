@@ -20,7 +20,7 @@ _isInstalledYay() {
 }
 
 clear
-figlet "Shell"
+figlet -f smslant "Shell"
 
 echo ":: Please select your preferred shell"
 echo

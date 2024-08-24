@@ -8,7 +8,7 @@
 
 sleep 1
 clear
-figlet "pacman.conf"
+figlet -f smslant "pacman.conf"
 echo
 echo ":: This script will activate or deactivate additions for your pacman.conf."
 echo 

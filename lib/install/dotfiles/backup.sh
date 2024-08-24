@@ -101,7 +101,7 @@ fi
 if [ -d ~/$dot_folder ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d ~/.config/qtile ]; then
 
     echo -e "${GREEN}"
-    figlet "Backup"
+    figlet -f smslant "Backup"
     echo -e "${NONE}"
     echo "The script has detected the following files and folders for a backup:"
 

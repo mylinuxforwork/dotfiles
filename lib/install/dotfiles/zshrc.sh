@@ -28,7 +28,7 @@ _zsh_automation() {
 if [ -f ~/.zshrc ] ;then
     if ! test -L ~/.zshrc ;then
         echo -e "${GREEN}"
-        figlet ".zshrc"
+        figlet -f smslant ".zshrc"
         echo -e "${NONE}"
         echo ":: The script has detected an existing .zshrc file."
         echo ":: You can replace it with the latest version of ML4W Dotfiles $version (Recommended)."
