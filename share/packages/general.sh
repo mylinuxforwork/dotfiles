@@ -10,7 +10,6 @@ packagesPacman=(
     "alacritty" 
     "dunst" 
     "starship"
-    "gnome-text-editor"
     "noto-fonts" 
     "otf-font-awesome" 
     "ttf-fira-sans" 

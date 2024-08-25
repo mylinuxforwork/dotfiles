@@ -6,6 +6,7 @@ if [ -z $automation_optional ] || [ $automation_optional == "true" ] ;then
 
     source $packages_directory/optional.sh
     toInstall=""
+    selectedInstall=""
 
     _checkPackages() {
         for pkg in ${optdepends[@]}; do
@@ -14,6 +15,7 @@ if [ -z $automation_optional ] || [ $automation_optional == "true" ] ;then
                 continue
             else
                 toInstall+="${pkg} "
+                selectedInstall+="${pkg},"
             fi
         done
     }
@@ -27,7 +29,7 @@ if [ -z $automation_optional ] || [ $automation_optional == "true" ] ;then
         echo ":: The following optional packages are currently not installed."
         echo ":: Please select the packages that you want to install and confirm with ENTER."
         echo
-        optionalSelect=$(gum choose --no-limit --height 20 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " $toInstall)
+        optionalSelect=$(gum choose --no-limit --height 20 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " --selected="$selectedInstall" $toInstall)
         if [ ! -z "$optionalSelect" ] ;then
             $aur_helper -S $optionalSelect
         else 
