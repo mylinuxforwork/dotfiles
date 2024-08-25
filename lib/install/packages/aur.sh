@@ -70,7 +70,6 @@ if [[ $(_check_update) == "false" ]] ;then
     echo -e "${GREEN}"
     figlet -f smslant "AUR Helper"
     echo -e "${NONE}"
-    echo
 fi
 _checkAURHelper
 
