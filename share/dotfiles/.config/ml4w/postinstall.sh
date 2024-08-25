@@ -48,7 +48,7 @@ if [[ $(_isInstalledPacman "xdg-desktop-portal-gtk") == 0 ]]; then
     echo ":: xdg-desktop-portal-gtk already installed"
 else
     echo -e "${GREEN}"
-    figlet -f smslant "xdg-desktop-portal-gtk"
+    figlet -f smslant "Portal GTK"
     echo -e "${NONE}"
     echo "xdg-desktop-portal-gtk is required to use dark mode in GTK4 Apps." 
     echo
@@ -61,27 +61,6 @@ else
     else
         echo ":: Installation of xdg-desktop-portal-gtk skipped."
         exit
-    fi
-fi
-
-# Check for flatpak
-if [[ $(_isInstalledPacman "flatpak") == 0 ]]; then
-    echo ":: Flatpak already installed"
-else
-    clear
-    echo -e "${GREEN}"
-    figlet -f smslant "Flatpak"
-    echo -e "${NONE}"
-    echo "Flatpak is a framework for distributing desktop applications across various Linux distributions." 
-    echo "Flatpak applications: these are the applications the user installs via the flatpak command"
-    echo
-    if gum confirm "Do you want to install flatpak?"; then
-        _installPackagesPacman "flatpak";
-    elif [ $? -eq 130 ]; then
-        echo ":: Installation canceled."
-        exit 130
-    else
-        echo ":: Installation of flatpak skipped."
     fi
 fi
 
