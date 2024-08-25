@@ -1,5 +1,6 @@
 Version 2.9.6
 --------------------------------------------------------
+- ML4W Dotfiles now available as AUR: ml4w-hyprland (latest release) and ml4w-hyprland-git (rolling release with latest commits)
 - ~/dotfiles-versions folder renamed to ~/.ml4w-hyprland
 - Switch between bash and zsh from the ML4W Welcome App (Settings -> System -> Change shell)
 - New modular and extendable bashrc structure in ~/.config/bashrc
