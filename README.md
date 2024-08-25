@@ -2,7 +2,7 @@
 
 An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
-![image](https://github.com/user-attachments/assets/a52b2256-2cc7-4dd5-a22c-827a84c8c291)
+![image](https://github.com/user-attachments/assets/093f9968-8bd0-4ec8-930e-199804c0c7ae)
 
 YouTube Video [https://youtu.be/_S0C53xaoAo](https://youtu.be/_S0C53xaoAo)
 
