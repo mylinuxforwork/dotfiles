@@ -54,7 +54,7 @@ You can also visit the [ML4W Discord Server](https://discord.gg/c4fJK7Za3g) to s
 
 ## Screenshots
 
-![image](https://github.com/user-attachments/assets/d85c0910-45fc-440c-9911-a2c2b4d32c12)
+![image](https://github.com/user-attachments/assets/041375a8-8698-455d-865e-f818d5b69af8)
 
 ## Wallpaper repository
 
