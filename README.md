@@ -12,14 +12,20 @@ The installation should work on all Arch Linux based distributions. [You can fin
 
 > PLEASE NOTE: Every Linux distribution, setup and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. Installation at your own risk.
 
+> **For Arco Linux users**: Please install hyprutils first with `yay -S extra/hyprutils`
+
 ### Main Release
 
-The easiest way is to use the setup.sh script.
-
-Just copy/enter the following command into your terminal.
+You can use your preferred AUR helper.
 
 ```
-bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup.sh)
+yay -S ml4w-hyprland
+```
+
+After the installation, you can start the setup with
+
+```
+ml4w-hyprland-setup
 ```
 
 ### Rolling Release (Latest commits)
