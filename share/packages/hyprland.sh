@@ -8,11 +8,11 @@ packagesPacman=(
     "grim" 
     "slurp"
     "cliphist"
+    "nwg-look"
 );
 
 packagesAUR=(
     "wlogout"
-    "nwg-look"
     "hyprshade"
     "waypaper"
     "grimblast"

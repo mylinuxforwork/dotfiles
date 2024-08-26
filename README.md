@@ -4,7 +4,7 @@ An advanced configuration of Hyprland for Arch Linux based distributions. This p
 
 ![image](https://github.com/user-attachments/assets/093f9968-8bd0-4ec8-930e-199804c0c7ae)
 
-YouTube Video [https://youtu.be/_S0C53xaoAo](https://youtu.be/_S0C53xaoAo)
+YouTube Video [https://youtu.be/6B4Kf30CWLg](https://youtu.be/6B4Kf30CWLg)
 
 ## Installation
 
