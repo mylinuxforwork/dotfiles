@@ -57,6 +57,7 @@ source $install_directory/includes/library.sh
 # Run full installation
 # ----------------------------------------------------- 
 _run_fullinstall() {
+    source $install_directory/header.sh
     source $install_directory/packages.sh
     source $install_directory/dotfiles.sh
 }
@@ -76,6 +77,7 @@ _check_update() {
 # Run packages installation
 # ----------------------------------------------------- 
 _run_packages() {
+     source $install_directory/header.sh
     source $install_directory/packages.sh
 }
 
@@ -83,13 +85,13 @@ _run_packages() {
 # Run dotfiles installation
 # ----------------------------------------------------- 
 _run_dotfiles() {
+    source $install_directory/header.sh
     source $install_directory/dotfiles.sh
 }
 
 # ----------------------------------------------------- 
 # Header
 # ----------------------------------------------------- 
-source $install_directory/header.sh
 
 # ----------------------------------------------------- 
 # Get script parameter
@@ -97,7 +99,7 @@ source $install_directory/header.sh
 if [[ -z $1 ]] ;then
     _run_fullinstall
 else
-    while getopts m: flag
+    while getopts m:vh flag
     do
         case "${flag}" in
             m) 
@@ -112,6 +114,16 @@ else
                         _run_dotfiles
                     ;;
                 esac
+            ;;
+            v) 
+                echo ":: ML4W Dotfiles for Hyprland Version $version"
+            ;;
+            h) 
+                echo ":: ML4W Dotfiles for Hyprland Version $version"
+                echo "-m full: Run full installation"
+                echo "-m packages: Run installation of packages only"
+                echo "-m dotfiles: Run the setup of the dotfiles only"
+                echo "-v: Current version of the ML4W Dotfiles for Hyprland"
             ;;
         esac
     done
