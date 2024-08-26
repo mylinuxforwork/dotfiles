@@ -90,7 +90,7 @@ _run_dotfiles() {
 }
 
 # ----------------------------------------------------- 
-# Run dotfiles installation
+# Activate existing dotfiles installation
 # ----------------------------------------------------- 
 _run_activate() {
     source $install_directory/activate.sh
