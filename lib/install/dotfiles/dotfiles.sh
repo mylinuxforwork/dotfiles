@@ -9,12 +9,15 @@ figlet -f smslant "Dotfiles"
 echo -e "${NONE}"
 
 _define_dotfiles_folder() {
-    echo ":: The ML4W Dotfiles will be installed in ~/$dot_folder"
     echo ":: You can change the folder name if required (please avoid spaces)"
     echo
     dot_folder_tmp=$(gum input --value "$dot_folder" --placeholder "Enter your installation folder name")
     dot_folder=${dot_folder_tmp//[[:blank:]]/}
-    if [ ! -z $dot_folder ] ;then
+    echo $dot_folder
+    if [[ $dot_folder == ".ml4w-hyprland" ]] ;then
+        echo ":: The folder .ml4w-hyprland is not allowed."
+        _define_dotfiles_folder
+    elif [ ! -z $dot_folder ] ;then
         _confirm_dotfiles_folder
     else
         echo "ERROR: Please define a folder name"
@@ -49,6 +52,8 @@ if [ -z $automation_dotfilesfolder ] ;then
         elif [ $? -eq 130 ]; then
             echo ":: Installation canceled."
             exit 130
+        else
+            _define_dotfiles_folder
         fi
     fi
 

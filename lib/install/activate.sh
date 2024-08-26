@@ -88,6 +88,9 @@ _define_dotfiles_folder() {
     dot_folder=${dot_folder_tmp//[[:blank:]]/}
     if [ $dot_folder == "cancel" ] ;then
         exit
+    elif [ $dot_folder == ".ml4w-hyprland" ] ;then
+        echo ":: The folder .ml4w-hyprland is not allowed."
+        _define_dotfiles_folder
     else
         _confirm_dotfiles_folder
     fi

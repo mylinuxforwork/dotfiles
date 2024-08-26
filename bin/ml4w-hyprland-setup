@@ -77,7 +77,7 @@ _check_update() {
 # Run packages installation
 # ----------------------------------------------------- 
 _run_packages() {
-     source $install_directory/header.sh
+    source $install_directory/header.sh
     source $install_directory/packages.sh
 }
 
@@ -87,6 +87,13 @@ _run_packages() {
 _run_dotfiles() {
     source $install_directory/header.sh
     source $install_directory/dotfiles.sh
+}
+
+# ----------------------------------------------------- 
+# Run dotfiles installation
+# ----------------------------------------------------- 
+_run_activate() {
+    source $install_directory/activate.sh
 }
 
 # ----------------------------------------------------- 
@@ -113,6 +120,9 @@ else
                     dotfiles)
                         _run_dotfiles
                     ;;
+                    activate)
+                        _run_activate
+                    ;;
                 esac
             ;;
             v) 
@@ -120,9 +130,12 @@ else
             ;;
             h) 
                 echo ":: ML4W Dotfiles for Hyprland Version $version"
+                echo
                 echo "-m full: Run full installation"
                 echo "-m packages: Run installation of packages only"
                 echo "-m dotfiles: Run the setup of the dotfiles only"
+                echo "-m activate: Activate an existing dotfiles folder"
+                echo
                 echo "-v: Current version of the ML4W Dotfiles for Hyprland"
             ;;
         esac
