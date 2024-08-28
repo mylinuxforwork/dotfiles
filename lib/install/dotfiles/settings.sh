@@ -26,7 +26,7 @@ fi
 # Replace waybar_custom_timedateformat
 if [ -f ~/.config/ml4w/settings/waybar_custom_timedateformat.sh ] ;then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_custom_timedateformat.sh)
-    if [ ! -z $replace_value ] ;then
+    if [ ! -z "$replace_value" ] ;then
         search_str="\"format\""
         replace_str="\ \ \ \ \"format\": \"{:$replace_value}\","
         _replaceLineInFileCheckpoint "$search_str" "$replace_str" "clock" "$HOME/.config/waybar/modules.json"
