@@ -280,7 +280,7 @@ _isKVM() {
     fi
 }
 
-# _replaceInFile $startMarket $endMarker $customtext $targetFile
+# _replaceInFile $startMarker $endMarker $customtext $targetFile
 _replaceInFile() {
 
     # Set function parameters
@@ -350,6 +350,11 @@ _replaceInFile() {
     fi
 }
 
+# replaceTextInFile $customtext $targetFile
+_replaceTextInFile() {
+    echo $customtext > $targetFile
+}
+
 # replaceLineInFile $findText $customtext $targetFile
 _replaceLineInFile() {
    # Set function parameters
@@ -386,6 +391,70 @@ _replaceLineInFile() {
             echo "ERROR: Target line not found."
             sleep 2
         fi   
+
+    else
+        echo "ERROR: Target file not found."
+        sleep 2
+    fi
+}
+
+# replaceLineInFileCheckpoint $findText $customtext $checkpoint $targetFile
+_replaceLineInFileCheckpoint() {
+   # Set function parameters
+    find_string="$1"
+    new_string="$2"
+    checkpoint="$3"
+    file_path=$4
+
+    # Counters
+    find_checkpoint_counter=0
+    find_line_counter=0
+    line_found=0
+    checkpoint_found=0
+
+    if [ -f $file_path ] ;then
+
+        # Detect Checkpoint
+        while read -r line
+        do
+            ((find_checkpoint_counter++))
+            if [[ $line = *$checkpoint* ]]; then
+                # echo "Checkpoint found in $find_checkpoint_counter"
+                checkpoint_found=$find_checkpoint_counter
+                break
+            fi 
+        done < "$file_path"
+
+        if [[ ! "$checkpoint_found" == "0" ]] ;then
+
+            # Detect Line
+            while read -r line
+            do
+                ((find_line_counter++))
+                if [ "$find_line_counter" -gt "$checkpoint_found" ] ;then
+                    if [[ $line = *$find_string* ]]; then
+                        # echo "Line found in $find_line_counter"
+                        line_found=$find_line_counter
+                        break
+                    fi 
+                fi
+            done < "$file_path"
+
+            if [[ ! "$line_found" == "0" ]] ;then
+                
+                #Remove the line
+                sed -i "$line_found d" $file_path
+
+                # Add the new line
+                sed -i "$line_found i $new_string" $file_path            
+
+            else
+                echo "ERROR: Target line not found."
+                sleep 2
+            fi
+        else 
+            echo "ERROR: Checkpoint not found."
+        fi  
 
     else
         echo "ERROR: Target file not found."
