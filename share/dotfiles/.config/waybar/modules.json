@@ -207,11 +207,8 @@
   // Clock
   "clock": {
     "format": "{:%H:%M %a}",
-    // "timezone": "America/New_York",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    // START CLOCK FORMAT
-    "format-alt": "{:%Y-%m-%d}"
-    // END CLOCK FORMAT
+    "on-click": "ags -t calendar",
+    "tooltip": false
   },
 
   // System

@@ -11,12 +11,6 @@ if [ "$restored" == "1" ]; then
     fi
 fi
 
-settings=(
-    "hypridle_hyprlock_timeout",
-    "hypridle_dpms_timeout",
-    "hypridle_suspend_timeout"
-)  
-
 echo ":: Starting restore settings"
 
 # Replace waybar_timeformat and waybar_dateformat
@@ -57,14 +51,6 @@ if [ -f ~/.config/ml4w/settings/waybar_workspaces.sh ] ;then
     _replaceLineInFileCheckpoint "$search_str" "$replace_str" "persistent-workspaces" "$HOME/.config/waybar/modules.json"
     echo ":: waybar_workspaces restored"
 fi
-
-# Replace rofi_bordersize
-# if [ -f ~/.config/ml4w/settings/rofi_bordersize.sh ] ;then
-#     replace_value=$(cat ~/.config/ml4w/settings/rofi_bordersize.sh)
-#     replace_str="* { border-width: ${replace_value}px; }"
-#     _replaceTextInFile "$replace_str" "$HOME/.config/ml4w/settings/rofi-border.rasi"
-#     echo ":: waybar_workspaces restored"
-# fi
 
 # Replace waybar_taskbar
 if [ -f ~/.config/ml4w/settings/waybar_taskbar.sh ] ;then

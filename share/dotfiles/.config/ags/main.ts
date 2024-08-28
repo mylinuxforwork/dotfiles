@@ -55,7 +55,7 @@ const cld = Widget.Calendar({
     showDetails: false,
     showHeading: true,
     showWeekNumbers: true,
-    className:"calendar",
+    className:"cld",
     detail: (self, y, m, d) => {
         return `<span color="white">${y}. ${m}. ${d}.</span>`
     },
@@ -231,11 +231,21 @@ const Sidebar = Widget.Box({
             children:[cpuProgressBox,ramProgressBox]
         }),
         speakerBox,
-        micBox,
+        micBox
+    ]
+})
+
+// Sidebar Box
+const Calendar = Widget.Box({
+    spacing: 8,
+    vertical: true,
+    className: "calendar",
+    children: [
         Widget.Box({
             homogeneous: true,
-            className: "lastrow",
-            children:[cld]
+            className: "row",
+            children:[cld],
+            css: "min-width:300px"
         })
     ]
 })
@@ -254,17 +264,34 @@ const SideBarWindow = Widget.Window({
     })
 })
 
+// Calendar Window
+const CalendarWindow = Widget.Window({
+    name: 'calendar',
+    className:"window",
+    anchor: ['top', 'right'],
+    // Start with hidden window, toggle with ags -t sidebar
+    // visible: true,
+    visible: false,
+    child: Widget.Box({
+        css: 'padding: 1px;',
+        child: Calendar,
+    })
+})
+
 // App Configuration
 let config = {
     style: "./style.css",
     windows: [
-        SideBarWindow, // can be instantiated for each monitor
+        SideBarWindow,
+        CalendarWindow
     ],
     openWindowDelay: {
         'sidebar':100,
+        'calendar':100,
     },
     closeWindowDelay: {
         'sidebar': 50,
+        'calendar':50,
     },    
 }
 
