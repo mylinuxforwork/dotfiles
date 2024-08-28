@@ -1,3 +1,8 @@
+Version 2.9.6.1
+--------------------------------------------------------
+- AGS calendar widget moved from sidebar into own widget. Opens with click on clock module in waybar
+- settings.json removed and moved all settings into dedicated files in ~/.config/ml4w/settings/
+
 Version 2.9.6
 --------------------------------------------------------
 - ML4W Dotfiles now available as AUR: ml4w-hyprland (latest release) and ml4w-hyprland-git (rolling release with latest commits)
