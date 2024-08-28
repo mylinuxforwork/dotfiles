@@ -1,9 +1,7 @@
 # ------------------------------------------------------
 # Restore ML4W Hyprland Settings app
 # ------------------------------------------------------
-source ~/.ml4w-hyprland/dotfiles/lib/install/includes/library.sh
 
-restored=1
 if [ "$restored" == "1" ]; then
     if [ -f ~/.config/ml4w/settings/settings.json ] ;then
         # python restore.py
