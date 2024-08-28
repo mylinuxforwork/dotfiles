@@ -32,11 +32,16 @@ class ML4WRestore:
         "waybar_custom_timedateformat": "",
         "waybar_workspaces": 5,
         "rofi_bordersize": 3,
+        "waybar_toggle": True,
+        "waybar_taskbar": False,
         "waybar_network": True,
         "waybar_chatgpt": True,
         "waybar_systray": True,
         "waybar_screenlock": True,
-        "waybar_window": True
+        "waybar_window": True,
+        "hypridle_hyprlock_timeout": 600,
+        "hypridle_dpms_timeout": 660,
+        "hypridle_suspend_timeout": 1800
     }    
 
     path_name = pathname # Path of Application
@@ -49,139 +54,12 @@ class ML4WRestore:
         settings_file = open(self.dotfiles + "ml4w/settings/settings.json")
         settings_arr = json.load(settings_file)
         for row in settings_arr:
-            self.settings[row["key"]] = row["value"]
+            self.overwriteFile("ml4w/settings/" + row["key"] + ".sh",row["value"])
+            print(":: " + row["key"] + " restored from legacy settings.json")
 
-        self.loadSwitchAll("waybar_network","network")
-        self.loadSwitchAll("waybar_systray","tray")
-        self.loadSwitchAll("waybar_window","hyprland/window")
-        self.loadSwitchAll("waybar_screenlock","idle_inhibitor")
-        self.loadSwitch("waybar_chatgpt","custom/chatgpt")
-
-        # Waybar Workspaces
-        if "waybar_workspaces" in self.settings:
-            value = int(self.settings["waybar_workspaces"])
-            text = '            "*": ' + str(value)
-            self.replaceInFileCheckpoint("waybar/modules.json", "persistent-workspaces",'"*"', text)
-            
-            self.replaceInFileNext("waybar/modules.json", "// START WORKSPACES", text)
-            print (":: waybar_workspaces restored")
-
-        # Rofi BorderSize
-        if "rofi_bordersize" in self.settings:
-            value = int(self.settings["rofi_bordersize"])
-            text = "* { border-width: " + str(value) + "px; }"
-            self.overwriteFile("ml4w/settings/rofi-border.rasi",text)
-            print (":: rofi_bordersize restored")
-        
-        # Dunst Position
-        if "dunst_position" in self.settings:
-            dunstposition = self.settings["dunst_position"]
-            dunstorigin = '    origin = ' + dunstposition
-            self.replaceInFile("dunst/dunstrc","origin =",dunstorigin)
-            print (":: dunst_position restored")
-
-        # Time/DateFormat
-        if "waybar_timeformat" in self.settings:
-            timeformat = self.settings["waybar_timeformat"]
-        else:
-            timeformat = self.defaults["waybar_timeformat"]
-
-        if "waybar_dateformat" in self.settings:
-            dateformat = self.settings["waybar_dateformat"]
-        else:
-            dateformat = self.defaults["waybar_dateformat"]
-
-        if "waybar_custom_timedateformat" in self.settings:
-            custom_format = self.settings["waybar_custom_timedateformat"]
-        else:
-            custom_format = self.defaults["waybar_custom_timedateformat"]
-
-        if custom_format != "":
-            timedate = '        "format": "{:' + custom_format + '}",'
-            self.replaceInFileNext("waybar/modules.json", "TIMEDATEFORMAT", timedate)
-        else:
-            timedate = '        "format": "{:' + timeformat + ' - ' + dateformat + '}",'
-            self.replaceInFileNext("waybar/modules.json", "TIMEDATEFORMAT", timedate)
-        print (":: timedate format restored")
-
-    def loadSwitch(self,k,m):
-        if k in self.settings:
-            if not self.settings[k]:
-                self.replaceInFile("waybar/modules.json",'"' + m + '"','            //"' + m + '",')
-                print (":: " + k + " restored")
-
-    def loadSwitchAll(self,k,m):
-        if k in self.settings:
-            if not self.settings[k]:
-                for t in self.waybar_themes:
-                    self.replaceInFile("waybar/themes/" + t + "/config",'"' + m + '"','        //"' + m + '",')
-                print (":: " + k + " restored")
-
-    # Overwrite Text in File
     def overwriteFile(self, f, text):
         file=open(self.dotfiles + f,"w+")
-        file.write(text)
+        file.write(str(text))
         file.close()
-
-    # Replace Text in File
-    def replaceInFile(self, f, search, replace):
-        file = open(self.dotfiles + f, 'r')
-        lines = file.readlines()
-        count = 0
-        found = 0
-        # Strips the newline character
-        for l in lines:
-            count += 1
-            if search in l:
-                found = count
-        if found > 0:
-            lines[found - 1] = replace + "\n"
-            with open(self.dotfiles + f, 'w') as file:
-                file.writelines(lines)
-
-    # Replace Text in File
-    def replaceInFileNext(self, f, search, replace):
-        file = open(self.dotfiles + f, 'r')
-        lines = file.readlines()
-        count = 0
-        found = 0
-        # Strips the newline character
-        for l in lines:
-            count += 1
-            if search in l:
-                found = count
-        if found > 0:
-            lines[found] = replace + "\n"
-            with open(self.dotfiles + f, 'w') as file:
-                file.writelines(lines)
-
-    def replaceInFileCheckpoint(self, f, checkpoint, search, replace):
-        file = open(self.dotfiles + f, 'r')
-        lines = file.readlines()
-        count = 0
-        checkpoint_found = 0
-        found = 0
-        for l in lines:
-            count += 1
-            if checkpoint in l:
-                checkpoint_found = count
-                break
-        # print("Checkpoint: " + str(checkpoint_found))
-
-        count = 0
-        if checkpoint_found > 0:
-            for l in lines:
-                count += 1
-                if count > checkpoint_found:
-                    if search in l:
-                        found = count
-                        break
-        # print("Found: " + str(found))
-
-        if found > 0:
-            lines[found-1] = replace + "\n"
-            with open(self.dotfiles + f, 'w') as file:
-                file.writelines(lines)
-
 
 ml4wrestore = ML4WRestore()
