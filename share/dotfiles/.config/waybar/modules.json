@@ -220,13 +220,13 @@
   // CPU
   "cpu": {
     "format": "/ C {usage}% ",
-    "on-click": "~/.config/ml4w/settings/systeminfo.sh"
+    "on-click": "~/.config/ml4w/settings/system-monitor.sh"
   },
 
   // Memory
   "memory": {
     "format": "/ M {}% ",
-    "on-click": "~/.config/ml4w/settings/systeminfo.sh"
+    "on-click": "~/.config/ml4w/settings/system-monitor.sh"
   },
 
   // Harddisc space used
@@ -234,7 +234,7 @@
     "interval": 30,
     "format": "D {percentage_used}% ",
     "path": "/",
-    "on-click": "~/.config/ml4w/settings/systeminfo.sh"
+    "on-click": "~/.config/ml4w/settings/system-monitor.sh"
   },
 
   "hyprland/language": {

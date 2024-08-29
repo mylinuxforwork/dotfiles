@@ -1,8 +1,6 @@
 optdepends=(
     "firefox"
-    "nautilus"
     "flatpak"
-    "gnome-text-editor"
     "gnome-calculator"
     "smile"
     "breeze"

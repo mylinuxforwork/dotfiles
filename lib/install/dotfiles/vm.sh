@@ -21,22 +21,24 @@ _install_vm() {
     fi
 }
 
-if [ $(_isKVM) == "0" ] ;then
-    echo -e "${GREEN}"
-    figlet -f smslant "KVM VM"
-    echo -e "${NONE}"
-    if [ -z $automation_vm ] ;then
-        echo "The script has detected that you run the installation in a KVM virtual machine."
-        echo
-        _install_vm
-    else
-        if [[ "$automation_vm" = false ]] ;then
-            echo ":: AUTOMATION: VM Support skipped"
+if [[ $(_check_update) == "false" ]]
+    if [ $(_isKVM) == "0" ] ;then
+        echo -e "${GREEN}"
+        figlet -f smslant "KVM VM"
+        echo -e "${NONE}"
+        if [ -z $automation_vm ] ;then
+            echo "The script has detected that you run the installation in a KVM virtual machine."
             echo
-        elif [[ "$automation_vm" = true ]] ;then
             _install_vm
         else
-            echo ":: AUTOMATION ERROR: VM Support"
-        fi        
+            if [[ "$automation_vm" = false ]] ;then
+                echo ":: AUTOMATION: VM Support skipped"
+                echo
+            elif [[ "$automation_vm" = true ]] ;then
+                _install_vm
+            else
+                echo ":: AUTOMATION ERROR: VM Support"
+            fi        
+        fi
     fi
 fi
