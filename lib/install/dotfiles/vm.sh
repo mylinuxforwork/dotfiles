@@ -21,7 +21,7 @@ _install_vm() {
     fi
 }
 
-if [[ $(_check_update) == "false" ]]
+if [[ $(_check_update) == "false" ]] ;then
     if [ $(_isKVM) == "0" ] ;then
         echo -e "${GREEN}"
         figlet -f smslant "KVM VM"

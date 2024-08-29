@@ -1,7 +1,7 @@
 # ------------------------------------------------------
 # Neovim
 # ------------------------------------------------------
-if [[ $(_check_update) == "false" ]]
+if [[ $(_check_update) == "false" ]] ;then
     if [ -d $ml4w_directory/$version/.config/nvim ] ;then
         if [ -d ~/.config/nvim ]; then
             echo -e "${GREEN}"
