@@ -52,7 +52,7 @@
     "modules-right": [
         "custom/updates",
         "pulseaudio",
-        "backlight",
+        //"backlight",
         "bluetooth",
         "battery", 
         "network",

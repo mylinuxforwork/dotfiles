@@ -86,6 +86,24 @@ if [ -f ~/.config/ml4w/settings/waybar_network.sh ] ;then
     echo ":: waybar_network restored"
 fi
 
+# Replace waybar_backlight
+if [ -f ~/.config/ml4w/settings/waybar_backlight.sh ] ;then
+    replace_value=$(cat ~/.config/ml4w/settings/waybar_backlight.sh)
+    search_str="backlight"
+    if [[ $replace_value == "True" ]] ;then
+        replace_str="\"backlight\","
+    else
+        replace_str="\/\/\"backlight\","
+    fi
+    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w/config"
+    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur/config"
+    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur-bottom/config"
+    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
+    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-minimal/config"
+    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/starter/config"
+    echo ":: waybar_backlight restored"
+fi
+
 # Replace waybar_chatgpt
 if [ -f ~/.config/ml4w/settings/waybar_chatgpt.sh ] ;then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_chatgpt.sh)
