@@ -33,4 +33,8 @@ if [[ $(_check_update) == "false" ]] ;then
             fi
         fi
     fi
+else
+    if [ -d $ml4w_directory/$version/.config/nvim ] ;then
+        rm -rf $ml4w_directory/$version/.config/nvim/
+    fi
 fi
