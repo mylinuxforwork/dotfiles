@@ -183,7 +183,9 @@ takescreenshot() {
     sleep 1
     grimblast --notify "$option_chosen" "$option_type_screenshot" $NAME
     if [ -f $HOME/$NAME ] ;then
-        mv $HOME/$NAME $screenshot_folder
+        if [ -d $screenshot_folder ] ;then
+            mv $HOME/$NAME $screenshot_folder/
+        fi
     fi
 }
 
@@ -192,7 +194,9 @@ takescreenshot_timer() {
     timer
     grimblast --notify "$option_chosen" "$option_type_screenshot" $NAME
     if [ -f $HOME/$NAME ] ;then
-        mv $HOME/$NAME $screenshot_folder
+        if [ -d $screenshot_folder ] ;then
+            mv $HOME/$NAME $screenshot_folder/
+        fi
     fi
 }
 
