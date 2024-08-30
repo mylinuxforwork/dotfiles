@@ -91,7 +91,7 @@
         "tooltip-format": "{}",
         "escape": true,
         "return-type": "json",       
-        "exec": "~/.config/ml4wscripts/updates.sh",
+        "exec": "~/.config/ml4w/scripts/updates.sh",
         "restart-interval": 60,
         "on-click": "alacritty -e ~/.config/ml4w/scripts/installupdates.sh",
         "tooltip": false
@@ -106,7 +106,7 @@
     // Wallpaper
     "custom/wallpaper": {
         "format": "",
-        "on-click": "~/.config/hypr/scripts/wallpaper.sh select",
+        "on-click": "waypaper",
         "on-click-right": "~/.config/hypr/scripts/wallpaper-effects.sh",
         "tooltip": false
     },
@@ -114,7 +114,7 @@
     // Waybar Themes
     "custom/waybarthemes": {
         "format": "",
-        "on-click": "~/,config/waybar/themeswitcher.sh",
+        "on-click": "~/.config/waybar/themeswitcher.sh",
         "tooltip": false
     },
     
@@ -148,11 +148,12 @@
 
     // ML4W Welcome App
     "custom/ml4w-welcome": {
-        "on-click": "~/.config/ml4w/apps/ML4W_Welcome-x86_64.AppImage",
+        "on-click": "ags -t sidebar",
+        "on-click-right": "sleep 0.1 && ~/.config/ml4w/apps/ML4W_Welcome-x86_64.AppImage",
         "format": " ",
-        "tooltip": false
+        "tooltip-format": "Open Sidebar"
     },
-
+    
     // ChatGPT Launcher
     "custom/chatgpt": {
         "format": "",
@@ -194,9 +195,9 @@
 
     // Clock
     "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%H:%M %a}",
+        "on-click": "ags -t calendar",
+        "tooltip": false
     },
 
     // System
