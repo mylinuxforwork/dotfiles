@@ -14,6 +14,12 @@ The installation should work on all Arch Linux based distributions. [You can fin
 
 > **For Arco Linux users**: Please install hyprutils first with `yay -S extra/hyprutils`
 
+Please make sure that your system is up-to-date.
+
+```
+sudo pacman -Syu
+```
+
 ### Main Release
 
 You can use your preferred AUR helper.
