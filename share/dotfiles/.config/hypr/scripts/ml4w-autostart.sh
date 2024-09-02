@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ -f ~/.config/ml4w/version/compare.sh ] ;then
-    ~/.config/ml4w/version/compare.sh
+    $HOME/.config/ml4w/version/compare.sh
 fi
 
 if [ ! -f ~/.cache/ml4w-post-install ] ;then
