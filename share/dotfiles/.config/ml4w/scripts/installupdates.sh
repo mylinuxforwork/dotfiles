@@ -59,7 +59,7 @@ if [[ $(_isInstalledAUR "timeshift") == "0" ]] ;then
     echo
 fi
 
-$aur_helper --noconfirm
+$aur_helper
 
 if [[ $(_isInstalledAUR "flatpak") == "0" ]] ;then
     flatpak upgrade
