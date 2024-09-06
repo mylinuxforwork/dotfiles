@@ -3,6 +3,7 @@ Version 2.9.6.1
 - AGS calendar widget moved from sidebar into own widget. Opens with click on clock module in waybar
 - settings.json removed and moved all settings into dedicated files in ~/.config/ml4w/settings/
 - New standard animation configuration
+- Quicklinks Module can be hidden from the ML4W Settings App
 
 Version 2.9.6
 --------------------------------------------------------
