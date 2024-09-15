@@ -32,10 +32,10 @@ keymap("n", "<C-k>", "<C-w>k", { remap = true, desc = "Go to upper window" })
 keymap("n", "<C-l>", "<C-w>l", { remap = true, desc = "Go to right window" })
 
 -- Resize window
-keymap("n", "<Up>", "<Cmd>resize +2<CR>", { desc = "Increase window height" })
-keymap("n", "<Down>", "<Cmd>resize -2<CR>", { desc = "Decrease window height" })
-keymap("n", "<Left>", "<Cmd>vertical resize -2<CR>", { desc = "Increase window width" })
-keymap("n", "<Right>", "<Cmd>vertical resize +2<CR>", { desc = "Decrease window width" })
+-- keymap("n", "<Up>", "<Cmd>resize +2<CR>", { desc = "Increase window height" })
+-- keymap("n", "<Down>", "<Cmd>resize -2<CR>", { desc = "Decrease window height" })
+-- keymap("n", "<Left>", "<Cmd>vertical resize -2<CR>", { desc = "Increase window width" })
+-- keymap("n", "<Right>", "<Cmd>vertical resize +2<CR>", { desc = "Decrease window width" })
 
 -- Saner behavior of n and N
 keymap("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
