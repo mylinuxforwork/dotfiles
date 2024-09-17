@@ -64,8 +64,8 @@ opt.cursorlineopt = Mo.C.transparent and "number" or "number,line"
 opt.expandtab = true
 opt.smartindent = true -- new
 opt.shiftround = true
-opt.shiftwidth = 2
-opt.tabstop = 2 -- new
+opt.shiftwidth = 4
+opt.tabstop = 4 -- new
 
 -- number
 opt.number = true
