@@ -179,9 +179,6 @@ elif [[ $shell == "zsh" ]] ;then
         echo ":: zsh-plugin-you-should-use already installed"
     fi
 
-
-
-
     # Install pkgfile if needed (for command not found)
     if ! command -v pkgfile &> /dev/null; then
         echo ":: Installing pkgfile"
