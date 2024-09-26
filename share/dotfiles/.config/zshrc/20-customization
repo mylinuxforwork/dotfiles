@@ -2,29 +2,21 @@
 # CUSTOMIZATION
 # -----------------------------------------------------
 
-# -----------------------------------------------------
-# oh-myzsh themes: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# -----------------------------------------------------
-# ZSH_THEME=robbyrussell
+POSH=agnoster
 
 # -----------------------------------------------------
-# oh-myzsh plugins
+# PLUGINS
 # -----------------------------------------------------
-plugins=(
-    git
-    sudo
-    web-search
-    archlinux
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    fast-syntax-highlighting
-    copyfile
-    copybuffer
-    dirhistory
-)
-
-# Set-up oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+source $HOME/.config/zshrc/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $HOME/.config/zshrc/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source $HOME/.config/zshrc/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source $HOME/.config/zshrc/plugins/zsh-completions/zsh-completions.plugin.zsh
+source $HOME/.config/zshrc/plugins/colored-man-pages.plugin.zsh
+source $HOME/.config/zshrc/plugins/command-not-found.plugin.zsh
+source $HOME/.config/zshrc/plugins/dirhistory.plugin.zsh
+source $HOME/.config/zshrc/plugins/extract.plugin.zsh
+source $HOME/.config/zshrc/plugins/sudo.plugin.zsh
+source $HOME/.config/zshrc/plugins/you-should-use.plugin.zsh
 
 # -----------------------------------------------------
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
@@ -38,15 +30,10 @@ SAVEHIST=10000
 setopt appendhistory
 
 # -----------------------------------------------------
-# Starship promt
-# -----------------------------------------------------
-# eval "$(starship init zsh)"
-
-# -----------------------------------------------------
 # oh-my-posh promt
 # -----------------------------------------------------
 # Custom Theme
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
 # Shipped Theme
-# eval "$(oh-my-posh init zsh --config /usr/share/oh-my-posh/themes/agnoster.omp.json)"
+# eval "$(oh-my-posh init zsh --config /usr/share/oh-my-posh/themes/$POSH.omp.json)"
