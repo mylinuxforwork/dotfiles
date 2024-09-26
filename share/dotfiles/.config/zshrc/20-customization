@@ -7,16 +7,51 @@ POSH=agnoster
 # -----------------------------------------------------
 # PLUGINS
 # -----------------------------------------------------
-source $HOME/.config/zshrc/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source $HOME/.config/zshrc/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-source $HOME/.config/zshrc/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-source $HOME/.config/zshrc/plugins/zsh-completions/zsh-completions.plugin.zsh
-source $HOME/.config/zshrc/plugins/colored-man-pages.plugin.zsh
-source $HOME/.config/zshrc/plugins/command-not-found.plugin.zsh
-source $HOME/.config/zshrc/plugins/dirhistory.plugin.zsh
-source $HOME/.config/zshrc/plugins/extract.plugin.zsh
-source $HOME/.config/zshrc/plugins/sudo.plugin.zsh
-source $HOME/.config/zshrc/plugins/you-should-use.plugin.zsh
+if [ -f "$HOME/.config/zshrc/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/zsh-completions/zsh-completions.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/zsh-completions/zsh-completions.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/git.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/git.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/sudo.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/sudo.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/web-search.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/web-search.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/archlinux.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/archlinux.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/copyfile.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/copyfile.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/copybuffer.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/copybuffer.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/dirhistory.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/dirhistory.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/colored-man-pages.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/colored-man-pages.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/command-not-found.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/command-not-found.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/extract.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/extract.plugin.zsh"
+fi
+if [ -f "$HOME/.config/zshrc/plugins/you-should-use.plugin.zsh" ]; then
+    source "$HOME/.config/zshrc/plugins/you-should-use.plugin.zsh"
+fi
 
 # -----------------------------------------------------
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
