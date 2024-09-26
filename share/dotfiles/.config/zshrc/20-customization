@@ -5,55 +5,6 @@
 POSH=agnoster
 
 # -----------------------------------------------------
-# PLUGINS
-# -----------------------------------------------------
-if [ -f "$HOME/.config/zshrc/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/zsh-completions/zsh-completions.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/zsh-completions/zsh-completions.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/git.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/git.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/sudo.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/sudo.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/web-search.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/web-search.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/archlinux.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/archlinux.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/copyfile.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/copyfile.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/copybuffer.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/copybuffer.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/dirhistory.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/dirhistory.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/colored-man-pages.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/colored-man-pages.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/command-not-found.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/command-not-found.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/extract.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/extract.plugin.zsh"
-fi
-if [ -f "$HOME/.config/zshrc/plugins/you-should-use.plugin.zsh" ]; then
-    source "$HOME/.config/zshrc/plugins/you-should-use.plugin.zsh"
-fi
-
-# -----------------------------------------------------
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
 # -----------------------------------------------------
 source <(fzf --zsh)
@@ -72,3 +23,113 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
 # Shipped Theme
 # eval "$(oh-my-posh init zsh --config /usr/share/oh-my-posh/themes/$POSH.omp.json)"
+
+# -----------------------------------------------------
+# PLUGINS
+# -----------------------------------------------------
+
+# zsh-autosuggestions
+if [ ! -d "$HOME/.config/zshrc/plugins/zsh-autosuggestions" ]; then
+    echo ":: Installing zsh-autosuggestions"
+    git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.config/zshrc/plugins/zsh-autosuggestions
+else
+    source "$HOME/.config/zshrc/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+fi
+# zsh-syntax-highlighting
+if [ ! -d "$HOME/.config/zshrc/plugins/zsh-syntax-highlighting" ]; then
+    echo ":: Installing zsh-syntax-highlighting"
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.config/zshrc/plugins/zsh-syntax-highlighting
+else
+    source "$HOME/.config/zshrc/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+fi
+# fast-syntax-highlighting
+if [ ! -d "$HOME/.config/zshrc/plugins/fast-syntax-highlighting" ]; then
+    echo ":: Installing fast-syntax-highlighting"
+    git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $HOME/.config/zshrc/plugins/fast-syntax-highlighting 
+else
+    source "$HOME/.config/zshrc/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+fi
+# zsh-completions
+if [ ! -d "$HOME/.config/zshrc/plugins/zsh-completions" ]; then
+    echo ":: Installing zsh-completions"
+    git clone https://github.com/zsh-users/zsh-completions.git $HOME/.config/zshrc/plugins/zsh-completions
+else
+    source "$HOME/.config/zshrc/plugins/zsh-completions/zsh-completions.plugin.zsh"
+fi
+# zsh-plugin-git
+if [ ! -f "$HOME/.config/zshrc/plugins/git.plugin.zsh" ]; then
+    echo ":: Installing zsh-plugin-git"
+    curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/git/git.plugin.zsh -o $HOME/.config/zshrc/plugins/git.plugin.zsh
+else
+    source "$HOME/.config/zshrc/plugins/git.plugin.zsh"
+fi
+# zsh-plugin-sudo
+if [ ! -f "$HOME/.config/zshrc/plugins/sudo.plugin.zsh" ]; then
+    echo ":: Installing zsh-plugin-sudo"
+    curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh -o $HOME/.config/zshrc/plugins/sudo.plugin.zsh
+else
+    source "$HOME/.config/zshrc/plugins/sudo.plugin.zsh"
+fi
+# zsh-plugin-web-search
+if [ ! -f "$HOME/.config/zshrc/plugins/web-search.plugin.zsh" ]; then
+    echo ":: Installing zsh-plugin-web-search"
+    curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/web-search/web-search.plugin.zsh -o $HOME/.config/zshrc/plugins/web-search.plugin.zsh
+else
+    source "$HOME/.config/zshrc/plugins/web-search.plugin.zsh"
+fi
+# zsh-plugin-archlinux
+if [ ! -f "$HOME/.config/zshrc/plugins/archlinux.plugin.zsh" ]; then
+    echo ":: Installing zsh-plugin-archlinux"
+    curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/archlinux/archlinux.plugin.zsh -o $HOME/.config/zshrc/plugins/archlinux.plugin.zsh
+else
+    source "$HOME/.config/zshrc/plugins/archlinux.plugin.zsh"
+fi
+# zsh-plugin-copyfile
+if [ ! -f "$HOME/.config/zshrc/plugins/copyfile.plugin.zsh" ]; then
+    echo ":: Installing zsh-plugin-copyfile"
+    curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/copyfile/copyfile.plugin.zsh -o $HOME/.config/zshrc/plugins/copyfile.plugin.zsh
+else
+    source "$HOME/.config/zshrc/plugins/copyfile.plugin.zsh"
+fi
+# zsh-plugin-copybuffer
+if [ ! -f "$HOME/.config/zshrc/plugins/copybuffer.plugin.zsh" ]; then
+    echo ":: Installing zsh-plugin-copybuffer"
+    curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/copybuffer/copybuffer.plugin.zsh -o $HOME/.config/zshrc/plugins/copybuffer.plugin.zsh
+else
+    source "$HOME/.config/zshrc/plugins/copybuffer.plugin.zsh"
+fi
+# zsh-plugin-dirhistory
+if [ ! -f "$HOME/.config/zshrc/plugins/dirhistory.plugin.zsh" ]; then
+    echo ":: Installing zsh-plugin-dirhistory"
+    curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/dirhistory/dirhistory.plugin.zsh -o $HOME/.config/zshrc/plugins/dirhistory.plugin.zsh
+else
+    source "$HOME/.config/zshrc/plugins/dirhistory.plugin.zsh"
+fi
+# zsh-plugin-colored-man-pages
+if [ ! -f "$HOME/.config/zshrc/plugins/colored-man-pages.plugin.zsh" ]; then
+    echo ":: Installing zsh-plugin-colored-man-pages"
+    curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/colored-man-pages/colored-man-pages.plugin.zsh -o $HOME/.config/zshrc/plugins/colored-man-pages.plugin.zsh
+else
+    source "$HOME/.config/zshrc/plugins/colored-man-pages.plugin.zsh"
+fi
+# zsh-plugin-command-not-found
+if [ ! -f "$HOME/.config/zshrc/plugins/command-not-found.plugin.zsh" ]; then
+    echo ":: Installing zsh-plugin-command-not-found"
+    curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/command-not-found/command-not-found.plugin.zsh -o $HOME/.config/zshrc/plugins/command-not-found.plugin.zsh
+else
+    source "$HOME/.config/zshrc/plugins/command-not-found.plugin.zsh"
+fi
+# zsh-plugin-extract
+if [ ! -f "$HOME/.config/zshrc/plugins/extract.plugin.zsh" ]; then
+    echo ":: Installing zsh-plugin-extract"
+    curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/extract/extract.plugin.zsh -o $HOME/.config/zshrc/plugins/extract.plugin.zsh
+else
+    source "$HOME/.config/zshrc/plugins/extract.plugin.zsh"
+fi
+# zsh-plugin-you-should-use
+if [ ! -f "$HOME/.config/zshrc/plugins/you-should-use.plugin.zsh" ]; then
+    echo ":: Installing zsh-plugin-you-should-use"
+    curl https://raw.githubusercontent.com/MichaelAquilina/zsh-you-should-use/refs/heads/master/you-should-use.plugin.zsh -o $HOME/.config/zshrc/plugins/you-should-use.plugin.zsh
+else
+    source "$HOME/.config/zshrc/plugins/you-should-use.plugin.zsh"
+fi
