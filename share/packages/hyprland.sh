@@ -15,7 +15,7 @@ packagesAUR=(
     "wlogout"
     "hyprshade"
     "waypaper"
-    "grimblast"
+    "grimblast-git"
     "bun-bin"
     "aylurs-gtk-shell"
 );

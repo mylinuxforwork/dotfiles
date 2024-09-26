@@ -9,7 +9,6 @@ packagesPacman=(
     "unzip"
     "alacritty" 
     "dunst" 
-    "starship"
     "noto-fonts" 
     "otf-font-awesome" 
     "ttf-fira-sans" 
@@ -53,12 +52,10 @@ packagesPacman=(
     "zsh"
     "fzf"
     "htop"
-    "zsh-completions"
+    "rsync"
 );
 
 packagesAUR=(
     "bibata-cursor-theme" 
-    "trizen"
-    "pacseek"
-    "oh-my-posh"
+    "oh-my-posh-bin"
 );
