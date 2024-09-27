@@ -42,6 +42,10 @@ window#waybar {
     transition-duration: .5s;
 }
 
+.modules-left {
+    padding-left: 10px;
+}
+
 /* -----------------------------------------------------
  * Workspaces 
  * ----------------------------------------------------- */
@@ -242,7 +246,7 @@ window#waybar.empty #window {
 #custom-appmenuicon {
     font-size: 20px;
     color: @textcolor;
-    margin: 0px 15px 0px 10px;
+    margin: 0px 15px 0px 0px;
 }
 
 /* -----------------------------------------------------

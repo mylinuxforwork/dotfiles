@@ -58,7 +58,5 @@ packagesPacman=(
 
 packagesAUR=(
     "bibata-cursor-theme" 
-    "trizen"
-    "pacseek"
     "oh-my-posh"
 );

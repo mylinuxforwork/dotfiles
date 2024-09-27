@@ -15,7 +15,7 @@ echo ":: ML4W Welcome App installed successfully"
 
 sed -i "s|HOME|${HOME}|g" $HOME/.config/ml4w/apps/ml4w-dotfiles-settings.desktop
 cp $HOME/.config/ml4w/apps/ml4w-dotfiles-settings.desktop $HOME/.local/share/applications
-echo ":: ML4W Dotfiles Settings App installed successfully"
+echo ":: ML4W Settings App installed successfully"
 
 sed -i "s|HOME|${HOME}|g" $HOME/.config/ml4w/apps/ml4w-hyprland-settings.desktop
 cp $HOME/.config/ml4w/apps/ml4w-hyprland-settings.desktop $HOME/.local/share/applications

@@ -6,8 +6,6 @@
 #  \____|_|_| .__/|_| |_|_|___/\__| 
 #           |_|                     
 #  
-# by Stephan Raabe (2023) 
-# ----------------------------------------------------- 
 
 case $1 in
     d) cliphist list | rofi -dmenu -replace -config ~/.config/rofi/config-cliphist.rasi | cliphist delete

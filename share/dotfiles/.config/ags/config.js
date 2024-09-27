@@ -102,7 +102,7 @@ const ml4wSettingsBox = Widget.Box({
         }),
         Widget.Button({
             className: "btn",
-            child: Widget.Label('Dotfiles App'),
+            child: Widget.Label('Settings App'),
             onClicked: () => {
                 print(':: Start Settings App')
                 Utils.subprocess('/home/' + username + '/.config/ml4w/apps/ML4W_Dotfiles_Settings-x86_64.AppImage')
