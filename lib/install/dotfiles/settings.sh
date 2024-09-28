@@ -169,7 +169,7 @@ fi
 # Replace waybar_appmenu
 if [ -f ~/.config/ml4w/settings/waybar_appmenu.sh ] ;then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_appmenu.sh)
-    search_str="appmenu\""
+    search_str="appmenu"
     if [[ $replace_value == "True" ]] ;then
         replace_str="\"custom\/appmenu\","
     else
@@ -179,7 +179,6 @@ if [ -f ~/.config/ml4w/settings/waybar_appmenu.sh ] ;then
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-minimal/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/starter/config"
     echo ":: waybar_appmenu restored"
 fi
@@ -187,19 +186,14 @@ fi
 # Replace waybar_appmenuicon
 if [ -f ~/.config/ml4w/settings/waybar_appmenu.sh ] ;then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_appmenu.sh)
-    search_str="appmenuicon\""
+    search_str="appmenuicon"
     if [[ $replace_value == "True" ]] ;then
         replace_str="\"custom\/appmenuicon\","
     else
         replace_str="\/\/\"custom\/appmenuicon\","
     fi
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur-bottom/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-minimal/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/starter/config"
-    echo ":: waybar_appmenu restored"
+    echo ":: waybar_appmenuicon restored"
 fi
 
 # Replace hypridle_hyprlock_timeout
@@ -228,3 +222,4 @@ if [ -f ~/.config/ml4w/settings/hypridle_suspend_timeout.sh ] ;then
     _replaceLineInFileCheckpoint "$search_str" "$replace_str" "SUSPEND TIMEOUT" "$HOME/.config/hypr/hypridle.conf"
     echo ":: hypridle_suspend_timeout restored"
 fi
+echo
