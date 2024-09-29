@@ -9,4 +9,5 @@ optdepends=(
     "breeze-icons"
     "mpv" 
     "mission-center"
+    "pacseek"
 );

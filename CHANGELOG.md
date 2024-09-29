@@ -1,3 +1,8 @@
+Version 2.9.6.2
+--------------------------------------------------------
+- App Menu icon can be hidden from the ML4W Settings App
+- Setup script optimize the keybindings if french keyboard layout (fr) is selected
+
 Version 2.9.6.1
 --------------------------------------------------------
 - AGS calendar widget moved from sidebar into own widget. Opens with click on clock module in waybar

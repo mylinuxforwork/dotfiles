@@ -6,7 +6,6 @@
 #  \___/| .__/ \__,_|\__,_|\__\___||___/ 
 #       |_|                              
 #  
-# Requires pacman-contrib trizen
 
 # ----------------------------------------------------- 
 # Define threshholds for color indicators
@@ -18,7 +17,7 @@ threshhold_red=100
 aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
 
 # ----------------------------------------------------- 
-# Calculate available updates pacman and aur (with trizen)
+# Calculate available updates
 # ----------------------------------------------------- 
 
 if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then

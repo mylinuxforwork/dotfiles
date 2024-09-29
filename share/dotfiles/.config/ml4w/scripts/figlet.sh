@@ -1,13 +1,7 @@
 #!/bin/bash
-cat <<"EOF"
-   _____      __    __ 
-  / __(_)__ _/ /__ / /_
- / _// / _ `/ / -_) __/
-/_/ /_/\_, /_/\__/\__/ 
-      /___/            
-
-EOF
-# -----------------------------------------------------
+figlet -f smslant "Figlet"
+echo 
+# ------------------------------------------------
 # Script to create ascii font based header on user input
 # and copy the result to the clipboard
 # -----------------------------------------------------

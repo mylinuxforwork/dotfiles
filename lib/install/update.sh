@@ -1,13 +1,8 @@
 #!/bin/bash
-#  _   _           _       _       
-# | | | |_ __   __| | __ _| |_ ___ 
-# | | | | '_ \ / _` |/ _` | __/ _ \
-# | |_| | |_) | (_| | (_| | ||  __/
-#  \___/| .__/ \__,_|\__,_|\__\___|
-#       |_|                        
-# 
 clear
+echo -e "${GREEN}"
 figlet -f smslant "Update"
+echo -e "${NONE}"
 echo
 echo ":: Please choose your version:"
 echo

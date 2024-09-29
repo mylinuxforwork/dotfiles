@@ -91,6 +91,20 @@ _run_dotfiles() {
 }
 
 # ----------------------------------------------------- 
+# Run unstaller
+# ----------------------------------------------------- 
+_run_uninstall() {
+    source $install_directory/uninstall.sh
+}
+
+# ----------------------------------------------------- 
+# Run update
+# ----------------------------------------------------- 
+_run_update() {
+    source $install_directory/update.sh
+}
+
+# ----------------------------------------------------- 
 # Activate existing dotfiles installation
 # ----------------------------------------------------- 
 _run_activate() {
@@ -121,6 +135,12 @@ else
                     dotfiles)
                         _run_dotfiles
                     ;;
+                    uninstall)
+                        _run_uninstall
+                    ;;
+                    update)
+                        _run_update
+                    ;;
                     activate)
                         _run_activate
                     ;;
@@ -135,6 +155,8 @@ else
                 echo "-m full: Run full installation"
                 echo "-m packages: Run installation of packages only"
                 echo "-m dotfiles: Run the setup of the dotfiles only"
+                echo "-m update: Check for new updates"
+                echo "-m unstall: Will uninstall the dotfiles"
                 echo "-m activate: Activate an existing dotfiles folder"
                 echo
                 echo "-v: Current version of the ML4W Dotfiles for Hyprland"
