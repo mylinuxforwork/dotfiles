@@ -27,6 +27,7 @@ fi
 
 force_generate=0
 generated_versions="$HOME/.config/ml4w/cache/wallpaper-generated"
+waypaper_running=$HOME/.config/ml4w/cache/waypaper-running
 cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
 blurred_wallpaper="$HOME/.config/ml4w/cache/blurred_wallpaper.png"
 square_wallpaper="$HOME/.config/ml4w/cache/square_wallpaper.png"
@@ -36,6 +37,13 @@ default_wallpaper="$HOME/wallpaper/default.jpg"
 wallpaper_effect="$HOME/.config/ml4w/settings/wallpaper-effect.sh"
 blur="50x30"
 blur=$(cat $blur_file)
+
+if [ -f $waypaper_running ] ;then 
+    rm $waypaper_running
+    exit
+else
+    touch $waypaper_running
+fi
 
 # Create folder with generated versions of wallpaper if not exists
 if [ ! -d $generated_versions ] ;then
@@ -109,12 +117,14 @@ source "$HOME/.cache/wal/colors.sh"
 # -----------------------------------------------------
 
 echo ":: Setting wallpaper with $used_wallpaper"
-killall -e hyprpaper & 
-sleep 1; 
-wal_tpl=$(cat $HOME/.config/ml4w/settings/hyprpaper.tpl)
-output=${wal_tpl//WALLPAPER/$used_wallpaper}
-echo "$output" > $HOME/.config/hypr/hyprpaper.conf
-hyprpaper & > /dev/null 2>&1
+waypaper --wallpaper $used_wallpaper
+
+# killall -e hyprpaper & 
+# sleep 1; 
+# wal_tpl=$(cat $HOME/.config/ml4w/settings/hyprpaper.tpl)
+# output=${wal_tpl//WALLPAPER/$used_wallpaper}
+# echo "$output" > $HOME/.config/hypr/hyprpaper.conf
+# hyprpaper & > /dev/null 2>&1
 
 # ----------------------------------------------------- 
 # Reload Waybar
