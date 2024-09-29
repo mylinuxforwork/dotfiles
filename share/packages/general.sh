@@ -53,6 +53,7 @@ packagesPacman=(
     "fzf"
     "htop"
     "rsync"
+    "nautilus"
 );
 
 packagesAUR=(
