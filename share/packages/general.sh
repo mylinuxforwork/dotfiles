@@ -1,5 +1,6 @@
 packagesPacman=(
     "pacman-contrib"
+    "rsync"
     "sed"
     "vim"
     "bluez"
@@ -58,5 +59,4 @@ packagesPacman=(
 
 packagesAUR=(
     "bibata-cursor-theme" 
-    "oh-my-posh"
 );
