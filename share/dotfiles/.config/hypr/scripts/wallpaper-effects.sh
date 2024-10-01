@@ -6,6 +6,9 @@
 #    \_/\_/  |_|     |_____|_| |_|  \___|\___|\__|___/
 #                                                    
 
+# Get current wallpaper
+cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
+
 # Open rofi to select the Hyprshade filter for toggle
 options="$(ls ~/.config/hypr/effects/wallpaper/)\noff"
 
@@ -14,5 +17,5 @@ choice=$(echo -e "$options" | rofi -dmenu -replace -config ~/.config/rofi/config
 if [ ! -z $choice ] ;then
     echo "$choice" > ~/.config/ml4w/settings/wallpaper-effect.sh
     dunstify "Changing Wallpaper Effect to " "$choice"
-    ~/.config/hypr/scripts/wallpaper.sh
+    waypaper --wallpaper $(cat $cache_file)
 fi

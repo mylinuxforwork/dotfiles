@@ -2,6 +2,7 @@ Version 2.9.6.2
 --------------------------------------------------------
 - App Menu icon can be hidden from the ML4W Settings App
 - Setup script optimize the keybindings if french keyboard layout (fr) is selected
+- Add full waypaper support with waypaper 2.3. Brings back swww support including animations.
 
 Version 2.9.6.1
 --------------------------------------------------------
