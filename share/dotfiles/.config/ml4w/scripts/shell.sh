@@ -51,6 +51,9 @@ elif [[ $shell == "zsh" ]] ;then
     done
     echo ":: Shell is now zsh."
 
+    # Installing oh-my-posh
+    yay -S --noconfirm oh-my-posh
+
     # Installing oh-my-zsh
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
         echo ":: Installing oh-my-zsh"
