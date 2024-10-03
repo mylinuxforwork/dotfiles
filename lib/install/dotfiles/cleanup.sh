@@ -34,6 +34,17 @@ if [ -d ~/$dot_folder/hypr/settings/ ] ;then
     echo ":: ~/dotfiles/hypr/settings removed."
 fi
 
+if [ -f ~/.local/share/applications/ml4w-welcome.desktop ] ;then
+    rm ~/.local/share/applications/ml4w-welcome.desktop
+fi
+if [ -f ~/.local/share/applications/ml4w-dotfiles-settings.desktop ] ;then
+    rm ~/.local/share/applications/ml4w-dotfiles-settings.desktop
+fi
+if [ -f ~/.local/share/applications/ml4w-hyprland-settings.desktop ] ;then
+    rm ~/.local/share/applications/ml4w-hyprland-settings.desktop
+fi
+
+
 # Create default folder structure
 xdg-user-dirs-update
 

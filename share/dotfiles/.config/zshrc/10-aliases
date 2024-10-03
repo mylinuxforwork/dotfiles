@@ -22,10 +22,10 @@ alias cleanup='~/.config/ml4w/scripts/cleanup.sh'
 # -----------------------------------------------------
 # ML4W Apps
 # -----------------------------------------------------
-alias ml4w='~/.config/ml4w/apps/ML4W_Welcome-x86_64.AppImage'
-alias ml4w-settings='~/.config/ml4w/apps/ML4W_Dotfiles_Settings-x86_64.AppImage'
+alias ml4w='com.ml4w.welcome'
+alias ml4w-settings='com.ml4w.dotfilessettings'
+alias ml4w-hyprland='com.ml4w.hyprland.settings'
 alias ml4w-sidebar='ags -t sidebar'
-alias ml4w-hyprland='~/.config/ml4w/apps/ML4W_Hyprland_Settings-x86_64.AppImage'
 alias ml4w-diagnosis='~/.config/hypr/scripts/diagnosis.sh'
 alias ml4w-hyprland-diagnosis='~/.config/hypr/scripts/diagnosis.sh'
 alias ml4w-qtile-diagnosis='~/.config/ml4w/qtile/scripts/diagnosis.sh'

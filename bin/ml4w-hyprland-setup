@@ -31,6 +31,7 @@ fi
 
 install_directory="$lib_directory/install"
 dotfiles_directory="$share_directory/dotfiles"
+apps_directory="$share_directory/apps"
 template_directory="$share_directory/templates"
 wallpaper_directory="$share_directory/wallpapers"
 packages_directory="$share_directory/packages"
