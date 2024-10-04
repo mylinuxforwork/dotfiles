@@ -13,7 +13,7 @@ else
     cp $wallpaper_directory/* ~/wallpaper/
     echo ":: Default wallpapers installed successfully."
     echo
-    echo "You can download and install additional wallpapers from https://github.com/mylinuxforwork/wallpaper/ ?"
+    echo "You can download and install additional wallpapers from https://github.com/mylinuxforwork/wallpaper/"
     echo ""
     if gum confirm "Do you want to download the repository?" ;then
         if [ -d ~/Downloads/wallpaper ] ;then
