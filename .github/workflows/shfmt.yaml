@@ -1,0 +1,10 @@
+name: Shell Formatting
+on:
+  pull_request:
+jobs:
+  shfmt:
+    name: runner / shfmt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: reviewdog/action-shfmt@v1
