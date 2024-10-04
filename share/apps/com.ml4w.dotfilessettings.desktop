@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=ML4W Settings App
+Exec=com.ml4w.dotfilessettings
+Icon=com.ml4w.dotfilessettings
+Terminal=false
+Categories=Utility

@@ -31,7 +31,7 @@ source $install_directory/packages/remove.sh
 source $install_directory/packages/packages.sh
 
 # ----------------------------------------------------- 
-# Install packages
+# Install optional packages
 # ----------------------------------------------------- 
 source $install_directory/packages/optional.sh
 

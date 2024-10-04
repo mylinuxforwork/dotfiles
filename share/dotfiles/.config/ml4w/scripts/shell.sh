@@ -55,6 +55,7 @@ elif [[ $shell == "zsh" ]] ;then
     if [ ! -d "$HOME/.config/zshrc/plugins" ]; then
         echo ":: Making ZSH Plugin directory"
         mkdir -p $HOME/.config/zshrc/plugins
+
     else
         echo ":: ZSH Plugin directory already exists"
     fi

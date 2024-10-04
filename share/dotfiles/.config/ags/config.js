@@ -72,7 +72,7 @@ const ml4wWelcomeBox = Widget.Box({
             className:"ml4wwelcomeicon",
             onClicked: () => {
                 print(':: Start Welcome App')
-                Utils.subprocess('/home/' + username + '/.config/ml4w/apps/ML4W_Welcome-x86_64.AppImage')
+                Utils.subprocess('com.ml4w.welcome')
                 App.closeWindow("sidebar")
             }
         }),
@@ -81,7 +81,7 @@ const ml4wWelcomeBox = Widget.Box({
             child: Widget.Label('Welcome App'),
             onClicked: () => {
                 print(':: Start Welcome App')
-                Utils.subprocess('/home/' + username + '/.config/ml4w/apps/ML4W_Welcome-x86_64.AppImage')
+                Utils.subprocess('com.ml4w.welcome')
                 App.closeWindow("sidebar")
             }
         })
@@ -96,7 +96,7 @@ const ml4wSettingsBox = Widget.Box({
             className:"ml4wsettingsicon",
             onClicked: () => {
                 print(':: Start Settings App')
-                Utils.subprocess('/home/' + username + '/.config/ml4w/apps/ML4W_Dotfiles_Settings-x86_64.AppImage')
+                Utils.subprocess('com.ml4w.dotfilessettings')
                 App.closeWindow("sidebar")
             }
         }),
@@ -105,7 +105,7 @@ const ml4wSettingsBox = Widget.Box({
             child: Widget.Label('Settings App'),
             onClicked: () => {
                 print(':: Start Settings App')
-                Utils.subprocess('/home/' + username + '/.config/ml4w/apps/ML4W_Dotfiles_Settings-x86_64.AppImage')
+                Utils.subprocess('com.ml4w.dotfilessettings')
                 App.closeWindow("sidebar")
             }
         })
@@ -120,7 +120,7 @@ const ml4wHyprlandBox = Widget.Box({
             className:"ml4whyprlandicon",
             onClicked: () => { 
                 print(':: Start Hyprland App')
-                Utils.subprocess('/home/' + username + '/.config/ml4w/apps/ML4W_Hyprland_Settings-x86_64.AppImage')
+                Utils.subprocess('com.ml4w.hyprland.settings')
                 App.closeWindow("sidebar")
             }
         }),
@@ -129,7 +129,7 @@ const ml4wHyprlandBox = Widget.Box({
             child: Widget.Label('Hyprland App'),
             onClicked: () => { 
                 print(':: Start Hyprland App')
-                Utils.subprocess('/home/' + username + '/.config/ml4w/apps/ML4W_Hyprland_Settings-x86_64.AppImage')
+                Utils.subprocess('com.ml4w.hyprland.settings')
                 App.closeWindow("sidebar")
             }
         })

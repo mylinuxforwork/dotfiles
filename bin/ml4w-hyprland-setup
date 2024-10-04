@@ -31,6 +31,7 @@ fi
 
 install_directory="$lib_directory/install"
 dotfiles_directory="$share_directory/dotfiles"
+apps_directory="$share_directory/apps"
 template_directory="$share_directory/templates"
 wallpaper_directory="$share_directory/wallpapers"
 packages_directory="$share_directory/packages"
@@ -93,6 +94,13 @@ _run_dotfiles() {
 # ----------------------------------------------------- 
 # Run unstaller
 # ----------------------------------------------------- 
+_run_optional() {
+    source $install_directory/optional.sh
+}
+
+# ----------------------------------------------------- 
+# Run unstaller
+# ----------------------------------------------------- 
 _run_uninstall() {
     source $install_directory/uninstall.sh
 }
@@ -138,6 +146,9 @@ else
                     uninstall)
                         _run_uninstall
                     ;;
+                    optional)
+                        _run_optional
+                    ;;
                     update)
                         _run_update
                     ;;
@@ -155,6 +166,7 @@ else
                 echo "-m full: Run full installation"
                 echo "-m packages: Run installation of packages only"
                 echo "-m dotfiles: Run the setup of the dotfiles only"
+                echo "-m options: Install optional packages"
                 echo "-m update: Check for new updates"
                 echo "-m unstall: Will uninstall the dotfiles"
                 echo "-m activate: Activate an existing dotfiles folder"

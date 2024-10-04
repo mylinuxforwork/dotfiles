@@ -8,19 +8,27 @@ if [ ! -d $HOME/.local/share/applications/ ] ;then
     echo ":: $HOME/.local/share/applications created"
 fi
 
-# Downloading the App
-sed -i "s|HOME|${HOME}|g" $HOME/.config/ml4w/apps/ml4w-welcome.desktop
-cp $HOME/.config/ml4w/apps/ml4w-welcome.desktop $HOME/.local/share/applications
+# Installing the ML4W Apps
+app_name="com.ml4w.welcome"
+sudo cp $apps_directory/$app_name.desktop /usr/share/applications
+sudo cp $apps_directory/$app_name.png /usr/share/icons/hicolor/128x128/apps
+sudo cp $apps_directory/$app_name /usr/bin/$app_name
 echo ":: ML4W Welcome App installed successfully"
 
-sed -i "s|HOME|${HOME}|g" $HOME/.config/ml4w/apps/ml4w-dotfiles-settings.desktop
-cp $HOME/.config/ml4w/apps/ml4w-dotfiles-settings.desktop $HOME/.local/share/applications
+app_name="com.ml4w.dotfilessettings"
+sudo cp $apps_directory/$app_name.desktop /usr/share/applications
+sudo cp $apps_directory/$app_name.png /usr/share/icons/hicolor/128x128/apps
+sudo cp $apps_directory/$app_name /usr/bin/$app_name
 echo ":: ML4W Settings App installed successfully"
 
-sed -i "s|HOME|${HOME}|g" $HOME/.config/ml4w/apps/ml4w-hyprland-settings.desktop
-cp $HOME/.config/ml4w/apps/ml4w-hyprland-settings.desktop $HOME/.local/share/applications
+app_name="com.ml4w.hyprland.settings"
+sudo cp $apps_directory/$app_name.desktop /usr/share/applications
+sudo cp $apps_directory/$app_name.png /usr/share/icons/hicolor/128x128/apps
+sudo cp $apps_directory/$app_name /usr/bin/$app_name
 echo ":: ML4W Hyprland Settings App installed successfully"
 
+app_name="com.ml4w.dotfilesuninstaller"
+sudo cp $apps_directory/$app_name /usr/bin/$app_name
 echo ":: ML4W Uninstaller App installed successfully"
 
 echo 

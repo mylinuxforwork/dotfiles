@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=ML4W Hyprland Settings App
-Exec=HOME/.config/ml4w/apps/ML4W_Hyprland_Settings-x86_64.AppImage
-Icon=HOME/.config/ml4w/apps/ml4w-hyprland-settings.png
-Terminal=false
-Categories=Utility
