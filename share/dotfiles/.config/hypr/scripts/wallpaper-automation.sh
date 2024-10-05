@@ -1,20 +1,20 @@
 #!/bin/bash
-#     _         _         __        ______  
-#    / \  _   _| |_ ___   \ \      / /  _ \ 
+#     _         _         __        ______
+#    / \  _   _| |_ ___   \ \      / /  _ \
 #   / _ \| | | | __/ _ \   \ \ /\ / /| |_) |
-#  / ___ \ |_| | || (_) |   \ V  V / |  __/ 
-# /_/   \_\__,_|\__\___/     \_/\_/  |_|    
-#                                          
+#  / ___ \ |_| | || (_) |   \ V  V / |  __/
+# /_/   \_\__,_|\__\___/     \_/\_/  |_|
+#
 
 sec=$(cat ~/.config/ml4w/settings/wallpaper-automation.sh)
 _setWallpaperRandomly() {
     waypaper --random
     echo ":: Next wallpaper in 60 seconds..."
-    sleep $sec
+    sleep "$sec"
     _setWallpaperRandomly
 }
 
-if [ ! -f ~/.config/ml4w/cache/wallpaper-automation ] ;then
+if [ ! -f ~/.config/ml4w/cache/wallpaper-automation ]; then
     touch ~/.config/ml4w/cache/wallpaper-automation
     echo ":: Start wallpaper automation script"
     notify-send "Wallpaper automation process started" "Wallpaper will be changed every $sec seconds."
@@ -24,5 +24,5 @@ else
     notify-send "Wallpaper automation process stopped."
     echo ":: Wallpaper automation script process $wp stopped"
     wp=$(pgrep -f wallpaper-automation.sh)
-    kill -KILL $wp
+    kill -KILL "$wp"
 fi

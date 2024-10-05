@@ -5,8 +5,8 @@
 # |  ___/ '__| | '_ \| __/ _ \ '__| | |    / _ \| '_ \|  _|
 # | |   | |  | | | | | ||  __/ |    | |___| (_) | | | | |
 # |_|   |_|  |_|_| |_|\__\___|_|     \_____\___/|_| |_|_|
-# 
-# By @krystalsavage 
+#
+# By @krystalsavage
 
 sleep 1
 clear
@@ -16,19 +16,19 @@ figlet -f smslant "Printers"
 # Confirm Start
 # ------------------------------------------------------
 
-if gum confirm "DO YOU WANT TO START TO INSTALL PRINTER SYSTEM NOW?" ;then
+if gum confirm "DO YOU WANT TO START TO INSTALL PRINTER SYSTEM NOW?"; then
     echo
     echo ":: Install started."
 elif [ $? -eq 130 ]; then
-        exit 130
+    exit 130
 else
     echo
     echo ":: Install canceled."
-    exit;
+    exit
 fi
 
-if [[ $(_isInstalledYay "timeshift") == "0" ]] ;then
-    if gum confirm "DO YOU WANT TO CREATE A SNAPSHOT?" ;then
+if [[ $(_isInstalledYay "timeshift") == "0" ]]; then
+    if gum confirm "DO YOU WANT TO CREATE A SNAPSHOT?"; then
         echo
         c=$(gum input --placeholder "Enter a comment for the snapshot...")
         sudo timeshift --create --comments "$c"
@@ -52,15 +52,15 @@ echo
 echo ":: Installing printer system complete"
 sleep 2
 
-if [ -f ~/.config/ml4w/settings/printer-drivers.sh ] ;then
-    if gum confirm "DO YOU WANT TO INSTALL PRINTER DRIVERS NOW?" ;then
-    echo
-    echo ":: Install started."
+if [ -f ~/.config/ml4w/settings/printer-drivers.sh ]; then
+    if gum confirm "DO YOU WANT TO INSTALL PRINTER DRIVERS NOW?"; then
+        echo
+        echo ":: Install started."
     elif [ $? -eq 130 ]; then
         exit 130
     else
         echo
         echo ":: Install cancelled."
-        exit;
+        exit
     fi
 fi
