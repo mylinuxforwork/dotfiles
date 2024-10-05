@@ -2,38 +2,33 @@
 # Install wallpapers
 # ------------------------------------------------------
 
-if [ ! -d ~/wallpaper ]; then
+if [ -d ~/wallpaper/ ]; then
+    echo "~/wallpaper folder already exists."
+else
     echo -e "${GREEN}"
     figlet -f smslant "Wallpapers"
     echo -e "${NONE}"
-    echo "Do you want to download the wallpapers from repository https://github.com/mylinuxforwork/wallpaper/ ?"
-    echo "If not, the script will install some default wallpapers in ~/wallpaper/"
+
+    mkdir ~/wallpaper
+    cp $wallpaper_directory/* ~/wallpaper/
+    echo ":: Default wallpapers installed successfully."
+    echo
+    echo "You can download and install additional wallpapers from https://github.com/mylinuxforwork/wallpaper/"
     echo ""
     if gum confirm "Do you want to download the repository?" ;then
         if [ -d ~/Downloads/wallpaper ] ;then
             rm -rf ~/Downloads/wallpaper
         fi
         git clone --depth 1 https://github.com/mylinuxforwork/wallpaper.git ~/Downloads/wallpaper
-        if [ ! -d ~/wallpaper/ ]; then
-            mkdir ~/wallpaper
-        fi
         rsync -a -I --exclude-from=$install_directory/includes/excludes.txt ~/Downloads/wallpaper/. ~/wallpaper/
         echo "Wallpapers from the repository installed successfully."
     elif [ $? -eq 130 ]; then
         exit 130
     else
-        if [ -d ~/wallpaper/ ]; then
-            echo "~/wallpaper folder already exists."
-        else
-            mkdir ~/wallpaper
-        fi
-        cp $wallpaper_directory/* ~/wallpaper/
-        echo "Default wallpapers installed successfully."
+        echo ":: Installation of wallpaper repository skipped."
     fi
-else
-    echo ":: ~/wallpaper folder already exists."
 fi
-echo ""
+echo
 
 # ------------------------------------------------------
 # Copy default wallpaper files to .cache
