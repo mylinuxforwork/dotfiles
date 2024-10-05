@@ -46,9 +46,9 @@ check-apply)
     fi
     if [ "$file" == "." ]; then
         mapfile -t FILES < <(shfmt -f .)
-        shellcheck "${FILES[@]}" -f diff | git apply
+        shellcheck "${FILES[@]}" -f diff | git apply --allow-empty
     else
-        shellcheck "$file" -f diff | git apply
+        shellcheck "$file" -f diff | git apply --allow-empty
     fi
     ;;
 *)
