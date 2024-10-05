@@ -3,13 +3,13 @@ packagesPacman=(
     "hyprpaper"
     "hyprlock"
     "hypridle"
-    "xdg-desktop-portal-hyprland" 
-    "waybar" 
-    "grim" 
+    "xdg-desktop-portal-hyprland"
+    "waybar"
+    "grim"
     "slurp"
     "cliphist"
     "nwg-look"
-);
+)
 
 packagesAUR=(
     "wlogout"
@@ -17,4 +17,4 @@ packagesAUR=(
     "waypaper"
     "grimblast-git"
     "aylurs-gtk-shell"
-);
+)

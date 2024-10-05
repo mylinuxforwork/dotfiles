@@ -1,12 +1,12 @@
 #!/bin/bash
-if [ -f ~/.config/ml4w/version/compare.sh ] ;then
+if [ -f ~/.config/ml4w/version/compare.sh ]; then
     $HOME/.config/ml4w/version/compare.sh
 fi
 
-if [ ! -f ~/.cache/ml4w-post-install ] ;then
-    if [ ! -f $HOME/.cache/ml4w-welcome-autostart ] ;then
+if [ ! -f ~/.cache/ml4w-post-install ]; then
+    if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then
         echo ":: Autostart of ML4W Welcome App enabled."
-        if [ -f $HOME/.config/ml4w/apps/ML4W_Welcome-x86_64.AppImage ] ;then
+        if [ -f $HOME/.config/ml4w/apps/ML4W_Welcome-x86_64.AppImage ]; then
             echo ":: Starting ML4W Welcome App ..."
             sleep 2
             $HOME/.config/ml4w/apps/ML4W_Welcome-x86_64.AppImage

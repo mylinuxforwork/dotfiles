@@ -15,8 +15,8 @@ else
     echo
     echo "You can download and install additional wallpapers from https://github.com/mylinuxforwork/wallpaper/"
     echo ""
-    if gum confirm "Do you want to download the repository?" ;then
-        if [ -d ~/Downloads/wallpaper ] ;then
+    if gum confirm "Do you want to download the repository?"; then
+        if [ -d ~/Downloads/wallpaper ]; then
             rm -rf ~/Downloads/wallpaper
         fi
         git clone --depth 1 https://github.com/mylinuxforwork/wallpaper.git ~/Downloads/wallpaper
@@ -39,13 +39,13 @@ cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
 rasi_file="$HOME/.config/ml4w/cache/current_wallpaper.rasi"
 
 # Create cache file if not exists
-if [ ! -f $cache_file ] ;then
+if [ ! -f $cache_file ]; then
     touch $cache_file
-    echo "$HOME/wallpaper/default.jpg" > "$cache_file"
+    echo "$HOME/wallpaper/default.jpg" >"$cache_file"
 fi
 
 # Create rasi file if not exists
-if [ ! -f $rasi_file ] ;then
+if [ ! -f $rasi_file ]; then
     touch $rasi_file
-    echo "* { current-image: url(\"$HOME/wallpaper/default.jpg\", height); }" > "$rasi_file"
+    echo "* { current-image: url(\"$HOME/wallpaper/default.jpg\", height); }" >"$rasi_file"
 fi

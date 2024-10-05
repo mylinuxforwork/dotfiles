@@ -5,7 +5,7 @@ optdepends=(
     "smile"
     "breeze"
     "breeze-icons"
-    "mpv" 
+    "mpv"
     "mission-center"
     "pacseek"
-);
+)

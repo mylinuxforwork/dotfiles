@@ -7,7 +7,7 @@ figlet -f smslant "Display Manager"
 echo -e "${NONE}"
 echo
 
-if [ -z $automation_displaymanager ] ;then
+if [ -z $automation_displaymanager ]; then
     if [ -f /etc/systemd/system/display-manager.service ]; then
         disman=0
         echo "You have already installed a display manager. If your display manager is working fine, you can keep the current setup."
@@ -22,13 +22,13 @@ if [ -z $automation_displaymanager ] ;then
         dmsel=$(gum choose "Keep current setup" "Install sddm and theme")
     fi
 
-    if [ -z "${dmsel}" ] ;then
+    if [ -z "${dmsel}" ]; then
         echo ":: Installation canceled."
         exit
     fi
-    if [ "$dmsel" == "Install sddm and theme" ] ;then
+    if [ "$dmsel" == "Install sddm and theme" ]; then
 
-        if [ -d /usr/share/sddm/themes/sugar-candy/ ] ;then
+        if [ -d /usr/share/sddm/themes/sugar-candy/ ]; then
             sudo rm -rf /usr/share/sddm/themes/sugar-candy/
             echo ":: Sugar Candy folder removed"
         fi
@@ -37,21 +37,21 @@ if [ -z $automation_displaymanager ] ;then
         # Try to force the installation of sddm
         echo ":: Installing sddm"
         sudo pacman -S --noconfirm --needed sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg --ask 4
-        
+
         # Enable sddm
         if [ -f /etc/systemd/system/display-manager.service ]; then
             sudo rm /etc/systemd/system/display-manager.service
         fi
         sudo systemctl enable sddm.service
 
-        echo 
-        if gum confirm "Do you want to install the sddm-sugar-candy theme?" ;then
+        echo
+        if gum confirm "Do you want to install the sddm-sugar-candy theme?"; then
             echo ":: Installing sddm-sugar-candy-git"
 
-            if [ -d ~/Downloads/sddm-sugar-candy ] ;then
+            if [ -d ~/Downloads/sddm-sugar-candy ]; then
                 rm -rf ~/Downloads/sddm-sugar-candy
                 echo ":: ~/Downloads/sddm-sugar-candy removed"
-            fi 
+            fi
             wget -P ~/Downloads/sddm-sugar-candy https://github.com/Kangie/sddm-sugar-candy/archive/refs/heads/master.zip
             echo ":: Download of sddm-sugar-candy complete"
             unzip -o -q ~/Downloads/sddm-sugar-candy/master.zip -d ~/Downloads/sddm-sugar-candy
@@ -80,19 +80,19 @@ if [ -z $automation_displaymanager ] ;then
             fi
         fi
 
-    elif [ "$dmsel" == "Deactivate current display manager" ] ;then
+    elif [ "$dmsel" == "Deactivate current display manager" ]; then
 
         sudo rm /etc/systemd/system/display-manager.service
         echo ":: Current display manager deactivated."
         disman=1
 
-    elif [ "$dmsel" == "Keep current setup" ] ;then
+    elif [ "$dmsel" == "Keep current setup" ]; then
         echo ":: sddm setup skipped."
     else
         echo ":: sddm setup skipped."
     fi
 else
-    if [[ "$automation_displaymanager" = true ]] ;then
+    if [[ "$automation_displaymanager" = true ]]; then
         echo ":: AUTOMATION: Keep current setup of Display Manager"
         disman=0
     fi

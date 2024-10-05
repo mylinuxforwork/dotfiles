@@ -1,22 +1,22 @@
 #!/bin/bash
-#  ____  _          _ _ 
+#  ____  _          _ _
 # / ___|| |__   ___| | |
 # \___ \| '_ \ / _ \ | |
 #  ___) | | | |  __/ | |
 # |____/|_| |_|\___|_|_|
-#                       
+#
 
 sleep 1
 
 _isInstalledYay() {
-    package="$1";
-    check="$(yay -Qs --color always "${package}" | grep "local" | grep "\." | grep "${package} ")";
-    if [ -n "${check}" ] ; then
-        echo 0; #'0' means 'true' in Bash
-        return; #true
-    fi;
-    echo 1; #'1' means 'false' in Bash
-    return; #false
+    package="$1"
+    check="$(yay -Qs --color always "${package}" | grep "local" | grep "\." | grep "${package} ")"
+    if [ -n "${check}" ]; then
+        echo 0 #'0' means 'true' in Bash
+        return #true
+    fi
+    echo 1 #'1' means 'false' in Bash
+    return #false
 }
 
 clear
@@ -25,10 +25,10 @@ figlet -f smslant "Shell"
 echo ":: Please select your preferred shell"
 echo
 shell=$(gum choose "bash" "zsh" "Cancel")
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Activate bash
-# ----------------------------------------------------- 
-if [[ $shell == "bash" ]] ;then
+# -----------------------------------------------------
+if [[ $shell == "bash" ]]; then
 
     # Change shell to bash
     while ! chsh -s $(which bash); do
@@ -39,10 +39,10 @@ if [[ $shell == "bash" ]] ;then
 
     gum spin --spinner dot --title "Please reboot your system." -- sleep 3
 
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Activate zsh
-# ----------------------------------------------------- 
-elif [[ $shell == "zsh" ]] ;then
+# -----------------------------------------------------
+elif [[ $shell == "zsh" ]]; then
 
     # Change shell to shh
     while ! chsh -s $(which zsh); do
@@ -82,16 +82,16 @@ elif [[ $shell == "zsh" ]] ;then
     # Installing fast-syntax-highlighting
     if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/fast-syntax-highlighting" ]; then
         echo ":: Installing fast-syntax-highlighting"
-        git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting 
+        git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
     else
         echo ":: fast-syntax-highlighting already installed"
     fi
 
     gum spin --spinner dot --title "Please reboot your system." -- sleep 3
 
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Cencel
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 else
     echo ":: Changing shell canceled"
     exit

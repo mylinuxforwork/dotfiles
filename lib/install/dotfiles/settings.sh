@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 
 if [ "$restored" == "1" ]; then
-    if [ -f ~/.config/ml4w/settings/settings.json ] ;then
+    if [ -f ~/.config/ml4w/settings/settings.json ]; then
         # python restore.py
         python $install_directory/dotfiles/restore.py
         rm ~/.config/ml4w/settings/settings.json
@@ -14,7 +14,7 @@ fi
 echo ":: Starting restore settings"
 
 # Replace waybar_timeformat and waybar_dateformat
-if [ -f ~/.config/ml4w/settings/waybar_timeformat.sh ] ;then
+if [ -f ~/.config/ml4w/settings/waybar_timeformat.sh ]; then
     replace_time=$(cat ~/.config/ml4w/settings/waybar_timeformat.sh)
     replace_date=$(cat ~/.config/ml4w/settings/waybar_dateformat.sh)
     search_str="\"format\""
@@ -24,9 +24,9 @@ if [ -f ~/.config/ml4w/settings/waybar_timeformat.sh ] ;then
 fi
 
 # Replace waybar_custom_timedateformat
-if [ -f ~/.config/ml4w/settings/waybar_custom_timedateformat.sh ] ;then
+if [ -f ~/.config/ml4w/settings/waybar_custom_timedateformat.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_custom_timedateformat.sh)
-    if [ ! -z "$replace_value" ] ;then
+    if [ ! -z "$replace_value" ]; then
         search_str="\"format\""
         replace_str="\ \ \ \ \"format\": \"{:$replace_value}\","
         _replaceLineInFileCheckpoint "$search_str" "$replace_str" "clock" "$HOME/.config/waybar/modules.json"
@@ -35,7 +35,7 @@ if [ -f ~/.config/ml4w/settings/waybar_custom_timedateformat.sh ] ;then
 fi
 
 # Replace dunst_position
-if [ -f ~/.config/ml4w/settings/dunst_position.sh ] ;then
+if [ -f ~/.config/ml4w/settings/dunst_position.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/dunst_position.sh)
     search_str="origin"
     replace_str="\ \ \ \ origin = $replace_value"
@@ -44,7 +44,7 @@ if [ -f ~/.config/ml4w/settings/dunst_position.sh ] ;then
 fi
 
 # Replace waybar_workspaces
-if [ -f ~/.config/ml4w/settings/waybar_workspaces.sh ] ;then
+if [ -f ~/.config/ml4w/settings/waybar_workspaces.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_workspaces.sh)
     search_str="\"*\""
     replace_str="\ \ \ \ \ \ \"*\": $replace_value"
@@ -53,10 +53,10 @@ if [ -f ~/.config/ml4w/settings/waybar_workspaces.sh ] ;then
 fi
 
 # Replace waybar_taskbar
-if [ -f ~/.config/ml4w/settings/waybar_taskbar.sh ] ;then
+if [ -f ~/.config/ml4w/settings/waybar_taskbar.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_taskbar.sh)
     search_str="taskbar"
-    if [[ $replace_value == "True" ]] ;then
+    if [[ $replace_value == "True" ]]; then
         replace_str="\"wlr\/taskbar\","
     else
         replace_str="\/\/\"wlr\/taskbar\","
@@ -69,10 +69,10 @@ if [ -f ~/.config/ml4w/settings/waybar_taskbar.sh ] ;then
 fi
 
 # Replace waybar_network
-if [ -f ~/.config/ml4w/settings/waybar_network.sh ] ;then
+if [ -f ~/.config/ml4w/settings/waybar_network.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_network.sh)
     search_str="network"
-    if [[ $replace_value == "True" ]] ;then
+    if [[ $replace_value == "True" ]]; then
         replace_str="\"network\","
     else
         replace_str="\/\/\"network\","
@@ -87,10 +87,10 @@ if [ -f ~/.config/ml4w/settings/waybar_network.sh ] ;then
 fi
 
 # Replace waybar_backlight
-if [ -f ~/.config/ml4w/settings/waybar_backlight.sh ] ;then
+if [ -f ~/.config/ml4w/settings/waybar_backlight.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_backlight.sh)
     search_str="backlight"
-    if [[ $replace_value == "True" ]] ;then
+    if [[ $replace_value == "True" ]]; then
         replace_str="\"backlight\","
     else
         replace_str="\/\/\"backlight\","
@@ -105,10 +105,10 @@ if [ -f ~/.config/ml4w/settings/waybar_backlight.sh ] ;then
 fi
 
 # Replace waybar_chatgpt
-if [ -f ~/.config/ml4w/settings/waybar_chatgpt.sh ] ;then
+if [ -f ~/.config/ml4w/settings/waybar_chatgpt.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_chatgpt.sh)
     search_str="chatgpt"
-    if [[ $replace_value == "True" ]] ;then
+    if [[ $replace_value == "True" ]]; then
         replace_str="\ \ \ \ \ \ \"custom\/chatgpt\","
     else
         replace_str="\ \ \ \ \ \ \/\/\"custom\/chatgpt\","
@@ -118,10 +118,10 @@ if [ -f ~/.config/ml4w/settings/waybar_chatgpt.sh ] ;then
 fi
 
 # Replace waybar_systray
-if [ -f ~/.config/ml4w/settings/waybar_systray.sh ] ;then
+if [ -f ~/.config/ml4w/settings/waybar_systray.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_systray.sh)
     search_str="tray"
-    if [[ $replace_value == "True" ]] ;then
+    if [[ $replace_value == "True" ]]; then
         replace_str="\"tray\","
     else
         replace_str="\/\/\"tray\","
@@ -136,10 +136,10 @@ if [ -f ~/.config/ml4w/settings/waybar_systray.sh ] ;then
 fi
 
 # Replace waybar_screenlock
-if [ -f ~/.config/ml4w/settings/waybar_screenlock.sh ] ;then
+if [ -f ~/.config/ml4w/settings/waybar_screenlock.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_screenlock.sh)
     search_str="hypridle"
-    if [[ $replace_value == "True" ]] ;then
+    if [[ $replace_value == "True" ]]; then
         replace_str="\ \ \ \ \ \ \"custom\/hypridle\","
     else
         replace_str="\ \ \ \ \ \ \/\/\"custom\/hypridle\","
@@ -149,10 +149,10 @@ if [ -f ~/.config/ml4w/settings/waybar_screenlock.sh ] ;then
 fi
 
 # Replace waybar_window
-if [ -f ~/.config/ml4w/settings/waybar_window.sh ] ;then
+if [ -f ~/.config/ml4w/settings/waybar_window.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_window.sh)
     search_str="window"
-    if [[ $replace_value == "True" ]] ;then
+    if [[ $replace_value == "True" ]]; then
         replace_str="\"hyprland\/window\","
     else
         replace_str="\/\/\"hyprland\/window\","
@@ -167,10 +167,10 @@ if [ -f ~/.config/ml4w/settings/waybar_window.sh ] ;then
 fi
 
 # Replace waybar_appmenu
-if [ -f ~/.config/ml4w/settings/waybar_appmenu.sh ] ;then
+if [ -f ~/.config/ml4w/settings/waybar_appmenu.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_appmenu.sh)
     search_str="appmenu"
-    if [[ $replace_value == "True" ]] ;then
+    if [[ $replace_value == "True" ]]; then
         replace_str="\"custom\/appmenu\","
     else
         replace_str="\/\/\"custom\/appmenu\","
@@ -184,10 +184,10 @@ if [ -f ~/.config/ml4w/settings/waybar_appmenu.sh ] ;then
 fi
 
 # Replace waybar_appmenuicon
-if [ -f ~/.config/ml4w/settings/waybar_appmenu.sh ] ;then
+if [ -f ~/.config/ml4w/settings/waybar_appmenu.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_appmenu.sh)
     search_str="appmenuicon"
-    if [[ $replace_value == "True" ]] ;then
+    if [[ $replace_value == "True" ]]; then
         replace_str="\"custom\/appmenuicon\","
     else
         replace_str="\/\/\"custom\/appmenuicon\","
@@ -197,7 +197,7 @@ if [ -f ~/.config/ml4w/settings/waybar_appmenu.sh ] ;then
 fi
 
 # Replace hypridle_hyprlock_timeout
-if [ -f ~/.config/ml4w/settings/hypridle_hyprlock_timeout.sh ] ;then
+if [ -f ~/.config/ml4w/settings/hypridle_hyprlock_timeout.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/hypridle_hyprlock_timeout.sh)
     search_str="timeout"
     replace_str="\ \ \ \ timeout = $replace_value"
@@ -206,7 +206,7 @@ if [ -f ~/.config/ml4w/settings/hypridle_hyprlock_timeout.sh ] ;then
 fi
 
 # Replace hypridle_dpms_timeout
-if [ -f ~/.config/ml4w/settings/hypridle_dpms_timeout.sh ] ;then
+if [ -f ~/.config/ml4w/settings/hypridle_dpms_timeout.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/hypridle_dpms_timeout.sh)
     search_str="timeout"
     replace_str="\ \ \ \ timeout = $replace_value"
@@ -215,7 +215,7 @@ if [ -f ~/.config/ml4w/settings/hypridle_dpms_timeout.sh ] ;then
 fi
 
 # Replace hypridle_suspend_timeout
-if [ -f ~/.config/ml4w/settings/hypridle_suspend_timeout.sh ] ;then
+if [ -f ~/.config/ml4w/settings/hypridle_suspend_timeout.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/hypridle_suspend_timeout.sh)
     search_str="timeout"
     replace_str="\ \ \ \ timeout = $replace_value"

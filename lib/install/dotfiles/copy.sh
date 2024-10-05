@@ -3,15 +3,15 @@
 # ------------------------------------------------------
 
 _copy_confirm() {
-    if gum confirm "Do you want to install the prepared ML4W Dotfiles now?" ;then
+    if gum confirm "Do you want to install the prepared ML4W Dotfiles now?"; then
         echo "Copy started"
         if [ ! -d ~/$dot_folder ]; then
             mkdir -p ~/$dot_folder
             echo "~/$dot_folder folder created."
-        fi   
+        fi
         rsync -avhp -I $ml4w_directory/$version/ ~/$dot_folder/
-        if [[ $(_isFolderEmpty ~/$dot_folder/) == 0 ]] ;then
-            echo "AN ERROR HAS OCCURED. Copy prepared dofiles from $ml4w_directory/$version/ to ~/$dot_folder/ failed" 
+        if [[ $(_isFolderEmpty ~/$dot_folder/) == 0 ]]; then
+            echo "AN ERROR HAS OCCURED. Copy prepared dofiles from $ml4w_directory/$version/ to ~/$dot_folder/ failed"
             echo "Please check that rsync is installad on your system."
             echo "Execution of rsync -a -I $ml4w_directory/$version/ ~/$dot_folder/ is required."
             exit
@@ -30,10 +30,10 @@ _copy_automation() {
     if [ ! -d ~/$dot_folder ]; then
         mkdir -p ~/$dot_folder
         echo ":: AUTOMATION: ~/$dot_folder folder created."
-    fi   
+    fi
     rsync -avhp -I $ml4w_directory/$version/ ~/$dot_folder/
-    if [[ $(_isFolderEmpty ~/$dot_folder/) == 0 ]] ;then
-        echo "AN ERROR HAS OCCURED. Copy prepared dofiles from $ml4w_directory/$version/ to ~/$dot_folder/ failed" 
+    if [[ $(_isFolderEmpty ~/$dot_folder/) == 0 ]]; then
+        echo "AN ERROR HAS OCCURED. Copy prepared dofiles from $ml4w_directory/$version/ to ~/$dot_folder/ failed"
         echo "Please check that rsync is installad on your system."
         echo "Execution of rsync -a -I $ml4w_directory/$version/ ~/$dot_folder/ is required."
         exit
@@ -45,11 +45,11 @@ echo -e "${GREEN}"
 figlet -f smslant "Copy dotfiles"
 echo -e "${NONE}"
 if [ ! -d ~/$dot_folder ]; then
-echo "The script will now remove existing directories and files from ~/.config/"
-echo "and copy your prepared configuration from $ml4w_directory/$version to ~/$dot_folder"
-echo
-echo "Symbolic links will then be created from ~/$dot_folder into your ~/.config/ directory."
-echo
+    echo "The script will now remove existing directories and files from ~/.config/"
+    echo "and copy your prepared configuration from $ml4w_directory/$version to ~/$dot_folder"
+    echo
+    echo "Symbolic links will then be created from ~/$dot_folder into your ~/.config/ directory."
+    echo
 fi
 if [[ ! $(tty) == *"pts"* ]] && [ -d ~/$dot_folder ]; then
     echo "You're running the script in tty. You can delete the existing ~/$dot_folder folder now for a clean installation."
@@ -66,11 +66,10 @@ if [ ! -d ~/$dot_folder ]; then
     echo
 fi
 
-
-if [ -z $automation_copy ] ;then
+if [ -z $automation_copy ]; then
     _copy_confirm
 else
-    if [[ "$automation_copy" = true ]] ;then
+    if [[ "$automation_copy" = true ]]; then
         _copy_automation
     else
         _copy_confirm

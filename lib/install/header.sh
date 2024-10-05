@@ -17,7 +17,7 @@ echo "Version: $version"
 echo "by Stephan Raabe"
 echo
 # echo ":: You're running the script in $(pwd)"
-if [[ $(_check_update) == "true" ]] ;then
+if [[ $(_check_update) == "true" ]]; then
     echo ":: An existing ML4W Dotfiles installation has been detected."
     echo ":: This script will guide you through the update process of the ML4W Dotfiles."
 else

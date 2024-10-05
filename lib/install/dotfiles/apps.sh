@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 
 # Create local applications folder if not exits
-if [ ! -d $HOME/.local/share/applications/ ] ;then
+if [ ! -d $HOME/.local/share/applications/ ]; then
     mkdir $HOME/.local/share/applications
     echo ":: $HOME/.local/share/applications created"
 fi
@@ -31,10 +31,10 @@ app_name="com.ml4w.dotfilesuninstaller"
 sudo cp $apps_directory/$app_name /usr/bin/$app_name
 echo ":: ML4W Uninstaller App installed successfully"
 
-echo 
+echo
 
 # Execute hyprctl from the Settings app
-if [ -f ~/.config/ml4w-hyprland-settings/hyprctl.sh ] ;then
+if [ -f ~/.config/ml4w-hyprland-settings/hyprctl.sh ]; then
     echo ":: Starting restore from ML4W Hyprland Settings App"
     ~/.config/ml4w-hyprland-settings/hyprctl.sh
 fi

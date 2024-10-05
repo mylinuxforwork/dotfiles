@@ -1,10 +1,10 @@
 #!/bin/bash
-#     _         _         __        ______  
-#    / \  _   _| |_ ___   \ \      / /  _ \ 
+#     _         _         __        ______
+#    / \  _   _| |_ ___   \ \      / /  _ \
 #   / _ \| | | | __/ _ \   \ \ /\ / /| |_) |
-#  / ___ \ |_| | || (_) |   \ V  V / |  __/ 
-# /_/   \_\__,_|\__\___/     \_/\_/  |_|    
-#                                          
+#  / ___ \ |_| | || (_) |   \ V  V / |  __/
+# /_/   \_\__,_|\__\___/     \_/\_/  |_|
+#
 
 sec=$(cat ~/.config/ml4w/settings/wallpaper-automation.sh)
 _setWallpaperRandomly() {
@@ -14,7 +14,7 @@ _setWallpaperRandomly() {
     _setWallpaperRandomly
 }
 
-if [ ! -f ~/.config/ml4w/cache/wallpaper-automation ] ;then
+if [ ! -f ~/.config/ml4w/cache/wallpaper-automation ]; then
     touch ~/.config/ml4w/cache/wallpaper-automation
     echo ":: Start wallpaper automation script"
     notify-send "Wallpaper automation process started" "Wallpaper will be changed every $sec seconds."

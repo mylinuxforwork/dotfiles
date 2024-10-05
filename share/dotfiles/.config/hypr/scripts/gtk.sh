@@ -1,10 +1,10 @@
 #!/bin/bash
 #   ____ _____ _  __
 #  / ___|_   _| |/ /
-# | |  _  | | | ' / 
-# | |_| | | | | . \ 
+# | |  _  | | | ' /
+# | |_| | | | | . \
 #  \____| |_| |_|\_\
-#                   
+#
 # Source: https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
 
 config="$HOME/.config/gtk-3.0/settings.ini"
@@ -29,7 +29,7 @@ gsettings set "$gnome_schema" cursor-theme "$cursor_theme"
 gsettings set "$gnome_schema" font-name "$font_name"
 gsettings set "$gnome_schema" color-scheme "prefer-dark"
 
-if [ -f ~/.config/hypr/conf/cursor.conf ] ;then
-    echo "exec-once = hyprctl setcursor $cursor_theme $cursor_size" > ~/.config/hypr/conf/cursor.conf
+if [ -f ~/.config/hypr/conf/cursor.conf ]; then
+    echo "exec-once = hyprctl setcursor $cursor_theme $cursor_size" >~/.config/hypr/conf/cursor.conf
     hyprctl setcursor $cursor_theme $cursor_size
 fi

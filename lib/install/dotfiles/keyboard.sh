@@ -9,7 +9,7 @@ _setupKeyboardLayout() {
 }
 
 _setupKeyboardVariant() {
-    if gum confirm "Do you want to set a variant of the keyboard?" ; then
+    if gum confirm "Do you want to set a variant of the keyboard?"; then
         keyboard_variant=$(localectl list-x11-keymap-variants | gum filter --height 15 --placeholder "Find your keyboard layout...")
         echo ":: Keyboard variant changed to $keyboard_variant"
     fi
@@ -22,7 +22,7 @@ _confirmKeyboard() {
     echo "Keyboard layout: $keyboard_layout"
     echo "Keyboard variant: $keyboard_variant"
     echo
-    if gum confirm "Do you want proceed with this keyboard setup?" --affirmative "Proceed" --negative "Change" ;then
+    if gum confirm "Do you want proceed with this keyboard setup?" --affirmative "Proceed" --negative "Change"; then
         return 0
     elif [ $? -eq 130 ]; then
         exit 130
@@ -37,7 +37,7 @@ _keyboard_confirm() {
         echo ":: You have already restored your settings into the new installation."
         echo "You can repeat the keyboard setup again to choose between a desktop and laptop optimized configuration."
         echo
-        if gum confirm "Do you want to proceed with your existing keyboard configuration?" ;then
+        if gum confirm "Do you want to proceed with your existing keyboard configuration?"; then
             setkeyboard=1
         elif [ $? -eq 130 ]; then
             echo ":: Installation canceled."
@@ -48,7 +48,7 @@ _keyboard_confirm() {
         fi
     fi
 
-    if [ "$setkeyboard" == "0" ] ;then
+    if [ "$setkeyboard" == "0" ]; then
 
         # Default layout and variants
         keyboard_layout="us"
@@ -58,7 +58,7 @@ _keyboard_confirm() {
 
         if gum confirm "Are you using a laptop and would you like to enable the laptop presets?"; then
             cp $template_directory/keyboard-laptop.conf $ml4w_directory/$version/.config/hypr/conf/keyboard.conf
-            echo "source = ~/.config/hypr/conf/layouts/laptop.conf" > $ml4w_directory/$version/.config/hypr/conf/layout.conf
+            echo "source = ~/.config/hypr/conf/layouts/laptop.conf" >$ml4w_directory/$version/.config/hypr/conf/layout.conf
         elif [ $? -eq 130 ]; then
             echo ":: Installation canceled."
             exit 130
@@ -71,8 +71,8 @@ _keyboard_confirm() {
         sed -i "s/$SEARCH/$REPLACE/g" $ml4w_directory/$version/.config/hypr/conf/keyboard.conf
 
         # Set french keyboard variation
-        if [[ "$keyboard_layout" == "fr" ]] ;then
-            echo "source = ~/.config/hypr/conf/keybindings/fr.conf" > $ml4w_directory/$version/.config/hypr/conf/keybinding.conf
+        if [[ "$keyboard_layout" == "fr" ]]; then
+            echo "source = ~/.config/hypr/conf/keybindings/fr.conf" >$ml4w_directory/$version/.config/hypr/conf/keybinding.conf
             echo ":: Optimized keybindings for french keyboard layout"
         fi
 
@@ -85,20 +85,20 @@ _keyboard_confirm() {
         echo
         echo "PLEASE NOTE: You can update your keyboard layout later in ~/.config/hypr/conf/keyboard.conf"
 
-    fi 
+    fi
 }
 
-if [[ $(_check_update) == "false" ]] ;then
+if [[ $(_check_update) == "false" ]]; then
     echo -e "${GREEN}"
     figlet -f smslant "Keyboard"
     echo -e "${NONE}"
-    if [ -z $automation_keyboard ] ;then
+    if [ -z $automation_keyboard ]; then
         _keyboard_confirm
     else
-        if [[ "$automation_keyboard" = true ]] && [[ "$restored" = 1 ]] ;then
+        if [[ "$automation_keyboard" = true ]] && [[ "$restored" = 1 ]]; then
             echo ":: AUTOMATION: Proceed with existing keyboard configuration."
         else
-            _keyboard_confirm        
+            _keyboard_confirm
         fi
     fi
 fi

@@ -2,7 +2,7 @@
 # Diagnosis
 # ------------------------------------------------------
 
-_run_diagnosis(){
+_run_diagnosis() {
     _commandExists "rofi" "rofi-wayland"
     _commandExists "dunst" "dunst"
     _commandExists "waybar" "waybar"
@@ -18,18 +18,18 @@ _run_diagnosis(){
     _commandExists "waypaper" "waypaper"
 }
 
-if [[ $(_check_update) == "false" ]] ;then
+if [[ $(_check_update) == "false" ]]; then
     echo -e "${GREEN}"
     figlet -f smslant "Diagnosis"
     echo -e "${NONE}"
-    if [ -z $automation_diagnosis ] ;then
+    if [ -z $automation_diagnosis ]; then
         echo "The system check will test that essential packages and "
         echo "execution commands are available now on your system."
-        echo 
-        if gum confirm "Do you want to run a short system check?" ;then
+        echo
+        if gum confirm "Do you want to run a short system check?"; then
             _run_diagnosis
             echo
-            if gum confirm "Do you want to proceed?" ;then
+            if gum confirm "Do you want to proceed?"; then
                 echo
             elif [ $? -eq 130 ]; then
                 echo ":: Installation canceled."
@@ -44,7 +44,7 @@ if [[ $(_check_update) == "false" ]] ;then
             echo ":: System check skipped"
         fi
     else
-        if [[ "$automation_diagnosis" = true ]] ;then
+        if [[ "$automation_diagnosis" = true ]]; then
             _run_diagnosis
         fi
     fi

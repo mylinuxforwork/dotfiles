@@ -1,17 +1,17 @@
 #!/bin/bash
-#  ____                               _           _    
-# / ___|  ___ _ __ ___  ___ _ __  ___| |__   ___ | |_  
-# \___ \ / __| '__/ _ \/ _ \ '_ \/ __| '_ \ / _ \| __| 
-#  ___) | (__| | |  __/  __/ | | \__ \ | | | (_) | |_  
-# |____/ \___|_|  \___|\___|_| |_|___/_| |_|\___/ \__| 
-#                                                      
-# Based on https://github.com/hyprwm/contrib/blob/main/grimblast/screenshot.sh 
-# ----------------------------------------------------- 
+#  ____                               _           _
+# / ___|  ___ _ __ ___  ___ _ __  ___| |__   ___ | |_
+# \___ \ / __| '__/ _ \/ _ \ '_ \/ __| '_ \ / _ \| __|
+#  ___) | (__| | |  __/  __/ | | \__ \ | | | (_) | |_
+# |____/ \___|_|  \___|\___|_| |_|___/_| |_|\___/ \__|
+#
+# Based on https://github.com/hyprwm/contrib/blob/main/grimblast/screenshot.sh
+# -----------------------------------------------------
 
 # Screenshots will be stored in $HOME by default.
 # The screenshot will be moved into the screenshot directory
 
-# Add this to ~/.config/user-dirs.dirs to save screenshots in a custom folder: 
+# Add this to ~/.config/user-dirs.dirs to save screenshots in a custom folder:
 # XDG_SCREENSHOTS_DIR="$HOME/Screenshots"
 
 prompt='Screenshot'
@@ -110,7 +110,7 @@ type_screenshot_cmd() {
 
 # Ask for confirmation
 type_screenshot_exit() {
-  echo -e "$option_capture_1\n$option_capture_2\n$option_capture_3" | type_screenshot_cmd
+    echo -e "$option_capture_1\n$option_capture_2\n$option_capture_3" | type_screenshot_cmd
 }
 
 # Confirm and execute
@@ -182,8 +182,8 @@ timer() {
 takescreenshot() {
     sleep 1
     grimblast --notify "$option_chosen" "$option_type_screenshot" $NAME
-    if [ -f $HOME/$NAME ] ;then
-        if [ -d $screenshot_folder ] ;then
+    if [ -f $HOME/$NAME ]; then
+        if [ -d $screenshot_folder ]; then
             mv $HOME/$NAME $screenshot_folder/
         fi
     fi
@@ -193,8 +193,8 @@ takescreenshot_timer() {
     sleep 1
     timer
     grimblast --notify "$option_chosen" "$option_type_screenshot" $NAME
-    if [ -f $HOME/$NAME ] ;then
-        if [ -d $screenshot_folder ] ;then
+    if [ -f $HOME/$NAME ]; then
+        if [ -d $screenshot_folder ]; then
             mv $HOME/$NAME $screenshot_folder/
         fi
     fi

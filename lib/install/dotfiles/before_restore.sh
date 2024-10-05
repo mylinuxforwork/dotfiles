@@ -2,24 +2,24 @@
 # Modify existing files before restore starts
 # ------------------------------------------------------
 
-if [ -d ~/$dot_folder/.settings ] ;then
+if [ -d ~/$dot_folder/.settings ]; then
     echo ":: Legacy folder structure detected."
-    if [ -d ~/$dot_folder ] ;then
+    if [ -d ~/$dot_folder ]; then
         echo ":: Modify existing files"
 
         # Create new folder structure
-        if [ ! -d ~/$dot_folder/.config ] ;then
+        if [ ! -d ~/$dot_folder/.config ]; then
             mkdir ~/$dot_folder/.config
         fi
         mv -f ~/$dot_folder/* ~/$dot_folder/.config/
-        if [ ! -d ~/$dot_folder/.config/ml4w ] ;then
+        if [ ! -d ~/$dot_folder/.config/ml4w ]; then
             mkdir ~/$dot_folder/.config/ml4w
         fi
 
         # ml4w folder
         _move_folder ~/$dot_folder/.settings ~/$dot_folder/.config/ml4w/settings
         _move_folder ~/$dot_folder/.config/scripts ~/$dot_folder/.config/ml4w/scripts
-        _move_folder ~/$dot_folder/.version  ~/$dot_folder/.config/ml4w/version
+        _move_folder ~/$dot_folder/.version ~/$dot_folder/.config/ml4w/version
         _move_folder ~/$dot_folder/.config/apps ~/$dot_folder/.config/ml4w/apps
         _move_folder ~/$dot_folder/.config/login ~/$dot_folder/.config/ml4w/login
         _move_folder ~/$dot_folder/.config/sddm ~/$dot_folder/.config/ml4w/sddm
@@ -43,6 +43,6 @@ if [ -d ~/$dot_folder/.settings ] ;then
 fi
 
 # Move legacy .bashrc_custom to ~/.config/bashrc/bashrc_custom
-if [ -f ~/.bashrc_custom ] ;then
+if [ -f ~/.bashrc_custom ]; then
     mv ~/.bashrc_custom ~/$dot_folder/.config/bashrc/bashrc_custom
 fi

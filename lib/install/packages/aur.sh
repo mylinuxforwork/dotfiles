@@ -32,30 +32,30 @@ _selectAURHelper() {
     echo ":: Please select your preferred AUR Helper"
     echo
     aur_helper=$(gum choose "yay" "paru")
-    if [ -z $aur_helper ] ;then
+    if [ -z $aur_helper ]; then
         _selectAURHelper
     fi
 }
 
 _checkAURHelper() {
-    if [[ $(_checkCommandExists "yay") == "0" ]];then
+    if [[ $(_checkCommandExists "yay") == "0" ]]; then
         echo ":: yay is installed"
         yay_installed="true"
     fi
-    if [[ $(_checkCommandExists "paru") == "0" ]];then
+    if [[ $(_checkCommandExists "paru") == "0" ]]; then
         echo ":: paru is installed"
         paru_installed="true"
     fi
-    if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]] ;then
+    if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
         echo ":: Using AUR Helper yay"
         aur_helper="yay"
-    elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]] ;then
+    elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]]; then
         echo ":: Using AUR Helper paru"
         aur_helper="paru"
-    elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "false" ]] ;then
-        if [[ $(_check_update) == "false" ]] ;then
+    elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "false" ]]; then
+        if [[ $(_check_update) == "false" ]]; then
             _selectAURHelper
-            if [[ $aur_helper == "yay" ]] ;then
+            if [[ $aur_helper == "yay" ]]; then
                 _installYay
             else
                 _installParu
@@ -66,10 +66,9 @@ _checkAURHelper() {
     fi
 }
 
-if [[ $(_check_update) == "false" ]] ;then
+if [[ $(_check_update) == "false" ]]; then
     echo -e "${GREEN}"
     figlet -f smslant "AUR Helper"
     echo -e "${NONE}"
 fi
 _checkAURHelper
-

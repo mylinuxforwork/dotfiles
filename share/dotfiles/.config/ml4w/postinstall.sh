@@ -1,39 +1,39 @@
 #!/bin/bash
 sleep 2
 clear
-if ! type "pacman" > /dev/null 2>&1; then
+if ! type "pacman" >/dev/null 2>&1; then
     echo ":: You're not on an Arch based distro"
     exit
 fi
 
 _installPackagesPacman() {
-    toInstall=();
+    toInstall=()
     for pkg; do
         if [[ $(_isInstalledPacman "${pkg}") == 0 ]]; then
-            echo ":: ${pkg} is already installed.";
-            continue;
-        fi;
-        toInstall+=("${pkg}");
-    done;
+            echo ":: ${pkg} is already installed."
+            continue
+        fi
+        toInstall+=("${pkg}")
+    done
 
-    if [[ "${toInstall[@]}" == "" ]] ; then
+    if [[ "${toInstall[@]}" == "" ]]; then
         # echo "All pacman packages are already installed.";
-        return;
-    fi;
+        return
+    fi
 
     # printf "Package not installed:\n%s\n" "${toInstall[@]}";
-    sudo pacman --noconfirm -S "${toInstall[@]}";
+    sudo pacman --noconfirm -S "${toInstall[@]}"
 }
 
 _isInstalledPacman() {
-    package="$1";
-    check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")";
-    if [ -n "${check}" ] ; then
-        echo 0; #'0' means 'true' in Bash
-        return; #true
-    fi;
-    echo 1; #'1' means 'false' in Bash
-    return; #false
+    package="$1"
+    check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")"
+    if [ -n "${check}" ]; then
+        echo 0 #'0' means 'true' in Bash
+        return #true
+    fi
+    echo 1 #'1' means 'false' in Bash
+    return #false
 }
 
 echo -e "${GREEN}"
@@ -50,10 +50,10 @@ else
     echo -e "${GREEN}"
     figlet -f smslant "Portal GTK"
     echo -e "${NONE}"
-    echo "xdg-desktop-portal-gtk is required to use dark mode in GTK4 Apps." 
+    echo "xdg-desktop-portal-gtk is required to use dark mode in GTK4 Apps."
     echo
     if gum confirm "Do you want to install xdg-desktop-portal-gtk?"; then
-        _installPackagesPacman "xdg-desktop-portal-gtk";
+        _installPackagesPacman "xdg-desktop-portal-gtk"
         reboot=1
     elif [ $? -eq 130 ]; then
         echo ":: Installation canceled."
@@ -74,7 +74,7 @@ figlet -f smslant "Reboot"
 echo -e "${NONE}"
 echo "A reboot of your system is recommended."
 echo
-if gum confirm "Do you want to reboot your system now?" ;then
+if gum confirm "Do you want to reboot your system now?"; then
     gum spin --spinner dot --title "Rebooting now..." -- sleep 3
     systemctl reboot
 elif [ $? -eq 130 ]; then

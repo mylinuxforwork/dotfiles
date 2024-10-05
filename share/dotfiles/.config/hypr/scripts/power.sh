@@ -1,10 +1,10 @@
 #!/bin/bash
-#  ____                        
-# |  _ \ _____      _____ _ __ 
+#  ____
+# |  _ \ _____      _____ _ __
 # | |_) / _ \ \ /\ / / _ \ '__|
-# |  __/ (_) \ V  V /  __/ |   
-# |_|   \___/ \_/\_/ \___|_|   
-#                              
+# |  __/ (_) \ V  V /  __/ |
+# |_|   \___/ \_/\_/ \___|_|
+#
 
 # Check if eww is open
 FILE="$HOME/.cache/ml4w_sidebar"
@@ -15,14 +15,14 @@ if [[ "$1" == "exit" ]]; then
         rm $FILE
     fi
     sleep 0.5
-    killall -9 Hyprland 
+    killall -9 Hyprland
     sleep 2
 fi
 
 if [[ "$1" == "lock" ]]; then
     echo ":: Lock"
     sleep 0.5
-    hyprlock    
+    hyprlock
 fi
 
 if [[ "$1" == "reboot" ]]; then
@@ -46,11 +46,11 @@ fi
 if [[ "$1" == "suspend" ]]; then
     echo ":: Suspend"
     sleep 0.5
-    systemctl suspend    
+    systemctl suspend
 fi
 
 if [[ "$1" == "hibernate" ]]; then
     echo ":: Hibernate"
-    sleep 1; 
-    systemctl hibernate    
+    sleep 1
+    systemctl hibernate
 fi
