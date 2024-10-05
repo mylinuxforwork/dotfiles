@@ -20,7 +20,7 @@ vercomp() {
 }
 
 testvercomp() {
-    vercomp $1 $2
+    vercomp "$1" "$2"
     case $? in
     0) op='=' ;;
     1) op='>' ;;

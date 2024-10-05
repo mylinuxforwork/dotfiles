@@ -35,7 +35,7 @@ _isInstalledAUR() {
 }
 
 _isInstalledYay() {
-    _isInstalledAUR $1
+    _isInstalledAUR "$1"
 }
 
 _isInstalledFlatpak() {
@@ -51,8 +51,8 @@ _isInstalledFlatpak() {
 
 _isFolderEmpty() {
     folder="$1"
-    if [ -d $folder ]; then
-        if [ -z "$(ls -A $folder)" ]; then
+    if [ -d "$folder" ]; then
+        if [ -z "$(ls -A "$folder")" ]; then
             echo 0
         else
             echo 1
@@ -188,9 +188,9 @@ _installPackagesFlatpak() {
 _move_folder() {
     source=$1
     target=$2
-    if [ ! -d $target ]; then
-        if [ -d $source ]; then
-            mv $source $target
+    if [ ! -d "$target" ]; then
+        if [ -d "$source" ]; then
+            mv "$source" "$target"
             echo ":: $source moved to $target"
         fi
     fi
@@ -198,8 +198,8 @@ _move_folder() {
 
 _del_folder() {
     source=$1
-    if [ -d $source ]; then
-        rm -rf $source
+    if [ -d "$source" ]; then
+        rm -rf "$source"
         echo ":: $source deleted"
     fi
 }
@@ -207,9 +207,9 @@ _del_folder() {
 _move_file() {
     source=$1
     target=$2
-    if [ ! -f $target ]; then
-        if [ -f $source ]; then
-            mv $source $target
+    if [ ! -f "$target" ]; then
+        if [ -f "$source" ]; then
+            mv "$source" "$target"
             echo ":: $source moved to $target"
         fi
     fi
@@ -217,8 +217,8 @@ _move_file() {
 
 _del_file() {
     source=$1
-    if [ -f $source ]; then
-        rm $source
+    if [ -f "$source" ]; then
+        rm "$source"
         echo ":: $source deleted"
     fi
 }
@@ -228,14 +228,14 @@ _del_file() {
 # ------------------------------------------------------
 _del_symlink() {
     source=$1
-    if [ -L $source ]; then
-        rm $source
+    if [ -L "$source" ]; then
+        rm "$source"
         echo ":: Symlink $sources deleted"
-    elif [ -d $source ]; then
-        rm -rf $source
+    elif [ -d "$source" ]; then
+        rm -rf "$source"
         echo ":: Folder for symlink $sources deleted"
-    elif [ -f $source ]; then
-        rm -rf $source
+    elif [ -f "$source" ]; then
+        rm -rf "$source"
         echo ":: File for symlink $sources deleted"
     fi
 }
@@ -247,21 +247,21 @@ _installSymLink() {
     linktarget="$4"
 
     if [ -L "${symlink}" ]; then
-        rm ${symlink}
-        ln -s ${linksource} ${linktarget}
+        rm "${symlink}"
+        ln -s "${linksource}" "${linktarget}"
         echo ":: Symlink ${linksource} -> ${linktarget} created."
     else
-        if [ -d ${symlink} ]; then
-            rm -rf ${symlink}/
-            ln -s ${linksource} ${linktarget}
+        if [ -d "${symlink}" ]; then
+            rm -rf "${symlink}"/
+            ln -s "${linksource}" "${linktarget}"
             echo ":: Symlink for directory ${linksource} -> ${linktarget} created."
         else
-            if [ -f ${symlink} ]; then
-                rm ${symlink}
-                ln -s ${linksource} ${linktarget}
+            if [ -f "${symlink}" ]; then
+                rm "${symlink}"
+                ln -s "${linksource}" "${linktarget}"
                 echo ":: Symlink to file ${linksource} -> ${linktarget} created."
             else
-                ln -s ${linksource} ${linktarget}
+                ln -s "${linksource}" "${linktarget}"
                 echo ":: New symlink ${linksource} -> ${linktarget} created."
             fi
         fi
@@ -295,7 +295,7 @@ _replaceInFile() {
     start_found=0
     end_found=0
 
-    if [ -f $file_path ]; then
+    if [ -f "$file_path" ]; then
 
         # Detect Start String
         while read -r line; do
@@ -334,10 +334,10 @@ _replaceInFile() {
 
             if [ ! "$start_found" == "$end_found" ]; then
                 ((end_found--))
-                sed -i "$start_found,$end_found d" $file_path
+                sed -i "$start_found,$end_found d" "$file_path"
             fi
             # Add the new line
-            sed -i "$start_found i $new_string" $file_path
+            sed -i "$start_found i $new_string" "$file_path"
         else
             echo "ERROR: Delimiters syntax."
             sleep 2
@@ -350,7 +350,7 @@ _replaceInFile() {
 
 # replaceTextInFile $customtext $targetFile
 _replaceTextInFile() {
-    echo $customtext >$targetFile
+    echo "$customtext" >"$targetFile"
 }
 
 # replaceLineInFile $findText $customtext $targetFile
@@ -364,7 +364,7 @@ _replaceLineInFile() {
     find_line_counter=0
     line_found=0
 
-    if [ -f $file_path ]; then
+    if [ -f "$file_path" ]; then
 
         # Detect Line
         while read -r line; do
@@ -379,10 +379,10 @@ _replaceLineInFile() {
         if [[ ! "$line_found" == "0" ]]; then
 
             #Remove the line
-            sed -i "$line_found d" $file_path
+            sed -i "$line_found d" "$file_path"
 
             # Add the new line
-            sed -i "$line_found i $new_string" $file_path
+            sed -i "$line_found i $new_string" "$file_path"
 
         else
             echo "ERROR: Target line not found for $find_string."
@@ -409,7 +409,7 @@ _replaceLineInFileCheckpoint() {
     line_found=0
     checkpoint_found=0
 
-    if [ -f $file_path ]; then
+    if [ -f "$file_path" ]; then
 
         # Detect Checkpoint
         while read -r line; do
@@ -438,10 +438,10 @@ _replaceLineInFileCheckpoint() {
             if [[ ! "$line_found" == "0" ]]; then
 
                 #Remove the line
-                sed -i "$line_found d" $file_path
+                sed -i "$line_found d" "$file_path"
 
                 # Add the new line
-                sed -i "$line_found i $new_string" $file_path
+                sed -i "$line_found i $new_string" "$file_path"
 
             else
                 echo "ERROR: Target line not found."
@@ -463,7 +463,7 @@ _replaceLineInFileCheckpoint() {
 
 _checkCommandExists() {
     package="$1"
-    if ! type $package >/dev/null 2>&1; then
+    if ! type "$package" >/dev/null 2>&1; then
         echo "1"
     else
         echo "0"
@@ -472,7 +472,7 @@ _checkCommandExists() {
 
 _commandExists() {
     package="$1"
-    if [[ $(_checkCommandExists $package) == "1" ]]; then
+    if [[ $(_checkCommandExists "$package") == "1" ]]; then
         echo ":: ERROR: $package doesn't exists. Please install it manually."
     else
         echo ":: OK: $package command found."
@@ -481,7 +481,7 @@ _commandExists() {
 
 _folderExists() {
     folder="$1"
-    if [ ! -d $folder ]; then
+    if [ ! -d "$folder" ]; then
         echo ":: ERROR: $folder doesn't exists. $2"
         return 0
     else

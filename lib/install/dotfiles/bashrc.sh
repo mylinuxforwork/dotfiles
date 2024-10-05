@@ -10,7 +10,7 @@ if [ -f ~/.bashrc ]; then
         echo ":: The script has detected an existing .bashrc file."
         echo ":: You can replace it with the latest version of ML4W Dotfiles $version (Recommended)."
         echo
-        if [ -z $automation_bashrc ]; then
+        if [ -z "$automation_bashrc" ]; then
             if gum confirm "Do you want to replace your existing .bashrc?"; then
                 rm ~/.bashrc
                 echo ":: .bashrc will be installed"
@@ -23,7 +23,7 @@ if [ -f ~/.bashrc ]; then
             if [[ "$automation_bashrc" = true ]]; then
                 echo ":: AUTOMATION: .bashrc will be installed."
             elif [[ "$automation_bashrc" = false ]]; then
-                rm $ml4w_directory/$version/.bashrc
+                rm "$ml4w_directory"/"$version"/.bashrc
                 echo ":: AUTOMATION: Installation of the .bashrc file skipped."
             else
                 echo ":: AUTOMATION ERROR: bashrc"

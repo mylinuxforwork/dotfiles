@@ -5,7 +5,7 @@
 if [ "$restored" == "1" ]; then
     if [ -f ~/.config/ml4w/settings/settings.json ]; then
         # python restore.py
-        python $install_directory/dotfiles/restore.py
+        python "$install_directory"/dotfiles/restore.py
         rm ~/.config/ml4w/settings/settings.json
         echo ":: Legacy settings.json removed"
     fi

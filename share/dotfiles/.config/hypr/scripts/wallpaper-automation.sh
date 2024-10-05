@@ -10,7 +10,7 @@ sec=$(cat ~/.config/ml4w/settings/wallpaper-automation.sh)
 _setWallpaperRandomly() {
     waypaper --random
     echo ":: Next wallpaper in 60 seconds..."
-    sleep $sec
+    sleep "$sec"
     _setWallpaperRandomly
 }
 
@@ -24,5 +24,5 @@ else
     notify-send "Wallpaper automation process stopped."
     echo ":: Wallpaper automation script process $wp stopped"
     wp=$(pgrep -f wallpaper-automation.sh)
-    kill -KILL $wp
+    kill -KILL "$wp"
 fi

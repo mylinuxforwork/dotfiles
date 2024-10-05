@@ -13,51 +13,51 @@ _activate_dotfiles_folder() {
     echo ":: Activating $dot_folder now..."
     echo
     # Check home
-    files=$(ls -a ~/$dot_folder)
+    files=$(ls -a ~/"$dot_folder")
     for f in $files; do
         if [ ! "$f" == "." ] && [ ! "$f" == ".." ] && [ ! "$f" == ".config" ]; then
-            if [ -f ~/$dot_folder/$f ]; then
+            if [ -f ~/"$dot_folder"/"$f" ]; then
                 echo ":: Checking for file ~/$f"
-                if [ -L ~/$f ]; then
-                    rm ~/$f
+                if [ -L ~/"$f" ]; then
+                    rm ~/"$f"
                 fi
-                if [ -f ~/$f ]; then
-                    rm ~/$f
+                if [ -f ~/"$f" ]; then
+                    rm ~/"$f"
                 fi
             fi
         fi
     done
 
     # Check .config
-    files=$(ls -a ~/$dot_folder/.config)
+    files=$(ls -a ~/"$dot_folder"/.config)
     for f in $files; do
         if [ ! "$f" == "." ] && [ ! "$f" == ".." ]; then
-            if [ -d ~/$dot_folder/.config/$f ]; then
+            if [ -d ~/"$dot_folder"/.config/"$f" ]; then
                 echo ":: Checking for directory ~/.config/$f"
-                if [ -L ~/.config/$f ]; then
-                    rm ~/.config/$f
+                if [ -L ~/.config/"$f" ]; then
+                    rm ~/.config/"$f"
                 fi
-                if [ -f ~/.config/$f ]; then
-                    rm ~/.config/$f
+                if [ -f ~/.config/"$f" ]; then
+                    rm ~/.config/"$f"
                 fi
-                if [ -d ~/.config/$f ]; then
-                    rm -rf ~/.config/$f
+                if [ -d ~/.config/"$f" ]; then
+                    rm -rf ~/.config/"$f"
                 fi
             fi
-            if [ -f ~/$dot_folder/.config/$f ]; then
+            if [ -f ~/"$dot_folder"/.config/"$f" ]; then
                 echo ":: Checking for file ~/.config/$f"
-                if [ -L ~/.config/$f ]; then
-                    rm ~/.config/$f
+                if [ -L ~/.config/"$f" ]; then
+                    rm ~/.config/"$f"
                 fi
-                if [ -f ~/.config/$f ]; then
-                    rm ~/.config/$f
+                if [ -f ~/.config/"$f" ]; then
+                    rm ~/.config/"$f"
                 fi
             fi
         fi
     done
 
     # Write dot folder into settings
-    echo "$dot_folder" >$HOME/$dot_folder/.config/ml4w/settings/dotfiles-folder.sh
+    echo "$dot_folder" >"$HOME"/"$dot_folder"/.config/ml4w/settings/dotfiles-folder.sh
 
     stow --dir="$HOME/$dot_folder" --target="$HOME" .
     echo
@@ -86,9 +86,9 @@ _activate_dotfiles_folder() {
 _define_dotfiles_folder() {
     dot_folder_tmp=$(gum input --value "$dot_folder" --placeholder "Enter your installation folder name")
     dot_folder=${dot_folder_tmp//[[:blank:]]/}
-    if [ $dot_folder == "cancel" ]; then
+    if [ "$dot_folder" == "cancel" ]; then
         exit
-    elif [ $dot_folder == ".ml4w-hyprland" ]; then
+    elif [ "$dot_folder" == ".ml4w-hyprland" ]; then
         echo ":: The folder .ml4w-hyprland is not allowed."
         _define_dotfiles_folder
     else
@@ -97,7 +97,7 @@ _define_dotfiles_folder() {
 }
 
 _confirm_dotfiles_folder() {
-    if [ -d ~/$dot_folder ] && [ -d ~/$dot_folder/.config/ml4w ]; then
+    if [ -d ~/"$dot_folder" ] && [ -d ~/"$dot_folder"/.config/ml4w ]; then
         echo ":: ML4W Dotfiles folder ~/$dot_folder selected."
         echo
         if gum confirm "Do you want to activate now?"; then

@@ -2,17 +2,17 @@
 # Execute post.sh
 # ------------------------------------------------------
 
-if [ -f $ml4w_directory/post.sh ]; then
+if [ -f "$ml4w_directory"/post.sh ]; then
     echo -e "${GREEN}"
     figlet -f smslant "Post Script"
     echo -e "${NONE}"
     echo ":: The script has detected a post.sh script."
     echo
-    if [ -z $automation_post ]; then
+    if [ -z "$automation_post" ]; then
         if gum confirm "Do you want to run the script now?"; then
-            cd $ml4w_directory
+            cd "$ml4w_directory" || exit
             ./post.sh
-            cd $base_directory
+            cd "$base_directory" || exit
             echo ":: post.sh executed!"
         elif [ $? -eq 130 ]; then
             echo ":: Installation canceled."
@@ -22,9 +22,9 @@ if [ -f $ml4w_directory/post.sh ]; then
         fi
     else
         if [[ "$automation_post" = true ]]; then
-            cd $ml4w_directory
+            cd "$ml4w_directory" || exit
             ./post.sh
-            cd $base_directory
+            cd "$base_directory" || exit
             echo ":: AUTOMATION: post.sh executed!"
         elif [[ "$automation_post" = false ]]; then
             echo ":: AUTOMATION: post.sh skipped"

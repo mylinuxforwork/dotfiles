@@ -11,9 +11,9 @@ _installYay() {
     SCRIPT=$(realpath "$0")
     temp_path=$(dirname "$SCRIPT")
     git clone https://aur.archlinux.org/yay.git ~/yay
-    cd ~/yay
+    cd ~/yay || exit
     makepkg -si
-    cd $temp_path
+    cd "$temp_path" || exit
     echo ":: yay has been installed successfully."
 }
 
@@ -22,9 +22,9 @@ _installParu() {
     SCRIPT=$(realpath "$0")
     temp_path=$(dirname "$SCRIPT")
     git clone https://aur.archlinux.org/paru.git ~/paru
-    cd ~/paru
+    cd ~/paru || exit
     makepkg -si
-    cd $temp_path
+    cd "$temp_path" || exit
     echo ":: paru has been installed successfully."
 }
 
@@ -32,7 +32,7 @@ _selectAURHelper() {
     echo ":: Please select your preferred AUR Helper"
     echo
     aur_helper=$(gum choose "yay" "paru")
-    if [ -z $aur_helper ]; then
+    if [ -z "$aur_helper" ]; then
         _selectAURHelper
     fi
 }

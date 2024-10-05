@@ -22,7 +22,7 @@ if [[ $(_check_update) == "false" ]]; then
     echo -e "${GREEN}"
     figlet -f smslant "Diagnosis"
     echo -e "${NONE}"
-    if [ -z $automation_diagnosis ]; then
+    if [ -z "$automation_diagnosis" ]; then
         echo "The system check will test that essential packages and "
         echo "execution commands are available now on your system."
         echo

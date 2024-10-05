@@ -17,11 +17,11 @@ cursor_theme="$(grep 'gtk-cursor-theme-name' "$config" | sed 's/.*\s*=\s*//')"
 cursor_size="$(grep 'gtk-cursor-theme-size' "$config" | sed 's/.*\s*=\s*//')"
 font_name="$(grep 'gtk-font-name' "$config" | sed 's/.*\s*=\s*//')"
 
-echo $gtk_theme
-echo $icon_theme
-echo $cursor_theme
-echo $cursor_size
-echo $font_name
+echo "$gtk_theme"
+echo "$icon_theme"
+echo "$cursor_theme"
+echo "$cursor_size"
+echo "$font_name"
 
 gsettings set "$gnome_schema" gtk-theme "$gtk_theme"
 gsettings set "$gnome_schema" icon-theme "$icon_theme"
@@ -31,5 +31,5 @@ gsettings set "$gnome_schema" color-scheme "prefer-dark"
 
 if [ -f ~/.config/hypr/conf/cursor.conf ]; then
     echo "exec-once = hyprctl setcursor $cursor_theme $cursor_size" >~/.config/hypr/conf/cursor.conf
-    hyprctl setcursor $cursor_theme $cursor_size
+    hyprctl setcursor "$cursor_theme" "$cursor_size"
 fi

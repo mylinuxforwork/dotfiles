@@ -29,7 +29,7 @@ else
     echo ":: bluetooth.service activated successfully."
 fi
 
-if [ -d ~/$dot_folder/hypr/settings/ ]; then
+if [ -d ~/"$dot_folder"/hypr/settings/ ]; then
     rm -rf ~/dotfiles/hypr/settings
     echo ":: ~/dotfiles/hypr/settings removed."
 fi

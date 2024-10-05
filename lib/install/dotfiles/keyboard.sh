@@ -57,28 +57,28 @@ _keyboard_confirm() {
         _confirmKeyboard
 
         if gum confirm "Are you using a laptop and would you like to enable the laptop presets?"; then
-            cp $template_directory/keyboard-laptop.conf $ml4w_directory/$version/.config/hypr/conf/keyboard.conf
-            echo "source = ~/.config/hypr/conf/layouts/laptop.conf" >$ml4w_directory/$version/.config/hypr/conf/layout.conf
+            cp "$template_directory"/keyboard-laptop.conf "$ml4w_directory"/"$version"/.config/hypr/conf/keyboard.conf
+            echo "source = ~/.config/hypr/conf/layouts/laptop.conf" >"$ml4w_directory"/"$version"/.config/hypr/conf/layout.conf
         elif [ $? -eq 130 ]; then
             echo ":: Installation canceled."
             exit 130
         else
-            cp $template_directory/keyboard-default.conf $ml4w_directory/$version/.config/hypr/conf/keyboard.conf
+            cp "$template_directory"/keyboard-default.conf "$ml4w_directory"/"$version"/.config/hypr/conf/keyboard.conf
         fi
 
         SEARCH="KEYBOARD_LAYOUT"
         REPLACE="$keyboard_layout"
-        sed -i "s/$SEARCH/$REPLACE/g" $ml4w_directory/$version/.config/hypr/conf/keyboard.conf
+        sed -i "s/$SEARCH/$REPLACE/g" "$ml4w_directory"/"$version"/.config/hypr/conf/keyboard.conf
 
         # Set french keyboard variation
         if [[ "$keyboard_layout" == "fr" ]]; then
-            echo "source = ~/.config/hypr/conf/keybindings/fr.conf" >$ml4w_directory/$version/.config/hypr/conf/keybinding.conf
+            echo "source = ~/.config/hypr/conf/keybindings/fr.conf" >"$ml4w_directory"/"$version"/.config/hypr/conf/keybinding.conf
             echo ":: Optimized keybindings for french keyboard layout"
         fi
 
         SEARCH="KEYBOARD_VARIANT"
         REPLACE="$keyboard_variant"
-        sed -i "s/$SEARCH/$REPLACE/g" $ml4w_directory/$version/.config/hypr/conf/keyboard.conf
+        sed -i "s/$SEARCH/$REPLACE/g" "$ml4w_directory"/"$version"/.config/hypr/conf/keyboard.conf
 
         echo
         echo ":: Keyboard setup complete."
@@ -92,7 +92,7 @@ if [[ $(_check_update) == "false" ]]; then
     echo -e "${GREEN}"
     figlet -f smslant "Keyboard"
     echo -e "${NONE}"
-    if [ -z $automation_keyboard ]; then
+    if [ -z "$automation_keyboard" ]; then
         _keyboard_confirm
     else
         if [[ "$automation_keyboard" = true ]] && [[ "$restored" = 1 ]]; then

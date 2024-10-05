@@ -3,11 +3,11 @@
 # ------------------------------------------------------
 
 _install_vm() {
-    if grep -Fxq "kvm.conf" $ml4w_directory/$version/.config/hypr/conf/environment.conf; then
+    if grep -Fxq "kvm.conf" "$ml4w_directory"/"$version"/.config/hypr/conf/environment.conf; then
         echo ":: KVM Environment already set."
     else
         if gum confirm "Do you want to install the KVM environment variables?"; then
-            echo "source = ~/.config/hypr/conf/environments/kvm.conf" >$ml4w_directory/$version/.config/hypr/conf/environment.conf
+            echo "source = ~/.config/hypr/conf/environments/kvm.conf" >"$ml4w_directory"/"$version"/.config/hypr/conf/environment.conf
             echo "Environment set to KVM."
         fi
     fi
@@ -25,7 +25,7 @@ if [[ $(_check_update) == "false" ]]; then
         echo -e "${GREEN}"
         figlet -f smslant "KVM VM"
         echo -e "${NONE}"
-        if [ -z $automation_vm ]; then
+        if [ -z "$automation_vm" ]; then
             echo "The script has detected that you run the installation in a KVM virtual machine."
             echo
             _install_vm
