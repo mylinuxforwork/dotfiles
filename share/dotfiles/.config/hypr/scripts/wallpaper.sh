@@ -38,11 +38,10 @@ wallpaper_effect="$HOME/.config/ml4w/settings/wallpaper-effect.sh"
 blur="50x30"
 blur=$(cat $blur_file)
 
+# Ensures that the script only run once if wallpaper effect enabled
 if [ -f $waypaper_running ] ;then 
     rm $waypaper_running
     exit
-else
-    touch $waypaper_running
 fi
 
 # Create folder with generated versions of wallpaper if not exists
@@ -100,6 +99,7 @@ if [ -f $wallpaper_effect ] ;then
         fi
         echo ":: Loading wallpaper $generated_versions/$effect-$wallpaper_filename with effect $effect"
         echo ":: Setting wallpaper with $used_wallpaper"
+        touch $waypaper_running
         waypaper --wallpaper $used_wallpaper
     else
         echo ":: Wallpaper effect is set to off"
