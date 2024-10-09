@@ -55,8 +55,10 @@ packagesPacman=(
     "fzf"
     "htop"
     "zsh-completions"
+    "nautilus"
 );
 
 packagesAUR=(
-    "bibata-cursor-theme" 
+    "bibata-cursor-theme"
+    "nautilus-open-any-terminal" 
 );
