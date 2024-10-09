@@ -191,6 +191,7 @@ const micSlider = VolumeSlider('microphone')
 
 const speakerBox = Widget.Box({
     vertical: true,
+    spacing: 3,
     children:[
         Widget.Label({
             className: "sliderlabel",
@@ -203,6 +204,7 @@ const speakerBox = Widget.Box({
 
 const micBox = Widget.Box({
     vertical: true,
+    spacing: 3,
     children:[
         Widget.Label({
             className: "sliderlabel",
@@ -213,25 +215,89 @@ const micBox = Widget.Box({
     ]
 })
 
+const btnWallpaper = Widget.Button({
+    className: "midbtn",
+    child: Widget.Label('Wallpapers'),
+    onClicked: () => { 
+        print(':: Start Waypaper')
+        Utils.subprocess('waypaper')
+        App.closeWindow("sidebar")
+    }
+})
+
+const btnWallpaperEffects = Widget.Button({
+    className: "midbtn",
+    child: Widget.Label('Effects'),
+    onClicked: () => { 
+        print(':: Start Wallpaper Effects')
+        Utils.subprocess(App.configDir + '/scripts/run_wallpapereffects.sh')
+        App.closeWindow("sidebar")
+    }
+})
+
+const btnWaybarThemes = Widget.Button({
+    className: "midbtn",
+    child: Widget.Label('Status Bar Themes'),
+    onClicked: () => { 
+        print(':: Start Waybar Themes')
+        Utils.subprocess(App.configDir + '/scripts/run_themeswitcher.sh')
+        App.closeWindow("sidebar")
+    }
+})
+
 // Sidebar Box
 const Sidebar = Widget.Box({
-    spacing: 8,
+    spacing: 16,
     vertical: true,
     className: "sidebar",
     children: [
         Widget.Box({
-            className: "row",
+            className: "group",
             homogeneous: true,
-            spacing:8,
-            children:[ml4wWelcomeBox,ml4wSettingsBox,ml4wHyprlandBox]
+            children:[
+                Widget.Box({
+                    className: "row",
+                    homogeneous: true,
+                    children:[ml4wWelcomeBox,ml4wSettingsBox,ml4wHyprlandBox]
+                }),
+            ]
         }),
         Widget.Box({
-            className: "row",
-            homogeneous: true,
-            children:[cpuProgressBox,ramProgressBox]
+            className: "group",
+            homogeneous: false,
+            vertical: true,
+            spacing:10,
+            children:[
+                Widget.Box({
+                    className: "rowsmall",
+                    spacing:10,
+                    homogeneous: true,
+                    children:[btnWallpaper, btnWallpaperEffects]
+                }),
+                Widget.Box({
+                    homogeneous: true,
+                    children:[btnWaybarThemes]
+                }),
+            ]
         }),
-        speakerBox,
-        micBox
+        Widget.Box({
+            className: "group",
+            homogeneous: true,
+            children:[
+                Widget.Box({
+                    className: "row",
+                    homogeneous: true,
+                    children:[cpuProgressBox, ramProgressBox]
+                }),
+            ]
+        }),
+        Widget.Box({
+            className: "group",
+            homogeneous: true,
+            vertical: true,
+            spacing:10,
+            children:[speakerBox, micBox]
+        }),
     ]
 })
 
@@ -242,10 +308,9 @@ const Calendar = Widget.Box({
     className: "calendar",
     children: [
         Widget.Box({
+            className: "group",
             homogeneous: true,
-            className: "row",
-            children:[cld],
-            css: "min-width:300px"
+            children:[cld]
         })
     ]
 })
@@ -294,6 +359,14 @@ let config = {
         'calendar':50,
     },    
 }
+
+App.connect("window-toggled", (_, name, visible) => {
+    if (visible && name == 'calendar') {
+        const d = new Date();
+        cld.select_day(d.getDate()) 
+        cld.select_month(d.getMonth(),d.getFullYear()) 
+    }
+})
 
 // Run AGS
 App.config(config)

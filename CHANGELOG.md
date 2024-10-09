@@ -1,3 +1,10 @@
+Version 2.9.6.3
+--------------------------------------------------------
+- Updated ags sidebar layout
+- Wallpaper, Effects and waybar theme switcher button moved into sidebar
+- Settings group in waybar can be hidden in the ML4W Settings App
+- Wallpaper cache covering also blurred images
+
 Version 2.9.6.2
 --------------------------------------------------------
 - App Menu icon can be hidden from the ML4W Settings App
