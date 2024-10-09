@@ -308,10 +308,9 @@ const Calendar = Widget.Box({
     className: "calendar",
     children: [
         Widget.Box({
+            className: "group",
             homogeneous: true,
-            className: "row",
-            children:[cld],
-            css: "min-width:300px"
+            children:[cld]
         })
     ]
 })
@@ -360,6 +359,12 @@ let config = {
         'calendar':50,
     },    
 }
+
+App.connect("window-toggled", (_, name, visible) => {
+    if (visible && name == 'calendar') {
+        // Update the date
+    }
+})
 
 // Run AGS
 App.config(config)
