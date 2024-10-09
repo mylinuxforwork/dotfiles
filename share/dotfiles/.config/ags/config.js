@@ -191,6 +191,7 @@ const micSlider = VolumeSlider('microphone')
 
 const speakerBox = Widget.Box({
     vertical: true,
+    spacing: 3,
     children:[
         Widget.Label({
             className: "sliderlabel",
@@ -203,6 +204,7 @@ const speakerBox = Widget.Box({
 
 const micBox = Widget.Box({
     vertical: true,
+    spacing: 3,
     children:[
         Widget.Label({
             className: "sliderlabel",
@@ -235,7 +237,7 @@ const btnWallpaperEffects = Widget.Button({
 
 const btnWaybarThemes = Widget.Button({
     className: "midbtn",
-    child: Widget.Label('Statusbar Themes'),
+    child: Widget.Label('Status Bar Themes'),
     onClicked: () => { 
         print(':: Start Waybar Themes')
         Utils.subprocess(App.configDir + '/scripts/run_themeswitcher.sh')
@@ -245,35 +247,57 @@ const btnWaybarThemes = Widget.Button({
 
 // Sidebar Box
 const Sidebar = Widget.Box({
-    spacing: 8,
+    spacing: 16,
     vertical: true,
     className: "sidebar",
     children: [
         Widget.Box({
-            className: "row",
+            className: "group",
             homogeneous: true,
-            spacing:8,
-            children:[ml4wWelcomeBox,ml4wSettingsBox,ml4wHyprlandBox]
+            children:[
+                Widget.Box({
+                    className: "row",
+                    homogeneous: true,
+                    children:[ml4wWelcomeBox,ml4wSettingsBox,ml4wHyprlandBox]
+                }),
+            ]
         }),
         Widget.Box({
-            className: "rowsmall",
-            homogeneous: true,
-            spacing:12,
-            children:[btnWallpaper, btnWallpaperEffects]
+            className: "group",
+            homogeneous: false,
+            vertical: true,
+            spacing:10,
+            children:[
+                Widget.Box({
+                    className: "rowsmall",
+                    spacing:10,
+                    homogeneous: true,
+                    children:[btnWallpaper, btnWallpaperEffects]
+                }),
+                Widget.Box({
+                    homogeneous: true,
+                    children:[btnWaybarThemes]
+                }),
+            ]
         }),
         Widget.Box({
-            className: "row",
+            className: "group",
             homogeneous: true,
-            spacing:8,
-            children:[btnWaybarThemes]
+            children:[
+                Widget.Box({
+                    className: "row",
+                    homogeneous: true,
+                    children:[cpuProgressBox, ramProgressBox]
+                }),
+            ]
         }),
         Widget.Box({
-            className: "row",
+            className: "group",
             homogeneous: true,
-            children:[cpuProgressBox,ramProgressBox]
+            vertical: true,
+            spacing:10,
+            children:[speakerBox, micBox]
         }),
-        speakerBox,
-        micBox
     ]
 })
 
