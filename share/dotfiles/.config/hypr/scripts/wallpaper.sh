@@ -104,7 +104,10 @@ if [ -f $wallpaper_effect ] ;then
     else
         echo ":: Wallpaper effect is set to off"
     fi
+else
+    effect="off"
 fi
+
 
 # ----------------------------------------------------- 
 # Execute pywal
@@ -129,15 +132,19 @@ ags &
 # Created blurred wallpaper
 # -----------------------------------------------------
 
-echo ":: Generate new cached wallpaper blur-$blur-$wallpaper_filename with blur $blur"
-magick $used_wallpaper -resize 75% $blurred_wallpaper
-echo ":: Resized to 75%"
-if [ ! "$blur" == "0x0" ] ;then
-    magick $blurred_wallpaper -blur $blur $blurred_wallpaper
-    cp $blurred_wallpaper $generated_versions/blur-$blur-$wallpaper_filename.png
-    echo ":: Blurred"
+if [ -f $generated_versions/blur-$blur-$effect-$wallpaper_filename.png ] && [ "$force_generate" == "0" ] && [ "$use_cache" == "1" ] ;then
+    echo ":: Use cached wallpaper blur-$blur-$effect-$wallpaper_filename"
+else
+    echo ":: Generate new cached wallpaper blur-$blur-$effect-$wallpaper_filename with blur $blur"
+    magick $used_wallpaper -resize 75% $blurred_wallpaper
+    echo ":: Resized to 75%"
+    if [ ! "$blur" == "0x0" ] ;then
+        magick $blurred_wallpaper -blur $blur $blurred_wallpaper
+        cp $blurred_wallpaper $generated_versions/blur-$blur-$effect-$wallpaper_filename.png
+        echo ":: Blurred"
+    fi
 fi
-cp $generated_versions/blur-$blur-$wallpaper_filename.png $blurred_wallpaper
+cp $generated_versions/blur-$blur-$effect-$wallpaper_filename.png $blurred_wallpaper
 
 # ----------------------------------------------------- 
 # Create rasi file
