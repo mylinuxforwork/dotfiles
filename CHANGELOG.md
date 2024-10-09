@@ -6,6 +6,7 @@ Version 2.9.6.3
 - Settings group in waybar can be hidden in the ML4W Settings App
 - Wallpaper cache covering also blurred images
 - Added "Open in terminal" feature to Nautilus
+- New default wallpaper.
 
 Version 2.9.6.2
 --------------------------------------------------------
