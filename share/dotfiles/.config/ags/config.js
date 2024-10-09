@@ -362,7 +362,9 @@ let config = {
 
 App.connect("window-toggled", (_, name, visible) => {
     if (visible && name == 'calendar') {
-        // Update the date
+        const d = new Date();
+        cld.select_day(d.getDate()) 
+        cld.select_month(d.getMonth(),d.getFullYear()) 
     }
 })
 
