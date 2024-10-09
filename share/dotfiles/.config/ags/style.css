@@ -7,6 +7,13 @@
     font-weight: normal;
 }
 
+.midbtn {
+    background-color: @color11;
+    font-size: 12px;
+    padding:10px;
+    border-radius: 20px;
+}
+
 .sidebar {
     background: #222222;
     padding: 12px;
@@ -35,6 +42,10 @@
 
 .row {
     padding-bottom: 20px;
+}
+
+.rowsmall {
+    padding-bottom: 4px;
 }
 
 .lastrow {

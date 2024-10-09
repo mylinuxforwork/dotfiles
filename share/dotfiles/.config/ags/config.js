@@ -213,6 +213,36 @@ const micBox = Widget.Box({
     ]
 })
 
+const btnWallpaper = Widget.Button({
+    className: "midbtn",
+    child: Widget.Label('Wallpapers'),
+    onClicked: () => { 
+        print(':: Start Waypaper')
+        Utils.subprocess('waypaper')
+        App.closeWindow("sidebar")
+    }
+})
+
+const btnWallpaperEffects = Widget.Button({
+    className: "midbtn",
+    child: Widget.Label('Effects'),
+    onClicked: () => { 
+        print(':: Start Wallpaper Effects')
+        Utils.subprocess(App.configDir + '/scripts/run_wallpapereffects.sh')
+        App.closeWindow("sidebar")
+    }
+})
+
+const btnWaybarThemes = Widget.Button({
+    className: "midbtn",
+    child: Widget.Label('Statusbar Themes'),
+    onClicked: () => { 
+        print(':: Start Waybar Themes')
+        Utils.subprocess(App.configDir + '/scripts/run_themeswitcher.sh')
+        App.closeWindow("sidebar")
+    }
+})
+
 // Sidebar Box
 const Sidebar = Widget.Box({
     spacing: 8,
@@ -224,6 +254,18 @@ const Sidebar = Widget.Box({
             homogeneous: true,
             spacing:8,
             children:[ml4wWelcomeBox,ml4wSettingsBox,ml4wHyprlandBox]
+        }),
+        Widget.Box({
+            className: "rowsmall",
+            homogeneous: true,
+            spacing:12,
+            children:[btnWallpaper, btnWallpaperEffects]
+        }),
+        Widget.Box({
+            className: "row",
+            homogeneous: true,
+            spacing:8,
+            children:[btnWaybarThemes]
         }),
         Widget.Box({
             className: "row",
