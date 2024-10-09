@@ -110,7 +110,7 @@
   // Settings
   "custom/settings": {
     "format": "",
-    "on-click": "~/.config/ml4w/apps/ML4W_Dotfiles_Settings-x86_64.AppImage",
+    "on-click": "com.ml4w.dotfilessettings",
     "tooltip-format": "ML4W Dotfiles Settings"
   },
 
