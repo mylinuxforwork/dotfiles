@@ -55,13 +55,7 @@ const cld = Widget.Calendar({
     showDetails: false,
     showHeading: true,
     showWeekNumbers: true,
-    className:"cld",
-    detail: (self, y, m, d) => {
-        return `<span color="white">${y}. ${m}. ${d}.</span>`
-    },
-    onDaySelected: ({ date: [y, m, d] }) => {
-        print(`${y}. ${m}. ${d}.`)
-    },    
+    className:"cld"
 })
 
 // ML4W Welcome Button
