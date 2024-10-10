@@ -27,10 +27,6 @@ sudo cp $apps_directory/$app_name.png /usr/share/icons/hicolor/128x128/apps
 sudo cp $apps_directory/$app_name /usr/bin/$app_name
 echo ":: ML4W Hyprland Settings App installed successfully"
 
-app_name="com.ml4w.dotfilesuninstaller"
-sudo cp $apps_directory/$app_name /usr/bin/$app_name
-echo ":: ML4W Uninstaller App installed successfully"
-
 echo 
 
 # Execute hyprctl from the Settings app

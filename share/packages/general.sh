@@ -58,5 +58,6 @@ packagesPacman=(
 );
 
 packagesAUR=(
-    "bibata-cursor-theme" 
+    "bibata-cursor-theme"
+    "nautilus-open-any-terminal" 
 );

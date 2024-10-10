@@ -1,8 +1,19 @@
+Version 2.9.6.3
+--------------------------------------------------------
+- Updated ags sidebar layout
+- Calendar widget shows always current date when opening
+- Wallpaper, Effects and waybar theme switcher button moved into sidebar
+- Settings group in waybar can be hidden in the ML4W Settings App
+- Wallpaper cache covering also blurred images
+- Added "Open in terminal" feature to Nautilus
+- New default wallpaper.
+
 Version 2.9.6.2
 --------------------------------------------------------
 - App Menu icon can be hidden from the ML4W Settings App
 - Setup script optimize the keybindings if french keyboard layout (fr) is selected
-- Add full waypaper support with waypaper 2.3. Brings back swww support including animations.
+- Add full waypaper features with waypaper 2.3. Brings back swww support including animations.
+- ML4W apps will be now installed into the linux file system 
 
 Version 2.9.6.1
 --------------------------------------------------------
