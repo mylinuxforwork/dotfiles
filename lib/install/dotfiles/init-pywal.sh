@@ -6,7 +6,7 @@ if [ ! -f ~/.cache/wal/colors-hyprland.conf ]; then
     echo -e "${GREEN}"
     figlet -f smslant "Pywal"
     echo -e "${NONE}"
-    wal -i ~/wallpaper/default.jpg
+    wal -ei "$HOME/$wallpaper_folder/default.jpg"
     echo ":: Pywal and templates activated."
     echo ""
 else
