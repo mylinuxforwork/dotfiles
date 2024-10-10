@@ -66,10 +66,9 @@ _checkAURHelper() {
     fi
 }
 
-if [[ $(_check_update) == "false" ]] ;then
-    echo -e "${GREEN}"
-    figlet -f smslant "AUR Helper"
-    echo -e "${NONE}"
-fi
+echo -e "${GREEN}"
+figlet -f smslant "AUR Helper"
+echo -e "${NONE}"
+
 _checkAURHelper
 
