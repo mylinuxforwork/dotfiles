@@ -32,10 +32,8 @@ if [ -d ~/$dot_folder/.settings ] ;then
         _move_folder ~/$dot_folder/.config/gtk/xsettings ~/$dot_folder/.config/xsettings
         _move_file ~/$dot_folder/.config/gtk/.gtkrc-2.0 ~/$dot_folder/.gtkrc-2.0
         _move_file ~/$dot_folder/.config/gtk/.Xresources ~/$dot_folder/.Xresources
-        _move_file ~/$dot_folder/.config/starship/starship.toml ~/$dot_folder/.config/starship.toml
         _del_folder ~/$dot_folder/gtk
         _del_folder ~/$dot_folder/eww
-        _del_folder ~/$dot_folder/starship
 
         # Replace Quicklink
         sed -i -e 's/dotfiles\/.settings/.config\/ml4w\/settings/g' ~/$dot_folder/.config/ml4w/settings/waybar-quicklinks.json
