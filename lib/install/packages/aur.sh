@@ -10,8 +10,8 @@ _installYay() {
     _installPackagesPacman "base-devel"
     SCRIPT=$(realpath "$0")
     temp_path=$(dirname "$SCRIPT")
-    git clone https://aur.archlinux.org/yay.git ~/yay
-    cd ~/yay
+    git clone https://aur.archlinux.org/yay.git ~/Downloads/yay
+    cd ~/Downloads/yay
     makepkg -si
     cd $temp_path
     echo ":: yay has been installed successfully."
@@ -21,8 +21,8 @@ _installParu() {
     _installPackagesPacman "base-devel"
     SCRIPT=$(realpath "$0")
     temp_path=$(dirname "$SCRIPT")
-    git clone https://aur.archlinux.org/paru.git ~/paru
-    cd ~/paru
+    git clone https://aur.archlinux.org/paru.git ~/Downloads/paru
+    cd ~/Downloads/paru
     makepkg -si
     cd $temp_path
     echo ":: paru has been installed successfully."
