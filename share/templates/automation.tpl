@@ -88,6 +88,13 @@ automation_bashrc=true
 automation_zshrc=true
 
 # -----------------------------------------------------
+# KITTY
+# true: Install kitty configuration
+# false: Skip installation of kitty configuration
+# -----------------------------------------------------
+automation_kitty=true
+
+# -----------------------------------------------------
 # NEOVIM
 # true: Install neovim configuration
 # false: Skip installation of neovim configuration

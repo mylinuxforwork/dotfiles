@@ -72,6 +72,11 @@ source $install_directory/dotfiles/bashrc.sh
 source $install_directory/dotfiles/zshrc.sh
 
 # ----------------------------------------------------- 
+# Check installation of kitty
+# ----------------------------------------------------- 
+source $install_directory/dotfiles/kitty.sh
+
+# ----------------------------------------------------- 
 # Check installation of neovim
 # ----------------------------------------------------- 
 source $install_directory/dotfiles/neovim.sh
