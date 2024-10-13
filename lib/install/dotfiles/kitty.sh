@@ -8,7 +8,7 @@ if [ -z $automation_kitty ] ;then
             echo -e "${GREEN}"
             figlet -f smslant "Kitty"
             echo -e "${NONE}"
-            echo ":: The script has detected a kitty folder in your ~/$dot_folder folder."
+            echo ":: The script has detected a kitty folder in your ~/.config folder."
             echo ":: You can replace it with the latest version of ML4W Dotfiles $version."
             echo
             if gum confirm "Do you want to replace your configuration?"; then
