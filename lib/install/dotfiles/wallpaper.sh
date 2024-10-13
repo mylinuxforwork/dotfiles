@@ -2,13 +2,13 @@
 # Install wallpapers
 # ------------------------------------------------------
 
-if [ -d ~/wallpaper/ ]; then
-    echo "~/wallpaper folder already exists."
-else
-    echo -e "${GREEN}"
-    figlet -f smslant "Wallpapers"
-    echo -e "${NONE}"
+echo -e "${GREEN}"
+figlet -f smslant "Wallpapers"
+echo -e "${NONE}"
 
+if [ -d ~/wallpaper/ ]; then
+    echo ":: ~/wallpaper folder already exists."
+else
     mkdir ~/wallpaper
     cp $wallpaper_directory/* ~/wallpaper/
     echo ":: Default wallpapers installed successfully."

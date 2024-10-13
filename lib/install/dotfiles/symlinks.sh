@@ -2,7 +2,11 @@
 # Install dotfiles
 # ------------------------------------------------------
 
-echo ":: Creating symlinks"
+echo -e "${GREEN}"
+figlet -f smslant "Symlinks"
+echo -e "${NONE}"
+echo ":: Symlinks from $HOME/$dot_folder will be created."
+echo 
 # Check home
 files=$(ls -a ~/$dot_folder)
 for f in $files; do
@@ -47,7 +51,7 @@ for f in $files; do
     fi
 done
 
+# Run GNU Stow
 stow --dir="$HOME/$dot_folder" --target="$HOME" .
 
-echo ":: Symbolic links created."
 echo
