@@ -99,3 +99,8 @@ echo ":: AUR Helper updated with $aur_helper"
 
 # Write dot folder into settings
 echo "$dot_folder" > $ml4w_directory/$version/.config/ml4w/settings/dotfiles-folder.sh
+
+# Write wallpaper_folder into settings
+if [ -f ~/.config/ml4w/settings/wallpaper-folder.sh ] ;then
+    cp ~/.config/ml4w/settings/wallpaper-folder.sh $ml4w_directory/$version/.config/ml4w/settings
+fi
