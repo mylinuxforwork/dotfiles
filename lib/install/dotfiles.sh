@@ -82,6 +82,11 @@ source $install_directory/dotfiles/kitty.sh
 source $install_directory/dotfiles/neovim.sh
 
 # ----------------------------------------------------- 
+# Install wallpapers
+# ----------------------------------------------------- 
+source $install_directory/dotfiles/wallpaper.sh
+
+# ----------------------------------------------------- 
 # Check for protected folders
 # ----------------------------------------------------- 
 source $install_directory/dotfiles/protect.sh
@@ -95,11 +100,6 @@ source $install_directory/dotfiles/copy.sh
 # Install profile symlinks
 # ----------------------------------------------------- 
 source $install_directory/dotfiles/symlinks.sh
-
-# ----------------------------------------------------- 
-# Install wallpapers
-# ----------------------------------------------------- 
-source $install_directory/dotfiles/wallpaper.sh
 
 # ----------------------------------------------------- 
 # Initialize pywal color scheme

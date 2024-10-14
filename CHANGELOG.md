@@ -1,3 +1,9 @@
+Version 2.9.6.4
+--------------------------------------------------------
+- Alacritty replaced with kitty as default terminal
+- Fixed eza icons on zsh terminal 
+- Subfolders in .config can be protected with an empty file PROTECTED
+
 Version 2.9.6.3
 --------------------------------------------------------
 - Updated ags sidebar layout
