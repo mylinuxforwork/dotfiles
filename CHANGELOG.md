@@ -1,6 +1,6 @@
 Version 2.9.6.4
 --------------------------------------------------------
-- Alacritty replaced with kitty as default terminal
+- Kitty is the new default terminal (Replace alacritty with kitty in the ML4W Settings App/Default terminal)
 - Fixed eza icons on zsh terminal 
 - Subfolders in .config can be protected with an empty file PROTECTED
 
