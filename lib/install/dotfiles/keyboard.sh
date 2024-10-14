@@ -22,7 +22,7 @@ _confirmKeyboard() {
     echo "Keyboard layout: $keyboard_layout"
     echo "Keyboard variant: $keyboard_variant"
     echo
-    if gum confirm "Do you want proceed with this keyboard setup?" --affirmative "Proceed" --negative "Change" ;then
+    if gum confirm "Do you want to proceed with this keyboard setup?" --affirmative "Proceed" --negative "Change" ;then
         return 0
     elif [ $? -eq 130 ]; then
         exit 130
