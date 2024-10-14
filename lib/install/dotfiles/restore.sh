@@ -201,10 +201,6 @@ _startRestore() {
         cp ~/.cache/square_wallpaper.png $ml4w_directory/$version/.config/ml4w/cache/square_wallpaper.png
     fi
     
-    if [ -f ~/.config/hypr/hyprpaper.conf ] ;then
-        rm $ml4w_directory/$version/.config/hypr/hyprpaper.conf
-    fi
-
     restored=1
     return 0
 }
