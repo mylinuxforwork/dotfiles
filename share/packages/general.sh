@@ -8,7 +8,6 @@ packagesPacman=(
     "neovim"
     "wget"
     "unzip"
-    "alacritty"
     "kitty" 
     "dunst" 
     "starship"
