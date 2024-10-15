@@ -1,0 +1,45 @@
+{
+    "custom/quicklink1": {
+        "format": "",
+        "on-click": "chromium",
+        "tooltip-format": "Open Chromium"
+    }, 
+    "custom/quicklink2": {
+        "format": "",
+        "on-click": "~/.config/ml4w/settings/browser.sh",
+        "tooltip-format": "Open Firefox"
+    },
+    "custom/quicklink3": {
+        "format": "",
+        "on-click": "~/.config/ml4w/settings/filemanager.sh",
+        "tooltip-format": "Open filemanager"
+    }, 
+    "custom/quicklink4": {
+        "format": "",
+        "on-click": "betterbird",
+        "tooltip-format": "Open Betterbird"
+    }, 
+    "custom/quicklink5": {
+        "format": "",
+        "on-click": "~/.config/ml4w/settings/calculator.sh",
+        "tooltip-format": "Open calculator"
+    }, 
+    "custom/quicklink6": {
+        "format": "",
+        "on-click": "~/.config/ml4w/settings/emojipicker.sh",
+        "tooltip-format": "Open emoji picker"
+    }, 
+    "custom/quicklinkempty": {
+    }, 
+    "group/quicklinks": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/quicklink2",
+            "custom/quicklink3",
+            /*
+            "custom/quicklink4",
+            */
+            "custom/quicklinkempty"
+        ]
+    }
+}

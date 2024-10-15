@@ -1,0 +1,15 @@
+.gitignore
+.git
+install
+.dev
+README.md
+CHANGELOG
+LICENSE
+install.sh
+monitor.conf
+keyboard.conf
+keyboard.py
+animation.conf
+decoration.conf
+window.conf
+autostart.sh

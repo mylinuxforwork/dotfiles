@@ -1,0 +1,11 @@
+optdepends=(
+    "firefox"
+    "flatpak"
+    "gnome-calculator"
+    "smile"
+    "breeze"
+    "breeze-icons"
+    "mpv" 
+    "mission-center"
+    "pacseek"
+);

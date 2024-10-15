@@ -1,0 +1,1 @@
+magick $wallpaper -set colorspace Gray -separate -average $used_wallpaper

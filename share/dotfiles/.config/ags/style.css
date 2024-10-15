@@ -1,0 +1,144 @@
+@import url('../../.cache/wal/colors-waybar.css');
+
+* {
+    all:unset;
+    font-size: 14px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: normal;
+}
+
+.midbtn {
+    background-color: @color11;
+    font-size: 12px;
+    padding:10px;
+    border-radius: 20px;
+}
+
+.sidebar {
+    background: #222222;
+    padding: 12px;
+    margin:14px;
+    border-radius: 12px;
+    font-weight: bold;
+    border: 3px solid @color11;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.8);
+    padding:20px;
+}
+
+.calendar {
+    background: #222222;
+    padding: 12px;
+    margin:14px;
+    border-radius: 12px;
+    font-weight: bold;
+    border: 3px solid @color11;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.8);
+    padding:20px;
+    min-width:320px;
+}
+
+.window {
+    background:transparent;
+}
+
+.group {
+    padding:16px;
+    background-color: rgba(116, 116, 116, 0.1);
+    border-radius: 20px;
+}
+
+.row {
+}
+
+.rowsmall {
+    padding-bottom: 4px;
+}
+
+.lastrow {
+    padding-top: 20px;
+}
+
+.btn {
+    color: #FFFFFF;
+    padding:0px;
+}
+
+.ml4wwelcomeicon {
+    background:url("assets/ml4w-welcome.png");
+    background-size:50px;
+    background-repeat: no-repeat;
+    background-position: top;
+    padding: 40px 50px 20px 50px;
+}
+
+.ml4wsettingsicon {
+    background:url("assets/ml4w-dotfiles-settings.png");
+    background-size:50px;
+    background-repeat: no-repeat;
+    background-position: top;
+    padding: 40px 50px 20px 50px;
+}
+
+.ml4whyprlandicon {
+    background:url("assets/ml4w-hyprland-settings.png");
+    background-size:50px;
+    background-repeat: no-repeat;
+    background-position: top;
+    padding: 40px 50px 20px 50px;
+}
+
+.clock {
+    font-size: 20px;
+}
+
+.circularprocess {
+    min-width:100px;
+    min-height:100px;
+    color:@color11;
+    background-color:#ccc;
+}
+
+.circularlabel {
+    padding-top:10px;
+    font-weight: normal;
+}
+
+calendar:selected {
+    background-color:@color11;
+    padding:0px;
+}
+
+scale {
+    background-color:@color11;
+    border-radius:12px;
+}
+
+scale contents {
+    min-height: 20px;
+    background-color:@color15;
+    border-radius:12px;
+}
+
+scale value {
+    min-height: 20px;
+    background-color: #222222;
+}
+
+scale slider {
+    min-height: 20px;
+    background-color:@color15;
+    border-radius:12px;
+}
+
+scale highlight {
+    min-height:20px;
+    background-color:@color11;
+    border-radius:12px;
+    outline-width:3px;
+}
+
+scale fill {
+    min-height:20px;
+    background-color:@color11;
+    border-radius:12px;
+}
