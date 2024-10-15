@@ -4,7 +4,17 @@
 
 if [[ $install_mode == "filesystem" ]] ;then
     echo -e "${GREEN}"
-    figlet -f smslant "Packages"
+    if [ -x figlet ] ;then
+        figlet -f smslant "Packages"
+    else
+        cat <<"        EOF"
+   ___           __                   
+  / _ \___ _____/ /_____ ____ ____ ___
+ / ___/ _ `/ __/  '_/ _ `/ _ `/ -_|_-<
+/_/   \_,_/\__/_/\_\\_,_/\_, /\__/___/
+                        /___/         
+        EOF
+    fi
     echo -e "${NONE}"
 
     # General packages
