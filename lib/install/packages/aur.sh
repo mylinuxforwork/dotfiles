@@ -67,7 +67,17 @@ _checkAURHelper() {
 }
 
 echo -e "${GREEN}"
-figlet -f smslant "AUR Helper"
+if [ -x figlet ] ;then
+    figlet -f smslant "AUR Helper"
+  else
+    cat <<"    EOF"
+   ___  __  _____      __ __    __            
+  / _ |/ / / / _ \    / // /__ / /__  ___ ____
+ / __ / /_/ / , _/   / _  / -_) / _ \/ -_) __/
+/_/ |_\____/_/|_|   /_//_/\__/_/ .__/\__/_/   
+                              /_/             
+    EOF
+fi
 echo -e "${NONE}"
 
 _checkAURHelper
