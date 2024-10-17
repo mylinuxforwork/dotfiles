@@ -11,7 +11,6 @@ packagesPacman=(
     "kitty" 
     "dunst"
     "libnotify" 
-    "starship"
     "noto-fonts" 
     "otf-font-awesome" 
     "ttf-fira-sans" 
@@ -55,7 +54,7 @@ packagesPacman=(
     "zsh"
     "fzf"
     "htop"
-    "zsh-completions"
+    "rsync"
     "nautilus"
 );
 

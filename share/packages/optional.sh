@@ -1,4 +1,6 @@
 optdepends=(
+    "trizen"
+    "pacseek"
     "firefox"
     "flatpak"
     "gnome-calculator"
