@@ -352,6 +352,10 @@ _replaceInFile() {
 
 # replaceTextInFile $customtext $targetFile
 _replaceTextInFile() {
+    # Set function parameters
+    customtext="$1"
+    targetFile=$2
+
     echo $customtext > $targetFile
 }
 

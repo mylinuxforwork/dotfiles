@@ -5,7 +5,6 @@
 echo -e "${GREEN}"
 figlet -f smslant "Display Manager"
 echo -e "${NONE}"
-echo
 
 if [ -z $automation_displaymanager ] ;then
     if [ -f /etc/systemd/system/display-manager.service ]; then

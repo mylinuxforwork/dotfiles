@@ -2,6 +2,10 @@
 # Apps Installation
 # ------------------------------------------------------
 
+echo -e "${GREEN}"
+figlet -f smslant "Apps"
+echo -e "${NONE}"
+
 # Create local applications folder if not exits
 if [ ! -d $HOME/.local/share/applications/ ] ;then
     mkdir $HOME/.local/share/applications

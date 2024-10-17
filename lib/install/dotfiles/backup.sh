@@ -48,6 +48,10 @@ _create_backup() {
         cp -r ~/.config/waybar $backup_directory/config
         echo ":: Backup of $HOME/.config/waybar created in $backup_directory/config/"
     fi
+    if ! test -L ~/.config/waypaper && [ -d ~/.config/waypaper ] ;then
+        cp -r ~/.config/waypaper $backup_directory/config
+        echo ":: Backup of $HOME/.config/waypaper created in $backup_directory/config/"
+    fi
     if ! test -L ~/.config/wlogout && [ -d ~/.config/wlogout ] ;then
         cp -r ~/.config/wlogout $backup_directory/config
         echo ":: Backup of $HOME/.config/wlogout created in $backup_directory/config/"
@@ -55,6 +59,10 @@ _create_backup() {
     if ! test -L ~/.config/alacritty && [ -d ~/.config/alacritty ] ;then
         cp -r ~/.config/alacritty $backup_directory/config
         echo ":: Backup of $HOME/.config/alacritty created in $backup_directory/config/"
+    fi
+    if ! test -L ~/.config/kitty && [ -d ~/.config/kitty ] ;then
+        cp -r ~/.config/kitty $backup_directory/config
+        echo ":: Backup of $HOME/.config/kitty created in $backup_directory/config/"
     fi
     if ! test -L ~/.config/starship && [ -d ~/.config/starship ] ;then
         cp -r ~/.config/starship $backup_directory/config

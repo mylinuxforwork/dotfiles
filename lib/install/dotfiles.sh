@@ -72,9 +72,24 @@ source $install_directory/dotfiles/bashrc.sh
 source $install_directory/dotfiles/zshrc.sh
 
 # ----------------------------------------------------- 
+# Check installation of kitty
+# ----------------------------------------------------- 
+source $install_directory/dotfiles/kitty.sh
+
+# ----------------------------------------------------- 
 # Check installation of neovim
 # ----------------------------------------------------- 
 source $install_directory/dotfiles/neovim.sh
+
+# ----------------------------------------------------- 
+# Install wallpapers
+# ----------------------------------------------------- 
+source $install_directory/dotfiles/wallpaper.sh
+
+# ----------------------------------------------------- 
+# Check for protected folders
+# ----------------------------------------------------- 
+source $install_directory/dotfiles/protect.sh
 
 # ----------------------------------------------------- 
 # Copy files to target directory
@@ -87,14 +102,9 @@ source $install_directory/dotfiles/copy.sh
 source $install_directory/dotfiles/symlinks.sh
 
 # ----------------------------------------------------- 
-# Install wallpapers
-# ----------------------------------------------------- 
-source $install_directory/dotfiles/wallpaper.sh
-
-# ----------------------------------------------------- 
 # Initialize pywal color scheme
 # ----------------------------------------------------- 
-source $install_directory/dotfiles/init-pywal.sh
+source $install_directory/dotfiles/pywal.sh
 
 # ----------------------------------------------------- 
 # Restore hyprland settings

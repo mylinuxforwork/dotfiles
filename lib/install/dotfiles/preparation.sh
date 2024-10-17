@@ -2,6 +2,10 @@
 # Prepare dotfiles
 # ------------------------------------------------------
 
+echo -e "${GREEN}"
+figlet -f smslant "Preparation"
+echo -e "${NONE}"
+
 echo ":: Preparing the folders"
 
 # Check existing .config folder

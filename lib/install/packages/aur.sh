@@ -29,9 +29,8 @@ _selectAURHelper() {
     fi
 }
 
-if [[ $(_check_update) == "false" ]] ;then
-    echo -e "${GREEN}"
-    figlet -f smslant "AUR Helper"
-    echo -e "${NONE}"
-    _selectAURHelper
-fi
+echo -e "${GREEN}"
+figlet -f smslant "AUR Helper"
+echo -e "${NONE}"
+
+_selectAURHelper

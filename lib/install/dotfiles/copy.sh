@@ -42,7 +42,7 @@ _copy_automation() {
 }
 
 echo -e "${GREEN}"
-figlet -f smslant "Copy dotfiles"
+figlet -f smslant "Copy"
 echo -e "${NONE}"
 if [ ! -d ~/$dot_folder ]; then
 echo "The script will now remove existing directories and files from ~/.config/"
@@ -66,7 +66,6 @@ if [ ! -d ~/$dot_folder ]; then
     echo
 fi
 
-
 if [ -z $automation_copy ] ;then
     _copy_confirm
 else
@@ -77,3 +76,23 @@ else
     fi
 fi
 echo
+
+# ------------------------------------------------------
+# Copy default wallpaper files to .cache
+# ------------------------------------------------------
+
+# Cache file for holding the current wallpaper
+cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
+rasi_file="$HOME/.config/ml4w/cache/current_wallpaper.rasi"
+
+# Create cache file if not exists
+if [ ! -f $cache_file ] ;then
+    touch $cache_file
+    echo "$HOME/wallpaper/default.jpg" > "$cache_file"
+fi
+
+# Create rasi file if not exists
+if [ ! -f $rasi_file ] ;then
+    touch $rasi_file
+    echo "* { current-image: url(\"$HOME/wallpaper/default.jpg\", height); }" > "$rasi_file"
+fi
