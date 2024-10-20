@@ -4,7 +4,7 @@ if [ -d ~/$dot_folder/.config ]; then
     figlet -f smslant "Protected"
     echo -e "${NONE}"
     echo ":: The script will check for file PROTECTED in subfolders of .config"
-    echo ":: These folders will not be overwritten"
+    echo ":: These folders and their files are not overwritten."
     echo 
     files=$(ls -a ~/$dot_folder/.config)
     for f in $files; do
