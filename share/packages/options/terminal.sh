@@ -1,0 +1,4 @@
+optdepends=(
+    "kitty"
+    "alacritty"
+);

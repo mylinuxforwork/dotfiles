@@ -1,9 +1,9 @@
 #!/bin/bash
 clear
 echo -e "${GREEN}"
-figlet -f smslant "Browser"
+figlet -f smslant "Terminal"
 echo -e "${NONE}"
-source $packages_directory/options/browser.sh
+source $packages_directory/options/terminal.sh
 toInstall=""
 selectedInstall=""
 
@@ -19,10 +19,6 @@ else
     if [[ ! $(_isInstalledAUR "$optionalSelect") == 0 ]]; then
         $aur_helper -S $optionalSelect
     fi
-    if [ $optionalSelect == "brave-bin" ]; then
-        echo 'brave' > "$HOME/.config/ml4w/settings/browser.sh"
-    else
-        echo "$optionalSelect" > "$HOME/.config/ml4w/settings/browser.sh"
-    fi
+    echo "$optionalSelect" > "$HOME/.config/ml4w/settings/terminal.sh"
     _selectCategory
 fi

@@ -1,6 +1,6 @@
 #!/bin/bash
 echo -e "${GREEN}"
-figlet -f smslant "Optional"
+figlet -f smslant "Profile"
 echo -e "${NONE}"
 if [ -z $automation_optional ] || [ $automation_optional == "true" ] ;then
 

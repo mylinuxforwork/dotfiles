@@ -44,28 +44,34 @@ _selectCategory() {
     fi
     echo
     echo "Current configuration:"
-    echo "- Shell: "
+    echo "- Shell: " $SHELL 
     echo "- Terminal:" $(_checkCurrent terminal.sh)     
     echo "- File manager:" $(_checkCurrent filemanager.sh) 
     echo "- Browser:" $(_checkCurrent browser.sh) 
-    echo "- System info:" $(_checkCurrent systeminfo.sh)     
+    echo "- System monitor:" $(_checkCurrent system-monitor.sh)     
     echo
     echo "Please choose a category to change it:"
     echo
     if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
-        category=$(gum choose "xdg-desktop-portal-gtk" "file manager" "browser" "CANCEL")
+        category=$(gum choose "xdg-desktop-portal-gtk" "shell" "terminal" "file manager" "browser" "CANCEL")
     else
-        category=$(gum choose "file manager" "browser" "CANCEL")
+        category=$(gum choose "shell" "terminal" "file manager" "browser" "CANCEL")
     fi
     case ${category} in
         xdg-desktop-portal-gtk)
             source $install_directory/options/xdg-desktop-portal-gtk.sh
+        ;;
+        terminal)
+            source $install_directory/options/terminal.sh
         ;;
         "file manager")
             source $install_directory/options/filemanager.sh
         ;;
         browser)
             source $install_directory/options/browser.sh
+        ;;
+        shell)
+            source $install_directory/options/shell.sh
         ;;
         CANCEL)
             exit

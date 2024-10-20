@@ -31,11 +31,6 @@ source $install_directory/packages/remove.sh
 source $install_directory/packages/packages.sh
 
 # ----------------------------------------------------- 
-# Install optional packages
-# ----------------------------------------------------- 
-source $install_directory/packages/optional.sh
-
-# ----------------------------------------------------- 
 # Check executables of important apps
 # ----------------------------------------------------- 
 source $install_directory/packages/diagnosis.sh
