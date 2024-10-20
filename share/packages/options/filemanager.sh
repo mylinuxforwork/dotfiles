@@ -1,0 +1,4 @@
+optdepends=(
+    "nautilus"
+    "yazi"
+);

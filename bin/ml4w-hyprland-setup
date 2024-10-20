@@ -94,8 +94,8 @@ _run_dotfiles() {
 # ----------------------------------------------------- 
 # Run unstaller
 # ----------------------------------------------------- 
-_run_optional() {
-    source $install_directory/optional.sh
+_run_options() {
+    source $install_directory/options.sh
 }
 
 # ----------------------------------------------------- 
@@ -146,8 +146,8 @@ else
                     uninstall)
                         _run_uninstall
                     ;;
-                    optional)
-                        _run_optional
+                    options)
+                        _run_options
                     ;;
                     update)
                         _run_update
@@ -166,7 +166,7 @@ else
                 echo "-m full: Run full installation"
                 echo "-m packages: Run installation of packages only"
                 echo "-m dotfiles: Run the setup of the dotfiles only"
-                echo "-m options: Install optional packages"
+                echo "-m options: Install package options"
                 echo "-m update: Check for new updates"
                 echo "-m unstall: Will uninstall the dotfiles"
                 echo "-m activate: Activate an existing dotfiles folder"
