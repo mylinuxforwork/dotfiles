@@ -37,13 +37,13 @@ _selectCategory() {
     figlet -f smslant "Options"
     echo -e "${NONE}"
     echo "This script will help you to install some pre-defined package options."
-    echo "If your desired package is not listed, you can install it with yay -S package "
+    echo "If your desired package is not listed, you can install it with $aur_helper -S package "
     echo "and set it as default application in the ML4W Settings App."
     if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
         echo "Please note: xdg-desktop-portal-gtk is required to get dark theme on GTK apps."
     fi
     echo
-    echo "Current configuration:"
+    echo "Current commands:"
     if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
         echo "- xdg-desktop-portal-gtk: Not installed"
     else
