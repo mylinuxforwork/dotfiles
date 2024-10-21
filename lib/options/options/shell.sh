@@ -4,7 +4,7 @@ figlet -f smslant "Shell"
 
 echo ":: Please select your preferred shell"
 echo
-shell=$(gum choose "bash" "zsh" "Cancel")
+shell=$(gum choose "bash" "zsh" "CANCEL")
 # ----------------------------------------------------- 
 # Activate bash
 # ----------------------------------------------------- 
@@ -75,5 +75,5 @@ elif [[ $shell == "zsh" ]] ;then
 # ----------------------------------------------------- 
 else
     echo ":: Changing shell canceled"
-    exit
+    _selectCategory
 fi

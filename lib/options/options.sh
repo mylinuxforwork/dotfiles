@@ -64,19 +64,19 @@ _selectCategory() {
     fi
     case ${category} in
         xdg-desktop-portal-gtk)
-            source $install_directory/options/xdg-desktop-portal-gtk.sh
+            source $options_directory/options/xdg-desktop-portal-gtk.sh
         ;;
         terminal)
-            source $install_directory/options/terminal.sh
+            source $options_directory/options/terminal.sh
         ;;
         "file manager")
-            source $install_directory/options/filemanager.sh
+            source $options_directory/options/filemanager.sh
         ;;
         browser)
-            source $install_directory/options/browser.sh
+            source $options_directory/options/browser.sh
         ;;
         shell)
-            source $install_directory/options/shell.sh
+            source $options_directory/options/shell.sh
         ;;
         CANCEL)
             exit
