@@ -22,6 +22,6 @@ _checkPackages
 
 if [[ ! "${toInstall[@]}" == "" ]] ; then
     echo ":: Installing missing packages."
-    $aur_helper -S $toInstall
+    $aur_helper --noconfirm -S $toInstall
 fi
 echo 

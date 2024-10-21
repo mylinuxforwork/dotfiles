@@ -58,9 +58,9 @@ _selectCategory() {
     echo "Please choose a category to change it:"
     echo
     if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
-        category=$(gum choose "xdg-desktop-portal-gtk" "shell" "terminal" "file manager" "browser" "CANCEL")
+        category=$(gum choose "xdg-desktop-portal-gtk" "shell" "terminal" "file manager" "browser" "REBOOT" "CANCEL")
     else
-        category=$(gum choose "shell" "terminal" "file manager" "browser" "CANCEL")
+        category=$(gum choose "shell" "terminal" "file manager" "browser" "REBOOT" "CANCEL")
     fi
     case ${category} in
         xdg-desktop-portal-gtk)
@@ -78,7 +78,13 @@ _selectCategory() {
         shell)
             source $options_directory/options/shell.sh
         ;;
+        REBOOT)
+            reboot
+        ;;
         CANCEL)
+            exit
+        ;;
+        *)
             exit
         ;;
     esac

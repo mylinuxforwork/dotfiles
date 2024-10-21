@@ -1,0 +1,4 @@
+optdepends=(
+    "htop"
+    "mission-center"
+);
