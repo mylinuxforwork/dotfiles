@@ -95,6 +95,36 @@ fi
 if test -L ~/.config/ags ;then
     rm $HOME/.config/ags
 fi
+if test -L ~/.config/kitty ;then
+    rm $HOME/.config/kitty
+fi
+if test -L ~/.config/bashrc ;then
+    rm $HOME/.config/bashrc
+fi
+if test -L ~/.config/zshrc ;then
+    rm $HOME/.config/zshrc
+fi
+if test -L ~/.config/gtk-3.0 ;then
+    rm $HOME/.config/gtk-3.0
+fi
+if test -L ~/.config/gtk-4.0 ;then
+    rm $HOME/.config/gtk-4.0
+fi
+if test -L ~/.config/qt6ct ;then
+    rm $HOME/.config/qt6ct
+fi
+if test -L ~/.config/ml4w ;then
+    rm $HOME/.config/ml4w
+fi
+if test -L ~/.config/ohmyposh ;then
+    rm $HOME/.config/ohmyposh
+fi
+if test -L ~/.config/starship.toml ;then
+    rm $HOME/.config/starship.toml
+fi
+if test -L ~/.config/xsettingsd ;then
+    rm $HOME/.config/xsettingsd
+fi
 echo ":: Symlinks removed"
 
 # Uninstall the ML4W Apps
