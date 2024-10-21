@@ -8,7 +8,7 @@ toInstall=""
 selectedInstall=""
 
 _checkPackages
-_checkDefault "browser.sh"
+_checkDefault "terminal.sh"
 
 optionalSelect=$(gum choose $toInstall "CANCEL")
 if [ -z "$optionalSelect" ] ;then

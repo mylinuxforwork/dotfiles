@@ -15,7 +15,7 @@ _checkPackages() {
 _checkDefault() {
     if [ -f ~/.config/ml4w/settings/$1 ]; then
         default="$(cat ~/.config/ml4w/settings/$1)"
-        echo ":: Current execution command: $default"
+        echo ":: Current setup: $default"
     else
         echo ":: ERROR: No configuration file found"
     fi
@@ -44,6 +44,7 @@ _selectCategory() {
     fi
     echo
     echo "Current configuration:"
+    if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
     echo "- Shell: " $SHELL 
     echo "- Terminal:" $(_checkCurrent terminal.sh)     
     echo "- File manager:" $(_checkCurrent filemanager.sh) 

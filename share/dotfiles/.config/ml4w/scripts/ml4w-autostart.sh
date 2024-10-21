@@ -14,6 +14,6 @@ if [ ! -f ~/.cache/ml4w-post-install ] ;then
 else
     rm ~/.cache/ml4w-post-install
     terminal=$(cat ~/.config/ml4w/settings/terminal.sh)
-    $terminal --class dotfiles-floating -e ~/.config/ml4w/postinstall.sh
+    $terminal --class dotfiles-floating -e ml4w-hyprland-setup -m options
     com.ml4w.welcome
 fi
