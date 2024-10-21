@@ -16,6 +16,7 @@ source $install_directory/dotfiles/dotfiles.sh
 if [ -z $aur_helper ] ;then
     source $install_directory/packages/aur.sh
 fi
+
 # ----------------------------------------------------- 
 # Post Installation
 # ----------------------------------------------------- 

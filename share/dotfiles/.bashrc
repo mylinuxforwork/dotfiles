@@ -12,8 +12,8 @@
 
 # You can define your custom configuration by adding
 # files in ~/.config/bashrc 
-# or by creating a folder ~/.config/zshrc/custom
-# with copies of files from ~/.config/zshrc 
+# or by creating a folder ~/.config/bashrc/custom
+# with copies of files from ~/.config/bashrc 
 # -----------------------------------------------------
 
 for f in ~/.config/bashrc/*; do 
