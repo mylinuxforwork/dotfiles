@@ -30,6 +30,8 @@ else
 fi
 
 install_directory="$lib_directory/install"
+options_directory="$lib_directory/options"
+diagnosis_directory="$lib_directory/diagnosis"
 dotfiles_directory="$share_directory/dotfiles"
 apps_directory="$share_directory/apps"
 template_directory="$share_directory/templates"
@@ -95,7 +97,14 @@ _run_dotfiles() {
 # Run unstaller
 # ----------------------------------------------------- 
 _run_options() {
-    source $install_directory/options.sh
+    source $options_directory/options.sh
+}
+
+# ----------------------------------------------------- 
+# Run diagnosis
+# ----------------------------------------------------- 
+_run_diagnosis() {
+    source $diagnosis_directory/diagnosis.sh
 }
 
 # ----------------------------------------------------- 
@@ -149,6 +158,9 @@ else
                     options)
                         _run_options
                     ;;
+                    diagnosis)
+                        _run_diagnosis
+                    ;;
                     update)
                         _run_update
                     ;;
@@ -167,6 +179,7 @@ else
                 echo "-m packages: Run installation of packages only"
                 echo "-m dotfiles: Run the setup of the dotfiles only"
                 echo "-m options: Install package options"
+                echo "-m diagnosis: Run diagnosis"
                 echo "-m update: Check for new updates"
                 echo "-m unstall: Will uninstall the dotfiles"
                 echo "-m activate: Activate an existing dotfiles folder"

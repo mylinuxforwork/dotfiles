@@ -45,6 +45,10 @@ _selectCategory() {
     echo
     echo "Current configuration:"
     if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
+        echo "- xdg-desktop-portal-gtk: Not installed"
+    else
+        echo "- xdg-desktop-portal-gtk: Installed"
+    fi
     echo "- Shell: " $SHELL 
     echo "- Terminal:" $(_checkCurrent terminal.sh)     
     echo "- File manager:" $(_checkCurrent filemanager.sh) 
