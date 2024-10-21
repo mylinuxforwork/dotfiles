@@ -1,16 +1,8 @@
-#!/bin/bash
-#  ____  _                             _     
-# |  _ \(_) __ _  __ _ _ __   ___  ___(_)___ 
-# | | | | |/ _` |/ _` | '_ \ / _ \/ __| / __|
-# | |_| | | (_| | (_| | | | | (_) \__ \ \__ \
-# |____/|_|\__,_|\__, |_| |_|\___/|___/_|___/
-#                |___/                       
-# 
-
 clear
 sleep 0.5
+echo -e "${GREEN}"
 figlet -f smslant "Diagnosis"
-echo
+echo -e "${NONE}"
 echo "This script will check that essential packages and "
 echo "execution commands are available on your system."
 echo
