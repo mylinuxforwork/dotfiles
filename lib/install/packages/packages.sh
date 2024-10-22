@@ -2,20 +2,22 @@
 # Install packages
 # ------------------------------------------------------
 
-if [[ $install_mode == "filesystem" ]] ;then
-    echo -e "${GREEN}"
-    figlet -f smslant "Packages"
-    echo -e "${NONE}"
+echo -e "${GREEN}"
+figlet -f smslant "Packages"
+echo -e "${NONE}"
 
-    # General packages
-    source $packages_directory/general.sh
-    _installPackagesPacman "${packagesPacman[@]}";
-    _installPackagesAUR "${packagesAUR[@]}";
+# Hyprland
+source $packages_directory/hyprland.sh
+_installPackagesAUR "${packages[@]}";
 
-    echo -e "${GREEN}"
-    figlet -f smslant "Hyprland"
-    echo -e "${NONE}"
-    source $packages_directory/hyprland.sh
-    _installPackagesPacman "${packagesPacman[@]}";
-    _installPackagesAUR "${packagesAUR[@]}";
-fi
+# General
+source $packages_directory/general.sh
+_installPackagesAUR "${packages[@]}";
+
+# fonts
+source $packages_directory/fonts.sh
+_installPackagesAUR "${packages[@]}";
+
+# profile
+source $packages_directory/profiles/default.sh
+_installPackagesAUR "${packages[@]}";

@@ -1,20 +1,12 @@
-packagesPacman=(
+# Hyprland packages required for minimal installation
+packages=(
     "hyprland"
     "hyprpaper"
     "hyprlock"
     "hypridle"
     "xdg-desktop-portal-hyprland" 
-    "waybar" 
-    "grim" 
-    "slurp"
-    "cliphist"
-    "nwg-look"
-);
-
-packagesAUR=(
-    "wlogout"
-    "hyprshade"
-    "waypaper"
-    "grimblast-git"
-    "aylurs-gtk-shell"
+    "dunst"
+    "kitty"
+    "qt5-wayland" 
+    "qt6-wayland"
 );
