@@ -21,6 +21,8 @@ else
     fi
     if [ $optionalSelect == "htop" ]; then
         echo '$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e htop' > "$HOME/.config/ml4w/settings/system-monitor.sh"
+    elif [ $optionalSelect == "btop" ]; then
+        echo '$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e btop' > "$HOME/.config/ml4w/settings/system-monitor.sh"
     else
         echo "$optionalSelect" > "$HOME/.config/ml4w/settings/system-monitor.sh"
     fi
