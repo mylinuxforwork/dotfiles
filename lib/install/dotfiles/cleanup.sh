@@ -6,6 +6,22 @@ echo -e "${GREEN}"
 figlet -f smslant "Clean up"
 echo -e "${NONE}"
 
+# Cache file for holding the current wallpaper
+cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
+rasi_file="$HOME/.config/ml4w/cache/current_wallpaper.rasi"
+
+# Create cache file if not exists
+if [ ! -f $cache_file ] ;then
+    touch $cache_file
+    echo "$HOME/wallpaper/default.jpg" > "$cache_file"
+fi
+
+# Create rasi file if not exists
+if [ ! -f $rasi_file ] ;then
+    touch $rasi_file
+    echo "* { current-image: url(\"$HOME/wallpaper/default.jpg\", height); }" > "$rasi_file"
+fi
+
 # Check for ttf-ms-fonts
 if [[ $(_isInstalledPacman "ttf-ms-fonts") == 0 ]]; then
     echo "The script has detected ttf-ms-fonts. This can cause conflicts with icons in Waybar."

@@ -45,7 +45,6 @@ packages=(
     "aylurs-gtk-shell"
     "bibata-cursor-theme"
     "pacseek"
-    "noto-fonts" 
     "otf-font-awesome" 
     "ttf-fira-sans" 
     "ttf-fira-code" 
