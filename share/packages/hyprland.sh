@@ -5,6 +5,7 @@ packages=(
     "hyprlock"
     "hypridle"
     "xdg-desktop-portal-hyprland" 
+    "libnotify" 
     "dunst"
     "kitty"
     "qt5-wayland" 

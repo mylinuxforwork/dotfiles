@@ -12,4 +12,6 @@ packages=(
     "sed"
     "vim"
     "xdg-user-dirs"
+    "man-pages"
+    "networkmanager"
 )
