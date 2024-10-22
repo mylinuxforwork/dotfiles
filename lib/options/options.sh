@@ -31,6 +31,14 @@ _checkCurrent() {
     fi
 }
 
+_checkSddm() {
+    if [[ $(_isInstalledAUR "sddm") == 0 ]]; then
+        echo "Installed"
+    else
+        echo "Not installed"
+    fi
+}
+
 _selectCategory() {
     clear
     echo -e "${GREEN}"
@@ -49,6 +57,7 @@ _selectCategory() {
     else
         echo "- xdg-desktop-portal-gtk: Installed"
     fi
+    echo "- SDDM:" $(_checkSddm)     
     echo "- Shell: " $SHELL 
     echo "- Terminal:" $(_checkCurrent terminal.sh)     
     echo "- File manager:" $(_checkCurrent filemanager.sh) 
@@ -58,9 +67,9 @@ _selectCategory() {
     echo "Please choose a category to change it:"
     echo
     if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
-        category=$(gum choose "xdg-desktop-portal-gtk" "shell" "terminal" "file manager" "browser" "REBOOT" "CANCEL")
+        category=$(gum choose "xdg-desktop-portal-gtk" "sddm" "shell" "terminal" "file manager" "browser" "REBOOT" "CANCEL")
     else
-        category=$(gum choose "shell" "terminal" "file manager" "browser" "REBOOT" "CANCEL")
+        category=$(gum choose "sddm" "shell" "terminal" "file manager" "browser" "REBOOT" "CANCEL")
     fi
     case ${category} in
         xdg-desktop-portal-gtk)
@@ -77,6 +86,9 @@ _selectCategory() {
         ;;
         shell)
             source $options_directory/options/shell.sh
+        ;;
+        sddm)
+            source $options_directory/options/sddm.sh
         ;;
         REBOOT)
             reboot
