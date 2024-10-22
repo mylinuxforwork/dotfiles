@@ -6,6 +6,7 @@ packages=(
     "hypridle"
     "dolphin"
     "wofi"
+    "noto-fonts"
     "xdg-desktop-portal-hyprland" 
     "libnotify" 
     "dunst"
