@@ -1,9 +1,9 @@
 packagesProfile=(
     "firefox"
     "kitty"
+    "neovim"
     "htop"
     "nautilus"
     "nautilus-open-any-terminal"
     "pinta"
-    "starship"
 );

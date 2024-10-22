@@ -74,9 +74,6 @@ fi
 if test -L ~/.config/alacritty ;then
     rm $HOME/.config/alacritty
 fi
-if test -L ~/.config/starship ;then
-    rm $HOME/.config/starship
-fi
 if test -L ~/.config/nvim ;then
     rm $HOME/.config/nvim
 fi
@@ -118,9 +115,6 @@ if test -L ~/.config/ml4w ;then
 fi
 if test -L ~/.config/ohmyposh ;then
     rm $HOME/.config/ohmyposh
-fi
-if test -L ~/.config/starship.toml ;then
-    rm $HOME/.config/starship.toml
 fi
 if test -L ~/.config/xsettingsd ;then
     rm $HOME/.config/xsettingsd

@@ -1,6 +1,7 @@
 # -----------------------------------------------------
 # CUSTOMIZATION
 # -----------------------------------------------------
+POSH=agnoster
 
 # -----------------------------------------------------
 # oh-myzsh themes: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
@@ -38,14 +39,8 @@ SAVEHIST=10000
 setopt appendhistory
 
 # -----------------------------------------------------
-# Starship promt
+# Prompt
 # -----------------------------------------------------
-# eval "$(starship init zsh)"
-
-# -----------------------------------------------------
-# oh-my-posh promt
-# -----------------------------------------------------
-# Custom Theme
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
 # Shipped Theme

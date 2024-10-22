@@ -64,10 +64,6 @@ _create_backup() {
         cp -r ~/.config/kitty $backup_directory/config
         echo ":: Backup of $HOME/.config/kitty created in $backup_directory/config/"
     fi
-    if ! test -L ~/.config/starship && [ -d ~/.config/starship ] ;then
-        cp -r ~/.config/starship $backup_directory/config
-        echo ":: Backup of $HOME/.config/starship created in $backup_directory/config/"
-    fi
     if ! test -L ~/.config/picom && [ -d ~/.config/picom ] ;then
         cp -r ~/.config/picom $backup_directory/config
         echo ":: Backup of $HOME/.config/picom created in $backup_directory/config/"
@@ -145,9 +141,6 @@ if [ -d ~/$dot_folder ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d 
     fi
     if ! test -L ~/.config/alacritty && [ -d ~/.config/alacritty ] ;then
         echo "   - $HOME/.config/alacritty/"
-    fi
-    if ! test -L ~/.config/starship && [ -d ~/.config/starship ] ;then
-        echo "   - $HOME/.config/starship/"
     fi
     if ! test -L ~/.config/picom && [ -d ~/.config/picom ] ;then
         echo "   - $HOME/.config/picom/"

@@ -5,13 +5,10 @@ packagesPacman=(
     "vim"
     "bluez"
     "bluez-utils"
-    "neovim"
     "wget"
     "unzip"
-    "kitty" 
     "dunst"
     "libnotify" 
-    "starship"
     "noto-fonts" 
     "otf-font-awesome" 
     "ttf-fira-sans" 
@@ -48,18 +45,14 @@ packagesPacman=(
     "fastfetch"
     "blueman"
     "xclip"
-    "pinta"
     "breeze"
     "qt6ct"
     "stow"
     "zsh"
     "fzf"
-    "htop"
     "zsh-completions"
-    "nautilus"
 );
 
 packagesAUR=(
     "bibata-cursor-theme"
-    "nautilus-open-any-terminal" 
 );
