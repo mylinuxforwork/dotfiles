@@ -4,6 +4,8 @@ packages=(
     "hyprpaper"
     "hyprlock"
     "hypridle"
+    "dolphin"
+    "wofi"
     "xdg-desktop-portal-hyprland" 
     "libnotify" 
     "dunst"

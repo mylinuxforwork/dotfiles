@@ -32,6 +32,7 @@ packages=(
     "polkit-gnome"
     "zsh"
     "zsh-completions"
+    "oh-my-posh"
     "fzf"
     "pavucontrol" 
     "papirus-icon-theme"
