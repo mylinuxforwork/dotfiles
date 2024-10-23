@@ -6,7 +6,8 @@ Version 2.9.6.4
 - Added pywalfox support to color Firefox based on wallpaper colors
 - Fixed eza icons on zsh terminal 
 - Subfolders in .config can be protected with an empty file PROTECTED
-- OhMyPosh promt replacing Starship
+- OhMyPosh promt instead of Starship prompt
+- Networkmanager applet can be toggled with right click on waybar network module
 
 Version 2.9.6.3
 --------------------------------------------------------
