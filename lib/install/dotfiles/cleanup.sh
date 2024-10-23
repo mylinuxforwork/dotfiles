@@ -67,5 +67,14 @@ fi
 # Create default folder structure
 xdg-user-dirs-update
 
+# Make sure that the hyprland.conf is uptodate
+if grep ml4w $HOME/.config/hypr/hyprland.conf > /dev/null
+then
+    echo ":: ML4W hyprland.conf found"
+else
+    cp $HOME/$ml4w_directory/$version/.config/hypr/hyprland.conf $HOME/.config/hypr/
+    echo ":: hyprland.conf updated"
+fi
+
 echo 
 echo ":: Cleanup done."
