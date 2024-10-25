@@ -14,6 +14,11 @@
 # files in ~/.config/bashrc 
 # or by creating a folder ~/.config/bashrc/custom
 # with copies of files from ~/.config/bashrc 
+# You can also create a .bashrc_custom file in your home directory
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# Load modular configarion
 # -----------------------------------------------------
 
 for f in ~/.config/bashrc/*; do 
@@ -22,3 +27,11 @@ for f in ~/.config/bashrc/*; do
         [[ -f $c ]] && source $c || source $f
     fi
 done
+
+# -----------------------------------------------------
+# Load single customization file (if exists)
+# -----------------------------------------------------
+
+if [ -f ~/.bashrc_custom ] ;then
+    source ~/.bashrc_custom
+fi

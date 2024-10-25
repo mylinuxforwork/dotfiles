@@ -8,6 +8,7 @@ Version 2.9.6.4
 - Subfolders in .config can be protected with an empty file PROTECTED
 - OhMyPosh promt instead of Starship prompt
 - Networkmanager applet can be toggled with right click on waybar network module
+- Three more blue light screen shaders with different intensities
 
 Version 2.9.6.3
 --------------------------------------------------------
