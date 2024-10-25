@@ -59,7 +59,6 @@ _selectCategory() {
         echo "Please note: xdg-desktop-portal-gtk is required to get dark theme on GTK apps."
     fi
     echo
-    echo "Current commands:"
     if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
         echo "- xdg-desktop-portal-gtk: Not installed"
     else
@@ -72,8 +71,6 @@ _selectCategory() {
     echo "- Browser:" $(_checkCurrent browser.sh) 
     echo "- Pywalfox:" $(_checkPywalfox) 
     echo "- System monitor:" $(_checkCurrent system-monitor.sh)     
-    echo
-    echo "Please choose a category to change it:"
     echo
     if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
         category=$(gum choose "xdg-desktop-portal-gtk" "sddm" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "REBOOT" "CANCEL")
