@@ -45,3 +45,8 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
 # Shipped Theme
 # eval "$(oh-my-posh init zsh --config /usr/share/oh-my-posh/themes/agnoster.omp.json)"
+
+# -----------------------------------------------------
+# zoxide
+# -----------------------------------------------------
+eval "$(zoxide init --cmd cd zsh)"
