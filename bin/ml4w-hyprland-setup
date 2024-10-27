@@ -181,8 +181,8 @@ else
                 echo "-m options: Install package options"
                 echo "-m diagnosis: Run diagnosis"
                 echo "-m update: Check for new updates"
-                echo "-m unstall: Will uninstall the dotfiles"
-                echo "-m activate: Activate an existing dotfiles folder"
+                echo "-m uninstall: Will uninstall the dotfiles"
+                echo "-m activate: Activate another existing dotfiles folder"
                 echo
                 echo "-v: Current version of the ML4W Dotfiles for Hyprland"
             ;;
