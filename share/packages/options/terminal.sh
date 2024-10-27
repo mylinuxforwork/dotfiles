@@ -1,4 +1,0 @@
-optdepends=(
-    "kitty"
-    "alacritty"
-);

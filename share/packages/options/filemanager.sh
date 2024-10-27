@@ -1,5 +1,0 @@
-optdepends=(
-    "nautilus"
-    "yazi"
-    "dolphin"
-);
