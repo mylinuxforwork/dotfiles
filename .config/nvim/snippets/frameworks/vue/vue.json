@@ -1,0 +1,46 @@
+{
+  "setupScript": {
+    "prefix": "setup",
+    "body": [
+      "<script setup lang=\"${1|ts,js,tsx|}\">",
+      "$0",
+      "</script>"
+    ],
+    "description": "typescript lang setup script element"
+  },
+  "template": {
+    "prefix": [
+      "temp",
+      "template"
+    ],
+    "body": [
+      "<template>",
+      "\t$0",
+      "</template>"
+    ],
+    "description": "template element"
+  },
+  "styleLang": {
+    "prefix": [
+      "styl",
+      "style"
+    ],
+    "body": [
+      "<style lang=\"${1|scss,less|}\" scoped>",
+      "$0",
+      "</style>"
+    ],
+    "description": "style element with lang attribute"
+  },
+  "globalStyle": {
+    "prefix": [
+      "gstyl",
+      "gstyle"
+    ],
+    "body": [
+      "<style lang=\"${1|scss,less|}\">",
+      "$0",
+      "</style>"
+    ]
+  }
+}

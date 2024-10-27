@@ -1,0 +1,30 @@
+{
+  "date": {
+    "prefix": "date",
+    "body": [
+      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}"
+    ],
+    "description": "Put the date in (Y-m-D) format"
+  },
+  "time": {
+    "prefix": "time",
+    "body": [
+      "${CURRENT_HOUR}:${CURRENT_MINUTE}"
+    ],
+    "description": "I give you back the time (H:M)"
+  },
+  "datatime": {
+    "prefix": "datatime",
+    "body": [
+      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}"
+    ],
+    "description": "I give you back the time and date (Y-m-d H:M)"
+  },
+  "copyright": {
+    "prefix": "cpr",
+    "body": [
+      "Copyright (c) ${CURRENT_YEAR} ${0:Author}. All Rights Reserved."
+    ],
+    "description": "Snippet to put copyright"
+  }
+}

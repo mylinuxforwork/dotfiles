@@ -1,0 +1,3 @@
+Mo.C.init()
+
+return {}

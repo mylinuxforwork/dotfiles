@@ -1,0 +1,64 @@
+{
+  "name": "myles-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "rust",
+        "path": "./lanuages/rust/rust.json"
+      },
+      {
+        "language": "rust",
+        "path": "./lanuages/rust/rustdoc.json"
+      },
+      {
+        "language": "python",
+        "path": "./lanuages/python.json"
+      },
+      {
+        "language": "go",
+        "path": "./lanuages/go.json"
+      },
+      {
+        "language": "lua",
+        "path": "./lanuages/lua.json"
+      },
+      {
+        "language": [
+          "shellscript",
+          "shell",
+          "sh",
+          "zsh"
+        ],
+        "path": "./lanuages/shell.json"
+      },
+      {
+        "language": "markdown",
+        "path": "./lanuages/markdown.json"
+      },
+      {
+        "language": "vue",
+        "path": "./frameworks/vue/vue.json"
+      },
+      {
+        "language": "vue",
+        "path": "./frameworks/vue/builtins.json"
+      },
+      {
+        "language": "json",
+        "path": "./misc/debug.json"
+      },
+      {
+        "language": "json",
+        "path": "./misc/snippet.json"
+      },
+      {
+        "language": [
+          "plaintext",
+          "markdown",
+          "tex"
+        ],
+        "path": "./lanuages/global.json"
+      }
+    ]
+  }
+}

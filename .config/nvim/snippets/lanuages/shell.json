@@ -1,0 +1,97 @@
+{
+  "bash": {
+    "prefix": [
+      "bash",
+      "#!",
+      "shebang"
+    ],
+    "body": "${1|#!/bin/bash,#!/usr/bin/env bash,#!/bin/sh,#!/usr/bin/env sh|}\n",
+    "description": [
+      "Option 1:\n",
+      "#!/bin/bash\n",
+      "Description: Shebang Bash executor.\n",
+      "Option 2:\n",
+      "#!/usr/bin/env bash\n",
+      "Description: Shell searchs for the first match of bash in the $PATH environment variable.\n",
+      "It can be useful if you aren't aware of the absolute path or don't want to search for it.\n"
+    ]
+  },
+  "echo": {
+    "prefix": "echo",
+    "body": "echo \"${0:message}\"",
+    "description": "Echo a message."
+  },
+  "read": {
+    "prefix": "read",
+    "body": "read -r ${0:VAR}",
+    "description": "Read input of ${VAR}."
+  },
+  "if": {
+    "prefix": "if",
+    "body": "if [[ ${1:condition} ]]; then\n\t${0}\nfi",
+    "description": "An IF statement."
+  },
+  "elseif": {
+    "prefix": "elseif",
+    "body": "elif [[ ${1:condition} ]]; then\n\t${0}",
+    "description": "Add an elseif to an if statement."
+  },
+  "else": {
+    "prefix": "else",
+    "body": "else\n\t${0:command}",
+    "description": "else"
+  },
+  "for_in": {
+    "prefix": "for_in",
+    "body": "for ${1:VAR} in ${0:LIST}\ndo\n\techo \"\\$${1:VAR}\"\ndone\n",
+    "description": "for loop in list"
+  },
+  "for_i": {
+    "prefix": "for_i",
+    "body": "for ((${1:i} = 0; ${1:i} < ${0:10}; ${1:i}++)); do\n\techo \"\\$${1:i}\"\ndone\n",
+    "description": "An index-based iteration for loop."
+  },
+  "while": {
+    "prefix": "while",
+    "body": "while [[ ${1:condition} ]]; do\n\t${0}\ndone\n",
+    "description": "A while loop by condition."
+  },
+  "until": {
+    "prefix": "until",
+    "body": "until [[ ${1:condition} ]]; do\n\t${0}\ndone\n",
+    "description": "until loop by condition"
+  },
+  "function": {
+    "prefix": "function",
+    "body": "${1:name} ()\n{\n\t${0}\n}",
+    "description": [
+      "This defines a function named name.\n",
+      "The reserved word function is optional.\n",
+      "If the function reserved word is supplied, the parentheses are optional.\n",
+      "1. Recommended way:\n",
+      "name() {}\n",
+      "2. C-like-way:\nfunction name [()] {}"
+    ]
+  },
+  "case": {
+    "prefix": "case",
+    "body": "case \"\\$${1:VAR}\" in\n\t${2:1}) echo 1\n\t;;\n\t${3:2|3}) echo 2 or 3\n\t;;\n\t*) echo default\n\t;;\nesac\n",
+    "description": [
+      "case word in [ [(] pattern [ | pattern ] ... ) list ;; ] ... esac\n",
+      "A case command first expands word, and tries to match it against each pattern in turn."
+    ]
+  },
+  "break": {
+    "prefix": "break",
+    "body": "break ${0}",
+    "description": [
+      "The break command tells Bash to leave the loop straight away.\n",
+      "Enter the break or break (n) where n=number of loops."
+    ]
+  },
+  "expr": {
+    "prefix": "expr",
+    "body": "expr ${0:1 + 1}",
+    "description": "Calculate numbers with Bash."
+  }
+}
