@@ -26,12 +26,12 @@
 
     // Modules Left
     "modules-left": [
-        "custom/appmenu",
+"custom/appmenu",
         "group/links",
-        "group/settings",
-        //"wlr/taskbar",
+"group/settings",
+//"wlr/taskbar",
         "group/quicklinks",
-        "hyprland/window",
+"hyprland/window",
         "custom/empty"
     ],
 
@@ -44,13 +44,13 @@
     "modules-right": [
         "custom/updates",
         "pulseaudio",
-        //"backlight",
+//"backlight",
         "bluetooth",
         "battery", 
-        "network",
+"network",
         "group/hardware",
         "group/tools",
-        "tray",
+"tray",
         "custom/exit",
         "custom/ml4w-welcome",
         "clock"

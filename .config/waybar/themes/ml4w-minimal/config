@@ -57,17 +57,17 @@
 
     // Modules Left
     "modules-left": [
-        "custom/appmenuicon",
+"custom/appmenuicon",
         "hyprland/workspaces",
         "group/links",
-        "group/settings",
+"group/settings",
         "group/quicklinks",
         "custom/empty"
     ],
 
     // Modules Center
     "modules-center": [
-        "hyprland/window",
+"hyprland/window",
         "custom/empty"
     ],
 
@@ -75,15 +75,15 @@
     "modules-right": [
         "custom/updates",
         "pulseaudio",
-        //"backlight",
+//"backlight",
         "bluetooth",
         "battery", 
-        "network",
+"network",
         "group/hardware",
         "group/tools",
         "custom/exit",
         "clock",
-        "tray",
+"tray",
         "custom/ml4w-welcome"
     ]
 }
