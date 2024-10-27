@@ -89,6 +89,9 @@ fi
 if test -L ~/.config/waypaper ;then
     rm $HOME/.config/waypaper
 fi
+if test -L ~/.config/nwg-dock-hyprland ;then
+    rm $HOME/.config/nwg-dock-hyprland
+fi
 if test -L ~/.config/ags ;then
     rm $HOME/.config/ags
 fi
