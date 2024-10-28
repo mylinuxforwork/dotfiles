@@ -67,6 +67,17 @@ _run_fullinstall() {
 }
 
 # ----------------------------------------------------- 
+# Run full installation with NVIDIA drivers
+# ----------------------------------------------------- 
+_run_nvidia() {
+    source $install_directory/header.sh
+    echo ":: With NVIDIA driver installation"
+    source $install_directory/packages.sh
+    source $install_directory/nvidia.sh
+    source $install_directory/dotfiles.sh
+}
+
+# ----------------------------------------------------- 
 # Check for update
 # ----------------------------------------------------- 
 _check_update() {
@@ -149,6 +160,9 @@ else
                     packages)
                         _run_packages
                     ;;
+                    nvidia)
+                        _run_nvidia
+                    ;;
                     dotfiles)
                         _run_dotfiles
                     ;;
@@ -176,6 +190,7 @@ else
                 echo ":: ML4W Dotfiles for Hyprland Version $version"
                 echo
                 echo "-m full: Run full installation"
+                echo "-m nvidia: Run full installation with NVIDA Driver installation"
                 echo "-m packages: Run installation of packages only"
                 echo "-m dotfiles: Run the setup of the dotfiles only"
                 echo "-m options: Install package options"
