@@ -1,3 +1,7 @@
+Version 2.9.6.5
+--------------------------------------------------------
+- NVIDIA driver installation script added. Start the installation with ml4w-hyprland-setup -m nvidia
+
 Version 2.9.6.4
 --------------------------------------------------------
 - Kitty is the new default terminal (Replace alacritty with kitty in the ML4W Settings App/Default terminal)
