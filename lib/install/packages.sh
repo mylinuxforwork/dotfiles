@@ -33,7 +33,7 @@ source $install_directory/packages/packages.sh
 # -----------------------------------------------------
 # Setup Nvidia GPU Driver
 # -----------------------------------------------------
-source $install_directory/packages/nvidia.sh
+# source $install_directory/packages/nvidia.sh
 
 # ----------------------------------------------------- 
 # Check executables of important apps
