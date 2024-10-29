@@ -22,8 +22,15 @@ cachefile="$HOME/.config/ml4w/cache/current_wallpaper"
 # ----------------------------------------------------- 
 
 if [ -f $cachefile ] ;then
-    wallpaper=$(cat $cachefile)
+    if [ -f $(cat $cachefile) ]; then
+        echo ":: Wallpaper $(cat $cachefile) exists"
+        wallpaper=$(cat $cachefile)
+    else
+        echo ":: Wallpaper $(cat $cachefile) not exists."
+        wallpaper=$defaultwallpaper
+    fi
 else
+    echo ":: $cachefile not exists."
     wallpaper=$defaultwallpaper
 fi
 
