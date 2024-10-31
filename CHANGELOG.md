@@ -1,5 +1,6 @@
 Version 2.9.6.5
 --------------------------------------------------------
+- New SDDM login theme sequoia. Theme can be customized by renaming the file .config/ml4w/settings/sddm/theme.tpl to theme.conf
 - NVIDIA driver installation script added. Start the installation with ml4w-hyprland-setup -m nvidia
 
 Version 2.9.6.4

@@ -32,7 +32,15 @@ _checkCurrent() {
 }
 
 _checkSddm() {
-    if [[ $(_isInstalledAUR "sddm") == 0 ]]; then
+    if [ -f /etc/systemd/system/display-manager.service ]; then
+        echo "Enabled"
+    else
+        echo "Not enabled"
+    fi
+}
+
+_checkSddmTheme() {
+    if [ -d /usr/share/sddm/themes/sequoia ]; then
         echo "Installed"
     else
         echo "Not installed"
@@ -64,18 +72,17 @@ _selectCategory() {
     else
         echo "- xdg-desktop-portal-gtk: Installed"
     fi
-    echo "- SDDM:" $(_checkSddm)     
-    echo "- Shell: " $SHELL 
-    echo "- Terminal:" $(_checkCurrent terminal.sh)     
+    echo "- SDDM:" $(_checkSddm) "/ SDDM Theme:" $(_checkSddmTheme)    
+    echo "- Shell: "$SHELL "/ Terminal:" $(_checkCurrent terminal.sh)
     echo "- File manager:" $(_checkCurrent filemanager.sh) 
     echo "- Browser:" $(_checkCurrent browser.sh) 
     echo "- Pywalfox:" $(_checkPywalfox) 
     echo "- System monitor:" $(_checkCurrent system-monitor.sh)     
     echo
     if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
-        category=$(gum choose "xdg-desktop-portal-gtk" "sddm" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "REBOOT" "CANCEL")
+        category=$(gum choose "xdg-desktop-portal-gtk" "sddm toggle" "sddm theme" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "REBOOT" "CANCEL")
     else
-        category=$(gum choose "sddm" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "REBOOT" "CANCEL")
+        category=$(gum choose "sddm toggle" "sddm theme" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "REBOOT" "CANCEL")
     fi
     case ${category} in
         xdg-desktop-portal-gtk)
@@ -96,8 +103,11 @@ _selectCategory() {
         shell)
             source $options_directory/options/shell.sh
         ;;
-        sddm)
+        "sddm toggle")
             source $options_directory/options/sddm.sh
+        ;;
+        "sddm theme")
+            source $options_directory/options/sddm-theme.sh
         ;;
         pywalfox)
             source $options_directory/options/pywalfox.sh
