@@ -38,9 +38,14 @@ source $install_directory/dotfiles/preparation.sh
 source $install_directory/dotfiles/vm.sh
 
 # ----------------------------------------------------- 
-# Install Display Manager
+# Install SDDM
 # -----------------------------------------------------
-source $install_directory/dotfiles/displaymanager.sh
+source $install_directory/dotfiles/sddm.sh
+
+# ----------------------------------------------------- 
+# Install SDDM Theme
+# -----------------------------------------------------
+source $install_directory/dotfiles/sddm-theme.sh
 
 # ----------------------------------------------------- 
 # Modify existing files before restore starts
