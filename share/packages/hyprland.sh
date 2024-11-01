@@ -4,8 +4,6 @@ packages=(
     "hyprpaper"
     "hyprlock"
     "hypridle"
-    "dolphin"
-    "wofi"
     "noto-fonts"
     "xdg-desktop-portal-hyprland" 
     "libnotify" 

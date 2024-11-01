@@ -93,11 +93,11 @@ if [ ! -d $ml4w_directory ] ;then
 fi
 if [ ! -d $backup_directory ]; then
     mkdir $backup_directory
-    echo "$backup_directory created"
+    echo ":: $backup_directory created"
 fi
 if [ ! -d $archive_directory ]; then
     mkdir $archive_directory
-    echo "$archive_directory created"
+    echo ":: $archive_directory created"
 fi
 
 # Backup Existing Dotfiles
