@@ -4,7 +4,7 @@
 
 _copy_confirm() {
     if gum confirm "Do you want to install the prepared ML4W Dotfiles now?" ;then
-        echo "Copy started"
+        echo ":: Copy started"
         if [ ! -d ~/$dot_folder ]; then
             mkdir -p ~/$dot_folder
             echo "~/$dot_folder folder created."

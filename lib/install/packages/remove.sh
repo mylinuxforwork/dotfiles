@@ -60,10 +60,3 @@ if [[ $(_isInstalledAUR "hyprlock-git") == 0 ]]; then
     echo ":: hyprlock can now be installed."
     echo
 fi
-
-# Remove oh-my-posh
-if [[ $(_isInstalledAUR "oh-my-posh") == 0 ]]; then
-    $aur_helper --noconfirm -R oh-my-posh
-    echo ":: oh-my-posh uninstalled."
-    echo
-fi

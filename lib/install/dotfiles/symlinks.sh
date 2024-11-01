@@ -8,50 +8,65 @@ echo -e "${NONE}"
 echo ":: Symlinks from $HOME/$dot_folder will be created."
 echo 
 # Check home
-files=$(ls -a ~/$dot_folder)
+files=$(ls -a $HOME/$dot_folder)
 for f in $files; do
     if [ ! "$f" == "." ] && [ ! "$f" == ".." ] && [ ! "$f" == ".config" ]; then
-        if [ -f  ~/$dot_folder/$f ] ;then
-            echo ":: Checking for file ~/$f"
-            if [ -L ~/$f ] ;then
-                rm ~/$f
+        if [ -f  $HOME/$dot_folder/$f ] ;then
+            # echo ":: Checking for file $HOME/$f"
+            if [ -L $HOME/$f ] ;then
+                rm $HOME/$f
             fi
             if [ -f ~/$f ] ;then
-                rm ~/$f
+                rm $HOME/$f
+            fi
+            ln -s $HOME/$dot_folder/$f $HOME
+            if [ -L $HOME/$f ] ;then
+                echo ":: SUCCESS $HOME/$dot_folder/$f -> $HOME/$f"
+            else
+                echo ":: ERROR $HOME/$dot_folder/$f -> $HOME/$f"
             fi
         fi
     fi
 done
 
 # Check .config
-files=$(ls -a ~/$dot_folder/.config)
+files=$(ls -a $HOME/$dot_folder/.config)
 for f in $files; do
     if [ ! "$f" == "." ] && [ ! "$f" == ".." ]; then
-        if [ -d  ~/$dot_folder/.config/$f ] ;then
-            echo ":: Checking for directory ~/.config/$f"
-            if [ -L ~/.config/$f ] ;then
-                rm ~/.config/$f
+        if [ -d  $HOME/$dot_folder/.config/$f ] ;then
+            # echo ":: Checking for directory $HOME/.config/$f"
+            if [ -L $HOME/.config/$f ] ;then
+                rm $HOME/.config/$f
             fi
-            if [ -f ~/.config/$f ] ;then
-                rm ~/.config/$f
+            if [ -f $HOME/.config/$f ] ;then
+                rm $HOME/.config/$f
             fi
-            if [ -d ~/.config/$f ] ;then
-                rm -rf ~/.config/$f
+            if [ -d $HOME/.config/$f ] ;then
+                rm -rf $HOME/.config/$f
+            fi
+            ln -s $HOME/$dot_folder/.config/$f $HOME/.config
+            if [ -L $HOME/.config/$f ] ;then
+                echo ":: SUCCESS $HOME/$dot_folder/.config/$f -> $HOME/.config/$f"
+            else
+                echo ":: ERROR $HOME/$dot_folder/.config/$f -> $HOME/.config/$f"
             fi
         fi
-        if [ -f  ~/$dot_folder/.config/$f ] ;then
-            echo ":: Checking for file ~/.config/$f"
-            if [ -L ~/.config/$f ] ;then
-                rm ~/.config/$f
+        if [ -f  $HOME/$dot_folder/.config/$f ] ;then
+            # echo ":: Checking for file $HOME/.config/$f"
+            if [ -L $HOME/.config/$f ] ;then
+                rm $HOME/.config/$f
             fi
-            if [ -f ~/.config/$f ] ;then
-                rm ~/.config/$f
+            if [ -f $HOME/.config/$f ] ;then
+                rm $HOME/.config/$f
+            fi
+            ln -s $HOME/$dot_folder/.config/$f $HOME/.config
+            if [ -L $HOME/.config/$f ] ;then
+                echo ":: SUCCESS $HOME/$dot_folder/.config/$f -> $HOME/.config/$f"
+            else
+                echo ":: ERROR $HOME/$dot_folder/.config/$f -> $HOME/.config/$f"
             fi
         fi
     fi
 done
-
-# Run GNU Stow
-stow --dir="$HOME/$dot_folder" --target="$HOME" .
 
 echo
