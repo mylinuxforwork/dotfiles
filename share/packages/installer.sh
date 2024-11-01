@@ -8,7 +8,6 @@ packages=(
     "rsync"
     "git"
     "figlet"
-    "stow"
     "sed"
     "vim"
     "xdg-user-dirs"
