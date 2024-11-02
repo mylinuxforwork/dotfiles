@@ -3,6 +3,7 @@ packages=(
     "eza" 
     "python-pip" 
     "python-gobject"
+    "python-screeninfo"
     "tumbler" 
     "brightnessctl"
     "nm-connection-editor"
