@@ -38,6 +38,7 @@ else
 fi
 
 if [[ $(_isInstalledAUR "timeshift") == "0" ]] ;then
+    echo
     if gum confirm "DO YOU WANT TO CREATE A SNAPSHOT?" ;then
         echo
         c=$(gum input --placeholder "Enter a comment for the snapshot...")
@@ -47,10 +48,10 @@ if [[ $(_isInstalledAUR "timeshift") == "0" ]] ;then
         echo ":: DONE. Snapshot $c created!"
         echo
     elif [ $? -eq 130 ]; then
-        echo ":: Snapshot canceled."
+        echo ":: Snapshot skipped."
         exit 130
     else
-        echo ":: Snapshot canceled."
+        echo ":: Snapshot skipped."
     fi
     echo
 fi
