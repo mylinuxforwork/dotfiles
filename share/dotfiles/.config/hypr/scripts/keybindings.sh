@@ -28,8 +28,9 @@ if [ -f "$genretaed_filename" ]; then
   echo "Help file for $config_file already exists"
   keybinds=$(cat "$genretaed_filename")
 else
-  echo "Generated help file not found. Removing $config_file*.help files"
-  echo "Generating help file for $config_file"
+  echo "Generated help file with smilar modification time not found. Removing old $config_file*.help files"
+  rm -f "$config_file"*.help
+  echo "Generating new help file for $config_file"
   while read -r line; do
     if [[ "$line" == "bind"* ]]; then
 
@@ -50,9 +51,7 @@ else
     fi
   done <"$config_file"
   echo "$keybinds" >"$genretaed_filename"
-  rm -f "$config_file"*.help
 fi
 
 sleep 0.2
 rofi -dmenu -i -markup -eh 2 -replace -p "Keybinds" -config ~/.config/rofi/config-compact.rasi <<<"$keybinds"
-
