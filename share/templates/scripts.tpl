@@ -77,21 +77,6 @@ _installPackagesPacman() {
     sudo pacman --noconfirm -S "${toInstall[@]}";
 }
 
-_forcePackagesPacman() {
-    toInstall=();
-    for pkg; do
-        toInstall+=("${pkg}");
-    done;
-
-    if [[ "${toInstall[@]}" == "" ]] ; then
-        # echo "All pacman packages are already installed.";
-        return;
-    fi;
-
-    # printf "Package not installed:\n%s\n" "${toInstall[@]}";
-    sudo pacman --noconfirm -S "${toInstall[@]}" --ask 4;
-}
-
 _installPackagesYay() {
     toInstall=();
     for pkg; do
@@ -128,36 +113,6 @@ _installPackagesAUR() {
 
     # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
     $aur_helper --noconfirm -S "${toInstall[@]}";
-}
-
-_forcePackagesYay() {
-    toInstall=();
-    for pkg; do
-        toInstall+=("${pkg}");
-    done;
-
-    if [[ "${toInstall[@]}" == "" ]] ; then
-        # echo "All packages are already installed.";
-        return;
-    fi;
-
-    # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
-    $aur_helper --noconfirm -S "${toInstall[@]}" --ask 4;
-}
-
-_forcePackagesAUR() {
-    toInstall=();
-    for pkg; do
-        toInstall+=("${pkg}");
-    done;
-
-    if [[ "${toInstall[@]}" == "" ]] ; then
-        # echo "All packages are already installed.";
-        return;
-    fi;
-
-    # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
-    $aur_helper --noconfirm -S "${toInstall[@]}" --ask 4;
 }
 
 _installPackagesFlatpak() {

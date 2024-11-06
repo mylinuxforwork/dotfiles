@@ -28,7 +28,6 @@ else
     share_directory="$base_directory/share"
     lib_directory="$base_directory/lib"
 fi
-
 install_directory="$lib_directory/install"
 options_directory="$lib_directory/options"
 diagnosis_directory="$lib_directory/diagnosis"
@@ -41,6 +40,13 @@ packages_directory="$share_directory/packages"
 ml4w_directory="$HOME/.ml4w-hyprland"
 backup_directory="$ml4w_directory/backup"
 archive_directory="$ml4w_directory/archive"
+log_folder="$ml4w_directory/log"
+
+# ----------------------------------------------------- 
+# Define script parameters
+# ----------------------------------------------------- 
+install_platform="arch"
+install_mode="full"
 
 # ----------------------------------------------------- 
 # Version
@@ -56,6 +62,16 @@ source $install_directory/includes/colors.sh
 # Library
 # ----------------------------------------------------- 
 source $install_directory/includes/library.sh
+
+# ----------------------------------------------------- 
+# Legacy
+# ----------------------------------------------------- 
+source $install_directory/includes/legacy.sh
+
+# ----------------------------------------------------- 
+# Log File
+# ----------------------------------------------------- 
+source $install_directory/includes/log.sh
 
 # ----------------------------------------------------- 
 # Run full installation
@@ -140,67 +156,64 @@ _run_activate() {
 }
 
 # ----------------------------------------------------- 
-# Header
+# Manage parameters
 # ----------------------------------------------------- 
+while getopts "m:p:vh" opt; do
+    case $opt in
+        m) install_mode="$OPTARG";;
+        p) install_platform="$OPTARG";;
+        v) 
+            echo ":: ML4W Dotfiles for Hyprland Version $version"
+            exit
+        ;;
 
-# ----------------------------------------------------- 
-# Get script parameter
-# ----------------------------------------------------- 
-if [[ -z $1 ]] ;then
-    _run_fullinstall
-else
-    while getopts m:vh flag
-    do
-        case "${flag}" in
-            m) 
-                case ${OPTARG} in
-                    full)
-                        _run_fullinstall
-                    ;;
-                    packages)
-                        _run_packages
-                    ;;
-                    nvidia)
-                        _run_nvidia
-                    ;;
-                    dotfiles)
-                        _run_dotfiles
-                    ;;
-                    uninstall)
-                        _run_uninstall
-                    ;;
-                    options)
-                        _run_options
-                    ;;
-                    diagnosis)
-                        _run_diagnosis
-                    ;;
-                    update)
-                        _run_update
-                    ;;
-                    activate)
-                        _run_activate
-                    ;;
-                esac
-            ;;
-            v) 
-                echo ":: ML4W Dotfiles for Hyprland Version $version"
-            ;;
-            h) 
-                echo ":: ML4W Dotfiles for Hyprland Version $version"
-                echo
-                echo "-m full: Run full installation"
-                echo "-m nvidia: Run full installation with NVIDA Driver installation"
-                echo "-m packages: Run installation of packages only"
-                echo "-m dotfiles: Run the setup of the dotfiles only"
-                echo "-m options: Install package options"
-                echo "-m diagnosis: Run diagnosis"
-                echo "-m update: Check for new updates"
-                echo "-m uninstall: Will uninstall the dotfiles"
-                echo "-m activate: Activate another existing dotfiles folder"
-                echo
-                echo "-v: Current version of the ML4W Dotfiles for Hyprland"
-            ;;
-        esac
-    done
-fi
+        h) 
+            echo ":: ML4W Dotfiles for Hyprland Version $version"
+            echo "-m full: Run full installation"
+            echo "-m nvidia: Run full installation with NVIDA Driver installation"
+            echo "-m packages: Run installation of packages only"
+            echo "-m dotfiles: Run the setup of the dotfiles only"
+            echo "-m options: Install package options"
+            echo "-m diagnosis: Run diagnosis"
+            echo "-m update: Check for new updates"
+            echo "-m uninstall: Will uninstall the dotfiles"
+            echo "-m activate: Activate another existing dotfiles folder"
+            echo "-p arch: Installation for Arch based platforms"
+            echo "-p fedora: Installation for Fedora based platforms"
+            echo "-v: Current version of the ML4W Dotfiles for Hyprland"
+            exit
+        ;;
+    esac
+done
+
+case $install_mode in
+    full)
+        _run_fullinstall
+    ;;
+    packages)
+        _run_packages
+    ;;
+    nvidia)
+        _run_nvidia
+    ;;
+    dotfiles)
+        _run_dotfiles
+    ;;
+    uninstall)
+        _run_uninstall
+    ;;
+    options)
+        _run_options
+        ;;
+        diagnosis)
+            _run_diagnosis
+        ;;
+        update)
+            _run_update
+        ;;
+        activate)
+            _run_activate
+        ;;
+    esac
+;;
+

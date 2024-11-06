@@ -1,6 +1,9 @@
 # ------------------------------------------------------
 # Header
 # ------------------------------------------------------
+_writeLogHeader "Installation"
+_writeLog 0 "Installation started"
+
 clear
 echo -e "${GREEN}"
 cat <<"EOF"
@@ -18,9 +21,9 @@ echo "by Stephan Raabe"
 echo
 # echo ":: You're running the script in $(pwd)"
 if [[ $(_check_update) == "true" ]] ;then
-    echo ":: An existing ML4W Dotfiles installation has been detected."
-    echo ":: This script will guide you through the update process of the ML4W Dotfiles."
+    _writeLog 0 "An existing ML4W Dotfiles installation detected."
+    _writeMessage "This script will guide you through the update process of the ML4W Dotfiles."
 else
-    echo ":: This script will guide you through the installation process of the ML4W dotfiles."
+    _writeLog 0 "Initial installation of ML4W Dotfiles started."
+    _writeMessage "This script will guide you through the installation process of the ML4W dotfiles."
 fi
-echo

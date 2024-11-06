@@ -1,62 +1,78 @@
 # ------------------------------------------------------
 # Remove packages
 # ------------------------------------------------------
+_writeLogHeader "Remove old packages"
 
 # Remove Rofi Calc
-if [[ $(_isInstalledPacman "rofi-calc") == 0 ]]; then
-    sudo pacman --noconfirm -Rns rofi-calc
-    echo ":: rofi-calc removed"
+_writeLog 0 "Checking for rofi-calc"
+if [[ $(_isInstalled "rofi-calc") == 0 ]]; then
+    _removePackage "rofi-calc"
+    _writeLogTerminal 0 "rofi-calc removed"
     echo
 fi
 
 # Remove Rofi
-if [[ $(_isInstalledPacman "rofi") == 0 ]]; then
-    sudo pacman --noconfirm -Rns rofi
-    echo ":: rofi removed"
+_writeLog 0 "Checking for rofi"
+if [[ $(_isInstalled "rofi") == 0 ]]; then
+    _removePackage "rofi"
+    _writeLogTerminal 0 "rofi removed"
     echo
 fi
 
 # Remove Swayidle
-if [[ $(_isInstalledPacman "swayidle") == 0 ]]; then
-    sudo pacman --noconfirm -Rns swayidle
-    echo ":: swayidle removed"
+_writeLog 0 "Checking for swayidle"
+if [[ $(_isInstalled "swayidle") == 0 ]]; then
+    _removePackage "swayidle"
+    _writeLogTerminal 0 "swayidle removed"
     echo
 fi
 
 # Remove Swaylock
-if [[ $(_isInstalledAUR "swaylock-effects-git") == 0 ]]; then
-    $aur_helper --noconfirm -Rns swaylock-effects-git
-    echo ":: swaylock removed"
+_writeLog 0 "Checking for swaylock"
+if [[ $(_isInstalled "swaylock-effects-git") == 0 ]]; then
+    _removePackage "swaylock-effects-git"
+    _writeLogTerminal 0 "swaylock removed"
     echo
 fi
 
 # Remove rofi-lbonn-wayland
-if [[ $(_isInstalledAUR "rofi-lbonn-wayland") == 0 ]]; then
-    $aur_helper --noconfirm -Rns rofi-lbonn-wayland
-    echo ":: rofi-lbonn-wayland removed"
+_writeLog 0 "Checking for rofi-lbonn-wayland"
+if [[ $(_isInstalled "rofi-lbonn-wayland") == 0 ]]; then
+    _removePackage "rofi-lbonn-wayland"
+    _writeLogTerminal 0 "rofi-lbonn-wayland removed"
     echo
 fi
 
 # Remove hypridle-bin
-if [[ $(_isInstalledAUR "hypridle-git") == 0 ]]; then
-    $aur_helper --noconfirm -Rns hypridle-git
+_writeLog 0 "Checking for hypridle-git"
+if [[ $(_isInstalled "hypridle-git") == 0 ]]; then
+    _removePackage "hypridle-git"
     if [ -f /usr/lib/debug/usr/bin/hypridle.debug ] ;then
         sudo rm /usr/lib/debug/usr/bin/hypridle.debug
-        echo ":: /usr/lib/debug/usr/bin/hypridle.debug removed"
+    _writeLogTerminal 0 "/usr/lib/debug/usr/bin/hypridle.debug removed"
     fi
-    echo ":: hypridle-git uninstalled."
-    echo ":: hypridle can now be installed."
+    _writeLogTerminal 0 "hypridle-git uninstalled."
+    _writeLogTerminal 0 "hypridle can now be installed."
     echo 
 fi
 
 # Remove hyprlock-bin
-if [[ $(_isInstalledAUR "hyprlock-git") == 0 ]]; then
-    $aur_helper --noconfirm -Rns hyprlock-git
+_writeLog 0 "Checking for hyprlock-git"
+if [[ $(_isInstalled "hyprlock-git") == 0 ]]; then
+    _removePackage "hyprlock-git"
     if [ -f /usr/lib/debug/usr/bin/hyprlock.debug ] ;then
         sudo rm /usr/lib/debug/usr/bin/hyprlock.debug
         echo ":: /usr/lib/debug/usr/bin/hyprlock.debug removed"
     fi
-    echo ":: hyprlock-git uninstalled."
-    echo ":: hyprlock can now be installed."
+    _writeLogTerminal 0 "hyprlock-git uninstalled."
+    _writeLogTerminal 0 "hyprlock can now be installed."
+    echo
+fi
+
+# Remove bibata-cursor-theme
+_writeLog 0 "Checking for bibata-cursor-theme"
+if [[ $(_isInstalled "bibata-cursor-theme") == 0 ]]; then
+    _removePackage "bibata-cursor-theme"
+    _writeLogTerminal 0 "bibata-cursor-theme removed"
     echo
 fi
