@@ -35,7 +35,7 @@ _isInstalled() {
             fi
         ;;
         fedora)
-            check=$(yum list installed | grep $package)
+            check=$(dnf list --installed | grep $package)
             if [ -z "$check" ]; then
                 echo 1
             else
@@ -103,7 +103,7 @@ _removePackage() {
             sudo pacman --noconfirm -R "$1" &>> $(_getLogFile)
         ;;
         fedora)
-            sudo dnf uninstall --assumeyes "$1" &>> $(_getLogFile)
+            sudo dnf remove --assumeyes "$1" &>> $(_getLogFile)
         ;;
         *)
             _writeLogTerminal 2 "Selected platform $install_platform is not supported"
