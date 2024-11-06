@@ -29,7 +29,6 @@
         "custom/appmenu",
         "group/links",
         "group/settings",
-        //"wlr/taskbar",
         "group/quicklinks",
         "hyprland/window",
         "custom/empty"
@@ -44,7 +43,6 @@
     "modules-right": [
         "custom/updates",
         "pulseaudio",
-        //"backlight",
         "bluetooth",
         "battery", 
         "network",
