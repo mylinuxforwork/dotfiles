@@ -1,11 +1,10 @@
 # ------------------------------------------------------
 # Execute post.sh
 # ------------------------------------------------------
+_writeLogHeader "Post Script"
 
 if [ -f $ml4w_directory/post.sh ]; then
-    echo -e "${GREEN}"
-    figlet -f smslant "Post Script"
-    echo -e "${NONE}"
+    _writeHeader "Post Script"
     echo ":: The script has detected a post.sh script."
     echo
     if [ -z $automation_post ] ;then

@@ -1,11 +1,8 @@
 # ------------------------------------------------------
 # Restore ML4W Hyprland Settings app
 # ------------------------------------------------------
-
-echo -e "${GREEN}"
-figlet -f smslant "Settings"
-echo -e "${NONE}"
-
+_writeLogHeader "Settinsg"
+_writeHeader "Settings"
 
 if [ "$restored" == "1" ]; then
     if [ -f ~/.config/ml4w/settings/settings.json ] ;then

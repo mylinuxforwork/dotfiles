@@ -1,13 +1,12 @@
 # ------------------------------------------------------
 # Neovim
 # ------------------------------------------------------
+_writeLogHeader "Neovim"
 
 if [ -z $automation_neovim ] ;then
     if [ -d $ml4w_directory/$version/.config/nvim ] ;then
         if [ -d ~/.config/nvim ]; then
-            echo -e "${GREEN}"
-            figlet -f smslant "Neovim"
-            echo -e "${NONE}"
+            _writeHeader "Neovim"
             echo ":: The script has detected a nvim folder in your ~/.config folder."
             echo ":: You can replace it with the latest version of ML4W Dotfiles $version."
             echo

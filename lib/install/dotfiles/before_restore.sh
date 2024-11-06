@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Modify existing files before restore starts
 # ------------------------------------------------------
+_writeLogHeader "Before restore"
 
 if [ -d ~/$dot_folder/.settings ] ;then
     echo ":: Legacy folder structure detected."

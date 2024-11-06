@@ -1,7 +1,6 @@
 #!/bin/bash
-echo -e "${GREEN}"
-figlet -f smslant "SDDM Theme"
-echo -e "${NONE}"
+_writeLogHeader "SDDM Theme"
+_writeHeader "SDDM Theme"
 
 sddm_theme_name="sequoia"
 sddm_theme_master="main.zip"

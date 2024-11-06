@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Backup existing dotfiles
 # ------------------------------------------------------
+_writeLogHeader "Backup"
 
 datets=$(date '+%Y%m%d%H%M%S')
 
@@ -104,9 +105,8 @@ fi
 
 if [ -d ~/$dot_folder ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d ~/.config/qtile ]; then
 
-    echo -e "${GREEN}"
-    figlet -f smslant "Backup"
-    echo -e "${NONE}"
+    _writeHeader "Backup"
+
     echo "The script has detected the following files and folders for a backup:"
 
     if [ -d ~/$dot_folder ]; then

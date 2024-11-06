@@ -1,11 +1,10 @@
 # ------------------------------------------------------
 # Execute hook.sh
 # ------------------------------------------------------
+_writeLogHeader "Hook"
 
 if [ -f $ml4w_directory/hook.sh ]; then
-    echo -e "${GREEN}"
-    figlet -f smslant "Hook Script"
-    echo -e "${NONE}"
+    _writeHeader "Hook Script"
     echo ":: The script has detected a hook.sh script."
     echo
     if [ -z $automation_hook ] ;then

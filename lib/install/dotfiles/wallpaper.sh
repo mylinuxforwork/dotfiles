@@ -1,10 +1,8 @@
 # ------------------------------------------------------
 # Install wallpapers
 # ------------------------------------------------------
-
-echo -e "${GREEN}"
-figlet -f smslant "Wallpapers"
-echo -e "${NONE}"
+_writeLogHeader "Wallpaper"
+_writeHeader "Wallpapers"
 
 if [ -d ~/.config/waypaper ]; then
     echo ":: Waypaper configuration exists"

@@ -1,10 +1,8 @@
 # ------------------------------------------------------
 # Clean up
 # ------------------------------------------------------
-
-echo -e "${GREEN}"
-figlet -f smslant "Clean up"
-echo -e "${NONE}"
+_writeLogHeader "Clean up"
+_writeHeader "Clean up"
 
 # Cache file for holding the current wallpaper
 cache_file="$HOME/.config/ml4w/cache/current_wallpaper"

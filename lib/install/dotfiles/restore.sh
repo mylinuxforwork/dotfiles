@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Restore
 # ------------------------------------------------------
+_writeLogHeader "Restore"
 
 restorelist=""
 selectedlist=""
@@ -206,18 +207,16 @@ _startRestore() {
 }
 
 if [ -d ~/$dot_folder ]; then
-    echo -e "${GREEN}"
-    figlet -f smslant "Restore"
-    echo -e "${NONE}"
-        restored=0
-        echo "The script will try to restore existing configurations."
-        echo ""
-        if [ -z $automation_restore ] ;then
-            _showRestoreOptions
-        else
-            if [[ "$automation_restore" = true ]] ;then
-                _restore_automation
-            fi
+    writeHeader "Restore"
+    restored=0
+    echo "The script will try to restore existing configurations."
+    echo ""
+    if [ -z $automation_restore ] ;then
+        _showRestoreOptions
+    else
+        if [[ "$automation_restore" = true ]] ;then
+            _restore_automation
         fi
-        echo
+    fi
+    echo
 fi

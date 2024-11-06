@@ -1,10 +1,8 @@
 # ------------------------------------------------------
 # Install dotfiles
 # ------------------------------------------------------
-
-echo -e "${GREEN}"
-figlet -f smslant "Symlinks"
-echo -e "${NONE}"
+_writeLogHeader "Symlinks"
+_writeHeader "Symlinks"
 echo ":: Symlinks from $HOME/$dot_folder will be created."
 echo 
 # Check home

@@ -1,8 +1,9 @@
 # Check .config
+_writeLogHeader "Protect"
+
 if [ -d ~/$dot_folder/.config ]; then 
-    echo -e "${GREEN}"
-    figlet -f smslant "Protected"
-    echo -e "${NONE}"
+    _writeHeader "Protected"
+
     echo ":: The script will check for file PROTECTED in subfolders of .config"
     echo ":: These folders and their files are not overwritten."
     echo 

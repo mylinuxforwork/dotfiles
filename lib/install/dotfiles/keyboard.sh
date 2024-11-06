@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Keyboard Setup
 # ------------------------------------------------------
+_writeLogHeader "Keyboard"
 
 _setupKeyboardLayout() {
     keyboard_layout=$(localectl list-x11-keymap-layouts | gum filter --height 15 --placeholder "Find your keyboard layout...")
@@ -89,9 +90,7 @@ _keyboard_confirm() {
 }
 
 if [[ $(_check_update) == "false" ]] ;then
-    echo -e "${GREEN}"
-    figlet -f smslant "Keyboard"
-    echo -e "${NONE}"
+    _writeHeader "Keyboard"
     if [ -z $automation_keyboard ] ;then
         _keyboard_confirm
     else

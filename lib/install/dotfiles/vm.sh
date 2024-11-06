@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Set KVM environment variables
 # ------------------------------------------------------
+_writeLogHeader "KVM VM"
 
 _install_vm() {
     if grep -Fxq "kvm.conf" $ml4w_directory/$version/.config/hypr/conf/environment.conf
@@ -23,9 +24,7 @@ _install_vm() {
 
 if [[ $(_check_update) == "false" ]] ;then
     if [ $(_isKVM) == "0" ] ;then
-        echo -e "${GREEN}"
-        figlet -f smslant "KVM VM"
-        echo -e "${NONE}"
+        _writeHeader "KVM VM"
         if [ -z $automation_vm ] ;then
             echo "The script has detected that you run the installation in a KVM virtual machine."
             echo

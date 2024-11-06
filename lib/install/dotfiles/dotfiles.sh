@@ -1,12 +1,11 @@
 # ------------------------------------------------------
 # Define dotfiles folder
 # ------------------------------------------------------
+_writeLogHeader "Dotfiles"
+_writeHeader "Dotfiles"
 
 dot_folder="dotfiles"
 dot_files_update=1
-echo -e "${GREEN}"
-figlet -f smslant "Dotfiles"
-echo -e "${NONE}"
 
 _define_dotfiles_folder() {
     echo ":: You can change the folder name if required (please avoid spaces)"

@@ -203,17 +203,15 @@ case $install_mode in
         _run_uninstall
     ;;
     options)
-        _run_options
-        ;;
-        diagnosis)
-            _run_diagnosis
-        ;;
-        update)
-            _run_update
-        ;;
-        activate)
-            _run_activate
-        ;;
-    esac
-;;
-
+    _run_options
+    ;;
+    diagnosis)
+        _run_diagnosis
+    ;;
+    update)
+        _run_update
+    ;;
+    activate)
+        _run_activate
+    ;;
+esac

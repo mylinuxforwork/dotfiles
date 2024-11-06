@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Diagnosis
 # ------------------------------------------------------
+_writeLogHeader "Diagnosis"
 
 _run_diagnosis(){
     _commandExists "rofi" "rofi-wayland"
@@ -19,12 +20,9 @@ _run_diagnosis(){
 }
 
 if [[ $(_check_update) == "false" ]] ;then
-    echo -e "${GREEN}"
-    figlet -f smslant "Diagnosis"
-    echo -e "${NONE}"
+    _writeHeader "Diagnosis"
     if [ -z $automation_diagnosis ] ;then
-        echo "The system check will test that essential packages and "
-        echo "execution commands are available now on your system."
+        _writeMessage "The system check will test that essential packages and execution commands are available now on your system."
         echo 
         if gum confirm "Do you want to run a short system check?" ;then
             _run_diagnosis
@@ -32,16 +30,16 @@ if [[ $(_check_update) == "false" ]] ;then
             if gum confirm "Do you want to proceed?" ;then
                 echo
             elif [ $? -eq 130 ]; then
-                echo ":: Installation canceled."
+                _writeLogTerminal 0 "Installation canceled"
                 exit 130
             else
-                echo ":: Installation canceled"
+                _writeLogTerminal 0 "Installation canceled"
                 exit
             fi
         elif [ $? -eq 130 ]; then
             exit 130
         else
-            echo ":: System check skipped"
+            _writeLogTerminal 0 "Diagnosis skipped"
         fi
     else
         if [[ "$automation_diagnosis" = true ]] ;then

@@ -1,10 +1,9 @@
 # ------------------------------------------------------
 # Prepare dotfiles
 # ------------------------------------------------------
+_writeLogHeader "Preparation"
 
-echo -e "${GREEN}"
-figlet -f smslant "Preparation"
-echo -e "${NONE}"
+_writeHeader "Preparation"
 
 echo ":: Preparing the folders"
 

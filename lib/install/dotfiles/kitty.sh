@@ -1,13 +1,13 @@
 # ------------------------------------------------------
 # Neovim
 # ------------------------------------------------------
+_writeLogHeader "Kitty"
 
 if [ -z $automation_kitty ] ;then
     if [ -d $ml4w_directory/$version/.config/kitty ] ;then
         if [ -d ~/.config/kitty ]; then
-            echo -e "${GREEN}"
-            figlet -f smslant "Kitty"
-            echo -e "${NONE}"
+            _writeHeader "Kitty"
+
             echo ":: The script has detected a kitty folder in your ~/.config folder."
             echo ":: You can replace it with the latest version of ML4W Dotfiles $version."
             echo

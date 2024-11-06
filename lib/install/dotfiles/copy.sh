@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Copy dotfiles
 # ------------------------------------------------------
+_writeLogHeader "Copy"
 
 _copy_confirm() {
     if gum confirm "Do you want to install the prepared ML4W Dotfiles now?" ;then
@@ -41,9 +42,8 @@ _copy_automation() {
     echo ":: AUTOMATION: Prepared dotfiles copied to ~/$dot_folder"
 }
 
-echo -e "${GREEN}"
-figlet -f smslant "Copy"
-echo -e "${NONE}"
+_writeHeader "Copy"
+
 if [ ! -d ~/$dot_folder ]; then
 echo "The script will now remove existing directories and files from ~/.config/"
 echo "and copy your prepared configuration from $ml4w_directory/$version to ~/$dot_folder"

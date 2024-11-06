@@ -1,9 +1,8 @@
 # ------------------------------------------------------
 # init pywal with default wallpaper
 # ------------------------------------------------------
-echo -e "${GREEN}"
-figlet -f smslant "Pywal"
-echo -e "${NONE}"
+_writeLogHeader "Pywal"
+_writeHeader "Pywal"
 
 if [ ! -f ~/.cache/wal/colors-hyprland.conf ]; then
     wal -ei ~/wallpaper/default.jpg

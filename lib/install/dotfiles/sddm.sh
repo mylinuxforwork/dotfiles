@@ -1,10 +1,8 @@
 # ------------------------------------------------------
 # Toggle SDDM
 # ------------------------------------------------------
-
-echo -e "${GREEN}"
-figlet -f smslant "SDDM"
-echo -e "${NONE}"
+_writeLogHeader "SDDM"
+_writeHeader "SDDM"
 
 if [ -z $automation_displaymanager ] ;then
     if [ -f /etc/systemd/system/display-manager.service ]; then
