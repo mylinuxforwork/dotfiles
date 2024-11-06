@@ -1,0 +1,1 @@
+$aur_helper pacman --noconfirm -S "$1" &>> $(_getLogFile)
