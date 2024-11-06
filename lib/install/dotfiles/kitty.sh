@@ -8,31 +8,31 @@ if [ -z $automation_kitty ] ;then
         if [ -d ~/.config/kitty ]; then
             _writeHeader "Kitty"
 
-            echo ":: The script has detected a kitty folder in your ~/.config folder."
-            echo ":: You can replace it with the latest version of ML4W Dotfiles $version."
+            _writeLogTerminal 0 "The script has detected a kitty folder in your ~/.config folder."
+            _writeLogTerminal 0 "You can replace it with the latest version of ML4W Dotfiles $version."
             echo
             if gum confirm "Do you want to replace your configuration?"; then
-                echo ":: ML4W Kitty configuration will be installed"
+                _writeLogTerminal 0 "ML4W Kitty configuration will be installed"
             elif [ $? -eq 130 ]; then
-                echo ":: Installation canceled."
+                _writeLogTerminal 0 "Installation canceled."
                 exit 130
             else
                 rm -rf $ml4w_directory/$version/.config/kitty
                 if [ -d ~/$dot_folder/.config/kitty ] ;then
                     rm -rf ~/$dot_folder/.config/kitty
                 fi
-                echo ":: Installation of ML4W Kitty configuration skipped."
+                _writeLogTerminal 0 "Installation of ML4W Kitty configuration skipped."
             fi
         fi
     fi
 else
     if [[ "$automation_kitty" = true ]] ;then
-        echo ":: AUTOMATION: Kitty configuration will be installed."
+        _writeLogTerminal 0 "AUTOMATION: Kitty configuration will be installed."
     else
         rm -rf $ml4w_directory/$version/.config/kitty
         if [ -d ~/$dot_folder/.config/kitty ] ;then
             rm -rf ~/$dot_folder/.config/kitty
         fi
-        echo ":: AUTOMATION: Installation of the Kitty configuration skipped."
+        _writeLogTerminal 0 "AUTOMATION: Installation of the Kitty configuration skipped."
     fi
 fi

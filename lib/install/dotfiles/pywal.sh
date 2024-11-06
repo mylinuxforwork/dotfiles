@@ -6,9 +6,8 @@ _writeHeader "Pywal"
 
 if [ ! -f ~/.cache/wal/colors-hyprland.conf ]; then
     wal -ei ~/wallpaper/default.jpg
-    echo ":: Pywal and templates activated."
-    echo ""
+    _writeLogTerminal 0 "Pywal and templates activated."
 else
-    echo ":: Pywal already activated."
-    echo ""
+    _writeLogTerminal 0 "Pywal already activated."
 fi
+echo
