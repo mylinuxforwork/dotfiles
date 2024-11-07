@@ -12,11 +12,11 @@
 # -----------------------------------------------------
 dir=$(dirname "$(realpath $0)")
 
-if [[ $dir == "/usr/bin" ]] ;then
+if [[ $dir == "$HOME/.local/bin" ]] ;then
     # AUR
     install_mode="aur"
     package_name="ml4w-hyprland"
-    base_directory="/usr"
+    base_directory="$HOME/.local"
     bin_directory="$base_directory/bin/$package_name"
     share_directory="$base_directory/share/$package_name"
     lib_directory="$base_directory/lib/$package_name"
