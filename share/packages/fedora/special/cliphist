@@ -1,0 +1,2 @@
+sudo dnf copr enable wef/cliphist
+sudo dnf install --assumeyes cliphist &>> $(_getLogFile)

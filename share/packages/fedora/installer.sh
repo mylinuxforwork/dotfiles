@@ -1,6 +1,5 @@
 # Packages required for the installer
 packages=(
-    "pacman-contrib"
     "wget"
     "zip"
     "unzip"
@@ -12,5 +11,5 @@ packages=(
     "vim"
     "xdg-user-dirs"
     "man-pages"
-    "networkmanager"
+    "python3-pip"
 )

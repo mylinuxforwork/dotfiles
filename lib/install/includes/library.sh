@@ -53,47 +53,52 @@ _isInstalled() {
 # Function Install all package if not installed
 # ------------------------------------------------------
 _installPackage() {
+    
+    # Check if installation script exist and not empty
     _writeLogTerminal 0 "Installing $1..."
+
+    # Run installation with platform command
     case $install_platform in
         arch)
-            if [ -f $packages_directory/platform/arch/$1 ]; then
-                source $packages_directory/platform/arch/$1
-            else
-                sudo pacman --noconfirm -S "$1" &>> $(_getLogFile)
-            fi
+            sudo pacman --noconfirm -S "$1" &>> $(_getLogFile)
         ;;
         fedora)
-            if [ -f $packages_directory/platform/fedora/$1 ]; then
-                source $packages_directory/platform/fedora/$1
-            else
-                sudo dnf install --assumeyes "$1" &>> $(_getLogFile)
-            fi
+            sudo dnf install --assumeyes "$1" &>> $(_getLogFile)
         ;;
         *)
             _writeLogTerminal 2 "Selected platform $install_platform is not supported"
             exit
         ;;
     esac    
+
+    # Check that installation was successful
+    if [[ $(_isInstalled "${pkg}") == 0 ]]; then
+        _writeLogTerminal 0 "${pkg} installed successfully."
+    else
+        _writeLogTerminal 2 "${pkg} installation failed. Please install ${pkg} manually."
+    fi
 }
 
 _installPackages() {
     for pkg; do
+
         # Check if package is already installed
         if [[ $(_isInstalled "${pkg}") == 0 ]]; then
-            _writeLogTerminal 0 "${pkg} is already installed.";
-            continue;
-        fi;
-
-        # Install package
-        _installPackage "${pkg}";
-
-        # Check that installation was successful
-        if [[ $(_isInstalled "${pkg}") == 0 ]]; then
-            _writeLogTerminal 0 "${pkg} installed successfully.";
+            _writeLogTerminal 0 "${pkg} is already installed."
         else
-            _writeLogTerminal 2 "${pkg} installation failed. Please install ${pkg} manually.";
-        fi;
-    done;
+            if [ -f "$packages_directory/$install_platform/special/${pkg}" ]; then
+
+                _writeLogTerminal 0 "Installing ${pkg} with custom script..."
+
+                # Source custom installation script for package
+                source $packages_directory/$install_platform/special/${pkg}
+            else
+
+                # Install package
+                _installPackage "${pkg}"
+            fi
+        fi
+    done
 }
 
 _removePackage() {

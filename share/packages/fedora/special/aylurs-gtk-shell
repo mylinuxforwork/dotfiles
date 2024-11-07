@@ -1,0 +1,2 @@
+sudo dnf copr enable solopasha/hyprland
+sudo dnf install --assumeyes aylurs-gtk-shell &>> $(_getLogFile)

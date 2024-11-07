@@ -1,1 +1,2 @@
+_writeLogTerminal 0 "Installing $1..."
 $aur_helper pacman --noconfirm -S "$1" &>> $(_getLogFile)

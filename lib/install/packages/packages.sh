@@ -5,9 +5,9 @@ _writeLogHeader "Packages"
 _writeHeader "Packages"
 
 # Hyprland
-source $packages_directory/hyprland.sh
+source $packages_directory/$install_platform/hyprland.sh
 _installPackages "${packages[@]}";
 
 # profile
-source $packages_directory/profiles/default.sh
+source $packages_directory/$install_platform/profiles/default.sh
 _installPackages "${packages[@]}";
