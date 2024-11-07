@@ -45,7 +45,7 @@ packages=(
     "aylurs-gtk-shell"
     "bibata-cursor-theme"
     "fontawesome-6-free-fonts" 
-    # "fira-sans-fonts" 
+    "mozilla-fira-sans-fonts" 
     "fira-code-fonts" 
     # "ttf-firacode-nerd" 
 );
