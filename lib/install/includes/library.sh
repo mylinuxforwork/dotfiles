@@ -397,7 +397,7 @@ _replaceLineInFile() {
         fi   
 
     else
-        echo "ERROR: Target file not found."
+        echo "ERROR: Target file not found for $find_string."
         sleep 2
     fi
 }
@@ -453,7 +453,7 @@ _replaceLineInFileCheckpoint() {
                 sed -i "$line_found i $new_string" $file_path            
 
             else
-                echo "ERROR: Target line not found."
+                echo "ERROR: Target line not found for $find_string."
                 sleep 2
             fi
         else 
@@ -461,7 +461,7 @@ _replaceLineInFileCheckpoint() {
         fi  
 
     else
-        echo "ERROR: Target file not found."
+        echo "ERROR: Target file not found for $find_string."
         sleep 2
     fi
 }
