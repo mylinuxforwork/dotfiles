@@ -1,1 +1,1 @@
-hyprshade_filter="blue-light-filter"
+hyprshade_filter="blue-light-filter-50"

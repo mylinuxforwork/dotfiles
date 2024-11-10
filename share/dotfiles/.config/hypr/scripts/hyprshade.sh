@@ -28,7 +28,7 @@ if [[ "$1" == "rofi" ]]; then
 else
 
     # Toggle Hyprshade based on the selected filter
-    hyprshade_filter="blue-light-filter"
+    hyprshade_filter="blue-light-filter-50"
 
     # Check if hyprshade.sh settings file exists and load
     if [ -f ~/.config/ml4w/settings/hyprshade.sh ] ;then
