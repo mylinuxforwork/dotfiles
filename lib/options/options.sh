@@ -80,9 +80,9 @@ _selectCategory() {
     echo "- System monitor:" $(_checkCurrent system-monitor.sh)     
     echo
     if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
-        category=$(gum choose "xdg-desktop-portal-gtk" "sddm toggle" "sddm theme" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "REBOOT" "CANCEL")
+        category=$(gum choose "xdg-desktop-portal-gtk" "sddm toggle" "sddm theme" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "other" "REBOOT" "CANCEL")
     else
-        category=$(gum choose "sddm toggle" "sddm theme" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "REBOOT" "CANCEL")
+        category=$(gum choose "sddm toggle" "sddm theme" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "other" "REBOOT" "CANCEL")
     fi
     case ${category} in
         xdg-desktop-portal-gtk)
@@ -99,6 +99,9 @@ _selectCategory() {
         ;;
         browser)
             source $options_directory/options/browser.sh
+        ;;
+        other)
+            source $options_directory/options/other.sh
         ;;
         shell)
             source $options_directory/options/shell.sh

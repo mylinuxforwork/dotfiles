@@ -1,6 +1,8 @@
 Version 2.9.6.6
 --------------------------------------------------------
 - Compatible with Hyprland 0.45.0. Replaced legacy variables for drop shadows with new ones in hypr/conf/decorations
+- Zen Browser added to Installation Options browsers
+- Suggested additional default apps added to section others in Installation Options script
 
 Version 2.9.6.5
 --------------------------------------------------------
