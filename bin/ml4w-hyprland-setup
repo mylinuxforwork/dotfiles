@@ -29,6 +29,7 @@ else
     lib_directory="$base_directory/lib"
 fi
 install_directory="$lib_directory/install"
+includes_directory="$lib_directory/includes"
 options_directory="$lib_directory/options"
 diagnosis_directory="$lib_directory/diagnosis"
 dotfiles_directory="$share_directory/dotfiles"
@@ -56,22 +57,22 @@ version="$(cat $dotfiles_directory/.config/ml4w/version/name)"
 # ----------------------------------------------------- 
 # Colors
 # ----------------------------------------------------- 
-source $install_directory/includes/colors.sh
+source $includes_directory/colors.sh
 
 # ----------------------------------------------------- 
 # Library
 # ----------------------------------------------------- 
-source $install_directory/includes/library.sh
+source $includes_directory/library.sh
 
 # ----------------------------------------------------- 
 # Legacy
 # ----------------------------------------------------- 
-source $install_directory/includes/legacy.sh
+source $includes_directory/legacy.sh
 
 # ----------------------------------------------------- 
 # Log File
 # ----------------------------------------------------- 
-source $install_directory/includes/log.sh
+source $includes_directory/log.sh
 
 # ----------------------------------------------------- 
 # Run full installation

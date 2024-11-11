@@ -22,7 +22,7 @@ else
                 rm -rf ~/Downloads/wallpaper
             fi
             git clone --depth 1 https://github.com/mylinuxforwork/wallpaper.git ~/Downloads/wallpaper
-            rsync -a -I --exclude-from=$install_directory/includes/excludes.txt ~/Downloads/wallpaper/. ~/wallpaper/
+            rsync -a -I --exclude-from=$includes_directory/excludes.txt ~/Downloads/wallpaper/. ~/wallpaper/
             echo "Wallpapers from the repository installed successfully."
         elif [ $? -eq 130 ]; then
             exit 130

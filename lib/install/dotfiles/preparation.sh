@@ -34,13 +34,13 @@ if [ ! -d $ml4w_directory/library ] ;then
 fi
 
 # Copy files to the destination
-rsync -a -I --exclude-from=$install_directory/includes/excludes.txt $share_directory/dotfiles/. $ml4w_directory/$version/
+rsync -a -I --exclude-from=$includes_directory/excludes.txt $share_directory/dotfiles/. $ml4w_directory/$version/
 
 # Check copy success
 if [[ $(_isFolderEmpty $ml4w_directory/$version/) == 0 ]] ;then
     echo "AN ERROR HAS OCCURED. Preparation of $ml4w_directory/$version/ failed" 
     echo "Please check that rsync is installad on your system."
-    echo "Execution of rsync -a -I --exclude-from=$install_directory/includes/excludes.txt . $ml4w_directory/$version/ is required."
+    echo "Execution of rsync -a -I --exclude-from=$includes_directory/excludes.txt . $ml4w_directory/$version/ is required."
     exit
 fi
 echo ":: ML4W Dotfiles $version successfully prepared in $ml4w_directory/$version/"
