@@ -11,7 +11,7 @@ else
     if [ -z $install_platform ]; then
         _writeMessage "Please select your platform to install the ML4W Dotfiles."
         echo
-        install_platform=$(gum choose "arch" "fedora")
+        install_platform=$(gum choose "arch" "fedora" "CANCEL")
     fi
 fi
 
@@ -23,8 +23,12 @@ case $install_platform in
     fedora)
         _writeLogTerminal 0 "Installation on Fedora based platform"
     ;;
+    CANCEL)
+        _writeLogTerminal 0 "Installation canceled"
+        exit
+    ;;
     *)
-        _writeLogTerminal 2 "Selected platform $install_platform is not supported"
+        _writeLogTerminal 2 "Installation canceled"
         exit
     ;;
 esac

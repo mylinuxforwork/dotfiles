@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ -z $install_platform ]; then
+    source $install_directory/packages/platform.sh
+fi
+
 # ----------------------------------------------------- 
 # Load automation variables
 # ----------------------------------------------------- 

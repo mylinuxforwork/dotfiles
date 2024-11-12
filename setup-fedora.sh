@@ -161,10 +161,7 @@ cd $HOME/Downloads/dotfiles/bin/
 gum spin --spinner dot --title "Starting the installation now..." -- sleep 3
 
 # Start installation
-./ml4w-hyprland-install
-
-# Cd into bin folder
-cd $HOME/.local/bin/
+./ml4w-hyprland-setup -m install
 
 # Start Spinner
 gum spin --spinner dot --title "Starting the setup now..." -- sleep 3

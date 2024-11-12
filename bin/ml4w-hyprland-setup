@@ -46,7 +46,7 @@ log_folder="$ml4w_directory/log"
 # ----------------------------------------------------- 
 # Define script parameters
 # ----------------------------------------------------- 
-install_platform="arch"
+install_platform=""
 install_mode="full"
 
 # ----------------------------------------------------- 
@@ -136,10 +136,17 @@ _run_diagnosis() {
 }
 
 # ----------------------------------------------------- 
-# Run unstaller
+# Run uninstaller
 # ----------------------------------------------------- 
 _run_uninstall() {
     source $install_directory/uninstall.sh
+}
+
+# ----------------------------------------------------- 
+# Run installer
+# ----------------------------------------------------- 
+_run_install() {
+    source $install_directory/install.sh
 }
 
 # ----------------------------------------------------- 
@@ -170,6 +177,7 @@ while getopts "m:p:vh" opt; do
 
         h) 
             echo ":: ML4W Dotfiles for Hyprland Version $version"
+            echo "-m install: Will install the package into the target directories"
             echo "-m full: Run full installation"
             echo "-m nvidia: Run full installation with NVIDA Driver installation"
             echo "-m packages: Run installation of packages only"
@@ -199,6 +207,9 @@ case $install_mode in
     ;;
     dotfiles)
         _run_dotfiles
+    ;;
+    install)
+        _run_install
     ;;
     uninstall)
         _run_uninstall

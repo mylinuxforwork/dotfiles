@@ -3,20 +3,6 @@ clear
 
 repo="mylinuxforwork/dotfiles"
 
-# Get latest tag from GitHub
-get_latest_release() {
-  curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
-    grep '"tag_name":' |                                            # Get tag line
-    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
-}
-
-# Get latest zip from GitHub
-get_latest_zip() {
-  curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
-    grep '"zipball_url":' |                                            # Get tag line
-    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
-}
-
 # Check if package is installed
 _isInstalled() {
     package="$1";
@@ -135,12 +121,10 @@ echo
 version=$(gum choose "rolling-release" "main-release" "cancel")
 if [ "$version" == "main-release" ]; then
     echo ":: Installing Main Release"
-    echo
-    git clone --branch $latest_version --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+    yay -S --noconfirm ml4w-hyprland
 elif [ "$version" == "rolling-release" ]; then
     echo ":: Installing Rolling Release"
-    echo
-    git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+    yay -S --noconfirm ml4w-hyprland-git
 elif [ "$version" == "cancel" ]; then
     echo ":: Setup canceled"
     exit 130    
@@ -148,22 +132,10 @@ else
     echo ":: Setup canceled"
     exit 130
 fi
-echo ":: Download complete."
-
-# Change into dotfiles folder
-cd $HOME/Downloads/dotfiles/bin/
+echo ":: Installation complete."
 
 # Start Spinner
-gum spin --spinner dot --title "Starting the installation now..." -- sleep 3
+gum spin --spinner dot --title "Starting setup now..." -- sleep 3
 
-# Start installation
-./ml4w-hyprland-install
-
-# Cd into bin folder
-cd $HOME/.local/bin/
-
-# Start Spinner
-gum spin --spinner dot --title "Starting the setup now..." -- sleep 3
-
-# Start Setup
-./ml4w-hyprland-setup -p arch
+# Start setup
+ml4w-hyprland-install -p arch
