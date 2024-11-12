@@ -34,7 +34,7 @@ _isInstalled() {
 _installPackages() {
     toInstall=();
     for pkg; do
-        if [[ $(_isInstalledFedora "${pkg}") == 0 ]]; then
+        if [[ $(_isInstalled "${pkg}") == 0 ]]; then
             echo "${pkg} is already installed.";
             continue;
         fi;
@@ -153,7 +153,7 @@ else
     exit 130
 fi
 echo ":: Download complete."
-
+echo
 # Cd into dotfiles folder
 cd $HOME/Downloads/dotfiles/bin/
 
@@ -162,6 +162,7 @@ gum spin --spinner dot --title "Starting the installation now..." -- sleep 3
 
 # Start installation
 ./ml4w-hyprland-setup -m install
+echo
 
 # Start Spinner
 gum spin --spinner dot --title "Starting the setup now..." -- sleep 3

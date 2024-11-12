@@ -3,6 +3,20 @@ clear
 
 repo="mylinuxforwork/dotfiles"
 
+# Get latest tag from GitHub
+get_latest_release() {
+  curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
+    grep '"tag_name":' |                                            # Get tag line
+    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+}
+
+# Get latest zip from GitHub
+get_latest_zip() {
+  curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
+    grep '"zipball_url":' |                                            # Get tag line
+    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+}
+
 # Check if package is installed
 _isInstalled() {
     package="$1";
@@ -19,7 +33,7 @@ _isInstalled() {
 _installPackages() {
     toInstall=();
     for pkg; do
-        if [[ $(_isInstalledPacman "${pkg}") == 0 ]]; then
+        if [[ $(_isInstalled "${pkg}") == 0 ]]; then
             echo ":: ${pkg} is already installed.";
             continue;
         fi;
@@ -111,21 +125,21 @@ echo
 
 # Install required packages
 echo ":: Checking that required packages are installed..."
-_installPackagesPacman "${packages[@]}";
+_installPackages "${packages[@]}";
 echo
 # Select the dotfiles version
 echo "Please choose between: "
 echo "- ML4W Dotfiles for Hyprland Rolling Release (main branch including the latest commits)"
-echo "- ML4W Dotfiles fro Hyprland $latest_version (latest tagged release)"
+echo "- ML4W Dotfiles for Hyprland $latest_version (latest tagged release)"
 echo
-version=$(gum choose "rolling-release" "main-release" "cancel")
+version=$(gum choose "main-release" "rolling-release" "CANCEL")
 if [ "$version" == "main-release" ]; then
     echo ":: Installing Main Release"
     yay -S --noconfirm ml4w-hyprland
 elif [ "$version" == "rolling-release" ]; then
     echo ":: Installing Rolling Release"
     yay -S --noconfirm ml4w-hyprland-git
-elif [ "$version" == "cancel" ]; then
+elif [ "$version" == "CANCEL" ]; then
     echo ":: Setup canceled"
     exit 130    
 else
@@ -133,9 +147,9 @@ else
     exit 130
 fi
 echo ":: Installation complete."
-
+echo
 # Start Spinner
 gum spin --spinner dot --title "Starting setup now..." -- sleep 3
 
 # Start setup
-ml4w-hyprland-install -p arch
+ml4w-hyprland-setup -p arch
