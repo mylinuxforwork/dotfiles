@@ -93,7 +93,7 @@ _activate_dotfiles_folder() {
     elif [ $? -eq 130 ]; then
         exit 130
     else
-        echo ":: Logout skipped"
+        _writeSkipped
     fi
     echo ""
 
@@ -122,7 +122,7 @@ _confirm_dotfiles_folder() {
         if gum confirm "Do you want to activate now?" ;then
             _activate_dotfiles_folder
         else
-            echo ":: Activation canceled"
+            _writeCancel
             exit
         fi
     else

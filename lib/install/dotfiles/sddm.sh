@@ -20,7 +20,7 @@ if [ -z $automation_displaymanager ] ;then
     fi
 
     if [ -z "${dmsel}" ] ;then
-        echo ":: Installation canceled."
+        _writeCancel
         exit
     fi
 
@@ -46,11 +46,11 @@ if [ -z $automation_displaymanager ] ;then
 
     elif [ "$dmsel" == "Keep current setup" ] ;then
 
-        echo ":: sddm setup skipped."
+        _writeSkipped
 
     else
 
-        echo ":: sddm setup skipped."
+        _writeSkipped
 
     fi
 else

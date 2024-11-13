@@ -13,14 +13,14 @@ if [ -z $automation_neovim ] ;then
             if gum confirm "Do you want to replace your configuration?"; then
                 echo ":: ML4W Neovim configuration will be installed"
             elif [ $? -eq 130 ]; then
-                echo ":: Installation canceled."
+                _writeCancel
                 exit 130
             else
                 rm -rf $ml4w_directory/$version/.config/nvim/
                 if [ -d ~/$dot_folder/.config/nvim ] ;then
                     rm -rf ~/$dot_folder/.config/nvim
                 fi
-                echo ":: Installation of ML4W Neovim configuration skipped."
+                _writeSkipped
             fi
         fi
     fi
@@ -32,6 +32,6 @@ else
         if [ -d ~/$dot_folder/.config/nvim ] ;then
             rm -rf ~/$dot_folder/.config/nvim
         fi
-        echo ":: AUTOMATION: Installation of the neovim configuration skipped."
+        _writeSkipped
     fi
 fi

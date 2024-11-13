@@ -17,14 +17,14 @@ if [ -f ~/.bashrc ] ;then
             elif [ $? -eq 130 ]; then
                     exit 130
             else
-                _writeLogTerminal 0 "Installation of the .bashrc file skipped."
+                _writeSkipped
             fi
         else
             if [[ "$automation_bashrc" = true ]] ;then
                 _writeLogTerminal 0 "AUTOMATION: .bashrc will be installed."
             elif [[ "$automation_bashrc" = false ]] ;then
                 rm $ml4w_directory/$version/.bashrc
-                _writeLogTerminal 0 "AUTOMATION: Installation of the .bashrc file skipped."
+                _writeSkipped
             else
                 _writeLogTerminal 2 "AUTOMATION ERROR: bashrc"
                 exit

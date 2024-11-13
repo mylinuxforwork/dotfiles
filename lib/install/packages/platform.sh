@@ -24,11 +24,11 @@ case $install_platform in
         _writeLogTerminal 0 "Installation on Fedora based platform"
     ;;
     CANCEL)
-        _writeLogTerminal 0 "Installation canceled"
+        _writeCancel
         exit
     ;;
     *)
-        _writeLogTerminal 2 "Installation canceled"
+        _writeCancel
         exit
     ;;
 esac

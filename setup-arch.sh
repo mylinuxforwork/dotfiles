@@ -81,7 +81,7 @@ while true; do
             echo
         break;;
         [Nn]* ) 
-            echo ":: Installation canceled."
+            echo ":: Installation canceled"
             exit;
         break;;
         * ) 

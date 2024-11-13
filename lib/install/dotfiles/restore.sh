@@ -70,21 +70,21 @@ _showRestoreOptions() {
         elif [ "$confirmrestore" == "Change restore" ]; then 
             _showRestoreOptions
         else
-            echo ":: Restore skipped."
+            _writeSkipped
             return 0
         fi
     else
         echo "No files selected to restore."
         confirmrestore=$(gum choose "Change restore" "Skip restore")
         if [ -z "${confirmrestore}" ] ;then
-            echo ":: Installation canceled."
+            _writeCancel
             exit
         fi
         if [ "$confirmrestore" == "Change restore" ]; then 
             echo ""
             _showRestoreOptions
         else
-            echo ":: Restore skipped."
+            _writeSkipped
             return 0
         fi
     fi

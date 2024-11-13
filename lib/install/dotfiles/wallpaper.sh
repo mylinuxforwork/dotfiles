@@ -27,7 +27,7 @@ else
         elif [ $? -eq 130 ]; then
             exit 130
         else
-            echo ":: Installation of wallpaper repository skipped."
+            _writeSkipped
         fi
     fi
 fi

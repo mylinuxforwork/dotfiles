@@ -33,7 +33,7 @@ _confirm_dotfiles_folder() {
     if gum confirm "Do you want use this folder?" ;then
         echo ":: ML4W Dotfiles will be installed in ~/$dot_folder"
     elif [ $? -eq 130 ]; then
-        echo ":: Installation canceled."
+        _writeCancel
         exit 130
     else
         _define_dotfiles_folder
@@ -49,7 +49,7 @@ if [ -z $automation_dotfilesfolder ] ;then
             dot_folder=$(cat ~/.config/ml4w/settings/dotfiles-folder.sh)
             dot_files_update=0
         elif [ $? -eq 130 ]; then
-            echo ":: Installation canceled."
+            _writeCancel
             exit 130
         else
             _define_dotfiles_folder
@@ -57,12 +57,12 @@ if [ -z $automation_dotfilesfolder ] ;then
     fi
 
     if [ $dot_files_update == "0" ] ;then
-        echo ":: Update will be executed in ~/$dot_folder"
+        _writeLogTerminal 0 "Update will be executed in ~/$dot_folder"
         echo
     else
         _confirm_dotfiles_folder
     fi
 else
     dot_folder=$automation_dotfilesfolder
-    echo "AUTOMATION: Installation folder set to ~/$automation_dotfilesfolder"
+    _writeLog 1 "AUTOMATION: Installation folder set to ~/$automation_dotfilesfolder"
 fi

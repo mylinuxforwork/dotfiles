@@ -41,10 +41,10 @@ _keyboard_confirm() {
         if gum confirm "Do you want to proceed with your existing keyboard configuration?" ;then
             setkeyboard=1
         elif [ $? -eq 130 ]; then
-            echo ":: Installation canceled."
+            _writeCancel
             exit 130
         else
-            echo ":: Keyboard setup skipped."
+            _writeSkipped
             setkeyboard=0
         fi
     fi
@@ -61,7 +61,7 @@ _keyboard_confirm() {
             cp $template_directory/keyboard-laptop.conf $ml4w_directory/$version/.config/hypr/conf/keyboard.conf
             echo "source = ~/.config/hypr/conf/layouts/laptop.conf" > $ml4w_directory/$version/.config/hypr/conf/layout.conf
         elif [ $? -eq 130 ]; then
-            echo ":: Installation canceled."
+            _writeCancel
             exit 130
         else
             cp $template_directory/keyboard-default.conf $ml4w_directory/$version/.config/hypr/conf/keyboard.conf

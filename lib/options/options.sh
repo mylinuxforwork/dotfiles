@@ -80,7 +80,7 @@ _selectCategory() {
     echo "- Pywalfox:" $(_checkPywalfox) 
     echo "- System monitor:" $(_checkCurrent system-monitor.sh)     
     echo
-    if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
+    if [[ ! $(_isInstalled "xdg-desktop-portal-gtk") == 0 ]]; then
         category=$(gum choose "xdg-desktop-portal-gtk" "sddm toggle" "sddm theme" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "other" "REBOOT" "CANCEL")
     else
         category=$(gum choose "sddm toggle" "sddm theme" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "other" "REBOOT" "CANCEL")

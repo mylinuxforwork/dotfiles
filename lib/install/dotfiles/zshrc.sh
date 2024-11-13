@@ -10,7 +10,7 @@ _zshrc_confirm() {
     elif [ $? -eq 130 ]; then
             exit 130
     else
-        echo ":: Installation of the .zshrc file skipped."
+        _writeSkipped
     fi
 }
 
@@ -19,7 +19,7 @@ _zsh_automation() {
         echo ":: AUTOMATION: .zshrc will be installed."
     elif [[ "$automation_zshrc" = false ]] ;then
         rm $ml4w_directory/$version/.zshrc
-        echo ":: AUTOMATION: Installation of the .zshrc file skipped."
+        _writeSkipped
     else
         echo ":: AUTOMATION ERROR: zshrc"
         exit

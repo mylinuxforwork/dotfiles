@@ -30,16 +30,16 @@ if [[ $(_check_update) == "false" ]] ;then
             if gum confirm "Do you want to proceed?" ;then
                 echo
             elif [ $? -eq 130 ]; then
-                _writeLogTerminal 0 "Installation canceled"
+                _writeCancel
                 exit 130
             else
-                _writeLogTerminal 0 "Installation canceled"
+                _writeCancel
                 exit
             fi
         elif [ $? -eq 130 ]; then
             exit 130
         else
-            _writeLogTerminal 0 "Diagnosis skipped"
+            _writeSkipped
         fi
     else
         if [[ "$automation_diagnosis" = true ]] ;then

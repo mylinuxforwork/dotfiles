@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 
 if [ -f $ml4w_directory/automation.sh ] ;then
-    echo ":: AUTOMATION: automation.sh found"
+    _writeLog 1 "AUTOMATION: automation.sh found"
     source $ml4w_directory/automation.sh
     echo
 fi

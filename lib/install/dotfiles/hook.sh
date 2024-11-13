@@ -14,10 +14,10 @@ if [ -f $ml4w_directory/hook.sh ]; then
             cd $base_directory
             echo ":: hook.sh executed!"
         elif [ $? -eq 130 ]; then
-            echo ":: Installation canceled."
+            _writeCancel
             exit 130
         else
-            echo ":: Execution of hook.sh skipped."
+            _writeSkipped
         fi
     else
         if [[ "$automation_hook" = true ]] ;then
@@ -27,7 +27,7 @@ if [ -f $ml4w_directory/hook.sh ]; then
             echo ":: AUTOMATION: hook.sh executed!"
             echo
         elif [[ "$automation_hook" = false ]] ;then
-            echo ":: AUTOMATION: hook.sh skipped"
+            _writeSkipped
             echo
         else
             echo ":: AUTOMATION ERROR: hook error"

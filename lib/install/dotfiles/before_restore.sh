@@ -4,9 +4,9 @@
 _writeLogHeader "Before restore"
 
 if [ -d ~/$dot_folder/.settings ] ;then
-    echo ":: Legacy folder structure detected."
+    _writeLogTerminal 0 "Legacy folder structure detected."
     if [ -d ~/$dot_folder ] ;then
-        echo ":: Modify existing files"
+        _writeMessage "Modify existing files"
 
         # Create new folder structure
         if [ ! -d ~/$dot_folder/.config ] ;then

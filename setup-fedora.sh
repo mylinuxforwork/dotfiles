@@ -77,11 +77,11 @@ while true; do
     read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
     case $yn in
         [Yy]* )
-            echo ":: Installation started."
+            _writeCancel
             echo
         break;;
         [Nn]* ) 
-            echo ":: Installation canceled."
+            _writeCancel
             exit;
         break;;
         * ) 

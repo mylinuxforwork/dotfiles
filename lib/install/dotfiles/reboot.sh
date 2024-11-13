@@ -11,6 +11,6 @@ if gum confirm "Do you want to reboot your system now?" ;then
 elif [ $? -eq 130 ]; then
     exit 130
 else
-    echo ":: Reboot skipped"
+    _writeSkipped
 fi
 echo ""

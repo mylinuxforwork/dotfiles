@@ -14,14 +14,14 @@ if [ -z $automation_kitty ] ;then
             if gum confirm "Do you want to replace your configuration?"; then
                 _writeLogTerminal 0 "ML4W Kitty configuration will be installed"
             elif [ $? -eq 130 ]; then
-                _writeLogTerminal 0 "Installation canceled."
+                _writeCancel
                 exit 130
             else
                 rm -rf $ml4w_directory/$version/.config/kitty
                 if [ -d ~/$dot_folder/.config/kitty ] ;then
                     rm -rf ~/$dot_folder/.config/kitty
                 fi
-                _writeLogTerminal 0 "Installation of ML4W Kitty configuration skipped."
+                _writeSkipped
             fi
         fi
     fi
@@ -33,6 +33,6 @@ else
         if [ -d ~/$dot_folder/.config/kitty ] ;then
             rm -rf ~/$dot_folder/.config/kitty
         fi
-        _writeLogTerminal 0 "AUTOMATION: Installation of the Kitty configuration skipped."
+        _writeSkipped
     fi
 fi

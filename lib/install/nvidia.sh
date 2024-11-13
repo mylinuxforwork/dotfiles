@@ -54,7 +54,7 @@ if [[ $nvidia =~ ^[Yy]$ ]]; then
   echo "Configuration complete!"
 
 else
-  echo "NVIDIA installation skipped."
+  _writeSkipped
 fi
 
 

@@ -33,6 +33,7 @@ _installParu() {
 }
 
 _selectAURHelper() {
+    _writeHeader "AUR Helper"
     _writeMessage "Please select your preferred AUR Helper"
     echo
     aur_helper=$(gum choose "yay" "paru")
@@ -71,7 +72,6 @@ _checkAURHelper() {
     fi
 }
 
-_writeHeader "AUR Helper"
 _checkAURHelper
 
 fi

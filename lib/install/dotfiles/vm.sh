@@ -31,7 +31,7 @@ if [[ $(_check_update) == "false" ]] ;then
             _install_vm
         else
             if [[ "$automation_vm" = false ]] ;then
-                echo ":: AUTOMATION: VM Support skipped"
+                _writeSkipped
                 echo
             elif [[ "$automation_vm" = true ]] ;then
                 _install_vm
