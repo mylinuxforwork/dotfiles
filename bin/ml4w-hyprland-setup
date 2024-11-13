@@ -12,22 +12,23 @@
 # -----------------------------------------------------
 dir=$(dirname "$(realpath $0)")
 
-if [[ $dir == "$HOME/.local/bin" ]] ;then
-    # AUR
-    install_mode="aur"
+if [[ $dir == "/usr/bin" ]] ;then
+    
+    # Installed
     package_name="ml4w-hyprland"
-    base_directory="$HOME/.local"
+    base_directory="/usr"
     bin_directory="$base_directory/bin/$package_name"
     share_directory="$base_directory/share/$package_name"
     lib_directory="$base_directory/lib/$package_name"
 else
+    
     # Filesystem
-    install_mode="filesystem"
     base_directory="$(dirname $(pwd))"
     bin_directory="$base_directory/bin"
     share_directory="$base_directory/share"
     lib_directory="$base_directory/lib"
 fi
+
 install_directory="$lib_directory/install"
 includes_directory="$lib_directory/includes"
 options_directory="$lib_directory/options"

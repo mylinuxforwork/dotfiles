@@ -4,6 +4,13 @@
 _writeLogHeader "Clean up"
 _writeHeader "Clean up"
 
+# Create platform file if not exists
+if [ ! -f .config/ml4w/settings/platform.sh ]; then
+    touch .config/ml4w/settings/platform.sh
+    echo "$install_platform" > .config/ml4w/settings/platform.sh
+    _writeLog 1 "platform.sh with $install_platform created"
+fi
+
 # Cache file for holding the current wallpaper
 cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
 rasi_file="$HOME/.config/ml4w/cache/current_wallpaper.rasi"
@@ -12,19 +19,21 @@ rasi_file="$HOME/.config/ml4w/cache/current_wallpaper.rasi"
 if [ ! -f $cache_file ] ;then
     touch $cache_file
     echo "$HOME/wallpaper/default.jpg" > "$cache_file"
+    _writeLog 1 "Wallpaper cache file created"
 fi
 
 # Create rasi file if not exists
 if [ ! -f $rasi_file ] ;then
     touch $rasi_file
     echo "* { current-image: url(\"$HOME/wallpaper/default.jpg\", height); }" > "$rasi_file"
+    _writeLog 1 "Wallpaper rasi file created"
 fi
 
 # Check for ttf-ms-fonts
-if [[ $(_isInstalledPacman "ttf-ms-fonts") == 0 ]]; then
-    echo "The script has detected ttf-ms-fonts. This can cause conflicts with icons in Waybar."
+if [[ $(_isInstalled "ttf-ms-fonts") == 0 ]]; then
+    _writeLogTerminal 0 "The script has detected ttf-ms-fonts. This can cause conflicts with icons in Waybar."
     if gum confirm "Do you want to uninstall ttf-ms-fonts?" ;then
-        sudo pacman --noconfirm -R ttf-ms-fonts
+        _removePackage "ttf-ms-fonts"
     fi
 fi
 
@@ -61,9 +70,8 @@ if [ -f ~/.local/share/applications/ml4w-hyprland-settings.desktop ] ;then
     rm ~/.local/share/applications/ml4w-hyprland-settings.desktop
 fi
 
-
 # Create default folder structure
 xdg-user-dirs-update
 
 echo 
-echo ":: Cleanup done."
+_writeLogTerminal 1 "Clean up done"
