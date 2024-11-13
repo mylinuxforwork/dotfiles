@@ -21,6 +21,8 @@ else
     fi
     if [ $optionalSelect == "brave-bin" ]; then
         echo 'brave' > "$HOME/.config/ml4w/settings/browser.sh"
+    elif [ $optionalSelect == "zen-browser-bin" ]; then
+        echo 'zen-browser' > "$HOME/.config/ml4w/settings/browser.sh"
     else
         echo "$optionalSelect" > "$HOME/.config/ml4w/settings/browser.sh"
     fi

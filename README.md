@@ -48,6 +48,10 @@ After the installation, you can start the setup with
 ml4w-hyprland-setup
 ```
 
+## Troubleshooting
+
+You can find solutiosn to common issues in the Wiki troubleshooting section: https://github.com/mylinuxforwork/dotfiles/wiki/Troubleshooting
+
 ## Documentation (Wiki)
 
 You can find the complete documentation of the ML4W Dotfiles in the Wiki. <b>[Open the Wiki here](https://github.com/mylinuxforwork/dotfiles/wiki)</b>
