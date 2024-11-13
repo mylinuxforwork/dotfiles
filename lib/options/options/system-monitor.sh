@@ -16,7 +16,7 @@ if [ -z "$optionalSelect" ] ;then
 elif [ $optionalSelect == "CANCEL" ]; then
     _selectCategory
 else
-    if [[ ! $(_isInstalledAUR "$optionalSelect") == 0 ]]; then
+    if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
         $aur_helper -S $optionalSelect
     fi
     if [ $optionalSelect == "htop" ]; then

@@ -48,6 +48,9 @@ log_folder="$ml4w_directory/log"
 # Define script parameters
 # ----------------------------------------------------- 
 install_platform=""
+if [ -f $HOME/.config/ml4w/settings/platform.sh ]; then
+    install_platform=$(cat $HOME/.config/ml4w/settings/platform.sh)
+fi
 install_mode="full"
 
 # ----------------------------------------------------- 
@@ -216,7 +219,7 @@ case $install_mode in
         _run_uninstall
     ;;
     options)
-    _run_options
+        _run_options
     ;;
     diagnosis)
         _run_diagnosis

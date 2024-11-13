@@ -16,7 +16,7 @@ else
     echo ":: No display manager is enabled."
     echo
     if gum confirm "Do you want to enable SDDM as your display manager?" ;then
-        if [[ ! $(_isInstalledAUR "sddm") == 0 ]]; then
+        if [[ ! $(_isInstalled "sddm") == 0 ]]; then
             sudo pacman -S --noconfirm --needed sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg --ask 4
         fi
         sudo systemctl enable sddm.service

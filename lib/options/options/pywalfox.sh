@@ -3,7 +3,7 @@ clear
 echo -e "${GREEN}"
 figlet -f smslant "Pywalfox"
 echo -e "${NONE}"
-if [[ ! $(_isInstalledAUR "python-pywalfox") == 0 ]]; then
+if [[ ! $(_isInstalled "python-pywalfox") == 0 ]]; then
     echo "In addition, you have to install the Firefox plugin" 
     echo "https://addons.mozilla.org/en-US/firefox/addon/pywalfox/"
     echo 

@@ -17,7 +17,8 @@ echo "for Hyprland"
 echo -e "${NONE}"
 
 echo "Version: $version"
-echo "by Stephan Raabe"
+echo "Platform: $install_platform" 
+echo "Script by Stephan Raabe"
 echo
 # echo ":: You're running the script in $(pwd)"
 if [[ $(_check_update) == "true" ]] ;then

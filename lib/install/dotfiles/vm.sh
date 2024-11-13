@@ -13,11 +13,11 @@ _install_vm() {
             echo "Environment set to KVM."
         fi
     fi
-    if [[ $(_isInstalledPacman "qemu-guest-agent") == 0 ]]; then
+    if [[ $(_isInstalled "qemu-guest-agent") == 0 ]]; then
         echo ":: Qemu Guest Agent already installed"
     else
         if gum confirm "Do you want to install the QEMU guest agent?" ;then
-            _installPackagesPacman "qemu-guest-agent";
+            _installPackages "qemu-guest-agent";
         fi
     fi
 }

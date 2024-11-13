@@ -3,7 +3,7 @@ clear
 echo -e "${GREEN}"
 figlet -f smslant "File Manager"
 echo -e "${NONE}"
-source $packages_directory/options/filemanager.sh
+source $options_directory/filemanager.sh
 toInstall=""
 selectedInstall=""
 
@@ -16,7 +16,7 @@ if [ -z "$optionalSelect" ] ;then
 elif [ $optionalSelect == "CANCEL" ]; then
     _selectCategory
 else
-    if [[ ! $(_isInstalledAUR "$optionalSelect") == 0 ]]; then
+    if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
         $aur_helper -S $optionalSelect
     fi
     if [ $optionalSelect == "yazi" ]; then
