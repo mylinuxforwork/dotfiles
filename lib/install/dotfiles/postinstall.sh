@@ -4,8 +4,8 @@
 _writeLogHeader "Post install"
 
 if [ -f ~/.config/ml4w/settings/dotfiles-folder.sh ] || [ -d ~/dotfiles ] ;then
-    echo ":: Existing Dotfiles Installation detected. Post installation not needed."
+    _writeLog 0 "Existing Dotfiles Installation detected. Post installation not needed."
 else
     touch ~/.cache/ml4w-post-install
-    echo ":: Post installation script created"
+    _writeLog 0 "Post installation script created"
 fi

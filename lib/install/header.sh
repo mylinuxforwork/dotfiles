@@ -14,11 +14,11 @@ cat <<"EOF"
                                                         
 EOF
 echo "for Hyprland"
+echo "by Stephan Raabe"
 echo -e "${NONE}"
 
 echo "Version: $version"
 echo "Platform: $install_platform" 
-echo "Script by Stephan Raabe"
 echo
 # echo ":: You're running the script in $(pwd)"
 if [[ $(_check_update) == "true" ]] ;then

@@ -2,9 +2,7 @@
 # Install dotfiles
 # ------------------------------------------------------
 _writeLogHeader "Symlinks"
-_writeHeader "Symlinks"
-echo ":: Symlinks from $HOME/$dot_folder will be created."
-echo 
+
 # Check home
 files=$(ls -a $HOME/$dot_folder)
 for f in $files; do
@@ -19,9 +17,9 @@ for f in $files; do
             fi
             ln -s $HOME/$dot_folder/$f $HOME
             if [ -L $HOME/$f ] ;then
-                echo ":: SUCCESS $HOME/$dot_folder/$f -> $HOME/$f"
+                _writeLog 1 "$HOME/$dot_folder/$f -> $HOME/$f"
             else
-                echo ":: ERROR $HOME/$dot_folder/$f -> $HOME/$f"
+                _writeLog 2 "$HOME/$dot_folder/$f -> $HOME/$f"
             fi
         fi
     fi
@@ -44,9 +42,9 @@ for f in $files; do
             fi
             ln -s $HOME/$dot_folder/.config/$f $HOME/.config
             if [ -L $HOME/.config/$f ] ;then
-                echo ":: SUCCESS $HOME/$dot_folder/.config/$f -> $HOME/.config/$f"
+                _writeLog 1 "$HOME/$dot_folder/.config/$f -> $HOME/.config/$f"
             else
-                echo ":: ERROR $HOME/$dot_folder/.config/$f -> $HOME/.config/$f"
+                _writeLog 2 "$HOME/$dot_folder/.config/$f -> $HOME/.config/$f"
             fi
         fi
         if [ -f  $HOME/$dot_folder/.config/$f ] ;then
@@ -59,9 +57,9 @@ for f in $files; do
             fi
             ln -s $HOME/$dot_folder/.config/$f $HOME/.config
             if [ -L $HOME/.config/$f ] ;then
-                echo ":: SUCCESS $HOME/$dot_folder/.config/$f -> $HOME/.config/$f"
+                _writeLog 1 "$HOME/$dot_folder/.config/$f -> $HOME/.config/$f"
             else
-                echo ":: ERROR $HOME/$dot_folder/.config/$f -> $HOME/.config/$f"
+                _writeLog 2 "$HOME/$dot_folder/.config/$f -> $HOME/.config/$f"
             fi
         fi
     fi

@@ -2,18 +2,7 @@
 # Restore ML4W Hyprland Settings app
 # ------------------------------------------------------
 _writeLogHeader "Settinsg"
-_writeHeader "Settings"
-
-if [ "$restored" == "1" ]; then
-    if [ -f ~/.config/ml4w/settings/settings.json ] ;then
-        # python restore.py
-        python $install_directory/dotfiles/restore.py
-        rm ~/.config/ml4w/settings/settings.json
-        echo ":: Legacy settings.json removed"
-    fi
-fi
-
-echo ":: Starting restore settings"
+_writeLog 0 "Starting restore settings"
 
 # Replace waybar_timeformat and waybar_dateformat
 if [ -f ~/.config/ml4w/settings/waybar_timeformat.sh ] ;then

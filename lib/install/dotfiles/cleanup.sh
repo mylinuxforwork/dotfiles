@@ -1,13 +1,12 @@
 # ------------------------------------------------------
 # Clean up
 # ------------------------------------------------------
-_writeLogHeader "Clean up"
-_writeHeader "Clean up"
+_writeLogHeader "Finalizing"
 
 # Create platform file if not exists
-if [ ! -f .config/ml4w/settings/platform.sh ]; then
-    touch .config/ml4w/settings/platform.sh
-    echo "$install_platform" > .config/ml4w/settings/platform.sh
+if [ ! -f $HOME/.config/ml4w/settings/platform.sh ]; then
+    touch $HOME/.config/ml4w/settings/platform.sh
+    echo "$install_platform" > $HOME .config/ml4w/settings/platform.sh
     _writeLog 1 "platform.sh with $install_platform created"
 fi
 
@@ -39,25 +38,25 @@ fi
 
 # Check for running NetworkManager.service
 if [[ $(systemctl list-units --all -t service --full --no-legend "NetworkManager.service" | sed 's/^\s*//g' | cut -f1 -d' ') == "NetworkManager.service" ]];then
-    echo ":: NetworkManager.service already running."
+    _writeLog 0 "NetworkManager.service already running."
 else
     sudo systemctl enable NetworkManager.service
     sudo systemctl start NetworkManager.service
-    echo ":: NetworkManager.service activated successfully."    
+    _writeLog 1 "NetworkManager.service activated successfully."    
 fi
 
 # Check for running bluetooth.service
 if [[ $(systemctl list-units --all -t service --full --no-legend "bluetooth.service" | sed 's/^\s*//g' | cut -f1 -d' ') == "bluetooth.service" ]];then
-    echo ":: bluetooth.service already running."
+    _writeLog 0 "bluetooth.service already running."
 else
     sudo systemctl enable bluetooth.service
     sudo systemctl start bluetooth.service
-    echo ":: bluetooth.service activated successfully."    
+    _writeLog 1 "bluetooth.service activated successfully."    
 fi
 
 if [ -d ~/$dot_folder/hypr/settings/ ] ;then
     rm -rf ~/dotfiles/hypr/settings
-    echo ":: ~/dotfiles/hypr/settings removed."
+    _writeLog 1 "~/dotfiles/hypr/settings removed."
 fi
 
 if [ -f ~/.local/share/applications/ml4w-welcome.desktop ] ;then
@@ -74,4 +73,4 @@ fi
 xdg-user-dirs-update
 
 echo 
-_writeLogTerminal 1 "Clean up done"
+_writeLog 1 "Clean up done"

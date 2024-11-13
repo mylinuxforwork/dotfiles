@@ -10,7 +10,7 @@ if [ ! -d ~/.config ]; then
 fi
 
 # Create required folder structure
-echo ":: Preparing temporary folders for the installation."
+_writeLog 0 "Preparing temporary folders for the installation."
 if [ ! -d $ml4w_directory ] ;then
     mkdir $ml4w_directory
     _writeLog 1 "$ml4w_directory folder created."

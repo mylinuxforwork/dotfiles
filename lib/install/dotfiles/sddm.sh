@@ -7,14 +7,14 @@ _writeHeader "SDDM"
 if [ -z $automation_displaymanager ] ;then
     if [ -f /etc/systemd/system/display-manager.service ]; then
         disman=0
-        echo "You have already installed a display manager. If your display manager is working fine, you can keep the current setup."
-        echo "How do you want to proceed?"
+        _writeLogTerminal 0 "You have already installed a display manager."
+        _writeMessage "If your display manager is working fine, you can keep the current setup."
         echo
         dmsel=$(gum choose "Keep current setup" "Deactivate current display manager" "Install sddm")
     else
         disman=1
-        echo "There is no display manager installed on your system. You're starting Hyprland with commands on tty."
-        echo "How do you want to proceed?"
+        _writeLogTerminal 0 "There is no display manager installed on your system." 
+        _writeLogMessage "You're starting Hyprland with commands on tty."
         echo
         dmsel=$(gum choose "Keep current setup" "Install sddm")
     fi
@@ -28,7 +28,7 @@ if [ -z $automation_displaymanager ] ;then
 
         disman=0
         # Try to force the installation of sddm
-        echo ":: Installing sddm"
+        _writeLog 0 "Installing sddm"
         sudo pacman -S --noconfirm --needed sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg --ask 4
         
         # Enable sddm
@@ -41,7 +41,7 @@ if [ -z $automation_displaymanager ] ;then
     elif [ "$dmsel" == "Deactivate current display manager" ] ;then
 
         sudo rm /etc/systemd/system/display-manager.service
-        echo ":: Current display manager deactivated."
+        _writeLog 0 "Current display manager deactivated."
         disman=1
 
     elif [ "$dmsel" == "Keep current setup" ] ;then
@@ -55,7 +55,7 @@ if [ -z $automation_displaymanager ] ;then
     fi
 else
     if [[ "$automation_displaymanager" = true ]] ;then
-        echo ":: AUTOMATION: Keep current setup of Display Manager"
+        _writeLog 1 "AUTOMATION: Keep current setup of Display Manager"
         disman=0
     fi
 fi
