@@ -1,1 +1,1 @@
-$aur_helper --noconfirm -S "$1" &>> $(_getLogFile)
+$aur_helper --noconfirm -S "aylurs-gtk-shell" &>> $(_getLogFile)

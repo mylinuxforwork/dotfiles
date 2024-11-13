@@ -1,2 +1,1 @@
-_writeLogTerminal 0 "Installing $1..."
-$aur_helper --noconfirm -S "$1" &>> $(_getLogFile)
+$aur_helper --noconfirm -S "nautilus-open-any-terminal" &>> $(_getLogFile)

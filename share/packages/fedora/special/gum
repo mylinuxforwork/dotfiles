@@ -1,2 +1,1 @@
-_writeLogTerminal 0 "Installing $1..."
 $packages_directory/platform/fedora/gum.sh
