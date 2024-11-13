@@ -26,20 +26,25 @@ lib_directory="$base_directory/lib/$package_name"
 if [ ! -d $bin_directory ]; then
     sudo mkdir -p $bin_directory
 fi
+if [ -f $bin_directory/ml4w-hyprland-setup ]; then
+    sudo rm $bin_directory/ml4w-hyprland-setup
+fi
 sudo cp $source_bin_directory/ml4w-hyprland-setup $bin_directory
 echo ":: $source_bin_directory/ml4w-hyprland-setup installed"
 
-#share
-if [ ! -d $share_directory ]; then
-    sudo mkdir -p $share_directory
+# share
+if [ -d $share_directory ]; then
+    sudo rm -rf $share_directory
 fi
+sudo mkdir -p $share_directory
 sudo cp -ar $source_share_directory/. $share_directory
 echo ":: $share_directory installed"
 
-#lib
-if [ ! -d $lib_directory ]; then
-    sudo mkdir -p $lib_directory
+# lib
+if [ -d $lib_directory ]; then
+    sudo rm -rf $lib_directory
 fi
+sudo mkdir -p $lib_directory
 sudo cp -ar $source_lib_directory/. $lib_directory 
 echo ":: $lib_directory installed"
 
