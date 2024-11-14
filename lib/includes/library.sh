@@ -102,7 +102,7 @@ _installPackages() {
 }
 
 _removePackage() {
-    _writeLogTerminal 0 "Removing $1..."
+    _writeLog 0 "Removing $1..."
     case $install_platform in
         arch)
             sudo pacman --noconfirm -R "$1" &>> $(_getLogFile)
