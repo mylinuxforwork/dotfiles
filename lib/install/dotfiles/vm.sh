@@ -8,7 +8,7 @@ _install_vm() {
     then
         echo ":: KVM Environment already set."
     else
-        if gum confirm "Do you want to install the KVM environment variables?" ;then
+        if gum confirm "Do you want to install the KVM environment variables?"; then
             echo "source = ~/.config/hypr/conf/environments/kvm.conf" >  $ml4w_directory/$version/.config/hypr/conf/environment.conf
             _writeLogTerminal 1 "Environment set to KVM."
         fi
@@ -17,7 +17,7 @@ _install_vm() {
        _writeLog 0 "Qemu Guest Agent already installed"
     else
         if gum confirm "Do you want to install the QEMU guest agent?" ;then
-            _installPackages "qemu-guest-agent";
+            _installPackage "qemu-guest-agent"
         fi
     fi
 }

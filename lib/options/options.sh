@@ -1,5 +1,4 @@
 #!/bin/bash
-aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
 sleep 1
 
 _checkPackages() {
@@ -62,7 +61,7 @@ _selectCategory() {
     echo -e "${NONE}"
     echo "Platform: $install_platform"
     echo "This script will help you to install some pre-defined package options."
-    echo "If your desired package is not listed, you can install it with $aur_helper -S package "
+    echo "If your desired package is not listed, you can install it with your package manager "
     echo "and set it as default application in the ML4W Settings App."
     if [[ ! $(_isInstalled "xdg-desktop-portal-gtk") == 0 ]]; then
         echo "Please note: xdg-desktop-portal-gtk is required to get dark theme on GTK apps."

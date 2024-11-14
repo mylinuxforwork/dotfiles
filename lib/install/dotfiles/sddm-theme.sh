@@ -1,6 +1,5 @@
 #!/bin/bash
 _writeLogHeader "SDDM Theme"
-_writeHeader "SDDM Theme"
 
 sddm_theme_name="sequoia"
 sddm_theme_master="main.zip"
@@ -13,6 +12,7 @@ sddm_theme_tpl="$share_directory/sddm/theme.conf"
 
 if [ -z $automation_displaymanager ] ;then
     if [ -d /usr/share/sddm ]; then
+        _writeHeader "SDDM Theme"
         if [ -d /usr/share/sddm/themes/$sddm_theme_name ]; then
             _writeLogTerminal 0 "$sddm_theme_name theme is already installed"
             echo
