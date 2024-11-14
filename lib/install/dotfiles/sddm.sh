@@ -31,17 +31,45 @@ if [ -z $automation_displaymanager ] ;then
         _writeLog 0 "Installing sddm"
         source $packages_directory/$install_platform/sddm.sh
         _installPackages "${packages[@]}"
+
+        # Check if platform is supported
+        case $install_platform in
+            arch)
+                # Enable sddm
+                if [ -f /etc/systemd/system/display-manager.service ]; then
+                    sudo rm /etc/systemd/system/display-manager.service
+                fi
+                sudo systemctl enable sddm.service
+            ;;
+            fedora)
+                systemctl disable gdm # or kdm, lxdm, lightdm, xdm
+                systemctl enable sddm
+            ;;
+            *)
+                _writeLogTerminal 2 "Platform not supported"
+                exit
+            ;;
+        esac
         
-        # Enable sddm
-        if [ -f /etc/systemd/system/display-manager.service ]; then
-            sudo rm /etc/systemd/system/display-manager.service
-        fi
-        sudo systemctl enable sddm.service
         echo 
 
     elif [ "$dmsel" == "Deactivate current display manager" ] ;then
 
-        sudo rm /etc/systemd/system/display-manager.service
+        # Check if platform is supported
+        case $install_platform in
+            arch)
+                # Disable sddm
+                sudo rm /etc/systemd/system/display-manager.service
+            ;;
+            fedora)
+                systemctl disable sddm
+            ;;
+            *)
+                _writeLogTerminal 2 "Platform not supported"
+                exit
+            ;;
+        esac
+
         _writeLog 0 "Current display manager deactivated."
         disman=1
 

@@ -1,9 +1,9 @@
 #!/bin/bash
 clear
 echo -e "${GREEN}"
-figlet -f smslant "Other"
+figlet -f smslant "More"
 echo -e "${NONE}"
-source $packages_directory/options/other.sh
+source $packages_directory/$install_platform/options/other.sh
 toInstall=""
 selectedInstall=""
 

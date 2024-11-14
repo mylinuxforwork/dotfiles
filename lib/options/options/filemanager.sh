@@ -3,7 +3,7 @@ clear
 echo -e "${GREEN}"
 figlet -f smslant "File Manager"
 echo -e "${NONE}"
-source $options_directory/filemanager.sh
+source $packages_directory/$install_platform/options/filemanager.sh
 toInstall=""
 selectedInstall=""
 

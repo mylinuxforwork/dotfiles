@@ -3,7 +3,7 @@ clear
 echo -e "${GREEN}"
 figlet -f smslant "System Monitor"
 echo -e "${NONE}"
-source $packages_directory/options/system-monitor.sh
+source $packages_directory/$install_platform/options/system-monitor.sh
 toInstall=""
 selectedInstall=""
 

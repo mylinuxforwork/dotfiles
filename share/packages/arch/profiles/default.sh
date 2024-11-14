@@ -48,5 +48,7 @@ packages=(
     "otf-font-awesome" 
     "ttf-fira-sans" 
     "ttf-fira-code" 
-    "ttf-firacode-nerd" 
+    "ttf-firacode-nerd"
+    "oh-my-posh" 
+    "flatpak"
 );

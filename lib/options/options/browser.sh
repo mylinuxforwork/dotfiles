@@ -3,7 +3,7 @@ clear
 echo -e "${GREEN}"
 figlet -f smslant "Browser"
 echo -e "${NONE}"
-source $options_directory/browser.sh
+source $packages_directory/$install_platform/options/browser.sh
 toInstall=""
 selectedInstall=""
 

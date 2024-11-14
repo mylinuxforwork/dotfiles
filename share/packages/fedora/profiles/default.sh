@@ -48,4 +48,5 @@ packages=(
     "mozilla-fira-sans-fonts" 
     "fira-code-fonts" 
     # "ttf-firacode-nerd" 
+    "flatpak"
 );

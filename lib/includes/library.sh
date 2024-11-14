@@ -53,51 +53,51 @@ _isInstalled() {
 # Function Install all package if not installed
 # ------------------------------------------------------
 _installPackage() {
-    
-    # Check if installation script exist and not empty
-    _writeLogTerminal 0 "Installing $1..."
 
-    # Run installation with platform command
-    case $install_platform in
-        arch)
-            sudo pacman --noconfirm -S "$1" &>> $(_getLogFile)
-        ;;
-        fedora)
-            sudo dnf install --assumeyes "$1" &>> $(_getLogFile)
-        ;;
-        *)
-            _writeLogTerminal 2 "Selected platform $install_platform is not supported"
-            exit
-        ;;
-    esac    
+    # Check if package is already installed
+    if [[ $(_isInstalled "$1") == 0 ]]; then
 
-    # Check that installation was successful
-    if [[ $(_isInstalled "${pkg}") == 0 ]]; then
-        _writeLogTerminal 1 "${pkg} installed successfully."
+        _writeLogTerminal 0 "$1 is already installed."
     else
-        _writeLogTerminal 2 "${pkg} installation failed. Please install ${pkg} manually."
+
+        if [ -f "$packages_directory/$install_platform/special/$1" ]; then
+
+            _writeLogTerminal 0 "Installing $1 with custom script..."
+
+            # Source custom installation script for package
+            source $packages_directory/$install_platform/special/$1
+        else
+
+            # Check if installation script exist and not empty
+            _writeLogTerminal 0 "Installing $1..."
+
+            # Run installation with platform command
+            case $install_platform in
+                arch)
+                    sudo pacman --noconfirm -S "$1" &>> $(_getLogFile)
+                ;;
+                fedora)
+                    sudo dnf install --assumeyes "$1" &>> $(_getLogFile)
+                ;;
+                *)
+                    _writeLogTerminal 2 "Selected platform $install_platform is not supported"
+                    exit
+                ;;
+            esac    
+
+            # Check that installation was successful
+            if [[ $(_isInstalled "$1") == 0 ]]; then
+                _writeLogTerminal 1 "$1 installed successfully."
+            else
+                _writeLogTerminal 2 "$1 installation failed. Please install $1 manually."
+            fi
+        fi
     fi
 }
 
 _installPackages() {
     for pkg; do
-
-        # Check if package is already installed
-        if [[ $(_isInstalled "${pkg}") == 0 ]]; then
-            _writeLogTerminal 0 "${pkg} is already installed."
-        else
-            if [ -f "$packages_directory/$install_platform/special/${pkg}" ]; then
-
-                _writeLogTerminal 0 "Installing ${pkg} with custom script..."
-
-                # Source custom installation script for package
-                source $packages_directory/$install_platform/special/${pkg}
-            else
-
-                # Install package
-                _installPackage "${pkg}"
-            fi
-        fi
+        _installPackage "${pkg}"
     done
 }
 
