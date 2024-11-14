@@ -16,7 +16,7 @@ elif [ $optionalSelect == "CANCEL" ]; then
     _selectCategory
 else
     if [[ ! $(_isInstalledAUR "$optionalSelect") == 0 ]]; then
-        $aur_helper -S $optionalSelect
+        _installPackage $optionalSelect
     fi
     if [ $optionalSelect == "pinta" ]; then
         echo 'pinta' > "$HOME/.config/ml4w/settings/screenshot-editor.sh"

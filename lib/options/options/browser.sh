@@ -17,9 +17,11 @@ elif [ $optionalSelect == "CANCEL" ]; then
     _selectCategory
 else
     if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
-        $aur_helper -S $optionalSelect
+        _installPackage $optionalSelect
     fi
     if [ $optionalSelect == "brave-bin" ]; then
+        echo 'brave' > "$HOME/.config/ml4w/settings/browser.sh"
+    elif [ $optionalSelect == "brave-browser" ]; then
         echo 'brave' > "$HOME/.config/ml4w/settings/browser.sh"
     elif [ $optionalSelect == "zen-browser-bin" ]; then
         echo 'zen-browser' > "$HOME/.config/ml4w/settings/browser.sh"
