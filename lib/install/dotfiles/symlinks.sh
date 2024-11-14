@@ -64,5 +64,3 @@ for f in $files; do
         fi
     fi
 done
-
-echo

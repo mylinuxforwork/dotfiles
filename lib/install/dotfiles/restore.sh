@@ -39,7 +39,7 @@ _restoreItem() {
         elif [ -f $HOME/$dot_folder/$1 ]; then
             cp $HOME/$dot_folder/$1 $ml4w_directory/$version/$1
         fi
-        _writeLogTerminal 1 "Hyprland $1 restored"                
+        _writeLog 1 "Hyprland $1 restored"                
     fi    
 }
 

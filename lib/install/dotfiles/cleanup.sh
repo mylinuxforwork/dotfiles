@@ -71,6 +71,4 @@ fi
 
 # Create default folder structure
 xdg-user-dirs-update
-
-echo 
 _writeLog 1 "Clean up done"

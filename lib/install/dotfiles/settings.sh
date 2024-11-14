@@ -1,7 +1,7 @@
 # ------------------------------------------------------
 # Restore ML4W Hyprland Settings app
 # ------------------------------------------------------
-_writeLogHeader "Settinsg"
+_writeLogHeader "Settings"
 _writeLog 0 "Starting restore settings"
 
 # Replace waybar_timeformat and waybar_dateformat
@@ -11,7 +11,7 @@ if [ -f ~/.config/ml4w/settings/waybar_timeformat.sh ] ;then
     search_str="\"format\""
     replace_str="\ \ \ \ \"format\": \"{:$replace_time $replace_date}\","
     _replaceLineInFileCheckpoint "$search_str" "$replace_str" "clock" "$HOME/.config/waybar/modules.json"
-    echo ":: waybar_timeformat restored"
+    _writeLog 1 "waybar_timeformat restored"
 fi
 
 # Replace waybar_custom_timedateformat
@@ -21,7 +21,7 @@ if [ -f ~/.config/ml4w/settings/waybar_custom_timedateformat.sh ] ;then
         search_str="\"format\""
         replace_str="\ \ \ \ \"format\": \"{:$replace_value}\","
         _replaceLineInFileCheckpoint "$search_str" "$replace_str" "clock" "$HOME/.config/waybar/modules.json"
-        echo ":: waybar_custom_timedateformat restored"
+        _writeLog 1 "waybar_custom_timedateformat restored"
     fi
 fi
 
@@ -31,7 +31,7 @@ if [ -f ~/.config/ml4w/settings/dunst_position.sh ] ;then
     search_str="origin"
     replace_str="\ \ \ \ origin = $replace_value"
     _replaceLineInFileCheckpoint "$search_str" "$replace_str" "global" "$HOME/.config/dunst/dunstrc"
-    echo ":: dunst_position restored"
+    _writeLog 1 "dunst_position restored"
 fi
 
 # Replace waybar_workspaces
@@ -40,7 +40,7 @@ if [ -f ~/.config/ml4w/settings/waybar_workspaces.sh ] ;then
     search_str="\"*\""
     replace_str="\ \ \ \ \ \ \"*\": $replace_value"
     _replaceLineInFileCheckpoint "$search_str" "$replace_str" "persistent-workspaces" "$HOME/.config/waybar/modules.json"
-    echo ":: waybar_workspaces restored"
+    _writeLog 1 "waybar_workspaces restored"
 fi
 
 # Replace waybar_taskbar
@@ -56,7 +56,7 @@ if [ -f ~/.config/ml4w/settings/waybar_taskbar.sh ] ;then
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
-    echo ":: waybar_taskbar restored"
+    _writeLog 1 "waybar_taskbar restored"
 fi
 
 # Replace waybar_network
@@ -74,7 +74,7 @@ if [ -f ~/.config/ml4w/settings/waybar_network.sh ] ;then
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-minimal/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/starter/config"
-    echo ":: waybar_network restored"
+    _writeLog 1 "waybar_network restored"
 fi
 
 # Replace waybar_backlight
@@ -92,7 +92,7 @@ if [ -f ~/.config/ml4w/settings/waybar_backlight.sh ] ;then
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-minimal/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/starter/config"
-    echo ":: waybar_backlight restored"
+    _writeLog 1 "waybar_backlight restored"
 fi
 
 # Replace waybar_chatgpt
@@ -105,7 +105,7 @@ if [ -f ~/.config/ml4w/settings/waybar_chatgpt.sh ] ;then
         replace_str="\ \ \ \ \ \ \/\/\"custom\/chatgpt\","
     fi
     _replaceLineInFileCheckpoint "$search_str" "$replace_str" "links" "$HOME/.config/waybar/modules.json"
-    echo ":: waybar_chatgpt restored"
+    _writeLog 1 "waybar_chatgpt restored"
 fi
 
 # Replace waybar_systray
@@ -123,7 +123,7 @@ if [ -f ~/.config/ml4w/settings/waybar_systray.sh ] ;then
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-minimal/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/starter/config"
-    echo ":: waybar_systray restored"
+    _writeLog 1 "waybar_systray restored"
 fi
 
 # Replace waybar_screenlock
@@ -136,7 +136,7 @@ if [ -f ~/.config/ml4w/settings/waybar_screenlock.sh ] ;then
         replace_str="\ \ \ \ \ \ \/\/\"custom\/hypridle\","
     fi
     _replaceLineInFileCheckpoint "$search_str" "$replace_str" "group\/tools" "$HOME/.config/waybar/modules.json"
-    echo ":: waybar_screenlock restored"
+    _writeLog 1 "waybar_screenlock restored"
 fi
 
 # Replace waybar_window
@@ -154,7 +154,7 @@ if [ -f ~/.config/ml4w/settings/waybar_window.sh ] ;then
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-minimal/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/starter/config"
-    echo ":: waybar_window restored"
+    _writeLog 1 "waybar_window restored"
 fi
 
 # Replace waybar_settings
@@ -171,7 +171,7 @@ if [ -f ~/.config/ml4w/settings/waybar_settings.sh ] ;then
     _replaceLineInFileCheckpoint $search_str $replace_str "modules-left" "$HOME/.config/waybar/themes/ml4w-blur-bottom/config"
     _replaceLineInFileCheckpoint $search_str $replace_str "modules-left" "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _replaceLineInFileCheckpoint $search_str $replace_str "modules-left" "$HOME/.config/waybar/themes/ml4w-minimal/config"
-    echo ":: waybar_settings restored"
+    _writeLog 1 "waybar_settings restored"
 fi
 
 # Replace waybar_appmenu
@@ -188,7 +188,7 @@ if [ -f ~/.config/ml4w/settings/waybar_appmenu.sh ] ;then
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/starter/config"
-    echo ":: waybar_appmenu restored"
+    _writeLog 1 "waybar_appmenu restored"
 fi
 
 # Replace waybar_appmenuicon
@@ -201,7 +201,7 @@ if [ -f ~/.config/ml4w/settings/waybar_appmenu.sh ] ;then
         replace_str="\/\/\"custom\/appmenuicon\","
     fi
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-minimal/config"
-    echo ":: waybar_appmenuicon restored"
+    _writeLog 1 "waybar_appmenuicon restored"
 fi
 
 # Replace hypridle_hyprlock_timeout
@@ -210,7 +210,7 @@ if [ -f ~/.config/ml4w/settings/hypridle_hyprlock_timeout.sh ] ;then
     search_str="timeout"
     replace_str="\ \ \ \ timeout = $replace_value"
     _replaceLineInFileCheckpoint "$search_str" "$replace_str" "HYPRLOCK TIMEOUT" "$HOME/.config/hypr/hypridle.conf"
-    echo ":: hypridle_hyprlock_timeout restored"
+    _writeLog 1 "hypridle_hyprlock_timeout restored"
 fi
 
 # Replace hypridle_dpms_timeout
@@ -219,7 +219,7 @@ if [ -f ~/.config/ml4w/settings/hypridle_dpms_timeout.sh ] ;then
     search_str="timeout"
     replace_str="\ \ \ \ timeout = $replace_value"
     _replaceLineInFileCheckpoint "$search_str" "$replace_str" "DPMS TIMEOUT" "$HOME/.config/hypr/hypridle.conf"
-    echo ":: hypridle_dpms_timeout restored"
+    _writeLog 1 "hypridle_dpms_timeout restored"
 fi
 
 # Replace hypridle_suspend_timeout
@@ -228,6 +228,6 @@ if [ -f ~/.config/ml4w/settings/hypridle_suspend_timeout.sh ] ;then
     search_str="timeout"
     replace_str="\ \ \ \ timeout = $replace_value"
     _replaceLineInFileCheckpoint "$search_str" "$replace_str" "SUSPEND TIMEOUT" "$HOME/.config/hypr/hypridle.conf"
-    echo ":: hypridle_suspend_timeout restored"
+    _writeLog 1 "hypridle_suspend_timeout restored"
 fi
 echo

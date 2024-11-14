@@ -29,7 +29,8 @@ if [ -z $automation_displaymanager ] ;then
         disman=0
         # Try to force the installation of sddm
         _writeLog 0 "Installing sddm"
-        sudo pacman -S --noconfirm --needed sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg --ask 4
+        source $packages_directory/$install_platform/sddm.sh
+        _installPackages "${packages[@]}"
         
         # Enable sddm
         if [ -f /etc/systemd/system/display-manager.service ]; then

@@ -40,7 +40,7 @@ _selectAURHelper() {
     if [ -z $aur_helper ] ;then
         _selectAURHelper
     fi
-    _writeLog 2 "Using $aur_helper"
+    _writeLogTerminal 0 "Using $aur_helper as AUR Helper"
 }
 
 _checkAURHelper() {

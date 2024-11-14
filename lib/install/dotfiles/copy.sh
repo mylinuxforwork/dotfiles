@@ -17,7 +17,7 @@ _copy_confirm() {
             _writeLogTerminal 2 "Execution of rsync -a -I $ml4w_directory/$version/ ~/$dot_folder/ is required."
             exit
         fi
-        echo "All files from $ml4w_directory/$version/ to ~/$dot_folder/ copied."
+        _writeLogTerminal 1 "All files from $ml4w_directory/$version/ to ~/$dot_folder/ copied."
     elif [ $? -eq 130 ]; then
         _writeCancel
         exit 130
@@ -75,4 +75,3 @@ else
         _copy_confirm
     fi
 fi
-echo

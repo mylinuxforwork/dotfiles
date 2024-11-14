@@ -50,9 +50,9 @@ _writeLogTerminal() {
     text=$2
     echo "$(_logDateTime) $(_getLogCategory $1) $text" >> $(_getLogFile)
     if [ $1 = "1" ]; then
-        echo "$(_getLogCategory 1):: $text"
+        echo ":: $(_getLogCategory 1) - $text"
     elif [ $1 = "2" ]; then
-        echo "$(_getLogCategory 1):: $text"
+        echo ":: $(_getLogCategory 1) - $text"
     else
         echo ":: $text"
     fi
