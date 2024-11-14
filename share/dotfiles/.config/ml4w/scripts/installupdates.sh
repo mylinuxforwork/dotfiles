@@ -62,14 +62,14 @@ case $install_platform in
             echo
         fi
 
-        $aur_helper
+        $aur_helper --noconfirm
 
         if [[ $(_isInstalledAUR "flatpak") == "0" ]] ;then
             flatpak upgrade
         fi
     ;;
     fedora)
-        sudo dnf upgrade
+        sudo dnf upgrade --assumeyes
     ;;
     *)
         echo ":: ERROR - Platform not supported"
