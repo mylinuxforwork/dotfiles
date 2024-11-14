@@ -4,23 +4,20 @@
 _writeLogHeader "Backup"
 
 datets=$(date '+%Y%m%d%H%M%S')
-files=$(ls -a $HOME/$dot_folder)
-folders=$(ls -a $HOME/$dot_folder/.config)
+files=$(ls -a $dotfiles_directory)
+folders=$(ls -a $dotfiles_directory/.config)
+backuplist=""
 
 # Write folder to backup
 _write_backup_folder() {
-    if ! test -L $HOME/.config/$1 && [ -d $HOME/.config/$1 ] ;then
-        cp -r $HOME/.config/$1 $backup_directory/config
-        _writeLogTerminal 1 "Backup of $HOME/.config/$1 created in $backup_directory/config/"
-    fi
+    cp -r $1 $backup_directory/.config
+    _writeLogTerminal 1 "Backup of $1 created in $backup_directory/config/"
 }
 
 # Write file to backup
 _write_backup_file() {
-    if ! test -L $HOME/$1 ;then
-        cp $HOME/.zshrc $backup_directory
-        _writeLogTerminal 1 "Backup of $HOME/$1 created in $backup_directory"
-    fi    
+    cp $1 $backup_directory
+    _writeLogTerminal 1 "Backup of $1 created in $backup_directory"
 }
 
 _create_backup() {
@@ -37,37 +34,34 @@ _create_backup() {
     fi
 
     # Backup files
-    for f in $files; do
-        if [ ! "$f" == "." ] && [ ! "$f" == ".." ] && [ ! "$f" == ".config" ]; then
+    for f in $backuplist; do
+        if [ -f $f ]; then
             _write_backup_file $f
         fi
-    done
-
-    # Backup folder
-    for f in $folders; do
-        if [ ! "$f" == "." ] && [ ! "$f" == ".." ]; then
+        if [ -d $f ]; then
             _write_backup_folder $f
         fi
     done
+
     _writeLogTerminal 1 "Backup created in $backup_directory"
 }
 
 # Create Backup File Structure
 _createBackupStructure() {
     if [ ! -d $ml4w_directory ] ;then
-        mkdir $ml4w_directory
+        mkdir -p $ml4w_directory
         _writeLog 1 "$ml4w_directory folder created."
     fi
     if [ ! -d $backup_directory ]; then
-        mkdir $backup_directory
+        mkdir -p $backup_directory
         _writeLog 1 "$backup_directory created"
     fi
     if [ ! -d $archive_directory ]; then
-        mkdir $archive_directory
+        mkdir -p $archive_directory
         _writeLog 1 "$archive_directory created"
     fi
-    if [ ! -d $backup_directory/config ] ;then
-        mkdir $backup_directory/config
+    if [ ! -d $backup_directory/.config ] ;then
+        mkdir -p $backup_directory/.config
     fi
 }
 
@@ -81,20 +75,21 @@ _showBackup() {
 
     for f in $files; do
         if [ ! "$f" == "." ] && [ ! "$f" == ".." ] && [ ! "$f" == ".config" ]; then
-            if ! test -L $HOME/$f ;then
+            if [ ! -L $HOME/$f ] && [ -f $HOME/$f ] ;then
                 _writeMessage "$HOME/$f"
+                backuplist+="$HOME/$f "
             fi
         fi
     done
     for f in $folders; do
         if [ ! "$f" == "." ] && [ ! "$f" == ".." ]; then
-            if ! test -L $HOME/.config/$f ;then
-                _writeMessage "$HOME/.config/$f/"
+            if [ ! -L $HOME/.config/$f ] && [ -d $HOME/.config/$f ] ;then
+                _writeMessage "$HOME/.config/$f"
+                backuplist+="$HOME/.config/$f "
             fi
         fi
     done
     echo 
-
     # Start Backup
     if [ -z $automation_backup ] ;then
         if gum confirm "Do you want to create a backup?" ;then
