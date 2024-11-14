@@ -73,7 +73,7 @@ _installPackage() {
 
     # Check that installation was successful
     if [[ $(_isInstalled "${pkg}") == 0 ]]; then
-        _writeLogTerminal 0 "${pkg} installed successfully."
+        _writeLogTerminal 1 "${pkg} installed successfully."
     else
         _writeLogTerminal 2 "${pkg} installation failed. Please install ${pkg} manually."
     fi
