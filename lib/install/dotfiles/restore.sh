@@ -125,7 +125,7 @@ _startRestore() {
     return 0
 }
 
-if [ -d ~/$dot_folder ]; then
+if [ -d $HOME/$dot_folder ]; then
     _writeHeader "Restore"
     restored=0
     _writeMessage "The script will try to restore existing configurations."
