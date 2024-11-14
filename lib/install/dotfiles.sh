@@ -44,7 +44,7 @@ source $install_directory/dotfiles/vm.sh
 # ----------------------------------------------------- 
 # Install SDDM
 # -----------------------------------------------------
-if [ $install_platform == "arch"]; then
+if [ $install_platform == "arch" ]; then
     source $install_directory/dotfiles/sddm.sh
 fi
 
