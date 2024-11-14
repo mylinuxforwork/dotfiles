@@ -6,7 +6,7 @@ _writeLogHeader "Finalizing"
 # Create platform file if not exists
 if [ ! -f $HOME/.config/ml4w/settings/platform.sh ]; then
     touch $HOME/.config/ml4w/settings/platform.sh
-    echo "$install_platform" > $HOME .config/ml4w/settings/platform.sh
+    echo "$install_platform" > $HOME/.config/ml4w/settings/platform.sh
     _writeLog 1 "platform.sh with $install_platform created"
 fi
 

@@ -7,7 +7,7 @@ _writeLogHeader "Remove old packages"
 _writeLog 0 "Checking for rofi-calc"
 if [[ $(_isInstalled "rofi-calc") == 0 ]]; then
     _removePackage "rofi-calc"
-    _writeLogTerminal 0 "rofi-calc removed"
+    _writeLog 1 "rofi-calc removed"
     echo
 fi
 
@@ -15,7 +15,7 @@ fi
 _writeLog 0 "Checking for rofi"
 if [[ $(_isInstalled "rofi") == 0 ]]; then
     _removePackage "rofi"
-    _writeLogTerminal 0 "rofi removed"
+    _writeLog 1 "rofi removed"
     echo
 fi
 
@@ -23,7 +23,7 @@ fi
 _writeLog 0 "Checking for swayidle"
 if [[ $(_isInstalled "swayidle") == 0 ]]; then
     _removePackage "swayidle"
-    _writeLogTerminal 0 "swayidle removed"
+   _writeLog 1 "swayidle removed"
     echo
 fi
 
@@ -31,7 +31,7 @@ fi
 _writeLog 0 "Checking for swaylock"
 if [[ $(_isInstalled "swaylock-effects-git") == 0 ]]; then
     _removePackage "swaylock-effects-git"
-    _writeLogTerminal 0 "swaylock removed"
+    _writeLog 1 "swaylock removed"
     echo
 fi
 
@@ -39,7 +39,7 @@ fi
 _writeLog 0 "Checking for rofi-lbonn-wayland"
 if [[ $(_isInstalled "rofi-lbonn-wayland") == 0 ]]; then
     _removePackage "rofi-lbonn-wayland"
-    _writeLogTerminal 0 "rofi-lbonn-wayland removed"
+    _writeLog 1 "rofi-lbonn-wayland removed"
     echo
 fi
 
@@ -49,10 +49,10 @@ if [[ $(_isInstalled "hypridle-git") == 0 ]]; then
     _removePackage "hypridle-git"
     if [ -f /usr/lib/debug/usr/bin/hypridle.debug ] ;then
         sudo rm /usr/lib/debug/usr/bin/hypridle.debug
-    _writeLogTerminal 0 "/usr/lib/debug/usr/bin/hypridle.debug removed"
+    _writeLog 1 "/usr/lib/debug/usr/bin/hypridle.debug removed"
     fi
-    _writeLogTerminal 0 "hypridle-git uninstalled."
-    _writeLogTerminal 0 "hypridle can now be installed."
+    _writeLog 1 "hypridle-git uninstalled."
+    _writeLog 1 "hypridle can now be installed."
     echo 
 fi
 
@@ -64,8 +64,8 @@ if [[ $(_isInstalled "hyprlock-git") == 0 ]]; then
         sudo rm /usr/lib/debug/usr/bin/hyprlock.debug
         echo ":: /usr/lib/debug/usr/bin/hyprlock.debug removed"
     fi
-    _writeLogTerminal 0 "hyprlock-git uninstalled."
-    _writeLogTerminal 0 "hyprlock can now be installed."
+    _writeLog 1 "hyprlock-git uninstalled."
+    _writeLog 1 "hyprlock can now be installed."
     echo
 fi
 
@@ -73,6 +73,6 @@ fi
 _writeLog 0 "Checking for bibata-cursor-theme"
 if [[ $(_isInstalled "bibata-cursor-theme") == 0 ]]; then
     _removePackage "bibata-cursor-theme"
-    _writeLogTerminal 0 "bibata-cursor-theme removed"
+    _writeLog 1 "bibata-cursor-theme removed"
     echo
 fi
