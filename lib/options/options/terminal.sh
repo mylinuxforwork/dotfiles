@@ -17,7 +17,7 @@ elif [ $optionalSelect == "CANCEL" ]; then
     _selectCategory
 else
     if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
-        $aur_helper -S $optionalSelect
+        _installPackage $optionalSelect
     fi
     echo "$optionalSelect" > "$HOME/.config/ml4w/settings/terminal.sh"
     _selectCategory
