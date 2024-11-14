@@ -73,7 +73,8 @@ case $install_platform in
     ;;
     *)
         echo ":: ERROR - Platform not supported"
-        exit
+        echo "Press [ENTER] to close."
+        read
     ;;
 esac
 

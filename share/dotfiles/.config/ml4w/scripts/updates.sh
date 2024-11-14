@@ -38,11 +38,10 @@ case $install_platform in
         updates=$(("$updates_arch" + "$updates_aur"))
     ;;
     fedora)
-        # Fedora number
+        updates=$(dnf check-update -q|grep -c ^[a-z0-9])
     ;;
     *)
-        echo ":: ERROR - Platform not supported"
-        exit
+        updates=0
     ;;
 esac
 

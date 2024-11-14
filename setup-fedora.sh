@@ -125,7 +125,7 @@ echo
 
 # Install required packages
 echo ":: Checking that required packages are installed..."
-_installPackagesPacman "${packages[@]}";
+_installPackages "${packages[@]}";
 
 # Install gum
 share/packages/fedora/special/gum.sh
