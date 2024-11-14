@@ -26,7 +26,7 @@ packages=(
     "grim" 
     "slurp"
     "cliphist"
-    # "nwg-look"
+    "nwg-look"
     "qt6ct"
     "waybar" 
     "rofi-wayland"
