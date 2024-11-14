@@ -49,4 +49,5 @@ packages=(
     "fira-code-fonts" 
     # "ttf-firacode-nerd" 
     "flatpak"
+    "oh-my-posh"
 );
