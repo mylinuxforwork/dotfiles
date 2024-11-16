@@ -31,6 +31,11 @@ source $install_directory/packages/remove.sh
 source $install_directory/packages/packages.sh
 
 # ----------------------------------------------------- 
+# Install agsv1
+# ----------------------------------------------------- 
+source $install_directory/packages/agsv1.sh
+
+# ----------------------------------------------------- 
 # Check executables of important apps
 # ----------------------------------------------------- 
 source $install_directory/packages/diagnosis.sh

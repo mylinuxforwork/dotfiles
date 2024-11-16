@@ -42,7 +42,6 @@ packages=(
     "hyprshade"
     "waypaper"
     "grimblast-git"
-    "aylurs-gtk-shell"
     "bibata-cursor-theme-bin"
     "pacseek"
     "otf-font-awesome" 

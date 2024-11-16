@@ -13,7 +13,7 @@ _run_diagnosis(){
     _commandExists "wal" "python-pywal"
     _commandExists "gum" "gum"
     _commandExists "wlogout" "wlogout"
-    _commandExists "ags" "ags"
+    _commandExists "agsv1" "agsv1"
     _commandExists "magick" "imagemagick"
     _commandExists "waypaper" "waypaper"
 }
