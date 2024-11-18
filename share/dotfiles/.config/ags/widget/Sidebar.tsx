@@ -1,7 +1,7 @@
 import { App } from "astal/gtk3"
 import Apps from "gi://AstalApps"
 import Wp from "gi://AstalWp"
-import { Variable, GLib, bind, exec } from "astal"
+import { Variable, GLib, bind, exec, execAsync } from "astal"
 import { Astal, Gtk, Gdk } from "astal/gtk3"
 
 function AudioSlider() {
@@ -29,27 +29,27 @@ function MicrophoneSlider() {
 }
 
 function openwelcomeapp() {
-    exec("com.ml4w.welcome")
+    execAsync("com.ml4w.welcome")
 }
 
 function opensettingsapp() {
-    exec("com.ml4w.welcome")
+    execAsync("com.ml4w.welcome")
 }
 
 function openhyprlandapp() {
-    exec("com.ml4w.welcome")
+    execAsync("com.ml4w.welcome")
 }
 
 function openwaypaper() {
-    exec("waypaper")
+    execAsync("waypaper")
 }
 
 function openwallpapereffects() {
-    exec("./scripts/run_wallpapereffects.sh")
+    execAsync("./scripts/run_wallpapereffects.sh")
 }
 
 function openwaybarthemes() {
-    exec("./scripts/run_themeswitcher.sh")
+    execAsync("./scripts/run_themeswitcher.sh")
 }
 
 export default function Sidebar() {
