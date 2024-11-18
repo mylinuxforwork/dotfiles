@@ -19,7 +19,7 @@
     min-width:320px;
 }
 
-.calendar:selected {
+calendar:selected {
     background-color:@color11;
     padding:0px;
 }
