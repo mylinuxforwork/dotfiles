@@ -33,11 +33,11 @@ function openwelcomeapp() {
 }
 
 function opensettingsapp() {
-    execAsync("com.ml4w.welcome")
+    execAsync("com.ml4w.dotfilessettings")
 }
 
 function openhyprlandapp() {
-    execAsync("com.ml4w.welcome")
+    execAsync("com.ml4w.hyprland.settings")
 }
 
 function openwaypaper() {
