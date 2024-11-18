@@ -30,26 +30,32 @@ function MicrophoneSlider() {
 
 function openwelcomeapp() {
     execAsync("com.ml4w.welcome")
+    App.get_window("sidebar")!.hide()
 }
 
 function opensettingsapp() {
     execAsync("com.ml4w.dotfilessettings")
+    App.get_window("sidebar")!.hide()
 }
 
 function openhyprlandapp() {
     execAsync("com.ml4w.hyprland.settings")
+    App.get_window("sidebar")!.hide()
 }
 
 function openwaypaper() {
     execAsync("waypaper")
+    App.get_window("sidebar")!.hide()
 }
 
 function openwallpapereffects() {
     execAsync("./scripts/run_wallpapereffects.sh")
+    App.get_window("sidebar")!.hide()
 }
 
 function openwaybarthemes() {
     execAsync("./scripts/run_themeswitcher.sh")
+    App.get_window("sidebar")!.hide()
 }
 
 export default function Sidebar() {
@@ -62,10 +68,6 @@ export default function Sidebar() {
     application={App}
     visible={false} 
     className="Sidebar"
-    onKeyPressEvent={function (self, event: Gdk.Event) {
-        if (event.get_keyval()[1] === Gdk.KEY_Escape)
-            self.hide()
-    }}
     anchor={anchor}
     >    
     <box className="sidebar" vertical>
