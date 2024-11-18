@@ -30,6 +30,13 @@ if [[ $(_isInstalledAUR "swaylock-effects-git") == 0 ]]; then
     echo
 fi
 
+# Remove aylurs-gtk-shell
+if [[ $(_isInstalledAUR "aylurs-gtk-shell") == 0 ]]; then
+    $aur_helper --noconfirm -R aylurs-gtk-shell
+    echo ":: aylurs-gtk-shell removed"
+    echo
+fi
+
 # Remove bibata-cursor-theme
 if [[ $(_isInstalledAUR "bibata-cursor-theme") == 0 ]]; then
     $aur_helper --noconfirm -R bibata-cursor-theme

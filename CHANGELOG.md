@@ -1,3 +1,7 @@
+Version 2.9.6.7
+--------------------------------------------------------
+- Add geenral ags v2 support to sidebar and calendar widget. More feature to come.
+
 Version 2.9.6.6
 --------------------------------------------------------
 - Compatible with Hyprland 0.45.0. Replaced legacy variables for drop shadows with new ones in hypr/conf/decorations
