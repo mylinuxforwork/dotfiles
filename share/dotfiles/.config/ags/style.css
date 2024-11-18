@@ -19,6 +19,11 @@
     min-width:320px;
 }
 
+.calendar:selected {
+    background-color:@color11;
+    padding:0px;
+}
+
 .sidebar {
     background: #222222;
     padding: 12px;
