@@ -3,4 +3,5 @@ optdepends=(
     "chromium"
     "brave-bin"
     "zen-browser-bin"
+    "vivaldi"
 );
