@@ -7,11 +7,21 @@
     font-weight: normal;
 }
 
-.midbtn {
-    background-color: @color11;
-    font-size: 12px;
-    padding:10px;
-    border-radius: 20px;
+.calendar {
+    background: #222222;
+    padding: 12px;
+    margin:14px;
+    border-radius: 12px;
+    font-weight: bold;
+    border: 3px solid @color11;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.8);
+    padding:20px;
+    min-width:320px;
+}
+
+calendar:selected {
+    background-color:@color11;
+    padding:0px;
 }
 
 .sidebar {
@@ -25,42 +35,10 @@
     padding:20px;
 }
 
-.calendar {
-    background: #222222;
-    padding: 12px;
-    margin:14px;
-    border-radius: 12px;
-    font-weight: bold;
-    border: 3px solid @color11;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.8);
-    padding:20px;
-    min-width:320px;
-}
-
-.window {
-    background:transparent;
-}
-
 .group {
     padding:16px;
     background-color: rgba(116, 116, 116, 0.1);
     border-radius: 20px;
-}
-
-.row {
-}
-
-.rowsmall {
-    padding-bottom: 4px;
-}
-
-.lastrow {
-    padding-top: 20px;
-}
-
-.btn {
-    color: #FFFFFF;
-    padding:0px;
 }
 
 .ml4wwelcomeicon {
@@ -87,57 +65,79 @@
     padding: 40px 50px 20px 50px;
 }
 
-.clock {
-    font-size: 20px;
+.midbtn {
+    background-color: @color11;
+    font-size: 12px;
+    padding:10px;
+    border-radius: 20px;
 }
 
-.circularprocess {
-    min-width:100px;
-    min-height:100px;
-    color:@color11;
-    background-color:#ccc;
-}
-
-.circularlabel {
-    padding-top:10px;
-    font-weight: normal;
-}
-
-calendar:selected {
-    background-color:@color11;
-    padding:0px;
-}
-
-scale {
+.AudioSlider {
     background-color:@color11;
     border-radius:12px;
+    margin-bottom:10px;
 }
 
-scale contents {
+.AudioSlider contents {
     min-height: 20px;
     background-color:@color15;
     border-radius:12px;
 }
 
-scale value {
+.AudioSlider value {
     min-height: 20px;
     background-color: #222222;
 }
 
-scale slider {
+.AudioSlider slider {
     min-height: 20px;
     background-color:@color15;
     border-radius:12px;
 }
 
-scale highlight {
+.AudioSlider highlight {
     min-height:20px;
     background-color:@color11;
     border-radius:12px;
     outline-width:3px;
 }
 
-scale fill {
+.AudioSlider fill {
+    min-height:20px;
+    background-color:@color11;
+    border-radius:12px;
+}
+
+.MicrophoneSlider {
+    background-color:@color11;
+    border-radius:12px;
+}
+
+.MicrophoneSlider contents {
+    min-height: 20px;
+    background-color:@color15;
+    border-radius:12px;
+}
+
+.MicrophoneSlider value {
+    min-height: 20px;
+    background-color: #222222;
+}
+
+.MicrophoneSlider slider {
+    min-height: 20px;
+    background-color:@color15;
+    border-radius:12px;
+}
+
+.MicrophoneSlider highlight {
+    min-height:20px;
+    background-color:@color11;
+    border-radius:12px;
+    outline-width:3px;
+}
+
+.MicrophoneSlider fill {
     min-height:20px;
     background-color:@color11;
     border-radius:12px;

@@ -55,7 +55,7 @@
 
   // ML4W Welcome App
   "custom/ml4w-welcome": {
-    "on-click": "ags -t sidebar",
+    "on-click": "ags toggle sidebar",
     "on-click-right": "sleep 0.1 && ~/.config/ml4w/apps/ML4W_Welcome-x86_64.AppImage",
     "format": " ",
     "tooltip-format": "Open Sidebar"
@@ -207,7 +207,7 @@
   // Clock
   "clock": {
     "format": "{:%H:%M %a}",
-    "on-click": "ags -t calendar",
+    "on-click": "ags toggle calendar",
     "tooltip": false
   },
 
