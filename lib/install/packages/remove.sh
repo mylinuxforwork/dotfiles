@@ -31,9 +31,9 @@ if [[ $(_isInstalledAUR "swaylock-effects-git") == 0 ]]; then
 fi
 
 # Remove aylurs-gtk-shell
-if [[ $(_isInstalledAUR "aylurs-gtk-shell") == 0 ]]; then
-    $aur_helper --noconfirm -R aylurs-gtk-shell
-    echo ":: aylurs-gtk-shell removed"
+if [[ $(_isInstalledAUR "aylurs-gtk-shell-git") == 0 ]]; then
+    $aur_helper --noconfirm -R aylurs-gtk-shell-git
+    echo ":: aylurs-gtk-shell-git removed"
     echo
 fi
 
