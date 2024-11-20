@@ -42,10 +42,12 @@ if [[ $(_isInstalled "aylurs-gtk-shell-git") == 0 ]]; then
 fi
 
 # Remove bibata-cursor-theme
-if [[ $(_isInstalled "bibata-cursor-theme") == 0 ]]; then
-    $aur_helper --noconfirm -R bibata-cursor-theme
-    echo ":: bibata-cursor-theme removed"
-    echo
+if [ $install_platform == "arch"]; then
+    if [[ $(_isInstalled "bibata-cursor-theme") == 0 ]]; then
+        _removePackage "bibata-cursor-theme"
+        echo ":: bibata-cursor-theme removed"
+        echo
+    fi
 fi
 
 # Remove rofi-lbonn-wayland

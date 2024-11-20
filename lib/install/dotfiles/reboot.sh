@@ -13,4 +13,4 @@ elif [ $? -eq 130 ]; then
 else
     _writeSkipped
 fi
-echo ""
+echo

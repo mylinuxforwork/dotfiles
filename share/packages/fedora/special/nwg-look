@@ -1,2 +1,2 @@
-sudo dnf copr enable -y "tofik/nwg-shell"
-sudo dnf install nwg-look
+sudo dnf copr enable --assumeyes "tofik/nwg-shell"
+sudo dnf install --assumeyes nwg-look
