@@ -29,29 +29,39 @@ by Stephan Raabe (2023)
 window {
 	background: url("../ml4w/cache/blurred_wallpaper.png");
 	background-size: cover;
+	font-size: 16pt;
+	color: #cdd6f4;
 }
 
 button {
-	color: #FFFFFF;
-    font-size:20px;
-
-    background-repeat: no-repeat;
-	background-position: center;
-	background-size: 25%;
-
-	border-style: solid;
-	background-color: rgba(12, 12, 12, 0.3);
-	border: 3px solid #FFFFFF;
-
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    background-color: rgba(200, 220, 255, 0);
+    animation: gradient_f 20s ease-in infinite;
+    border-radius: 80px; /* Increased border radius for a more rounded look */
+	border:0px;
 }
 
-button:focus,
-button:active,
+button:focus {
+    background-size: 22%;
+	border: 0px;
+}
+
 button:hover {
-    color: @color11;
-	background-color: rgba(12, 12, 12, 0.5);
-	border: 3px solid @color11;
+    background-color: @color11; 
+	opacity: 0.8;
+    color: #cdd6f4;
+    background-size: 30%;
+    margin: 30px;
+    border-radius: 80px; 
+    transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    box-shadow: 0 0 50px @color7; 
+}
+
+/* Adjust the size of the icon or content inside the button */
+button span {
+    font-size: 1.2em; /* Increase the font size */
 }
 
 /* 

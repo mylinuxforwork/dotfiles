@@ -163,7 +163,7 @@
   // Power Menu
   "custom/exit": {
     "format": "",
-    "on-click": "wlogout",
+    "on-click": "~/.config/ml4w/scripts/wlogout.sh",
     "tooltip-format": "Power Menu"
   },
 
