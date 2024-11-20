@@ -1,3 +1,9 @@
+Version 2.9.7.0
+--------------------------------------------------------
+- Fedora support added. Please see the installation instruction on https://github.com/mylinuxforwork/dotfiles/wiki
+- One command installation added for Fedora and Arch based distributions
+- New default wallpaper added
+
 Version 2.9.6.7
 --------------------------------------------------------
 - Add geenral ags v2 support to sidebar and calendar widget. More feature to come.
