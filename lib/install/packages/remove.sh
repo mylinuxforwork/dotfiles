@@ -42,7 +42,7 @@ if [[ $(_isInstalled "aylurs-gtk-shell-git") == 0 ]]; then
 fi
 
 # Remove bibata-cursor-theme
-if [ $install_platform == "arch"]; then
+if [ $install_platform == "arch" ]; then
     if [[ $(_isInstalled "bibata-cursor-theme") == 0 ]]; then
         _removePackage "bibata-cursor-theme"
         echo ":: bibata-cursor-theme removed"
