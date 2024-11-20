@@ -46,4 +46,5 @@ packages=(
     "fira-code-fonts" 
     "flatpak"
     "oh-my-posh"
+    "NetworkManager-tui"
 );
