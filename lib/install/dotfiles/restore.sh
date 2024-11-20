@@ -8,6 +8,8 @@ selectedlist=""
 monitorrestored=0
 
 restore_arr=(
+    ".config/gtk-3.0"
+    ".config/gtk-4.0"
     ".config/ml4w/settings"
     ".config/hypr/hypridle.conf"
     ".config/hypr/conf/custom.conf"
