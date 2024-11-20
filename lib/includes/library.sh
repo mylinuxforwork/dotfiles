@@ -421,16 +421,16 @@ _replaceLineInFileCheckpoint() {
 
 _checkCommandExists() {
     package="$1";
-    if ! type $package > /dev/null 2>&1; then
-        echo "1"
+	if ! command -v $package > /dev/null; then
+        return 1
     else
-        echo "0"
+        return 0
     fi
 }
 
 _commandExists() {
     package="$1";
-    if [[ $(_checkCommandExists $package) == "1" ]]; then
+    if _checkCommandExists $package; then
         echo ":: ERROR: $package doesn't exists. Please install it manually."
     else
         echo ":: OK: $package command found."

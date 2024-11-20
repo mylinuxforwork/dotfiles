@@ -22,7 +22,7 @@ missing_commands=""
 
 _run_diagnosis(){
     for command in "${commands[@]}"; do
-        if [[ $(_checkCommandExists ${command}) == "1" ]]; then
+        if ! _checkCommandExists $package; then
             missing_commands+="$command "
         fi
     done
