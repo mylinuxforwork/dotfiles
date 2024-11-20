@@ -28,21 +28,21 @@ if [[ $(_isInstalled "swayidle") == 0 ]]; then
 fi
 
 # Remove Swaylock
-if [[ $(_isInstalledAUR "swaylock-effects-git") == 0 ]]; then
+if [[ $(_isInstalled "swaylock-effects-git") == 0 ]]; then
     $aur_helper --noconfirm -R swaylock-effects-git
     echo ":: swaylock removed"
     echo
 fi
 
 # Remove aylurs-gtk-shell
-if [[ $(_isInstalledAUR "aylurs-gtk-shell-git") == 0 ]]; then
+if [[ $(_isInstalled "aylurs-gtk-shell-git") == 0 ]]; then
     $aur_helper --noconfirm -R aylurs-gtk-shell-git
     echo ":: aylurs-gtk-shell-git removed"
     echo
 fi
 
 # Remove bibata-cursor-theme
-if [[ $(_isInstalledAUR "bibata-cursor-theme") == 0 ]]; then
+if [[ $(_isInstalled "bibata-cursor-theme") == 0 ]]; then
     $aur_helper --noconfirm -R bibata-cursor-theme
     echo ":: bibata-cursor-theme removed"
     echo

@@ -3,48 +3,53 @@
 # ------------------------------------------------------
 _writeLogHeader "Diagnosis"
 
+commands=(
+    "dunst"
+    "waybar"
+    "hyprpaper"
+    "hyprlock"
+    "hypridle"
+    "hyprshade"
+    "wal"
+    "gum"
+    "wlogout"
+    "ags"
+    "magick"
+    "waypaper"
+)
+
+missing_commands=""
+
 _run_diagnosis(){
-    _commandExists "rofi" "rofi-wayland"
-    _commandExists "dunst" "dunst"
-    _commandExists "waybar" "waybar"
-    _commandExists "hyprpaper" "hyprpaper"
-    _commandExists "hyprlock" "hyprlock"
-    _commandExists "hypridle" "hypridle"
-    _commandExists "hyprshade" "hyprshade"
-    _commandExists "wal" "python-pywal"
-    _commandExists "gum" "gum"
-    _commandExists "wlogout" "wlogout"
-    _commandExists "ags" "ags"
-    _commandExists "magick" "imagemagick"
-    _commandExists "waypaper" "waypaper"
+    for command in "${commands[@]}"; do
+        if [[ $(_checkCommandExists ${command}) == "1" ]]; then
+            missing_commands+="$command "
+        fi
+    done
 }
 
-if [[ $(_check_update) == "false" ]] ;then
-    _writeHeader "Diagnosis"
-    if [ -z $automation_diagnosis ] ;then
-        _writeMessage "The system check will test that essential packages and execution commands are available now on your system."
-        echo 
-        if gum confirm "Do you want to run a short system check?" ;then
-            _run_diagnosis
+if [[ $(_check_update) == "true" ]] ;then
+    _run_diagnosis
+    if [[ ! -z $missing_commands ]]; then
+        _writeHeader "Diagnosis"
+        _writeLogTerminal 2 "Some required commands are not available:"
+        for command in "${missing_commands[@]}"; do
+            echo $command
+        done
+        echo
+        _writeMessage "You can proceed but some features of the ML4W Dotfiles will not work."
+        _writeMessage "Please install the missing packages manually for your distribution."
+        echo
+        if gum confirm "Do you want to proceed?" ;then
             echo
-            if gum confirm "Do you want to proceed?" ;then
-                echo
-            elif [ $? -eq 130 ]; then
-                _writeCancel
-                exit 130
-            else
-                _writeCancel
-                exit
-            fi
         elif [ $? -eq 130 ]; then
+            _writeCancel
             exit 130
         else
-            _writeSkipped
+            _writeCancel
+            exit
         fi
     else
-        if [[ "$automation_diagnosis" = true ]] ;then
-            _run_diagnosis
-        fi
+        _writeLogTerminal 1 "Required commands checked"
     fi
-    echo
 fi
