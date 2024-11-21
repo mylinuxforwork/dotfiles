@@ -1,1 +1,1 @@
-$aur_helper --noconfirm -S "pinta" &>> $(_getLogFile)
+$aur_helper -S --noconfirm "pinta" &>> $(_getLogFile)

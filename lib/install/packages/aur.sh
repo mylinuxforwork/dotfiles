@@ -3,7 +3,6 @@
 # ------------------------------------------------------
 
 if [ $install_platform = "arch" ]; then
-
 _writeLogHeader "AUR"
 
 yay_installed="false"
@@ -44,11 +43,11 @@ _selectAURHelper() {
 }
 
 _checkAURHelper() {
-    if [[ $(_checkCommandExists "yay") == "0" ]];then
+    if _checkCommandExists "yay"; then
         _writeLog 0 "yay is installed"
         yay_installed="true"
     fi
-    if [[ $(_checkCommandExists "paru") == "0" ]];then
+    if _checkCommandExists "paru"; then
         _writeLog 0 "paru is installed"
         paru_installed="true"
     fi

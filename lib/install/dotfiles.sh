@@ -22,11 +22,6 @@ if [ -z $aur_helper ] ;then
 fi
 
 # ----------------------------------------------------- 
-# Post Installation
-# ----------------------------------------------------- 
-source $install_directory/dotfiles/postinstall.sh
-
-# ----------------------------------------------------- 
 # Backup files
 # ----------------------------------------------------- 
 source $install_directory/dotfiles/backup.sh
