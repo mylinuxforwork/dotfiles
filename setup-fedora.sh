@@ -129,8 +129,8 @@ bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/share/p
 echo
 # Select the dotfiles version
 echo "Please choose between: "
+echo "- ML4W Dotfiles for Hyprland $latest_version (latest stable release)"
 echo "- ML4W Dotfiles for Hyprland Rolling Release (main branch including the latest commits)"
-echo "- ML4W Dotfiles fro Hyprland $latest_version (latest tagged release)"
 echo
 version=$(gum choose "rolling-release" "main-release" "cancel")
 if [ "$version" == "main-release" ]; then

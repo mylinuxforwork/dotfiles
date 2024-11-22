@@ -129,8 +129,8 @@ _installPackages "${packages[@]}";
 echo
 # Select the dotfiles version
 echo "Please choose between: "
+echo "- ML4W Dotfiles for Hyprland $latest_version (latest stable release)"
 echo "- ML4W Dotfiles for Hyprland Rolling Release (main branch including the latest commits)"
-echo "- ML4W Dotfiles for Hyprland $latest_version (latest tagged release)"
 echo
 version=$(gum choose "main-release" "rolling-release" "CANCEL")
 if [ "$version" == "main-release" ]; then
