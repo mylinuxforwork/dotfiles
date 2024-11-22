@@ -138,7 +138,7 @@ if [ "$version" == "main-release" ]; then
     yay -S --noconfirm ml4w-hyprland
 elif [ "$version" == "rolling-release" ]; then
     echo ":: Installing Rolling Release"
-    yay -S --noconfirm ml4w-hyprland-git
+    yay -S ml4w-hyprland-git
 elif [ "$version" == "CANCEL" ]; then
     echo ":: Setup canceled"
     exit 130    

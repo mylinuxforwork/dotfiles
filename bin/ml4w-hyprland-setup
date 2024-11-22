@@ -21,7 +21,7 @@ if [[ $dir == "/usr/bin" ]] ;then
     share_directory="$base_directory/share/$package_name"
     lib_directory="$base_directory/lib/$package_name"
 else
-    
+
     # Filesystem
     base_directory="$(dirname $(pwd))"
     bin_directory="$base_directory/bin"
