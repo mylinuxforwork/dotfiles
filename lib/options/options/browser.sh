@@ -3,7 +3,7 @@ clear
 echo -e "${GREEN}"
 figlet -f smslant "Browser"
 echo -e "${NONE}"
-source $packages_directory/options/browser.sh
+source $packages_directory/$install_platform/options/browser.sh
 toInstall=""
 selectedInstall=""
 
@@ -16,10 +16,12 @@ if [ -z "$optionalSelect" ] ;then
 elif [ $optionalSelect == "CANCEL" ]; then
     _selectCategory
 else
-    if [[ ! $(_isInstalledAUR "$optionalSelect") == 0 ]]; then
-        $aur_helper -S $optionalSelect
+    if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
+        _installPackage $optionalSelect
     fi
     if [ $optionalSelect == "brave-bin" ]; then
+        echo 'brave' > "$HOME/.config/ml4w/settings/browser.sh"
+    elif [ $optionalSelect == "brave-browser" ]; then
         echo 'brave' > "$HOME/.config/ml4w/settings/browser.sh"
     elif [ $optionalSelect == "zen-browser-bin" ]; then
         echo 'zen-browser' > "$HOME/.config/ml4w/settings/browser.sh"

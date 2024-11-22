@@ -1,162 +1,94 @@
 # ------------------------------------------------------
 # Backup existing dotfiles
 # ------------------------------------------------------
+_writeLogHeader "Backup"
 
 datets=$(date '+%Y%m%d%H%M%S')
+files=$(ls -a $dotfiles_directory)
+folders=$(ls -a $dotfiles_directory/.config)
+backuplist=""
+
+# Write folder to backup
+_write_backup_folder() {
+    cp -r $1 $backup_directory/.config
+    _writeLogTerminal 1 "Backup of $1 created in $backup_directory/config/"
+}
+
+# Write file to backup
+_write_backup_file() {
+    cp $1 $backup_directory
+    _writeLogTerminal 1 "Backup of $1 created in $backup_directory"
+}
 
 _create_backup() {
+    # Archive existing backup
     if [ ! -z "$(ls -A $backup_directory)" ] ;then
         rsync -a $backup_directory/ $archive_directory/$datets/
-        echo ":: Current backup archived in $archive_directory/$datets"
+        _writeLogTerminal 1 "Current backup archived in $archive_directory/$datets"
     fi
+
+    # Backup dotfiles folder
     if [ -d ~/$dot_folder ]; then
         rsync -a ~/$dot_folder $backup_directory/
-        echo ":: Backup of $HOME/$dot_folder created in $backup_directory"
+        _writeLog 1 "Backup of $HOME/$dot_folder created in $backup_directory"
     fi
-    if ! test -L ~/.bashrc ;then
-        cp ~/.bashrc $backup_directory
-        echo ":: Backup of $HOME/.bashrc created in $backup_directory"
-    fi
-    if ! test -L ~/.zshrc ;then
-        cp ~/.zshrc $backup_directory
-        echo ":: Backup of $HOME/.zshrc created in $backup_directory"
-    fi
-    if [ ! -d $backup_directory/config ] ;then
-        mkdir $backup_directory/config
-    fi
-    if ! test -L ~/.config/qtile && [ -d ~/.config/qtile ] ;then
-        cp -r ~/.config/qtile $backup_directory/config
-        echo ":: Backup of $HOME/.config/qtile created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/hypr && [ -d ~/.config/hypr ] ;then
-        cp -r ~/.config/hypr $backup_directory/config
-        echo ":: Backup of $HOME/.config/hypr created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/ml4w-hyprland-settings && [ -d ~/.config/ml4w-hyprland-settings ] ;then
-        cp -r ~/.config/ml4w-hyprland-settings $backup_directory/config
-        echo ":: Backup of $HOME/.config/ml4w-hyprland-settings created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/qtile && [ -d ~/.config/rofi ] ;then
-        cp -r ~/.config/rofi $backup_directory/config
-        echo ":: Backup of $HOME/.config/rofi created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/wal && [ -d ~/.config/wal ] ;then
-        cp -r ~/.config/wal $backup_directory/config
-        echo ":: Backup of $HOME/.config/wal created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/waybar && [ -d ~/.config/waybar ] ;then
-        cp -r ~/.config/waybar $backup_directory/config
-        echo ":: Backup of $HOME/.config/waybar created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/waypaper && [ -d ~/.config/waypaper ] ;then
-        cp -r ~/.config/waypaper $backup_directory/config
-        echo ":: Backup of $HOME/.config/waypaper created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/wlogout && [ -d ~/.config/wlogout ] ;then
-        cp -r ~/.config/wlogout $backup_directory/config
-        echo ":: Backup of $HOME/.config/wlogout created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/alacritty && [ -d ~/.config/alacritty ] ;then
-        cp -r ~/.config/alacritty $backup_directory/config
-        echo ":: Backup of $HOME/.config/alacritty created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/kitty && [ -d ~/.config/kitty ] ;then
-        cp -r ~/.config/kitty $backup_directory/config
-        echo ":: Backup of $HOME/.config/kitty created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/picom && [ -d ~/.config/picom ] ;then
-        cp -r ~/.config/picom $backup_directory/config
-        echo ":: Backup of $HOME/.config/picom created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/nvim && [ -d ~/.config/nvim ] ;then
-        cp -r ~/.config/nvim $backup_directory/config
-        echo ":: Backup of $HOME/.config/nvim created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/vim && [ -d ~/.config/vim ] ;then
-        cp -r ~/.config/vim $backup_directory/config
-        echo ":: Backup of $HOME/.config/vim created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/dunst && [ -d ~/.config/dunst ] ;then
-        cp -r ~/.config/dunst $backup_directory/config
-        echo ":: Backup of $HOME/.config/dunst created in $backup_directory/config/"
-    fi
-    if ! test -L ~/.config/swappy && [ -d ~/.config/swappy ] ;then
-        cp -r ~/.config/swappy $backup_directory/config
-        echo ":: Backup of $HOME/.config/swappy created in $backup_directory/config/"
-    fi        
+
+    # Backup files
+    for f in $backuplist; do
+        if [ -f $f ]; then
+            _write_backup_file $f
+        fi
+        if [ -d $f ]; then
+            _write_backup_folder $f
+        fi
+    done
+
+    _writeLogTerminal 1 "Backup created in $backup_directory"
 }
 
 # Create Backup File Structure
-if [ ! -d $ml4w_directory ] ;then
-    mkdir $ml4w_directory
-    echo ":: $ml4w_directory folder created."
-fi
-if [ ! -d $backup_directory ]; then
-    mkdir $backup_directory
-    echo ":: $backup_directory created"
-fi
-if [ ! -d $archive_directory ]; then
-    mkdir $archive_directory
-    echo ":: $archive_directory created"
-fi
+_createBackupStructure() {
+    if [ ! -d $ml4w_directory ] ;then
+        mkdir -p $ml4w_directory
+        _writeLog 1 "$ml4w_directory folder created."
+    fi
+    if [ ! -d $backup_directory ]; then
+        mkdir -p $backup_directory
+        _writeLog 1 "$backup_directory created"
+    fi
+    if [ ! -d $archive_directory ]; then
+        mkdir -p $archive_directory
+        _writeLog 1 "$archive_directory created"
+    fi
+    if [ ! -d $backup_directory/.config ] ;then
+        mkdir -p $backup_directory/.config
+    fi
+}
 
-# Backup Existing Dotfiles
-
-if [ -d ~/$dot_folder ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d ~/.config/qtile ]; then
-
-    echo -e "${GREEN}"
-    figlet -f smslant "Backup"
-    echo -e "${NONE}"
-    echo "The script has detected the following files and folders for a backup:"
+# Show files for a backup
+_showBackup() {
+    _writeMessage "The script has detected the following files and folders for a backup:"
 
     if [ -d ~/$dot_folder ]; then
-        echo "   - $HOME/$dot_folder"
+        _writeMessage "$HOME/$dot_folder"
     fi
-    if ! test -L ~/.bashrc ;then
-        echo "   - $HOME/.bashrc"
-    fi
-    if ! test -L ~/.zshrc ;then
-        echo "   - $HOME/.zshrc"
-    fi
-    if ! test -L ~/.config/qtile && [ -d ~/.config/qtile ] ;then
-        echo "   - $HOME/.config/qtile/"
-    fi
-    if ! test -L ~/.config/hypr && [ -d ~/.config/hypr ] ;then
-        echo "   - $HOME/.config/hypr/"
-    fi
-    if ! test -L ~/.config/ml4w-hyprland-settings && [ -d ~/.config/ml4w-hyprland-settings ] ;then
-        echo "   - $HOME/.config/ml4w-hyprland-settings/"
-    fi
-    if ! test -L ~/.config/rofi && [ -d ~/.config/rofi ] ;then
-        echo "   - $HOME/.config/rofi/"
-    fi
-    if ! test -L ~/.config/wal && [ -d ~/.config/wal ] ;then
-        echo "   - $HOME/.config/wal/"
-    fi
-    if ! test -L ~/.config/waybar && [ -d ~/.config/waybar ] ;then
-        echo "   - $HOME/.config/waybar/"
-    fi
-    if ! test -L ~/.config/wlogout && [ -d ~/.config/wlogout ] ;then
-        echo "   - $HOME/.config/wlogout/"
-    fi
-    if ! test -L ~/.config/alacritty && [ -d ~/.config/alacritty ] ;then
-        echo "   - $HOME/.config/alacritty/"
-    fi
-    if ! test -L ~/.config/picom && [ -d ~/.config/picom ] ;then
-        echo "   - $HOME/.config/picom/"
-    fi
-    if ! test -L ~/.config/nvim && [ -d ~/.config/nvim ] ;then
-        echo "   - $HOME/.config/nvim/"
-    fi
-    if ! test -L ~/.config/vim && [ -d ~/.config/vim ] ;then
-        echo "   - $HOME/.config/vim/"
-    fi
-    if ! test -L ~/.config/dunst && [ -d ~/.config/dunst ] ;then
-        echo "   - $HOME/.config/dunst/"
-    fi
-    if ! test -L ~/.config/swappy && [ -d ~/.config/swappy ] ;then
-        echo "   - $HOME/.config/swappy/"
-    fi
+
+    for f in $files; do
+        if [ ! "$f" == "." ] && [ ! "$f" == ".." ] && [ ! "$f" == ".config" ]; then
+            if [ ! -L $HOME/$f ] && [ -f $HOME/$f ] ;then
+                _writeMessage "$HOME/$f"
+                backuplist+="$HOME/$f "
+            fi
+        fi
+    done
+    for f in $folders; do
+        if [ ! "$f" == "." ] && [ ! "$f" == ".." ]; then
+            if [ ! -L $HOME/.config/$f ] && [ -d $HOME/.config/$f ] ;then
+                _writeMessage "$HOME/.config/$f"
+                backuplist+="$HOME/.config/$f "
+            fi
+        fi
+    done
     echo 
     # Start Backup
     if [ -z $automation_backup ] ;then
@@ -165,14 +97,15 @@ if [ -d ~/$dot_folder ] || ! test -L ~/.bashrc || [ -d ~/.config/hypr ] || [ -d 
         elif [ $? -eq 130 ]; then
             exit 130
         else
-            echo ":: Backup skipped."
+            _writeSkipped
         fi
     else
         if [[ "$automation_backup" = true ]] ;then
             _create_backup
         fi
     fi
-else
-    echo ":: Nothing to backup"
-fi
-echo
+}
+
+_createBackupStructure
+_writeHeader "Backup"
+_showBackup

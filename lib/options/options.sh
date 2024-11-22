@@ -1,10 +1,9 @@
 #!/bin/bash
-aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
 sleep 1
 
 _checkPackages() {
     for pkg in ${optdepends[@]}; do
-        if [[ $(_isInstalledAUR "${pkg}") == 0 ]]; then
+        if [[ $(_isInstalled "${pkg}") == 0 ]]; then
             echo ":: ${pkg} is already installed."
         fi
         toInstall+="${pkg} "
@@ -48,7 +47,7 @@ _checkSddmTheme() {
 }
 
 _checkPywalfox() {
-    if [[ $(_isInstalledAUR "python-pywalfox") == 0 ]]; then
+    if [[ $(_isInstalled "python-pywalfox") == 0 ]]; then
         echo "Installed"
     else
         echo "Not installed"
@@ -60,14 +59,15 @@ _selectCategory() {
     echo -e "${GREEN}"
     figlet -f smslant "Options"
     echo -e "${NONE}"
+    echo "Platform: $install_platform"
     echo "This script will help you to install some pre-defined package options."
-    echo "If your desired package is not listed, you can install it with $aur_helper -S package "
+    echo "If your desired package is not listed, you can install it with your package manager "
     echo "and set it as default application in the ML4W Settings App."
-    if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
+    if [[ ! $(_isInstalled "xdg-desktop-portal-gtk") == 0 ]]; then
         echo "Please note: xdg-desktop-portal-gtk is required to get dark theme on GTK apps."
     fi
     echo
-    if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
+    if [[ ! $(_isInstalled "xdg-desktop-portal-gtk") == 0 ]]; then
         echo "- xdg-desktop-portal-gtk: Not installed"
     else
         echo "- xdg-desktop-portal-gtk: Installed"
@@ -79,10 +79,10 @@ _selectCategory() {
     echo "- Pywalfox:" $(_checkPywalfox) 
     echo "- System monitor:" $(_checkCurrent system-monitor.sh)     
     echo
-    if [[ ! $(_isInstalledAUR "xdg-desktop-portal-gtk") == 0 ]]; then
-        category=$(gum choose "xdg-desktop-portal-gtk" "sddm toggle" "sddm theme" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "other" "REBOOT" "CANCEL")
+    if [[ ! $(_isInstalled "xdg-desktop-portal-gtk") == 0 ]]; then
+        category=$(gum choose "xdg-desktop-portal-gtk" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "sddm theme" "more" "REBOOT" "CANCEL")
     else
-        category=$(gum choose "sddm toggle" "sddm theme" "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "other" "REBOOT" "CANCEL")
+        category=$(gum choose "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "sddm theme" "more" "REBOOT" "CANCEL")
     fi
     case ${category} in
         xdg-desktop-portal-gtk)
@@ -100,14 +100,11 @@ _selectCategory() {
         browser)
             source $options_directory/options/browser.sh
         ;;
-        other)
+        more)
             source $options_directory/options/other.sh
         ;;
         shell)
             source $options_directory/options/shell.sh
-        ;;
-        "sddm toggle")
-            source $options_directory/options/sddm.sh
         ;;
         "sddm theme")
             source $options_directory/options/sddm-theme.sh

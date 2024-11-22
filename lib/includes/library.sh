@@ -6,48 +6,120 @@
 # |_____|_|_.__/|_|  \__,_|_|   \__, | 
 #                               |___/  
 #  
-# by Stephan Raabe (2023) 
+# by Stephan Raabe (2024) 
 # ----------------------------------------------------- 
+
+# ------------------------------------------------------
+# Write dialog header
+# ------------------------------------------------------
+
+_writeHeader() {
+    echo -e "${GREEN}"
+    figlet -f smslant $1
+    echo -e "${NONE}"
+}
 
 # ------------------------------------------------------
 # Function: Is package installed
 # ------------------------------------------------------
-_isInstalledPacman() {
+
+_isInstalled() {
     package="$1";
-    check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")";
-    if [ -n "${check}" ] ; then
-        echo 0; #'0' means 'true' in Bash
-        return; #true
-    fi;
-    echo 1; #'1' means 'false' in Bash
-    return; #false
+    case $install_platform in
+        arch)
+            check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")";
+            if [ -n "${check}" ]; then
+                echo 0
+            else
+                echo 1
+            fi
+        ;;
+        fedora)
+            check=$(dnf list --installed | grep $package)
+            if [ -z "$check" ]; then
+                echo 1
+            else
+                echo 0
+            fi        
+        ;;
+        *)
+            _writeLogTerminal 2 "Selected platform $install_platform is not supported"
+            exit
+        ;;
+    esac    
 }
 
-_isInstalledAUR() {
-    package="$1";
-    check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "\." | grep "${package} ")";
-    if [ -n "${check}" ] ; then
-        echo 0; #'0' means 'true' in Bash
-        return; #true
-    fi;
-    echo 1; #'1' means 'false' in Bash
-    return; #false
+# ------------------------------------------------------
+# Function Install all package if not installed
+# ------------------------------------------------------
+_installPackage() {
+
+    # Check if package is already installed
+    if [[ $(_isInstalled "$1") == 0 ]]; then
+
+        _writeLogTerminal 0 "$1 is already installed."
+    else
+
+        if [ -f "$packages_directory/$install_platform/special/$1" ]; then
+
+            _writeLogTerminal 0 "Installing $1 with custom script..."
+
+            # Source custom installation script for package
+            source $packages_directory/$install_platform/special/$1
+        else
+
+            # Check if installation script exist and not empty
+            _writeLogTerminal 0 "Installing $1..."
+
+            # Run installation with platform command
+            case $install_platform in
+                arch)
+                    sudo pacman --noconfirm -S "$1" &>> $(_getLogFile)
+                ;;
+                fedora)
+                    sudo dnf install --assumeyes "$1" &>> $(_getLogFile)
+                ;;
+                *)
+                    _writeLogTerminal 2 "Selected platform $install_platform is not supported"
+                    exit
+                ;;
+            esac    
+
+            # Check that installation was successful
+            if [[ $(_isInstalled "$1") == 0 ]]; then
+                _writeLogTerminal 1 "$1 installed successfully."
+            else
+                _writeLogTerminal 2 "$1 installation failed. Please install $1 manually."
+            fi
+        fi
+    fi
 }
 
-_isInstalledYay() {
-    _isInstalledAUR $1
+_installPackages() {
+    for pkg; do
+        _installPackage "${pkg}"
+    done
 }
 
-_isInstalledFlatpak() {
-    package="$1";
-    check="$(flatpak list --columns="application" | grep "${package} ")";
-    if [ -n "${check}" ] ; then
-        echo 0; #'0' means 'true' in Bash
-        return; #true
-    fi;
-    echo 1; #'1' means 'false' in Bash
-    return; #false
+_removePackage() {
+    _writeLog 0 "Removing $1..."
+    case $install_platform in
+        arch)
+            sudo pacman --noconfirm -R "$1" &>> $(_getLogFile)
+        ;;
+        fedora)
+            sudo dnf remove --assumeyes "$1" &>> $(_getLogFile)
+        ;;
+        *)
+            _writeLogTerminal 2 "Selected platform $install_platform is not supported"
+            exit
+        ;;
+    esac    
 }
+
+# ------------------------------------------------------
+# Cleanup
+# ------------------------------------------------------
 
 _isFolderEmpty() {
     folder="$1"
@@ -61,129 +133,6 @@ _isFolderEmpty() {
         echo 1
     fi
 }
-
-# ------------------------------------------------------
-# Function Install all package if not installed
-# ------------------------------------------------------
-_installPackagesPacman() {
-    toInstall=();
-    for pkg; do
-        if [[ $(_isInstalledPacman "${pkg}") == 0 ]]; then
-            echo ":: ${pkg} is already installed.";
-            continue;
-        fi;
-        toInstall+=("${pkg}");
-    done;
-
-    if [[ "${toInstall[@]}" == "" ]] ; then
-        # echo "All pacman packages are already installed.";
-        return;
-    fi;
-
-    # printf "Package not installed:\n%s\n" "${toInstall[@]}";
-    sudo pacman --noconfirm -S "${toInstall[@]}";
-}
-
-_forcePackagesPacman() {
-    toInstall=();
-    for pkg; do
-        toInstall+=("${pkg}");
-    done;
-
-    if [[ "${toInstall[@]}" == "" ]] ; then
-        # echo "All pacman packages are already installed.";
-        return;
-    fi;
-
-    # printf "Package not installed:\n%s\n" "${toInstall[@]}";
-    sudo pacman --noconfirm -S "${toInstall[@]}" --ask 4;
-}
-
-_installPackagesYay() {
-    toInstall=();
-    for pkg; do
-        if [[ $(_isInstalledYay "${pkg}") == 0 ]]; then
-            echo ":: ${pkg} is already installed.";
-            continue;
-        fi;
-        toInstall+=("${pkg}");
-    done;
-
-    if [[ "${toInstall[@]}" == "" ]] ; then
-        # echo "All packages are already installed.";
-        return;
-    fi;
-
-    # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
-    $aur_helper --noconfirm -S "${toInstall[@]}";
-}
-
-_installPackagesAUR() {
-    toInstall=();
-    for pkg; do
-        if [[ $(_isInstalledYay "${pkg}") == 0 ]]; then
-            echo ":: ${pkg} is already installed.";
-            continue;
-        fi;
-        toInstall+=("${pkg}");
-    done;
-
-    if [[ "${toInstall[@]}" == "" ]] ; then
-        # echo "All packages are already installed.";
-        return;
-    fi;
-
-    # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
-    $aur_helper --noconfirm -S "${toInstall[@]}";
-}
-
-_forcePackagesAUR() {
-    toInstall=();
-    for pkg; do
-        toInstall+=("${pkg}");
-    done;
-
-    if [[ "${toInstall[@]}" == "" ]] ; then
-        # echo "All packages are already installed.";
-        return;
-    fi;
-
-    # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
-    $aur_helper --noconfirm -S "${toInstall[@]}" --ask 4;
-}
-
-_forcePackagesYay() {
-    toInstall=();
-    for pkg; do
-        toInstall+=("${pkg}");
-    done;
-
-    if [[ "${toInstall[@]}" == "" ]] ; then
-        # echo "All packages are already installed.";
-        return;
-    fi;
-
-    # printf "AUR packags not installed:\n%s\n" "${toInstall[@]}";
-    $aur_helper --noconfirm -S "${toInstall[@]}" --ask 4;
-}
-
-_installPackagesFlatpak() {
-     toInstall=();
-    for pkg; do
-        sudo flatpak install -y flathub "${pkg[@]}";
-        if [[ $(_isInstalledFlatpak "${pkg}") == 0 ]]; then
-            echo ":: ${pkg} is installed.";
-            toInstall+=("${pkg}");
-            continue;
-        fi;
-    done;
-
-    sudo flatpak install -y flathub "${toInstall[@]}";
-}
-
-# ------------------------------------------------------
-# Cleanup
-# ------------------------------------------------------
 
 _move_folder() {
     source=$1
@@ -472,16 +421,16 @@ _replaceLineInFileCheckpoint() {
 
 _checkCommandExists() {
     package="$1";
-    if ! type $package > /dev/null 2>&1; then
-        echo "1"
+	if ! command -v $package > /dev/null; then
+        return 1
     else
-        echo "0"
+        return 0
     fi
 }
 
 _commandExists() {
     package="$1";
-    if [[ $(_checkCommandExists $package) == "1" ]]; then
+    if _checkCommandExists $package; then
         echo ":: ERROR: $package doesn't exists. Please install it manually."
     else
         echo ":: OK: $package command found."

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ -z $install_platform ]; then
+    source $install_directory/packages/platform.sh
+fi
+
 # ----------------------------------------------------- 
 # Load automation variables
 # ----------------------------------------------------- 
@@ -16,11 +20,6 @@ source $install_directory/dotfiles/dotfiles.sh
 if [ -z $aur_helper ] ;then
     source $install_directory/packages/aur.sh
 fi
-
-# ----------------------------------------------------- 
-# Post Installation
-# ----------------------------------------------------- 
-source $install_directory/dotfiles/postinstall.sh
 
 # ----------------------------------------------------- 
 # Backup files
@@ -40,7 +39,9 @@ source $install_directory/dotfiles/vm.sh
 # ----------------------------------------------------- 
 # Install SDDM
 # -----------------------------------------------------
-source $install_directory/dotfiles/sddm.sh
+if [ $install_platform == "arch" ]; then
+    source $install_directory/dotfiles/sddm.sh
+fi
 
 # ----------------------------------------------------- 
 # Install SDDM Theme

@@ -1,6 +1,7 @@
 # ------------------------------------------------------
 # Install .zshrc
 # ------------------------------------------------------
+_writeLogHeader ".zshrc"
 
 _zshrc_confirm() {
     if gum confirm "Do you want to replace your existing .zshrc?" ;then
@@ -9,7 +10,7 @@ _zshrc_confirm() {
     elif [ $? -eq 130 ]; then
             exit 130
     else
-        echo ":: Installation of the .zshrc file skipped."
+        _writeSkipped
     fi
 }
 
@@ -18,7 +19,7 @@ _zsh_automation() {
         echo ":: AUTOMATION: .zshrc will be installed."
     elif [[ "$automation_zshrc" = false ]] ;then
         rm $ml4w_directory/$version/.zshrc
-        echo ":: AUTOMATION: Installation of the .zshrc file skipped."
+        _writeSkipped
     else
         echo ":: AUTOMATION ERROR: zshrc"
         exit
@@ -27,9 +28,7 @@ _zsh_automation() {
 
 if [ -f ~/.zshrc ] ;then
     if ! test -L ~/.zshrc ;then
-        echo -e "${GREEN}"
-        figlet -f smslant ".zshrc"
-        echo -e "${NONE}"
+        _writeHeader ".zshrc"
         echo ":: The script has detected an existing .zshrc file."
         echo ":: You can replace it with the latest version of ML4W Dotfiles $version (Recommended)."
         echo

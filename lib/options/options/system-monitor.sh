@@ -3,7 +3,7 @@ clear
 echo -e "${GREEN}"
 figlet -f smslant "System Monitor"
 echo -e "${NONE}"
-source $packages_directory/options/system-monitor.sh
+source $packages_directory/$install_platform/options/system-monitor.sh
 toInstall=""
 selectedInstall=""
 
@@ -16,8 +16,8 @@ if [ -z "$optionalSelect" ] ;then
 elif [ $optionalSelect == "CANCEL" ]; then
     _selectCategory
 else
-    if [[ ! $(_isInstalledAUR "$optionalSelect") == 0 ]]; then
-        $aur_helper -S $optionalSelect
+    if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
+        _installPackage $optionalSelect
     fi
     if [ $optionalSelect == "htop" ]; then
         echo '$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e htop' > "$HOME/.config/ml4w/settings/system-monitor.sh"

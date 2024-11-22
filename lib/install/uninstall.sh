@@ -14,7 +14,7 @@ echo
 echo -e "${NONE}"
 echo "This script will support you to uninstall the ML4W Dotfiles in ~/$dot_folder from your system."
 echo "Only the ML4W Dotfiles related files and folders will be removed."
-echo "Packages will not be uninstalled. You have to uninstall packages manually if needed."
+echo "Packages are not uninstalled. You have to uninstall packages manually if needed."
 echo "Your login manager (display manager) will stay untouched. Please remove it manually if needed."
 echo 
 if gum confirm "DO YOU WANT TO START THE UNINSTALLATION NOW?" ;then
@@ -50,9 +50,6 @@ fi
 if test -L ~/.zshrc ;then
     rm $HOME/.zshrc
 fi
-if test -L ~/.config/qtile ;then
-    rm $HOME/.config/qtile
-fi
 if test -L ~/.config/hypr ;then
     rm $HOME/.config/hypr
 fi
@@ -82,9 +79,6 @@ if test -L ~/.config/vim ;then
 fi
 if test -L ~/.config/dunst ;then
     rm $HOME/.config/dunst
-fi
-if test -L ~/.config/swappy ;then
-    rm $HOME/.config/swappy
 fi
 if test -L ~/.config/waypaper ;then
     rm $HOME/.config/waypaper
@@ -130,6 +124,9 @@ app_name="com.ml4w.welcome"
 if [ -f /usr/share/applications/$app_name.desktop ] ;then
     sudo rm /usr/share/applications/$app_name.desktop
 fi
+if [ -f $HOME/.local/share/applications/$app_name.desktop ] ;then
+    sudo rm /usr/share/applications/$app_name.desktop
+fi
 if [ -f /usr/share/icons/hicolor/128x128/apps/$app_name.png ] ;then
     sudo rm /usr/share/icons/hicolor/128x128/apps/$app_name.png
 fi
@@ -142,6 +139,9 @@ app_name="com.ml4w.dotfilessettings"
 if [ -f /usr/share/applications/$app_name.desktop ] ;then
     sudo rm /usr/share/applications/$app_name.desktop
 fi
+if [ -f $HOME/.local/share/applications/$app_name.desktop ] ;then
+    sudo rm /usr/share/applications/$app_name.desktop
+fi
 if [ -f /usr/share/icons/hicolor/128x128/apps/$app_name.png ] ;then
     sudo rm /usr/share/icons/hicolor/128x128/apps/$app_name.png
 fi
@@ -152,6 +152,9 @@ echo ":: ML4W Settings App uninstalled successfully"
 
 app_name="com.ml4w.hyprland.settings"
 if [ -f /usr/share/applications/$app_name.desktop ] ;then
+    sudo rm /usr/share/applications/$app_name.desktop
+fi
+if [ -f $HOME/.local/share/applications/$app_name.desktop ] ;then
     sudo rm /usr/share/applications/$app_name.desktop
 fi
 if [ -f /usr/share/icons/hicolor/128x128/apps/$app_name.png ] ;then
@@ -186,4 +189,15 @@ fi
 
 figlet -f smslant "DONE"
 echo ":: The ML4W Dotfiles have been removed."
-gum spin --spinner dot --title ":: SEE YOU NEXT TIME ;-)" -- sleep 3
+echo
+echo ":: A reboot of your system is recommended."
+echo
+if gum confirm "Do you want to reboot your system now?" ;then
+    gum spin --spinner dot --title "Rebooting now..." -- sleep 3
+    systemctl reboot
+elif [ $? -eq 130 ]; then
+    exit 130
+else
+    _writeSkipped
+fi
+echo

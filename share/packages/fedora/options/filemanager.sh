@@ -1,0 +1,5 @@
+optdepends=(
+    "nautilus"
+    "yazi"
+    "dolphin"
+);

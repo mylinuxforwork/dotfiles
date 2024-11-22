@@ -1,11 +1,10 @@
 # ------------------------------------------------------
 # Execute post.sh
 # ------------------------------------------------------
+_writeLogHeader "Post Script"
 
 if [ -f $ml4w_directory/post.sh ]; then
-    echo -e "${GREEN}"
-    figlet -f smslant "Post Script"
-    echo -e "${NONE}"
+    _writeHeader "Post Script"
     echo ":: The script has detected a post.sh script."
     echo
     if [ -z $automation_post ] ;then
@@ -15,10 +14,10 @@ if [ -f $ml4w_directory/post.sh ]; then
             cd $base_directory
             echo ":: post.sh executed!"
         elif [ $? -eq 130 ]; then
-            echo ":: Installation canceled."
+            _writeCancel
             exit 130
         else
-            echo ":: Execution of post.sh skipped."
+            _writeSkipped
         fi
     else
         if [[ "$automation_post" = true ]] ;then
@@ -27,7 +26,7 @@ if [ -f $ml4w_directory/post.sh ]; then
             cd $base_directory
             echo ":: AUTOMATION: post.sh executed!"
         elif [[ "$automation_post" = false ]] ;then
-            echo ":: AUTOMATION: post.sh skipped"
+            _writeSkipped
         else
             echo ":: AUTOMATION ERROR: post error"
         fi

@@ -3,7 +3,7 @@ clear
 echo -e "${GREEN}"
 figlet -f smslant "File Manager"
 echo -e "${NONE}"
-source $packages_directory/options/filemanager.sh
+source $packages_directory/$install_platform/options/filemanager.sh
 toInstall=""
 selectedInstall=""
 
@@ -16,8 +16,8 @@ if [ -z "$optionalSelect" ] ;then
 elif [ $optionalSelect == "CANCEL" ]; then
     _selectCategory
 else
-    if [[ ! $(_isInstalledAUR "$optionalSelect") == 0 ]]; then
-        $aur_helper -S $optionalSelect
+    if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
+        _installPackage $optionalSelect
     fi
     if [ $optionalSelect == "yazi" ]; then
         echo '$(cat ~/.config/ml4w/settings/terminal.sh) -e yazi' > "$HOME/.config/ml4w/settings/filemanager.sh"

@@ -1,0 +1,4 @@
+optdepends=(
+    "htop"
+    "btop"
+);

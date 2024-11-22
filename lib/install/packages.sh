@@ -1,9 +1,12 @@
-#!/bin/bash
+# ----------------------------------------------------- 
+# Select Platform
+# ----------------------------------------------------- 
+source $install_directory/packages/platform.sh
 
 # ----------------------------------------------------- 
 # Before start
 # ----------------------------------------------------- 
-source $install_directory/packages/before_start.sh
+source $install_directory/packages/required.sh
 
 # ----------------------------------------------------- 
 # Confirm start

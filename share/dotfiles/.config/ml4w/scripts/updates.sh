@@ -14,23 +14,36 @@
 threshhold_green=0
 threshhold_yellow=25
 threshhold_red=100
-aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
+install_platform="$(cat ~/.config/ml4w/settings/platform.sh)"
 
-# ----------------------------------------------------- 
-# Calculate available updates
-# ----------------------------------------------------- 
+# Check if platform is supported
+case $install_platform in
+    arch)
+        aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
 
-if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
-    updates_arch=0
-fi
+        # ----------------------------------------------------- 
+        # Calculate available updates
+        # ----------------------------------------------------- 
 
-if ! updates_aur=$($aur_helper -Qu --aur --quiet | wc -l); then
-    updates_aur=0
-fi
+        if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
+            updates_arch=0
+        fi
 
-# flatpak remote-ls --updates
+        if ! updates_aur=$($aur_helper -Qu --aur --quiet | wc -l); then
+            updates_aur=0
+        fi
 
-updates=$(("$updates_arch" + "$updates_aur"))
+        # flatpak remote-ls --updates
+
+        updates=$(("$updates_arch" + "$updates_aur"))
+    ;;
+    fedora)
+        updates=$(dnf check-update -q|grep -c ^[a-z0-9])
+    ;;
+    *)
+        updates=0
+    ;;
+esac
 
 # ----------------------------------------------------- 
 # Output in JSON format for Waybar Module custom-updates

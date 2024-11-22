@@ -1,10 +1,8 @@
 # ------------------------------------------------------
 # Reboot
 # ------------------------------------------------------
-
-echo -e "${GREEN}"
-figlet -f smslant "Done"
-echo -e "${NONE}"
+_writeLogHeader "Reboot"
+_writeHeader "Done"
 echo "A reboot of your system is recommended."
 echo
 if gum confirm "Do you want to reboot your system now?" ;then
@@ -13,6 +11,6 @@ if gum confirm "Do you want to reboot your system now?" ;then
 elif [ $? -eq 130 ]; then
     exit 130
 else
-    echo ":: Reboot skipped"
+    _writeSkipped
 fi
-echo ""
+echo

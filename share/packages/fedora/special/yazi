@@ -1,0 +1,2 @@
+sudo dnf install varlad/yazi &>> $(_getLogFile)
+sudo dnf install yazi &>> $(_getLogFile)

@@ -1,15 +1,13 @@
 # ------------------------------------------------------
 # Install packages
 # ------------------------------------------------------
-
-echo -e "${GREEN}"
-figlet -f smslant "Packages"
-echo -e "${NONE}"
+_writeLogHeader "Packages"
+_writeHeader "Packages"
 
 # Hyprland
-source $packages_directory/hyprland.sh
-_installPackagesAUR "${packages[@]}";
+source $packages_directory/$install_platform/hyprland.sh
+_installPackages "${packages[@]}"
 
 # profile
-source $packages_directory/profiles/default.sh
-_installPackagesAUR "${packages[@]}";
+source $packages_directory/$install_platform/profiles/default.sh
+_installPackages "${packages[@]}"
