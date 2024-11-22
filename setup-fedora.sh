@@ -120,16 +120,11 @@ if [ -d $HOME/Downloads/dotfiles-dev ]; then
     rm -rf $HOME/Downloads/dotfiles-dev
 fi
 
-# Synchronizing package databases
-sudo pacman -Sy
-echo
-
 # Install required packages
 echo ":: Checking that required packages are installed..."
 _installPackages "${packages[@]}";
 
-# Install gum
-share/packages/fedora/special/gum.sh
+bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/share/packages/fedora/special/gum.sh)
 
 echo
 # Select the dotfiles version
