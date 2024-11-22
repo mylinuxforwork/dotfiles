@@ -39,7 +39,7 @@ packages=(
     "hyprshade"
     "waypaper"
     "grimblast-git"
-    "aylurs-gtk-shell"
+    "astal"
     "bibata-cursor-theme"
     "fontawesome-6-free-fonts" 
     "mozilla-fira-sans-fonts" 
