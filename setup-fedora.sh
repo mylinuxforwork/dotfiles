@@ -132,7 +132,7 @@ echo "Please choose between: "
 echo "- ML4W Dotfiles for Hyprland $latest_version (latest stable release)"
 echo "- ML4W Dotfiles for Hyprland Rolling Release (main branch including the latest commits)"
 echo
-version=$(gum choose "rolling-release" "main-release" "cancel")
+version=$(gum choose "main-release" "rolling-release" "cancel")
 if [ "$version" == "main-release" ]; then
     echo ":: Installing Main Release"
     echo
