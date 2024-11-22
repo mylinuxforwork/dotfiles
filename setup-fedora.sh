@@ -124,7 +124,7 @@ fi
 echo ":: Checking that required packages are installed..."
 _installPackages "${packages[@]}";
 
-bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/share/packages/fedora/special/gum.sh)
+bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/share/packages/fedora/special/gum.sh)
 
 echo
 # Select the dotfiles version
