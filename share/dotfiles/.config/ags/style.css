@@ -13,14 +13,14 @@
     margin:14px;
     border-radius: 12px;
     font-weight: bold;
-    border: 3px solid @color11;
+    border: 3px solid @color5; /* this is pywal's colors you can put your custom colors you want */
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.8);
     padding:20px;
     min-width:320px;
 }
 
 calendar:selected {
-    background-color:@color11;
+    background-color:@color5;
     padding:0px;
 }
 
@@ -30,7 +30,7 @@ calendar:selected {
     margin:14px;
     border-radius: 12px;
     font-weight: bold;
-    border: 3px solid @color11;
+    border: 3px solid @color5;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.8);
     padding:20px;
 }
@@ -66,21 +66,21 @@ calendar:selected {
 }
 
 .midbtn {
-    background-color: @color11;
+    background-color: @color5;
     font-size: 12px;
     padding:10px;
     border-radius: 20px;
 }
 
 .AudioSlider {
-    background-color:@color11;
+    background-color:@color5;
     border-radius:12px;
     margin-bottom:10px;
 }
 
 .AudioSlider contents {
     min-height: 20px;
-    background-color:@color15;
+    background-color:@color4;
     border-radius:12px;
 }
 
@@ -91,31 +91,31 @@ calendar:selected {
 
 .AudioSlider slider {
     min-height: 20px;
-    background-color:@color15;
+    background-color:@color4;
     border-radius:12px;
 }
 
 .AudioSlider highlight {
     min-height:20px;
-    background-color:@color11;
+    background-color:@color5;
     border-radius:12px;
     outline-width:3px;
 }
 
 .AudioSlider fill {
     min-height:20px;
-    background-color:@color11;
+    background-color:@color5;
     border-radius:12px;
 }
 
 .MicrophoneSlider {
-    background-color:@color11;
+    background-color:@color5;
     border-radius:12px;
 }
 
 .MicrophoneSlider contents {
     min-height: 20px;
-    background-color:@color15;
+    background-color:@color4;
     border-radius:12px;
 }
 
@@ -126,19 +126,71 @@ calendar:selected {
 
 .MicrophoneSlider slider {
     min-height: 20px;
-    background-color:@color15;
+    background-color:@color4;
     border-radius:12px;
 }
 
 .MicrophoneSlider highlight {
     min-height:20px;
-    background-color:@color11;
+    background-color:@color5;
     border-radius:12px;
     outline-width:3px;
 }
 
 .MicrophoneSlider fill {
     min-height:20px;
-    background-color:@color11;
+    background-color:@color5;
     border-radius:12px;
+}
+
+box.MediaPlayer {
+    padding: 20px;
+    background-color: rgba(116, 116, 116, 0.1);
+    border-radius: 20px;
+}
+
+box.MediaPlayer > box.cover-art {
+    min-width: 80px;
+    min-height: 80px;
+    border-radius: 7px;
+    margin-right: 0.6rem;
+    background-size: cover;
+    background-position: center;
+}
+
+box.MediaPlayer > box.title label {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+box.MediaPlayer scale {
+    padding: 0;
+    margin: 0.4rem 0;
+}
+
+box.MediaPlayer scale trough {
+    border-radius: 10px;
+    background-color: #848282;
+    min-height: 8px;
+}
+
+box.MediaPlayer scale highlight {
+    border-radius: 10px;
+    background-color: @color5;
+}
+
+box.MediaPlayer scale slider {
+    all: inherit;
+}
+
+
+box.MediaPlayer > centerbox.actions {
+    min-width: 220px;
+}
+
+box.MediaPlayer > centerbox.actions > button {
+    min-width: 0;
+    min-height: 0;
+    padding: 0.4rem;
+    margin: 0 0.2rem;
 }
