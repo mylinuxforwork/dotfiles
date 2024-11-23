@@ -24,12 +24,6 @@
           "keyColor": "31",
       },
       {
-          "type": "packages",
-          "format": "{} (pacman)",
-          "key": " ├ 󰏖 ",
-          "keyColor": "31",  
-      },
-      {
           "type": "shell",
           "key": " └  ",
           "keyColor": "31", 
