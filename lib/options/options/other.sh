@@ -15,7 +15,7 @@ if [ -z "$optionalSelect" ] ;then
 elif [ $optionalSelect == "CANCEL" ]; then
     _selectCategory
 else
-    if [[ ! $(_isInstalledAUR "$optionalSelect") == 0 ]]; then
+    if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
         _installPackage $optionalSelect
     fi
     if [ $optionalSelect == "pinta" ]; then
