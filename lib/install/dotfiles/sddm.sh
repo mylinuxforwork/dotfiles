@@ -4,7 +4,49 @@
 _writeLogHeader "SDDM"
 _writeHeader "SDDM"
 
+current_display_manager=""
+
+_detectCurrentDisplayManager() {
+    execstart=$(grep 'ExecStart=' /etc/systemd/system/display-manager.service)
+    arrIN=(${execstart//\// })
+    for i in "${arrIN[@]}"; do
+        current_display_manager=$i
+    done
+}
+
+_enterDisplayManager() {
+    echo "Enter display manager"
+}
+
+_confirmCurrentDisplayManager() {
+    _detectCurrentDisplayManager
+    _writeLogTerminal 0 "The script has detected $current_display_manager as your current display manager"
+    if gum confirm "Is this correct" ;then
+        _writeLogTerminal 1 "$current_disyplay_manager confirmed"
+    else
+        _enterDisplayManager
+    fi
+}
+
+_installSDDM() {
+
+    _writeLog 0 "Installing sddm"
+    source $packages_directory/$install_platform/sddm.sh
+    _installPackages "${packages[@]}"
+
+    sudo systemctl disable $current_display_manager
+    sudo systemctl enable sddm
+
+}
+
+_disableDisplayManager() {
+    sudo systemctl disable $current_display_manager
+    _writeLog 0 "Current display manager deactivated."
+}
+
 if [ -z $automation_displaymanager ] ;then
+    _detectCurrentDisplayManager
+    
     if [ -f /etc/systemd/system/display-manager.service ]; then
         disman=0
         _writeLogTerminal 0 "You have already installed a display manager."
@@ -25,62 +67,14 @@ if [ -z $automation_displaymanager ] ;then
     fi
 
     if [ "$dmsel" == "Install sddm" ] ;then
-
-        disman=0
-        # Try to force the installation of sddm
-        _writeLog 0 "Installing sddm"
-        source $packages_directory/$install_platform/sddm.sh
-        _installPackages "${packages[@]}"
-
-        # Check if platform is supported
-        case $install_platform in
-            arch)
-                # Enable sddm
-                if [ -f /etc/systemd/system/display-manager.service ]; then
-                    sudo rm /etc/systemd/system/display-manager.service
-                fi
-                sudo systemctl enable sddm.service
-            ;;
-            fedora)
-                systemctl disable gdm # or kdm, lxdm, lightdm, xdm
-                systemctl enable sddm
-            ;;
-            *)
-                _writeLogTerminal 2 "Platform not supported"
-                exit
-            ;;
-        esac
-        
-        echo 
-
+        _confirmCurrentDisplayManager
+        _installSDDM
     elif [ "$dmsel" == "Deactivate current display manager" ] ;then
-
-        # Check if platform is supported
-        case $install_platform in
-            arch)
-                # Disable sddm
-                sudo rm /etc/systemd/system/display-manager.service
-            ;;
-            fedora)
-                systemctl disable sddm
-            ;;
-            *)
-                _writeLogTerminal 2 "Platform not supported"
-                exit
-            ;;
-        esac
-
-        _writeLog 0 "Current display manager deactivated."
-        disman=1
-
+        _disableDisplayManager
     elif [ "$dmsel" == "Keep current setup" ] ;then
-
         _writeSkipped
-
     else
-
         _writeSkipped
-
     fi
 else
     if [[ "$automation_displaymanager" = true ]] ;then
