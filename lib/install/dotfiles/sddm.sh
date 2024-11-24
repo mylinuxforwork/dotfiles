@@ -15,7 +15,8 @@ _detectCurrentDisplayManager() {
 }
 
 _enterDisplayManager() {
-    echo "Enter display manager"
+    _writeMessage "Enter the name of your the display manager manually (e.g., gdm)"
+    current_display_manager=$(gum input)
 }
 
 _confirmCurrentDisplayManager() {

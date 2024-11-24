@@ -1,2 +1,2 @@
-sudo dnf install varlad/yazi &>> $(_getLogFile)
-sudo dnf install yazi &>> $(_getLogFile)
+sudo dnf copr enable --assumeyes varlad/yazi &>> $(_getLogFile)
+sudo dnf install --assumeyes yazi &>> $(_getLogFile)

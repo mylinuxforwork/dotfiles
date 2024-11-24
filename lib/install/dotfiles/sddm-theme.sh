@@ -12,46 +12,47 @@ sddm_theme_tpl="$share_directory/sddm/theme.conf"
 
 if [ -z $automation_displaymanager ] ;then
     if [ -d /usr/share/sddm ]; then
-        _writeHeader "SDDM Theme"
         if [ -d /usr/share/sddm/themes/$sddm_theme_name ]; then
             _writeLogTerminal 0 "$sddm_theme_name theme is already installed"
             echo
-        fi
-        if gum confirm "Do you want to install/update the $sddm_theme_name theme?" ;then
-            _writeLog 0 "Installing $sddm_theme_name"
+        else
+            _writeHeader "SDDM Theme"
+            if gum confirm "Do you want to install/update the $sddm_theme_name theme?" ;then
+                _writeLog 0 "Installing $sddm_theme_name"
 
-            if [ -d ~/Downloads/$sddm_theme_name ] ;then
-                rm -rf ~/Downloads/$sddm_theme_name
-                _writeLog 1 "~/Downloads/$sddm_theme_name removed"
-            fi 
+                if [ -d ~/Downloads/$sddm_theme_name ] ;then
+                    rm -rf ~/Downloads/$sddm_theme_name
+                    _writeLog 1 "~/Downloads/$sddm_theme_name removed"
+                fi 
 
-            wget -P ~/Downloads/$sddm_theme_name $sddm_theme_download &>> $(_getLogFile)
-            _writeLog 1 "Download of $sddm_theme_name complete"
-            unzip -o -q ~/Downloads/$sddm_theme_name/$sddm_theme_master -d ~/Downloads/$sddm_theme_name &>> $(_getLogFile)
-            _writeLog 1 "Unzip of $sddm_theme_name complete"
+                wget -P ~/Downloads/$sddm_theme_name $sddm_theme_download &>> $(_getLogFile)
+                _writeLog 1 "Download of $sddm_theme_name complete"
+                unzip -o -q ~/Downloads/$sddm_theme_name/$sddm_theme_master -d ~/Downloads/$sddm_theme_name &>> $(_getLogFile)
+                _writeLog 1 "Unzip of $sddm_theme_name complete"
 
-            sudo cp -r ~/Downloads/$sddm_theme_name/$sddm_theme_folder /usr/share/sddm/themes/$sddm_theme_name
-            _writeLog 1 "$sddm_theme_name copied to target location"
+                sudo cp -r ~/Downloads/$sddm_theme_name/$sddm_theme_folder /usr/share/sddm/themes/$sddm_theme_name
+                _writeLog 1 "$sddm_theme_name copied to target location"
 
-            if [ ! -d /etc/sddm.conf.d/ ]; then
-                sudo mkdir /etc/sddm.conf.d
-                _writeLog 1 "Folder /etc/sddm.conf.d created."
+                if [ ! -d /etc/sddm.conf.d/ ]; then
+                    sudo mkdir /etc/sddm.conf.d
+                    _writeLog 1 "Folder /etc/sddm.conf.d created."
+                fi
+
+                sudo cp $share_directory/sddm/sddm.conf /etc/sddm.conf.d/
+                _writeLog 1 "File /etc/sddm.conf.d/sddm.conf updated."
+
+                if [ -f /usr/share/sddm/themes/$sddm_theme_name/theme.conf ]; then
+
+                    # Cache file for holding the current wallpaper
+                    sudo cp $wallpaper_directory/default.jpg $sddm_asset_folder/current_wallpaper.jpg
+                    _writeLog 1 "Default wallpaper copied into $sddm_asset_folder"
+
+                    sudo cp $sddm_theme_tpl /usr/share/sddm/themes/$sddm_theme_name/
+                    sudo sed -i 's/CURRENTWALLPAPER/'"current_wallpaper.jpg"'/' /usr/share/sddm/themes/$sddm_theme_name/theme.conf
+                    _writeLog 1 "File theme.conf updated in /usr/share/sddm/themes/$sddm_theme_name/"
+                fi
+                _writeLogTerminal 1 "Theme installed"
             fi
-
-            sudo cp $share_directory/sddm/sddm.conf /etc/sddm.conf.d/
-            _writeLog 1 "File /etc/sddm.conf.d/sddm.conf updated."
-
-            if [ -f /usr/share/sddm/themes/$sddm_theme_name/theme.conf ]; then
-
-                # Cache file for holding the current wallpaper
-                sudo cp $wallpaper_directory/default.jpg $sddm_asset_folder/current_wallpaper.jpg
-                _writeLog 1 "Default wallpaper copied into $sddm_asset_folder"
-
-                sudo cp $sddm_theme_tpl /usr/share/sddm/themes/$sddm_theme_name/
-                sudo sed -i 's/CURRENTWALLPAPER/'"current_wallpaper.jpg"'/' /usr/share/sddm/themes/$sddm_theme_name/theme.conf
-                _writeLog 1 "File theme.conf updated in /usr/share/sddm/themes/$sddm_theme_name/"
-            fi
-            _writeLogTerminal 1 "Theme installed"
         fi
     else
         _writeLog 2 "SDDM (/usr/share/sddm) not found"

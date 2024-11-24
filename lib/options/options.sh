@@ -76,7 +76,6 @@ _selectCategory() {
     echo "- Shell: "$SHELL "/ Terminal:" $(_checkCurrent terminal.sh)
     echo "- File manager:" $(_checkCurrent filemanager.sh) 
     echo "- Browser:" $(_checkCurrent browser.sh) 
-    echo "- Pywalfox:" $(_checkPywalfox) 
     echo "- System monitor:" $(_checkCurrent system-monitor.sh)     
     echo
     if [[ ! $(_isInstalled "xdg-desktop-portal-gtk") == 0 ]]; then
