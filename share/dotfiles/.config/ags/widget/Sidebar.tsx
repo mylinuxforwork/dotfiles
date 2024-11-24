@@ -168,7 +168,6 @@ export default function Sidebar() {
 
     {bind(mpris, "players").as(arr => {
         const lastPlayer = arr[arr.length - 1]; // Get the last index of the array (you will get alot of players, the last one has all the metadata of the current playing song)
-        console.log(lastPlayer)
         if(lastPlayer === undefined){
             return <></>
         } else {
