@@ -18,9 +18,6 @@ if [ -z $automation_kitty ] ;then
                 exit 130
             else
                 rm -rf $ml4w_directory/$version/.config/kitty
-                if [ -d ~/$dot_folder/.config/kitty ] ;then
-                    rm -rf ~/$dot_folder/.config/kitty
-                fi
                 _writeSkipped
             fi
         fi
@@ -30,9 +27,6 @@ else
         _writeLogTerminal 0 "AUTOMATION: Kitty configuration will be installed."
     else
         rm -rf $ml4w_directory/$version/.config/kitty
-        if [ -d ~/$dot_folder/.config/kitty ] ;then
-            rm -rf ~/$dot_folder/.config/kitty
-        fi
         _writeSkipped
     fi
 fi
