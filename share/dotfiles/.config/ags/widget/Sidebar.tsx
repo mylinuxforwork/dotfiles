@@ -164,15 +164,19 @@ export default function Sidebar() {
     >    
     <box className="sidebar" vertical>
 
-{/* you can just cut the lines 169-176 and paste it according to your need of postion in the sidebar */}
+{/* you can just cut the lines 169-180 and paste it according to your need of postion in the sidebar */}
 
     {bind(mpris, "players").as(arr => {
-    const lastPlayer = arr[arr.length - 1]; // Get the last index of the array (you will get alot of players, the last one has all the metadata of the current playing song)
-    return lastPlayer ? (
-        <box css={"margin-bottom: 20px"} halign="left" vertical>
-            <MediaPlayer player={lastPlayer} />
-        </box>
-    ) : null; // Return null if the array is empty
+        const lastPlayer = arr[arr.length - 1]; // Get the last index of the array (you will get alot of players, the last one has all the metadata of the current playing song)
+        console.log(lastPlayer)
+        if(lastPlayer === undefined){
+            return <></>
+        } else {
+            return (
+                <box css={"margin-bottom: 20px"} halign="left" vertical>
+                <MediaPlayer player={lastPlayer} />
+            </box>
+        )}
 })}
 
         <box css="padding-bottom:20px;">
