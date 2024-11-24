@@ -85,7 +85,7 @@ sed -i "s|$SEARCH|$REPLACE|g" $ml4w_directory/library/scripts.sh
 if [ $install_platform == "arch" ]; then
     echo "$aur_helper" > $ml4w_directory/$version/.config/ml4w/settings/aur.sh
     if [ -f ~/.config/ml4w/settings/aur.sh ] ;then
-        rm ~/.config/ml4w/settings/aur.sh
+        echo "$aur_helper" > $HOME/.config/ml4w/settings/aur.sh
     fi
     _writeLog 1 "AUR Helper updated with $aur_helper"
 fi

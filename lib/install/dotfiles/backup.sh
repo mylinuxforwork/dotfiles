@@ -10,7 +10,7 @@ backuplist=""
 
 # Write folder to backup
 _write_backup_folder() {
-    cp -r $1 $backup_directory/.config
+    cp -rf $1 $backup_directory/.config
     _writeLogTerminal 1 "Backup of $1 created in $backup_directory/config/"
 }
 

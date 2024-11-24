@@ -38,8 +38,10 @@ _writeToRestoreList() {
 _restoreItem() {
     if [[ $restoreselect == *"$1"* ]] ; then
         if [ -d $HOME/$dot_folder/$1 ]; then
-            rsync -avhp -I $HOME/$dot_folder/$1 $ml4w_directory/$version/$1 &>> $(_getLogFile)
+            _writeLog 0 "Restore Folder $1"
+            rsync -a -I $HOME/$dot_folder/$1/ $ml4w_directory/$version/$1/ &>> $(_getLogFile)
         elif [ -f $HOME/$dot_folder/$1 ]; then
+            _writeLog 0 "Restore File $1"
             cp $HOME/$dot_folder/$1 $ml4w_directory/$version/$1
         fi
         _writeLog 1 "Hyprland $1 restored"                
