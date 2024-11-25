@@ -3,18 +3,10 @@
 # https://github.com/mylinuxforwork/dotfiles/wiki/Automation-of-the-installation-and-update
 
 # -----------------------------------------------------
-# SYSTEM UPDATES
-# true: Execute full system update with yay
-# false: Skip system update with yay
+# AUR HELPER
+# Define the aur helper when using Arch
 # -----------------------------------------------------
-automation_checkforupdates=false
-
-# -----------------------------------------------------
-# PARALLEL DOWNLOADS
-# true: Will activate parallel downloads
-# false: Skip the activation of parallel downloads
-# -----------------------------------------------------
-automation_paralleldownloads=true
+# automation_aur="yay"
 
 # -----------------------------------------------------
 # DOTFILES INSTALLATION FOLDER
@@ -22,13 +14,6 @@ automation_paralleldownloads=true
 # E.g., dotfiles for installing in ~/dotfiles
 # -----------------------------------------------------
 automation_dotfilesfolder="dotfiles"
-
-# -----------------------------------------------------
-# OPTIONAL PACKAGES
-# true: Offer the installation of optional packages
-# false: Skip the installation of optional packages
-# -----------------------------------------------------
-automation_optional=false
 
 # -----------------------------------------------------
 # BACKUP OF YOUR DOTFILES
@@ -44,12 +29,6 @@ automation_backup=true
 automation_installation=true
 
 # -----------------------------------------------------
-# VM SUPPORT
-# true: VM Support will be installed
-# -----------------------------------------------------
-automation_vm=false
-
-# -----------------------------------------------------
 # DISPLAY MANAGER
 # true: Keep current setup
 # -----------------------------------------------------
@@ -60,12 +39,6 @@ automation_displaymanager=true
 # true: Try to restore existing settings and configurations
 # -----------------------------------------------------
 automation_restore=true
-
-# -----------------------------------------------------
-# KEYBOARD
-# true: Proceed with existing keyboard configuration
-# -----------------------------------------------------
-automation_keyboard=true
 
 # -----------------------------------------------------
 # EXECUTE HOOK SCRIPT
@@ -92,26 +65,20 @@ automation_zshrc=true
 # true: Install kitty configuration
 # false: Skip installation of kitty configuration
 # -----------------------------------------------------
-automation_kitty=true
+automation_kitty=false
 
 # -----------------------------------------------------
 # NEOVIM
 # true: Install neovim configuration
 # false: Skip installation of neovim configuration
 # -----------------------------------------------------
-automation_neovim=true
+automation_neovim=false
 
 # -----------------------------------------------------
 # COPY TO TARGETFOLDER
 # true: Prepared dotfiles will be copied to the target folder
 # -----------------------------------------------------
 automation_copy=true
-
-# -----------------------------------------------------
-# RUN DIAGNOSIS
-# true: Will execute the diagnosis script
-# -----------------------------------------------------
-automation_diagnosis=true
 
 # -----------------------------------------------------
 # EXECUTE POST SCRIPT

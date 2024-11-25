@@ -79,7 +79,7 @@ if [ -z $automation_displaymanager ] ;then
     fi
 else
     if [[ "$automation_displaymanager" = true ]] ;then
-        _writeLog 1 "AUTOMATION: Keep current setup of Display Manager"
+        _writeLogTerminal 0 "AUTOMATION: Keep current setup of Display Manager"
         disman=0
     fi
 fi

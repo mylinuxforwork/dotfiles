@@ -64,5 +64,5 @@ if [ -z $automation_dotfilesfolder ] ;then
     fi
 else
     dot_folder=$automation_dotfilesfolder
-    _writeLog 1 "AUTOMATION: Installation folder set to ~/$automation_dotfilesfolder"
+    _writeLogTerminal 0 "AUTOMATION: Installation folder set to ~/$automation_dotfilesfolder"
 fi

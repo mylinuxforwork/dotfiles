@@ -32,7 +32,7 @@ _copy_automation() {
         mkdir -p ~/$dot_folder
         _writeLog 1 "AUTOMATION: ~/$dot_folder folder created."
     fi   
-    rsync -avhp -I $ml4w_directory/$version/ ~/$dot_folder/
+    rsync -avhp -I $ml4w_directory/$version/ ~/$dot_folder/ &>> $(_getLogFile)
     if [[ $(_isFolderEmpty ~/$dot_folder/) == 0 ]] ;then
         _writeLogTerminal 2 "AN ERROR HAS OCCURED. Copy prepared dofiles from $ml4w_directory/$version/ to ~/$dot_folder/ failed" 
         _writeLogTerminal 2 "Please check that rsync is installad on your system."

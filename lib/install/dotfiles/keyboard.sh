@@ -91,13 +91,5 @@ _keyboard_confirm() {
 
 if [[ $(_check_update) == "false" ]] ;then
     _writeHeader "Keyboard"
-    if [ -z $automation_keyboard ] ;then
-        _keyboard_confirm
-    else
-        if [[ "$automation_keyboard" = true ]] && [[ "$restored" = 1 ]] ;then
-            _writeLog 0 "AUTOMATION: Proceed with existing keyboard configuration."
-        else
-            _keyboard_confirm        
-        fi
-    fi
+    _keyboard_confirm
 fi

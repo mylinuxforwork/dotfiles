@@ -90,7 +90,10 @@ _showRestoreOptions() {
 }
 
 _restore_automation() {
-    restoreselect="All"
+    for item in "${restore_arr[@]}"
+    do
+        restoreselect+="$item "
+    done  
     _startRestore
 }
 

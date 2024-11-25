@@ -71,6 +71,11 @@ _checkAURHelper() {
     fi
 }
 
-_checkAURHelper
+if [ ! -z $automation_aur ] ;then
+    aur_helper=$automation_aur
+    _writeLogTerminal 0 "AUTOMATION: Using $aur_helper as AUR helper"
+else
+    _checkAURHelper
+fi
 
 fi
