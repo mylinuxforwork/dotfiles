@@ -2,11 +2,11 @@
 # Neovim
 # ------------------------------------------------------
 _writeLogHeader "Neovim"
+_writeHeader "Neovim"
 
 if [ -z $automation_neovim ] ;then
     if [ -d $ml4w_directory/$version/.config/nvim ] ;then
         if [ -d ~/.config/nvim ]; then
-            _writeHeader "Neovim"
             echo ":: The script has detected a nvim folder in your ~/.config folder."
             echo ":: You can replace it with the latest version of ML4W Dotfiles $version."
             echo
@@ -26,6 +26,6 @@ else
         echo ":: AUTOMATION: neovim configuration will be installed."
     else
         rm -rf $ml4w_directory/$version/.config/nvim
-        _writeSkipped
+        echo ":: AUTOMATION: neovim configuration will be restored."
     fi
 fi

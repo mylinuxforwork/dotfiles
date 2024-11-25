@@ -25,19 +25,8 @@ _install_vm() {
 if [[ $(_check_update) == "false" ]] ;then
     if [ $(_isKVM) == "0" ] ;then
         _writeHeader "KVM VM"
-        if [ -z $automation_vm ] ;then
-            _writeLogTerminal 0 "The script has detected that you run the installation in a KVM virtual machine."
-            echo
-            _install_vm
-        else
-            if [[ "$automation_vm" = false ]] ;then
-                _writeSkipped
-                echo
-            elif [[ "$automation_vm" = true ]] ;then
-                _install_vm
-            else
-                _writeLog 2 "AUTOMATION ERROR: VM Support"
-            fi        
-        fi
+        _writeLogTerminal 0 "The script has detected that you run the installation in a KVM virtual machine."
+        echo
+        _install_vm
     fi
 fi
