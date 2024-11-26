@@ -2,50 +2,38 @@
 
 An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
-![image](https://github.com/user-attachments/assets/f1f6d331-c4b9-49c1-a69a-0ee01d5d8508)
+![image](https://github.com/user-attachments/assets/bd63665d-b32d-4632-90a4-58b46c212caf)
 
 YouTube Video [https://youtu.be/6B4Kf30CWLg](https://youtu.be/6B4Kf30CWLg)
 
 ## Installation
 
-The installation should work on all Arch Linux based distributions. [You can find more information here](hhttps://github.com/mylinuxforwork/dotfiles/wiki).
+The installation should work on all Arch Linux and Fedora based distributions (>2.9.7.0). [You can find more information here](https://github.com/mylinuxforwork/dotfiles/wiki).
 
 > PLEASE NOTE: Every Linux distribution, setup and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. Installation at your own risk.
 
-> **For Arco Linux users**: Please install hyprutils first with `yay -S extra/hyprutils`
-
 Please make sure that your system is up-to-date.
 
+### Arch Linux (based)
 ```
-sudo pacman -Syu
+bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)
 ```
 
-### Main Release
+You can also install the main release with your preferred AUR helper. 
 
-You can use your preferred AUR helper.
-
-```
 yay -S ml4w-hyprland
-```
-
-After the installation, you can start the setup with
-
-```
 ml4w-hyprland-setup
-```
 
-### Rolling Release (Latest commits)
+You can install the rolling release with
 
-You can use your preferred AUR helper.
-
-```
 yay -S ml4w-hyprland-git
-```
-
-After the installation, you can start the setup with
-
-```
 ml4w-hyprland-setup
+
+Please rebuild all packages to emsure that you get the latest commit. 
+
+### Fedora Linux (based)
+```
+bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)
 ```
 
 ## Troubleshooting
@@ -64,7 +52,7 @@ You can also visit the [ML4W Discord Server](https://discord.gg/c4fJK7Za3g) to s
 
 ## Screenshots
 
-![image](https://github.com/user-attachments/assets/041375a8-8698-455d-865e-f818d5b69af8)
+![image](https://github.com/user-attachments/assets/17132db9-c6c7-454c-b56f-02fe467bc27d)
 
 ## Wallpaper repository
 
