@@ -28,28 +28,27 @@ _run_diagnosis(){
     done
 }
 
-if [[ $(_check_update) == "true" ]] ;then
-    _run_diagnosis
-    if [[ ! -z $missing_commands ]]; then
-        _writeHeader "Diagnosis"
-        _writeLogTerminal 2 "Some required commands are not available:"
-        for command in "${missing_commands[@]}"; do
-            echo $command
-        done
+_run_diagnosis
+
+if [[ ! -z $missing_commands ]]; then
+    _writeHeader "Diagnosis"
+    _writeLogTerminal 2 "Some required commands are not available:"
+    for command in "${missing_commands[@]}"; do
+        echo $command
+    done
+    echo
+    _writeMessage "You can proceed but some features of the ML4W Dotfiles will not work."
+    _writeMessage "Please install the missing packages manually for your distribution."
+    echo
+    if gum confirm "Do you want to proceed?" ;then
         echo
-        _writeMessage "You can proceed but some features of the ML4W Dotfiles will not work."
-        _writeMessage "Please install the missing packages manually for your distribution."
-        echo
-        if gum confirm "Do you want to proceed?" ;then
-            echo
-        elif [ $? -eq 130 ]; then
-            _writeCancel
-            exit 130
-        else
-            _writeCancel
-            exit
-        fi
+    elif [ $? -eq 130 ]; then
+        _writeCancel
+        exit 130
     else
-        _writeLogTerminal 1 "Required commands checked"
+        _writeCancel
+        exit
     fi
+else
+    _writeLogTerminal 1 "Required commands checked"
 fi
