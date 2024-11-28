@@ -1,5 +1,6 @@
 packages=(
     "fastfetch"
+    "xdg-desktop-portal-gtk"
     "eza" 
     "python-pip" 
     "python-gobject"
