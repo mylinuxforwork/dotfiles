@@ -1,7 +1,6 @@
 #!/bin/bash
 clear
 
-
 repo="mylinuxforwork/dotfiles"
 
 # Get latest tag from GitHub
