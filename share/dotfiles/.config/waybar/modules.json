@@ -78,7 +78,7 @@
     "on-click": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh",
     "on-click-right": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh d",
     "on-click-middle": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh w",
-    "tooltip-format": "Clipboard Manager"
+    "tooltip-format": "Clipboard Manager\nLeft: Select one item to delete\nMouse Wheel: Clear database\nEsc: Quit"
   },
 
   // Updates Count
