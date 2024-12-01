@@ -118,7 +118,7 @@ pkill waybar
 # ----------------------------------------------------- 
 
 echo ":: Execute pywal with $used_wallpaper"
-wal -q -i $used_wallpaper
+wal -q -i "$used_wallpaper"
 source "$HOME/.cache/wal/colors.sh"
 
 # ----------------------------------------------------- 
