@@ -43,7 +43,7 @@ configuration {
 window {
     width:                        400px;
     x-offset:                     -14px;
-    y-offset:                     65px;
+    y-offset:                     15px;
     spacing:                      0px;
     padding:                      0px;
     margin:                       0px; 

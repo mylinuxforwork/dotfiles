@@ -25,15 +25,12 @@
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.8);
     border-bottom: 0px solid #ffffff;
     /* color: #FFFFFF; */
+    background: transparent;
     transition-property: background-color;
     transition-duration: .5s;
-}
-
-.modules-left {
-    padding-left:14px;
 }
 
 /* -----------------------------------------------------
@@ -42,9 +39,9 @@ window#waybar {
 
 #workspaces {
     background: @workspacesbackground1;
-    margin: 5px 1px 6px 1px;
-    padding: 0px 1px;
-    border-radius: 15px;
+    margin: 2px 17px 3px 1px;
+    padding: 0px 2px;
+    border-radius: 5px 5px 5px 5px;
     border: 0px;
     font-weight: bold;
     font-style: normal;
@@ -55,8 +52,8 @@ window#waybar {
 
 #workspaces button {
     padding: 0px 5px;
-    margin: 4px 3px;
-    border-radius: 15px;
+    margin: 3px 2px;
+    border-radius: 3px 3px 3px 3px;
     border: 0px;
     color: @textcolor1;
     background-color: @workspacesbackground2;
@@ -67,8 +64,8 @@ window#waybar {
 #workspaces button.active {
     color: @textcolor1;
     background: @workspacesbackground2;
-    border-radius: 15px;
-    min-width: 40px;
+    border-radius: 3px 3px 3px 3px;
+    min-width: 30px;
     transition: all 0.3s ease-in-out;
     opacity:1.0;
 }
@@ -76,7 +73,7 @@ window#waybar {
 #workspaces button:hover {
     color: @textcolor1;
     background: @workspacesbackground2;
-    border-radius: 15px;
+    border-radius: 5px 5px 5px 5px;
     opacity:0.7;
 }
 
@@ -102,9 +99,9 @@ tooltip label {
 
 #window {
     background: @backgroundlight;
-    margin: 8px 15px 8px 0px;
+    margin: 3px 15px 3px 0px;
     padding: 2px 10px 0px 10px;
-    border-radius: 12px;
+    border-radius: 5px 5px 5px 5px;
     color:@textcolor2;
     font-size:16px;
     font-weight:normal;
@@ -121,9 +118,9 @@ window#waybar.empty #window {
 
 #taskbar {
     background: @backgroundlight;
-    margin: 6px 15px 6px 0px;
+    margin: 3px 15px 3px 0px;
     padding:0px;
-    border-radius: 15px;
+    border-radius: 5px 5px 5px 5px;
     font-weight: normal;
     font-style: normal;
     opacity:0.8;
@@ -132,7 +129,7 @@ window#waybar.empty #window {
 
 #taskbar button {
     margin:0;
-    border-radius: 15px;
+    border-radius: 5px 5px 5px 5px;
     padding: 0px 5px 0px 5px;
 }
 
@@ -169,8 +166,8 @@ window#waybar.empty #window {
 #custom-calculator, 
 #custom-windowsvm, 
 #custom-cliphist, 
-#custom-wallpaper, 
 #custom-settings, 
+#custom-wallpaper, 
 #custom-system,
 #custom-hyprshade,
 #custom-hypridle,
@@ -186,7 +183,7 @@ window#waybar.empty #window {
 #custom-quicklink9,
 #custom-quicklink10,
 #custom-waybarthemes {
-    margin-right: 14px;
+    margin-right: 16px;
     font-size: 20px;
     font-weight: bold;
     opacity: 0.8;
@@ -203,11 +200,7 @@ window#waybar.empty #window {
 #custom-quicklink8,
 #custom-quicklink9,
 #custom-quicklink10 {
-    margin-right: 20px;   
-}
-
-#custom-settings {
-    margin-right:12px;
+    margin-right: 24px;   
 }
 
 #custom-tools {
@@ -229,16 +222,15 @@ window#waybar.empty #window {
     background-repeat: no-repeat;
     background-size: contain; 
     padding-right: 20px;
-    opacity: 0.8;
 }
 
 #custom-chatgpt {
-    margin-right: 12px;
+    margin-right: 16px;
     background-image: url("../assets/openai.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain; 
-    padding-right: 16px;
+    padding-right: 18px;
     opacity: 0.8;
 }
 
@@ -247,8 +239,8 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #idle_inhibitor {
-    margin-right: 17px;
-    font-size: 20px;
+    margin-right: 15px;
+    font-size: 22px;
     font-weight: bold;
     opacity: 0.8;
     color: @iconcolor;
@@ -270,9 +262,9 @@ window#waybar.empty #window {
     background-color: @backgrounddark;
     font-size: 16px;
     color: @textcolor1;
-    border-radius: 15px;
+    border-radius: 5px 5px 5px 5px;
     padding: 0px 10px 0px 10px;
-    margin: 8px 16px 8px 0px;
+    margin: 2px 17px 2px 0px;
     opacity:0.8;
     border:3px solid @bordercolor;
 }
@@ -297,9 +289,9 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     font-size: 16px;
     color: @textcolor2;
-    border-radius: 15px;
+    border-radius: 5px 5px 5px 5px;
     padding: 2px 10px 0px 10px;
-    margin: 8px 15px 8px 0px;
+    margin: 3px 15px 3px 0px;
     opacity:0.8;
 }
 
@@ -321,7 +313,7 @@ window#waybar.empty #window {
  * Hardware Group
  * ----------------------------------------------------- */
 
- #disk,#memory,#cpu,#language {
+#disk,#memory,#cpu,#language {
     margin:0px;
     padding:0px;
     font-size:16px;
@@ -340,9 +332,9 @@ window#waybar.empty #window {
     background-color: @backgrounddark;
     font-size: 16px;
     color: @textcolor1;
-    border-radius: 15px;
+    border-radius: 3px 5px 3px 5px;
     padding: 1px 10px 0px 10px;
-    margin: 8px 15px 8px 0px;
+    margin: 3px 0px 3px 0px;
     opacity:0.8;
     border:3px solid @bordercolor;   
 }
@@ -351,13 +343,13 @@ window#waybar.empty #window {
  * Backlight
  * ----------------------------------------------------- */
 
- #backlight {
+#backlight {
     background-color: @backgroundlight;
     font-size: 16px;
     color: @textcolor2;
-    border-radius: 15px;
+    border-radius: 5px 5px 5px 5px;
     padding: 2px 10px 0px 10px;
-    margin: 8px 15px 8px 0px;
+    margin: 3px 15px 3px 0px;
     opacity:0.8;
 }
 
@@ -369,9 +361,9 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     font-size: 16px;
     color: @textcolor2;
-    border-radius: 15px;
+    border-radius: 5px 5px 5px 5px;
     padding: 2px 10px 0px 10px;
-    margin: 8px 15px 8px 0px;
+    margin: 3px 15px 3px 0px;
     opacity:0.8;
 }
 
@@ -388,9 +380,9 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     font-size: 16px;
     color: @textcolor2;
-    border-radius: 15px;
+    border-radius: 5px 5px 5px 5px;
     padding: 2px 10px 0px 10px;
-    margin: 8px 15px 8px 0px;
+    margin: 3px 15px 3px 0px;
     opacity:0.8;
 }
 
@@ -408,13 +400,13 @@ window#waybar.empty #window {
  * Bluetooth
  * ----------------------------------------------------- */
 
- #bluetooth, #bluetooth.on, #bluetooth.connected {
+#bluetooth, #bluetooth.on, #bluetooth.connected {
     background-color: @backgroundlight;
     font-size: 16px;
     color: @textcolor2;
-    border-radius: 15px;
+    border-radius: 5px 5px 5px 5px;
     padding: 2px 10px 0px 10px;
-    margin: 8px 15px 8px 0px;
+    margin: 3px 15px 3px 0px;
     opacity:0.8;
 }
 
@@ -432,9 +424,9 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     font-size: 16px;
     color: @textcolor2;
-    border-radius: 15px;
+    border-radius: 5px 5px 5px 5px;
     padding: 2px 15px 0px 10px;
-    margin: 8px 15px 8px 0px;
+    margin: 3px 15px 3px 0px;
     opacity:0.8;
 }
 
@@ -466,7 +458,6 @@ window#waybar.empty #window {
 
 #tray {
     padding: 0px 15px 0px 0px;
-    color: @textcolor3;
 }
 
 #tray > .passive {
@@ -476,3 +467,5 @@ window#waybar.empty #window {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
 }
+
+

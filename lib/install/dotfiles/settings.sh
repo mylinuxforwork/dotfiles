@@ -25,6 +25,17 @@ if [ -f ~/.config/ml4w/settings/waybar_custom_timedateformat.sh ] ;then
     fi
 fi
 
+# Replace waybar_timezone
+if [ -f ~/.config/ml4w/settings/waybar_timezone.sh ] ;then
+    replace_value=$(cat ~/.config/ml4w/settings/waybar_timezone.sh)
+    if [ ! -z "$replace_value" ] ;then
+        search_str="\"timezone\""
+        replace_str="\ \ \ \ \"timezone\": \"$replace_value\","
+        _replaceLineInFileCheckpoint "$search_str" "$replace_str" "clock" "$HOME/.config/waybar/modules.json"
+        _writeLog 1 "waybar_timezone restored"
+    fi
+fi
+
 # Replace dunst_position
 if [ -f ~/.config/ml4w/settings/dunst_position.sh ] ;then
     replace_value=$(cat ~/.config/ml4w/settings/dunst_position.sh)

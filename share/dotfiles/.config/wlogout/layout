@@ -5,22 +5,10 @@
     "keybind" : "l"
 }
 {
-    "label" : "hibernate",
-    "action" : "~/.config/hypr/scripts/power.sh hibernate",
-    "text" : "Hibernate",
-    "keybind" : "h"
-}
-{
     "label" : "logout",
     "action" : "~/.config/hypr/scripts/power.sh exit",
-    "text" : "Exit",
+    "text" : "Log Out",
     "keybind" : "e"
-}
-{
-    "label" : "shutdown",
-    "action" : "~/.config/hypr/scripts/power.sh shutdown",
-    "text" : "Shutdown",
-    "keybind" : "s"
 }
 {
     "label" : "suspend",
@@ -31,6 +19,12 @@
 {
     "label" : "reboot",
     "action" : "~/.config/hypr/scripts/power.sh reboot",
-    "text" : "Reboot",
+    "text" : "Restart",
     "keybind" : "r"
+}
+{
+    "label" : "shutdown",
+    "action" : "~/.config/hypr/scripts/power.sh shutdown",
+    "text" : "Power Off",
+    "keybind" : "s"
 }

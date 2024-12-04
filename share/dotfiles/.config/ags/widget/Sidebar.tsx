@@ -3,6 +3,19 @@ import Apps from "gi://AstalApps"
 import Wp from "gi://AstalWp"
 import { Variable, GLib, bind, exec, execAsync } from "astal"
 import { Astal, Gtk, Gdk } from "astal/gtk3"
+import Brightness from "./Brightness"
+
+function BrightnessSlider() {
+    const brightness = Brightness.get_default()
+
+    return <box className="MicrophoneSlider" css="min-width: 140px">
+        <slider
+            hexpand
+            value={bind(brightness, "screen")}
+            onDragged={({ value }) => brightness.screen = value}
+        />
+    </box>
+}
 
 function AudioSlider() {
     const speaker = Wp.get_default()?.audio.defaultSpeaker!
@@ -101,6 +114,11 @@ export default function Sidebar() {
             <AudioSlider/>
             <label css="padding-bottom:10px" label="Microphone"></label>
             <MicrophoneSlider />
+        </box>
+        <box css="padding-bottom:20px;"></box>
+        <box className="group" halign="left" vertical>
+            <label css="padding-bottom:10px" label="Brightness"></label>
+            <BrightnessSlider />
         </box>
     </box>
 </window>

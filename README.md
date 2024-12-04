@@ -62,6 +62,7 @@ You can find my wallpaper collection in the repository https://github.com/mylinu
 
 THANK YOU very much for all your support, contributions and ideas:
 
+- Filippo Aceto: https://gitlab.com/filippoaceto
 - Diana Ward: https://github.com/dianaw353
 - Don Williams: https://github.com/dwilliam62
 - Leo: https://github.com/eljejer

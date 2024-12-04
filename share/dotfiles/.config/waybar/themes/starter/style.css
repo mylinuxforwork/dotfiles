@@ -85,9 +85,9 @@ window#waybar {
  * ----------------------------------------------------- */
 
 tooltip {
-    border-radius: 10px;
+    border-radius: 16px;
     background-color: @backgroundlight;
-    opacity:0.8;
+    opacity:0.9;
     padding:20px;
     margin:0px;
 }
