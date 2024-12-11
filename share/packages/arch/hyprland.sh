@@ -7,7 +7,7 @@ packages=(
     "noto-fonts"
     "xdg-desktop-portal-hyprland" 
     "libnotify" 
-    "dunst"
+    "swaync"
     "kitty"
     "qt5-wayland" 
     "qt6-wayland"

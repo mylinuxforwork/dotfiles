@@ -77,8 +77,8 @@ fi
 if test -L ~/.config/vim ;then
     rm $HOME/.config/vim
 fi
-if test -L ~/.config/dunst ;then
-    rm $HOME/.config/dunst
+if test -L ~/.config/swaync ;then
+    rm $HOME/.config/swaync
 fi
 if test -L ~/.config/waypaper ;then
     rm $HOME/.config/waypaper

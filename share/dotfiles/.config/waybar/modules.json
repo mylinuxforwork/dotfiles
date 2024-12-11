@@ -310,6 +310,28 @@
     "on-click-right": "~/.config/ml4w/scripts/nm-applet.sh toggle",
   },
 
+  // Notifications
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{}  {icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
   // Battery
   "battery": {
     "states": {
