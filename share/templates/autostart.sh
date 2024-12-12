@@ -25,7 +25,7 @@ setxkbmap KEYBOARD_LAYOUT
 xfce4-power-manager &
 
 # Load notification service
-dunst &
+swaync &
 
 # Setup Wallpaper and update colors
 ~/.config/qtile/scripts/wallpaper.sh init

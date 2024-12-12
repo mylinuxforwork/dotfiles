@@ -45,8 +45,14 @@
         "pulseaudio",
         //"backlight",
         "bluetooth",
+<<<<<<< HEAD:share/dotfiles/.config/waybar/themes/ml4w/config
         "battery", 
         "network",
+=======
+        "battery",
+        "custom/notification",
+"network",
+>>>>>>> 393a00b (dotfiles: Switch over to Sway Notification Center):.config/waybar/themes/ml4w/config
         "group/hardware",
         "group/tools",
         "tray",

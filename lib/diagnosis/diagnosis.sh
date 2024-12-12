@@ -26,7 +26,7 @@ _folderExists() {
 }
 
 _commandExists "rofi" "rofi-wayland"
-_commandExists "dunst" "dunst"
+_commandExists "swaync" "swaync"
 _commandExists "waybar" "waybar"
 _commandExists "hyprpaper" "hyprpaper"
 _commandExists "hyprlock" "hyprpaper"

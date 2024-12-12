@@ -4,7 +4,7 @@
 _writeLogHeader "Diagnosis"
 
 commands=(
-    "dunst"
+    "swaync"
     "waybar"
     "hyprpaper"
     "hyprlock"
