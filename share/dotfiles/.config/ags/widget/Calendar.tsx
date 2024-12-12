@@ -22,6 +22,11 @@ export default function Calendar() {
     visible={false} 
     application={App}
     anchor={anchor}
+    keymode={Astal.Keymode.ON_DEMAND}
+    onKeyPressEvent={function (self, event: Gdk.Event) {
+        if (event.get_keyval()[1] === Gdk.KEY_Escape)
+            self.hide()
+    }}   
     >
     <box 
     className="calendar"

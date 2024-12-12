@@ -82,6 +82,11 @@ export default function Sidebar() {
     visible={false} 
     className="Sidebar"
     anchor={anchor}
+    keymode={Astal.Keymode.ON_DEMAND}
+    onKeyPressEvent={function (self, event: Gdk.Event) {
+        if (event.get_keyval()[1] === Gdk.KEY_Escape)
+            self.hide()
+    }}      
     >    
     <box className="sidebar" vertical>
         <box css="padding-bottom:20px;">

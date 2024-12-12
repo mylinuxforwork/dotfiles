@@ -4,6 +4,8 @@ Version 2.9.7.1
 - Hibernate option removed. Requires individual system setup
 - Timezone for waybar clock can be set individually in the ML4W Settings App
 - Installation of nwg-hyprland-dock via installation options
+- nwg-hyprland-dock can be toggled in settings app
+- New Waybar Theme ml4w-modern (+ versions)
  
 Version 2.9.7.0
 --------------------------------------------------------
