@@ -34,7 +34,7 @@ _isInstalled() {
 	 check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "${package} ")";
 	;;
 	fedora) 
-	 check="$(rpm -qa|grep ${package})"
+	 check="$(dnf repoquery --quiet --installed ""${package}*"")"
 	;;
         *)
   	;;
