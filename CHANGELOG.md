@@ -7,7 +7,7 @@ Version 2.9.7.1
 - nwg-hyprland-dock can be toggled in settings app
 - New Waybar Theme ml4w-modern (+ versions)
 - New Rofi Layout for App Launcher
-- New Terminal promt theme
+- New Terminal prompt theme
  
 Version 2.9.7.0
 --------------------------------------------------------
