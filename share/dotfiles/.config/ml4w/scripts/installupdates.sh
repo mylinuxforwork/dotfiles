@@ -72,6 +72,8 @@ case $install_platform in
             echo
         fi
 
+        $aur_helper
+        
         if [[ $(_isInstalled "flatpak") == "0" ]] ;then
             flatpak upgrade
         fi
