@@ -44,14 +44,14 @@ window {
     margin:                       0px; 
     color:                        #FFFFFF;
     border:                       @border-width;
-    border-color:                 #FFFFFF;
+    border-color:                 @color11;
     cursor:                       "default";
     transparency:                 "real";
     location:                     north;
     anchor:                       north;
     fullscreen:                   false;
     enabled:                      true;
-    border-radius:                10px;
+    border-radius:                1em;
     background-color:             transparent;
 }
 

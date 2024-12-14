@@ -1,12 +1,9 @@
 /*
-#  ____        __ _  
-# |  _ \ ___  / _(_) 
-# | |_) / _ \| |_| | 
-# |  _ < (_) |  _| | 
-# |_| \_\___/|_| |_| 
-#                    
-# by Stephan Raabe (2023) 
-# ----------------------------------------------------- 
+   ___       ____ 
+  / _ \___  / _(_)
+ / , _/ _ \/ _/ / 
+/_/|_|\___/_//_/  
+
 */
 
 /* ---- Configuration ---- */
@@ -48,14 +45,14 @@ window {
     margin:                       0px; 
     color:                        #FFFFFF;
     border:                       @border-width;
-    border-color:                 #FFFFFF;
+    border-color:                 @color11;
     cursor:                       "default";
     transparency:                 "real";
     location:                     northeast;
     anchor:                       northeast;
     fullscreen:                   false;
     enabled:                      true;
-    border-radius:                10px;
+    border-radius:                1em;
     background-color:             transparent;
 }
 

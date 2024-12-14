@@ -1,25 +1,29 @@
 /*
-   ___       ____ 
-  / _ \___  / _(_)
- / , _/ _ \/ _/ / 
-/_/|_|\___/_//_/  
-
+#  ____        __ _  
+# |  _ \ ___  / _(_) 
+# | |_) / _ \| |_| | 
+# |  _ < (_) |  _| | 
+# |_| \_\___/|_| |_| 
+#                    
+# by Stephan Raabe (2023) 
+# ----------------------------------------------------- 
 */
 
 /* ---- Configuration ---- */
 configuration {
     modi:                       "drun,run";
     font:                       "Fira Sans 11";
-    show-icons:                 false;
+    show-icons:                 true;
     icon-theme:                 "kora";
     display-drun:               "APPS";
     display-run:                "RUN";
     display-filebrowser:        "FILES";
     display-window:             "WINDOW";
-	hover-select:               true;
+	drun-display-format:        "{name}";
+    hover-select:               false;
+    scroll-method:              1;
     me-select-entry:            "";
     me-accept-entry:            "MousePrimary";
-    drun-display-format:        "{name}";
     window-format:              "{w} · {c} · {t}";
     
 }
@@ -38,22 +42,22 @@ configuration {
 
 /* ---- Window ---- */
 window {
-    width:                        400px;
-    x-offset:                     -14px;
-    y-offset:                     15px;
+    width:                        900px;
+    x-offset:                     0px;
+    y-offset:                     0px;
     spacing:                      0px;
     padding:                      0px;
     margin:                       0px; 
     color:                        #FFFFFF;
     border:                       @border-width;
-    border-color:                 @color11;
+    border-color:                 #FFFFFF;
     cursor:                       "default";
     transparency:                 "real";
-    location:                     northeast;
-    anchor:                       northeast;
+    location:                     center;
+    anchor:                       center;
     fullscreen:                   false;
     enabled:                      true;
-    border-radius:                1em;
+    border-radius:                10px;
     background-color:             transparent;
 }
 
@@ -65,7 +69,7 @@ mainbox {
     margin:                       0px;
     background-color:             @background;
     background-image:             @current-image;
-    children:                     ["listbox"];
+    children:                     ["imagebox","listbox"];
 }
 
 /* ---- Imagebox ---- */
@@ -81,7 +85,7 @@ listbox {
     spacing:                     20px;
     background-color:            transparent;
     orientation:                 vertical;
-    children:                    [ "inputbar", "message", "listview" ];
+    children:                    [ "message", "listview" ];
 }
 
 /* ---- Dummy ---- */
@@ -95,7 +99,7 @@ inputbar {
     text-color:                   @foreground;
     spacing:                      10px;
     padding:                      15px;
-    border-radius:                0px;
+    border-radius:                10px;
     border-color:                 @foreground;
     background-color:             @background;
     children:                     [ "textbox-prompt-colon", "entry" ];
@@ -104,8 +108,8 @@ inputbar {
 textbox-prompt-colon {
     enabled:                      true;
     expand:                       false;
-    padding:                      0px 5px 0px 0px;
     str:                          "";
+    padding:                      0px 5px 0px 0px;
     background-color:             transparent;
     text-color:                   inherit;
 }
@@ -146,8 +150,8 @@ listview {
     enabled:                      true;
     columns:                      1;
     lines:                        8;
-    cycle:                        true;
-    dynamic:                      true;
+    cycle:                        false;
+    dynamic:                      false;
     scrollbar:                    false;
     layout:                       vertical;
     reverse:                      false;
