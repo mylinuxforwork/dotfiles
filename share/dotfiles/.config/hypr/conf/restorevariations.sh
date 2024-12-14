@@ -1,21 +1,13 @@
 #!/bin/bash
 clear
 cat <<"EOF"
- ____           _                 
-|  _ \ ___  ___| |_ ___  _ __ ___ 
-| |_) / _ \/ __| __/ _ \| '__/ _ \
-|  _ <  __/\__ \ || (_) | | |  __/
-|_| \_\___||___/\__\___/|_|  \___|
-                                  
-__     __         _       _   _                 
-\ \   / /_ _ _ __(_) __ _| |_(_) ___  _ __  ___ 
- \ \ / / _` | '__| |/ _` | __| |/ _ \| '_ \/ __|
-  \ V / (_| | |  | | (_| | |_| | (_) | | | \__ \
-   \_/ \__,_|_|  |_|\__,_|\__|_|\___/|_| |_|___/
-                                                
-
+   ___          __              
+  / _ \___ ___ / /____  _______ 
+ / , _/ -_|_-</ __/ _ \/ __/ -_)
+/_/|_|\__/___/\__/\___/_/  \__/ 
+                                
 EOF
-echo "You can restore to the default Hyprland Variations."
+echo "You can restore to the default ML4W variations."
 echo "PLEASE NOTE: You can reactivate to a customized variation or selection in the settings script."
 echo "Your customized variation will not be overwritten or deleted."
 

@@ -21,7 +21,7 @@ if [[ "$1" == "rofi" ]]; then
             notify-send "Hyprshade deactivated"
             echo ":: hyprshade turned off"            
         else
-            dunstify "Changing Hyprshade to $choice" "Toggle shader with SUPER+SHIFT+S"
+            notify-send "Changing Hyprshade to $choice" "Toggle shader with SUPER+SHIFT+S"
         fi
     fi
     
