@@ -50,4 +50,5 @@ packages=(
     "ttf-fira-code" 
     "ttf-firacode-nerd"
     "aylurs-gtk-shell" 
+    "nwg-dock-hyprland"
 );

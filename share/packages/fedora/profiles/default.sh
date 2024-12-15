@@ -48,4 +48,5 @@ packages=(
     "flatpak"
     "oh-my-posh"
     "NetworkManager-tui"
+    "nwg-dock-hyprland"
 );
