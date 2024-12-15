@@ -62,9 +62,10 @@ You can find my wallpaper collection in the repository https://github.com/mylinu
 
 THANK YOU very much for all your support, contributions and ideas:
 
+- Tattwamashi Nayak: https://github.com/ElectroPerf
 - Filippo Aceto: https://gitlab.com/filippoaceto
-- Diana Ward: https://github.com/dianaw353
 - Don Williams: https://github.com/dwilliam62
+- Diana Ward: https://github.com/dianaw353
 - Leo: https://github.com/eljejer
 - Guido De Gobbis
 - Teodor Orzechowski: https://gitlab.com/sq6gtt
@@ -82,6 +83,7 @@ Thanks to all YouTube subscribers for all your great feedback.
 
 The following projects have inspired me:
 
+- https://github.com/JaKooLit/Hyprland-Dots
 - https://github.com/prasanthrangan/hyprdots
 - https://github.com/sudo-harun/dotfiles
 - https://github.com/dianaw353/hyprland-configuration-rootfs
