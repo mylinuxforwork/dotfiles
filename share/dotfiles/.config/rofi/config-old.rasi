@@ -40,6 +40,9 @@ configuration {
 /* ---- Load border width ---- */
 @import "~/.config/ml4w/settings/rofi-border.rasi"
 
+/* ---- Load border radius ---- */
+@import "~/.config/ml4w/settings/rofi-border-radius.rasi"
+
 /* ---- Window ---- */
 window {
     width:                        900px;
@@ -57,7 +60,7 @@ window {
     anchor:                       center;
     fullscreen:                   false;
     enabled:                      true;
-    border-radius:                10px;
+    border-radius:                @border-radius;
     background-color:             transparent;
 }
 

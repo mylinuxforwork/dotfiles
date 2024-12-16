@@ -40,6 +40,9 @@ configuration {
 /* ---- Load border width ---- */
 @import "~/.config/ml4w/settings/rofi-border.rasi"
 
+/* ---- Load border radius ---- */
+@import "~/.config/ml4w/settings/rofi-border-radius.rasi"
+
 // Main //
 window {
     height:                      35em;
@@ -52,7 +55,7 @@ window {
     padding:                     0em;
     border:                      @border-width;
     border-color:                @color11;
-    border-radius:               2em;
+    border-radius:               @border-radius;
     background-color:            @background;
 }
 
