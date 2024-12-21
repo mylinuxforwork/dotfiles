@@ -51,5 +51,5 @@ packages=(
     "ttf-firacode-nerd"
     "aylurs-gtk-shell" 
     "nwg-dock-hyprland"
-    "oh-my-posh"
+    "oh-my-posh-bin"
 );

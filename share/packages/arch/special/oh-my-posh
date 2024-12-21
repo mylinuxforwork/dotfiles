@@ -1,1 +1,0 @@
-$aur_helper --noconfirm -S "oh-my-posh" &>> $(_getLogFile)
