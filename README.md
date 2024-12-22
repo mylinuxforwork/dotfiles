@@ -23,13 +23,17 @@ bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/se
 
 You can also install the main release with your preferred AUR helper. 
 
+```
 yay -S ml4w-hyprland
 ml4w-hyprland-setup
+```
 
 You can install the rolling release with
 
+```
 yay -S ml4w-hyprland-git
 ml4w-hyprland-setup
+```
 
 Please rebuild all packages to emsure that you get the latest commit. 
 
