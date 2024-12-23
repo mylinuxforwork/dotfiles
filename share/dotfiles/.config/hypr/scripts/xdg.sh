@@ -52,5 +52,6 @@ systemctl --user start wireplumber
 systemctl --user start xdg-desktop-portal 
 systemctl --user start xdg-desktop-portal-hyprland
 
-# Run wallpaper-restore with waypaper and waybar
-~/.config/hypr/scripts/wallpaper-restore.sh
+# Run waybar
+sleep $_sleep1
+~/.config/waybar/launch.sh

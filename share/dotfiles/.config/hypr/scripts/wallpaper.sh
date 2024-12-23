@@ -106,14 +106,6 @@ else
 fi
 
 # ----------------------------------------------------- 
-# Stop all running waybar instances
-# ----------------------------------------------------- 
-
-echo ":: Stop all running waybar instances"
-killall waybar
-pkill waybar
-
-# ----------------------------------------------------- 
 # Execute pywal
 # ----------------------------------------------------- 
 
@@ -125,7 +117,7 @@ source "$HOME/.cache/wal/colors.sh"
 # Reload Waybar
 # -----------------------------------------------------
 
-~/.config/waybar/launch.sh
+killall -SIGUSR2 waybar
 
 # ----------------------------------------------------- 
 # Pywalfox
@@ -171,3 +163,10 @@ echo ":: Generate new cached wallpaper square-$wallpaperfilename"
 magick $tmpwallpaper -gravity Center -extent 1:1 $squarewallpaper
 cp $squarewallpaper $generatedversions/square-$wallpaperfilename.png
 
+# ----------------------------------------------------- 
+# Reload AGS
+# -----------------------------------------------------
+
+ags quit &
+sleep 0.2
+ags run &

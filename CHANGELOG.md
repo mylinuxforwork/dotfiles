@@ -1,3 +1,8 @@
+Version 2.9.7.2
+--------------------------------------------------------
+- Several Wallpaper bugfixes
+- Please run 
+
 Version 2.9.7.1
 --------------------------------------------------------
 - New horizontal wlogout layout

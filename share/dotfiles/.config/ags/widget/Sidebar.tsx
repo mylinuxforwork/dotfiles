@@ -1,7 +1,8 @@
 import { App } from "astal/gtk3"
 import Apps from "gi://AstalApps"
 import Wp from "gi://AstalWp"
-import { Variable, GLib, bind, exec, execAsync } from "astal"
+import { Variable, GLib, bind } from "astal"
+import { subprocess, exec, execAsync } from "astal/process"
 import { Astal, Gtk, Gdk } from "astal/gtk3"
 import Brightness from "./Brightness"
 
@@ -57,17 +58,17 @@ function openhyprlandapp() {
 }
 
 function openwaypaper() {
-    execAsync("waypaper")
+    const proc = subprocess(["bash", "-c", "waypaper"])    
     App.get_window("sidebar")!.hide()
 }
 
 function openwallpapereffects() {
-    execAsync("./scripts/run_wallpapereffects.sh")
+    const proc = subprocess(["bash", "-c", "$HOME/.config/hypr/scripts/wallpaper-effects.sh"])    
     App.get_window("sidebar")!.hide()
 }
 
 function openwaybarthemes() {
-    execAsync("./scripts/run_themeswitcher.sh")
+    const proc = subprocess(["bash", "-c", "$HOME/.config/waybar/themeswitcher.sh"])    
     App.get_window("sidebar")!.hide()
 }
 

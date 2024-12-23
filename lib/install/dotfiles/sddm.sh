@@ -57,7 +57,7 @@ if [ -z $automation_displaymanager ] ;then
     else
         disman=1
         _writeLogTerminal 0 "There is no display manager installed on your system." 
-        _writeLogMessage "You're starting Hyprland with commands on tty."
+        _writeMessage "You're starting Hyprland with commands on tty."
         echo
         dmsel=$(gum choose "Keep current setup" "Install sddm")
     fi
