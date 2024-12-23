@@ -173,24 +173,6 @@ if [ -f ~/.config/ml4w/settings/waybar_window.sh ] ;then
     _writeLog 1 "waybar_window restored"
 fi
 
-# Replace waybar_settings
-if [ -f ~/.config/ml4w/settings/waybar_settings.sh ] ;then
-    replace_value=$(cat ~/.config/ml4w/settings/waybar_settings.sh)
-    search_str="settings"
-    if [[ $replace_value == "True" ]] ;then
-        replace_str="\"group\/settings\","
-    else
-        replace_str="\/\/\"group\/settings\","
-    fi
-    _replaceLineInFileCheckpoint $search_str $replace_str "modules-left" "$HOME/.config/waybar/themes/ml4w/config"
-    _replaceLineInFileCheckpoint $search_str $replace_str "modules-left" "$HOME/.config/waybar/themes/ml4w-blur/config"
-    _replaceLineInFileCheckpoint $search_str $replace_str "modules-left" "$HOME/.config/waybar/themes/ml4w-blur-bottom/config"
-    _replaceLineInFileCheckpoint $search_str $replace_str "modules-left" "$HOME/.config/waybar/themes/ml4w-bottom/config"
-    _replaceLineInFileCheckpoint $search_str $replace_str "modules-left" "$HOME/.config/waybar/themes/ml4w-modern/config"
-    _replaceLineInFileCheckpoint $search_str $replace_str "modules-left" "$HOME/.config/waybar/themes/ml4w-minimal/config"
-    _writeLog 1 "waybar_settings restored"
-fi
-
 # Replace waybar_appmenu
 if [ -f ~/.config/ml4w/settings/waybar_appmenu.sh ] ;then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_appmenu.sh)

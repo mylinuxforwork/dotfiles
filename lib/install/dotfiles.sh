@@ -32,11 +32,6 @@ source $install_directory/dotfiles/backup.sh
 source $install_directory/dotfiles/preparation.sh
 
 # ----------------------------------------------------- 
-# Check if running in Qemu VM
-# ----------------------------------------------------- 
-source $install_directory/dotfiles/vm.sh
-
-# ----------------------------------------------------- 
 # Install SDDM
 # -----------------------------------------------------
 source $install_directory/dotfiles/sddm.sh
