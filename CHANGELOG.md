@@ -1,7 +1,9 @@
 Version 2.9.7.2
 --------------------------------------------------------
-- Several Wallpaper bugfixes
-- Please run 
+- Wallpaper issues fixed
+  Arch: Installer asked to rebuild waypaper to be compatible with Python 3.13
+  You can also run yay -S --answerclean All --noconfirm --rebuildall waypaper python-screeninfo python-imageio 
+- All settings moved from waybar into sidebar due to stability reasons
 
 Version 2.9.7.1
 --------------------------------------------------------
