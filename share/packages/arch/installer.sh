@@ -13,5 +13,5 @@ packages=(
     "xdg-user-dirs"
     "man-pages"
     "networkmanager"
-    "pip"
+    "python-pip"
 )

@@ -135,7 +135,7 @@ if [ -f $generatedversions/blur-$blur-$effect-$wallpaperfilename.png ] && [ "$fo
     echo ":: Use cached wallpaper blur-$blur-$effect-$wallpaperfilename"
 else
     echo ":: Generate new cached wallpaper blur-$blur-$effect-$wallpaperfilename with blur $blur"
-    notify-send --replace-id=1 "Generate new blurred version" "with blur $blur" -h int:value:66
+    # notify-send --replace-id=1 "Generate new blurred version" "with blur $blur" -h int:value:66
     magick $used_wallpaper -resize 75% $blurredwallpaper
     echo ":: Resized to 75%"
     if [ ! "$blur" == "0x0" ]; then
