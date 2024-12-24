@@ -1,3 +1,8 @@
+Version 2.9.7.3
+--------------------------------------------------------
+- Disabled wallpaper cache by default due to stability reasons. Can be enabled in the settings app again.
+- New default wallpaper
+
 Version 2.9.7.2
 --------------------------------------------------------
 - Wallpaper issues fixed
