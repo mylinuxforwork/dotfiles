@@ -52,4 +52,5 @@ packages=(
     "aylurs-gtk-shell" 
     "nwg-dock-hyprland"
     "oh-my-posh-bin"
+    "checkupdates-with-aur"
 );
