@@ -18,7 +18,7 @@ You can find the Hyprland Installation instructions here: https://wiki.hyprland.
 
 The installation should work on all Arch Linux and Fedora based distributions (>2.9.7.0). [You can find more information here](https://github.com/mylinuxforwork/dotfiles/wiki).
 
-> PLEASE NOTE: Every Linux distribution, setup and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. Installation at your own risk.
+> PLEASE NOTE: Every Linux distribution, setup and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. You can install this at your own risk.
 
 Please make sure that your system is up-to-date.
 
@@ -41,7 +41,7 @@ yay -S ml4w-hyprland-git
 ml4w-hyprland-setup
 ```
 
-Please rebuild all packages to emsure that you get the latest commit. 
+Please rebuild all packages to ensure that you get the latest commit. 
 
 ### Fedora Linux (based)
 ```
@@ -50,7 +50,7 @@ bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/se
 
 ## Troubleshooting
 
-You can find solutiosn to common issues in the Wiki troubleshooting section: https://github.com/mylinuxforwork/dotfiles/wiki/Troubleshooting
+You can find solutions to common issues in the Wiki troubleshooting section: https://github.com/mylinuxforwork/dotfiles/wiki/Troubleshooting
 
 ## Documentation (Wiki)
 
