@@ -81,7 +81,5 @@ _keyboard_confirm() {
     fi 
 }
 
-if [[ $(_check_update) == "false" ]] ;then
-    _writeHeader "Keyboard"
-    _keyboard_confirm
-fi
+_writeHeader "Keyboard"
+_keyboard_confirm
