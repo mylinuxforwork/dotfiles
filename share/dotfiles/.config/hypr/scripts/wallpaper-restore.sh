@@ -21,16 +21,17 @@ cachefile="$HOME/.config/ml4w/cache/current_wallpaper"
 # Get current wallpaper
 # ----------------------------------------------------- 
 
-if [ -f $cachefile ] ;then
-    if [ -f $(cat $cachefile) ]; then
-        echo ":: Wallpaper $(cat $cachefile) exists"
-        wallpaper=$(cat $cachefile)
+if [ -f "$cachefile" ]; then
+    sed -i "s|~|$HOME|g" "$cachefile"
+    wallpaper=$(cat $cachefile)
+    if [ -f $wallpaper ]; then
+        echo ":: Wallpaper $wallpaper exists"
     else
-        echo ":: Wallpaper $(cat $cachefile) not exists."
+        echo ":: Wallpaper $wallpaper does not exist. Using default."
         wallpaper=$defaultwallpaper
     fi
 else
-    echo ":: $cachefile not exists."
+    echo ":: $cachefile does not exist. Using default wallpaper."
     wallpaper=$defaultwallpaper
 fi
 
@@ -39,4 +40,4 @@ fi
 # ----------------------------------------------------- 
 
 echo ":: Setting wallpaper with source image $wallpaper"
-waypaper --wallpaper $wallpaper
+waypaper --wallpaper "$wallpaper"
