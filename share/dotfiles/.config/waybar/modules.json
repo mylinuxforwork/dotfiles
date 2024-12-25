@@ -164,7 +164,8 @@
   "custom/exit": {
     "format": "",
     "on-click": "~/.config/ml4w/scripts/wlogout.sh",
-    "tooltip-format": "Power Menu"
+    "on-click-right": "hyprlock",
+    "tooltip-format": "Left: Power menu\nRight: Lock screen"
   },
 
   // Hyprshade
@@ -183,8 +184,7 @@
     "exec-on-event": true,
     "interval": 60,
     "exec": "~/.config/hypr/scripts/hypridle.sh status",
-    "on-click": "~/.config/hypr/scripts/hypridle.sh toggle",
-    "on-click-right": "hyprlock"
+    "on-click": "~/.config/hypr/scripts/hypridle.sh toggle"
   },
 
   // Keyboard State
