@@ -1,7 +1,9 @@
 Version 2.9.7.3
 --------------------------------------------------------
-- Disabled wallpaper cache by default due to stability reasons. Can be enabled in the settings app again.
+- Disabled wallpaper cache by default due to stability reasons. Can be enabled in the settings app again
+- Performance improvements in wallpaper script
 - New default wallpaper
+- Add new oh-my-posh prompt to bash
 
 Version 2.9.7.2
 --------------------------------------------------------
