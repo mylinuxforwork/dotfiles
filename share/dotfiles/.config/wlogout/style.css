@@ -35,12 +35,13 @@ window {
 
 button {
 	background-repeat: no-repeat;
-    background-position: center;
-    background-size: 20%;
-    background-color: rgba(200, 220, 255, 0);
-    animation: gradient_f 20s ease-in infinite;
-    border-radius: 80px; /* Increased border radius for a more rounded look */
+    	background-position: center;
+    	background-size: 20%;
+    	background-color: rgba(200, 220, 255, 0);
+    	animation: gradient_f 20s ease-in infinite;
+    	border-radius: 80px; /* Increased border radius for a more rounded look */
 	border:0px;
+	transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 button:focus {
@@ -55,7 +56,6 @@ button:hover {
     background-size: 30%;
     margin: 30px;
     border-radius: 80px; 
-    transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
     box-shadow: 0 0 50px @color7; 
 }
 
