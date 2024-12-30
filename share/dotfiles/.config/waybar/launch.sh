@@ -8,6 +8,16 @@
 # by Stephan Raabe (2023) 
 # ----------------------------------------------------- 
 
+
+# ----------------------------------------------------- 
+# Load `.bashrc` to support use-cases for custom Waybar
+# modules where the user commands require additional
+# setup that is provided by `.bashrc`. Common use-cases
+# include running Python scripts from a specific `venv`
+# or custom JVM environments.
+# ----------------------------------------------------- 
+source ~/.bashrc
+
 # ----------------------------------------------------- 
 # Quit all running waybar instances
 # ----------------------------------------------------- 
