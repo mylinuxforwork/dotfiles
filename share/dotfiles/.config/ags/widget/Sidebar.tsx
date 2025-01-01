@@ -129,13 +129,16 @@ export default function Sidebar() {
                 </box>
             </box>
         </box>
-        <box css="padding-bottom:20px;" vertical hexpand="true">
-            <box className="group" homogeneous>
+        <centerbox horizontal className="group">
+            <label vexpand label=""></label>
+            <box>
                 <button onClicked={openwallpaper} className="btnbar first wallpaper"></button>
                 <button onClicked={openwallpapereffects} className="btnbar wallpapereffects"></button>
                 <button onClicked={openwaybarthemes} className="btnbar last statusbar"></button>
             </box>
-        </box>
+            <label vexpand label=""></label>
+        </centerbox>
+        <box css="padding-bottom:20px;"></box>
         <box className="group" halign="left" vertical>
             <label css="padding-bottom:10px" label="Speaker"></label>
             <AudioSlider/>
@@ -148,15 +151,17 @@ export default function Sidebar() {
             <BrightnessSlider />
         </box>
         <box css="padding-bottom:20px;"></box>
-        <box vertical hexpand="true">
-            <box className="group" homogeneous>
+        <centerbox horizontal className="group">
+            <label vexpand label=""></label>
+            <box>
                 <button onClicked={powerlock} className="btnbar first lock"></button>
                 <button onClicked={powerlogout} className="btnbar logout"></button>
                 <button onClicked={powersuspend} className="btnbar suspend"></button>
                 <button onClicked={powerrestart} className="btnbar restart"></button>
                 <button onClicked={powerexit} className="btnbar last exit"></button>
             </box>
-        </box>
+            <label vexpand label=""></label>
+        </centerbox>
    </box>
 </window>
 }
