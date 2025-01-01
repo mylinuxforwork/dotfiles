@@ -57,7 +57,7 @@ function openhyprlandapp() {
     App.get_window("sidebar")!.hide()
 }
 
-function openwaypaper() {
+function openwallpaper() {
     const proc = subprocess(["bash", "-c", "waypaper"])    
     App.get_window("sidebar")!.hide()
 }
@@ -69,6 +69,31 @@ function openwallpapereffects() {
 
 function openwaybarthemes() {
     const proc = subprocess(["bash", "-c", "$HOME/.config/waybar/themeswitcher.sh"])    
+    App.get_window("sidebar")!.hide()
+}
+
+function powerlock() {
+    const proc = subprocess(["bash", "-c", "$HOME/.config/hypr/scripts/power.sh lock"])    
+    App.get_window("sidebar")!.hide()
+}
+
+function powerlogout() {
+    const proc = subprocess(["bash", "-c", "$HOME/.config/hypr/scripts/power.sh exit"])    
+    App.get_window("sidebar")!.hide()    
+}
+
+function powersuspend() {
+    const proc = subprocess(["bash", "-c", "$HOME/.config/hypr/scripts/power.sh suspend"])    
+    App.get_window("sidebar")!.hide()
+}
+
+function powerrestart() {
+    const proc = subprocess(["bash", "-c", "$HOME/.config/hypr/scripts/power.sh reboot"])    
+    App.get_window("sidebar")!.hide()
+}
+
+function powerexit() {
+    const proc = subprocess(["bash", "-c", "$HOME/.config/hypr/scripts/power.sh shutdown"])    
     App.get_window("sidebar")!.hide()
 }
 
@@ -104,15 +129,11 @@ export default function Sidebar() {
                 </box>
             </box>
         </box>
-        <box css="padding-bottom:20px;">
-            <box className="group" hexpand vertical>
-                <box spacing="20" css="padding-bottom:20px;" homogeneous>
-                    <button onClicked={openwaypaper} className="midbtn">Wallpapers</button>
-                    <button onClicked={openwallpapereffects} className="midbtn">Effects</button>
-                </box>
-                <box homogeneous>
-                    <button onClicked={openwaybarthemes} className="midbtn">Status Bar Themes</button>
-                </box>
+        <box css="padding-bottom:20px;" vertical hexpand="true">
+            <box className="group" homogeneous>
+                <button onClicked={openwallpaper} className="btnbar first wallpaper"></button>
+                <button onClicked={openwallpapereffects} className="btnbar wallpapereffects"></button>
+                <button onClicked={openwaybarthemes} className="btnbar last statusbar"></button>
             </box>
         </box>
         <box className="group" halign="left" vertical>
@@ -126,6 +147,16 @@ export default function Sidebar() {
             <label css="padding-bottom:10px" label="Brightness"></label>
             <BrightnessSlider />
         </box>
-    </box>
+        <box css="padding-bottom:20px;"></box>
+        <box vertical hexpand="true">
+            <box className="group" homogeneous>
+                <button onClicked={powerlock} className="btnbar first lock"></button>
+                <button onClicked={powerlogout} className="btnbar logout"></button>
+                <button onClicked={powersuspend} className="btnbar suspend"></button>
+                <button onClicked={powerrestart} className="btnbar restart"></button>
+                <button onClicked={powerexit} className="btnbar last exit"></button>
+            </box>
+        </box>
+   </box>
 </window>
 }

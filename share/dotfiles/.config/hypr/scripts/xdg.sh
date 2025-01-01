@@ -9,6 +9,7 @@
 # Setup Timers
 _sleep1="0.1"
 _sleep2="0.5"
+_sleep3="2"
 
 # Kill all possible running xdg-desktop-portals
 killall -e xdg-desktop-portal-hyprland
@@ -53,5 +54,5 @@ systemctl --user start xdg-desktop-portal
 systemctl --user start xdg-desktop-portal-hyprland
 
 # Run waybar
-sleep $_sleep1
+sleep $_sleep3
 ~/.config/waybar/launch.sh

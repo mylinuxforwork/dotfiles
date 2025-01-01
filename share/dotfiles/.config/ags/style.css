@@ -65,6 +65,78 @@ calendar:selected {
     padding: 40px 50px 20px 50px;
 }
 
+.btnbar {
+    border: 1px solid #222222;
+    padding:5px;    
+    min-height:26px;
+}
+
+.btnbar.first {
+    border-radius: 20px 0px 0px 20px;
+}
+
+.btnbar.last {
+    border-radius: 0px 20px 20px 0px;
+}
+
+.btnbar.statusbar {
+    background:url("assets/icons/image-loading-symbolic.svg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color: @color11;
+    background-size:20px;    
+}
+
+.btnbar.wallpaper {
+    background:url("assets/icons/fileview-preview-symbolic.svg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color: @color11;
+    background-size:20px;    
+}
+
+.btnbar.wallpapereffects {
+    background:url("assets/icons/xapp-prefs-preview-symbolic.svg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color: @color11;    
+}
+
+.btnbar.lock {
+    background:url("assets/icons/padlock2-symbolic.svg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color: @color11;    
+}
+
+.btnbar.logout {
+    background:url("assets/icons/application-exit-symbolic.svg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color: @color11;    
+}
+
+.btnbar.restart {
+    background:url("assets/icons/arrow-circular-top-right-symbolic.svg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color: @color11;    
+}
+
+.btnbar.suspend {
+    background:url("assets/icons/media-playback-paused-symbolic.svg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color: @color11;    
+}
+
+.btnbar.exit {
+    background:url("assets/icons/turn-off-symbolic.svg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color: @color11;    
+}
+
 .midbtn {
     background-color: @color11;
     font-size: 12px;
