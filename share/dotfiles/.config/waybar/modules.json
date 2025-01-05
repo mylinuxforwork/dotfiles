@@ -200,8 +200,8 @@
   // A dunst icon to mut notifications
   "custom/dunst": {
     "format": "{}",
-    "exec": "~/.config/hypr/scripts/dunst_status.sh",
-    "tooltip": false,
+    "exec": "dunstctl is-paused | grep -q 'false' && echo '󰂛 ' || echo '󰂚 '",
+    "tooltip-format": "Toggle notifications",
     "interval": 5,
     "on-click": "dunstctl set-paused toggle"
   },
