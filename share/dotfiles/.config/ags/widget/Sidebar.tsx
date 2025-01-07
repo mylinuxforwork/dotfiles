@@ -9,7 +9,7 @@ import Brightness from "./Brightness"
 function BrightnessSlider() {
     const brightness = Brightness.get_default()
 
-    return <box className="MicrophoneSlider" css="min-width: 140px">
+    return <box className="AudioSlider" css="min-width: 140px">
         <slider
             hexpand
             value={bind(brightness, "screen")}
@@ -33,7 +33,7 @@ function AudioSlider() {
 function MicrophoneSlider() {
     const microphone = Wp.get_default()?.audio.defaultMicrophone!
 
-    return <box className="MicrophoneSlider" css="min-width: 140px">
+    return <box className="AudioSlider" css="min-width: 140px">
         <slider
             hexpand
             onDragged={({ value }) => microphone.volume = value}
@@ -129,15 +129,11 @@ export default function Sidebar() {
                 </box>
             </box>
         </box>
-        <centerbox horizontal className="group">
-            <label vexpand label=""></label>
-            <box>
-                <button onClicked={openwallpaper} className="btnbar first wallpaper"></button>
-                <button onClicked={openwallpapereffects} className="btnbar wallpapereffects"></button>
-                <button onClicked={openwaybarthemes} className="btnbar last statusbar"></button>
-            </box>
-            <label vexpand label=""></label>
-        </centerbox>
+        <box horizontal homogeneous>
+                <button onClicked={openwallpaper} className="btnbar"><box><box className="btnbariconwallpaper"></box><label label="Wallpaper" css="padding:0px 5px 0px 5px"></label></box></button>
+                <button onClicked={openwallpapereffects} className="btnbar"><box><box className="btnbariconwallpapereffects"></box><label label="Effects" css="padding:0px 5px 0px 5px"></label></box></button>
+                <button onClicked={openwaybarthemes} className="btnbar"><box><box className="btnbariconstatusbar"></box><label label="Bar" css="padding:0px 5px 0px 5px"></label></box></button>
+        </box>
         <box css="padding-bottom:20px;"></box>
         <box className="group" halign="left" vertical>
             <label css="padding-bottom:10px" label="Speaker"></label>

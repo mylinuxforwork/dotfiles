@@ -37,8 +37,8 @@ calendar:selected {
 
 .group {
     padding:16px;
-    background-color: rgba(116, 116, 116, 0.1);
-    border-radius: 20px;
+    background-color: rgba(116, 116, 116, 0.3);
+    border-radius: 10px;
 }
 
 .ml4wwelcomeicon {
@@ -66,35 +66,49 @@ calendar:selected {
 }
 
 .btnbar {
-    border: 1px solid #222222;
-    padding:5px;    
+    border: 0px solid @color11;
     min-height:24px;
-    border-radius: 24px;
+    border-radius: 5px 5px 5px 5px;
     min-width: 24px;
     margin:0px 2px 0px 2px;
+    background-color:rgba(116, 116, 116, 0.3);
+    color:@color11;
+    font-weight:bold;
 }
 
-.btnbar.statusbar {
+.btnbariconstatusbar {
     background:url("assets/icons/image-loading-symbolic.svg");
     background-repeat:no-repeat;
     background-position:center;
     background-color: @color11;
     background-size:20px;    
+    min-width:26px;
+    min-height:26px;
+    border: 1px solid @color11;
+    border-radius: 5px 0px 0px 5px;
 }
 
-.btnbar.wallpaper {
+.btnbariconwallpaper {
     background:url("assets/icons/fileview-preview-symbolic.svg");
     background-repeat:no-repeat;
     background-position:center;
     background-color: @color11;
     background-size:20px;    
+    min-width:26px;
+    min-height:26px;
+    border: 1px solid @color11;
+    border-radius: 5px 0px 0px 5px;
 }
 
-.btnbar.wallpapereffects {
+.btnbariconwallpapereffects {
     background:url("assets/icons/xapp-prefs-preview-symbolic.svg");
     background-repeat:no-repeat;
     background-position:center;
     background-color: @color11;    
+    min-width:26px;
+    min-height:26px;
+    border: 1px solid @color11;
+    border-radius: 5px 0px 0px 5px;
 }
 
 .btnbar.lock {
@@ -152,60 +166,28 @@ calendar:selected {
 }
 
 .AudioSlider value {
-    min-height: 20px;
+    min-height: 10px;
     background-color: #222222;
 }
 
 .AudioSlider slider {
-    min-height: 20px;
-    background-color:@color15;
+    min-height: 16px;
+    min-width: 16px;
+    background-color:@color11;
     border-radius:12px;
+    border: 2px solid #ffffff;
 }
 
 .AudioSlider highlight {
-    min-height:20px;
+    min-height:10px;
     background-color:@color11;
     border-radius:12px;
     outline-width:3px;
 }
 
 .AudioSlider fill {
-    min-height:20px;
+    min-height:10px;
     background-color:@color11;
     border-radius:12px;
-}
-
-.MicrophoneSlider {
-    background-color:@color11;
-    border-radius:12px;
-}
-
-.MicrophoneSlider contents {
-    min-height: 20px;
-    background-color:@color15;
-    border-radius:12px;
-}
-
-.MicrophoneSlider value {
-    min-height: 20px;
-    background-color: #222222;
-}
-
-.MicrophoneSlider slider {
-    min-height: 20px;
-    background-color:@color15;
-    border-radius:12px;
-}
-
-.MicrophoneSlider highlight {
-    min-height:20px;
-    background-color:@color11;
-    border-radius:12px;
-    outline-width:3px;
-}
-
-.MicrophoneSlider fill {
-    min-height:20px;
-    background-color:@color11;
-    border-radius:12px;
+    padding: 5px;
 }
