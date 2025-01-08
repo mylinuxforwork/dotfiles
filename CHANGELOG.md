@@ -1,6 +1,7 @@
 Version 2.9.7.4
 --------------------------------------------------------
 - New default wallpaper
+- New default waybar theme ML4W Modern
 - Improved sidebar layout including power functions
 - Kitty now with JetBrainsMono font
 
