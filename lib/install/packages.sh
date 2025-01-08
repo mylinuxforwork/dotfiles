@@ -34,9 +34,9 @@ source $install_directory/packages/remove.sh
 source $install_directory/packages/packages.sh
 
 # ----------------------------------------------------- 
-# Cleanbuild
+# Fonts
 # ----------------------------------------------------- 
-# source $install_directory/packages/cleanbuild.sh
+source $install_directory/packages/fonts.sh
 
 # ----------------------------------------------------- 
 # Check executables of important apps

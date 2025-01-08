@@ -67,12 +67,11 @@ calendar:selected {
 
 .btnbar {
     border: 0px solid @color11;
-    min-height:24px;
-    border-radius: 5px 5px 5px 5px;
-    min-width: 24px;
-    margin:0px 2px 0px 2px;
-    background-color:rgba(116, 116, 116, 0.3);
-    color:@color11;
+    min-height:36px;
+    border-radius: 10px 10px 10px 10px;
+    min-width: 36px;
+    margin:0px 4px 0px 4px;
+    background-color:@color11;
     font-weight:bold;
 }
 

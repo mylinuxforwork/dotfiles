@@ -38,6 +38,7 @@ apps_directory="$share_directory/apps"
 template_directory="$share_directory/templates"
 wallpaper_directory="$share_directory/wallpapers"
 packages_directory="$share_directory/packages"
+fonts_directory="$share_directory/fonts"
 
 ml4w_directory="$HOME/.ml4w-hyprland"
 backup_directory="$ml4w_directory/backup"

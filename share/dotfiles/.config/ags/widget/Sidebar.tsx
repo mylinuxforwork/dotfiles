@@ -130,9 +130,9 @@ export default function Sidebar() {
             </box>
         </box>
         <box horizontal homogeneous>
-                <button onClicked={openwallpaper} className="btnbar"><box><box className="btnbariconwallpaper"></box><label label="Wallpaper" css="padding:0px 5px 0px 5px"></label></box></button>
-                <button onClicked={openwallpapereffects} className="btnbar"><box><box className="btnbariconwallpapereffects"></box><label label="Effects" css="padding:0px 5px 0px 5px"></label></box></button>
-                <button onClicked={openwaybarthemes} className="btnbar"><box><box className="btnbariconstatusbar"></box><label label="Bar" css="padding:0px 5px 0px 5px"></label></box></button>
+                <button onClicked={openwallpaper} className="btnbar">Wallpaper</button>
+                <button onClicked={openwallpapereffects} className="btnbar">Effects</button>
+                <button onClicked={openwaybarthemes} className="btnbar">Status Bar</button>
         </box>
         <box css="padding-bottom:20px;"></box>
         <box className="group" halign="left" vertical>

@@ -2,6 +2,7 @@ Version 2.9.7.4
 --------------------------------------------------------
 - New default wallpaper
 - Improved sidebar layout including power functions
+- Kitty now with JetBrainsMono font
 
 Version 2.9.7.3
 --------------------------------------------------------
