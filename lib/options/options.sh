@@ -84,9 +84,6 @@ _selectCategory() {
         browser)
             source $options_directory/options/browser.sh
         ;;
-        dock)
-            source $options_directory/options/dock.sh
-        ;;
         more)
             source $options_directory/options/other.sh
         ;;
