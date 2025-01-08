@@ -130,7 +130,7 @@ export default function Sidebar() {
             </box>
         </box>
         <box horizontal homogeneous>
-                <button onClicked={openwallpaper} className="btnbar">Wallpaper</button>
+                <button onClicked={openwallpaper} className="btnbar">Wallpapers</button>
                 <button onClicked={openwallpapereffects} className="btnbar">Effects</button>
                 <button onClicked={openwaybarthemes} className="btnbar">Status Bar</button>
         </box>
