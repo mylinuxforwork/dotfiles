@@ -53,6 +53,4 @@ fi
 
 if [ "$updates" -gt $threshhold_green ]; then
     printf '{"text": "%s", "alt": "%s", "tooltip": "Click to update your system", "class": "%s"}' "$updates" "$updates" "$css_class"
-else
-    printf '{"text": "0", "alt": "0", "tooltip": "No updates available", "class": "green"}'
 fi
