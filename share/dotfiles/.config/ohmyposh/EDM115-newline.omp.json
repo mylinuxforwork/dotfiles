@@ -151,15 +151,6 @@
         {
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
-          "template": "\uf308 {{ .Context }}",
-          "foreground": "#282a36",
-          "background": "#8be9fd",
-          "type": "docker",
-          "style": "diamond"
-        },
-        {
-          "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b4",
           "template": "\ue73d {{ .Full }}",
           "foreground": "#f8f8f2",
           "background": "#6272a4",
