@@ -7,11 +7,13 @@ _writeHeader "SDDM"
 current_display_manager=""
 
 _detectCurrentDisplayManager() {
-    execstart=$(grep 'ExecStart=' /etc/systemd/system/display-manager.service)
-    arrIN=(${execstart//\// })
-    for i in "${arrIN[@]}"; do
-        current_display_manager=$i
-    done
+    if [ -f /etc/systemd/system/display-manager.service ]; then
+        execstart=$(grep 'ExecStart=' /etc/systemd/system/display-manager.service)
+        arrIN=(${execstart//\// })
+        for i in "${arrIN[@]}"; do
+            current_display_manager=$i
+        done
+    fi
 }
 
 _enterDisplayManager() {
