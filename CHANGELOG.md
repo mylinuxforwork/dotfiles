@@ -4,6 +4,7 @@ Version 2.9.7.4
 - New default waybar theme ML4W Modern
 - Improved sidebar layout including power functions
 - Kitty now with JetBrainsMono font
+- Workspaces Variations added to ML4W Settings App
 
 Version 2.9.7.3
 --------------------------------------------------------
