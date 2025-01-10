@@ -2,7 +2,7 @@
 
 An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
 
-![image](https://github.com/user-attachments/assets/47ed1ae0-a660-46f3-9bf5-917da0d3f675)
+![image](https://github.com/user-attachments/assets/1b7fec1f-d864-4017-815c-103d657e3686)
 
 > About the screenshot: The dock can be enabled in the Dotfiles Settings app. The waybar theme is ML4W Modern Light.
 
@@ -64,7 +64,7 @@ You can also visit the [ML4W Discord Server](https://discord.gg/c4fJK7Za3g) to s
 
 ## Screenshots
 
-![image](https://github.com/user-attachments/assets/5f638a4c-e811-4f07-aa7f-e2669149c1c7)
+![image](https://github.com/user-attachments/assets/47ed1ae0-a660-46f3-9bf5-917da0d3f675)
 
 ## Wallpaper repository
 
