@@ -29,6 +29,16 @@ _isInstalled() {
     return; #false
 }
 
+# Check if command exists
+_checkCommandExists() {
+    package="$1";
+	if ! command -v $package > /dev/null; then
+        return 1
+    else
+        return 0
+    fi
+}
+
 # Install required packages
 _installPackages() {
     toInstall=();
@@ -45,6 +55,18 @@ _installPackages() {
     fi;
     printf "Package not installed:\n%s\n" "${toInstall[@]}";
     sudo pacman --noconfirm -S "${toInstall[@]}";
+}
+
+# install yay if needed
+_installYay() {
+    _installPackages "base-devel"
+    SCRIPT=$(realpath "$0")
+    temp_path=$(dirname "$SCRIPT")
+    git clone https://aur.archlinux.org/yay.git ~/Downloads/yay
+    cd ~/Downloads/yay
+    makepkg -si
+    cd $temp_path
+    _writeLogTerminal 1 "yay has been installed successfully."
 }
 
 # Required packages for the installer
@@ -126,7 +148,16 @@ echo
 # Install required packages
 echo ":: Checking that required packages are installed..."
 _installPackages "${packages[@]}";
+
+# Install yay if needed
+if _checkCommandExists "yay"; then
+    echo ":: yay is already installed"
+else
+    echo ":: The installer requires yay. yay will be installed now"
+    _installYay
+fi
 echo
+
 # Select the dotfiles version
 echo "Please choose between: "
 echo "- ML4W Dotfiles for Hyprland $latest_version (latest stable release)"
