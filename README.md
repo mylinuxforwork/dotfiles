@@ -6,7 +6,7 @@ An advanced configuration of Hyprland for Arch Linux based distributions. This p
 
 > About the screenshot: The dock can be enabled in the Dotfiles Settings app. The waybar theme is ML4W Modern Light.
 
-YouTube Video https://youtu.be/siy2vL94yd0
+YouTube Video https://youtu.be/sVFnd5LAYAc
 
 ## Recommendation
 
@@ -23,9 +23,14 @@ The installation should work on all Arch Linux and Fedora based distributions (>
 Please make sure that your system is up-to-date.
 
 ### Arch Linux (based)
+
+IMPORTANT: Please make sure that all your system and packages are updated before running the installation script.
+
 ```
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)
 ```
+
+YouTube Video https://youtu.be/sVFnd5LAYAc
 
 You can also install the main release with your preferred AUR helper. 
 
@@ -44,6 +49,9 @@ ml4w-hyprland-setup
 Please rebuild all packages to ensure that you get the latest commit. 
 
 ### Fedora Linux (based)
+
+IMPORTANT: Please make sure that all your system and packages are updated before running the installation script.
+
 ```
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)
 ```
