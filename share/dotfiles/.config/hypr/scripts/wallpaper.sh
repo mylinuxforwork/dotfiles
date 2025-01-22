@@ -120,12 +120,18 @@ source "$HOME/.cache/wal/colors.sh"
 killall -SIGUSR2 waybar
 
 # ----------------------------------------------------- 
-# Pywalfox
+# Update Pywalfox
 # -----------------------------------------------------
 
 if type pywalfox > /dev/null 2>&1; then
     pywalfox update
 fi
+
+# ----------------------------------------------------- 
+# Update SwayNC
+# -----------------------------------------------------
+
+swaync-client -rs
 
 # ----------------------------------------------------- 
 # Created blurred wallpaper

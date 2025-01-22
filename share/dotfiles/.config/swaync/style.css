@@ -6,8 +6,8 @@
 @define-color backgrd @background;
 @define-color backgrd-alt #111111;
 @define-color backgrd-hover @color11;
-@define-color text-color @foreground;
-@define-color text-color-alt @foreground;
+@define-color text-color #ffffff;
+@define-color text-color-alt #ffffff;
 @define-color text-color-disabled rgba(150, 150, 150, 0.8);
 
 * {
@@ -17,7 +17,6 @@
 .control-center .notification-row:focus,
 .control-center .notification-row:hover {
     opacity: 0.9;
-    background: #222222;
     border-radius: 10px;
 }
 
@@ -31,47 +30,51 @@
 
 .notification-content{
     background: @color0;
-	border-radius: 10px;
     border: 1px solid @color11;
-    padding: 5px 10px 5px 6px;
+    padding: 5px 6px 5px 6px;
 }
 
 .notification-default-action {
     margin: 0;
     padding: 0;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 
 .close-button {
-    background: @color11;
-    color: @background;
+    background: alpha(@color11, 0.7);
+    color: #ffffff;
     text-shadow: none;
     padding: 0;
-    border-radius: 10px;
+    border-radius: 0px;
     margin-top: 5px;
     margin-right: 5px;
+    border-radius: 10px;
 }
 
 .close-button:hover {
     box-shadow: none;
-    background: @color10;
+    background: @color11;
     transition: all .15s ease-in-out;
     border: none;
 }
 
 .notification-action {
-    border: 1px solid @color11;
+    background: alpha(@color11, 0.5);
+    border: 0px solid @color11;
     border-top: none;
     border-radius: 10px;
+    margin-top:5px;
 }
 
 .notification-default-action:hover,
 .notification-action:hover {
-    color: @foreground;
-    background: @color1;
+    color: #ffffff;
+    background: @color11;
 }
 
 .notification-default-action {
+    background: alpha(@color11, 0.5);
+    border: 0px solid @color11;    
     border-radius: 10px;
     margin: 5px;
 }
@@ -130,7 +133,6 @@
 
 .summary {
     font-size: 1rem;
-    font-weight: bold;
     background: transparent;
     color: @text-color-alt;
     text-shadow: none
@@ -138,7 +140,6 @@
 
 .time {
     font-size: 1rem;
-    font-weight: bold;
     background: transparent;
     color: @text-color;
     text-shadow: none;
@@ -147,7 +148,6 @@
 
 .body {
     font-size: 1rem;
-    font-weight: bold;
     background: transparent;
     color: @text-color;
     text-shadow: none
@@ -160,7 +160,6 @@
     border: 3px solid @color11;
 	color: @text-color;
     border-radius: 10px;
-    opacity:0.9;
 }
 
 .control-center-list {
@@ -250,11 +249,8 @@
 /* mpris */
 
 .widget-mpris {
-    color: @text-color;
-    background: @backgrd-alt;
-    padding: 3px 6px;
-    margin: 5px;
-    border-radius: 10px;
+    color: #ffffff;
+    margin: 3px 3px 0px 3px;
 }
 
 .widget-mpris > box > button {
@@ -262,17 +258,24 @@
 }
 
 .widget-mpris-player {
-    padding: 3px 6px;
-    margin: 5px;
+    padding: 5px 10px;
+    border:1px solid #ffffff;
 }
 
 .widget-mpris-title {
-    font-weight: 100;
-    font-size: 1rem
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .widget-mpris-subtitle {
-    font-size: 0.75rem
+    font-size: 12px;
+}
+
+.widget-mpris-album-art {
+    min-width: 40px;
+    min-height: 40px;
+    margin:0px;
+    padding:0px;
 }
 
 /* Buttons grid */
@@ -282,7 +285,6 @@
     border-top: none;
     border-bottom: none;
     font-size: 14px;
-    font-weight: 500;
     margin: 20px 20px 0px 20px;
     border-radius: 10px;
 }
