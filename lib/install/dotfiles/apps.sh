@@ -28,6 +28,9 @@ sudo cp $apps_directory/$app_name.png /usr/share/icons/hicolor/128x128/apps
 sudo cp $apps_directory/$app_name /usr/bin/$app_name
 _writeLog 1 "ML4W Hyprland Settings App installed successfully"
 
+# Installation of FlatPaks
+$install_directory/dotfiles/flatpak.sh $apps_directory
+
 _writeLogHeader "Hyprland Settings App"
 
 # Execute hyprctl from the Settings app
