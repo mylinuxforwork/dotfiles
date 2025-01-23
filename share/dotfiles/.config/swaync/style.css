@@ -1,410 +1,46 @@
-/* https://github.com/Zakar98k/hyprland-catppuccin-dotz/blob/main/swaync/style.css */
+/* Colors */
 
 @import '../../.cache/wal/colors-waybar.css';
-
-@define-color border-color @color11;
-@define-color backgrd @background;
-@define-color backgrd-alt #111111;
-@define-color backgrd-hover @color11;
-@define-color text-color #ffffff;
-@define-color text-color-alt #ffffff;
-@define-color text-color-disabled rgba(150, 150, 150, 0.8);
+@define-color background #242424;
+@define-color groupbackground #363636;
+@define-color buttoncolor #4a4a4a;
+@define-color bordercolor @color11;
+@define-color fontcolor #FFFFFF;
 
 * {
     font-family: "Fira Sans Semibold";
 }
 
-.control-center .notification-row:focus,
-.control-center .notification-row:hover {
-    opacity: 0.9;
-    border-radius: 10px;
+/* Control Center */
+
+.control-center {
+    border: 3px solid @bordercolor;
+    padding: 10px;
 }
 
-.notification-row {
-    margin: 10px;
+button {
+    border: 0px;
+    background: @buttoncolor;
 }
+
+.notification-group-header {
+    font-size: 14px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    margin:5px;
+}
+
+/* Notification */
 
 .notification {
+    border: 3px solid @bordercolor;
 	border-radius: 10px;
-}
-
-.notification-content{
-    background: @color0;
-    border: 1px solid @color11;
-    padding: 5px 6px 5px 6px;
-}
-
-.notification-default-action {
-    margin: 0;
-    padding: 0;
-    border-radius: 0px;
-}
-
-.close-button {
-    background: alpha(@color11, 0.7);
-    color: #ffffff;
-    text-shadow: none;
-    padding: 0;
-    border-radius: 0px;
-    margin-top: 5px;
-    margin-right: 5px;
-    border-radius: 10px;
-}
-
-.close-button:hover {
-    box-shadow: none;
-    background: @color11;
-    transition: all .15s ease-in-out;
-    border: none;
-}
-
-.notification-action {
-    background: alpha(@color11, 0.5);
-    border: 0px solid @color11;
-    border-top: none;
-    border-radius: 10px;
-    margin-top:5px;
+    padding:10px;
 }
 
 .notification-default-action:hover,
 .notification-action:hover {
     color: #ffffff;
-    background: @color11;
-}
-
-.notification-default-action {
-    background: alpha(@color11, 0.5);
-    border: 0px solid @color11;    
-    border-radius: 10px;
-    margin: 5px;
-}
-
-.notification-default-action:not(:only-child) {
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px
-}
-
-.notification-action:first-child {
-    border-bottom-left-radius: 10px;
-    background: @backgrd;
-}
-
-.notification-action:last-child {
-    border-bottom-right-radius: 10px;
-    background: @backgrd-alt
-}
-
-.inline-reply {
-    margin-top: 8px
-}
-
-.inline-reply-entry {
-    background: @backgrd;
-    color: @text-color;
-    caret-color: @text-color;
-    border: 1px solid @border-color;
-    border-radius: 10px
-}
-
-.inline-reply-button {
-	font-size: 0.5rem;
-    margin-left: 4px;
-    background: @backgrd;
-    border: 1px solid @border-color;
-    border-radius: 10px;
-    color: @text-color
-}
-
-.inline-reply-button:disabled {
-    background: initial;
-    color: @text-color-disabled;
-    border: 1px solid transparent
-}
-
-.inline-reply-button:hover {
-    background: @backgrd-hover
-}
-
-.body-image {
-    margin-top: 6px;
-    color: @text-color-alt;
-    border-radius: 10px
-}
-
-.summary {
-    font-size: 1rem;
     background: transparent;
-    color: @text-color-alt;
-    text-shadow: none
-}
-
-.time {
-    font-size: 1rem;
-    background: transparent;
-    color: @text-color;
-    text-shadow: none;
-    margin-right: 18px
-}
-
-.body {
-    font-size: 1rem;
-    background: transparent;
-    color: @text-color;
-    text-shadow: none
-}
-
-/* Control Center */
-
-.control-center {
-    border: 3px solid @color11;
-	color: @text-color;
-    border-radius: 10px;
-}
-
-.control-center-list {
-    background: transparent
-}
-
-.control-center-list-placeholder {
-    color: @color11;
-    opacity: 0.5
-
-}
-
-.floating-notifications {
-    background: transparent;
-}
-
-.blank-window {
-    background: alpha(black, 0.1)
-}
-
-/* Notification Group */
-.notification-group {
-    background: rgba(116, 116, 116, 0.3);
-    margin: 20px 20px 0px 20px;
-    border-radius: 10px;
-    color: @foreground;    
-}
-
-.notification-group-header {
-    font-size: 14px;
-    margin: 10px;
-    padding: 10px;
-}
-
-/* Widget Title */
-
-.widget-title {
-    font-size: 14px;
-    background: rgba(116, 116, 116, 0.3);
-    padding: 10px;
-    margin: 20px 20px 0px 20px;
-    border-radius: 10px;
-    color: #ffffff;
-}
-
-.widget-title>button {
-    font-size: 14px;
-    color: #ffffff;
-    border-radius: 10px;
-	background: alpha(@color11, 0.5);
-	border: 0px;
-}
-
-.widget-title>button:hover {
-    background-color: @color11;
-}
-
-/* Do Not Disturb */
-
-.widget-dnd {
-    font-size: 14px;
-    background: rgba(116, 116, 116, 0.3);
-    padding: 10px;
-    margin: 20px 20px 0px 20px;
-    border-radius: 10px;
-    color: #ffffff;
-}
-
-.widget-dnd>switch {
-    background: alpha(@color11, 0.5);
-}
-
-.widget-dnd>switch:checked {
-    background: @color11;
-    border: 1px solid #f7768e;
-}
-
-.widget-label {
-    margin: 5px;
-}
-
-.widget-label>label {
-    font-size: 1rem;
-    color: #ffffff;
-}
-
-/* mpris */
-
-.widget-mpris {
-    color: #ffffff;
-    margin: 3px 3px 0px 3px;
-}
-
-.widget-mpris > box > button {
-    border-radius: 10px;
-}
-
-.widget-mpris-player {
-    padding: 5px 10px;
-    border:1px solid #ffffff;
-}
-
-.widget-mpris-title {
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.widget-mpris-subtitle {
-    font-size: 12px;
-}
-
-.widget-mpris-album-art {
-    min-width: 40px;
-    min-height: 40px;
-    margin:0px;
-    padding:0px;
-}
-
-/* Buttons grid */
-
-.widget-buttons-grid {
-    background-color: rgba(116, 116, 116, 0.3);
-    border-top: none;
-    border-bottom: none;
-    font-size: 14px;
-    margin: 20px 20px 0px 20px;
-    border-radius: 10px;
-}
-
-.widget-buttons-grid > flowbox > flowboxchild {
-    /* background: alpha(currentColor, 0.05); */
-    border-radius: 10px;
-    margin: 5px;
-    padding: 0px;
-}
-
-.widget-buttons-grid > flowbox > flowboxchild > button {
-    background: alpha(@color11, 0.5);
-    border-radius: 10px;
-    margin: 0px;
-    border: none;
-    box-shadow: none;
-    font-size:14px;
-    color:#ffffff;
-}
-
-.widget-buttons-grid > flowbox > flowboxchild > button:hover {
-    background-color: @color11;
-}
-
-.widget-menubar>box>.menu-button-bar>button {
-    border: none;
-    background: transparent
-}
-
-.topbar-buttons>button {
-    border: none;
-    background: transparent
-}
-
-/* Volume */
-
-.widget-volume {
-    font-size: 14px;
-    background: rgba(116, 116, 116, 0.3);
-    padding: 10px;
-    margin: 20px 20px 0px 20px;
-    border-radius: 10px;
-    color: @foreground;
-}
-
-.widget-volume>box>button {
-    background: @color11;
-    border: none;
-}
-
-.per-app-volume {
-    background-color: @backgrd;
-    padding: 4px 8px 8px;
-    margin: 0 8px 8px;
-    border-radius: 10px;
-	color: @text-color
-}
-
-/* Backlight */
-
-.widget-backlight {
-    font-size: 14px;
-    background: rgba(116, 116, 116, 0.3);
-    padding: 10px;
-    margin: 20px 20px 0px 20px;
-    border-radius: 10px;
-    color: @foreground;
-}
-
-.low {
-  background: @text-color;
-  padding: 0px;
-  border-radius: 10px;
-}
-
-.normal {
-  background: @text-color;
-  padding: 0px;
-  border-radius: 10px;
-}
-
-.critical {
-  background: red;
-  padding: 0px;
-  border-radius: 10px;
-}
-
-/* Sliders */
-scale {
-    padding: 0px;
-    margin: 0px 10px 0px 10px;
-}
-
-scale trough {
-    border-radius: 4px;
-    background-color: @color11;
-    /* background: alpha(currentColor, 0.1); */
-}
-
-scale highlight {
-    border-radius: 5px;
-    min-height: 10px;
-    margin-right: -5px;
-}
-
-scale slider {
-    margin: -10px;
-    min-width: 10px;
-    min-height: 10px;
-    background: @color11;
-    box-shadow: none;
-    padding: 0px;
-}
-
-scale slider:hover {
-    background-color: @color11;
-}
-
-
-.right.overlay-indicator {
-    background-color: @color11;
-    all: unset;
 }
