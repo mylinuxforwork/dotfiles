@@ -156,7 +156,6 @@
 /* Control Center */
 
 .control-center {
-    background: @color0;
     border: 3px solid @color11;
 	color: @text-color;
     border-radius: 10px;
