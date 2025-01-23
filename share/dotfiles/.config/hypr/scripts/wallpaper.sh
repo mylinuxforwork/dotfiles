@@ -168,11 +168,3 @@ echo "* { current-image: url(\"$blurredwallpaper\", height); }" > "$rasifile"
 echo ":: Generate new cached wallpaper square-$wallpaperfilename"
 magick $tmpwallpaper -gravity Center -extent 1:1 $squarewallpaper
 cp $squarewallpaper $generatedversions/square-$wallpaperfilename.png
-
-# ----------------------------------------------------- 
-# Reload AGS
-# -----------------------------------------------------
-
-ags quit &
-sleep 0.2
-ags run &
