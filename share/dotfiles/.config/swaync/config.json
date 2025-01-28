@@ -79,12 +79,16 @@
                     "command": "bash -c $HOME/.config/waybar/themeswitcher.sh"
                 },
                 {     
-                    "label": "Power Menu",
-                    "command": "bash -c $HOME/.config/ml4w/scripts/wlogout.sh"
+                    "label": "Screenshot",
+                    "command": "bash -c $HOME/.config/hypr/scripts/screenshot.sh"
                 },
                 {
                     "label": "Lock Screen",
                     "command": "bash -c $HOME/.config/hypr/scripts/power.sh lock"
+                },
+                {
+                    "label": "",
+                    "command": "hyprpicker"
                 },
                 {
                     "label": "󰝟",

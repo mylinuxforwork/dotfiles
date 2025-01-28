@@ -278,6 +278,18 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
+ * Custom Notification
+ * ----------------------------------------------------- */
+
+ #custom-notification {
+    margin: 0px 13px 0px 0px;
+    padding:0px;
+    font-size:20px;
+    color: @iconcolor;
+    opacity: 0.8;
+}
+
+/* -----------------------------------------------------
  * Custom Exit
  * ----------------------------------------------------- */
 
