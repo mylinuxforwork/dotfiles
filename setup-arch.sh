@@ -57,16 +57,35 @@ _installPackages() {
     sudo pacman --noconfirm -S "${toInstall[@]}";
 }
 
-# install yay if needed
-_installYay() {
+# Install AUR helper
+_installAURHelper() {
     _installPackages "base-devel"
     SCRIPT=$(realpath "$0")
     temp_path=$(dirname "$SCRIPT")
-    git clone https://aur.archlinux.org/yay.git ~/Downloads/yay
-    cd ~/Downloads/yay
-    makepkg -si
-    cd $temp_path
-    _writeLogTerminal 1 "yay has been installed successfully."
+
+    echo "Which AUR helper would you like to install?"
+    echo "1) yay"
+    echo "2) paru"
+    read -p "Please select an option (1/2): " aur_choice
+
+    if [ "$aur_choice" == "1" ]; then
+        echo ":: Installing yay..."
+        git clone https://aur.archlinux.org/yay.git ~/Downloads/yay
+        cd ~/Downloads/yay
+        makepkg -si
+        cd $temp_path
+        _writeLogTerminal 1 "yay has been installed successfully."
+    elif [ "$aur_choice" == "2" ]; then
+        echo ":: Installing paru..."
+        git clone https://aur.archlinux.org/paru.git ~/Downloads/paru
+        cd ~/Downloads/paru
+        makepkg -si
+        cd $temp_path
+        _writeLogTerminal 1 "paru has been installed successfully."
+    else
+        echo ":: Invalid choice. Exiting setup."
+        exit 1
+    fi
 }
 
 # Required packages for the installer
@@ -102,11 +121,11 @@ while true; do
             echo ":: Installation started."
             echo
         break;;
-        [Nn]* ) 
+        [Nn]* )
             echo ":: Installation canceled"
             exit;
         break;;
-        * ) 
+        * )
             echo ":: Please answer yes or no."
         ;;
     esac
@@ -116,7 +135,7 @@ done
 if [ ! -d ~/Downloads ]; then
     mkdir ~/Downloads
     echo ":: Downloads folder created"
-fi 
+fi
 
 # Remove existing download folder and zip files 
 if [ -f $HOME/Downloads/dotfiles-main.zip ]; then
@@ -149,12 +168,12 @@ echo
 echo ":: Checking that required packages are installed..."
 _installPackages "${packages[@]}";
 
-# Install yay if needed
-if _checkCommandExists "yay"; then
-    echo ":: yay is already installed"
+# Install AUR helper if needed
+if _checkCommandExists "yay" || _checkCommandExists "paru"; then
+    echo ":: AUR helper (yay or paru) is already installed."
 else
-    echo ":: The installer requires yay. yay will be installed now"
-    _installYay
+    echo ":: An AUR helper is required. We will install one now."
+    _installAURHelper
 fi
 echo
 
@@ -172,7 +191,7 @@ elif [ "$version" == "rolling-release" ]; then
     yay -S ml4w-hyprland-git
 elif [ "$version" == "CANCEL" ]; then
     echo ":: Setup canceled"
-    exit 130    
+    exit 130
 else
     echo ":: Setup canceled"
     exit 130
