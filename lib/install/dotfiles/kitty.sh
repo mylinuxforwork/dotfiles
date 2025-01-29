@@ -10,14 +10,14 @@ if [ -z $automation_kitty ] ;then
             _writeLogTerminal 0 "The script has detected a kitty folder in your ~/.config folder."
             _writeLogTerminal 0 "You can replace it with the latest version of ML4W Dotfiles $version."
             echo
-            if gum confirm "Do you want to replace your configuration?"; then
-                _writeLogTerminal 0 "ML4W Kitty configuration will be installed"
+            if gum confirm "Do you want to keep your configuration?"; then
+                rm -rf $ml4w_directory/$version/.config/kitty
+                _writeSkipped
             elif [ $? -eq 130 ]; then
                 _writeCancel
                 exit 130
             else
-                rm -rf $ml4w_directory/$version/.config/kitty
-                _writeSkipped
+                _writeLogTerminal 0 "ML4W Kitty configuration will be installed"
             fi
         fi
     fi
