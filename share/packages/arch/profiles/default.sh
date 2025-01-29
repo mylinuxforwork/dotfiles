@@ -39,6 +39,7 @@ packages=(
     "papirus-icon-theme"
     "breeze"
     "flatpak"
+    "swaync"
     "gvfs"
     "wlogout"
     "hyprshade"
