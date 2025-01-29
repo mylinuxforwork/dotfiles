@@ -7,3 +7,5 @@ flatpak --user -y --reinstall install com.ml4w.welcome.flatpak
 echo ":: com.ml4w.welcome.flatpak installed"
 flatpak --user -y --reinstall install com.ml4w.settings.flatpak
 echo ":: com.ml4w.setting.flatpak installed"
+flatpak --user -y --reinstall install com.ml4w.sidebar.flatpak
+echo ":: com.ml4w.sidebar.flatpak installed"
