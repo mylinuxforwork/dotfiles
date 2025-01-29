@@ -26,7 +26,7 @@ if [[ $nvidia =~ ^[Yy]$ ]]; then
   )
   for krnl in $(cat /usr/lib/modules/*/pkgbase); do
     for pkg in "${krnl}-headers" "${nvidia_pkgs[@]}"; do
-      $aur_helper -S --noconfirm "$pkg"
+      $aur_helper -S --noconfirm --needed "$pkg"
     done
   done
 
