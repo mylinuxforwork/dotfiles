@@ -2,7 +2,7 @@
 apps_directory="$1"
 
 # Install Runtime
-flatpak install org.gnome.Platform/x86_64/47
+flatpak -y install org.gnome.Platform/x86_64/47
 
 # Install Apps
 cd $apps_directory
