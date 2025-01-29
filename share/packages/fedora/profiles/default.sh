@@ -35,6 +35,7 @@ packages=(
     "pavucontrol" 
     "papirus-icon-theme"
     "breeze"
+    "swaync"
     "gvfs"
     "wlogout"
     "hyprshade"
