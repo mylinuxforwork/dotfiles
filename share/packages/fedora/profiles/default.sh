@@ -40,7 +40,6 @@ packages=(
     "hyprshade"
     "waypaper"
     "grimblast-git"
-    "astal"
     "bibata-cursor-theme"
     "fontawesome-6-free-fonts" 
     "mozilla-fira-sans-fonts" 
