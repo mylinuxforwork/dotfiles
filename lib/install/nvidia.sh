@@ -26,7 +26,7 @@ if [[ $nvidia =~ ^[Yy]$ ]]; then
   )
   for krnl in $(cat /usr/lib/modules/*/pkgbase); do
     for pkg in "${krnl}-headers" "${nvidia_pkgs[@]}"; do
-      $aur_helper -S --noconfirm "$pkg"
+      $aur_helper -S --noconfirm --needed "$pkg"
     done
   done
 
@@ -44,6 +44,20 @@ if [[ $nvidia =~ ^[Yy]$ ]]; then
   if [ -f /etc/default/grub ]; then
     sudo sed -i -e '/GRUB_CMDLINE_LINUX_DEFAULT=/ s/"$/ nvidia-drm.modeset=1 nvidia_drm.fbdev=1"/' /etc/default/grub
     sudo grub-mkconfig -o /boot/grub/grub.cfg
+  fi
+
+  # systemd-boot
+  if [ -f /boot/loader/loader.conf ]; then
+    # systemd-boot is detected, proceed with the operation
+    if [ $(ls -l /boot/loader/entries/*.conf.t2.bkp 2>/dev/null | wc -l) -ne $(ls -l /boot/loader/entries/*.conf 2>/dev/null | wc -l) ]; then
+      find /boot/loader/entries/ -type f -name "*.conf" | while read imgconf; do
+        sudo cp ${imgconf} ${imgconf}.t2.bkp
+        sdopt=$(grep -w "^options" ${imgconf} | sed 's/\b nvidia-drm.modeset=.\b//g' | sed 's/\b nvidia_drm.fbdev=.\b//g')
+        sudo sed -i "/^options/c${sdopt} nvidia-drm.modeset=1 nvidia_drm.fbdev=1" ${imgconf}
+      done
+    else
+      echo "systemd-boot is already configured..."
+    fi
   fi
 
   if gum confirm "Would you like to blacklist the Nouveau driver?"; then
