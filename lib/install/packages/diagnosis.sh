@@ -13,7 +13,6 @@ commands=(
     "wal"
     "gum"
     "wlogout"
-    "ags"
     "magick"
     "waypaper"
 )
