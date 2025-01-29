@@ -20,6 +20,7 @@
 
 button {
     border: 0px;
+    min-width: 35px;
     background: @buttoncolor;
 }
 

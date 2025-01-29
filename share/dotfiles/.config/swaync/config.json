@@ -20,7 +20,7 @@
     "timeout-low": 3,
     "timeout-critical": 0,
     "fit-to-screen": false,
-    "control-center-width": 450,
+    "control-center-width": 400,
     "control-center-height": 720,
     "keyboard-shortcuts": true,
     "image-visibility": "when available",
@@ -62,33 +62,9 @@
         },
         "buttons-grid": {
             "actions": [
-                {     
-                    "label": "Wallpaper",
-                    "command": "waypaper"
-                },
-                {     
-                    "label": "Effects",
-                    "command": "bash -c $HOME/.config/hypr/scripts/wallpaper-effects.sh"
-                },
-                {     
-                    "label": "Set SDDM",
-                    "command": "alacritty --class dotfiles-floating -e $HOME/.config/ml4w/scripts/sddm-wallpaper.sh"
-                },
-                {     
-                    "label": "Status Bar",
-                    "command": "bash -c $HOME/.config/waybar/themeswitcher.sh"
-                },
-                {     
-                    "label": "Screenshot",
-                    "command": "bash -c $HOME/.config/hypr/scripts/screenshot.sh"
-                },
                 {
-                    "label": "Lock Screen",
+                    "label": "",
                     "command": "bash -c $HOME/.config/hypr/scripts/power.sh lock"
-                },
-                {
-                    "label": "",
-                    "command": "hyprpicker"
                 },
                 {
                     "label": "󰝟",
@@ -97,6 +73,10 @@
                 {
                     "label": "󰂯",
                     "command": "blueman-manager"
+                },
+                {
+                    "label": "",
+                    "command": "bash -c $HOME/.config/ml4w/scripts/wlogout.sh"
                 }
             ]
         }
