@@ -14,6 +14,7 @@ body:
     attributes:
       label: "Describe the bug"
       description: "A clear and concise description of what the bug is."
+      placeholder: "Example: The application crashes when opening settings."
     validations:
       required: true
 
@@ -35,6 +36,7 @@ body:
     attributes:
       label: "Expected behavior"
       description: "A clear and concise description of what you expected to happen."
+      placeholder: "Example: The settings menu should open without crashing."
     validations:
       required: true
 
@@ -43,6 +45,7 @@ body:
     attributes:
       label: "Screenshots"
       description: "If applicable, add screenshots to help explain your problem."
+      placeholder: "Drag and drop images here or provide a link."
     validations:
       required: false
 
@@ -65,6 +68,7 @@ body:
     attributes:
       label: "If Other, specify"
       description: "Enter your Linux distribution if it was not listed above."
+      placeholder: "Example: Artix Linux"
     validations:
       required: false
 
