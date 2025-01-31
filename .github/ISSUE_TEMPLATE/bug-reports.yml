@@ -9,7 +9,7 @@ body:
     attributes:
       value: "## Bug Report\nPlease fill out the details below."
 
-  - type: input
+  - type: textarea
     id: bug_description
     attributes:
       label: "Describe the bug"
@@ -30,7 +30,7 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: textarea
     id: expected_behavior
     attributes:
       label: "Expected behavior"
