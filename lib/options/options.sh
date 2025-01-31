@@ -70,7 +70,7 @@ _selectCategory() {
     echo "- Browser:" $(_checkCurrent browser.sh) 
     echo "- System monitor:" $(_checkCurrent system-monitor.sh)     
     echo
-    category=$(gum choose "shell" "terminal" "dock" "file manager" "browser" "pywalfox" "system monitor" "sddm theme" "more" "REBOOT" "CANCEL")
+    category=$(gum choose "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "more" "REBOOT" "CANCEL")
     case ${category} in
         terminal)
             source $options_directory/options/terminal.sh
@@ -89,9 +89,6 @@ _selectCategory() {
         ;;
         shell)
             source $options_directory/options/shell.sh
-        ;;
-        "sddm theme")
-            source $options_directory/options/sddm-theme.sh
         ;;
         pywalfox)
             source $options_directory/options/pywalfox.sh
