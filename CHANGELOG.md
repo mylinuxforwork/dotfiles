@@ -1,9 +1,9 @@
 Version 2.9.8
 --------------------------------------------------------
-- All ML4W Apps (except Hyprland Settings) are now flatpak apps
-- New ML4W Sidebar App replaces the ags sidebar
-- SwayNC added as new notification app and center with additional features
-- kitty, nvim, .bashrc and .zshrc needs user confirmation for overwriting
+- All ML4W Apps (except Hyprland Settings for now) are now flatpak apps.
+- New ML4W Sidebar App give quick access to selected configurations. It replaces the ags sidebar.
+- SwayNC added as new notification app and center with additional features.
+- kitty, nvim, .bashrc and .zshrc requires user confirmation for overwriting.
 
 Version 2.9.7.4
 --------------------------------------------------------

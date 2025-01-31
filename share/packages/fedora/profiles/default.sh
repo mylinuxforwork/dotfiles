@@ -40,6 +40,8 @@ packages=(
     "wlogout"
     "hyprshade"
     "waypaper"
+    "pinta"
+    "gnome-text-editor"
     "grimblast-git"
     "bibata-cursor-theme"
     "fontawesome-6-free-fonts" 
