@@ -1,0 +1,53 @@
+name: "Feature Request"
+description: "Suggest an idea for this project"
+title: "[FEATURE] "
+labels: ["enhancement"]
+assignees:
+  - mylinuxforwork
+body:
+  - type: markdown
+    attributes:
+      value: "## Feature Request\nPlease fill out the details below."
+
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: "Is your feature request related to a problem? Please describe."
+      description: "A clear and concise description of what the problem is. Ex: I'm always frustrated when [...]"
+    validations:
+      required: false
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: "Describe the solution you'd like"
+      description: "A clear and concise description of what you want to happen."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Describe alternatives you've considered"
+      description: "A clear and concise description of any alternative solutions or features you've considered."
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "Additional context"
+      description: "Add any other context or screenshots about the feature request here."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: financing
+    attributes:
+      label: Support or Contribution
+      description: |
+
+        You are welcome to submit your feature request! While most enhancements are community-driven, you can also support or contribute to accelerate implementation.
+      options:
+        - label: "[I am willing to contribute or support this feature](https://github.com/mylinuxforwork/dotfiles)"
+          required: false

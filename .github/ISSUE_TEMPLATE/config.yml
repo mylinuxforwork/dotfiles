@@ -1,0 +1,9 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Join our Discord server
+    url: https://discord.gg/c4fJK7Za3g
+    about: Chat with other ML4W Hyprland users, maintainers, and contributors.  
+  - name: Read our wiki
+    url: https://github.com/mylinuxforwork/dotfiles/wiki
+    about: Find documentation on installing, configuring, and customizing the ML4W Hyprland dotfiles.
+

@@ -1,0 +1,91 @@
+name: "Bug Report"
+description: "Create a report to help improve"
+title: "[BUG] "
+labels: ["bug"]
+assignees:
+  - mylinuxforwork
+body:
+  - type: markdown
+    attributes:
+      value: "## Bug Report\nPlease fill out the details below."
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: "Describe the bug"
+      description: "A clear and concise description of what the bug is."
+      placeholder: "Example: The application crashes when opening settings."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: "Steps to reproduce"
+      description: "Steps to reproduce the behavior."
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: "Expected behavior"
+      description: "A clear and concise description of what you expected to happen."
+      placeholder: "Example: The settings menu should open without crashing."
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "Screenshots"
+      description: "If applicable, add screenshots to help explain your problem."
+      placeholder: "Drag and drop images here or provide a link."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: distribution
+    attributes:
+      label: "Distribution"
+      description: "Select your Linux distribution."
+      multiple: false
+      options:
+        - "Arch Linux"
+        - "EndeavourOS"
+        - "Manjaro"
+        - "Other (please specify below)"
+    validations:
+      required: true
+
+  - type: input
+    id: other_distribution
+    attributes:
+      label: "If Other, specify"
+      description: "Enter your Linux distribution if it was not listed above."
+      placeholder: "Example: Artix Linux"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "Additional context"
+      description: "Add any other context about the problem here."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/mylinuxforwork/dotfiles/blob/main/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+
