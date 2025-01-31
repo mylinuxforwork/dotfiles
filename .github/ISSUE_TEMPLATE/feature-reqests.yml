@@ -41,3 +41,13 @@ body:
     validations:
       required: false
 
+  - type: checkboxes
+    id: financing
+    attributes:
+      label: Support or Contribution
+      description: |
+
+        You are welcome to submit your feature request! While most enhancements are community-driven, you can also support or contribute to accelerate implementation.
+      options:
+        - label: "[I am willing to contribute or support this feature](https://github.com/mylinuxforwork/dotfiles)"
+          required: false
