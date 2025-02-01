@@ -1,1 +1,1 @@
-dunst
+swaync

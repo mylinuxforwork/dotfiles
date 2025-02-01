@@ -23,7 +23,7 @@ _confirmKeyboard() {
     _writeLogTerminal 0 "Keyboard layout: $keyboard_layout"
     _writeLogTerminal 0 "Keyboard variant: $keyboard_variant"
     echo
-    if gum confirm "Do you want to proceed with this keyboard setup?" --affirmative "Proceed" --negative "Change" ;then
+    if gum confirm "Do you want to proceed with this keyboard setup?" --affirmative "PROCEED" --negative "CHANGE" ;then
         return 0
     elif [ $? -eq 130 ]; then
         exit 130
@@ -36,9 +36,9 @@ _keyboard_confirm() {
     setkeyboard=0
     if [ "$restored" == "1" ]; then
         _writeLogTerminal 0 "You have already restored your settings into the new installation."
-        _writeLogTerminal 0 "You can repeat the keyboard setup again to choose between a desktop and laptop optimized configuration."
+        _writeLogTerminal 0 "You can keep or change your keyboard setup again."
         echo
-        if gum confirm "Do you want to proceed with your existing keyboard configuration?" ;then
+        if gum confirm "Do you want to KEEP your existing keyboard configuration?" --affirmative "KEEP" --negative "CHANGE" ;then
             setkeyboard=1
         elif [ $? -eq 130 ]; then
             _writeCancel

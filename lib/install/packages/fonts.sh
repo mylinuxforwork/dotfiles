@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Create local fonts directory
-if [ -d ~/.local/share/fonts ]; then
-    rm -rf ~/.local/share/fonts
-fi
-
 # Check if the JetBrainsMono folder exists and delete it if it does
 if [ -d ~/.local/share/fonts/JetBrainsMonoNerd ]; then
     rm -rf ~/.local/share/fonts/JetBrainsMonoNerd

@@ -1,0 +1,2 @@
+sudo dnf copr enable --assumeyes erikreider/SwayNotificationCenter &>> $(_getLogFile)
+sudo dnf install --assumeyes SwayNotificationCenter

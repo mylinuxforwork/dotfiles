@@ -8,16 +8,16 @@ if [ -z $automation_neovim ] ;then
         if [ -d ~/.config/nvim ]; then
             _writeHeader "Neovim"
             echo ":: The script has detected a nvim folder in your ~/.config folder."
-            echo ":: You can replace it with the latest version of ML4W Dotfiles $version."
+            echo ":: You can keept it or replace it with the latest version of ML4W Dotfiles $version."
             echo
-            if gum confirm "Do you want to replace your configuration?"; then
-                echo ":: ML4W Neovim configuration will be installed"
+            if gum confirm "Do you want to KEEP your configuration?" --affirmative "KEEP" --negative "REPLACE" ;then
+                rm -rf $ml4w_directory/$version/.config/nvim/
+                _writeSkipped
             elif [ $? -eq 130 ]; then
                 _writeCancel
                 exit 130
             else
-                rm -rf $ml4w_directory/$version/.config/nvim/
-                _writeSkipped
+                echo ":: ML4W Neovim configuration will be installed"
             fi
         fi
     fi

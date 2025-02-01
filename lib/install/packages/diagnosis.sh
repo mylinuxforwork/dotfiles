@@ -4,7 +4,6 @@
 _writeLogHeader "Diagnosis"
 
 commands=(
-    "dunst"
     "waybar"
     "hyprpaper"
     "hyprlock"
@@ -13,7 +12,6 @@ commands=(
     "wal"
     "gum"
     "wlogout"
-    "ags"
     "magick"
     "waypaper"
 )
