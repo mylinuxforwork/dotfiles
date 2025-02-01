@@ -52,8 +52,8 @@ if [[ $nvidia =~ ^[Yy]$ ]]; then
     if [ $(ls -l /boot/loader/entries/*.conf.t2.bkp 2>/dev/null | wc -l) -ne $(ls -l /boot/loader/entries/*.conf 2>/dev/null | wc -l) ]; then
       find /boot/loader/entries/ -type f -name "*.conf" | while read imgconf; do
         sudo cp ${imgconf} ${imgconf}.t2.bkp
-        sdopt=$(grep -w "^options" ${imgconf} | sed 's/\b nvidia-drm.modeset=.\b//g' | sed 's/\b nvidia_drm.fbdev=.\b//g')
-        sudo sed -i "/^options/c${sdopt} nvidia-drm.modeset=1 nvidia_drm.fbdev=1" ${imgconf}
+        sdopt=$(grep -w "^options" ${imgconf} | sed 's/\b quiet\b//g' | sed 's/\b splash\b//g' | sed 's/\b nvidia-drm.modeset=.\b//g' | sed 's/\b nvidia_drm.fbdev=.\b//g')
+        sudo sed -i "/^options/c${sdopt} quiet splash nvidia-drm.modeset=1 nvidia_drm.fbdev=1" ${imgconf}
       done
     else
       echo "systemd-boot is already configured..."
@@ -70,5 +70,3 @@ if [[ $nvidia =~ ^[Yy]$ ]]; then
 else
   _writeSkipped
 fi
-
-
