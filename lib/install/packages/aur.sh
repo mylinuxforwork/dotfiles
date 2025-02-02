@@ -13,8 +13,8 @@ _installYay() {
     _installPackages "base-devel"
     SCRIPT=$(realpath "$0")
     temp_path=$(dirname "$SCRIPT")
-    git clone https://aur.archlinux.org/yay.git ~/Downloads/yay
-    cd ~/Downloads/yay
+    git clone https://aur.archlinux.org/yay.git $download_folder/yay
+    cd $download_folder/yay
     makepkg -si
     cd $temp_path
     _writeLogTerminal 1 "yay has been installed successfully."
@@ -24,8 +24,8 @@ _installParu() {
     _installPackages "base-devel"
     SCRIPT=$(realpath "$0")
     temp_path=$(dirname "$SCRIPT")
-    git clone https://aur.archlinux.org/paru.git ~/Downloads/paru
-    cd ~/Downloads/paru
+    git clone https://aur.archlinux.org/paru.git $download_folder/paru
+    cd $download_folder/paru
     makepkg -si
     cd $temp_path
     _writeLogTerminal 1 "paru has been installed successfully."

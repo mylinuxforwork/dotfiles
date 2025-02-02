@@ -1,7 +1,20 @@
 #!/bin/bash
 clear
 
+# ----------------------------------------------------- 
+# Repository
+# -----------------------------------------------------
 repo="mylinuxforwork/dotfiles"
+
+# ----------------------------------------------------- 
+# Download Folder
+# -----------------------------------------------------
+download_folder="$HOME/.ml4w"
+
+# Create download_folder if not exists
+if [ ! -d $download_folder ] ;then
+    mkdir -p $download_folder
+fi
 
 # Get latest tag from GitHub
 get_latest_release() {
@@ -62,8 +75,8 @@ _installYay() {
     _installPackages "base-devel"
     SCRIPT=$(realpath "$0")
     temp_path=$(dirname "$SCRIPT")
-    git clone https://aur.archlinux.org/yay.git ~/Downloads/yay
-    cd ~/Downloads/yay
+    git clone https://aur.archlinux.org/yay.git $download_folder/yay
+    cd $download_folder/yay
     makepkg -si
     cd $temp_path
     _writeLogTerminal 1 "yay has been installed successfully."
@@ -112,33 +125,33 @@ while true; do
     esac
 done
 
-# Create Downloads folder if not exists
-if [ ! -d ~/Downloads ]; then
-    mkdir ~/Downloads
-    echo ":: Downloads folder created"
+# Create Download folder if not exists
+if [ ! -d $download_folder ]; then
+    mkdir -p $download_folder
+    echo ":: $download_folder folder created"
 fi 
 
 # Remove existing download folder and zip files 
-if [ -f $HOME/Downloads/dotfiles-main.zip ]; then
-    rm $HOME/Downloads/dotfiles-main.zip
+if [ -f $download_folder/dotfiles-main.zip ]; then
+    rm $download_folder/dotfiles-main.zip
 fi
-if [ -f $HOME/Downloads/dotfiles-dev.zip ]; then
-    rm $HOME/Downloads/dotfiles-dev.zip
+if [ -f $download_folder/dotfiles-dev.zip ]; then
+    rm $download_folder/dotfiles-dev.zip
 fi
-if [ -f $HOME/Downloads/dotfiles.zip ]; then
-    rm $HOME/Downloads/dotfiles.zip
+if [ -f $download_folder/dotfiles.zip ]; then
+    rm $download_folder/dotfiles.zip
 fi
-if [ -d $HOME/Downloads/dotfiles ]; then
-    rm -rf $HOME/Downloads/dotfiles
+if [ -d $download_folder/dotfiles ]; then
+    rm -rf $download_folder/dotfiles
 fi
-if [ -d $HOME/Downloads/dotfiles_temp ]; then
-    rm -rf $HOME/Downloads/dotfiles_temp
+if [ -d $download_folder/dotfiles_temp ]; then
+    rm -rf $download_folder/dotfiles_temp
 fi
-if [ -d $HOME/Downloads/dotfiles-main ]; then
-    rm -rf $HOME/Downloads/dotfiles-main
+if [ -d $download_folder/dotfiles-main ]; then
+    rm -rf $download_folder/dotfiles-main
 fi
-if [ -d $HOME/Downloads/dotfiles-dev ]; then
-    rm -rf $HOME/Downloads/dotfiles-dev
+if [ -d $download_folder/dotfiles-dev ]; then
+    rm -rf $download_folder/dotfiles-dev
 fi
 
 # Synchronizing package databases

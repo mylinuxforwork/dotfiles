@@ -1,7 +1,7 @@
 # ------------------------------------------------------
 # Apps Installation
 # ------------------------------------------------------
-_writeLogHeader "Apps"
+_writeHeader "Apps"
 
 # Create local applications folder if not exits
 if [ ! -d $HOME/.local/share/applications/ ] ;then
@@ -34,7 +34,7 @@ sudo cp $apps_directory/$app_name /usr/bin/$app_name
 _writeLog 1 "ML4W Hyprland Settings App installed successfully"
 
 # Installation of FlatPaks
-$install_directory/dotfiles/flatpak.sh $apps_directory
+$install_directory/dotfiles/flatpak.sh $apps_directory $(_getLogFile)
 
 _writeLogHeader "Hyprland Settings App"
 

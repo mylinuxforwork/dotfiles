@@ -4,6 +4,7 @@ Version 2.9.8
 - New ML4W Sidebar App give quick access to selected configurations. It replaces the ags sidebar.
 - SwayNC added as new notification app and center with additional features.
 - kitty, nvim, .bashrc and .zshrc requires user confirmation for overwriting.
+- All required additional downloads required for the installation will be stored in .ml4w folder
 
 Version 2.9.7.4
 --------------------------------------------------------

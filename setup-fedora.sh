@@ -1,7 +1,20 @@
 #!/bin/bash
 clear
 
+# ----------------------------------------------------- 
+# Repository
+# -----------------------------------------------------
 repo="mylinuxforwork/dotfiles"
+
+# ----------------------------------------------------- 
+# Download Folder
+# -----------------------------------------------------
+download_folder="$HOME/.ml4w"
+
+# Create download_folder if not exists
+if [ ! -d $download_folder ] ;then
+    mkdir -p $download_folder
+fi
 
 # Get latest tag from GitHub
 get_latest_release() {
@@ -91,33 +104,33 @@ while true; do
     esac
 done
 
-# Create Downloads folder if not exists
-if [ ! -d ~/Downloads ]; then
-    mkdir ~/Downloads
-    echo ":: Downloads folder created"
+# Create Download folder if not exists
+if [ ! -d $download_folder ]; then
+    mkdir -p $download_folder
+    echo ":: $download_folder folder created"
 fi 
 
 # Remove existing download folder and zip files 
-if [ -f $HOME/Downloads/dotfiles-main.zip ]; then
-    rm $HOME/Downloads/dotfiles-main.zip
+if [ -f $download_folder/dotfiles-main.zip ]; then
+    rm $download_folder/dotfiles-main.zip
 fi
-if [ -f $HOME/Downloads/dotfiles-dev.zip ]; then
-    rm $HOME/Downloads/dotfiles-dev.zip
+if [ -f $download_folder/dotfiles-dev.zip ]; then
+    rm $download_folder/dotfiles-dev.zip
 fi
-if [ -f $HOME/Downloads/dotfiles.zip ]; then
-    rm $HOME/Downloads/dotfiles.zip
+if [ -f $download_folder/dotfiles.zip ]; then
+    rm $download_folder/dotfiles.zip
 fi
-if [ -d $HOME/Downloads/dotfiles ]; then
-    rm -rf $HOME/Downloads/dotfiles
+if [ -d $download_folder/dotfiles ]; then
+    rm -rf $download_folder/dotfiles
 fi
-if [ -d $HOME/Downloads/dotfiles_temp ]; then
-    rm -rf $HOME/Downloads/dotfiles_temp
+if [ -d $download_folder/dotfiles_temp ]; then
+    rm -rf $download_folder/dotfiles_temp
 fi
-if [ -d $HOME/Downloads/dotfiles-main ]; then
-    rm -rf $HOME/Downloads/dotfiles-main
+if [ -d $download_folder/dotfiles-main ]; then
+    rm -rf $download_folder/dotfiles-main
 fi
-if [ -d $HOME/Downloads/dotfiles-dev ]; then
-    rm -rf $HOME/Downloads/dotfiles-dev
+if [ -d $download_folder/dotfiles-dev ]; then
+    rm -rf $download_folder/dotfiles-dev
 fi
 
 # Install required packages
@@ -136,11 +149,11 @@ version=$(gum choose "main-release" "rolling-release" "cancel")
 if [ "$version" == "main-release" ]; then
     echo ":: Installing Main Release"
     echo
-    git clone --branch $latest_version --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+    git clone --branch $latest_version --depth 1 https://github.com/mylinuxforwork/dotfiles.git $download_folder/dotfiles
 elif [ "$version" == "rolling-release" ]; then
     echo ":: Installing Rolling Release"
     echo
-    git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+    git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git $download_folder/dotfiles
 elif [ "$version" == "cancel" ]; then
     echo ":: Setup canceled"
     exit 130    
@@ -151,7 +164,7 @@ fi
 echo ":: Download complete."
 echo
 # Cd into dotfiles folder
-cd $HOME/Downloads/dotfiles/bin/
+cd $download_folder/dotfiles/bin/
 
 # Start Spinner
 gum spin --spinner dot --title "Starting the installation now..." -- sleep 3

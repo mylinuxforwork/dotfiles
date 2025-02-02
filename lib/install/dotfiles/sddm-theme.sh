@@ -16,17 +16,17 @@ if [ -z $automation_displaymanager ] ;then
         if gum confirm "Do you want to install/update the $sddm_theme_name theme?" ;then
             _writeLog 0 "Installing $sddm_theme_name"
 
-            if [ -d ~/Downloads/$sddm_theme_name ] ;then
-                rm -rf ~/Downloads/$sddm_theme_name
-                _writeLog 1 "~/Downloads/$sddm_theme_name removed"
+            if [ -d $download_folder/$sddm_theme_name ] ;then
+                rm -rf $download_folder/$sddm_theme_name
+                _writeLog 1 "$download_folder/$sddm_theme_name removed"
             fi 
 
-            wget -P ~/Downloads/$sddm_theme_name $sddm_theme_download &>> $(_getLogFile)
+            wget -P $download_folder/$sddm_theme_name $sddm_theme_download &>> $(_getLogFile)
             _writeLog 1 "Download of $sddm_theme_name complete"
-            unzip -o -q ~/Downloads/$sddm_theme_name/$sddm_theme_master -d ~/Downloads/$sddm_theme_name &>> $(_getLogFile)
+            unzip -o -q $download_folder/$sddm_theme_name/$sddm_theme_master -d $download_folder/$sddm_theme_name &>> $(_getLogFile)
             _writeLog 1 "Unzip of $sddm_theme_name complete"
 
-            sudo cp -r ~/Downloads/$sddm_theme_name/$sddm_theme_folder /usr/share/sddm/themes/$sddm_theme_name
+            sudo cp -r $download_folder/$sddm_theme_name/$sddm_theme_folder /usr/share/sddm/themes/$sddm_theme_name
             _writeLog 1 "$sddm_theme_name copied to target location"
 
             if [ ! -d /etc/sddm.conf.d/ ]; then
