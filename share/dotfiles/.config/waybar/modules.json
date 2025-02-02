@@ -169,7 +169,7 @@
 
   // SwayNC
   "custom/notification": {
-    "tooltip": false,
+    "tooltip-format": "Left: Notifications\nRight: Do not disturb",
     "format": "{icon}",
     "format-icons": {
       "notification": "<span foreground='red'><sup></sup></span>",
