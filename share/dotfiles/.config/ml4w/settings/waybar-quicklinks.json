@@ -5,14 +5,14 @@
         "tooltip-format": "Open Chromium"
     }, 
     "custom/quicklink2": {
-        "format": "",
+        "format": "󰖟",
         "on-click": "~/.config/ml4w/settings/browser.sh",
-        "tooltip-format": "Open Firefox"
+        "tooltip-format": "Open Browser"
     },
     "custom/quicklink3": {
         "format": "",
         "on-click": "~/.config/ml4w/settings/filemanager.sh",
-        "tooltip-format": "Open filemanager"
+        "tooltip-format": "Open File Manager"
     }, 
     "custom/quicklink4": {
         "format": "",

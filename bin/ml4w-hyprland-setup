@@ -136,7 +136,7 @@ _run_dotfiles() {
 }
 
 # ----------------------------------------------------- 
-# Run unstaller
+# Run options wizard
 # ----------------------------------------------------- 
 _run_options() {
     source $options_directory/options.sh
@@ -182,7 +182,13 @@ _run_activate() {
 # ----------------------------------------------------- 
 while getopts "m:p:vh" opt; do
     case $opt in
-        m) install_mode="$OPTARG";;
+        m)
+            install_mode="$OPTARG"
+            if [[ "$install_mode" == "options" ]]; then
+                shift $((OPTIND-1))
+                options_argument="$1"
+            fi
+        ;;
         p) install_platform="$OPTARG";;
         v) 
             echo ":: ML4W Dotfiles for Hyprland Version $version"
@@ -196,7 +202,7 @@ while getopts "m:p:vh" opt; do
             echo "-m nvidia: Run full installation with NVIDA Driver installation"
             echo "-m packages: Run installation of packages only"
             echo "-m dotfiles: Run the setup of the dotfiles only"
-            echo "-m options: Install package options"
+            echo "-m options <package>: Install package options"
             echo "-m diagnosis: Run diagnosis"
             echo "-m update: Check for new updates"
             echo "-m uninstall: Will uninstall the dotfiles"
