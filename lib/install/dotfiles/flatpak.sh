@@ -3,6 +3,7 @@ apps_directory="$1"
 log_file="$2"
 
 # Install Runtime
+echo ":: Installing runtime"
 flatpak -y install org.gnome.Platform/x86_64/47 &>> $log_file
 
 # Install Apps
