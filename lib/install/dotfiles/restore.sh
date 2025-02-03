@@ -104,31 +104,6 @@ _startRestore() {
         _restoreItem "$item"
     done    
 
-    # Check Wallpaper
-    if [ -f ~/.config/ml4w/cache/blurred_wallpaper.png ] ;then
-        rm $ml4w_directory/$version/.config/ml4w/cache/blurred_wallpaper.png
-    elif [ -f ~/.cache/blurred_wallpaper.png ] ;then
-        cp ~/.cache/blurred_wallpaper.png $ml4w_directory/$version/.config/ml4w/cache/blurred_wallpaper.png
-    fi
-
-    if [ -f ~/.config/ml4w/cache/current_wallpaper ] ;then
-        rm $ml4w_directory/$version/.config/ml4w/cache/current_wallpaper
-    elif [ -f ~/.cache/current_wallpaper ] ;then
-        cp ~/.cache/current_wallpaper $ml4w_directory/$version/.config/ml4w/cache/current_wallpaper
-    fi
-    
-    if [ -f ~/.config/ml4w/cache/current_wallpaper.rasi ] ;then
-        rm $ml4w_directory/$version/.config/ml4w/cache/current_wallpaper.rasi
-    elif [ -f ~/.cache/current_wallpaper.rasi ] ;then
-        cp ~/.cache/current_wallpaper.rasi $ml4w_directory/$version/.config/ml4w/cache/current_wallpaper.rasi
-    fi
-    
-    if [ -f ~/.config/ml4w/cache/square_wallpaper.png ] ;then
-        rm $ml4w_directory/$version/.config/ml4w/cache/square_wallpaper.png
-    elif [ -f ~/.cache/square_wallpaper.png ] ;then
-        cp ~/.cache/square_wallpaper.png $ml4w_directory/$version/.config/ml4w/cache/square_wallpaper.png
-    fi
-    
     restored=1
     return 0
 }

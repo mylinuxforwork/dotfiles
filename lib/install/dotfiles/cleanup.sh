@@ -10,6 +10,11 @@ fi
 echo "$install_platform" > $HOME/.config/ml4w/settings/platform.sh
 _writeLog 1 "platform.sh with $install_platform created"
 
+# Create Cache Folder if not exists
+if [ ! -d $HOME/.config/ml4w/cache ] ;then
+    mkdir -p $HOME/.config/ml4w/cache
+fi
+
 # Cache file for holding the current wallpaper
 cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
 rasi_file="$HOME/.config/ml4w/cache/current_wallpaper.rasi"
