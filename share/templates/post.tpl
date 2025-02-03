@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ------------------------------------------------------
 # Don't edit this section
 # Include scripts.sh with helper functions

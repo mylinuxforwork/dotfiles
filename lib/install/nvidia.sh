@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 echo -e "${GREEN}"
 figlet -f smslant "NVIDIA Setup"
 echo -e "${NONE}"

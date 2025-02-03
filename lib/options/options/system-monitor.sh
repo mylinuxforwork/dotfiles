@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 clear
 echo -e "${GREEN}"
 figlet -f smslant "System Monitor"

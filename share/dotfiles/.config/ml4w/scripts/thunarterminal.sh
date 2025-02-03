@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 clear
 if [ -f ~/.config/ml4w/settings/terminal.sh ]; then
     terminal="$(cat ~/.config/ml4w/settings/terminal.sh)"

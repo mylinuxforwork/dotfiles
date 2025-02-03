@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 clear
 aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
 figlet -f smslant "Cleanup"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 makepkg --printsrcinfo > .SRCINFO
 echo ":: .SRCINFO created"
 commit_msg=$(gum input --placeholder "Enter your commit-message")

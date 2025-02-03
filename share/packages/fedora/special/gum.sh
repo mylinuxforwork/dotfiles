@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 echo '[charm]
 name=Charm
 baseurl=https://repo.charm.sh/yum/

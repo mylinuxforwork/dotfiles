@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 sleep 1
 if [ -f /var/lib/pacman/db.lck ]; then
     sudo rm /var/lib/pacman/db.lck

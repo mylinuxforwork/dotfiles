@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Execute the script with ./sync version e.g., ./sync 2.5.2
 
 if [ ! -z $1 ]; then

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 apps_directory="$1"
 log_file="$2"
 

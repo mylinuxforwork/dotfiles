@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 killall hypridle
 sleep 1
 hypridle &

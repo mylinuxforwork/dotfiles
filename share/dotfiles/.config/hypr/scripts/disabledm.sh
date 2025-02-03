@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 clear
 figlet -f smslant "Disable DM"
 echo "Hyprland recommends the start with the tty login."

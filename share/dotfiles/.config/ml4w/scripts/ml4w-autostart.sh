@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Compare installed version with running dotfiles
 if [ -f ~/.config/ml4w/version/compare.sh ]; then

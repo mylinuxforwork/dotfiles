@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 clear
 sleep 1
 dot_folder=$(cat ~/.config/ml4w/settings/dotfiles-folder.sh)

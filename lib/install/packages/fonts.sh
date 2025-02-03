@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Check if the JetBrainsMono folder exists
 if [ -d ~/.local/share/fonts/JetBrainsMonoNerd ]; then

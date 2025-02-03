@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ------------------------------------------------------
 # Compare installed version with used version
 # ------------------------------------------------------

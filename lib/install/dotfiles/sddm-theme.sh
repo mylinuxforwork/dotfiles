@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 _writeLogHeader "SDDM Theme"
 
 sddm_theme_name="sequoia"

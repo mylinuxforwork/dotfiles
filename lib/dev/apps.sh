@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 dotfiles="/home/raabe/.ml4w-hyprland/dotfiles"
 
 # apps
