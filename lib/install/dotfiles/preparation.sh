@@ -11,11 +11,11 @@ fi
 
 # Create required folder structure
 _writeLog 0 "Preparing temporary folders for the installation."
-if [ ! -d $ml4w_directory ] ;then
+if [ ! -d $ml4w_directory ]; then
     mkdir $ml4w_directory
     _writeLog 1 "$ml4w_directory folder created."
 fi
-if [ ! -d $ml4w_directory/$version ] ;then
+if [ ! -d $ml4w_directory/$version ]; then
     mkdir $ml4w_directory/$version
     _writeLog 1 "$ml4w_directory/$version folder created."
 else
@@ -24,7 +24,7 @@ else
     mkdir $ml4w_directory/$version
     _writeLog 1 "Clean build prepared for the installation."
 fi
-if [ ! -d $ml4w_directory/library ] ;then
+if [ ! -d $ml4w_directory/library ]; then
     mkdir $ml4w_directory/library
     _writeLog 1 "library folder created"
 fi
@@ -33,7 +33,7 @@ fi
 rsync -a -I --exclude-from=$includes_directory/excludes.txt $share_directory/dotfiles/. $ml4w_directory/$version/
 
 # Check copy success
-if [[ $(_isFolderEmpty $ml4w_directory/$version/) == 0 ]] ;then
+if [[ $(_isFolderEmpty $ml4w_directory/$version/) == 0 ]]; then
     _writeLogTerminal 2 "AN ERROR HAS OCCURED. Preparation of $ml4w_directory/$version/ failed" 
     _writeLog 2 "Please check that rsync is installad on your system."
     _writeLog 2 "Execution of rsync -a -I --exclude-from=$includes_directory/excludes.txt . $ml4w_directory/$version/ is required."
@@ -42,7 +42,7 @@ fi
 _writeLog 1 "ML4W Dotfiles $version successfully prepared in $ml4w_directory/$version/"
 
 # Copy hook.tpl if hook.sh not exists
-if [ ! -f $ml4w_directory/hook.sh ] ;then
+if [ ! -f $ml4w_directory/hook.sh ]; then
     cp $template_directory/hook.tpl $ml4w_directory/
     _writeLog 1 "hook.tpl created"
 else
@@ -51,7 +51,7 @@ else
 fi
 
 # Copy post.tpl if post.sh not exists
-if [ ! -f $ml4w_directory/post.sh ] ;then
+if [ ! -f $ml4w_directory/post.sh ]; then
     cp $template_directory/post.tpl $ml4w_directory/
     _writeLog 1 "post.tpl created"
 else
@@ -84,7 +84,7 @@ sed -i "s|$SEARCH|$REPLACE|g" $ml4w_directory/library/scripts.sh
 
 if [ $install_platform == "arch" ]; then
     echo "$aur_helper" > $ml4w_directory/$version/.config/ml4w/settings/aur.sh
-    if [ -f ~/.config/ml4w/settings/aur.sh ] ;then
+    if [ -f ~/.config/ml4w/settings/aur.sh ]; then
         echo "$aur_helper" > $HOME/.config/ml4w/settings/aur.sh
     fi
     _writeLog 1 "AUR Helper updated with $aur_helper"

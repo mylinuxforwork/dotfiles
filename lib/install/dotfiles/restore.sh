@@ -59,12 +59,12 @@ _showRestoreOptions() {
     done    
 
     restoreselect=$(gum choose --no-limit --height 20 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " --selected="$selectedlist" $restorelist)
-    if [ ! -z "$restoreselect" ] ;then
+    if [ ! -z "$restoreselect" ]; then
         echo "Selected to restore:" 
         echo "$restoreselect"
         echo ""
         confirmrestore=$(gum choose "Start restore" "Change restore" "Skip restore")
-        if [ "$confirmrestore" == "Start restore" ] ;then
+        if [ "$confirmrestore" == "Start restore" ]; then
             _startRestore
         elif [ "$confirmrestore" == "Change restore" ]; then 
             _showRestoreOptions
@@ -75,7 +75,7 @@ _showRestoreOptions() {
     else
         echo "No files selected to restore."
         confirmrestore=$(gum choose "Change restore" "Skip restore")
-        if [ -z "${confirmrestore}" ] ;then
+        if [ -z "${confirmrestore}" ]; then
             _writeCancel
             exit
         fi
@@ -113,10 +113,10 @@ if [ -d $HOME/$dot_folder ]; then
     restored=0
     _writeMessage "The script will try to restore existing configurations."
     echo
-    if [ -z $automation_restore ] ;then
+    if [ -z $automation_restore ]; then
         _showRestoreOptions
     else
-        if [[ "$automation_restore" = true ]] ;then
+        if [[ "$automation_restore" = true ]]; then
             _restore_automation
         fi
     fi

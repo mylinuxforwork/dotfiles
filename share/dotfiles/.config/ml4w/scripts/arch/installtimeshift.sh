@@ -25,14 +25,14 @@ _isInstalledAUR() {
 timeshift_installed=$(_isInstalledAUR "timeshift")
 grubbtrfs_installed=$(_isInstalledAUR "grub-btrfs")
 
-if [[ $timeshift_installed == "0" ]] ;then
+if [[ $timeshift_installed == "0" ]]; then
     echo ":: Timeshift is already installed"
 else
     if gum confirm "DO YOU WANT TO INSTALL Timeshift now?" ;then
         $aur_helper -S timeshift
     fi
 fi
-if [[ -d /boot/grub ]] && [[ $grubbtrfs_installed == "0" ]] ;then
+if [[ -d /boot/grub ]] && [[ $grubbtrfs_installed == "0" ]]; then
     echo ":: grub-btrfs is already installed"
 else
     echo ":: grub-btrfs is required to select a snapshot on grub bootloader."

@@ -53,7 +53,7 @@ case $install_platform in
     arch)
         aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
 
-        if [[ $(_isInstalled "timeshift") == "0" ]] ;then                                        
+        if [[ $(_isInstalled "timeshift") == "0" ]]; then                                        
             echo
             if gum confirm "DO YOU WANT TO CREATE A SNAPSHOT?" ;then
                 echo
@@ -74,13 +74,13 @@ case $install_platform in
 
         $aur_helper
         
-        if [[ $(_isInstalled "flatpak") == "0" ]] ;then
+        if [[ $(_isInstalled "flatpak") == "0" ]]; then
             flatpak upgrade
         fi
     ;;
     fedora)
         sudo dnf upgrade
-        if [[ $(_isInstalled "flatpak") == "0" ]] ;then
+        if [[ $(_isInstalled "flatpak") == "0" ]]; then
             flatpak upgrade
         fi
     ;;

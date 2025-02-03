@@ -49,7 +49,7 @@ _keyboard_confirm() {
         fi
     fi
 
-    if [ "$setkeyboard" == "0" ] ;then
+    if [ "$setkeyboard" == "0" ]; then
 
         # Default layout and variants
         keyboard_layout="us"
@@ -64,7 +64,7 @@ _keyboard_confirm() {
         sed -i "s/$SEARCH/$REPLACE/g" $ml4w_directory/$version/.config/hypr/conf/keyboard.conf
 
         # Set french keyboard variation
-        if [[ "$keyboard_layout" == "fr" ]] ;then
+        if [[ "$keyboard_layout" == "fr" ]]; then
             echo "source = ~/.config/hypr/conf/keybindings/fr.conf" > $ml4w_directory/$version/.config/hypr/conf/keybinding.conf
             _writeLog 0 "Optimized keybindings for french keyboard layout"
         fi

@@ -10,13 +10,13 @@ sddm_asset_folder="/usr/share/sddm/themes/$sddm_theme_name/backgrounds"
 
 sddm_theme_tpl="$share_directory/sddm/theme.conf"
 
-if [ -z $automation_displaymanager ] ;then
+if [ -z $automation_displaymanager ]; then
     if [ -d /usr/share/sddm ]; then
         _writeHeader "SDDM Theme"
         if gum confirm "Do you want to install/update the $sddm_theme_name theme?" ;then
             _writeLog 0 "Installing $sddm_theme_name"
 
-            if [ -d $download_folder/$sddm_theme_name ] ;then
+            if [ -d $download_folder/$sddm_theme_name ]; then
                 rm -rf $download_folder/$sddm_theme_name
                 _writeLog 1 "$download_folder/$sddm_theme_name removed"
             fi 
@@ -53,7 +53,7 @@ if [ -z $automation_displaymanager ] ;then
         _writeLog 2 "SDDM (/usr/share/sddm) not found"
     fi
 else
-    if [[ "$automation_displaymanager" = true ]] ;then
+    if [[ "$automation_displaymanager" = true ]]; then
         _writeLog 0 "AUTOMATION: Keep current theme of Display Manager"
     fi
 fi    

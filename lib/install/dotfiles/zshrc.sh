@@ -2,8 +2,8 @@
 # Install .zshrc
 # ------------------------------------------------------
 
-if [ -f $HOME/.zshrc ] ;then
-    if [ -z $automation_zshrc ] ;then
+if [ -f $HOME/.zshrc ]; then
+    if [ -z $automation_zshrc ]; then
         _writeHeader ".zshrc"
         _writeMessage "The script has detected an existing .zshrc file."
         _writeMessage "You can keep it or replace it with the latest version of ML4W Dotfiles $version"
@@ -19,9 +19,9 @@ if [ -f $HOME/.zshrc ] ;then
             _writeLogTerminal 0 ".zshrc will be installed"
         fi
     else
-        if [[ "$automation_zshrc" = true ]] ;then
+        if [[ "$automation_zshrc" = true ]]; then
             _writeLogTerminal 0 "AUTOMATION: .zshrc will be installed."
-        elif [[ "$automation_zshrc" = false ]] ;then
+        elif [[ "$automation_zshrc" = false ]]; then
             rm $ml4w_directory/$version/.zshrc
             rm -rf $ml4w_directory/$version/.config/zshrc
             _writeSkipped

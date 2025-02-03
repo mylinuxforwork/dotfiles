@@ -11,7 +11,7 @@ echo "$install_platform" > $HOME/.config/ml4w/settings/platform.sh
 _writeLog 1 "platform.sh with $install_platform created"
 
 # Create Cache Folder if not exists
-if [ ! -d $HOME/.config/ml4w/cache ] ;then
+if [ ! -d $HOME/.config/ml4w/cache ]; then
     mkdir -p $HOME/.config/ml4w/cache
 fi
 
@@ -20,14 +20,14 @@ cache_file="$HOME/.config/ml4w/cache/current_wallpaper"
 rasi_file="$HOME/.config/ml4w/cache/current_wallpaper.rasi"
 
 # Create cache file if not exists
-if [ ! -f $cache_file ] ;then
+if [ ! -f $cache_file ]; then
     touch $cache_file
     echo "$HOME/wallpaper/default.jpg" > "$cache_file"
     _writeLog 1 "Wallpaper cache file created"
 fi
 
 # Create rasi file if not exists
-if [ ! -f $rasi_file ] ;then
+if [ ! -f $rasi_file ]; then
     touch $rasi_file
     echo "* { current-image: url(\"$HOME/wallpaper/default.jpg\", height); }" > "$rasi_file"
     _writeLog 1 "Wallpaper rasi file created"
@@ -59,18 +59,18 @@ else
     _writeLog 1 "bluetooth.service activated successfully."    
 fi
 
-if [ -d ~/$dot_folder/hypr/settings/ ] ;then
+if [ -d ~/$dot_folder/hypr/settings/ ]; then
     rm -rf ~/dotfiles/hypr/settings
     _writeLog 1 "~/dotfiles/hypr/settings removed."
 fi
 
-if [ -f ~/.local/share/applications/ml4w-welcome.desktop ] ;then
+if [ -f ~/.local/share/applications/ml4w-welcome.desktop ]; then
     rm ~/.local/share/applications/ml4w-welcome.desktop
 fi
-if [ -f ~/.local/share/applications/ml4w-dotfiles-settings.desktop ] ;then
+if [ -f ~/.local/share/applications/ml4w-dotfiles-settings.desktop ]; then
     rm ~/.local/share/applications/ml4w-dotfiles-settings.desktop
 fi
-if [ -f ~/.local/share/applications/ml4w-hyprland-settings.desktop ] ;then
+if [ -f ~/.local/share/applications/ml4w-hyprland-settings.desktop ]; then
     rm ~/.local/share/applications/ml4w-hyprland-settings.desktop
 fi
 

@@ -10,7 +10,7 @@ selectedInstall=""
 _checkPackages
 
 optionalSelect=$(gum choose $toInstall "CANCEL")
-if [ -z "$optionalSelect" ] ;then
+if [ -z "$optionalSelect" ]; then
     _selectCategory
 elif [ $optionalSelect == "CANCEL" ]; then
     _selectCategory

@@ -123,7 +123,7 @@ _removePackage() {
 
 _isFolderEmpty() {
     folder="$1"
-    if [ -d $folder ] ;then
+    if [ -d $folder ]; then
         if [ -z "$(ls -A $folder)" ]; then
             echo 0
         else
@@ -137,8 +137,8 @@ _isFolderEmpty() {
 _move_folder() {
     source=$1
     target=$2
-    if [ ! -d $target ] ;then
-        if [ -d $source ] ;then
+    if [ ! -d $target ]; then
+        if [ -d $source ]; then
             mv $source $target
             echo ":: $source moved to $target"
         fi
@@ -147,7 +147,7 @@ _move_folder() {
 
 _del_folder() {
     source=$1
-    if [ -d $source ] ;then
+    if [ -d $source ]; then
         rm -rf $source
         echo ":: $source deleted"
     fi    
@@ -156,8 +156,8 @@ _del_folder() {
 _move_file() {
     source=$1
     target=$2
-    if [ ! -f $target ] ;then
-        if [ -f $source ] ;then
+    if [ ! -f $target ]; then
+        if [ -f $source ]; then
             mv $source $target
             echo ":: $source moved to $target"
         fi
@@ -166,7 +166,7 @@ _move_file() {
 
 _del_file() {
     source=$1
-    if [ -f $source ] ;then
+    if [ -f $source ]; then
         rm $source
         echo ":: $source deleted"
     fi    
@@ -222,7 +222,7 @@ _installSymLink() {
 # ------------------------------------------------------
 _isKVM() {
     iskvm=$(sudo dmesg | grep "Hypervisor detected")
-    if [[ "$iskvm" =~ "KVM" ]] ;then
+    if [[ "$iskvm" =~ "KVM" ]]; then
         echo 0
     else
         echo 1
@@ -244,7 +244,7 @@ _replaceInFile() {
     start_found=0
     end_found=0
 
-    if [ -f $file_path ] ;then
+    if [ -f $file_path ]; then
 
         # Detect Start String
         while read -r line
@@ -269,21 +269,21 @@ _replaceInFile() {
         done < "$file_path"
 
         # Check that deliminters exists
-        if [[ "$start_found" == "0" ]] ;then
+        if [[ "$start_found" == "0" ]]; then
             echo "ERROR: Start deliminter not found."
             sleep 2
         fi
-        if [[ "$end_found" == "0" ]] ;then
+        if [[ "$end_found" == "0" ]]; then
             echo "ERROR: End deliminter not found."
             sleep 2
         fi
 
         # Replace text between delimiters
-        if [[ ! "$start_found" == "0" ]] && [[ ! "$end_found" == "0" ]] && [ "$start_found" -le "$end_found" ] ;then
+        if [[ ! "$start_found" == "0" ]] && [[ ! "$end_found" == "0" ]] && [ "$start_found" -le "$end_found" ]; then
             # Remove the old line
             ((start_found++))
 
-            if [ ! "$start_found" == "$end_found" ] ;then    
+            if [ ! "$start_found" == "$end_found" ]; then    
                 ((end_found--))
                 sed -i "$start_found,$end_found d" $file_path
             fi
@@ -319,7 +319,7 @@ _replaceLineInFile() {
     find_line_counter=0
     line_found=0
 
-    if [ -f $file_path ] ;then
+    if [ -f $file_path ]; then
 
         # Detect Line
         while read -r line
@@ -332,7 +332,7 @@ _replaceLineInFile() {
             fi 
         done < "$file_path"
 
-        if [[ ! "$line_found" == "0" ]] ;then
+        if [[ ! "$line_found" == "0" ]]; then
             
             #Remove the line
             sed -i "$line_found d" $file_path
@@ -365,7 +365,7 @@ _replaceLineInFileCheckpoint() {
     line_found=0
     checkpoint_found=0
 
-    if [ -f $file_path ] ;then
+    if [ -f $file_path ]; then
 
         # Detect Checkpoint
         while read -r line
@@ -378,13 +378,13 @@ _replaceLineInFileCheckpoint() {
             fi 
         done < "$file_path"
 
-        if [[ ! "$checkpoint_found" == "0" ]] ;then
+        if [[ ! "$checkpoint_found" == "0" ]]; then
 
             # Detect Line
             while read -r line
             do
                 ((find_line_counter++))
-                if [ "$find_line_counter" -gt "$checkpoint_found" ] ;then
+                if [ "$find_line_counter" -gt "$checkpoint_found" ]; then
                     if [[ $line = *$find_string* ]]; then
                         # echo "Line found in $find_line_counter"
                         line_found=$find_line_counter
@@ -393,7 +393,7 @@ _replaceLineInFileCheckpoint() {
                 fi
             done < "$file_path"
 
-            if [[ ! "$line_found" == "0" ]] ;then
+            if [[ ! "$line_found" == "0" ]]; then
                 
                 #Remove the line
                 sed -i "$line_found d" $file_path

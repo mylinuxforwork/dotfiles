@@ -11,7 +11,7 @@
 # -----------------------------------------------------
 dir=$(dirname "$(realpath $0)")
 
-if [[ $dir == "/usr/bin" ]] ;then
+if [[ $dir == "/usr/bin" ]]; then
     
     # Installed
     package_name="ml4w-hyprland"
@@ -50,7 +50,7 @@ log_folder="$ml4w_directory/log"
 download_folder="$HOME/.ml4w"
 
 # Create download_folder if not exists
-if [ ! -d $download_folder ] ;then
+if [ ! -d $download_folder ]; then
     mkdir -p $download_folder
 fi
 
@@ -112,7 +112,7 @@ _run_nvidia() {
 # Check for update
 # ----------------------------------------------------- 
 _check_update() {
-    if [ -f ~/.config/ml4w/settings/dotfiles-folder.sh ] ;then
+    if [ -f ~/.config/ml4w/settings/dotfiles-folder.sh ]; then
         echo "true"
     else
         echo "false"

@@ -3,8 +3,8 @@
 # ------------------------------------------------------
 _writeLogHeader "Kitty"
 
-if [ -z $automation_kitty ] ;then
-    if [ -d $ml4w_directory/$version/.config/kitty ] ;then
+if [ -z $automation_kitty ]; then
+    if [ -d $ml4w_directory/$version/.config/kitty ]; then
         if [ -d ~/.config/kitty ]; then
             _writeHeader "Kitty"
             _writeLogTerminal 0 "The script has detected a kitty folder in your ~/.config folder."
@@ -22,7 +22,7 @@ if [ -z $automation_kitty ] ;then
         fi
     fi
 else
-    if [[ "$automation_kitty" = true ]] ;then
+    if [[ "$automation_kitty" = true ]]; then
         _writeLogTerminal 0 "AUTOMATION: Kitty configuration will be installed."
     else
         rm -rf $ml4w_directory/$version/.config/kitty

@@ -21,7 +21,7 @@ echo "Version: $version"
 echo "Platform: $install_platform" 
 echo
 # echo ":: You're running the script in $(pwd)"
-if [[ $(_check_update) == "true" ]] ;then
+if [[ $(_check_update) == "true" ]]; then
     _writeLog 0 "An existing ML4W Dotfiles installation detected."
     _writeMessage "This script will guide you through the update process of the ML4W Dotfiles."
 else

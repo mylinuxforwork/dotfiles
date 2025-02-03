@@ -11,7 +11,7 @@ _checkPackages
 _checkDefault "system-monitor.sh"
 
 optionalSelect=$(gum choose $toInstall "CANCEL")
-if [ -z "$optionalSelect" ] ;then
+if [ -z "$optionalSelect" ]; then
     _selectCategory
 elif [ $optionalSelect == "CANCEL" ]; then
     _selectCategory

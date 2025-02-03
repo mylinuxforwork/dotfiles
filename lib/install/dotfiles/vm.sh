@@ -22,8 +22,8 @@ _install_vm() {
     fi
 }
 
-if [[ $(_check_update) == "false" ]] ;then
-    if [ $(_isKVM) == "0" ] ;then
+if [[ $(_check_update) == "false" ]]; then
+    if [ $(_isKVM) == "0" ]; then
         _writeHeader "KVM VM"
         _writeLogTerminal 0 "The script has detected that you run the installation in a KVM virtual machine."
         echo

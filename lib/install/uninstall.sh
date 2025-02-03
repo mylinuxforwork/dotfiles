@@ -37,8 +37,8 @@ else
     echo ":: Backup skipped."
 fi
 
-if [ ! -z $dot_folder ] ;then
-    if [ -f ~/.config/ml4w/settings/dotfiles-folder.sh ] ;then
+if [ ! -z $dot_folder ]; then
+    if [ -f ~/.config/ml4w/settings/dotfiles-folder.sh ]; then
         rm -rf $HOME/$dot_folder
         echo ":: $HOME/$dot_folder removed"
     fi
@@ -126,16 +126,16 @@ flatpak uninstall com.ml4w.sidebar
 flatpak uninstall com.ml4w.settings
 
 app_name="com.ml4w.hyprland.settings"
-if [ -f /usr/share/applications/$app_name.desktop ] ;then
+if [ -f /usr/share/applications/$app_name.desktop ]; then
     sudo rm /usr/share/applications/$app_name.desktop
 fi
-if [ -f $HOME/.local/share/applications/$app_name.desktop ] ;then
+if [ -f $HOME/.local/share/applications/$app_name.desktop ]; then
     sudo rm /usr/share/applications/$app_name.desktop
 fi
-if [ -f /usr/share/icons/hicolor/128x128/apps/$app_name.png ] ;then
+if [ -f /usr/share/icons/hicolor/128x128/apps/$app_name.png ]; then
     sudo rm /usr/share/icons/hicolor/128x128/apps/$app_name.png
 fi
-if [ -f /usr/bin/$app_name ] ;then
+if [ -f /usr/bin/$app_name ]; then
     sudo rm /usr/bin/$app_name
 fi
 
