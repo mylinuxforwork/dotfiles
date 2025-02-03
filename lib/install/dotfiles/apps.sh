@@ -4,14 +4,14 @@
 _writeHeader "Apps"
 
 # Create local applications folder if not exits
-if [ ! -d $HOME/.local/share/applications/ ] ;then
+if [ ! -d $HOME/.local/share/applications/ ]; then
     mkdir $HOME/.local/share/applications
     _writeLog 1 "$HOME/.local/share/applications created"
 fi
 
 # Remove legacy ML4W Apps
 app_name="com.ml4w.welcome"
-if [ -f /usr/bin/$app_name ] ;then
+if [ -f /usr/bin/$app_name ]; then
     sudo rm /usr/share/applications/$app_name.desktop
     sudo rm $apps_directory/$app_name.png /usr/share/icons/hicolor/128x128/apps/$app_name.png
     sudo rm /usr/bin/$app_name
@@ -19,7 +19,7 @@ if [ -f /usr/bin/$app_name ] ;then
 fi
 
 app_name="com.ml4w.dotfilessettings"
-if [ -f /usr/bin/$app_name ] ;then
+if [ -f /usr/bin/$app_name ]; then
     sudo rm /usr/share/applications/$app_name.desktop
     sudo rm $apps_directory/$app_name.png /usr/share/icons/hicolor/128x128/apps/$app_name.png
     sudo rm /usr/bin/$app_name
@@ -39,7 +39,7 @@ $install_directory/dotfiles/flatpak.sh $apps_directory $(_getLogFile)
 _writeLogHeader "Hyprland Settings App"
 
 # Execute hyprctl from the Settings app
-if [ -f ~/.config/ml4w-hyprland-settings/hyprctl.sh ] ;then
+if [ -f ~/.config/ml4w-hyprland-settings/hyprctl.sh ]; then
     _writeLog 0 "Starting restore from ML4W Hyprland Settings App"
     ~/.config/ml4w-hyprland-settings/hyprctl.sh
 fi

@@ -27,7 +27,7 @@ else
     exit;
 fi
 
-if [[ $(_isInstalledYay "timeshift") == "0" ]] ;then
+if [[ $(_isInstalledYay "timeshift") == "0" ]]; then
     if gum confirm "DO YOU WANT TO CREATE A SNAPSHOT?" ;then
         echo
         c=$(gum input --placeholder "Enter a comment for the snapshot...")
@@ -52,7 +52,7 @@ echo
 echo ":: Installing printer system complete"
 sleep 2
 
-if [ -f ~/.config/ml4w/settings/printer-drivers.sh ] ;then
+if [ -f ~/.config/ml4w/settings/printer-drivers.sh ]; then
     if gum confirm "DO YOU WANT TO INSTALL PRINTER DRIVERS NOW?" ;then
     echo
     echo ":: Install started."

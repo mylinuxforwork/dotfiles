@@ -35,7 +35,7 @@ gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal "$term
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal use-generic-terminal-name "true"
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal keybindings "<Ctrl><Alt>t"
 
-if [ -f ~/.config/hypr/conf/cursor.conf ] ;then
+if [ -f ~/.config/hypr/conf/cursor.conf ]; then
     echo "exec-once = hyprctl setcursor $cursor_theme $cursor_size" > ~/.config/hypr/conf/cursor.conf
     hyprctl setcursor $cursor_theme $cursor_size
 fi

@@ -40,8 +40,6 @@ packages=(
     "gvfs"
     "wlogout"
     "pinta"
-    "gnome-text-editor"
-    "gnome-calculator"    
     "hyprshade"
     "waypaper"
     "grimblast-git"

@@ -22,7 +22,7 @@ _write_backup_file() {
 
 _create_backup() {
     # Archive existing backup
-    if [ ! -z "$(ls -A $backup_directory)" ] ;then
+    if [ ! -z "$(ls -A $backup_directory)" ]; then
         rsync -a $backup_directory/ $archive_directory/$datets/
         _writeLogTerminal 1 "Current backup archived in $archive_directory/$datets"
     fi
@@ -48,7 +48,7 @@ _create_backup() {
 
 # Create Backup File Structure
 _createBackupStructure() {
-    if [ ! -d $ml4w_directory ] ;then
+    if [ ! -d $ml4w_directory ]; then
         mkdir -p $ml4w_directory
         _writeLog 1 "$ml4w_directory folder created."
     fi
@@ -60,7 +60,7 @@ _createBackupStructure() {
         mkdir -p $archive_directory
         _writeLog 1 "$archive_directory created"
     fi
-    if [ ! -d $backup_directory/.config ] ;then
+    if [ ! -d $backup_directory/.config ]; then
         mkdir -p $backup_directory/.config
     fi
 }
@@ -75,7 +75,7 @@ _showBackup() {
 
     for f in $files; do
         if [ ! "$f" == "." ] && [ ! "$f" == ".." ] && [ ! "$f" == ".config" ]; then
-            if [ ! -L $HOME/$f ] && [ -f $HOME/$f ] ;then
+            if [ ! -L $HOME/$f ] && [ -f $HOME/$f ]; then
                 _writeMessage "$HOME/$f"
                 backuplist+="$HOME/$f "
             fi
@@ -83,7 +83,7 @@ _showBackup() {
     done
     for f in $folders; do
         if [ ! "$f" == "." ] && [ ! "$f" == ".." ]; then
-            if [ ! -L $HOME/.config/$f ] && [ -d $HOME/.config/$f ] ;then
+            if [ ! -L $HOME/.config/$f ] && [ -d $HOME/.config/$f ]; then
                 _writeMessage "$HOME/.config/$f"
                 backuplist+="$HOME/.config/$f "
             fi
@@ -91,7 +91,7 @@ _showBackup() {
     done
     echo 
     # Start Backup
-    if [ -z $automation_backup ] ;then
+    if [ -z $automation_backup ]; then
         if gum confirm "Do you want to create a backup?" ;then
             _create_backup
         elif [ $? -eq 130 ]; then
@@ -100,7 +100,7 @@ _showBackup() {
             _writeSkipped
         fi
     else
-        if [[ "$automation_backup" = true ]] ;then
+        if [[ "$automation_backup" = true ]]; then
             _create_backup
         fi
     fi

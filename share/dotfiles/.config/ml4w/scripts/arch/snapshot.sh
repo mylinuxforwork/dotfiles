@@ -28,12 +28,12 @@ _isInstalledAUR() {
 timeshift_installed=$(_isInstalledAUR "timeshift")
 grubbtrfs_installed=$(_isInstalledAUR "grub-btrfs")
 
-if [[ $timeshift_installed == "0" ]] ;then
+if [[ $timeshift_installed == "0" ]]; then
     c=$(gum input --placeholder "Enter a comment for the snapshot...")
     sudo timeshift --create --comments "$c"
     sudo timeshift --list
-    if [[ -d /boot/grub ]] ;then
-        if [[ -d /boot/grub ]] && [[ $grubbtrfs_installed == "1" ]] ;then
+    if [[ -d /boot/grub ]]; then
+        if [[ -d /boot/grub ]] && [[ $grubbtrfs_installed == "1" ]]; then
             if gum confirm "DO YOU WANT TO INSTALL grub-btrfs now?" ;then
                 $aur_helper -S grub-btrfs
             else
@@ -49,7 +49,7 @@ else
         $aur_helper -S timeshift
         echo 
         echo ":: Timeshift has been installed. Please restart this script."
-        if [[ -d /boot/grub ]] && [[ $grubbtrfs_installed == "1" ]] ;then
+        if [[ -d /boot/grub ]] && [[ $grubbtrfs_installed == "1" ]]; then
             echo ":: grub-btrfs is required to select a snapshot on grub bootloader."
             if gum confirm "DO YOU WANT TO INSTALL grub-btrfs now?" ;then
                 $aur_helper -S grub-btrfs

@@ -14,7 +14,7 @@ _setWallpaperRandomly() {
     _setWallpaperRandomly
 }
 
-if [ ! -f ~/.config/ml4w/cache/wallpaper-automation ] ;then
+if [ ! -f ~/.config/ml4w/cache/wallpaper-automation ]; then
     touch ~/.config/ml4w/cache/wallpaper-automation
     echo ":: Start wallpaper automation script"
     notify-send "Wallpaper automation process started" "Wallpaper will be changed every $sec seconds."

@@ -49,7 +49,7 @@ _disableDisplayManager() {
     _writeLog 0 "Current display manager deactivated."
 }
 
-if [ -z $automation_displaymanager ] ;then
+if [ -z $automation_displaymanager ]; then
     _detectCurrentDisplayManager
     
     if [ -f /etc/systemd/system/display-manager.service ]; then
@@ -66,23 +66,23 @@ if [ -z $automation_displaymanager ] ;then
         dmsel=$(gum choose "Keep current setup" "Install sddm")
     fi
 
-    if [ -z "${dmsel}" ] ;then
+    if [ -z "${dmsel}" ]; then
         _writeCancel
         exit
     fi
 
-    if [ "$dmsel" == "Install sddm" ] ;then
+    if [ "$dmsel" == "Install sddm" ]; then
         _confirmCurrentDisplayManager
         _installSDDM
-    elif [ "$dmsel" == "Deactivate current display manager" ] ;then
+    elif [ "$dmsel" == "Deactivate current display manager" ]; then
         _disableDisplayManager
-    elif [ "$dmsel" == "Keep current setup" ] ;then
+    elif [ "$dmsel" == "Keep current setup" ]; then
         _writeSkipped
     else
         _writeSkipped
     fi
 else
-    if [[ "$automation_displaymanager" = true ]] ;then
+    if [[ "$automation_displaymanager" = true ]]; then
         _writeLogTerminal 0 "AUTOMATION: Keep current setup of Display Manager"
         disman=0
     fi

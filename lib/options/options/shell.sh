@@ -8,7 +8,7 @@ shell=$(gum choose "bash" "zsh" "CANCEL")
 # ----------------------------------------------------- 
 # Activate bash
 # ----------------------------------------------------- 
-if [[ $shell == "bash" ]] ;then
+if [[ $shell == "bash" ]]; then
 
     # Change shell to bash
     while ! chsh -s $(which bash); do
@@ -23,7 +23,7 @@ if [[ $shell == "bash" ]] ;then
 # ----------------------------------------------------- 
 # Activate zsh
 # ----------------------------------------------------- 
-elif [[ $shell == "zsh" ]] ;then
+elif [[ $shell == "zsh" ]]; then
 
     # Change shell to shh
     while ! chsh -s $(which zsh); do

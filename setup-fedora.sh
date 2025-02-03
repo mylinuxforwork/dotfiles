@@ -12,7 +12,7 @@ repo="mylinuxforwork/dotfiles"
 download_folder="$HOME/.ml4w"
 
 # Create download_folder if not exists
-if [ ! -d $download_folder ] ;then
+if [ ! -d $download_folder ]; then
     mkdir -p $download_folder
 fi
 

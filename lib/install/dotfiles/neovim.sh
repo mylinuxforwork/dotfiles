@@ -3,8 +3,8 @@
 # ------------------------------------------------------
 _writeLogHeader "Neovim"
 
-if [ -z $automation_neovim ] ;then
-    if [ -d $ml4w_directory/$version/.config/nvim ] ;then
+if [ -z $automation_neovim ]; then
+    if [ -d $ml4w_directory/$version/.config/nvim ]; then
         if [ -d ~/.config/nvim ]; then
             _writeHeader "Neovim"
             echo ":: The script has detected a nvim folder in your ~/.config folder."
@@ -22,7 +22,7 @@ if [ -z $automation_neovim ] ;then
         fi
     fi
 else
-    if [[ "$automation_neovim" = true ]] ;then
+    if [[ "$automation_neovim" = true ]]; then
         echo ":: AUTOMATION: neovim configuration will be installed."
     else
         rm -rf $ml4w_directory/$version/.config/nvim

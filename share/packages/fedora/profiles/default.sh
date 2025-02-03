@@ -39,7 +39,6 @@ packages=(
     "hyprshade"
     "waypaper"
     "pinta"
-    "gnome-text-editor"
     "grimblast-git"
     "bibata-cursor-theme"
     "fontawesome-6-free-fonts" 
@@ -49,5 +48,4 @@ packages=(
     "oh-my-posh"
     "NetworkManager-tui"
     "nwg-dock-hyprland"
-    "oh-my-posh"
 );

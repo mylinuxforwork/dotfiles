@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 _writeLogHeader "Confirm installation/update"
 
-if [[ $(_check_update) == "true" ]] ;then
+if [[ $(_check_update) == "true" ]]; then
     if gum confirm "DO YOU WANT TO START THE UPDATE NOW?" ;then
         _writeLogTerminal 0 "Update started"
     elif [ $? -eq 130 ]; then
