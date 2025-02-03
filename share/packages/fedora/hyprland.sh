@@ -6,9 +6,9 @@ packages=(
     "hypridle"
     "hyprpicker"
     "noto-fonts"
-    "xdg-desktop-portal-hyprland" 
-    "libnotify" 
+    "xdg-desktop-portal-hyprland"
+    "libnotify"
     "kitty"
-    "qt5-qtwayland" 
+    "qt5-qtwayland"
     "qt6-qtwayland"
 );

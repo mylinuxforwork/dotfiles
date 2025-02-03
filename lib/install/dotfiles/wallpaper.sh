@@ -17,8 +17,8 @@ else
         echo
         _writeMessage "You can download and install additional wallpapers from https://github.com/mylinuxforwork/wallpaper/"
         echo
-        if gum confirm "Do you want to download the repository?" ;then
-            if [ -d $download_folder/wallpaper ] ;then
+        if gum confirm "Do you want to download the repository?"; then
+            if [ -d $download_folder/wallpaper ]; then
                 rm -rf $download_folder/wallpaper
             fi
             git clone --depth 1 https://github.com/mylinuxforwork/wallpaper.git $download_folder/wallpaper

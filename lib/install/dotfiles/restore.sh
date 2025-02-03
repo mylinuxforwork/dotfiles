@@ -32,11 +32,11 @@ _writeToRestoreList() {
     elif [ -f $HOME/$dot_folder/$1 ]; then
         restorelist+="$1 "
         selectedlist+="$1,"
-    fi    
+    fi
 }
 
 _restoreItem() {
-    if [[ $restoreselect == *"$1"* ]] ; then
+    if [[ $restoreselect == *"$1"* ]]; then
         if [ -d $HOME/$dot_folder/$1 ]; then
             _writeLog 0 "Restore Folder $1"
             rsync -a -I $HOME/$dot_folder/$1/ $ml4w_directory/$version/$1/ &>> $(_getLogFile)
@@ -44,8 +44,8 @@ _restoreItem() {
             _writeLog 0 "Restore File $1"
             cp $HOME/$dot_folder/$1 $ml4w_directory/$version/$1
         fi
-        _writeLog 1 "Hyprland $1 restored"                
-    fi    
+        _writeLog 1 "Hyprland $1 restored"
+    fi
 }
 
 _showRestoreOptions() {
@@ -56,17 +56,17 @@ _showRestoreOptions() {
     for item in "${restore_arr[@]}"
     do
         _writeToRestoreList "$item"
-    done    
+    done
 
     restoreselect=$(gum choose --no-limit --height 20 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " --selected="$selectedlist" $restorelist)
-    if [ ! -z "$restoreselect" ] ;then
-        echo "Selected to restore:" 
+    if [ ! -z "$restoreselect" ]; then
+        echo "Selected to restore:"
         echo "$restoreselect"
         echo ""
         confirmrestore=$(gum choose "Start restore" "Change restore" "Skip restore")
-        if [ "$confirmrestore" == "Start restore" ] ;then
+        if [ "$confirmrestore" == "Start restore" ]; then
             _startRestore
-        elif [ "$confirmrestore" == "Change restore" ]; then 
+        elif [ "$confirmrestore" == "Change restore" ]; then
             _showRestoreOptions
         else
             _writeSkipped
@@ -75,11 +75,11 @@ _showRestoreOptions() {
     else
         echo "No files selected to restore."
         confirmrestore=$(gum choose "Change restore" "Skip restore")
-        if [ -z "${confirmrestore}" ] ;then
+        if [ -z "${confirmrestore}" ]; then
             _writeCancel
             exit
         fi
-        if [ "$confirmrestore" == "Change restore" ]; then 
+        if [ "$confirmrestore" == "Change restore" ]; then
             echo ""
             _showRestoreOptions
         else
@@ -93,7 +93,7 @@ _restore_automation() {
     for item in "${restore_arr[@]}"
     do
         restoreselect+="$item "
-    done  
+    done
     _startRestore
 }
 
@@ -102,33 +102,33 @@ _startRestore() {
     for item in "${restore_arr[@]}"
     do
         _restoreItem "$item"
-    done    
+    done
 
     # Check Wallpaper
-    if [ -f ~/.config/ml4w/cache/blurred_wallpaper.png ] ;then
+    if [ -f ~/.config/ml4w/cache/blurred_wallpaper.png ]; then
         rm $ml4w_directory/$version/.config/ml4w/cache/blurred_wallpaper.png
-    elif [ -f ~/.cache/blurred_wallpaper.png ] ;then
+    elif [ -f ~/.cache/blurred_wallpaper.png ]; then
         cp ~/.cache/blurred_wallpaper.png $ml4w_directory/$version/.config/ml4w/cache/blurred_wallpaper.png
     fi
 
-    if [ -f ~/.config/ml4w/cache/current_wallpaper ] ;then
+    if [ -f ~/.config/ml4w/cache/current_wallpaper ]; then
         rm $ml4w_directory/$version/.config/ml4w/cache/current_wallpaper
-    elif [ -f ~/.cache/current_wallpaper ] ;then
+    elif [ -f ~/.cache/current_wallpaper ]; then
         cp ~/.cache/current_wallpaper $ml4w_directory/$version/.config/ml4w/cache/current_wallpaper
     fi
-    
-    if [ -f ~/.config/ml4w/cache/current_wallpaper.rasi ] ;then
+
+    if [ -f ~/.config/ml4w/cache/current_wallpaper.rasi ]; then
         rm $ml4w_directory/$version/.config/ml4w/cache/current_wallpaper.rasi
-    elif [ -f ~/.cache/current_wallpaper.rasi ] ;then
+    elif [ -f ~/.cache/current_wallpaper.rasi ]; then
         cp ~/.cache/current_wallpaper.rasi $ml4w_directory/$version/.config/ml4w/cache/current_wallpaper.rasi
     fi
-    
-    if [ -f ~/.config/ml4w/cache/square_wallpaper.png ] ;then
+
+    if [ -f ~/.config/ml4w/cache/square_wallpaper.png ]; then
         rm $ml4w_directory/$version/.config/ml4w/cache/square_wallpaper.png
-    elif [ -f ~/.cache/square_wallpaper.png ] ;then
+    elif [ -f ~/.cache/square_wallpaper.png ]; then
         cp ~/.cache/square_wallpaper.png $ml4w_directory/$version/.config/ml4w/cache/square_wallpaper.png
     fi
-    
+
     restored=1
     return 0
 }
@@ -138,10 +138,10 @@ if [ -d $HOME/$dot_folder ]; then
     restored=0
     _writeMessage "The script will try to restore existing configurations."
     echo
-    if [ -z $automation_restore ] ;then
+    if [ -z $automation_restore ]; then
         _showRestoreOptions
     else
-        if [[ "$automation_restore" = true ]] ;then
+        if [[ "$automation_restore" = true ]]; then
             _restore_automation
         fi
     fi
