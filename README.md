@@ -27,7 +27,7 @@ Please make sure that your system is up-to-date.
 
 IMPORTANT: Please make sure that all your system packages are updated before running the installation script.
 
-```
+```shell
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)
 ```
 
@@ -35,14 +35,14 @@ YouTube Video https://youtu.be/sVFnd5LAYAc
 
 You can also install the main release with your preferred AUR helper. 
 
-```
+```shell
 yay -S ml4w-hyprland
 ml4w-hyprland-setup
 ```
 
 You can install the rolling release with
 
-```
+```shell
 yay -S ml4w-hyprland-git
 ml4w-hyprland-setup
 ```
@@ -53,7 +53,7 @@ Please rebuild all packages to ensure that you get the latest commit.
 
 IMPORTANT: Please make sure that all your system and packages are updated before running the installation script.
 
-```
+```shell
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)
 ```
 
