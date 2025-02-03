@@ -32,11 +32,11 @@ _writeToRestoreList() {
     elif [ -f $HOME/$dot_folder/$1 ]; then
         restorelist+="$1 "
         selectedlist+="$1,"
-    fi    
+    fi
 }
 
 _restoreItem() {
-    if [[ $restoreselect == *"$1"* ]] ; then
+    if [[ $restoreselect == *"$1"* ]]; then
         if [ -d $HOME/$dot_folder/$1 ]; then
             _writeLog 0 "Restore Folder $1"
             rsync -a -I $HOME/$dot_folder/$1/ $ml4w_directory/$version/$1/ &>> $(_getLogFile)
@@ -44,8 +44,8 @@ _restoreItem() {
             _writeLog 0 "Restore File $1"
             cp $HOME/$dot_folder/$1 $ml4w_directory/$version/$1
         fi
-        _writeLog 1 "Hyprland $1 restored"                
-    fi    
+        _writeLog 1 "Hyprland $1 restored"
+    fi
 }
 
 _showRestoreOptions() {
@@ -56,7 +56,7 @@ _showRestoreOptions() {
     for item in "${restore_arr[@]}"
     do
         _writeToRestoreList "$item"
-    done    
+    done 
 
     restoreselect=$(gum choose --no-limit --height 20 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " --selected="$selectedlist" $restorelist)
     if [ ! -z "$restoreselect" ]; then
@@ -93,7 +93,7 @@ _restore_automation() {
     for item in "${restore_arr[@]}"
     do
         restoreselect+="$item "
-    done  
+    done
     _startRestore
 }
 
@@ -102,7 +102,7 @@ _startRestore() {
     for item in "${restore_arr[@]}"
     do
         _restoreItem "$item"
-    done    
+    done
 
     restored=1
     return 0

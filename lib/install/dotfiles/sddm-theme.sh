@@ -56,4 +56,4 @@ else
     if [[ "$automation_displaymanager" = true ]]; then
         _writeLog 0 "AUTOMATION: Keep current theme of Display Manager"
     fi
-fi    
+fi

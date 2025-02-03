@@ -18,7 +18,7 @@ echo "by Stephan Raabe"
 echo -e "${NONE}"
 
 echo "Version: $version"
-echo "Platform: $install_platform" 
+echo "Platform: $install_platform"
 echo
 # echo ":: You're running the script in $(pwd)"
 if [[ $(_check_update) == "true" ]]; then

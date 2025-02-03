@@ -1,8 +1,8 @@
 if [ $install_platform = "arch" ]; then
-    echo 
+    echo
     echo ":: The latest Arch Updates include a new Python version."
     echo ":: This requires the rebuild of waypaper python-screeninfo python-imageio."
-    echo 
+    echo
     if gum confirm "Do you want to run cleanbuild now?"; then
 
         _writeLogTerminal 0 "Start rebuilding ..."

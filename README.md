@@ -1,7 +1,7 @@
 # ML4W Dotfiles for Hyprland
 > Version 2.9.8 BETA3 (Please install the main release to get latest stable release)
 
-An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
+An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and set up the required components.
 
 ![image](https://github.com/user-attachments/assets/c1af2d8a-142b-4285-9b63-92862a7868c5)
 
@@ -11,7 +11,7 @@ YouTube Video https://youtu.be/sVFnd5LAYAc
 
 ## Recommendation
 
-I recommend to install a base Hyprland system before installing the ML4W Hyprland Dotfiles. Then you have a stable starting point and can test Hyprland on your system before. Hyprland is complex, under ongoing development and requires additional components. 
+I recommend to install a base Hyprland system before installing the ML4W Hyprland Dotfiles. Then you have a stable starting point and can test Hyprland on your system beforehand. Hyprland is complex, under ongoing development, and requires additional components.
 
 You can find the Hyprland Installation instructions here: https://wiki.hyprland.org/Getting-Started/Installation/
 
@@ -19,13 +19,13 @@ You can find the Hyprland Installation instructions here: https://wiki.hyprland.
 
 The installation should work on all Arch Linux and Fedora based distributions (>2.9.7.0). [You can find more information here](https://github.com/mylinuxforwork/dotfiles/wiki).
 
-> PLEASE NOTE: Every Linux distribution, setup and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. You can install this at your own risk.
+> PLEASE NOTE: Every Linux distribution, setup, and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. You can install this at your own risk.
 
 Please make sure that your system is up-to-date.
 
 ### Arch Linux (based)
 
-IMPORTANT: Please make sure that all your system and packages are updated before running the installation script.
+IMPORTANT: Please make sure that all your system packages are updated before running the installation script.
 
 ```
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)
