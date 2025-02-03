@@ -12,7 +12,7 @@
 # My screen resolution
 # xrandr --rate 120
 
-# For Virtual Machine 
+# For Virtual Machine
 # xrandr --output Virtual-1 --mode 1920x1080
 
 # Keyboard layout

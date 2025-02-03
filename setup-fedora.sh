@@ -19,15 +19,15 @@ fi
 # Get latest tag from GitHub
 get_latest_release() {
   curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
-    grep '"tag_name":' |                                            # Get tag line
-    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+    grep '"tag_name":' |                                               # Get tag line
+    sed -E 's/.*"([^"]+)".*/\1/'                                       # Pluck JSON value
 }
 
 # Get latest zip from GitHub
 get_latest_zip() {
   curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
     grep '"zipball_url":' |                                            # Get tag line
-    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+    sed -E 's/.*"([^"]+)".*/\1/'                                       # Pluck JSON value
 }
 
 # Check if package is installed
@@ -53,7 +53,7 @@ _installPackages() {
         fi;
         toInstall+=("${pkg}");
     done;
-    if [[ "${toInstall[@]}" == "" ]] ; then
+    if [[ "${toInstall[@]}" == "" ]]; then
         # echo "All pacman packages are already installed.";
         return;
     fi;
@@ -94,11 +94,11 @@ while true; do
             echo ":: Installation started"
             echo
         break;;
-        [Nn]* ) 
+        [Nn]* )
             echo ":: Installation canceled"
             exit;
         break;;
-        * ) 
+        * )
             echo ":: Please answer yes or no."
         ;;
     esac
@@ -156,7 +156,7 @@ elif [ "$version" == "rolling-release" ]; then
     git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git $download_folder/dotfiles
 elif [ "$version" == "cancel" ]; then
     echo ":: Setup canceled"
-    exit 130    
+    exit 130
 else
     echo ":: Setup canceled"
     exit 130

@@ -16,7 +16,7 @@ echo "This script will support you to uninstall the ML4W Dotfiles in ~/$dot_fold
 echo "Only the ML4W Dotfiles related files and folders will be removed."
 echo "Packages are not uninstalled. You have to uninstall packages manually if needed."
 echo "Your login manager (display manager) will stay untouched. Please remove it manually if needed."
-echo 
+echo
 if gum confirm "DO YOU WANT TO START THE UNINSTALLATION NOW?" ;then
     echo ":: Uninstallation started."
 elif [ $? -eq 130 ]; then

@@ -45,9 +45,9 @@ if [ -d $lib_directory ]; then
     sudo rm -rf $lib_directory
 fi
 sudo mkdir -p $lib_directory
-sudo cp -ar $source_lib_directory/. $lib_directory 
+sudo cp -ar $source_lib_directory/. $lib_directory
 echo ":: $lib_directory installed"
 
-echo 
+echo
 
 echo ":: ML4W Dotfiles installed successfully"

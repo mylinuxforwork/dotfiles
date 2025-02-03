@@ -9,9 +9,9 @@ packages=(
     "noto-fonts-emoji"
     "noto-fonts-cjk"
     "noto-fonts-extra"
-    "xdg-desktop-portal-hyprland" 
-    "libnotify" 
+    "xdg-desktop-portal-hyprland"
+    "libnotify"
     "kitty"
-    "qt5-wayland" 
+    "qt5-wayland"
     "qt6-wayland"
 );
