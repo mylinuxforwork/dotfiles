@@ -36,7 +36,7 @@ _selectAURHelper() {
     _writeMessage "Please select your preferred AUR Helper"
     echo
     aur_helper=$(gum choose "yay" "paru")
-    if [ -z $aur_helper ] ;then
+    if [ -z $aur_helper ]; then
         _selectAURHelper
     fi
     _writeLogTerminal 0 "Using $aur_helper as AUR Helper"
@@ -51,16 +51,16 @@ _checkAURHelper() {
         _writeLog 0 "paru is installed"
         paru_installed="true"
     fi
-    if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]] ;then
+    if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
         _writeLog 0 "Using AUR Helper yay"
         aur_helper="yay"
-    elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]] ;then
+    elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]]; then
         _writeLog 0 "Using AUR Helper paru"
         aur_helper="paru"
-    elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "false" ]] ;then
-        if [[ $(_check_update) == "false" ]] ;then
+    elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "false" ]]; then
+        if [[ $(_check_update) == "false" ]]; then
             _selectAURHelper
-            if [[ $aur_helper == "yay" ]] ;then
+            if [[ $aur_helper == "yay" ]]; then
                 _installYay
             else
                 _installParu
@@ -71,7 +71,7 @@ _checkAURHelper() {
     fi
 }
 
-if [ ! -z $automation_aur ] ;then
+if [ ! -z $automation_aur ]; then
     aur_helper=$automation_aur
     _writeLogTerminal 0 "AUTOMATION: Using $aur_helper as AUR helper"
 else
