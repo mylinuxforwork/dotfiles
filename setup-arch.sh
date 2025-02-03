@@ -159,10 +159,10 @@ sudo pacman -Sy
 echo
 
 # pacman
-if [ -f /etc/pacman.conf ] && [ ! -f /etc/pacman.conf.t2.bkp ]; then
+if [ -f /etc/pacman.conf ] && [ ! -f /etc/pacman.conf.ml4w.bkp ]; then
     echo -e "\033[0;32m[PACMAN]\033[0m adding extra spice to pacman..."
 
-    sudo cp /etc/pacman.conf /etc/pacman.conf.t2.bkp
+    sudo cp /etc/pacman.conf /etc/pacman.conf.ml4w.bkp
     sudo sed -i "/^#Color/c\Color\nILoveCandy
     /^#VerbosePkgLists/c\VerbosePkgLists
     /^#ParallelDownloads/c\ParallelDownloads = 5" /etc/pacman.conf
