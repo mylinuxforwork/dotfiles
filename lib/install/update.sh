@@ -17,7 +17,7 @@ _runUpdate() {
             _writeCancel
             exit
         ;;
-    esac    
+    esac
 }
 
 _runUpdate

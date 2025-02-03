@@ -1,10 +1,10 @@
 #!/bin/bash
-#  ____  _          _ _ 
+#  ____  _          _ _
 # / ___|| |__   ___| | |
 # \___ \| '_ \ / _ \ | |
 #  ___) | | | |  __/ | |
 # |____/|_| |_|\___|_|_|
-#                       
+#
 
 sleep 1
 
@@ -25,9 +25,9 @@ figlet -f smslant "Shell"
 echo ":: Please select your preferred shell"
 echo
 shell=$(gum choose "bash" "zsh" "Cancel")
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Activate bash
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 if [[ $shell == "bash" ]]; then
 
     # Change shell to bash
@@ -39,9 +39,9 @@ if [[ $shell == "bash" ]]; then
 
     gum spin --spinner dot --title "Please reboot your system." -- sleep 3
 
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Activate zsh
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 elif [[ $shell == "zsh" ]]; then
 
     # Change shell to shh
@@ -82,16 +82,16 @@ elif [[ $shell == "zsh" ]]; then
     # Installing fast-syntax-highlighting
     if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/fast-syntax-highlighting" ]; then
         echo ":: Installing fast-syntax-highlighting"
-        git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting 
+        git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
     else
         echo ":: fast-syntax-highlighting already installed"
     fi
 
     gum spin --spinner dot --title "Please reboot your system." -- sleep 3
 
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Cencel
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 else
     echo ":: Changing shell canceled"
     exit

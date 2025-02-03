@@ -16,7 +16,7 @@ while true; do
                 echo "No active display manager found."
             fi
         break;;
-        [Nn]* ) 
+        [Nn]* )
             exit
         break;;
         * ) echo "Please answer yes or no.";;

@@ -37,7 +37,7 @@ if [[ $(_isInstalled "hypridle-git") == 0 ]]; then
     fi
     _writeLog 1 "hypridle-git uninstalled."
     _writeLog 1 "hypridle can now be installed."
-    echo 
+    echo
 fi
 
 # Remove hyprlock-bin

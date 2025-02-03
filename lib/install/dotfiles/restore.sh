@@ -56,17 +56,17 @@ _showRestoreOptions() {
     for item in "${restore_arr[@]}"
     do
         _writeToRestoreList "$item"
-    done 
+    done
 
     restoreselect=$(gum choose --no-limit --height 20 --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " --selected="$selectedlist" $restorelist)
     if [ ! -z "$restoreselect" ]; then
-        echo "Selected to restore:" 
+        echo "Selected to restore:"
         echo "$restoreselect"
         echo ""
         confirmrestore=$(gum choose "Start restore" "Change restore" "Skip restore")
         if [ "$confirmrestore" == "Start restore" ]; then
             _startRestore
-        elif [ "$confirmrestore" == "Change restore" ]; then 
+        elif [ "$confirmrestore" == "Change restore" ]; then
             _showRestoreOptions
         else
             _writeSkipped
@@ -79,7 +79,7 @@ _showRestoreOptions() {
             _writeCancel
             exit
         fi
-        if [ "$confirmrestore" == "Change restore" ]; then 
+        if [ "$confirmrestore" == "Change restore" ]; then
             echo ""
             _showRestoreOptions
         else
