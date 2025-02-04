@@ -295,7 +295,7 @@
     "orientation": "horizontal",
     "modules": [
       "custom/chatgpt",
-      "custom/empty"      
+      "custom/empty"
     ]
   },
 

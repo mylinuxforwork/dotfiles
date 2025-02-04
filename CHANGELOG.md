@@ -25,7 +25,7 @@ Version 2.9.7.2
 --------------------------------------------------------
 - Wallpaper issues fixed
   Arch: Installer asked to rebuild waypaper to be compatible with Python 3.13
-  You can also run yay -S --answerclean All --noconfirm --rebuildall waypaper python-screeninfo python-imageio 
+  You can also run yay -S --answerclean All --noconfirm --rebuildall waypaper python-screeninfo python-imageio
 - All settings moved from waybar into sidebar due to stability reasons
 
 Version 2.9.7.1
@@ -38,7 +38,7 @@ Version 2.9.7.1
 - New Waybar Theme ml4w-modern (+ versions)
 - New Rofi Layout for App Launcher
 - New Terminal prompt theme
- 
+
 Version 2.9.7.0
 --------------------------------------------------------
 - Fedora support added. Please see the installation instruction on https://github.com/mylinuxforwork/dotfiles/wiki
@@ -66,7 +66,7 @@ Version 2.9.6.4
 - Kitty is supporting pywal colors
 - New installation options script to install additional packages. Can be opened from the ML4W Welcome App.
 - Added pywalfox support to color Firefox based on wallpaper colors
-- Fixed eza icons on zsh terminal 
+- Fixed eza icons on zsh terminal
 - Subfolders in .config can be protected with an empty file PROTECTED
 - OhMyPosh promt replaces Starship prompt
 - Networkmanager applet can be toggled with right click on waybar network module
@@ -87,7 +87,7 @@ Version 2.9.6.2
 - App Menu icon can be hidden from the ML4W Settings App
 - Setup script optimize the keybindings if french keyboard layout (fr) is selected
 - Add full waypaper features with waypaper 2.3. Brings back swww support including animations.
-- ML4W apps will be now installed into the linux file system 
+- ML4W apps will be now installed into the linux file system
 
 Version 2.9.6.1
 --------------------------------------------------------
@@ -116,7 +116,7 @@ Version 2.9.5
 - The installation and update steps can be fully automated with the new automation.sh script.
 - Backlight module to waybar for laptop users added.
 - Post Installation Script added. Will be executed once after the first installation to install needed packages like xdg-desktop-portal-gtk
-- New wallpaper effects added. Right click on waybar wallpaper icon 
+- New wallpaper effects added. Right click on waybar wallpaper icon
 
 Version 2.9.4
 https://github.com/mylinuxforwork/dotfiles/milestone/1?closed=1
@@ -125,7 +125,7 @@ https://github.com/mylinuxforwork/dotfiles/milestone/1?closed=1
 - New hook.sh and post.sh installation scripts. https://github.com/mylinuxforwork/dotfiles/wiki/Hook-and-Post-Installation-Scripts
 - Add Flatpak installation option to the installation script https://github.com/mylinuxforwork/dotfiles/issues/43
 - Position of dunst can be changed in the ML4W Dotfiles App
-- Screenshot script based on grimblast. 
+- Screenshot script based on grimblast.
 - New screenshot editor pinta added to package list. Editor can be changed in teh ML4W Dotfiles app and in dotfiles/.settings/screenshot-editor.sh
 
 Version 2.9.3
@@ -139,7 +139,7 @@ https://github.com/mylinuxforwork/dotfiles/blob/main/CHANGELOG.md
 Version 2.9.2.1
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.2.1
 --------------------------------------------------------
-- ML4W Sidebar performance optimized. Bug fixed of memory script. 
+- ML4W Sidebar performance optimized. Bug fixed of memory script.
 - Alternatively to the ML4W Welcome App you can start the Update script from a terminal with the command ml4w-update (ML4W .bashrc must be used)
 - Switched from Chromium to Firefox as default browser. Firefox performs much better on Wayland. Update script will offer the installation of Firefox in case that another browser is currently activated
 - New key binding to move all windows to another workspace with SUPER+CTRL+"workspace"
@@ -180,18 +180,18 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9.1
 - Hyprpaper is the default wallpaper engine. swww will not be installed by the installer anymore. You can still switch to swww in the Dotfiles Settings App (System tab) but you need to install swww manually with yay -S swww
 - pfetch has been replaced with fastfetch (requires an update of the .bashrc) https://gitlab.com/stephan-raabe/dotfiles/-/issues/315
 - Directory for wallpapers can be customized with new .settings/wallpaper-folder.sh https://gitlab.com/stephan-raabe/dotfiles/-/issues/325
-- Screen shading possible with hyprshade. SUPER+SHIFT+S to toggle hyprshade. The shader can be defined with the shader module in waybar or in ~/dotfiles/.settings/hyprshade.sh 
+- Screen shading possible with hyprshade. SUPER+SHIFT+S to toggle hyprshade. The shader can be defined with the shader module in waybar or in ~/dotfiles/.settings/hyprshade.sh
 For auto-activation at a dedicated time please set the filter to off and follow the instructions here https://github.com/loqusion/hyprshade. https://gitlab.com/stephan-raabe/dotfiles/-/issues/329
 - Nautilus defined as the new default file manager. Thunar is still available.
 - Waybar can be toggles with SUPER+CTRL+B https://gitlab.com/stephan-raabe/dotfiles/-/issues/299
 - Installation script optimized for new gum
-- During the installation of the keyboard, it can be selected between a desktop and laptop optimized configuration https://gitlab.com/stephan-raabe/dotfiles/-/issues/319. 
+- During the installation of the keyboard, it can be selected between a desktop and laptop optimized configuration https://gitlab.com/stephan-raabe/dotfiles/-/issues/319.
 - RDP launch script updated https://gitlab.com/stephan-raabe/dotfiles/-/issues/336
 - Nvidia environment configuration updated https://gitlab.com/stephan-raabe/dotfiles/-/issues/327
 - Pacman can be configured for parallel downloads, colors and more during the installation and with the ML4W Settings app https://gitlab.com/stephan-raabe/dotfiles/-/issues/316
 - Image conversions with imagemagick can be enabled for wallpapers. Right click on wallpaper module in waybar. You can add more effects in ~/dotfiles/hypr/effects/wallpaper
 - ChatGPT Window opens on the left screen side in floating mode
-- New default wallpaper 
+- New default wallpaper
 - Added hypridle inhibitor waybar module to toggle screen locking with hyprlock
 - Tooltips added to all waybar modules
 
@@ -202,7 +202,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
 - Added sidebar menu. Start with click on ML4W Logo in Waybar. Right click starts the welcome app
 - Updated hyprlock screen showing the wallpaper in a circle. hyprlock 3 required
 - Waybar Taskbar Module hidden by default. Can be enabled again in the ML4W Settings App
-- Hyprpaper is now the default wallpaper engine. swww can be activiated 
+- Hyprpaper is now the default wallpaper engine. swww can be activiated
 - Animations can be disabled in the Dotfiles Settings app
 - Animations can be toggled (enabled/disabled) temporarily with SUPER + SHIFT + A
 - Keyboard layout is part of the system information module of waybar
@@ -212,7 +212,7 @@ https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.9
 Version 2.8.4
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.4
 --------------------------------------------------------
-- In the ML4W Dotfiles Settings App you can now switch between the wallpaper applications swww or hyprpaper. In case of issues with the default application swww you can select hyprpaper. The wallpaper application can also be disabled but background images for wlogout, hyprlock and rofi will be generated with the selected wallpaper. 
+- In the ML4W Dotfiles Settings App you can now switch between the wallpaper applications swww or hyprpaper. In case of issues with the default application swww you can select hyprpaper. The wallpaper application can also be disabled but background images for wlogout, hyprlock and rofi will be generated with the selected wallpaper.
 PLEASE NOTE: Logout & Login is required after a change.
 - New folder structure for backups: dotfiles-versions/backup holds the latest backup, dotfiles-versions/archive stores archived backups
 - Installer can now backup configurations in .config before overwriting by dotfiles
@@ -222,7 +222,7 @@ PLEASE NOTE: Logout & Login is required after a change.
 Version 2.8.3.4
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.8.3.4
 --------------------------------------------------------
-- Fix swww gray background issue. New command on autostart.conf is 
+- Fix swww gray background issue. New command on autostart.conf is
 exec-once = swww init || swww-daemon --format xrgb
 - Using blurred version of background image for wlogout
 - Add progress bar to dunst notification for wallpaper change and processing
@@ -272,13 +272,13 @@ General:
 - Rofi border width can be adjusted in dotfiles/.settings/rofi-border.rasi
 - emote added to select Emojis (SUPER+.)
 
-ML4W Welcome App: 
+ML4W Welcome App:
 - Opens Hyprland systeminfo from the about menu
 - Timeshift can be installed from the settings menu
 - Terminal for Thunar can be set from the settings menu
 
 Hyprland:
-- Bugfix timeshift detection in installupdates.sh 
+- Bugfix timeshift detection in installupdates.sh
 
 Qtile:
 - Polybar removed from the dotfiles
@@ -326,7 +326,7 @@ Version 2.7
 https://gitlab.com/stephan-raabe/dotfiles/-/releases/2.7
 --------------------------------------------------------
 Installation:
-- Display Manager SDDM and sugar-candy theme will be installed. 
+- Display Manager SDDM and sugar-candy theme will be installed.
 - Optional display manager disablement possible
 - Select between hyprland or hyprland-git
 - Arco Linux is now supported. Please choose hyprland-git and reinstall/force the installation of all packages during the installation/update script.
@@ -336,10 +336,10 @@ General:
 - New alacritty.toml configuration file
 
 Hyprland:
-- New Waybar Module Idle Inhibitor to deactivate the automatic start of swaylock e.g. to watch videos or for online meetings 
+- New Waybar Module Idle Inhibitor to deactivate the automatic start of swaylock e.g. to watch videos or for online meetings
 - Create own customization of ML4W waybar themes: https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/waybar?ref_type=heads#define-your-own-config-and-stylecss-for-a-ml4w-theme
 - Wallpaper selector now with preview thumbnails
-- Settings script reworked completely. Implementation of custom modules are now possible. 
+- Settings script reworked completely. Implementation of custom modules are now possible.
 - Waybar settings module to edit some ML4W waybar themes settings on the fly
 - Waybar with Systray (can be hidden in settings script)
 - SDDM settings module to update the SDDM background with current wallpaper
