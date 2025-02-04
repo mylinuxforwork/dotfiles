@@ -10,7 +10,7 @@ _setupKeyboardLayout() {
 }
 
 _setupKeyboardVariant() {
-    if gum confirm "Do you want to set a variant of the keyboard?" ; then
+    if gum confirm "Do you want to set a variant of the keyboard?"; then
         keyboard_variant=$(localectl list-x11-keymap-variants | gum filter --height 15 --placeholder "Find your keyboard layout...")
         _writeLogTerminal 1 "Keyboard variant changed to $keyboard_variant"
     fi
@@ -23,7 +23,7 @@ _confirmKeyboard() {
     _writeLogTerminal 0 "Keyboard layout: $keyboard_layout"
     _writeLogTerminal 0 "Keyboard variant: $keyboard_variant"
     echo
-    if gum confirm "Do you want to proceed with this keyboard setup?" --affirmative "PROCEED" --negative "CHANGE" ;then
+    if gum confirm "Do you want to proceed with this keyboard setup?" --affirmative "PROCEED" --negative "CHANGE"; then
         return 0
     elif [ $? -eq 130 ]; then
         exit 130
@@ -38,7 +38,7 @@ _keyboard_confirm() {
         _writeLogTerminal 0 "You have already restored your settings into the new installation."
         _writeLogTerminal 0 "You can keep or change your keyboard setup again."
         echo
-        if gum confirm "Do you want to KEEP your existing keyboard configuration?" --affirmative "KEEP" --negative "CHANGE" ;then
+        if gum confirm "Do you want to KEEP your existing keyboard configuration?" --affirmative "KEEP" --negative "CHANGE"; then
             setkeyboard=1
         elif [ $? -eq 130 ]; then
             _writeCancel
@@ -65,7 +65,7 @@ _keyboard_confirm() {
 
         # Set french keyboard variation
         if [[ "$keyboard_layout" == "fr" ]]; then
-            echo "source = ~/.config/hypr/conf/keybindings/fr.conf" > $ml4w_directory/$version/.config/hypr/conf/keybinding.conf
+            echo "source = ~/.config/hypr/conf/keybindings/fr.conf" >$ml4w_directory/$version/.config/hypr/conf/keybinding.conf
             _writeLog 0 "Optimized keybindings for french keyboard layout"
         fi
 

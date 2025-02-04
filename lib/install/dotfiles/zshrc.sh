@@ -8,12 +8,12 @@ if [ -f $HOME/.zshrc ]; then
         _writeMessage "The script has detected an existing .zshrc file."
         _writeMessage "You can keep it or replace it with the latest version of ML4W Dotfiles $version"
         echo
-        if gum confirm "Do you want to KEEP your existing .zshrc?" --affirmative "KEEP" --negative "REPLACE" ;then
+        if gum confirm "Do you want to KEEP your existing .zshrc?" --affirmative "KEEP" --negative "REPLACE"; then
             rm $ml4w_directory/$version/.zshrc
             rm -rf $ml4w_directory/$version/.config/zshrc
             _writeSkipped
         elif [ $? -eq 130 ]; then
-                exit 130
+            exit 130
         else
             rm ~/.zshrc
             _writeLogTerminal 0 ".zshrc will be installed"

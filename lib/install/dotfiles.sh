@@ -130,4 +130,3 @@ source $install_directory/dotfiles/post.sh
 # Offer Reboot
 # -----------------------------------------------------
 source $install_directory/dotfiles/reboot.sh
-

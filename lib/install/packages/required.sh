@@ -8,5 +8,5 @@ source $packages_directory/$install_platform/installer.sh
 
 # Install required packages
 _writeMessage "Checking required packages for the installer..."
-_installPackages "${packages[@]}";
+_installPackages "${packages[@]}"
 echo

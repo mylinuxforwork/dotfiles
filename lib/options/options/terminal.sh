@@ -19,6 +19,6 @@ else
     if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
         _installPackage $optionalSelect
     fi
-    echo "$optionalSelect" > "$HOME/.config/ml4w/settings/terminal.sh"
+    echo "$optionalSelect" >"$HOME/.config/ml4w/settings/terminal.sh"
     _selectCategory
 fi

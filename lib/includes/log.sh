@@ -26,29 +26,29 @@ _writeSkipped() {
 # Get categories for log entry
 _getLogCategory() {
     case $1 in
-    0)
-        echo "MESSAGE"
-    ;;
-    1)
-        echo "SUCCESS"
-    ;;
-    2)
-        echo "ERROR"
-    ;;
-    *)
-        echo "UNKNOWN"
-    ;;
-esac
+        0)
+            echo "MESSAGE"
+            ;;
+        1)
+            echo "SUCCESS"
+            ;;
+        2)
+            echo "ERROR"
+            ;;
+        *)
+            echo "UNKNOWN"
+            ;;
+    esac
 }
 
 _writeLog() {
     text=$2
-    echo "$(_logDateTime) $(_getLogCategory $1) $text" >> $(_getLogFile)
+    echo "$(_logDateTime) $(_getLogCategory $1) $text" >>$(_getLogFile)
 }
 
 _writeLogTerminal() {
     text=$2
-    echo "$(_logDateTime) $(_getLogCategory $1) $text" >> $(_getLogFile)
+    echo "$(_logDateTime) $(_getLogCategory $1) $text" >>$(_getLogFile)
     if [ $1 = "1" ]; then
         echo ":: $(_getLogCategory 1) - $text"
     elif [ $1 = "2" ]; then
@@ -59,11 +59,11 @@ _writeLogTerminal() {
 }
 
 _writeLogHeader() {
-    echo >> $(_getLogFile)
-    echo "# ------------------------------------------------------"  >> $(_getLogFile)
-    echo "# $1"  >> $(_getLogFile)
-    echo "# ------------------------------------------------------"  >> $(_getLogFile)
-    echo >> $(_getLogFile)
+    echo >>$(_getLogFile)
+    echo "# ------------------------------------------------------" >>$(_getLogFile)
+    echo "# $1" >>$(_getLogFile)
+    echo "# ------------------------------------------------------" >>$(_getLogFile)
+    echo >>$(_getLogFile)
 }
 
 _writeMessage() {

@@ -20,6 +20,6 @@ else
         keyword general:gaps_out 0;\
         keyword general:border_size 1;\
         keyword decoration:rounding 0"
-	touch $HOME/.config/ml4w/settings/gamemode-enabled
+    touch $HOME/.config/ml4w/settings/gamemode-enabled
     notify-send "Gamemode activated" "Animations and blur disabled"
 fi

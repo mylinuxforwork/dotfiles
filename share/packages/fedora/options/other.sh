@@ -1,3 +1,3 @@
 optdepends=(
     "gnome-calculator"
-);
+)

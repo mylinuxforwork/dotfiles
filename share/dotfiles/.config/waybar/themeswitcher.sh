@@ -25,13 +25,12 @@ listNames2=""
 # -----------------------------------------------------
 sleep 0.2
 options=$(find $themes_path -maxdepth 2 -type d)
-for value in $options
-do
+for value in $options; do
     if [ ! $value == "$HOME/.config/waybar/themes/assets" ]; then
         if [ ! $value == "$themes_path" ]; then
             if [ $(find $value -maxdepth 1 -type d | wc -l) = 1 ]; then
                 result=$(echo $value | sed "s#$HOME/.config/waybar/themes/#/#g")
-                IFS='/' read -ra arrThemes <<< "$result"
+                IFS='/' read -ra arrThemes <<<"$result"
                 listThemes[${#listThemes[@]}]="/${arrThemes[1]};$result"
                 if [ -f $themes_path$result/config.sh ]; then
                     source $themes_path$result/config.sh
@@ -53,14 +52,14 @@ listNames=${listNames::-2}
 choice=$(echo -e "$listNames" | rofi -dmenu -replace -i -config ~/.config/rofi/config-themes.rasi -no-show-icons -width 30 -p "Themes" -format i)
 IFS="~"
 input=$listNames2
-read -ra array <<< "$input"
+read -ra array <<<"$input"
 
 # -----------------------------------------------------
 # Set new theme by writing the theme information to ~/.config/ml4w/settings/waybar-theme.sh
 # -----------------------------------------------------
 if [ "$choice" ]; then
     echo "Loading waybar theme..."
-    echo "${listThemes[$choice+1]}" > ~/.config/ml4w/settings/waybar-theme.sh
+    echo "${listThemes[$choice + 1]}" >~/.config/ml4w/settings/waybar-theme.sh
     ~/.config/waybar/launch.sh
     notify-send "Waybar Theme changed" "to ${array[$choice]}"
 fi

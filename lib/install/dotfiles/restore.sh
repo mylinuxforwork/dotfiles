@@ -39,7 +39,7 @@ _restoreItem() {
     if [[ $restoreselect == *"$1"* ]]; then
         if [ -d $HOME/$dot_folder/$1 ]; then
             _writeLog 0 "Restore Folder $1"
-            rsync -a -I $HOME/$dot_folder/$1/ $ml4w_directory/$version/$1/ &>> $(_getLogFile)
+            rsync -a -I $HOME/$dot_folder/$1/ $ml4w_directory/$version/$1/ &>>$(_getLogFile)
         elif [ -f $HOME/$dot_folder/$1 ]; then
             _writeLog 0 "Restore File $1"
             cp $HOME/$dot_folder/$1 $ml4w_directory/$version/$1
@@ -53,8 +53,7 @@ _showRestoreOptions() {
     echo
     restorelist=""
 
-    for item in "${restore_arr[@]}"
-    do
+    for item in "${restore_arr[@]}"; do
         _writeToRestoreList "$item"
     done
 
@@ -90,8 +89,7 @@ _showRestoreOptions() {
 }
 
 _restore_automation() {
-    for item in "${restore_arr[@]}"
-    do
+    for item in "${restore_arr[@]}"; do
         restoreselect+="$item "
     done
     _startRestore
@@ -99,8 +97,7 @@ _restore_automation() {
 
 _startRestore() {
 
-    for item in "${restore_arr[@]}"
-    do
+    for item in "${restore_arr[@]}"; do
         _restoreItem "$item"
     done
 

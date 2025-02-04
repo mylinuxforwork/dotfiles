@@ -22,8 +22,7 @@ echo "Reading from: $config_file"
 keybinds=""
 
 # Detect Start String
-while read -r line
-do
+while read -r line; do
     if [[ "$line" == "bind"* ]]; then
 
         line="$(echo "$line" | sed 's/$mainMod/SUPER/g')"
@@ -41,7 +40,7 @@ do
         item="${kbarr[0]}  + ${kbarr[1]}"$'\r'"${cm_str:1}"
         keybinds=$keybinds$item$'\n'
     fi
-done < "$config_file"
+done <"$config_file"
 
 sleep 0.2
-rofi -dmenu -i -markup -eh 2 -replace -p "Keybinds" -config ~/.config/rofi/config-compact.rasi <<< "$keybinds"
+rofi -dmenu -i -markup -eh 2 -replace -p "Keybinds" -config ~/.config/rofi/config-compact.rasi <<<"$keybinds"

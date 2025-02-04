@@ -18,46 +18,46 @@ fi
 
 # Get latest tag from GitHub
 get_latest_release() {
-  curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
-    grep '"tag_name":' |                                               # Get tag line
-    sed -E 's/.*"([^"]+)".*/\1/'                                       # Pluck JSON value
+    curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
+        grep '"tag_name":' |                                             # Get tag line
+        sed -E 's/.*"([^"]+)".*/\1/'                                     # Pluck JSON value
 }
 
 # Get latest zip from GitHub
 get_latest_zip() {
-  curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
-    grep '"zipball_url":' |                                            # Get tag line
-    sed -E 's/.*"([^"]+)".*/\1/'                                       # Pluck JSON value
+    curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
+        grep '"zipball_url":' |                                          # Get tag line
+        sed -E 's/.*"([^"]+)".*/\1/'                                     # Pluck JSON value
 }
 
 # Check if package is installed
 _isInstalled() {
-    package="$1";
+    package="$1"
     check=$(yum list installed | grep $package)
     if [ -z "$check" ]; then
-        echo 1; #'1' means 'false' in Bash
-        return; #false
+        echo 1 #'1' means 'false' in Bash
+        return #false
     else
-        echo 0; #'0' means 'true' in Bash
-        return; #true
+        echo 0 #'0' means 'true' in Bash
+        return #true
     fi
 }
 
 # Install required packages
 _installPackages() {
-    toInstall=();
+    toInstall=()
     for pkg; do
         if [[ $(_isInstalled "${pkg}") == 0 ]]; then
-            echo "${pkg} is already installed.";
-            continue;
-        fi;
-        toInstall+=("${pkg}");
-    done;
+            echo "${pkg} is already installed."
+            continue
+        fi
+        toInstall+=("${pkg}")
+    done
     if [[ "${toInstall[@]}" == "" ]]; then
         # echo "All pacman packages are already installed.";
-        return;
-    fi;
-    printf "Package not installed:\n%s\n" "${toInstall[@]}";
+        return
+    fi
+    printf "Package not installed:\n%s\n" "${toInstall[@]}"
     sudo dnf install --assumeyes "${toInstall[@]}"
 }
 
@@ -90,17 +90,19 @@ echo -e "${NONE}"
 while true; do
     read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
     case $yn in
-        [Yy]* )
+        [Yy]*)
             echo ":: Installation started"
             echo
-        break;;
-        [Nn]* )
+            break
+            ;;
+        [Nn]*)
             echo ":: Installation canceled"
-            exit;
-        break;;
-        * )
+            exit
+            break
+            ;;
+        *)
             echo ":: Please answer yes or no."
-        ;;
+            ;;
     esac
 done
 
@@ -135,7 +137,7 @@ fi
 
 # Install required packages
 echo ":: Checking that required packages are installed..."
-_installPackages "${packages[@]}";
+_installPackages "${packages[@]}"
 
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/share/packages/fedora/special/gum.sh)
 

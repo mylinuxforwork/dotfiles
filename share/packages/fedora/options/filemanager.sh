@@ -2,4 +2,4 @@ optdepends=(
     "nautilus"
     "yazi"
     "dolphin"
-);
+)

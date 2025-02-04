@@ -19,16 +19,16 @@ else
         _installPackage $optionalSelect
     fi
     if [ $optionalSelect == "pinta" ]; then
-        echo 'pinta' > "$HOME/.config/ml4w/settings/screenshot-editor.sh"
+        echo 'pinta' >"$HOME/.config/ml4w/settings/screenshot-editor.sh"
     fi
     if [ $optionalSelect == "smile" ]; then
-        echo 'pinta' > "$HOME/.config/ml4w/emojipicker.sh"
+        echo 'pinta' >"$HOME/.config/ml4w/emojipicker.sh"
     fi
     if [ $optionalSelect == "gnome-text-editor" ]; then
-        echo 'gnome-text-editor' > "$HOME/.config/ml4w/editor.sh"
+        echo 'gnome-text-editor' >"$HOME/.config/ml4w/editor.sh"
     fi
     if [ $optionalSelect == "gnome-calculator" ]; then
-        echo 'gnome-calculator' > "$HOME/.config/ml4w/calculator.sh"
+        echo 'gnome-calculator' >"$HOME/.config/ml4w/calculator.sh"
     fi
     _selectCategory
 fi

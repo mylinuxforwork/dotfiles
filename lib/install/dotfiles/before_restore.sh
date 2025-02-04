@@ -20,7 +20,7 @@ if [ -d ~/$dot_folder/.settings ]; then
         # ml4w folder
         _move_folder ~/$dot_folder/.settings ~/$dot_folder/.config/ml4w/settings
         _move_folder ~/$dot_folder/.config/scripts ~/$dot_folder/.config/ml4w/scripts
-        _move_folder ~/$dot_folder/.version  ~/$dot_folder/.config/ml4w/version
+        _move_folder ~/$dot_folder/.version ~/$dot_folder/.config/ml4w/version
         _move_folder ~/$dot_folder/.config/apps ~/$dot_folder/.config/ml4w/apps
         _move_folder ~/$dot_folder/.config/login ~/$dot_folder/.config/ml4w/login
         _move_folder ~/$dot_folder/.config/sddm ~/$dot_folder/.config/ml4w/sddm

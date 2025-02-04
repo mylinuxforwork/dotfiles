@@ -11,4 +11,4 @@ packages=(
     "kitty"
     "qt5-qtwayland"
     "qt6-qtwayland"
-);
+)

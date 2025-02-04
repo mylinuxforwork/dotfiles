@@ -24,10 +24,10 @@ if [ -f ~/.config/ml4w/settings/waybar-theme.sh ]; then
     themestyle=$(cat ~/.config/ml4w/settings/waybar-theme.sh)
 else
     touch ~/.config/ml4w/settings/waybar-theme.sh
-    echo "$themestyle" > ~/.config/ml4w/settings/waybar-theme.sh
+    echo "$themestyle" >~/.config/ml4w/settings/waybar-theme.sh
 fi
 
-IFS=';' read -ra arrThemes <<< "$themestyle"
+IFS=';' read -ra arrThemes <<<"$themestyle"
 echo ":: Theme: ${arrThemes[0]}"
 
 if [ ! -f ~/.config/waybar/themes${arrThemes[1]}/style.css ]; then
@@ -54,4 +54,3 @@ if [ ! -f $HOME/.config/ml4w/settings/waybar-disabled ]; then
 else
     echo ":: Waybar disabled"
 fi
-
