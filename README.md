@@ -33,7 +33,7 @@ bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/se
 
 YouTube Video https://youtu.be/sVFnd5LAYAc
 
-You can also install the main release with your preferred AUR helper. 
+You can also install the main release with your preferred AUR helper.
 
 ```shell
 yay -S ml4w-hyprland
@@ -47,7 +47,7 @@ yay -S ml4w-hyprland-git
 ml4w-hyprland-setup
 ```
 
-Please rebuild all packages to ensure that you get the latest commit. 
+Please rebuild all packages to ensure that you get the latest commit.
 
 ### Fedora Linux (based)
 

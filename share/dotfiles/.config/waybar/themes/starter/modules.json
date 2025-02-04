@@ -1,12 +1,12 @@
-//  __  __           _       _            
-// |  \/  | ___   __| |_   _| | ___  ___  
-// | |\/| |/ _ \ / _` | | | | |/ _ \/ __| 
-// | |  | | (_) | (_| | |_| | |  __/\__ \ 
-// |_|  |_|\___/ \__,_|\__,_|_|\___||___/ 
-//                                        
-//  
-// by Stephan Raabe (2023) 
-// ----------------------------------------------------- 
+//  __  __           _       _
+// |  \/  | ___   __| |_   _| | ___  ___
+// | |\/| |/ _ \ / _` | | | | |/ _ \/ __|
+// | |  | | (_) | (_| | |_| | |  __/\__ \
+// |_|  |_|\___/ \__,_|\__,_|_|\___||___/
+//
+//
+// by Stephan Raabe (2023)
+// -----------------------------------------------------
 //
 {
     // Workspaces
@@ -22,7 +22,7 @@
         },
         "persistent-workspaces": {
              "*": 5
-        }       
+        }
     },
 
     // Taskbar
@@ -90,7 +90,7 @@
         "format": " {}",
         "tooltip-format": "{}",
         "escape": true,
-        "return-type": "json",       
+        "return-type": "json",
         "exec": "~/.config/ml4w/scripts/updates.sh",
         "restart-interval": 60,
         "on-click": "alacritty -e ~/.config/ml4w/scripts/installupdates.sh",
@@ -102,7 +102,7 @@
         "format": "THEME STARTER",
         "tooltip": false
     },
-    
+
     // Wallpaper
     "custom/wallpaper": {
         "format": "",
@@ -117,7 +117,7 @@
         "on-click": "~/.config/waybar/themeswitcher.sh",
         "tooltip": false
     },
-    
+
     // Settings
     "custom/settings": {
         "format": "",
@@ -144,7 +144,7 @@
         "format": "",
         "on-click": "~/.config/ml4w/settings/browser.sh",
         "tooltip": false
-    },    
+    },
 
     // ML4W Welcome App
     "custom/ml4w-welcome": {
@@ -153,7 +153,7 @@
         "format": " ",
         "tooltip-format": "Open Sidebar"
     },
-    
+
     // ChatGPT Launcher
     "custom/chatgpt": {
         "format": "",
@@ -168,7 +168,7 @@
         "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
         "tooltip": false
     },
-    
+
     // Power Menu
     "custom/exit": {
         "format": "",
@@ -224,7 +224,7 @@
         "format": "D {percentage_used}% ",
         "path": "/",
         "on-click": "alacritty -e htop"
-    }, 
+    },
 
     "hyprland/language": {
         "format": "/ K {short}"
@@ -237,7 +237,7 @@
             "transition-duration": 300,
             "children-class": "not-memory",
             "transition-left-to-right": false
-        },        
+        },
         "modules": [
             "custom/system",
             "disk",
@@ -246,7 +246,7 @@
             "hyprland/language"
         ]
     },
-    
+
     // Group Settings
     "group/settings": {
         "orientation": "inherit",
@@ -254,7 +254,7 @@
             "transition-duration": 300,
             "children-class": "not-memory",
             "transition-left-to-right": false
-        },        
+        },
         "modules": [
             "custom/settings",
             "custom/waybarthemes",
@@ -346,6 +346,6 @@
             "activated": "",
             "deactivated": ""
         },
-        "on-click-right": "hyprlock"        
+        "on-click-right": "hyprlock"
     }
 }

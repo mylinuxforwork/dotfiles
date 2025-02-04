@@ -1,21 +1,21 @@
 /*
- * __        __          _                  ____  _         _       
- * \ \      / /_ _ _   _| |__   __ _ _ __  / ___|| |_ _   _| | ___  
- *  \ \ /\ / / _` | | | | '_ \ / _` | '__| \___ \| __| | | | |/ _ \ 
- *   \ V  V / (_| | |_| | |_) | (_| | |     ___) | |_| |_| | |  __/ 
- *    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    |____/ \__|\__, |_|\___| 
- *                 |___/                              |___/         
- *  
- * ----------------------------------------------------- 
+ * __        __          _                  ____  _         _
+ * \ \      / /_ _ _   _| |__   __ _ _ __  / ___|| |_ _   _| | ___
+ *  \ \ /\ / / _` | | | | '_ \ / _` | '__| \___ \| __| | | | |/ _ \
+ *   \ V  V / (_| | |_| | |_) | (_| | |     ___) | |_| |_| | |  __/
+ *    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    |____/ \__|\__, |_|\___|
+ *                 |___/                              |___/
+ *
+ * -----------------------------------------------------
 */
 
 /* -----------------------------------------------------
- * Import Pywal colors 
+ * Import Pywal colors
  * ----------------------------------------------------- */
 /* @import 'style-light.css'; */
 
 /* -----------------------------------------------------
- * General 
+ * General
  * ----------------------------------------------------- */
 
 * {
@@ -34,7 +34,7 @@ window#waybar {
 }
 
 /* -----------------------------------------------------
- * Workspaces 
+ * Workspaces
  * ----------------------------------------------------- */
 
 #workspaces {
@@ -156,18 +156,18 @@ window#waybar.empty #window {
  * Custom Quicklinks
  * ----------------------------------------------------- */
 
-#custom-brave, 
-#custom-browser, 
-#custom-keybindings, 
-#custom-outlook, 
-#custom-filemanager, 
-#custom-teams, 
-#custom-chatgpt, 
-#custom-calculator, 
-#custom-windowsvm, 
-#custom-cliphist, 
-#custom-settings, 
-#custom-wallpaper, 
+#custom-brave,
+#custom-browser,
+#custom-keybindings,
+#custom-outlook,
+#custom-filemanager,
+#custom-teams,
+#custom-chatgpt,
+#custom-calculator,
+#custom-windowsvm,
+#custom-cliphist,
+#custom-settings,
+#custom-wallpaper,
 #custom-system,
 #custom-hyprshade,
 #custom-hypridle,
@@ -200,7 +200,7 @@ window#waybar.empty #window {
 #custom-quicklink8,
 #custom-quicklink9,
 #custom-quicklink10 {
-    margin-right: 24px;   
+    margin-right: 24px;
 }
 
 #custom-tools {
@@ -220,7 +220,7 @@ window#waybar.empty #window {
     background-image: url("../assets/ml4w-icon.svg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain; 
+    background-size: contain;
     padding-right: 20px;
 }
 
@@ -229,7 +229,7 @@ window#waybar.empty #window {
     background-image: url("../assets/openai.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain; 
+    background-size: contain;
     padding-right: 18px;
     opacity: 0.8;
 }
@@ -348,7 +348,7 @@ window#waybar.empty #window {
     padding: 1px 10px 0px 10px;
     margin: 3px 0px 3px 0px;
     opacity:0.8;
-    border:3px solid @bordercolor;   
+    border:3px solid @bordercolor;
 }
 
 /* -----------------------------------------------------
