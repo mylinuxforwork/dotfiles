@@ -5,9 +5,9 @@ figlet -f smslant "Shell"
 _writeMessage "Please select your preferred shell"
 echo
 shell=$(gum choose "bash" "zsh" "CANCEL")
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Activate bash
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 if [[ $shell == "bash" ]]; then
 
     # Change shell to bash
@@ -20,9 +20,9 @@ if [[ $shell == "bash" ]]; then
     gum spin --spinner dot --title "Please reboot your system." -- sleep 3
     _selectCategory
 
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Activate zsh
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 elif [[ $shell == "zsh" ]]; then
 
     # Change shell to shh
@@ -60,16 +60,16 @@ elif [[ $shell == "zsh" ]]; then
     # Installing fast-syntax-highlighting
     if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/fast-syntax-highlighting" ]; then
         _writeMessage "Installing fast-syntax-highlighting"
-        git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting 
+        git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
     else
         _writeMessage "fast-syntax-highlighting already installed"
     fi
 
     gum spin --spinner dot --title "Please reboot your system." -- sleep 3
     _selectCategory
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Cencel
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 else
     _writeMessage "Changing shell canceled"
     if [ -z "$options_argument" ]; then

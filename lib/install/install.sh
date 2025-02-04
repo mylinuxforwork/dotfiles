@@ -1,13 +1,13 @@
 #!/bin/bash
-#  __  __ _    _  ___        __  ____        _    __ _ _           
-# |  \/  | |  | || \ \      / / |  _ \  ___ | |_ / _(_) | ___  ___ 
+#  __  __ _    _  ___        __  ____        _    __ _ _
+# |  \/  | |  | || \ \      / / |  _ \  ___ | |_ / _(_) | ___  ___
 # | |\/| | |  | || |\ \ /\ / /  | | | |/ _ \| __| |_| | |/ _ \/ __|
 # | |  | | |__|__   _\ V  V /   | |_| | (_) | |_|  _| | |  __/\__ \
 # |_|  |_|_____| |_|  \_/\_/    |____/ \___/ \__|_| |_|_|\___||___/
-#                                                                 
+#
 # for Hyprland
 
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Installation
 # -----------------------------------------------------
 
@@ -45,9 +45,9 @@ if [ -d $lib_directory ]; then
     sudo rm -rf $lib_directory
 fi
 sudo mkdir -p $lib_directory
-sudo cp -ar $source_lib_directory/. $lib_directory 
+sudo cp -ar $source_lib_directory/. $lib_directory
 echo ":: $lib_directory installed"
 
-echo 
+echo
 
 echo ":: ML4W Dotfiles installed successfully"

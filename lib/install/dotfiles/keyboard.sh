@@ -78,7 +78,7 @@ _keyboard_confirm() {
         echo
         _writeMessage "PLEASE NOTE: You can update your keyboard layout later in ~/.config/hypr/conf/keyboard.conf"
 
-    fi 
+    fi
 }
 
 _writeHeader "Keyboard"

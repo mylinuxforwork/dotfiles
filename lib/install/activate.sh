@@ -1,18 +1,18 @@
 #!/bin/bash
-#     _        _   _            _       
-#    / \   ___| |_(_)_   ____ _| |_ ___ 
+#     _        _   _            _
+#    / \   ___| |_(_)_   ____ _| |_ ___
 #   / _ \ / __| __| \ \ / / _` | __/ _ \
 #  / ___ \ (__| |_| |\ V / (_| | ||  __/
 # /_/   \_\___|\__|_| \_/ \__,_|\__\___|
-#                                      
+#
 
 clear
 dot_folder=""
 
 _activate_dotfiles_folder() {
     echo ":: Activating $dot_folder now..."
-    echo 
-    
+    echo
+
     # Check home
     files=$(ls -a $HOME/$dot_folder)
     for f in $files; do
@@ -74,7 +74,7 @@ _activate_dotfiles_folder() {
             fi
         fi
     done
-    
+
     # Write dot folder into settings
     echo "$dot_folder" > $HOME/$dot_folder/.config/ml4w/settings/dotfiles-folder.sh
 
@@ -139,5 +139,5 @@ echo
 echo ":: Please enter the name of the installation folder starting from your home directory."
 echo ":: (e.g., dotfiles or Documents/mydotfiles, ...)"
 echo ":: Enter cancel to exit"
-echo 
+echo
 _define_dotfiles_folder

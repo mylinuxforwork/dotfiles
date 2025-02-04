@@ -1,17 +1,17 @@
 #!/bin/bash
-#  ____                                  
-# |  _ \ __ _  ___ _ __ ___   __ _ _ __  
-# | |_) / _` |/ __| '_ ` _ \ / _` | '_ \ 
+#  ____
+# |  _ \ __ _  ___ _ __ ___   __ _ _ __
+# | |_) / _` |/ __| '_ ` _ \ / _` | '_ \
 # |  __/ (_| | (__| | | | | | (_| | | | |
 # |_|   \__,_|\___|_| |_| |_|\__,_|_| |_|
-#   
+#
 
 sleep 1
 clear
 figlet -f smslant "pacman.conf"
 echo
 echo ":: This script will activate or deactivate additions for your pacman.conf."
-echo 
+echo
 if grep -Fq "#ParallelDownloads" /etc/pacman.conf
 then
     if gum confirm "Do you want to activate parallel downloads?" ;then

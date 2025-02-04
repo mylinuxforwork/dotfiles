@@ -1,9 +1,9 @@
 #!/bin/bash
-#    ____         __       ____               __     __        
+#    ____         __       ____               __     __
 #   /  _/__  ___ / /____ _/ / / __ _____  ___/ /__ _/ /____ ___
 #  _/ // _ \(_-</ __/ _ `/ / / / // / _ \/ _  / _ `/ __/ -_|_-<
 # /___/_//_/___/\__/\_,_/_/_/  \_,_/ .__/\_,_/\_,_/\__/\__/___/
-#                                 /_/                          
+#                                 /_/
 #
 
 sleep 1
@@ -17,7 +17,7 @@ echo
 # ------------------------------------------------------
 
 if gum confirm "DO YOU WANT TO START THE UPDATE NOW?" ;then
-    echo 
+    echo
     echo ":: Update started."
 elif [ $? -eq 130 ]; then
         exit 130
@@ -33,7 +33,7 @@ _isInstalled() {
 	arch)
 	 check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "${package} ")";
 	;;
-	fedora) 
+	fedora)
 	 check="$(dnf repoquery --quiet --installed ""${package}*"")"
 	;;
         *)
@@ -53,7 +53,7 @@ case $install_platform in
     arch)
         aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
 
-        if [[ $(_isInstalled "timeshift") == "0" ]]; then                                        
+        if [[ $(_isInstalled "timeshift") == "0" ]]; then
             echo
             if gum confirm "DO YOU WANT TO CREATE A SNAPSHOT?" ;then
                 echo
@@ -73,7 +73,7 @@ case $install_platform in
         fi
 
         $aur_helper
-        
+
         if [[ $(_isInstalled "flatpak") == "0" ]]; then
             flatpak upgrade
         fi
@@ -92,10 +92,10 @@ case $install_platform in
 esac
 
 notify-send "Update complete"
-echo 
+echo
 echo ":: Update complete"
-echo 
-echo 
+echo
+echo
 
 echo "Press [ENTER] to close."
 read

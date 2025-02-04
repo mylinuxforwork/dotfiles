@@ -19,7 +19,7 @@ if [ -z $automation_displaymanager ]; then
             if [ -d $download_folder/$sddm_theme_name ]; then
                 rm -rf $download_folder/$sddm_theme_name
                 _writeLog 1 "$download_folder/$sddm_theme_name removed"
-            fi 
+            fi
 
             wget -P $download_folder/$sddm_theme_name $sddm_theme_download &>> $(_getLogFile)
             _writeLog 1 "Download of $sddm_theme_name complete"
@@ -56,4 +56,4 @@ else
     if [[ "$automation_displaymanager" = true ]]; then
         _writeLog 0 "AUTOMATION: Keep current theme of Display Manager"
     fi
-fi    
+fi

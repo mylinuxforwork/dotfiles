@@ -7,18 +7,18 @@ _writeLog 0 "Installation started"
 clear
 echo -e "${GREEN}"
 cat <<"EOF"
-   __  _____  _____      __  ___       __  ____ __      
+   __  _____  _____      __  ___       __  ____ __
   /  |/  / / / / / | /| / / / _ \___  / /_/ _(_) /__ ___
  / /|_/ / /_/_  _/ |/ |/ / / // / _ \/ __/ _/ / / -_|_-<
 /_/  /_/____//_/ |__/|__/ /____/\___/\__/_//_/_/\__/___/
-                                                        
+
 EOF
 echo "for Hyprland"
 echo "by Stephan Raabe"
 echo -e "${NONE}"
 
 echo "Version: $version"
-echo "Platform: $install_platform" 
+echo "Platform: $install_platform"
 echo
 # echo ":: You're running the script in $(pwd)"
 if [[ $(_check_update) == "true" ]]; then

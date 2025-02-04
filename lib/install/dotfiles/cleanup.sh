@@ -47,16 +47,16 @@ if [[ $(systemctl list-units --all -t service --full --no-legend "NetworkManager
 else
     sudo systemctl enable NetworkManager.service
     sudo systemctl start NetworkManager.service
-    _writeLog 1 "NetworkManager.service activated successfully."    
+    _writeLog 1 "NetworkManager.service activated successfully."
 fi
 
 # Check for running bluetooth.service
-if [[ $(systemctl list-units --all -t service --full --no-legend "bluetooth.service" | sed 's/^\s*//g' | cut -f1 -d' ') == "bluetooth.service" ]];then
+if [[ $(systemctl list-units --all -t service --full --no-legend "bluetooth.service" | sed 's/^\s*//g' | cut -f1 -d' ') == "bluetooth.service" ]]; then
     _writeLog 0 "bluetooth.service already running."
 else
     sudo systemctl enable bluetooth.service
     sudo systemctl start bluetooth.service
-    _writeLog 1 "bluetooth.service activated successfully."    
+    _writeLog 1 "bluetooth.service activated successfully."
 fi
 
 if [ -d ~/$dot_folder/hypr/settings/ ]; then

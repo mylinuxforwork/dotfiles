@@ -1,6 +1,6 @@
 #!/bin/bash
 figlet -f smslant "Figlet"
-echo 
+echo
 # ------------------------------------------------
 # Script to create ascii font based header on user input
 # and copy the result to the clipboard
