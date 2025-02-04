@@ -2,4 +2,4 @@ optdepends=(
     "htop"
     "btop"
     "missioncenter"
-);
+)

@@ -60,7 +60,7 @@ else
     if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
         _installPackage $optionalSelect
     fi
-
+    
     case $optionalSelect in
         firefox)
             echo 'firefox' > "$HOME/.config/ml4w/settings/browser.sh"
@@ -88,6 +88,6 @@ else
             break
             ;;
     esac
-
+    
     _selectCategory
 fi

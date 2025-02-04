@@ -1,4 +1,4 @@
 optdepends=(
     "kitty"
     "alacritty"
-);
+)

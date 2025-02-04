@@ -6,7 +6,7 @@ echo -e "${NONE}"
 if [ -f /etc/systemd/system/display-manager.service ]; then
     echo ":: A display manager is enabled."
     echo
-    if gum confirm "Do you want to disable the current display manager?" ;then
+    if gum confirm "Do you want to disable the current display manager?"; then
         sudo rm /etc/systemd/system/display-manager.service
         echo ":: Current display manager disabled."
         echo
@@ -15,7 +15,7 @@ if [ -f /etc/systemd/system/display-manager.service ]; then
 else
     echo ":: No display manager is enabled."
     echo
-    if gum confirm "Do you want to enable SDDM as your display manager?" ;then
+    if gum confirm "Do you want to enable SDDM as your display manager?"; then
         if [[ ! $(_isInstalled "sddm") == 0 ]]; then
             sudo pacman -S --noconfirm --needed sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg --ask 4
         fi

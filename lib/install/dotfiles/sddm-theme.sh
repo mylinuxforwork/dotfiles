@@ -13,7 +13,7 @@ sddm_theme_tpl="$share_directory/sddm/theme.conf"
 if [ -z $automation_displaymanager ]; then
     if [ -d /usr/share/sddm ]; then
         _writeHeader "SDDM Theme"
-        if gum confirm "Do you want to install/update the $sddm_theme_name theme?" ;then
+        if gum confirm "Do you want to install/update the $sddm_theme_name theme?"; then
             _writeLog 0 "Installing $sddm_theme_name"
 
             if [ -d $download_folder/$sddm_theme_name ]; then
@@ -21,9 +21,9 @@ if [ -z $automation_displaymanager ]; then
                 _writeLog 1 "$download_folder/$sddm_theme_name removed"
             fi
 
-            wget -P $download_folder/$sddm_theme_name $sddm_theme_download &>> $(_getLogFile)
+            wget -P $download_folder/$sddm_theme_name $sddm_theme_download &>>$(_getLogFile)
             _writeLog 1 "Download of $sddm_theme_name complete"
-            unzip -o -q $download_folder/$sddm_theme_name/$sddm_theme_master -d $download_folder/$sddm_theme_name &>> $(_getLogFile)
+            unzip -o -q $download_folder/$sddm_theme_name/$sddm_theme_master -d $download_folder/$sddm_theme_name &>>$(_getLogFile)
             _writeLog 1 "Unzip of $sddm_theme_name complete"
 
             sudo cp -r $download_folder/$sddm_theme_name/$sddm_theme_folder /usr/share/sddm/themes/$sddm_theme_name

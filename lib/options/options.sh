@@ -58,34 +58,34 @@ _handleCategorySelection() {
     case $1 in
         terminal)
             source $options_directory/options/terminal.sh
-        ;;
+            ;;
         "file manager")
             source $options_directory/options/filemanager.sh
-        ;;
+            ;;
         "system monitor")
             source $options_directory/options/system-monitor.sh
-        ;;
+            ;;
         browser)
             source $options_directory/options/browser.sh
-        ;;
+            ;;
         more)
             source $options_directory/options/other.sh
-        ;;
+            ;;
         shell)
             source $options_directory/options/shell.sh
-        ;;
+            ;;
         pywalfox)
             source $options_directory/options/pywalfox.sh
-        ;;
+            ;;
         REBOOT)
             reboot
-        ;;
+            ;;
         CANCEL)
             exit
-        ;;
+            ;;
         *)
             exit
-        ;;
+            ;;
     esac
 }
 

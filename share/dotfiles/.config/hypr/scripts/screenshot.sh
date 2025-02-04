@@ -110,7 +110,7 @@ type_screenshot_cmd() {
 
 # Ask for confirmation
 type_screenshot_exit() {
-  echo -e "$option_capture_1\n$option_capture_2\n$option_capture_3" | type_screenshot_cmd
+    echo -e "$option_capture_1\n$option_capture_2\n$option_capture_3" | type_screenshot_cmd
 }
 
 # Confirm and execute
@@ -215,10 +215,10 @@ run_cmd() {
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
-$option_1)
-    run_cmd --opt1
-    ;;
-$option_2)
-    run_cmd --opt2
-    ;;
+    $option_1)
+        run_cmd --opt1
+        ;;
+    $option_2)
+        run_cmd --opt2
+        ;;
 esac

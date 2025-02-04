@@ -17,12 +17,12 @@ else
         echo
         _writeMessage "You can download and install additional wallpapers from https://github.com/mylinuxforwork/wallpaper/"
         echo
-        if gum confirm "Do you want to download the repository?" ;then
+        if gum confirm "Do you want to download the repository?"; then
             if [ -d $download_folder/wallpaper ]; then
                 rm -rf $download_folder/wallpaper
             fi
             git clone --depth 1 https://github.com/mylinuxforwork/wallpaper.git $download_folder/wallpaper
-            rsync -a -I --exclude-from=$includes_directory/excludes.txt $download_folder/wallpaper/. ~/wallpaper/ &>> $(_getLogFile)
+            rsync -a -I --exclude-from=$includes_directory/excludes.txt $download_folder/wallpaper/. ~/wallpaper/ &>>$(_getLogFile)
             _writeLogHeader 1 "Wallpapers from the repository installed successfully."
         elif [ $? -eq 130 ]; then
             exit 130
@@ -32,4 +32,3 @@ else
     fi
 fi
 echo
-

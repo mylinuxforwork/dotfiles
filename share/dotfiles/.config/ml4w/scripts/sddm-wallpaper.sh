@@ -27,7 +27,6 @@ if [ -f $HOME/.config/ml4w/settings/sddm/theme.conf ]; then
     echo ":: Using custum theme.conf"
 fi
 
-
 if [ ! -f $current_wallpaper ]; then
     gum spin --spinner dot --title "File $current_wallpaper does not exist" -- sleep 3
     exit

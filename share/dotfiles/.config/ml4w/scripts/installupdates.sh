@@ -16,36 +16,35 @@ echo
 # Confirm Start
 # ------------------------------------------------------
 
-if gum confirm "DO YOU WANT TO START THE UPDATE NOW?" ;then
+if gum confirm "DO YOU WANT TO START THE UPDATE NOW?"; then
     echo
     echo ":: Update started."
 elif [ $? -eq 130 ]; then
-        exit 130
+    exit 130
 else
     echo
     echo ":: Update canceled."
-    exit;
+    exit
 fi
 
 _isInstalled() {
-   package="$1";
-   case $install_platform in
-	arch)
-	 check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "${package} ")";
-	;;
-	fedora)
-	 check="$(dnf repoquery --quiet --installed ""${package}*"")"
-	;;
-        *)
-  	;;
+    package="$1"
+    case $install_platform in
+        arch)
+            check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "${package} ")"
+            ;;
+        fedora)
+            check="$(dnf repoquery --quiet --installed ""${package}*"")"
+            ;;
+        *) ;;
     esac
 
-   if [ -n "${check}" ] ; then
-       echo 0; #'0' means 'true' in Bash
-       return; #true
-   fi;
-echo 1; #'1' means 'false' in Bash
-return; #false
+    if [ -n "${check}" ]; then
+        echo 0 #'0' means 'true' in Bash
+        return #true
+    fi
+    echo 1 #'1' means 'false' in Bash
+    return #false
 }
 
 # Check if platform is supported
@@ -55,7 +54,7 @@ case $install_platform in
 
         if [[ $(_isInstalled "timeshift") == "0" ]]; then
             echo
-            if gum confirm "DO YOU WANT TO CREATE A SNAPSHOT?" ;then
+            if gum confirm "DO YOU WANT TO CREATE A SNAPSHOT?"; then
                 echo
                 c=$(gum input --placeholder "Enter a comment for the snapshot...")
                 sudo timeshift --create --comments "$c"
@@ -77,18 +76,18 @@ case $install_platform in
         if [[ $(_isInstalled "flatpak") == "0" ]]; then
             flatpak upgrade
         fi
-    ;;
+        ;;
     fedora)
         sudo dnf upgrade
         if [[ $(_isInstalled "flatpak") == "0" ]]; then
             flatpak upgrade
         fi
-    ;;
+        ;;
     *)
         echo ":: ERROR - Platform not supported"
         echo "Press [ENTER] to close."
         read
-    ;;
+        ;;
 esac
 
 notify-send "Update complete"

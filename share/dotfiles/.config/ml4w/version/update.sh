@@ -8,7 +8,7 @@ source ~/.config/ml4w/version/library.sh
 # Get latest tag from GitHub
 get_latest_release() {
     v_online=$(curl --silent "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=ml4w-hyprland")
-    v_full_online=$(grep -m 1 'pkgver' <<< $v_online | sed 's/^$/pkgver/')
+    v_full_online=$(grep -m 1 'pkgver' <<<$v_online | sed 's/^$/pkgver/')
     echo ${v_full_online/pkgver=/}
 }
 

@@ -22,9 +22,9 @@ else
         _installPackage $optionalSelect
     fi
     if [ $optionalSelect == "yazi" ]; then
-        echo '$(cat ~/.config/ml4w/settings/terminal.sh) -e yazi' > "$HOME/.config/ml4w/settings/filemanager.sh"
+        echo '$(cat ~/.config/ml4w/settings/terminal.sh) -e yazi' >"$HOME/.config/ml4w/settings/filemanager.sh"
     else
-        echo "$optionalSelect" > "$HOME/.config/ml4w/settings/filemanager.sh"
+        echo "$optionalSelect" >"$HOME/.config/ml4w/settings/filemanager.sh"
     fi
     _selectCategory
 fi

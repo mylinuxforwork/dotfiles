@@ -24,4 +24,3 @@ else
     echo ":: Wallpaper Engine disabled"
     ~/.config/hypr/scripts/wallpaper.sh init
 fi
-

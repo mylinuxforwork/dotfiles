@@ -17,7 +17,7 @@ echo "Only the ML4W Dotfiles related files and folders will be removed."
 echo "Packages are not uninstalled. You have to uninstall packages manually if needed."
 echo "Your login manager (display manager) will stay untouched. Please remove it manually if needed."
 echo
-if gum confirm "DO YOU WANT TO START THE UNINSTALLATION NOW?" ;then
+if gum confirm "DO YOU WANT TO START THE UNINSTALLATION NOW?"; then
     echo ":: Uninstallation started."
 elif [ $? -eq 130 ]; then
     echo ":: Uninstaller canceled."
@@ -27,7 +27,7 @@ else
     exit
 fi
 
-if gum confirm "DO YOU WANT TO CREATE A BACKUP OF YOUR DOTFILES?" ;then
+if gum confirm "DO YOU WANT TO CREATE A BACKUP OF YOUR DOTFILES?"; then
     rsync -a ~/$dot_folder ~/.ml4w-hyprland/backup/
     echo ":: Backup of $HOME/$dot_folder created in ~/.ml4w-hyprland/backup"
 elif [ $? -eq 130 ]; then
@@ -44,76 +44,76 @@ if [ ! -z $dot_folder ]; then
     fi
 fi
 
-if test -L ~/.bashrc ;then
+if test -L ~/.bashrc; then
     rm $HOME/.bashrc
 fi
-if test -L ~/.zshrc ;then
+if test -L ~/.zshrc; then
     rm $HOME/.zshrc
 fi
-if test -L ~/.config/hypr ;then
+if test -L ~/.config/hypr; then
     rm $HOME/.config/hypr
 fi
-if test -L ~/.config/fastfetch ;then
+if test -L ~/.config/fastfetch; then
     rm $HOME/.config/fastfetch
 fi
-if test -L ~/.config/rofi ;then
+if test -L ~/.config/rofi; then
     rm $HOME/.config/rofi
 fi
-if test -L ~/.config/wal ;then
+if test -L ~/.config/wal; then
     rm $HOME/.config/wal
 fi
-if test -L ~/.config/waybar ;then
+if test -L ~/.config/waybar; then
     rm $HOME/.config/waybar
 fi
-if test -L ~/.config/wlogout ;then
+if test -L ~/.config/wlogout; then
     rm $HOME/.config/wlogout
 fi
-if test -L ~/.config/alacritty ;then
+if test -L ~/.config/alacritty; then
     rm $HOME/.config/alacritty
 fi
-if test -L ~/.config/nvim ;then
+if test -L ~/.config/nvim; then
     rm $HOME/.config/nvim
 fi
-if test -L ~/.config/vim ;then
+if test -L ~/.config/vim; then
     rm $HOME/.config/vim
 fi
-if test -L ~/.config/dunst ;then
+if test -L ~/.config/dunst; then
     rm $HOME/.config/dunst
 fi
-if test -L ~/.config/waypaper ;then
+if test -L ~/.config/waypaper; then
     rm $HOME/.config/waypaper
 fi
-if test -L ~/.config/nwg-dock-hyprland ;then
+if test -L ~/.config/nwg-dock-hyprland; then
     rm $HOME/.config/nwg-dock-hyprland
 fi
-if test -L ~/.config/ags ;then
+if test -L ~/.config/ags; then
     rm $HOME/.config/ags
 fi
-if test -L ~/.config/kitty ;then
+if test -L ~/.config/kitty; then
     rm $HOME/.config/kitty
 fi
-if test -L ~/.config/bashrc ;then
+if test -L ~/.config/bashrc; then
     rm $HOME/.config/bashrc
 fi
-if test -L ~/.config/zshrc ;then
+if test -L ~/.config/zshrc; then
     rm $HOME/.config/zshrc
 fi
-if test -L ~/.config/gtk-3.0 ;then
+if test -L ~/.config/gtk-3.0; then
     rm $HOME/.config/gtk-3.0
 fi
-if test -L ~/.config/gtk-4.0 ;then
+if test -L ~/.config/gtk-4.0; then
     rm $HOME/.config/gtk-4.0
 fi
-if test -L ~/.config/qt6ct ;then
+if test -L ~/.config/qt6ct; then
     rm $HOME/.config/qt6ct
 fi
-if test -L ~/.config/ml4w ;then
+if test -L ~/.config/ml4w; then
     rm $HOME/.config/ml4w
 fi
-if test -L ~/.config/ohmyposh ;then
+if test -L ~/.config/ohmyposh; then
     rm $HOME/.config/ohmyposh
 fi
-if test -L ~/.config/xsettingsd ;then
+if test -L ~/.config/xsettingsd; then
     rm $HOME/.config/xsettingsd
 fi
 echo ":: Symlinks removed"
@@ -141,7 +141,7 @@ fi
 
 echo ":: ML4W Apps removed"
 
-if gum confirm "DO YOU WANT TO RESTORE OLD CONFIGURATIONS FROM ~/.ml4w-hyprland/backup/config TO ~/.config?" ;then
+if gum confirm "DO YOU WANT TO RESTORE OLD CONFIGURATIONS FROM ~/.ml4w-hyprland/backup/config TO ~/.config?"; then
     rsync -a ~/.ml4w-hyprland/backup/config/ ~/.config/
     echo ":: Old configuration files restored in .config."
 elif [ $? -eq 130 ]; then
@@ -151,7 +151,7 @@ else
     echo ":: .config restore skipped."
 fi
 
-if gum confirm "DO YOU WANT TO KEEP ~/.ml4w-hyprland WITH ALL BACKUPS?" ;then
+if gum confirm "DO YOU WANT TO KEEP ~/.ml4w-hyprland WITH ALL BACKUPS?"; then
     echo ":: You will find the folder .ml4w-hyprland including your backups in your HOME folder."
 elif [ $? -eq 130 ]; then
     echo ":: Uninstaller canceled."
@@ -166,7 +166,7 @@ echo ":: The ML4W Dotfiles have been removed."
 echo
 echo ":: A reboot of your system is recommended."
 echo
-if gum confirm "Do you want to reboot your system now?" ;then
+if gum confirm "Do you want to reboot your system now?"; then
     gum spin --spinner dot --title "Rebooting now..." -- sleep 3
     systemctl reboot
 elif [ $? -eq 130 ]; then

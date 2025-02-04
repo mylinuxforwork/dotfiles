@@ -33,7 +33,7 @@ if [[ $(_isInstalled "hypridle-git") == 0 ]]; then
     _removePackage "hypridle-git"
     if [ -f /usr/lib/debug/usr/bin/hypridle.debug ]; then
         sudo rm /usr/lib/debug/usr/bin/hypridle.debug
-    _writeLog 1 "/usr/lib/debug/usr/bin/hypridle.debug removed"
+        _writeLog 1 "/usr/lib/debug/usr/bin/hypridle.debug removed"
     fi
     _writeLog 1 "hypridle-git uninstalled."
     _writeLog 1 "hypridle can now be installed."

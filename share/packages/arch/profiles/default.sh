@@ -52,4 +52,4 @@ packages=(
     "nwg-dock-hyprland"
     "oh-my-posh-bin"
     "checkupdates-with-aur"
-);
+)

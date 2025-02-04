@@ -193,7 +193,7 @@ while getopts "m:p:vh" opt; do
         v)
             echo ":: ML4W Dotfiles for Hyprland Version $version"
             exit
-        ;;
+            ;;
 
         h)
             echo ":: ML4W Dotfiles for Hyprland Version $version"
@@ -211,39 +211,39 @@ while getopts "m:p:vh" opt; do
             echo "-p fedora: Installation for Fedora based platforms"
             echo "-v: Current version of the ML4W Dotfiles for Hyprland"
             exit
-        ;;
+            ;;
     esac
 done
 
 case $install_mode in
     full)
         _run_fullinstall
-    ;;
+        ;;
     packages)
         _run_packages
-    ;;
+        ;;
     nvidia)
         _run_nvidia
-    ;;
+        ;;
     dotfiles)
         _run_dotfiles
-    ;;
+        ;;
     install)
         _run_install
-    ;;
+        ;;
     uninstall)
         _run_uninstall
-    ;;
+        ;;
     options)
         _run_options
-    ;;
+        ;;
     diagnosis)
         _run_diagnosis
-    ;;
+        ;;
     update)
         _run_update
-    ;;
+        ;;
     activate)
         _run_activate
-    ;;
+        ;;
 esac

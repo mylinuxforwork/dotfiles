@@ -4,13 +4,13 @@
 _writeLogHeader "Copy"
 
 _copy_confirm() {
-    if gum confirm "Do you want to install the prepared ML4W Dotfiles now?" ;then
+    if gum confirm "Do you want to install the prepared ML4W Dotfiles now?"; then
         _writeLog 1 "Copy started"
         if [ ! -d ~/$dot_folder ]; then
             mkdir -p ~/$dot_folder
             _writeLog 1 "~/$dot_folder folder created."
         fi
-        rsync -avhp -I $ml4w_directory/$version/ ~/$dot_folder/ &>> $(_getLogFile)
+        rsync -avhp -I $ml4w_directory/$version/ ~/$dot_folder/ &>>$(_getLogFile)
         if [[ $(_isFolderEmpty ~/$dot_folder/) == 0 ]]; then
             _writeLogTerminal 2 "AN ERROR HAS OCCURED. Copy prepared dofiles from $ml4w_directory/$version/ to ~/$dot_folder/ failed"
             _writeLogTerminal 2 "Please check that rsync is installad on your system."
@@ -32,7 +32,7 @@ _copy_automation() {
         mkdir -p ~/$dot_folder
         _writeLog 1 "AUTOMATION: ~/$dot_folder folder created."
     fi
-    rsync -avhp -I $ml4w_directory/$version/ ~/$dot_folder/ &>> $(_getLogFile)
+    rsync -avhp -I $ml4w_directory/$version/ ~/$dot_folder/ &>>$(_getLogFile)
     if [[ $(_isFolderEmpty ~/$dot_folder/) == 0 ]]; then
         _writeLogTerminal 2 "AN ERROR HAS OCCURED. Copy prepared dofiles from $ml4w_directory/$version/ to ~/$dot_folder/ failed"
         _writeLogTerminal 2 "Please check that rsync is installad on your system."
@@ -45,11 +45,11 @@ _copy_automation() {
 _writeHeader "Copy"
 
 if [ ! -d ~/$dot_folder ]; then
-_writeLogTerminal 0 "The script will now remove existing directories and files from ~/.config/"
-_writeLogTerminal 0 "and copy your prepared configuration from $ml4w_directory/$version to ~/$dot_folder"
-echo
-_writeLogTerminal 0 "Symbolic links will then be created from ~/$dot_folder into your ~/.config/ directory."
-echo
+    _writeLogTerminal 0 "The script will now remove existing directories and files from ~/.config/"
+    _writeLogTerminal 0 "and copy your prepared configuration from $ml4w_directory/$version to ~/$dot_folder"
+    echo
+    _writeLogTerminal 0 "Symbolic links will then be created from ~/$dot_folder into your ~/.config/ directory."
+    echo
 fi
 if [[ ! $(tty) == *"pts"* ]] && [ -d ~/$dot_folder ]; then
     _writeMessage "You're running the script in tty. You can delete the existing ~/$dot_folder folder now for a clean installation."

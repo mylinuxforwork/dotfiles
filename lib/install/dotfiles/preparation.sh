@@ -83,12 +83,12 @@ REPLACE="$ml4w_directory"
 sed -i "s|$SEARCH|$REPLACE|g" $ml4w_directory/library/scripts.sh
 
 if [ $install_platform == "arch" ]; then
-    echo "$aur_helper" > $ml4w_directory/$version/.config/ml4w/settings/aur.sh
+    echo "$aur_helper" >$ml4w_directory/$version/.config/ml4w/settings/aur.sh
     if [ -f ~/.config/ml4w/settings/aur.sh ]; then
-        echo "$aur_helper" > $HOME/.config/ml4w/settings/aur.sh
+        echo "$aur_helper" >$HOME/.config/ml4w/settings/aur.sh
     fi
     _writeLog 1 "AUR Helper updated with $aur_helper"
 fi
 
 # Write dot folder into settings
-echo "$dot_folder" > $ml4w_directory/$version/.config/ml4w/settings/dotfiles-folder.sh
+echo "$dot_folder" >$ml4w_directory/$version/.config/ml4w/settings/dotfiles-folder.sh

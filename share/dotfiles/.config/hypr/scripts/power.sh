@@ -51,6 +51,6 @@ fi
 
 if [[ "$1" == "hibernate" ]]; then
     echo ":: Hibernate"
-    sleep 1;
+    sleep 1
     systemctl hibernate
 fi
