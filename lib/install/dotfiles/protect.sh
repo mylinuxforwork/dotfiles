@@ -1,7 +1,7 @@
 # Check .config
 _writeLogHeader "Protect"
 
-if [ -d ~/$dot_folder/.config ]; then 
+if [ -d ~/$dot_folder/.config ]; then
     files=$(ls -a ~/$dot_folder/.config)
     for f in $files; do
         if [ ! "$f" == "." ] && [ ! "$f" == ".." ]; then

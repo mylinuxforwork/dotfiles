@@ -1,13 +1,13 @@
 #!/bin/bash
-#  _     _ _                           
-# | |   (_) |__  _ __ __ _ _ __ _   _  
-# | |   | | '_ \| '__/ _` | '__| | | | 
-# | |___| | |_) | | | (_| | |  | |_| | 
-# |_____|_|_.__/|_|  \__,_|_|   \__, | 
-#                               |___/  
-#  
-# by Stephan Raabe (2024) 
-# ----------------------------------------------------- 
+#  _     _ _
+# | |   (_) |__  _ __ __ _ _ __ _   _
+# | |   | | '_ \| '__/ _` | '__| | | |
+# | |___| | |_) | | | (_| | |  | |_| |
+# |_____|_|_.__/|_|  \__,_|_|   \__, |
+#                               |___/
+#
+# by Stephan Raabe (2024)
+# -----------------------------------------------------
 
 # ------------------------------------------------------
 # Write dialog header
@@ -40,13 +40,13 @@ _isInstalled() {
                 echo 1
             else
                 echo 0
-            fi        
+            fi
         ;;
         *)
             _writeLogTerminal 2 "Selected platform $install_platform is not supported"
             exit
         ;;
-    esac    
+    esac
 }
 
 # ------------------------------------------------------
@@ -83,7 +83,7 @@ _installPackage() {
                     _writeLogTerminal 2 "Selected platform $install_platform is not supported"
                     exit
                 ;;
-            esac    
+            esac
 
             # Check that installation was successful
             if [[ $(_isInstalled "$1") == 0 ]]; then
@@ -114,7 +114,7 @@ _removePackage() {
             _writeLogTerminal 2 "Selected platform $install_platform is not supported"
             exit
         ;;
-    esac    
+    esac
 }
 
 # ------------------------------------------------------
@@ -142,7 +142,7 @@ _move_folder() {
             mv $source $target
             echo ":: $source moved to $target"
         fi
-    fi    
+    fi
 }
 
 _del_folder() {
@@ -150,7 +150,7 @@ _del_folder() {
     if [ -d $source ]; then
         rm -rf $source
         echo ":: $source deleted"
-    fi    
+    fi
 }
 
 _move_file() {
@@ -161,7 +161,7 @@ _move_file() {
             mv $source $target
             echo ":: $source moved to $target"
         fi
-    fi    
+    fi
 }
 
 _del_file() {
@@ -169,7 +169,7 @@ _del_file() {
     if [ -f $source ]; then
         rm $source
         echo ":: $source deleted"
-    fi    
+    fi
 }
 
 # ------------------------------------------------------
@@ -194,23 +194,23 @@ _installSymLink() {
     symlink="$2";
     linksource="$3";
     linktarget="$4";
-    
+
     if [ -L "${symlink}" ]; then
         rm ${symlink}
-        ln -s ${linksource} ${linktarget} 
+        ln -s ${linksource} ${linktarget}
         echo ":: Symlink ${linksource} -> ${linktarget} created."
     else
         if [ -d ${symlink} ]; then
-            rm -rf ${symlink}/ 
+            rm -rf ${symlink}/
             ln -s ${linksource} ${linktarget}
             echo ":: Symlink for directory ${linksource} -> ${linktarget} created."
         else
             if [ -f ${symlink} ]; then
-                rm ${symlink} 
-                ln -s ${linksource} ${linktarget} 
+                rm ${symlink}
+                ln -s ${linksource} ${linktarget}
                 echo ":: Symlink to file ${linksource} -> ${linktarget} created."
             else
-                ln -s ${linksource} ${linktarget} 
+                ln -s ${linksource} ${linktarget}
                 echo ":: New symlink ${linksource} -> ${linktarget} created."
             fi
         fi
@@ -254,7 +254,7 @@ _replaceInFile() {
                 # echo "Start found in $start_line_counter"
                 start_found=$start_line_counter
                 break
-            fi 
+            fi
         done < "$file_path"
 
         # Detect End String
@@ -265,7 +265,7 @@ _replaceInFile() {
                 # echo "End found in $end_line_counter"
                 end_found=$end_line_counter
                 break
-            fi 
+            fi
         done < "$file_path"
 
         # Check that deliminters exists
@@ -283,7 +283,7 @@ _replaceInFile() {
             # Remove the old line
             ((start_found++))
 
-            if [ ! "$start_found" == "$end_found" ]; then    
+            if [ ! "$start_found" == "$end_found" ]; then
                 ((end_found--))
                 sed -i "$start_found,$end_found d" $file_path
             fi
@@ -329,21 +329,21 @@ _replaceLineInFile() {
                 # echo "Start found in $start_line_counter"
                 line_found=$find_line_counter
                 break
-            fi 
+            fi
         done < "$file_path"
 
         if [[ ! "$line_found" == "0" ]]; then
-            
+
             #Remove the line
             sed -i "$line_found d" $file_path
 
             # Add the new line
-            sed -i "$line_found i $new_string" $file_path            
+            sed -i "$line_found i $new_string" $file_path
 
         else
             echo "ERROR: Target line not found for $find_string."
             sleep 2
-        fi   
+        fi
 
     else
         echo "ERROR: Target file not found for $find_string."
@@ -375,7 +375,7 @@ _replaceLineInFileCheckpoint() {
                 # echo "Checkpoint found in $find_checkpoint_counter"
                 checkpoint_found=$find_checkpoint_counter
                 break
-            fi 
+            fi
         done < "$file_path"
 
         if [[ ! "$checkpoint_found" == "0" ]]; then
@@ -389,25 +389,25 @@ _replaceLineInFileCheckpoint() {
                         # echo "Line found in $find_line_counter"
                         line_found=$find_line_counter
                         break
-                    fi 
+                    fi
                 fi
             done < "$file_path"
 
             if [[ ! "$line_found" == "0" ]]; then
-                
+
                 #Remove the line
                 sed -i "$line_found d" $file_path
 
                 # Add the new line
-                sed -i "$line_found i $new_string" $file_path            
+                sed -i "$line_found i $new_string" $file_path
 
             else
                 echo "ERROR: Target line not found for $find_string."
                 sleep 2
             fi
-        else 
+        else
             echo "ERROR: Checkpoint not found."
-        fi  
+        fi
 
     else
         echo "ERROR: Target file not found for $find_string."

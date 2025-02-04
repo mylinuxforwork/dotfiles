@@ -31,4 +31,4 @@ if [ -f $HOME/.zshrc ]; then
         fi
     fi
 fi
-echo 
+echo

@@ -47,7 +47,7 @@ if [[ $(systemctl list-units --all -t service --full --no-legend "NetworkManager
 else
     sudo systemctl enable NetworkManager.service
     sudo systemctl start NetworkManager.service
-    _writeLog 1 "NetworkManager.service activated successfully."    
+    _writeLog 1 "NetworkManager.service activated successfully."
 fi
 
 # Check for running bluetooth.service

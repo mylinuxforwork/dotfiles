@@ -3,5 +3,5 @@ packages=(
     "nautilus"
     "nautilus-open-any-terminal"
     "gnome-text-editor"
-    "gnome-calculator"    
+    "gnome-calculator"
 );

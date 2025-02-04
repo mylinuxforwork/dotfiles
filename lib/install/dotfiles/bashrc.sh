@@ -31,4 +31,4 @@ if [ -f $HOME/.bashrc ]; then
         fi
     fi
 fi
-echo 
+echo

@@ -1,10 +1,10 @@
 #!/bin/bash
-# __  ______   ____ 
+# __  ______   ____
 # \ \/ /  _ \ / ___|
-#  \  /| | | | |  _ 
+#  \  /| | | | |  _
 #  /  \| |_| | |_| |
 # /_/\_\____/ \____|
-#                   
+#
 
 # Setup Timers
 _sleep1="0.1"
@@ -24,9 +24,9 @@ killall -e xdg-desktop-portal
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=hyprland
 
 # Stop all services
-systemctl --user stop pipewire 
-systemctl --user stop wireplumber 
-systemctl --user stop xdg-desktop-portal 
+systemctl --user stop pipewire
+systemctl --user stop wireplumber
+systemctl --user stop xdg-desktop-portal
 systemctl --user stop xdg-desktop-portal-gnome
 systemctl --user stop xdg-desktop-portal-kde
 systemctl --user stop xdg-desktop-portal-wlr
@@ -48,9 +48,9 @@ fi
 sleep $_sleep2
 
 # Start required services
-systemctl --user start pipewire 
-systemctl --user start wireplumber 
-systemctl --user start xdg-desktop-portal 
+systemctl --user start pipewire
+systemctl --user start wireplumber
+systemctl --user start xdg-desktop-portal
 systemctl --user start xdg-desktop-portal-hyprland
 
 # Run waybar

@@ -8,7 +8,7 @@ if [ -f /etc/systemd/system/display-manager.service ]; then
     echo
     if gum confirm "Do you want to disable the current display manager?" ;then
         sudo rm /etc/systemd/system/display-manager.service
-        echo ":: Current display manager disabled." 
+        echo ":: Current display manager disabled."
         echo
         gum spin --spinner dot --title "Please reboot your system." -- sleep 3
     fi
@@ -20,7 +20,7 @@ else
             sudo pacman -S --noconfirm --needed sddm qt5-graphicaleffects qt5-quickcontrols2 qt5-svg --ask 4
         fi
         sudo systemctl enable sddm.service
-        echo ":: Display manager SDDM has been enabled." 
+        echo ":: Display manager SDDM has been enabled."
         echo
         gum spin --spinner dot --title "Please reboot your system." -- sleep 3
     fi

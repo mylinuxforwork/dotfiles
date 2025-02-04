@@ -1,12 +1,12 @@
 #!/bin/bash
 clear
 
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Repository
 # -----------------------------------------------------
 repo="mylinuxforwork/dotfiles"
 
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Download Folder
 # -----------------------------------------------------
 download_folder="$HOME/.ml4w"
@@ -79,11 +79,11 @@ NONE='\033[0m'
 # Header
 echo -e "${GREEN}"
 cat <<"EOF"
-   ____         __       ____       
+   ____         __       ____
   /  _/__  ___ / /____ _/ / /__ ____
  _/ // _ \(_-</ __/ _ `/ / / -_) __/
-/___/_//_/___/\__/\_,_/_/_/\__/_/   
-                                    
+/___/_//_/___/\__/\_,_/_/_/\__/_/
+
 EOF
 echo "ML4W Dotfiles for Hyprland"
 echo -e "${NONE}"
@@ -108,9 +108,9 @@ done
 if [ ! -d $download_folder ]; then
     mkdir -p $download_folder
     echo ":: $download_folder folder created"
-fi 
+fi
 
-# Remove existing download folder and zip files 
+# Remove existing download folder and zip files
 if [ -f $download_folder/dotfiles-main.zip ]; then
     rm $download_folder/dotfiles-main.zip
 fi

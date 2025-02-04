@@ -21,14 +21,14 @@ if [ -z $install_platform ]; then
                 1* )
                     install_platform="arch"
                 break;;
-                2* ) 
+                2* )
                     install_platform="fedora"
                 break;;
-                0* ) 
+                0* )
                     echo ":: Installation canceled"
                     exit;
                 break;;
-                * ) 
+                * )
                     echo ":: Please select your platform."
                 ;;
             esac
