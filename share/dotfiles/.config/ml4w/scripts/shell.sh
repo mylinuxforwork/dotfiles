@@ -9,14 +9,14 @@
 sleep 1
 
 _isInstalledYay() {
-    package="$1";
-    check="$(yay -Qs --color always "${package}" | grep "local" | grep "\." | grep "${package} ")";
-    if [ -n "${check}" ] ; then
-        echo 0; #'0' means 'true' in Bash
-        return; #true
-    fi;
-    echo 1; #'1' means 'false' in Bash
-    return; #false
+    package="$1"
+    check="$(yay -Qs --color always "${package}" | grep "local" | grep "\." | grep "${package} ")"
+    if [ -n "${check}" ]; then
+        echo 0 #'0' means 'true' in Bash
+        return #true
+    fi
+    echo 1 #'1' means 'false' in Bash
+    return #false
 }
 
 clear

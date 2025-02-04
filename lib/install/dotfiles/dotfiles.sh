@@ -30,7 +30,7 @@ _confirm_dotfiles_folder() {
         _writeLogTerminal 0 "The folder ~/$dot_folder already exists and the files will be updated."
     fi
     echo
-    if gum confirm "Do you want use this folder?" ;then
+    if gum confirm "Do you want use this folder?"; then
         _writeLogTerminal 1 "ML4W Dotfiles will be installed in ~/$dot_folder"
     elif [ $? -eq 130 ]; then
         _writeCancel

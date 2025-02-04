@@ -24,16 +24,16 @@ _writeHeader() {
 # ------------------------------------------------------
 
 _isInstalled() {
-    package="$1";
+    package="$1"
     case $install_platform in
         arch)
-            check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")";
+            check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")"
             if [ -n "${check}" ]; then
                 echo 0
             else
                 echo 1
             fi
-        ;;
+            ;;
         fedora)
             check=$(dnf list --installed | grep $package)
             if [ -z "$check" ]; then
@@ -41,11 +41,11 @@ _isInstalled() {
             else
                 echo 0
             fi
-        ;;
+            ;;
         *)
             _writeLogTerminal 2 "Selected platform $install_platform is not supported"
             exit
-        ;;
+            ;;
     esac
 }
 
@@ -74,15 +74,15 @@ _installPackage() {
             # Run installation with platform command
             case $install_platform in
                 arch)
-                    sudo pacman --noconfirm -S "$1" &>> $(_getLogFile)
-                ;;
+                    sudo pacman --noconfirm -S "$1" &>>$(_getLogFile)
+                    ;;
                 fedora)
-                    sudo dnf install --assumeyes "$1" &>> $(_getLogFile)
-                ;;
+                    sudo dnf install --assumeyes "$1" &>>$(_getLogFile)
+                    ;;
                 *)
                     _writeLogTerminal 2 "Selected platform $install_platform is not supported"
                     exit
-                ;;
+                    ;;
             esac
 
             # Check that installation was successful
@@ -105,15 +105,15 @@ _removePackage() {
     _writeLog 0 "Removing $1..."
     case $install_platform in
         arch)
-            sudo pacman --noconfirm -R "$1" &>> $(_getLogFile)
-        ;;
+            sudo pacman --noconfirm -R "$1" &>>$(_getLogFile)
+            ;;
         fedora)
-            sudo dnf remove --assumeyes "$1" &>> $(_getLogFile)
-        ;;
+            sudo dnf remove --assumeyes "$1" &>>$(_getLogFile)
+            ;;
         *)
             _writeLogTerminal 2 "Selected platform $install_platform is not supported"
             exit
-        ;;
+            ;;
     esac
 }
 
@@ -191,9 +191,9 @@ _del_symlink() {
 
 _installSymLink() {
     name="$1"
-    symlink="$2";
-    linksource="$3";
-    linktarget="$4";
+    symlink="$2"
+    linksource="$3"
+    linktarget="$4"
 
     if [ -L "${symlink}" ]; then
         rm ${symlink}
@@ -247,26 +247,24 @@ _replaceInFile() {
     if [ -f $file_path ]; then
 
         # Detect Start String
-        while read -r line
-        do
+        while read -r line; do
             ((start_line_counter++))
             if [[ $line = *$start_string* ]]; then
                 # echo "Start found in $start_line_counter"
                 start_found=$start_line_counter
                 break
             fi
-        done < "$file_path"
+        done <"$file_path"
 
         # Detect End String
-        while read -r line
-        do
+        while read -r line; do
             ((end_line_counter++))
             if [[ $line = *$end_string* ]]; then
                 # echo "End found in $end_line_counter"
                 end_found=$end_line_counter
                 break
             fi
-        done < "$file_path"
+        done <"$file_path"
 
         # Check that deliminters exists
         if [[ "$start_found" == "0" ]]; then
@@ -305,12 +303,12 @@ _replaceTextInFile() {
     customtext="$1"
     targetFile=$2
 
-    echo $customtext > $targetFile
+    echo $customtext >$targetFile
 }
 
 # replaceLineInFile $findText $customtext $targetFile
 _replaceLineInFile() {
-   # Set function parameters
+    # Set function parameters
     find_string="$1"
     new_string="$2"
     file_path=$3
@@ -322,15 +320,14 @@ _replaceLineInFile() {
     if [ -f $file_path ]; then
 
         # Detect Line
-        while read -r line
-        do
+        while read -r line; do
             ((find_line_counter++))
             if [[ $line = *$find_string* ]]; then
                 # echo "Start found in $start_line_counter"
                 line_found=$find_line_counter
                 break
             fi
-        done < "$file_path"
+        done <"$file_path"
 
         if [[ ! "$line_found" == "0" ]]; then
 
@@ -353,7 +350,7 @@ _replaceLineInFile() {
 
 # replaceLineInFileCheckpoint $findText $customtext $checkpoint $targetFile
 _replaceLineInFileCheckpoint() {
-   # Set function parameters
+    # Set function parameters
     find_string="$1"
     new_string="$2"
     checkpoint="$3"
@@ -368,21 +365,19 @@ _replaceLineInFileCheckpoint() {
     if [ -f $file_path ]; then
 
         # Detect Checkpoint
-        while read -r line
-        do
+        while read -r line; do
             ((find_checkpoint_counter++))
             if [[ $line = *$checkpoint* ]]; then
                 # echo "Checkpoint found in $find_checkpoint_counter"
                 checkpoint_found=$find_checkpoint_counter
                 break
             fi
-        done < "$file_path"
+        done <"$file_path"
 
         if [[ ! "$checkpoint_found" == "0" ]]; then
 
             # Detect Line
-            while read -r line
-            do
+            while read -r line; do
                 ((find_line_counter++))
                 if [ "$find_line_counter" -gt "$checkpoint_found" ]; then
                     if [[ $line = *$find_string* ]]; then
@@ -391,7 +386,7 @@ _replaceLineInFileCheckpoint() {
                         break
                     fi
                 fi
-            done < "$file_path"
+            done <"$file_path"
 
             if [[ ! "$line_found" == "0" ]]; then
 
@@ -420,8 +415,8 @@ _replaceLineInFileCheckpoint() {
 # ------------------------------------------------------
 
 _checkCommandExists() {
-    package="$1";
-	if ! command -v $package > /dev/null; then
+    package="$1"
+    if ! command -v $package >/dev/null; then
         return 1
     else
         return 0
@@ -429,7 +424,7 @@ _checkCommandExists() {
 }
 
 _commandExists() {
-    package="$1";
+    package="$1"
     if _checkCommandExists $package; then
         echo ":: ERROR: $package doesn't exists. Please install it manually."
     else
@@ -438,7 +433,7 @@ _commandExists() {
 }
 
 _folderExists() {
-    folder="$1";
+    folder="$1"
     if [ ! -d $folder ]; then
         echo ":: ERROR: $folder doesn't exists. $2"
         return 0

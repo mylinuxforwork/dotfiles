@@ -17,7 +17,7 @@ _activate_dotfiles_folder() {
     files=$(ls -a $HOME/$dot_folder)
     for f in $files; do
         if [ ! "$f" == "." ] && [ ! "$f" == ".." ] && [ ! "$f" == ".config" ]; then
-            if [ -f  $HOME/$dot_folder/$f ]; then
+            if [ -f $HOME/$dot_folder/$f ]; then
                 # echo ":: Checking for file $HOME/$f"
                 if [ -L $HOME/$f ]; then
                     rm $HOME/$f
@@ -39,7 +39,7 @@ _activate_dotfiles_folder() {
     files=$(ls -a $HOME/$dot_folder/.config)
     for f in $files; do
         if [ ! "$f" == "." ] && [ ! "$f" == ".." ]; then
-            if [ -d  $HOME/$dot_folder/.config/$f ]; then
+            if [ -d $HOME/$dot_folder/.config/$f ]; then
                 # echo ":: Checking for directory $HOME/.config/$f"
                 if [ -L $HOME/.config/$f ]; then
                     rm $HOME/.config/$f
@@ -57,7 +57,7 @@ _activate_dotfiles_folder() {
                     echo ":: ERROR $HOME/$dot_folder/.config/$f -> $HOME/.config/$f"
                 fi
             fi
-            if [ -f  $HOME/$dot_folder/.config/$f ]; then
+            if [ -f $HOME/$dot_folder/.config/$f ]; then
                 # echo ":: Checking for file $HOME/.config/$f"
                 if [ -L $HOME/.config/$f ]; then
                     rm $HOME/.config/$f
@@ -76,7 +76,7 @@ _activate_dotfiles_folder() {
     done
 
     # Write dot folder into settings
-    echo "$dot_folder" > $HOME/$dot_folder/.config/ml4w/settings/dotfiles-folder.sh
+    echo "$dot_folder" >$HOME/$dot_folder/.config/ml4w/settings/dotfiles-folder.sh
 
     stow --dir="$HOME/$dot_folder" --target="$HOME" .
     echo
@@ -87,7 +87,7 @@ _activate_dotfiles_folder() {
     echo -e "${NONE}"
     echo "A new login into your system is recommended."
     echo
-    if gum confirm "Do you want to exit your system now?" ;then
+    if gum confirm "Do you want to exit your system now?"; then
         gum spin --spinner dot --title "Logout has started..." -- sleep 3
         killall -9 Hyprland
     elif [ $? -eq 130 ]; then
@@ -119,7 +119,7 @@ _confirm_dotfiles_folder() {
     if [ -d ~/$dot_folder ] && [ -d ~/$dot_folder/.config/ml4w ]; then
         echo ":: ML4W Dotfiles folder ~/$dot_folder selected."
         echo
-        if gum confirm "Do you want to activate now?" ;then
+        if gum confirm "Do you want to activate now?"; then
             _activate_dotfiles_folder
         else
             _writeCancel

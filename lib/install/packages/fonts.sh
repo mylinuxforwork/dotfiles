@@ -6,10 +6,10 @@ if [ -d ~/.local/share/fonts/JetBrainsMonoNerd ]; then
 else
     # Download JetBrainsMonoNerdFonts
     DOWNLOAD_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz"
-    curl -o $download_folder/JetBrainsMono.tar.xz -OL "$DOWNLOAD_URL" &>> $(_getLogFile)
+    curl -o $download_folder/JetBrainsMono.tar.xz -OL "$DOWNLOAD_URL" &>>$(_getLogFile)
 
     # Install the fonts
-    mkdir -p ~/.local/share/fonts/JetBrainsMonoNerd &>> $(_getLogFile)
+    mkdir -p ~/.local/share/fonts/JetBrainsMonoNerd &>>$(_getLogFile)
 
     # Extract the new files into the JetBrainsMono folder and log the output
     tar -xJkf $download_folder/JetBrainsMono.tar.xz -C ~/.local/share/fonts/JetBrainsMonoNerd
@@ -25,4 +25,4 @@ else
 fi
 
 # Update font cache and log the output
-fc-cache -v &>> $(_getLogFile)
+fc-cache -v &>>$(_getLogFile)

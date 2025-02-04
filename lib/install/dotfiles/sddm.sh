@@ -25,7 +25,7 @@ _confirmCurrentDisplayManager() {
     _detectCurrentDisplayManager
     if [ ! -z $current_display_manager ]; then
         _writeLogTerminal 0 "The script has detected $current_display_manager as your current display manager"
-        if gum confirm "Is this correct" ;then
+        if gum confirm "Is this correct"; then
             _writeLogTerminal 1 "$current_disyplay_manager confirmed"
         else
             _enterDisplayManager
