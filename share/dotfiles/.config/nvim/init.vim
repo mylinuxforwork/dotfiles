@@ -1,19 +1,19 @@
-"  _   _                 _            
-" | \ | | ___  _____   _(_)_ __ ___   
-" |  \| |/ _ \/ _ \ \ / / | '_ ` _ \  
-" | |\  |  __/ (_) \ V /| | | | | | | 
-" |_| \_|\___|\___/ \_/ |_|_| |_| |_| 
-"                                     
-" by Stephan Raabe (2023) 
-" ----------------------------------------------------- 
+"  _   _                 _
+" | \ | | ___  _____   _(_)_ __ ___
+" |  \| |/ _ \/ _ \ \ / / | '_ ` _ \
+" | |\  |  __/ (_) \ V /| | | | | | |
+" |_| \_|\___|\___/ \_/ |_|_| |_| |_|
+"
+" by Stephan Raabe (2023)
+" -----------------------------------------------------
 
 set nocompatible            " disable compatibility to old-time vi
-set showmatch               " show matching 
-set ignorecase              " case insensitive 
-set mouse=v                 " middle-click paste with 
-set hlsearch                " highlight search 
+set showmatch               " show matching
+set ignorecase              " case insensitive
+set mouse=v                 " middle-click paste with
+set hlsearch                " highlight search
 set incsearch               " incremental search
-set tabstop=4               " number of columns occupied by a tab 
+set tabstop=4               " number of columns occupied by a tab
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
 set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for autoindents
