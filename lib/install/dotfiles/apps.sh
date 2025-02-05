@@ -39,10 +39,10 @@ $install_directory/dotfiles/flatpak.sh $apps_directory $(_getLogFile)
 
 # Copy Icons
 mkdir -p $HOME/.local/share/icons
-cp $apps_directory/com.ml4w.welcome.png $HOME/.local/share/icons/
-cp $apps_directory/com.ml4w.settings.png $HOME/.local/share/icons/
-cp $apps_directory/com.ml4w.calendar.png $HOME/.local/share/icons/
-cp $apps_directory/com.ml4w.sidebar.png $HOME/.local/share/icons/
+cp $apps_directory/icons/com.ml4w.welcome.png $HOME/.local/share/icons/
+cp $apps_directory/icons/com.ml4w.settings.png $HOME/.local/share/icons/
+cp $apps_directory/icons/com.ml4w.calendar.png $HOME/.local/share/icons/
+cp $apps_directory/icons/com.ml4w.sidebar.png $HOME/.local/share/icons/
 
 _writeLogHeader "Run Hyprland Settings App"
 
