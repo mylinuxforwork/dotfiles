@@ -65,27 +65,22 @@ else
         firefox)
             echo 'firefox' > "$HOME/.config/ml4w/settings/browser.sh"
             _updateWaybarBrowserQuicklink "" "Firefox"
-            break
             ;;
         chromium)
             echo 'chromium' > "$HOME/.config/ml4w/settings/browser.sh"
             _updateWaybarBrowserQuicklink "" "Chromium"
-            break
             ;;
         brave|brave-bin|brave-browser)
             echo 'brave' > "$HOME/.config/ml4w/settings/browser.sh"
             _updateWaybarBrowserQuicklink "" "Brave"
-            break
             ;;
         zen-browser-bin|zen-browser)
             echo 'zen-browser' > "$HOME/.config/ml4w/settings/browser.sh"
             _updateWaybarBrowserQuicklink "" "Zen Browser"
-            break
             ;;
         *)
             echo "$optionalSelect" > "$HOME/.config/ml4w/settings/browser.sh"
             _updateWaybarBrowserQuicklink "" "Browser"
-            break
             ;;
     esac
     
