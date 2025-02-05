@@ -42,11 +42,9 @@ window#waybar {
     margin: 2px 18px 3px 1px;
     padding: 0px 2px;
     border-radius: 5px 5px 5px 5px;
-    border: 0px;
     font-weight: bold;
     font-style: normal;
     opacity: 0.8;
-    font-size: 16px;
     color: @textcolor1;
 }
 
@@ -54,7 +52,6 @@ window#waybar {
     padding: 0px 6px;
     margin: 3px 2px;
     border-radius: 3px 3px 3px 3px;
-    border: 0px;
     color: @textcolor1;
     background-color: @workspacesbackground2;
     transition: all 0.1s linear;
@@ -181,6 +178,14 @@ window#waybar.empty #window {
 #custom-quicklink8,
 #custom-quicklink9,
 #custom-quicklink10,
+#custom-quicklink_chromium,
+#custom-quicklink_edge,
+#custom-quicklink_firefox,
+#custom-quicklink_browser,
+#custom-quicklink_filemanager,
+#custom-quicklink_email,
+#custom-quicklink_thunderbird,
+#custom-quicklink_calculator,
 #custom-waybarthemes {
     margin-right: 16px;
     font-size: 20px;

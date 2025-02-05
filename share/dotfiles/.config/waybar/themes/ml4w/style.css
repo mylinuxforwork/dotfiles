@@ -172,6 +172,14 @@ window#waybar.empty #window {
 #custom-hyprshade,
 #custom-hypridle,
 #custom-tools,
+#custom-quicklink_chromium,
+#custom-quicklink_edge,
+#custom-quicklink_firefox,
+#custom-quicklink_browser,
+#custom-quicklink_filemanager,
+#custom-quicklink_email,
+#custom-quicklink_thunderbird,
+#custom-quicklink_calculator,
 #custom-quicklink1,
 #custom-quicklink2,
 #custom-quicklink3,
@@ -190,6 +198,14 @@ window#waybar.empty #window {
     color: @iconcolor;
 }
 
+#custom-quicklink_chromium,
+#custom-quicklink_edge,
+#custom-quicklink_firefox,
+#custom-quicklink_browser,
+#custom-quicklink_filemanager,
+#custom-quicklink_email,
+#custom-quicklink_thunderbird,
+#custom-quicklink_calculator,
 #custom-quicklink1,
 #custom-quicklink2,
 #custom-quicklink3,
@@ -200,7 +216,7 @@ window#waybar.empty #window {
 #custom-quicklink8,
 #custom-quicklink9,
 #custom-quicklink10 {
-    margin-right: 24px;
+    margin-right: 18px;
 }
 
 #custom-tools {
