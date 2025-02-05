@@ -37,7 +37,14 @@ _writeLog 1 "ML4W Hyprland Settings App installed successfully"
 # Installation of FlatPaks
 $install_directory/dotfiles/flatpak.sh $apps_directory $(_getLogFile)
 
-_writeLogHeader "Hyprland Settings App"
+# Copy Icons
+mkdir -p $HOME/.local/share/icons
+cp $apps_directory/com.ml4w.welcome.png $HOME/.local/share/icons/
+cp $apps_directory/com.ml4w.settings.png $HOME/.local/share/icons/
+cp $apps_directory/com.ml4w.calendar.png $HOME/.local/share/icons/
+cp $apps_directory/com.ml4w.sidebar.png $HOME/.local/share/icons/
+
+_writeLogHeader "Run Hyprland Settings App"
 
 # Execute hyprctl from the Settings app
 if [ -f ~/.config/ml4w-hyprland-settings/hyprctl.sh ]; then
