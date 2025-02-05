@@ -1,5 +1,5 @@
 # ML4W Dotfiles for Hyprland
-> Version 2.9.8 BETA3 (Please install the main release to get latest stable release)
+> Version 2.9.8 RC1 (Please install the main release to get latest stable release)
 
 An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and set up the required components.
 
