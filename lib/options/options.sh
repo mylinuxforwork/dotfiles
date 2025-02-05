@@ -14,6 +14,9 @@ _checkPackages() {
 _checkDefault() {
     if [ -f ~/.config/ml4w/settings/$1 ]; then
         default="$(cat ~/.config/ml4w/settings/$1)"
+        if [[ $default == *"ml4w-hyprland-setup -m options"* ]]; then
+            default="(none)"
+        fi
         echo ":: Current setup: $default"
     else
         echo ":: ERROR: No configuration file found"
@@ -24,6 +27,9 @@ _checkDefault() {
 _checkCurrent() {
     if [ -f ~/.config/ml4w/settings/$1 ]; then
         default="$(cat ~/.config/ml4w/settings/$1)"
+        if [[ $default == *"ml4w-hyprland-setup -m options"* ]]; then
+            default="(none)"
+        fi
         echo $default
     else
         echo "No configuration file found"
@@ -68,6 +74,9 @@ _handleCategorySelection() {
         browser)
             source $options_directory/options/browser.sh
             ;;
+        email)
+            source $options_directory/options/email.sh
+            ;;
         more)
             source $options_directory/options/other.sh
             ;;
@@ -107,11 +116,12 @@ _selectCategory() {
     echo
     echo "- SDDM:" $(_checkSddm) "/ SDDM Theme:" $(_checkSddmTheme)    
     echo "- Shell: "$SHELL "/ Terminal:" $(_checkCurrent terminal.sh)
-    echo "- File manager:" $(_checkCurrent filemanager.sh) 
+    echo "- File manager:" $(_checkCurrent filemanager.sh)
+    echo "- E-mail client:" $(_checkCurrent email.sh) 
     echo "- Browser:" $(_checkCurrent browser.sh) 
     echo "- System monitor:" $(_checkCurrent system-monitor.sh)     
     echo
-    category=$(gum choose "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "more" "REBOOT" "CANCEL")
+    category=$(gum choose "shell" "terminal" "file manager" "email" "browser" "pywalfox" "system monitor" "more" "REBOOT" "CANCEL")
     _handleCategorySelection "$category"
 }
 
