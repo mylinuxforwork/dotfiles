@@ -15,7 +15,7 @@ if [[ "$1" == "exit" ]]; then
         rm $FILE
     fi
     sleep 0.5
-    killall -9 Hyprland
+    hyprctl dispatch exit
     sleep 2
 fi
 
