@@ -1,5 +1,5 @@
 # ML4W Dotfiles for Hyprland
-> Version 2.9.8 RC2 (Please install the main release to get latest stable release)
+> Version 2.9.8
 
 An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and set up the required components.
 
@@ -9,23 +9,19 @@ An advanced configuration of Hyprland for Arch Linux based distributions. This p
 
 YouTube Video https://youtu.be/sVFnd5LAYAc
 
-## Recommendation
+## Installation
+
+The installation should work on all Arch Linux and Fedora based distributions. [You can find more information here](https://github.com/mylinuxforwork/dotfiles/wiki).
 
 I recommend to install a base Hyprland system before installing the ML4W Hyprland Dotfiles. Then you have a stable starting point and can test Hyprland on your system beforehand. Hyprland is complex, under ongoing development, and requires additional components.
 
 You can find the Hyprland Installation instructions here: https://wiki.hyprland.org/Getting-Started/Installation/
 
-## Installation
+> IMPORTANT: Please make sure that all packages on your system are updated before running the installation script.
 
-The installation should work on all Arch Linux and Fedora based distributions (>2.9.7.0). [You can find more information here](https://github.com/mylinuxforwork/dotfiles/wiki).
-
-> PLEASE NOTE: Every Linux distribution, setup, and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. You can install this at your own risk.
-
-Please make sure that your system is up-to-date.
+> PLEASE NOTE: Every Linux distribution, setup, and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. You install at your own risk.
 
 ### Arch Linux (based)
-
-IMPORTANT: Please make sure that all your system packages are updated before running the installation script.
 
 ```shell
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)
@@ -50,8 +46,6 @@ ml4w-hyprland-setup
 Please rebuild all packages to ensure that you get the latest commit.
 
 ### Fedora Linux (based)
-
-IMPORTANT: Please make sure that all your system and packages are updated before running the installation script.
 
 ```shell
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)
