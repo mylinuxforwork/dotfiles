@@ -1,14 +1,14 @@
 #!/bin/bash
 clear
 echo -e "${GREEN}"
-figlet -f smslant "File Manager"
+figlet -f smslant "E-mail Client"
 echo -e "${NONE}"
-source $packages_directory/$install_platform/options/filemanager.sh
+source $packages_directory/$install_platform/options/email.sh
 toInstall=""
 selectedInstall=""
 
 _checkPackages
-_checkDefault "filemanager.sh"
+_checkDefault "email.sh"
 
 optionalSelect=$(gum choose $toInstall "CANCEL")
 if [ -z "$optionalSelect" ] || [ "$optionalSelect" = "CANCEL" ]; then
@@ -21,10 +21,6 @@ else
     if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
         _installPackage $optionalSelect
     fi
-    if [ $optionalSelect == "yazi" ]; then
-        echo '$(cat ~/.config/ml4w/settings/terminal.sh) -e yazi' >"$HOME/.config/ml4w/settings/filemanager.sh"
-    else
-        echo "$optionalSelect" >"$HOME/.config/ml4w/settings/filemanager.sh"
-    fi
+    echo "$optionalSelect" >"$HOME/.config/ml4w/settings/email.sh"
     _selectCategory
 fi
