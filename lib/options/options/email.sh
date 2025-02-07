@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 echo -e "${GREEN}"
-figlet -f smslant "E-mail Client"
+figlet -f smslant "Email Client"
 echo -e "${NONE}"
 source $packages_directory/$install_platform/options/email.sh
 toInstall=""

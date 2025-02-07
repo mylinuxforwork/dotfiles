@@ -15,7 +15,7 @@ _updateWaybarBrowserQuicklink() {
     local new_name="$2"
 
     local waybar_ql="$HOME/.config/ml4w/settings/waybar-quicklinks.json"
-    local browser_sh="~/.config/ml4w/settings/browser.sh"
+    local browser_sh=".config/ml4w/settings/browser.sh"
 
     if [ -f "$waybar_ql" ]; then
         local quicklink
@@ -60,7 +60,6 @@ else
     if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
         _installPackage $optionalSelect
     fi
-    
     case $optionalSelect in
         firefox)
             echo 'firefox' > "$HOME/.config/ml4w/settings/browser.sh"
@@ -72,17 +71,16 @@ else
             ;;
         brave|brave-bin|brave-browser)
             echo 'brave' > "$HOME/.config/ml4w/settings/browser.sh"
-            _updateWaybarBrowserQuicklink "" "Brave"
+            _updateWaybarBrowserQuicklink "" "Brave"
             ;;
         zen-browser-bin|zen-browser)
             echo 'zen-browser' > "$HOME/.config/ml4w/settings/browser.sh"
-            _updateWaybarBrowserQuicklink "" "Zen Browser"
+            _updateWaybarBrowserQuicklink "" "Zen Browser"
             ;;
         *)
             echo "$optionalSelect" > "$HOME/.config/ml4w/settings/browser.sh"
-            _updateWaybarBrowserQuicklink "" "Browser"
+            _updateWaybarBrowserQuicklink "" "Browser"
             ;;
     esac
-    
     _selectCategory
 fi
