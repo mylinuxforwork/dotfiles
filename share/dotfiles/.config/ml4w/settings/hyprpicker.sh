@@ -1,0 +1,1 @@
+hyprpicker -a -f hex
