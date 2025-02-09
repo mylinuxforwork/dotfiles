@@ -73,27 +73,6 @@ You can also visit the [ML4W Discord Server](https://discord.gg/c4fJK7Za3g) to s
 
 You can find my wallpaper collection in the repository https://github.com/mylinuxforwork/wallpaper
 
-## Special Thanks
-
-THANK YOU very much for all your support, contributions and ideas:
-
-- Tattwamashi Nayak: https://github.com/ElectroPerf
-- Filippo Aceto: https://gitlab.com/filippoaceto
-- Don Williams: https://github.com/dwilliam62
-- Diana Ward: https://github.com/dianaw353
-- Leo: https://github.com/eljejer
-- Guido De Gobbis
-- Teodor Orzechowski: https://gitlab.com/sq6gtt
-- Jamie Deppeler: https://gitlab.com/bknight2k
-- Yingjie Wang: https://gitlab.com/GaugeAndGravity
-- Daniel Gerber: https://gitlab.com/dan.john.gerber
-- Sarthak Siddhpura: https://gitlab.com/Codesmith28
-- https://gitlab.com/muee
-
-and many more...
-
-Thanks to all YouTube subscribers for all your great feedback.
-
 ## Inspirations
 
 The following projects have inspired me:
