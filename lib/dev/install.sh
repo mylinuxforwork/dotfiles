@@ -1,5 +1,5 @@
 #!/bin/bash
-dotfiles="/home/raabe/.ml4w-hyprland/dotfiles"
+dotfiles="$HOME/.ml4w-hyprland/dotfiles"
 
 # share
 sudo cp -r $dotfiles/share/. /usr/share/ml4w-hyprland
