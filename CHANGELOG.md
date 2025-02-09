@@ -1,11 +1,10 @@
 Version 2.9.8
 --------------------------------------------------------
 - All ML4W Apps (except Hyprland Settings for now) are now flatpak apps.
-- New ML4W Sidebar App give quick access to selected configurations. It replaces the ags sidebar.
-- All apps are now supporting light and dark theme. Change the color theme in nwg-look for GTK and/or QT6.
-- SwayNC added as new notification app and center with additional features.
-- kitty, nvim, .bashrc and .zshrc requires user confirmation for overwriting.
-- All required additional downloads required for the installation will be stored in .ml4w folder
+- New ML4W Sidebar App gives quick access to selected configurations. It replaces the ags sidebar.
+- All apps are supporting now light and dark theme. Change the color theme in nwg-look for GTK and/or QT6.
+- SwayNC added as new notification center with additional features.
+- Installation of kitty, nvim, .bashrc and .zshrc configurations require user confirmation for overwriting.
 - Walcord support in wallpaper.sh script
 
 Version 2.9.7.4
