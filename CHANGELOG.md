@@ -1,3 +1,7 @@
+Version 2.9.8.1
+--------------------------------------------------------
+- Bug fixes
+
 Version 2.9.8
 --------------------------------------------------------
 - All ML4W Apps (except Hyprland Settings for now) are now flatpak apps.
