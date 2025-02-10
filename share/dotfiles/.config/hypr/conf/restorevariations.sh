@@ -20,7 +20,7 @@ if gum confirm "Do you want to restore all variations to the default values?"; t
     echo "source = ~/.config/hypr/conf/environments/default.conf" >~/.config/hypr/conf/environment.conf
     echo "Hyprland environment.conf restored!"
 
-    echo "source = ~.config/hypr/conf/windowrules/default.conf" >~/.config/hypr/conf/windowrule.conf
+    echo "source = ~/.config/hypr/conf/windowrules/default.conf" >~/.config/hypr/conf/windowrule.conf
     echo "Hyprland windowrule.conf restored!"
 
     echo "source = ~/.config/hypr/conf/animations/default.conf" >~/.config/hypr/conf/animation.conf
