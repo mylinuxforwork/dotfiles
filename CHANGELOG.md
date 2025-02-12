@@ -1,6 +1,7 @@
 Version 2.9.8.1
 --------------------------------------------------------
 - Bug fixes
+- Opacity for the light version of the dock optimized
 
 Version 2.9.8
 --------------------------------------------------------
