@@ -32,6 +32,7 @@ packages=(
     "fzf"
     "pavucontrol"
     "papirus-icon-theme"
+    "papirus-icon-theme-dark"
     "breeze"
     "swaync"
     "gvfs"

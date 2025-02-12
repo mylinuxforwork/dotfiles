@@ -9,38 +9,30 @@
 # -----------------------------------------------------
 # Get keybindings location based on variation
 # -----------------------------------------------------
-config_file=$(cat ~/.config/hypr/conf/keybinding.conf)
-config_file=${config_file/source = ~/}
-config_file=${config_file/source=~/}
+config_file=$(<~/.config/hypr/conf/keybinding.conf)
+config_file=${config_file//source = ~//home/$USER}
 
 # -----------------------------------------------------
 # Path to keybindings config file
 # -----------------------------------------------------
-config_file="/home/$USER$config_file"
 echo "Reading from: $config_file"
 
-keybinds=""
+keybinds=$(awk -F'[=#]' '
+    $1 ~ /^bind/ {
+        # Replace the string "$mainMod" with "SUPER" (for the super key)
+        gsub(/\$mainMod/, "SUPER", $0)
 
-# Detect Start String
-while read -r line; do
-    if [[ "$line" == "bind"* ]]; then
+        # Remove "bind" and extra spaces, if any, at the beginning of the line
+        gsub(/^bind[[:space:]]*=+[[:space:]]*/, "", $0)
 
-        line="$(echo "$line" | sed 's/$mainMod/SUPER/g')"
-        line="$(echo "$line" | sed 's/bind = //g')"
-        line="$(echo "$line" | sed 's/bindm = //g')"
+        # Split the keybinding part (e.g., "Mod1,Return") using a comma
+        split($1, kbarr, ",")
 
-        IFS='#'
-        read -a strarr <<<"$line"
-        kb_str=${strarr[0]}
-        cm_str=${strarr[1]}
-
-        IFS=','
-        read -a kbarr <<<"$kb_str"
-
-        item="${kbarr[0]}  + ${kbarr[1]}"$'\r'"${cm_str:1}"
-        keybinds=$keybinds$item$'\n'
-    fi
-done <"$config_file"
+        # Format the keybinding and associated command and prepare for output:
+        # Concatenate the two keybinding keys (e.g., "Mod1" + "Return") and append the command
+        print kbarr[1] "  + " kbarr[2] "\r" $2
+    }
+' "$config_file")
 
 sleep 0.2
 rofi -dmenu -i -markup -eh 2 -replace -p "Keybinds" -config ~/.config/rofi/config-compact.rasi <<<"$keybinds"

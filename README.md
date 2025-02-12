@@ -1,5 +1,5 @@
 # ML4W Dotfiles for Hyprland
-> Version 2.9.8 BETA3 (Please install the main release to get latest stable release)
+> Rolling Release Version 2.9.8.1
 
 An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and set up the required components.
 
@@ -9,23 +9,19 @@ An advanced configuration of Hyprland for Arch Linux based distributions. This p
 
 YouTube Video https://youtu.be/sVFnd5LAYAc
 
-## Recommendation
+## Installation
+
+The installation should work on all Arch Linux and Fedora based distributions. [You can find more information here](https://github.com/mylinuxforwork/dotfiles/wiki).
 
 I recommend to install a base Hyprland system before installing the ML4W Hyprland Dotfiles. Then you have a stable starting point and can test Hyprland on your system beforehand. Hyprland is complex, under ongoing development, and requires additional components.
 
 You can find the Hyprland Installation instructions here: https://wiki.hyprland.org/Getting-Started/Installation/
 
-## Installation
+> IMPORTANT: Please make sure that all packages on your system are updated before running the installation script.
 
-The installation should work on all Arch Linux and Fedora based distributions (>2.9.7.0). [You can find more information here](https://github.com/mylinuxforwork/dotfiles/wiki).
-
-> PLEASE NOTE: Every Linux distribution, setup, and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. You can install this at your own risk.
-
-Please make sure that your system is up-to-date.
+> PLEASE NOTE: Every Linux distribution, setup, and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. You install at your own risk.
 
 ### Arch Linux (based)
-
-IMPORTANT: Please make sure that all your system packages are updated before running the installation script.
 
 ```shell
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)
@@ -51,8 +47,6 @@ Please rebuild all packages to ensure that you get the latest commit.
 
 ### Fedora Linux (based)
 
-IMPORTANT: Please make sure that all your system and packages are updated before running the installation script.
-
 ```shell
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)
 ```
@@ -73,32 +67,11 @@ You can also visit the [ML4W Discord Server](https://discord.gg/c4fJK7Za3g) to s
 
 ## Screenshots
 
-![image](https://github.com/user-attachments/assets/2c2e34c5-b63a-4d44-86a8-36ba03211c09)
+![screenshot_06022025_165339](https://github.com/user-attachments/assets/2d281632-762f-465c-99e2-6933f1507cac)
 
 ## Wallpaper repository
 
 You can find my wallpaper collection in the repository https://github.com/mylinuxforwork/wallpaper
-
-## Special Thanks
-
-THANK YOU very much for all your support, contributions and ideas:
-
-- Tattwamashi Nayak: https://github.com/ElectroPerf
-- Filippo Aceto: https://gitlab.com/filippoaceto
-- Don Williams: https://github.com/dwilliam62
-- Diana Ward: https://github.com/dianaw353
-- Leo: https://github.com/eljejer
-- Guido De Gobbis
-- Teodor Orzechowski: https://gitlab.com/sq6gtt
-- Jamie Deppeler: https://gitlab.com/bknight2k
-- Yingjie Wang: https://gitlab.com/GaugeAndGravity
-- Daniel Gerber: https://gitlab.com/dan.john.gerber
-- Sarthak Siddhpura: https://gitlab.com/Codesmith28
-- https://gitlab.com/muee
-
-and many more...
-
-Thanks to all YouTube subscribers for all your great feedback.
 
 ## Inspirations
 
