@@ -20,9 +20,11 @@ if [ -z "$optionalSelect" ] || [ "$optionalSelect" = "CANCEL" ]; then
 else
     if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
         _installPackage $optionalSelect
-    fi
+    
     if [ $optionalSelect == "yazi" ]; then
         echo '$(cat ~/.config/ml4w/settings/terminal.sh) -e yazi' >"$HOME/.config/ml4w/settings/filemanager.sh"
+    elif [ $optionalSelect == "nautilus" ]; then
+        echo 'nautilus --new-window' >"$HOME/.config/ml4w/settings/filemanager.sh"
     else
         echo "$optionalSelect" >"$HOME/.config/ml4w/settings/filemanager.sh"
     fi
