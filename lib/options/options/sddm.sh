@@ -25,4 +25,8 @@ else
         gum spin --spinner dot --title "Please reboot your system." -- sleep 3
     fi
 fi
-_selectCategory
+if [ -z "$options_argument" ]; then
+    _selectCategory
+else
+    exit
+fi
