@@ -1,7 +1,10 @@
 packages=(
-    "firefox"
-    "nautilus"
-    "nautilus-open-any-terminal"
-    "gnome-text-editor"
-    "gnome-calculator"
+  "firefox"
+  "nautilus"
+  "nautilus-open-any-terminal"
+  "gnome-text-editor"
+  "gnome-calculator"
+  "mpv"
+  "imv"
+  "ffmpegthumbnailer"
 )
