@@ -12,7 +12,7 @@ if [ ! -f $HOME/.config/ml4w/settings/dock-disabled ]; then
     else
         style="style-dark.css"
     fi
-    nwg-dock-hyprland -i 32 -w 5 -mb 10 -ml 10 -mr 10 -x -s $style -c  "rofi -show drun"
+    nwg-dock-hyprland -i 32 -w 5 -mb 10 -ml 10 -mr 10 -x -s $style -c "rofi -show drun"
 else
     echo ":: Dock disabled"
 fi
