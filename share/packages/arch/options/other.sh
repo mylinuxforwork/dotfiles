@@ -1,3 +1,4 @@
 optdepends=(
     "gnome-calculator"
+    "loupe"
 )
