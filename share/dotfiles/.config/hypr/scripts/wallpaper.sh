@@ -123,7 +123,7 @@ fi
 # Reload Waybar
 # -----------------------------------------------------
 
-killall -SIGUSR2 waybar
+$HOME/.config/waybar/launch.sh &
 
 # -----------------------------------------------------
 # Update Pywalfox
