@@ -1,6 +1,7 @@
 Version 2.9.8.2
 --------------------------------------------------------
 - Add uwsm for Arch Linux distributions
+- Now with nwg-displays support (https://github.com/mylinuxforwork/dotfiles/wiki/Monitor-Configuration)
 
 Version 2.9.8.1
 --------------------------------------------------------
