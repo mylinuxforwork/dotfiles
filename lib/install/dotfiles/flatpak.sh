@@ -15,6 +15,10 @@ if [ $log_file == "dev" ]; then
     flatpak --user -y --reinstall install com.ml4w.sidebar.flatpak
     echo ":: com.ml4w.sidebar.flatpak installed"
 else
+    # Add Flathub Remote
+    echo ":: Adding Flathub Remote"
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
     # Install Runtime
     echo ":: Installing runtime"
     flatpak -y install org.gnome.Platform/x86_64/47 &>>$log_file
