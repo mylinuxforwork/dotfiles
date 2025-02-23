@@ -345,6 +345,19 @@
     "format-icons": [" ", " ", " ", " ", " "]
   },
 
+  // Power Profiles Daemon
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+
   // Pulseaudio
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
