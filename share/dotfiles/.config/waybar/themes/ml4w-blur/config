@@ -46,6 +46,8 @@
         "bluetooth",
         "battery", 
         "network",
+        "battery", 
+        "power-profiles-daemon",
         "group/hardware",
         "group/tools",
         "tray",

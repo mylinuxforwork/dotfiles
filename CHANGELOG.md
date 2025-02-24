@@ -5,6 +5,7 @@ Version 2.9.8.2
 - Now with nwg-displays support (https://github.com/mylinuxforwork/dotfiles/wiki/Monitor-Configuration)
 - Tiled Windows can be swapped now with SUPER+ALT+Arrowkey
 - Added floating class for Ghostty ml4w.dotfiles.floating (--class=ml4w.dotfiles.floating)
+- Add power profiles daemon module to waybar
 
 Version 2.9.8.1
 --------------------------------------------------------
