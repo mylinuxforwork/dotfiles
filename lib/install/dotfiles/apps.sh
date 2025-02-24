@@ -26,13 +26,7 @@ fi
 # Remove legacy ML4W Apps
 _removeLegacyApp "com.ml4w.welcome"
 _removeLegacyApp "com.ml4w.dotfilessettings"
-
-# Install ML4W Hyprland Settings App
-app_name="com.ml4w.hyprland.settings"
-sudo cp $apps_directory/$app_name.desktop /usr/share/applications
-sudo cp $apps_directory/$app_name.png /usr/share/icons/hicolor/128x128/apps
-sudo cp $apps_directory/$app_name /usr/bin/$app_name
-_writeLog 1 "ML4W Hyprland Settings App installed successfully"
+_removeLegacyApp "com.ml4w.hyprland.settings"
 
 # Installation of FlatPaks
 $install_directory/dotfiles/flatpak.sh $apps_directory $(_getLogFile)
@@ -43,6 +37,7 @@ cp $apps_directory/icons/com.ml4w.welcome.png $HOME/.local/share/icons/
 cp $apps_directory/icons/com.ml4w.settings.png $HOME/.local/share/icons/
 cp $apps_directory/icons/com.ml4w.calendar.png $HOME/.local/share/icons/
 cp $apps_directory/icons/com.ml4w.sidebar.png $HOME/.local/share/icons/
+cp $apps_directory/icons/com.ml4w.hyprlandsettings.png $HOME/.local/share/icons/
 
 _writeLogHeader "Run Hyprland Settings App"
 

@@ -14,6 +14,8 @@ if [ $log_file == "dev" ]; then
     echo ":: com.ml4w.setting.flatpak installed"
     flatpak --user -y --reinstall install com.ml4w.sidebar.flatpak
     echo ":: com.ml4w.sidebar.flatpak installed"
+    flatpak --user -y --reinstall install com.ml4w.hyprlandsettings.flatpak
+    echo ":: com.ml4w.hyprlandsettings.flatpak installed"
 else
     # Add Flathub Remote
     echo ":: Adding Flathub Remote"
@@ -32,4 +34,6 @@ else
     echo ":: com.ml4w.setting.flatpak installed"
     flatpak --user -y --reinstall install com.ml4w.sidebar.flatpak &>>$log_file
     echo ":: com.ml4w.sidebar.flatpak installed"
+    flatpak --user -y --reinstall install com.ml4w.hyprlandsettings.flatpak &>>$log_file
+    echo ":: com.ml4w.hyprlandsetting.flatpak installed"
 fi
