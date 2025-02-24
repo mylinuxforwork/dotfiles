@@ -3,6 +3,8 @@ Version 2.9.8.2
 - ML4W Hyprland Settings App converted to Flatpak
 - Add uwsm for Arch Linux distributions
 - Now with nwg-displays support (https://github.com/mylinuxforwork/dotfiles/wiki/Monitor-Configuration)
+- Tiled Windows can be swapped now with SUPER+ALT+Arrowkey
+- Added floating class for Ghostty ml4w.dotfiles.floating (--class=ml4w.dotfiles.floating)
 
 Version 2.9.8.1
 --------------------------------------------------------
