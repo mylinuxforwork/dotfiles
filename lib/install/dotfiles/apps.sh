@@ -42,7 +42,7 @@ cp $apps_directory/icons/com.ml4w.hyprlandsettings.png $HOME/.local/share/icons/
 _writeLogHeader "Run Hyprland Settings App"
 
 # Execute hyprctl from the Settings app
-if [ -f ~/.config/ml4w-hyprland-settings/hyprctl.sh ]; then
+if [ -f ~/.config/com.ml4w.hyprlandsettings/hyprctl.sh ]; then
     _writeLog 0 "Starting restore from ML4W Hyprland Settings App"
-    ~/.config/ml4w-hyprland-settings/hyprctl.sh
+    ~/.config/com.ml4w.hyprlandsettings/hyprctl.sh
 fi
