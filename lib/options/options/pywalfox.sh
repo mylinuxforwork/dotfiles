@@ -13,4 +13,8 @@ if [[ ! $(_isInstalled "python-pywalfox") == 0 ]]; then
 else
     gum spin --spinner dot --title "Pywalfox is already installed" -- sleep 3
 fi
-_selectCategory
+if [ -z "$options_argument" ]; then
+    _selectCategory
+else
+    exit
+fi
