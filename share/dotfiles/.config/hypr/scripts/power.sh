@@ -38,7 +38,7 @@ terminate_clients() {
 
 if [[ "$1" == "exit" ]]; then
   echo ":: Exit"
-  terminate_clients
+  # terminate_clients
   sleep 0.5
   hyprctl dispatch exit
   sleep 2
@@ -52,14 +52,14 @@ fi
 
 if [[ "$1" == "reboot" ]]; then
   echo ":: Reboot"
-  terminate_clients
+  # terminate_clients
   sleep 0.5
   systemctl reboot
 fi
 
 if [[ "$1" == "shutdown" ]]; then
   echo ":: Shutdown"
-  terminate_clients
+  # terminate_clients
   sleep 0.5
   systemctl poweroff
 fi
