@@ -2,6 +2,7 @@
 # Clean up
 # ------------------------------------------------------
 _writeLogHeader "Finalizing"
+_writeHeader "Finalizing"
 
 # Create platform file if not exists
 if [ ! -f $HOME/.config/ml4w/settings/platform.sh ]; then
