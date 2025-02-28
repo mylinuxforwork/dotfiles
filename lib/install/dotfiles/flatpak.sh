@@ -23,8 +23,10 @@ else
 
     # Install Runtime
     echo ":: Installing runtime"
-    sudo flatpak -y install org.gnome.Platform/x86_64/47 &>>$log_file
-
+    is_installed_runtime=$(flatpak info "org.gnome.Platform/x86_64/47" >/dev/null 2>&1 && echo "0")
+    if [ ! $is_installed_runtime == "0" ]; then
+        sudo flatpak -y install org.gnome.Platform/x86_64/47 &>>$log_file
+    fi
     # Install Apps
     flatpak --user -y --reinstall install com.ml4w.calendar.flatpak &>>$log_file
     echo ":: com.ml4w.calendar.flatpak installed"
