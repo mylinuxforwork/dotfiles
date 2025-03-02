@@ -39,7 +39,6 @@ packages=(
     "swaync"
     "gvfs"
     "wlogout"
-    "pinta"
     "hyprshade"
     "waypaper"
     "grimblast-git"
