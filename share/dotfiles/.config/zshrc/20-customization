@@ -28,17 +28,6 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # -----------------------------------------------------
-# Set-up FZF key bindings (CTRL R for fuzzy history finder)
-# -----------------------------------------------------
-source <(fzf --zsh)
-
-# zsh history
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt appendhistory
-
-# -----------------------------------------------------
 # Prompt
 # -----------------------------------------------------
 # eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
@@ -46,3 +35,28 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/EDM115-newline.omp.j
 
 # Shipped Theme
 # eval "$(oh-my-posh init zsh --config /usr/share/oh-my-posh/themes/agnoster.omp.json)"
+
+# Keybindings
+bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+bindkey '^[w' kill-region
+
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+zle_highlight+=(paste:none)
+
+# -----------------------------------------------------
+# Set-up FZF key bindings (CTRL R for fuzzy history finder)
+# -----------------------------------------------------
+eval "$(fzf --zsh)"
