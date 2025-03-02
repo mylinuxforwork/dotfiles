@@ -28,10 +28,6 @@ if [ $log_file == "dev" ]; then
     flatpak --user -y --reinstall install com.ml4w.hyprlandsettings.flatpak
     echo ":: com.ml4w.hyprlandsettings.flatpak installed"
 else
-    # Add Flathub Remote
-    echo ":: Adding Flathub Remote"
-    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
     # Install Runtime
     echo ":: Installing runtime"
 
@@ -41,6 +37,10 @@ else
         echo ":: Installing runtime $runtime"
         sudo flatpak -y install $runtime  &>>$log_file
     fi    
+
+    # Add Flathub Remote
+    echo ":: Adding Flathub Remote"
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
     # Install Apps
     flatpak --user -y --reinstall install com.ml4w.calendar.flatpak &>>$log_file
