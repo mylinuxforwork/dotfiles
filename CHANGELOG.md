@@ -1,5 +1,6 @@
 Version 2.9.8.3
 --------------------------------------------------------
+- New keybinding: Switch between selected windows with ALT + Tab
 
 Version 2.9.8.2
 --------------------------------------------------------
