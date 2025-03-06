@@ -53,4 +53,5 @@ packages=(
     "oh-my-posh-bin"
     "checkupdates-with-aur"
     "loupe"
+    "power-profiles-daemon"
 )
