@@ -44,7 +44,6 @@
         "pulseaudio",
         //"backlight",
         "bluetooth",
-        "battery", 
         "network",
         "battery", 
         "power-profiles-daemon",
