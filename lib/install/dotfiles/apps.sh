@@ -2,7 +2,7 @@
 # Apps Installation
 # ------------------------------------------------------
 _writeHeader "Apps"
-
+echo "Installing the ML4W Apps now."
 _removeLegacyApp() {
     app_name=$1
     if [ -f /usr/share/applications/$app_name.desktop ]; then
@@ -28,8 +28,12 @@ _removeLegacyApp "com.ml4w.welcome"
 _removeLegacyApp "com.ml4w.dotfilessettings"
 _removeLegacyApp "com.ml4w.hyprland.settings"
 
-# Installation of FlatPaks
-$install_directory/dotfiles/flatpak.sh $apps_directory $(_getLogFile)
+# Installation of ML4W Flatpaks from GitHub remote
+curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles-welcome/master/setup.sh | bash -s -- -y &>>$(_getLogFile)
+curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles-settings/master/setup.sh | bash -s -- -y &>>$(_getLogFile)
+curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles-sidebar/master/setup.sh | bash -s -- -y &>>$(_getLogFile)
+curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles-calendar/master/setup.sh | bash -s -- -y &>>$(_getLogFile)
+curl -s https://raw.githubusercontent.com/mylinuxforwork/hyprland-settings/master/setup.sh | bash -s -- -y &>>$(_getLogFile)
 
 # Copy Icons
 mkdir -p $HOME/.local/share/icons
