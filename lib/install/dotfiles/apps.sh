@@ -2,7 +2,7 @@
 # Apps Installation
 # ------------------------------------------------------
 _writeHeader "Apps"
-echo "Installing the ML4W Apps now."
+echo "Installing the ML4W Apps now..."
 _removeLegacyApp() {
     app_name=$1
     if [ -f /usr/share/applications/$app_name.desktop ]; then
