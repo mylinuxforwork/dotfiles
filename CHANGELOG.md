@@ -2,7 +2,7 @@ Version 2.9.8.3
 --------------------------------------------------------
 - New keybinding: Switch between selected windows with ALT + Tab
 - New default animation and animation-end4.conf (credits to end4)
-- Add cursor trail to kitty
+- Add cursor trail to kitty (Can be disabled in .config/ml4w/settings/kitty-cursor-trail.conf)
 - Window Rules compatible with Hyprland 0.48.x
 
 Version 2.9.8.2
