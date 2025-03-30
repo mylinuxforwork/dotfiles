@@ -55,14 +55,6 @@ ml4w_app_repo="hyprland-settings"
 echo ":: Installing $ml4w_app"
 curl -s https://raw.githubusercontent.com/mylinuxforwork/packages-installer/main/setup.sh | bash -s -- -y -p flatpak -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/$ml4w_app.pkginst $ml4w_app &>>$(_getLogFile)
 
-# Copy Icons
-mkdir -p $HOME/.local/share/icons
-cp $apps_directory/icons/com.ml4w.welcome.png $HOME/.local/share/icons/
-cp $apps_directory/icons/com.ml4w.settings.png $HOME/.local/share/icons/
-cp $apps_directory/icons/com.ml4w.calendar.png $HOME/.local/share/icons/
-cp $apps_directory/icons/com.ml4w.sidebar.png $HOME/.local/share/icons/
-# cp $apps_directory/icons/com.ml4w.hyprlandsettings.png $HOME/.local/share/icons/
-
 _writeLogHeader "Run Hyprland Settings App"
 
 # Execute hyprctl from the Settings app
