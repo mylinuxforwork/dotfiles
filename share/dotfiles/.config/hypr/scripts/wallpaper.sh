@@ -112,7 +112,7 @@ wal -q -i "$used_wallpaper"
 source "$HOME/.cache/wal/colors.sh"
 
 # -----------------------------------------------------
-# Walcord
+# Walcord (NOT SUPPORTED)
 # -----------------------------------------------------
 
 if type walcord >/dev/null 2>&1; then
