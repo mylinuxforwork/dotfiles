@@ -54,7 +54,7 @@ _installPackages() {
         toInstall+=("${pkg}")
     done
     if [[ "${toInstall[@]}" == "" ]]; then
-        # echo "All pacman packages are already installed.";
+        # echo "All dnf (or rpm) packages are already installed.";
         return
     fi
     printf "Package not installed:\n%s\n" "${toInstall[@]}"
