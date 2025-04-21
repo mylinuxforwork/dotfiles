@@ -94,7 +94,7 @@ textbox-prompt-colon {
     padding:                     1em 0.2em 0em 0em;
     text-color:                  @foreground;
     border-radius:               2em 0em 0em 2em;
-    background-color:            @background;
+    background-color:            @color5;
     background-image:            url("~/.config/ml4w/cache/current_wallpaper", width);
 }
 
@@ -103,7 +103,7 @@ entry {
     border-radius:               0em 2em 2em 0em;
     spacing:                     1em;
     padding:                     1em;
-    background-color:            @background;
+    background-color:            @color5;
     text-color:                  @foreground;
     cursor:                      text;
     placeholder:                 "Search";
