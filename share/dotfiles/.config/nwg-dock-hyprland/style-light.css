@@ -1,10 +1,11 @@
+@import url("colors.css");
+
 window {
-	background: rgba(255, 255, 255, 0.95);
+	background: #FFFFFF;
 	border-radius: 10px;
 	border-style: solid;
 	border-width: 3px;
-	border-color: #ffffff;
-	opacity:0.8;
+	border-color: @secondary;
 }
 
 #box {
@@ -15,22 +16,22 @@ window {
 #active {
 	/* This is to underline the button representing the currently active window */
 	border-bottom: solid 0px;
-	border-color: #FFFFFF
+	border-color: @on_surface
 }
 
 button, image {
 	background: none;
 	border-style: none;
 	box-shadow: none;
-	color: #999
+	color: @secondary;
 }
 
 button {
 	padding: 4px;
 	margin-left: 4px;
 	margin-right: 4px;
-	color: #eee;
-  font-size: 12px
+	color: @secondary;
+  	font-size: 12px
 }
 
 button:hover {

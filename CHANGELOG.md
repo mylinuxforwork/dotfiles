@@ -1,3 +1,8 @@
+Version 2.9.8.5
+--------------------------------------------------------
+- Pywal has been replaced with matugen
+- Colored and mixed waybar themes removed
+
 Version 2.9.8.4
 --------------------------------------------------------
 - New app icons for ML4W apps

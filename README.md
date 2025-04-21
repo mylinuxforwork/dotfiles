@@ -1,5 +1,7 @@
 # ML4W Dotfiles for Hyprland
 
+> Development Version 2.9.8.5
+
 An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and set up the required components.
 
 ![image](https://github.com/user-attachments/assets/c1af2d8a-142b-4285-9b63-92862a7868c5)

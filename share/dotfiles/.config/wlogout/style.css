@@ -13,7 +13,7 @@ by Stephan Raabe (2023)
 /* -----------------------------------------------------
  * Import Pywal colors
  * ----------------------------------------------------- */
-@import '../../.cache/wal/colors-wlogout.css';
+@import 'colors.css';
 
 /* -----------------------------------------------------
  * General
@@ -50,13 +50,13 @@ button:focus {
 }
 
 button:hover {
-    background-color: @color11;
+    background-color: @on_primary;
 	opacity: 0.8;
     color: #cdd6f4;
     background-size: 30%;
     margin: 30px;
     border-radius: 80px;
-    box-shadow: 0 0 50px @color7;
+    box-shadow: 0 0 50px @shadow;
 }
 
 /* Adjust the size of the icon or content inside the button */

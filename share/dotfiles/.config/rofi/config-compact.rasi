@@ -31,8 +31,8 @@ configuration {
 /* ---- Load font ---- */
 @import "~/.config/ml4w/settings/rofi-font.rasi"
 
-/* ---- Load pywal colors (custom wal template) ---- */
-@theme "~/.cache/wal/colors-rofi-pywal"
+/* ---- Load colors ---- */
+@theme "~/.config/rofi/colors.rasi"
 
 /* ---- Load wallpaper ---- */
 @import "~/.config/ml4w/cache/current_wallpaper.rasi"
@@ -43,6 +43,13 @@ configuration {
 /* ---- Load border radius ---- */
 @import "~/.config/ml4w/settings/rofi-border-radius.rasi"
 
+/* ---- Map colors ---- */
+* {
+    color11: @primary;
+    color5: @on-primary-fixed;
+    foreground: @on-surface;
+}
+
 // Main //
 window {
     width:                        30em;
@@ -51,7 +58,7 @@ window {
     spacing:                      0em;
     padding:                      0em;
     margin:                       0em; 
-    color:                        #FFFFFF;
+    color:                      #FFFFFF;
     border:                       @border-width;
     border-color:                 @color11;
     cursor:                       "default";
@@ -178,7 +185,7 @@ element {
 }
 
 element selected.normal {
-    background-color:            @color11;
+    background-color:            @color5;
     text-color:                  @foreground;
     border-radius:               1.5em;
 }

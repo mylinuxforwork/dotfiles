@@ -1,0 +1,39 @@
+[config]
+
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/hyprland-colors.conf'
+output_path = '~/.config/hypr/colors.conf'
+post_hook = 'hyprctl reload'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/waybar/colors.css'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+output_path = '~/.config/rofi/colors.rasi'
+
+[templates.pywalfox]
+input_path = '~/.config/matugen/templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/colors.json'
+
+[templates.wlogout]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/wlogout/colors.css'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/colors.conf'
+# post_hook = "kitty @ set-colors -a -c ~/.config/kitty/colors.conf"
+
+[templates.swaync]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/swaync/colors.css'
+
+[templates.nwgdock]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/nwg-dock-hyprland/colors.css'
+
+[templates.sequences]
+input_path = '~/.config/matugen/templates/sequences'
+output_path = '~/.cache/wal/sequences'

@@ -1,11 +1,11 @@
 /* Colors */
 
-@import '../../.cache/wal/colors-waybar.css';
-@define-color background #242424;
+@import 'colors.css';
+@define-color background @background;
 @define-color groupbackground #363636;
 @define-color buttoncolor #4a4a4a;
-@define-color bordercolor @color11;
-@define-color fontcolor #FFFFFF;
+@define-color bordercolor @primary;
+@define-color fontcolor @on_surface;
 
 * {
     font-family: "Fira Sans Semibold";

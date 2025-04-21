@@ -102,11 +102,6 @@ source $install_directory/dotfiles/copy.sh
 source $install_directory/dotfiles/symlinks.sh
 
 # -----------------------------------------------------
-# Initialize pywal color scheme
-# -----------------------------------------------------
-source $install_directory/dotfiles/pywal.sh
-
-# -----------------------------------------------------
 # Restore hyprland settings
 # -----------------------------------------------------
 source $install_directory/dotfiles/settings.sh
