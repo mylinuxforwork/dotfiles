@@ -61,5 +61,4 @@ if [ "$choice" ]; then
     echo "Loading waybar theme..."
     echo "${listThemes[$choice + 1]}" >~/.config/ml4w/settings/waybar-theme.sh
     ~/.config/waybar/launch.sh
-    notify-send "Waybar Theme changed" "to ${array[$choice]}"
 fi

@@ -1,7 +1,9 @@
 Version 2.9.8.5
 --------------------------------------------------------
 - Pywal has been replaced with matugen
-- Colored and mixed waybar themes removed
+- All color themes improved for matugen
+- New kitty color theme based on matugen
+- Colored, mixed and bottom waybar themes removed
 
 Version 2.9.8.4
 --------------------------------------------------------
