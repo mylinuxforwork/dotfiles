@@ -222,6 +222,7 @@ element-icon {
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;
+    border-radius:               0em;
 }
 
 element-text {
