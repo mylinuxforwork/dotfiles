@@ -18,6 +18,7 @@ packages=(
     "kitty"
     "neovim"
     "htop"
+    "rust"
     "cargo"
     "pinta"
     "blueman"

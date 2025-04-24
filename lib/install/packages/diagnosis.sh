@@ -9,8 +9,6 @@ commands=(
     "hyprlock"
     "hypridle"
     "hyprshade"
-    "wal"
-    "gum"
     "wlogout"
     "magick"
     "waypaper"

@@ -1,0 +1,1 @@
+sudo pacman --noconfirm -S "cargo" &>> $(_getLogFile)
