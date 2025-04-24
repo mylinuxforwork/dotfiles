@@ -65,7 +65,6 @@ if [ -f ~/.config/ml4w/settings/waybar_taskbar.sh ]; then
     fi
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-modern/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _writeLog 1 "waybar_taskbar restored"
@@ -82,8 +81,6 @@ if [ -f ~/.config/ml4w/settings/waybar_network.sh ]; then
     fi
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur-bottom/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-modern/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-minimal/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/starter/config"
@@ -101,8 +98,6 @@ if [ -f ~/.config/ml4w/settings/waybar_backlight.sh ]; then
     fi
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur-bottom/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-modern/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-minimal/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/starter/config"
@@ -133,8 +128,6 @@ if [ -f ~/.config/ml4w/settings/waybar_systray.sh ]; then
     fi
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur-bottom/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-modern/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-minimal/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/starter/config"
@@ -165,8 +158,6 @@ if [ -f ~/.config/ml4w/settings/waybar_window.sh ]; then
     fi
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur-bottom/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-modern/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-minimal/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/starter/config"
@@ -184,8 +175,6 @@ if [ -f ~/.config/ml4w/settings/waybar_appmenu.sh ]; then
     fi
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur-bottom/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-modern/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/starter/config"
     _writeLog 1 "waybar_appmenu restored"
