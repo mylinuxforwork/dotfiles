@@ -4,6 +4,7 @@ Version 2.9.8.5
 - All color themes improved for matugen
 - New kitty color theme based on matugen
 - Colored, mixed and bottom waybar themes removed
+- New default wallpaper
 
 Version 2.9.8.4
 --------------------------------------------------------
