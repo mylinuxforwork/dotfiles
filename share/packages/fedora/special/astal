@@ -1,2 +1,0 @@
-sudo dnf copr --assumeyes enable solopasha/astal &>> $(_getLogFile)
-sudo dnf install --assumeyes astal &>> $(_getLogFile)
