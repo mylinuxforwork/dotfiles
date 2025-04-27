@@ -5,6 +5,7 @@ Version 2.9.8.5
 - New kitty color theme based on matugen
 - Colored, mixed and bottom waybar themes removed
 - New default wallpaper
+- eza will be installed with cargo
 
 Version 2.9.8.4
 --------------------------------------------------------
