@@ -48,6 +48,8 @@ Please rebuild all packages to ensure that you get the latest commit.
 
 ### Fedora Linux (based)
 
+Tested on Fedora Workstation 41 and 42.
+
 ```shell
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)
 ```
