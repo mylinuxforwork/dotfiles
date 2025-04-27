@@ -36,15 +36,6 @@ if [ -f ~/.config/ml4w/settings/waybar_timezone.sh ]; then
     fi
 fi
 
-# Replace dunst_position
-if [ -f ~/.config/ml4w/settings/dunst_position.sh ]; then
-    replace_value=$(cat ~/.config/ml4w/settings/dunst_position.sh)
-    search_str="origin"
-    replace_str="\ \ \ \ origin = $replace_value"
-    _replaceLineInFileCheckpoint "$search_str" "$replace_str" "global" "$HOME/.config/dunst/dunstrc"
-    _writeLog 1 "dunst_position restored"
-fi
-
 # Replace waybar_workspaces
 if [ -f ~/.config/ml4w/settings/waybar_workspaces.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_workspaces.sh)
@@ -66,7 +57,6 @@ if [ -f ~/.config/ml4w/settings/waybar_taskbar.sh ]; then
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-blur/config"
     _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-modern/config"
-    _replaceLineInFile $search_str $replace_str "$HOME/.config/waybar/themes/ml4w-bottom/config"
     _writeLog 1 "waybar_taskbar restored"
 fi
 
