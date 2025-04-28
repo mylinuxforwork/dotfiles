@@ -1,0 +1,5 @@
+__pycache__/
+bookmarks
+.idea
+.config/ml4w/cache/wallpaper-generated
+.config/nvim/lazy-lock.json
