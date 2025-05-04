@@ -26,8 +26,8 @@
             },
             "leading_diamond": "\ue0b6",
             "template": "{[ .UserName ]}",
-            "foreground": "{{colors.secondary.default.hex}}",
-            "background": "#282a36",
+            "foreground": "{{colors.on_surface.default.hex}}",
+            "background": "{{colors.on_primary_fixed.default.hex}}",
             "type": "session",
             "style": "diamond"
           },
@@ -38,7 +38,7 @@
             "template": "\udb85\udc0b",
             "foreground": "#ff5555",
             "powerline_symbol": "\ue0b0",
-            "background": "#282a36",
+            "background": "{{colors.on_primary_fixed.default.hex}}",
             "type": "root",
             "style": "powerline"
           },
@@ -47,9 +47,9 @@
               "cache_duration": "none"
             },
             "template": "{[ .Icon ]}  ",
-            "foreground": "{{colors.secondary.default.hex}}",
+            "foreground": "{{colors.on_surface.default.hex}}",
             "powerline_symbol": "\ue0b0",
-            "background": "#282a36",
+            "background": "{{colors.on_primary_fixed.default.hex}}",
             "type": "os",
             "style": "powerline"
           },
