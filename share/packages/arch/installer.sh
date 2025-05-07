@@ -14,4 +14,5 @@ packages=(
     "man-pages"
     "networkmanager"
     "python-pip"
+    "jq"
 )

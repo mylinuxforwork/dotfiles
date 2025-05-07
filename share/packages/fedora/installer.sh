@@ -12,4 +12,5 @@ packages=(
     "xdg-user-dirs"
     "man-pages"
     "python3-pip"
+    "jq"
 )
