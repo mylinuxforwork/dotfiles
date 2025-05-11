@@ -25,10 +25,6 @@ output_path = '~/.config/wlogout/colors.css'
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/swaync/colors.css'
 
-[templates.kitty]
-input_path = '~/.config/matugen/templates/kitty-colors.conf'
-output_path = '~/.config/kitty/colors.conf'
-
 [templates.nwgdock]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/nwg-dock-hyprland/colors.css'
@@ -36,8 +32,3 @@ output_path = '~/.config/nwg-dock-hyprland/colors.css'
 [templates.sequences]
 input_path = '~/.config/matugen/templates/sequences'
 output_path = '~/.cache/wal/sequences'
-
-[templates.ohmyposh]
-input_path = '~/.config/matugen/templates/ohmyposh.json'
-output_path = '~/.config/ohmyposh/EDM115-newline.omp.json'
-post_hook = "python $HOME/.config/matugen/scripts/ohmyposh.py"

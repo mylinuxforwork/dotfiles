@@ -1,0 +1,7 @@
+backend = "resized"
+threshold = 10
+palette = "dark"
+
+[templates]
+kitty.template = 'colors-kitty.conf'
+kitty.target = '~/.cache/wal/colors-kitty.conf'
