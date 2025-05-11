@@ -3,5 +3,5 @@ threshold = 10
 palette = "dark"
 
 [templates]
-kitty.template = 'colors-kitty.conf'
-kitty.target = '~/.cache/wal/colors-kitty.conf'
+kitty.template = 'kitty-colors.conf'
+kitty.target = '~/.config/kitty/colors-wallust.conf'
