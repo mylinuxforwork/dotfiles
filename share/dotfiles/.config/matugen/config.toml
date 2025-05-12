@@ -1,5 +1,4 @@
 [config]
-reload_apps = true
 
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
