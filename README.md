@@ -4,7 +4,7 @@
 
 An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and set up the required components.
 
-![screenshot_24042025_164752](https://github.com/user-attachments/assets/03b72f0d-8009-4928-8eb1-b999987def8e)
+![image](https://github.com/user-attachments/assets/f5f80750-fa35-4631-8d2d-62f7f937412a)
 
 > About the screenshot: The dock can be enabled in the ML4W Sidebar or Settings app. The waybar theme is ML4W Modern White.
 
