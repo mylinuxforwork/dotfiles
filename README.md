@@ -1,7 +1,5 @@
 # ML4W Dotfiles for Hyprland
 
-> Version 2.9.8.6 RC2
-
 An advanced configuration of Hyprland for Arch Linux based distributions. Full desktop environment based on the tiling window manager Hyprland with dynamic material color themes based on your wallpaper for all main modules and comprehensive apps to customize your configuration.
 
 This package includes an installation script to install and set up the required components.
