@@ -1,0 +1,5 @@
+optdepends=(
+    "thunderbird"
+    "betterbird"
+    "evolution"
+)
