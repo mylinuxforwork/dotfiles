@@ -50,5 +50,6 @@ packages=(
     "NetworkManager-tui"
     "nwg-dock-hyprland"
     "matugen"
+    "wallust"
     "eza"
 )

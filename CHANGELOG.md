@@ -1,5 +1,10 @@
 Version 2.9.8.5
 --------------------------------------------------------
+- Matugen color theme improvements
+- Add wallust for terminal color generation
+
+Version 2.9.8.5
+--------------------------------------------------------
 - Pywal has been replaced with matugen
 - All color themes improved for matugen
 - New kitty color theme based on matugen

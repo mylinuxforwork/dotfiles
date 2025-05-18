@@ -56,4 +56,5 @@ packages=(
     "loupe"
     "power-profiles-daemon"
     "matugen"
+    "wallust"
 )
