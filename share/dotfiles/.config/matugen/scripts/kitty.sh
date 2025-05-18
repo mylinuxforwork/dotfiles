@@ -1,1 +1,0 @@
-kitten @ set-colors -a -c ~/.config/kitty/colors.conf
