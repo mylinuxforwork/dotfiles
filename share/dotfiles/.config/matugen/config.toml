@@ -44,3 +44,8 @@ output_path = '~/.config/nwg-dock-hyprland/colors.css'
 [templates.sequences]
 input_path = '~/.config/matugen/templates/sequences'
 output_path = '~/.cache/wal/sequences'
+
+[templates.ohmyposh]
+input_path = '~/.config/matugen/templates/ohmyposh-colors.json'
+output_path = '~/.config/ohmyposh/colors.json'
+post_hook = "jq --slurpfile palette ~/.config/ohmyposh/colors.json '. + $palette[0]' ~/.config/ohmyposh/EDM115-newline.omp.json > /tmp/new_theme.json && mv /tmp/new_theme.json ~/.config/ohmyposh/EDM115-newline.omp.json"
