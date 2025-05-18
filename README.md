@@ -6,9 +6,9 @@ This package includes an installation script to install and set up the required 
 
 ![image](https://github.com/user-attachments/assets/f5f80750-fa35-4631-8d2d-62f7f937412a)
 
-> About the screenshot: The dock can be enabled in the ML4W Sidebar or Settings app. The waybar theme is ML4W Modern White.
+> About the screenshot: The dock can be enabled in the ML4W Sidebar or Settings app. The waybar theme is ML4W Modern Light.
 
-YouTube Video https://youtu.be/sVFnd5LAYAc
+YouTube Video https://youtu.be/gtjzAjt39Og
 
 ## Installation
 
