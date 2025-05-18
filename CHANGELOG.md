@@ -1,7 +1,7 @@
-Version 2.9.8.5
+Version 2.9.8.6
 --------------------------------------------------------
 - Matugen color theme improvements
-- Add wallust for terminal color generation
+- Wallust for terminal color generation
 
 Version 2.9.8.5
 --------------------------------------------------------
