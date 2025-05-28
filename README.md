@@ -18,9 +18,11 @@ I recommend to install a base Hyprland system before installing the ML4W Hyprlan
 
 You can find the Hyprland Installation instructions here: https://wiki.hyprland.org/Getting-Started/Installation/
 
-> IMPORTANT: Please make sure that all packages on your system are updated before running the installation script.
+> [!IMPORTANT]
+> lease make sure that all packages on your system are updated before running the installation script.
 
-> PLEASE NOTE: Every Linux distribution, setup, and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. You install at your own risk.
+> [!NOTE]
+> Every Linux distribution, setup, and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. You install at your own risk.
 
 ### Arch Linux (based)
 
