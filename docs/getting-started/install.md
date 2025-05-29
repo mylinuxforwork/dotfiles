@@ -29,7 +29,7 @@ Just copy the following command into your terminal and execute:
 ::: code-group
 
 ```sh [<i class="devicon-archlinux-plain"></i> Arch]
-bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)"
 ```
 
 ```sh [Aur Stable]
@@ -43,7 +43,7 @@ ml4w-hyprland-setup
 ```
 
 ```sh [<i class="devicon-fedora-plain"></i> Fedora]
-bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)"
 ```
 
 :::
