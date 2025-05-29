@@ -29,8 +29,9 @@ You can find the Hyprland Installation instructions here: https://wiki.hyprland.
 Recommended is to install the Hyprland Desktop Profile from archinstall first.
 
 ```shell
-bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)"
 ```
+
 
 YouTube Video https://youtu.be/sVFnd5LAYAc
 
@@ -55,7 +56,7 @@ Please rebuild all packages to ensure that you get the latest commit.
 Tested on Fedora Workstation 41 and 42.
 
 ```shell
-bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)"
 ```
 
 ## Troubleshooting
