@@ -1,10 +1,10 @@
 After the successful installation of the ML4W Dotfiles for Hyprland, you can install or replace main applications with the Installation Options script:
 
-![image](https://github.com/user-attachments/assets/685af2e8-cf91-48da-99b6-03547aa63be5)
+![image](/install-option.png)
 
 You can start the options script from the ML4W Welcome App. 
 
-![image](https://github.com/user-attachments/assets/d54ca808-a32c-4e9b-9810-edaef36b658a)
+![image](/install-option1.png)
 
 The following options are available:
 - Install the sddm display manager (login screen)

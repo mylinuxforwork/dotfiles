@@ -1,6 +1,6 @@
 Open the ML4W Dotfiles Settings App and the tab system.
 
-![image](https://github.com/user-attachments/assets/a27ea90a-dc57-4953-98cc-01edf920e1f5)
+![image](/terminal.png)
 
 Replace alacritty with kitty and save you change.
 

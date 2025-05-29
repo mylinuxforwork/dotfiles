@@ -1,6 +1,6 @@
 ## Globbing errors on startup
 
-![image](https://github.com/user-attachments/assets/ac304dd5-26f1-4c15-b8a4-89ce2ffcbef6)
+![image](/troubleshoot.png)
 
 Please change the wallpaper with SUPER+SHIFT+W.
 

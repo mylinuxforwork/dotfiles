@@ -1,6 +1,6 @@
 After starting the ML4W dotfiles for the first time, the ML4W Welcome App opens. This app is the starting point to discover the Hyprland setup.
 
-![image](https://github.com/user-attachments/assets/91964ef5-9844-4694-b7b9-ff6602a63377)
+![image](/welcome.png)
 
 You can also start the Welcome App from the terminal with 
 

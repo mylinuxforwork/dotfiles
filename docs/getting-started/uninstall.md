@@ -1,6 +1,6 @@
 ## Removing your configuration
 
-![image](https://github.com/user-attachments/assets/13711cfc-727f-43d0-8310-9171309556e0)
+![image](/uninstall.png)
 
 You can use the integrated uninstallation function (ML4W Dotfiles Uninstaller App) to remove the ML4W Dotfiles from your system.
 

@@ -59,7 +59,7 @@ You can regenerate the version of the current wallpaper by switching of the cach
 
 You can set the current used wallpaper as background image for the display manager sddm by using the shown function in the ML4W Sidebar App:
 
-![image](https://github.com/user-attachments/assets/8dd0b173-b750-4da8-b1ea-0cc8a32bbd69)
+![image](/wall-sddm.png)
 
 ## The ML4W Wallpaper repository
 

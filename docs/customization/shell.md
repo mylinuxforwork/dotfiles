@@ -1,6 +1,6 @@
 You can switch between zsh and bash with the ML4W Welcome App.
 
-![image](https://github.com/user-attachments/assets/9ba40701-0ff9-40b1-8f61-e5f7cdb750d5)
+![image](/shell.png)
 
 Click on Installation Options and change your shell.
 

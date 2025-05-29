@@ -7,7 +7,7 @@ Start the ML4W Welcome App. You will see a notification when an update is availa
 
 You can start the update directly from the ML4W Welcome App. Select Update/Reinstall your ML4W Dotfiles.
 
-![image](https://github.com/user-attachments/assets/86bb4c17-e440-4510-83f4-57535c237d5b)
+![image](/update.png)
 
 
 ## Update with your AUR Helper

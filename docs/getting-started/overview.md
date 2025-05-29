@@ -1,6 +1,6 @@
 An advanced configuration of Hyprland for Arch Linux and Fedora based distributions. This package includes an installation script to install and setup the required components.
 
-![image](https://github.com/user-attachments/assets/1cf79b44-768f-4f68-889a-0c89175ae053)
+![image](/overview.png)
 
 > [!NOTE]
 > This Wiki is covering the latest features of the ML4W Dotfiles. Please make sure that the latest version of the ML4W Dotfiles is installed on your system. Follow the installation and update instructions.
@@ -59,9 +59,9 @@ The ML4W Dotfiles are tested with the following distributions:
 - GTK Theme Manager: nwg-look
 - QT6 Theme Manager: qt6ct
 
-![image](https://github.com/user-attachments/assets/0a1ee1e0-1db0-4488-a6df-ac2217704410)
+![image](/overview-2.png)
 
-![image](https://github.com/user-attachments/assets/0fc6936f-b1be-4189-8736-876fe2fcc37f)
+![image](/overview-3.png)
 
 > [!NOTE]
 > Every Linux distribution and setup can be different. Therefore, I cannot guarantee that the installation will work everywhere. Installation on your own risk.

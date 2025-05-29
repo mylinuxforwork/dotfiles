@@ -1,6 +1,6 @@
 The ML4W Dotfiles include a configuration for a dock based on nwg-dock-hyprland.
 
-![image](https://github.com/user-attachments/assets/d9b0838f-b00f-4f95-be9f-d8a1feb601b9)
+![image](/dock.png)
 
 You can activate it by installing the package with:
 

@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/d6e98b7f-ca47-4314-a49e-6c097e50ce4f)
+![image](/install.png)
 
 ## Before you start
 
