@@ -36,6 +36,9 @@ features:
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/3815/3815573.png" alt="configuration"/>
     title: Easy to Customize
     details: Comes with helpful graphical apps to configure your setup, change themes, and tweak your environment.
+
+metaTitle: "The ML4W Dotfiles for Hyprland"
+description: An advanced and full-featured configuration for the dynamic tiling window manager Hyprland including an easy to use installation script for Arch and Fedora based Linux distributions.
 ---
 
 <img
@@ -99,4 +102,6 @@ features:
 }
 </style>
 
-
+<footer style="text-align:center; font-size: 0.75rem; color: var(--vp-c-text-muted, #888); margin-top: 3rem;">
+  Docs built by <a href="https://github.com/harilvfs" target="_blank" rel="noopener" style="color: var(--vp-c-brand-2); text-decoration: none;">harilvfs</a>
+</footer>
