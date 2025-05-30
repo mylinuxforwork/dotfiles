@@ -1,5 +1,5 @@
 {
-  "name": "ml4w-hyprland-docs",
+  "name": "ml4w-hyprland-wiki",
   "type": "module",
   "dependencies": {
     "bun": "^1.2.5",
