@@ -20,7 +20,7 @@ export default {
     },
     nav: [
       { text: "Home", link: "/" },
-      { text: "Guide", link: "/getting-started/overview" },
+      { text: "About", link: "/getting-started/overview" },
       {
         text: "Showcases",
         link: "/showcases",
