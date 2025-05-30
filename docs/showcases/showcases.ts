@@ -33,7 +33,7 @@ const showcases: Showcase[] = [
     title: "",
   },
   {
-    image: "/dotfiles/screenshot1.png",
+    image: "/dotfiles/cs4.png",
     title: "",
   },
   {
@@ -42,6 +42,10 @@ const showcases: Showcase[] = [
   },
   {
     image: "/dotfiles/cs1.png",
+    title: "",
+  },
+  {
+    image: "/dotfiles/sidebar.png",
     title: "",
   },
   {
