@@ -22,6 +22,11 @@ export default {
       { text: "Home", link: "/" },
       { text: "Guide", link: "/getting-started/overview" },
       {
+        text: "Showcases",
+        link: "/showcases",
+        activeMatch: "/showcases/",
+      },
+      {
         text: "2.9.8.6",
         items: [
           {
