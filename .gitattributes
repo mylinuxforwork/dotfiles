@@ -2,3 +2,5 @@ docs/.vitepress/** linguist-documentation=false
 docs/.vitepress/**/*.ts linguist-language=TypeScript
 docs/.vitepress/**/*.css linguist-language=CSS
 docs/showcases/*.vue linguist-language=Vue
+docs/showcases/**/*.vue linguist-language=Vue
+*.vue linguist-language=Vue
