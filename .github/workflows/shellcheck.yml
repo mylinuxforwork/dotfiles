@@ -1,0 +1,29 @@
+name: ShellCheck
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**/*.sh'
+
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**/*.sh'
+
+  workflow_dispatch:
+
+jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ShellCheck
+        run: sudo apt-get install -y shellcheck
+
+      - name: Run ShellCheck (errors only)
+        run: |
+          find . -type f -name "*.sh" -o -name "*.bash" -o -name "*.ksh" -o -name "*.bashrc" | \
+          xargs shellcheck --severity=error
