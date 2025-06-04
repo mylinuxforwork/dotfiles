@@ -12,11 +12,11 @@ YouTube Video https://youtu.be/gtjzAjt39Og
 
 ## Installation
 
-The installation should work on all Arch Linux and Fedora based distributions. [You can find more information here](https://github.com/mylinuxforwork/dotfiles/wiki).
+The installation should work on all Arch Linux and Fedora based distributions. You can find more information [here](https://mylinuxforwork.github.io/dotfiles/). <!-- migrate to vitepress wiki site -->
 
 I recommend to install a base Hyprland system before installing the ML4W Hyprland Dotfiles. Then you have a stable starting point and can test Hyprland on your system beforehand. Hyprland is complex, under ongoing development, and requires additional components.
 
-You can find the Hyprland Installation instructions here: https://wiki.hyprland.org/Getting-Started/Installation/
+You can find the Hyprland Installation instructions on [hyprland wiki](https://wiki.hyprland.org/Getting-Started/Installation/ )
 
 > [!IMPORTANT]
 > Please make sure that all packages on your system are updated before running the installation script.
@@ -60,11 +60,11 @@ bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/se
 
 ## Troubleshooting
 
-You can find solutions to common issues in the Wiki troubleshooting section: https://github.com/mylinuxforwork/dotfiles/wiki/Troubleshooting
+You can find solutions to common issues in the wiki [troubleshooting section](https://mylinuxforwork.github.io/dotfiles/help/troubleshooting.html) <!-- migrate to vitepress wiki site -->
 
-## Documentation (Wiki)
+## Documentation
 
-You can find the complete documentation of the ML4W Dotfiles in the Wiki. <b>[Open the Wiki here](https://github.com/mylinuxforwork/dotfiles/wiki)</b>
+You can find the complete guide of the ML4W Dotfiles in the [Ml4W-Hyprland wiki](https://mylinuxforwork.github.io/dotfiles/) <!-- migrate to vitepress wiki site -->
 
 ## Contributing
 
