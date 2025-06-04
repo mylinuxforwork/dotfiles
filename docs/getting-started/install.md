@@ -2,7 +2,8 @@
 
 ## Before you start
 
-**PLEASE BACKUP YOUR EXISTING .config FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIAL INSTALLTION.**
+> [!CAUTION]
+> **PLEASE BACKUP YOUR EXISTING `~/.config` FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIAL INSTALLTION.**
 
 The installation script will create a backups from configurations of your .config folder that will be overwritten from the installation procedure and previous ML4W Dotfiles installation.
 
@@ -12,7 +13,10 @@ You can decide between the following packages:
 - ML4W Dotfiles Main Release (latest tagged release)
 - ML4W Dotfiles Rolling Release (main branch including the latest commits)
 
-YouTube Video https://youtu.be/siy2vL94yd0
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/siy2vL94yd0" 
+title="ML4W Hyprland Installation" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+allowfullscreen></iframe>
 
 ## Recommendation
 
@@ -29,7 +33,7 @@ Just copy the following command into your terminal and execute:
 ::: code-group
 
 ```sh [<i class="devicon-archlinux-plain"></i> Arch]
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)"
+bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)"
 ```
 
 ```sh [Aur Stable]
@@ -43,7 +47,7 @@ ml4w-hyprland-setup
 ```
 
 ```sh [<i class="devicon-fedora-plain"></i> Fedora]
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)"
+bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)"
 ```
 
 :::

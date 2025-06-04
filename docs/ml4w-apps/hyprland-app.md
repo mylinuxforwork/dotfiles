@@ -1,4 +1,4 @@
-This applications supports you to customize your Hyprland installation. You can overwrite the existing configuration with custom values without adding complex configuration files.
+**This applications supports you to customize your Hyprland installation. You can overwrite the existing configuration with custom values without adding complex configuration files.**
 
 ![Screenshot](/hypr-setting.png)
 

@@ -38,6 +38,7 @@ onBeforeUnmount(() => {
     >
       <Showcase
         :image="item.image"
+        :videoUrl="item.videoUrl"
         :title="item.title"
         :index="index"
       />

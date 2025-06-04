@@ -1,4 +1,5 @@
-The installation script will prepare the all files in a folder ~/.ml4w-hyprland/[version] before starting the copy of the files into the final destination, e.g., ~/dotfiles/. You can modify the prepared dotfiles with a hook script to protect your personal adjustments and you can install additional packages with a post script.
+> [!NOTE]
+>The installation script will prepare the all files in a folder ~/.ml4w-hyprland/[version] before starting the copy of the files into the final destination, e.g., ~/dotfiles/. You can modify the prepared dotfiles with a hook script to protect your personal adjustments and you can install additional packages with a post script.
 
 ## Protect folder in .config with PROTECTED
 
@@ -9,7 +10,7 @@ You can protect any configuration folder in .config by adding an empty file with
 > [!NOTE]
 > If you want to create the files manually copy the prepared templates from here https://github.com/mylinuxforwork/dotfiles/tree/main/share/templates
 
-If you want to modify the installation files just before the copy procedure starts, you can create a file hook.sh in the folder ~/.ml4w-hyprland/
+> If you want to modify the installation files just before the copy procedure starts, you can create a file hook.sh in the folder ~/.ml4w-hyprland/
 
 With this hook script you can protect your own customization of files in ~/dotfiles from getting overwritten by an update of new version of the ML4W Dotfiles.
 

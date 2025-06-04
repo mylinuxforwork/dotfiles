@@ -1,4 +1,4 @@
-An advanced configuration of Hyprland for Arch Linux and Fedora based distributions. This package includes an installation script to install and setup the required components.
+**An advanced configuration of Hyprland for Arch Linux and Fedora based distributions. This package includes an installation script to install and setup the required components.**
 
 ![image](/overview.png)
 
@@ -11,7 +11,10 @@ https://github.com/mylinuxforwork/dotfiles/wiki/Installation
 
 The ML4W Dotfiles can be installed with the installer from the latest official release or with the latest commits from the tolling release (main branch)
 
-YouTube Video [https://youtu.be/6B4Kf30CWLg](https://youtu.be/6B4Kf30CWLg)
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/6B4Kf30CWLg" 
+title="ML4W YouTube Video" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+allowfullscreen></iframe>
 
 ## Latest features
 

@@ -1,6 +1,7 @@
 <script setup>
 defineProps({
-  image: { type: String, required: true },
+  image: { type: String, required: false },
+  videoUrl: { type: String, required: false },
   title: { type: String, default: "" },
   index: { type: Number, required: true }
 })
@@ -12,7 +13,21 @@ defineProps({
     :class="`from-${index % 2 === 0 ? 'left' : 'right'}`"
   >
     <div class="image-wrapper">
-      <img :src="image" :alt="title" loading="lazy" />
+      <template v-if="videoUrl">
+        <iframe
+          width="100%"
+          height="400"
+          :src="videoUrl"
+          :title="title"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </template>
+      <template v-else>
+        <img :src="image" :alt="title" loading="lazy" />
+      </template>
+
       <span v-if="title" class="title-pill">{{ title }}</span>
     </div>
   </figure>

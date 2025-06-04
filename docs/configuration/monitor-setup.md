@@ -1,4 +1,4 @@
-If you want to change the default monitor configuration, you can setup your own personal monitor variation or use nwg-displays.
+**If you want to change the default monitor configuration, you can setup your own personal monitor variation or use nwg-displays.**
 
 ## Personal Monitor Variation
 
@@ -33,5 +33,5 @@ Then open the ML4W Settings App and select the Monitor Variation nwg-displays.
 
 ![image](/monitor2.png)
 
-From now on you can change your monitor configuration directly in nwg-displays.
+> From now on you can change your monitor configuration directly in nwg-displays.
 

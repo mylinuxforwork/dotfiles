@@ -2,7 +2,7 @@ Nearly all steps of the installation/update script can be automated to reduce th
 
 ## Preparing the automation.sh file
 
-After an initial installetion you will find an automation template in the folder ~/.ml4w-hyprland
+After an initial installetion you will find an automation template in the folder `~/.ml4w-hyprland`
 
 Copy the automation.tpl to automation.sh and make it executable:
 

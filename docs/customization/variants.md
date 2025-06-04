@@ -1,4 +1,4 @@
-With configuration variations, you can prepare different settings and configurations for your Hyprland installation.
+**With configuration variations, you can prepare different settings and configurations for your Hyprland installation.**
 
 ![Screenshot](/config-var.png)
 

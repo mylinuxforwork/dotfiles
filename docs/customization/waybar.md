@@ -1,14 +1,19 @@
-The status bar for the ML4W Dotfiles is Waybar. You can find the waybar configuration in ~/dotfiles/waybar
+The status bar for the ML4W Dotfiles is **Waybar**. You can find the waybar configuration in `~/dotfiles/waybar`.
 
-You can toggle waybar with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>B</kbd>
+### Waybar Keybindings
 
-You can reload the waybar theme with <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd>
-
-In addition, you can switch the Waybar Template with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>T</kbd> or by pressing the "..." icon in Waybar with the themeswitcher. 
+| Keybind | Action |
+|--------|--------|
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>B</kbd> | Toggle Waybar |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd> | Reload Waybar Theme |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>T</kbd> | Switch Waybar Theme via themeswitcher |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>T</kbd> | Open Rofi themeswitcher for Waybar |
 
 ## Waybar Themes and themeswitcher
 
-Select a theme with SUPER + CTRL + T (custom Hyprland key binding) to execute the themeswitcher.sh script. The script will open rofi to show the themes in the folder `~/.config/waybar/themes/`
+| Select a theme                |
+|------------------------------|
+| Use <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>T</kbd> (custom Hyprland key binding) to execute the `themeswitcher.sh` script. The script opens Rofi to show themes in `~/.config/waybar/themes/`. |
 
 ## Define your Quicklinks
 
@@ -94,19 +99,19 @@ Don't remove the quicklinkempty
 ```
 This configuration includes already a prepared quicklink for Firefox incl. the correct icon. Just activate it by removing the /* */ and remove Chromium.
 
-After changing the file, you have to reload waybar with SUPER + SHIFT + B
+| Reload after changes          |
+|------------------------------|
+| After changing the file, reload Waybar with <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd>. |
 
 You can find free icons of font-awesome here: https://fontawesome.com/search?o=r&m=free
 
 ## Define your own config and style.css for a ML4W theme
 
-If you want to hide modules from the dotfiles ML4W themes or tweak the style, you can do this by creating a copy of the config file and name it config-custom or a copy of style.css and name it style-custom.css
+If you want to hide modules from the dotfiles ML4W themes or tweak the style, you can do this by creating a copy of the config file and name it config-custom or a copy of `style.css` and name it `style-custom.css`
 
 The waybar loader will the use your copies instead of the default files.
 
 With a personal config-custom you can also load a personal modules.json with additional modules.
-
-You can reload the waybar theme with <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd>
 
 ## Create your own theme based on the starter theme
 
@@ -114,20 +119,24 @@ Please check the configurations of the folders in ~/dotfiles/waybar/themes/
 
 A good starting point is to copy the the waybar starter theme.
 
-Copy the folder ~/.config/waybar/themes/starter and name the copy for example to mytheme.
+Copy the folder `~/.config/waybar/themes/starter` and name the copy for example to mytheme.
 
-Open the file ~/.config/waybar/themes/mytheme/config.sh and give your theme a name 
+Open the file `~/.config/waybar/themes/mytheme/config.sh` and give your theme a name 
 
 ```sh
 #!/bin/bash
 theme_name="MyTheme"
 ```
 
-Select your new theme by clicking in the ... icon or with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>T</kbd>
+| How to select new theme       |
+|------------------------------|
+| Select your new theme by clicking the "..." icon in Waybar or using <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>T</kbd>. |
 
-To customize your theme, you can edit the files config, style.css and modules.json 
+To customize your theme, you can edit the files config, `style.css` and `modules.json` 
 
-You can reload the waybar theme with <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd>
+| Reload theme shortcut         |
+|------------------------------|
+| You can reload the Waybar theme with <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd>. |
 
 ## Waybar documentation
 

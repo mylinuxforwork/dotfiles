@@ -1,8 +1,8 @@
-You can open the ML4W dotfiles settings app with <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> to change selected dotfiles configurations and choose from variations for your hyprland.conf to customize your desktop even more.
+You can open the ML4W dotfiles settings app with `SUPER + CTRL + S` to change selected dotfiles configurations and choose from variations for your hyprland.conf to customize your desktop even more.
 
 ![Screenshot](/dot-settings.png)
 
-You can create custom variations by copying a file from the ~/dotfiles/hypr/conf subfolders like monitor/default.conf, give the file a custom name (e.g., mymonitor.conf) and select the variation in the dotfiles settings app in the corresponding section.
+You can create custom variations by copying a file from the `~/dotfiles/hypr/conf` subfolders like `monitor/default.conf`, give the file a custom name (e.g., mymonitor.conf) and select the variation in the dotfiles settings app in the corresponding section.
 
 > [!IMPORTANT]
 > The ML4W Dotfiles Settings App replaces strings from several configuration files directly or based on replacement comments e.g., // START WORKSPACES That's why you shouldn't remove any of theses comments or markers to ensure full functionality of the app.

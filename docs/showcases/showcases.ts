@@ -52,6 +52,14 @@ const showcases: Showcase[] = [
     image: "/dotfiles/cs.png",
     title: "",
   },
+  {
+    videoUrl: "https://www.youtube.com/embed/sVFnd5LAYAc",
+    title: ""
+  },
+  {
+    videoUrl: "https://www.youtube.com/embed/dxiX3E5B8bU",
+    title: ""
+  },
 ]
 
 export default showcases

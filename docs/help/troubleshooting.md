@@ -1,8 +1,8 @@
-## Globbing errors on startup
+# Globbing errors on startup
 
 ![image](/troubleshoot.png)
 
-Please change the wallpaper with SUPER+SHIFT+W.
+Please change the wallpaper with `SUPER+SHIFT+W`.
 
 If this doesn't fix it please open the application launcher and start waypaper. 
 
@@ -44,13 +44,14 @@ The effect that waybar isn't loading usually happens after a fresh installation 
 
 If waybar is not loading, the first thing that you should try is to reboot your system and try again. 
 
-You can open a terminal with SUPER+Return and enter wlogout.
+You can open a terminal with `SUPER+Return` and enter wlogout.
 
-If it's still not working please try to uninstall xdg-desktop-portal-gtk
+If it's still not working please try to uninstall `xdg-desktop-portal-gtk`
 
 ```sh
 sudo pacman -R xdg-desktop-portal-gtk
 ```
+
 Reboot your system again. 
 
 Waybar should working now but you will loose the dark mode in Libadwaita apps e.g., nautilus. The ML4W Apps will still work in dark mode.
@@ -61,9 +62,9 @@ Then try to install it again with
 sudo pacman -S xdg-desktop-portal-gtk
 ```
 
-Please also make sure that xdg-desktop-portal-gnome is not installed in parallel to xdg-desktop-portal-gtk. Please try to remove the package then.
+Please also make sure that `xdg-desktop-portal-gnome` is not installed in parallel to `xdg-desktop-portal-gtk`. Please try to remove the package then.
 
-If there is still this issue, please uninstall xdg-desktop-portal-gtk. If dark mode is required install dolphin, qt6ct and enable breeze and darker colors to get a filemanager in dark mode.
+If there is still this issue, please uninstall `xdg-desktop-portal-gtk`. If dark mode is required install dolphin, qt6ct and enable breeze and darker colors to get a filemanager in dark mode.
 
 ## No dark theme on GTK4 apps
 
@@ -88,6 +89,7 @@ Install the noto-fonts-cjk package with:
 ```sh
 sudo pacman -S noto-fonts-cjk
 ```
+
 This package provides proper rendering for CJK characters across the system.
 
 ## rofi (application launcher) is not working
@@ -146,7 +148,7 @@ yay -S ttf-font-awesome otf-font-awesome
 
 ## SDDM not showing (only black screen with cursor)
 
-Switch to another tty with <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>F3</kbd> Now you can login with your user.
+Switch to another tty with `CTRL + ALT + F3` Now you can login with your user.
 
 Start Hyprland with Hyprland.
 
@@ -165,6 +167,3 @@ sudo systemctl stop sddm.service
 sudo systemctl disable sddm.service
 sudo rm /etc/systemd/system/display-manager.service
 ```
-
-
-

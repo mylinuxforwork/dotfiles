@@ -1,4 +1,4 @@
-You can switch between zsh and bash with the ML4W Welcome App.
+**You can switch between zsh and bash with the ML4W Welcome App.**
 
 ![image](/shell.png)
 
@@ -43,13 +43,18 @@ plugins=(
 ```
 ### FZF
 
-The keybinding for FZF key is CTRL + R for fuzzy history finder
+The keybinding for FZF key is `CTRL + R` for fuzzy history finder
 
 ### oh-my-posh
 
-The promt is based on oh-my-posh and the awesome configuration of the minimal but powerful zen promt by Dreams of Autonomy (https://youtu.be/9U8LCjuQzdc?si=wky5QoR16C26ErR3)
+The promt is based on oh-my-posh and the awesome configuration of the minimal but powerful zen promt by Dreams of Autonomy
 
-If you want to create your own custom theme save your configuration in ~/.config/ohmyposh and link it like
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/9U8LCjuQzdc" 
+title="Dreams of Autonomy" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+allowfullscreen></iframe>
+
+If you want to create your own custom theme save your configuration in `~/.config/ohmyposh` and link it like
 
 ```sh
 # -----------------------------------------------------
