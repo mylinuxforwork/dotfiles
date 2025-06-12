@@ -38,9 +38,35 @@ take_instant_full() {
     [[ -f "$HOME/$NAME" && -d "$screenshot_folder" && -w "$screenshot_folder" ]] && mv "$HOME/$NAME" "$screenshot_folder/"
 }
 
+# Quick instant mode: area selection
+take_instant_area() {
+    local pid_picker region
+
+    # freeze screen for region selection
+    hyprpicker -r -z &
+    pid_picker=$!
+    trap 'kill "$pid_picker" 2>/dev/null' EXIT
+    sleep 0.1
+
+    # user selects region; kill picker on cancel
+    region=$(slurp -b "#00000080" -c "#888888ff" -w 1) || exit 0
+    [[ -z "$region" ]] && exit 0
+
+    # unfreeze screen
+    kill "$pid_picker" 2>/dev/null
+    trap - EXIT
+
+    # capture and notify
+    grim -g "$region" "$NAME" && notify-send -t 1000 "Screenshot saved to $screenshot_folder/$NAME"
+    [[ -f "$HOME/$NAME" && -d "$screenshot_folder" && -w "$screenshot_folder" ]] && mv "$HOME/$NAME" "$screenshot_folder/"
+}
+
 # Handle instant flags
 if [[ "$1" == "--instant" ]]; then
     take_instant_full
+    exit 0
+elif [[ "$1" == "--instant-area" ]]; then
+    take_instant_area
     exit 0
 fi
 
