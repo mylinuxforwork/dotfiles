@@ -32,6 +32,18 @@ export GRIMBLAST_EDITOR="$(cat ~/.config/ml4w/settings/screenshot-editor.sh)"
 # bind = SUPER ALT, p, exec, grimblast save output
 # bind = SUPER CTRL, p, exec, grimblast save screen
 
+# Quick instant mode: full screen
+take_instant_full() {
+    grim "$NAME" && notify-send -t 1000 "Screenshot saved to $screenshot_folder/$NAME"
+    [[ -f "$HOME/$NAME" && -d "$screenshot_folder" && -w "$screenshot_folder" ]] && mv "$HOME/$NAME" "$screenshot_folder/"
+}
+
+# Handle instant flags
+if [[ "$1" == "--instant" ]]; then
+    take_instant_full
+    exit 0
+fi
+
 # Options
 option_1="Immediate"
 option_2="Delayed"
