@@ -14,6 +14,9 @@ _checkPackages() {
 _checkDefault() {
     if [ -f ~/.config/ml4w/settings/$1 ]; then
         default="$(cat ~/.config/ml4w/settings/$1)"
+        if [[ $default == *"ml4w-hyprland-setup -m options"* ]]; then
+            default="(none)"
+        fi
         echo ":: Current setup: $default"
     else
         echo ":: ERROR: No configuration file found"
@@ -24,6 +27,9 @@ _checkDefault() {
 _checkCurrent() {
     if [ -f ~/.config/ml4w/settings/$1 ]; then
         default="$(cat ~/.config/ml4w/settings/$1)"
+        if [[ $default == *"ml4w-hyprland-setup -m options"* ]]; then
+            default="(none)"
+        fi
         echo $default
     else
         echo "No configuration file found"
@@ -54,24 +60,8 @@ _checkPywalfox() {
     fi
 }
 
-_selectCategory() {
-    clear
-    echo -e "${GREEN}"
-    figlet -f smslant "Options"
-    echo -e "${NONE}"
-    echo "Platform: $install_platform"
-    echo "This script will help you to install some pre-defined package options."
-    echo "If your desired package is not listed, you can install it with your package manager "
-    echo "and set it as default application in the ML4W Settings App."
-    echo
-    echo "- SDDM:" $(_checkSddm) "/ SDDM Theme:" $(_checkSddmTheme)
-    echo "- Shell: "$SHELL "/ Terminal:" $(_checkCurrent terminal.sh)
-    echo "- File manager:" $(_checkCurrent filemanager.sh)
-    echo "- Browser:" $(_checkCurrent browser.sh)
-    echo "- System monitor:" $(_checkCurrent system-monitor.sh)
-    echo
-    category=$(gum choose "shell" "terminal" "file manager" "browser" "pywalfox" "system monitor" "more" "REBOOT" "CANCEL")
-    case ${category} in
+_handleCategorySelection() {
+    case $1 in
         terminal)
             source $options_directory/options/terminal.sh
             ;;
@@ -83,6 +73,9 @@ _selectCategory() {
             ;;
         browser)
             source $options_directory/options/browser.sh
+            ;;
+        email)
+            source $options_directory/options/email.sh
             ;;
         more)
             source $options_directory/options/other.sh
@@ -103,6 +96,33 @@ _selectCategory() {
             exit
             ;;
     esac
+}
+
+_selectCategory() {
+    if [[ -n "$options_argument" ]]; then
+        echo "Options argument: $options_argument"
+        _handleCategorySelection "$options_argument"
+        exit
+    fi
+
+    clear
+    echo -e "${GREEN}"
+    figlet -f smslant "Options"
+    echo -e "${NONE}"
+    echo "Platform: $install_platform"
+    echo "This script will help you to install some pre-defined package options."
+    echo "If your desired package is not listed, you can install it with your package manager "
+    echo "and set it as default application in the ML4W Settings App."
+    echo
+    echo "- SDDM:" $(_checkSddm) "/ SDDM Theme:" $(_checkSddmTheme)    
+    echo "- Shell: "$SHELL "/ Terminal:" $(_checkCurrent terminal.sh)
+    echo "- File manager:" $(_checkCurrent filemanager.sh)
+    echo "- E-mail client:" $(_checkCurrent email.sh) 
+    echo "- Browser:" $(_checkCurrent browser.sh) 
+    echo "- System monitor:" $(_checkCurrent system-monitor.sh)     
+    echo
+    category=$(gum choose "shell" "terminal" "file manager" "email" "browser" "pywalfox" "system monitor" "more" "REBOOT" "CANCEL")
+    _handleCategorySelection "$category"
 }
 
 _selectCategory

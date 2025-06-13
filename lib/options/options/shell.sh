@@ -72,5 +72,9 @@ elif [[ $shell == "zsh" ]]; then
 # -----------------------------------------------------
 else
     _writeMessage "Changing shell canceled"
-    _selectCategory
+    if [ -z "$options_argument" ]; then
+        _selectCategory
+    else
+        exit
+    fi
 fi

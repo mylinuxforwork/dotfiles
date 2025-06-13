@@ -8,4 +8,8 @@ if gum confirm "Do you want to install it now?"; then
     _installPackage "xdg-desktop-portal-gtk"
     gum spin --spinner dot --title "Please reboot your system." -- sleep 3
 fi
-_selectCategory
+if [ -z "$options_argument" ]; then
+    _selectCategory
+else
+    exit
+fi

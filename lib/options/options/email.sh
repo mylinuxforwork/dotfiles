@@ -1,14 +1,14 @@
 #!/bin/bash
 clear
 echo -e "${GREEN}"
-figlet -f smslant "Terminal"
+figlet -f smslant "Email Client"
 echo -e "${NONE}"
-source $packages_directory/$install_platform/options/terminal.sh
+source $packages_directory/$install_platform/options/email.sh
 toInstall=""
 selectedInstall=""
 
 _checkPackages
-_checkDefault "terminal.sh"
+_checkDefault "email.sh"
 
 optionalSelect=$(gum choose $toInstall "CANCEL")
 if [ -z "$optionalSelect" ] || [ "$optionalSelect" = "CANCEL" ]; then
@@ -21,6 +21,6 @@ else
     if [[ ! $(_isInstalled "$optionalSelect") == 0 ]]; then
         _installPackage $optionalSelect
     fi
-    echo "$optionalSelect" >"$HOME/.config/ml4w/settings/terminal.sh"
+    echo "$optionalSelect" >"$HOME/.config/ml4w/settings/email.sh"
     _selectCategory
 fi
