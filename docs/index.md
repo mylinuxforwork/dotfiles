@@ -18,7 +18,7 @@ hero:
       link: /getting-started/install
     - theme: alt
       text: GitHub ↗
-      link: https:/github.com/mylinuxforwork/dotfiles
+      link: https://github.com/mylinuxforwork/dotfiles
 
 features:
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/807/807262.png" alt="scripts"/>
