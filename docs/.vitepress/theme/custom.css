@@ -1,0 +1,84 @@
+:root {
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f8f9fa;
+  --vp-c-bg-elv: rgba(240, 240, 240, 0.8);
+  --vp-c-bg-soft: rgba(250, 250, 250, 0.6);
+
+  --vp-c-border: rgba(0, 0, 0, 0.08);
+  --vp-c-divider: rgba(0, 0, 0, 0.05);
+  --vp-c-gutter: rgba(0, 0, 0, 0.025);
+
+  --vp-c-text-1: rgba(0, 0, 0, 0.87);
+  --vp-c-text-2: rgba(0, 0, 0, 0.6);
+  --vp-c-text-3: rgba(0, 0, 0, 0.38);
+
+  --vp-c-brand-1: #0077cc;
+  --vp-c-brand-2: #3399ff;
+  --vp-c-brand-3: #005fa3;
+
+  --vp-c-brand-soft: rgba(0, 119, 204, 0.1);
+  --vp-c-brand-soft-bg: rgba(200, 220, 255, 0.25);
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, var(--vp-c-purple-3), var(--vp-c-brand-3));
+  --vp-home-hero-image-filter: blur(44px);
+
+  --overlay-gradient: color-mix(in srgb, var(--vp-c-brand-1), transparent 40%);
+}
+
+.dark {
+  --vp-c-bg: #090b18;
+  --vp-c-bg-alt: #0d101e;
+  --vp-c-bg-elv: rgba(15, 18, 30, 0.6);
+  --vp-c-bg-soft: rgba(25, 28, 40, 0.4);
+
+  --vp-c-border: rgba(255, 255, 255, 0.035);
+  --vp-c-divider: rgba(255, 255, 255, 0.04);
+  --vp-c-gutter: rgba(255, 255, 255, 0.015);
+
+  --vp-c-text-1: rgba(255, 255, 255, 0.88);
+  --vp-c-text-2: rgba(255, 255, 255, 0.6);
+  --vp-c-text-3: rgba(255, 255, 255, 0.38);
+
+  --vp-c-brand-1: #2d88b8;
+  --vp-c-brand-2: #60b6cc;
+  --vp-c-brand-3: #2f7f85;
+
+  --vp-c-brand-soft: rgba(110, 100, 220, 0.10);
+  --vp-c-brand-soft-bg: rgba(28, 30, 48, 0.35);
+
+  --overlay-gradient: color-mix(in srgb, var(--vp-c-brand-1), transparent 75%);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(20, 22, 34, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-brand-3);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-brand-1);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--vp-c-brand-3) rgba(0, 0, 0, 0.1);
+}
+
+.dark * {
+  scrollbar-color: var(--vp-c-brand-3) rgba(20, 22, 34, 0.2);
+}
