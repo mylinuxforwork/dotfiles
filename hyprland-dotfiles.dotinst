@@ -1,0 +1,80 @@
+{
+	"name": "ML4W Dotfiles for Hyprland",
+	"id": "com.ml4w.dotfiles",
+	"description": "Advanced configuration for the dynamic tiling window manager Hyprland",
+	"version":"2.9",
+	"author": "Stephan Raabe",
+	"homepage": "https://github.com/mylinuxforwork/dotfiles",
+	"dependencies": "https://github.com/mylinuxforwork/dotfiles",
+	"source": ".ml4w-hyprland/dotfiles",
+	"subfolder": "share/dotfiles",
+	"restore":[
+		{
+			"title":"ML4W Settings",
+			"source":".config/ml4w/settings",
+			"value":true
+		},
+		{
+			"title":"Keyboard settings",
+			"source":".config/hypr/conf/keyboard.conf",
+			"value":true
+		},
+		{
+			"title":"Monitor settings",
+			"source":".config/hypr/conf/keyboard.conf",
+			"value":true
+		}
+	],
+	"settings":[
+		{
+			"type":"text",
+			"mode":"replacesingleline",
+			"title":"Keyboard Layout",
+			"file":".config/hypr/conf/keyboard.conf",
+			"checkpoint":"Check",
+			"search":"kb_layout",
+			"value":"us",
+			"template":"    kb_layout = [VALUE]"
+		},
+		{
+			"type":"text",
+			"mode":"replacesingleline",
+			"title":"Keyboard Variant",
+			"file":".config/hypr/conf/keyboard.conf",
+			"checkpoint":"Check",
+			"search":"kb_variant",
+			"value":"",
+			"template":"    kb_variant = [VALUE]"
+		},
+		{
+			"type":"text",
+			"mode":"replacesingleline",
+			"title":"Screen Resolution",
+			"file":".config/hypr/conf/monitors/default.conf",
+			"checkpoint":"Check",
+			"search":"monitor=,preferred,",
+			"value":"preferred",
+			"template":"monitor=,[VALUE],auto,1"
+		},
+		{
+			"type":"text",
+			"mode":"overwritefile",
+			"title":"Default Terminal",
+			"file":".config/ml4w/settings/terminal.sh",
+			"checkpoint":"Check",
+			"search":"",
+			"value":"kitty",
+			"template":""
+		},
+		{
+			"type":"text",
+			"mode":"overwritefile",
+			"title":"Default Browser",
+			"file":".config/ml4w/settings/browser.sh",
+			"checkpoint":"Check",
+			"search":"",
+			"value":"firefox",
+			"template":""
+		}
+	]
+}
