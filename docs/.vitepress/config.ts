@@ -39,6 +39,7 @@ export default {
     sidebar: [
       {
         text: "Getting Started",
+        // collapsed: false,
         items: [
           { text: "Overview", link: "/getting-started/overview" },
           { text: "Install", link: "/getting-started/install" },
@@ -50,6 +51,7 @@ export default {
       },
       {
         text: "Configuration",
+        // collapsed: false,
         items: [
           { text: "Preserve Config & Customize", link: "/configuration/preserve-config" },
           { text: "Auto Setup & Update", link: "/configuration/auto-setup" },
@@ -61,6 +63,7 @@ export default {
       },
       {
         text: "Usage",
+        // collapsed: false,
         items: [
           { text: "Launch Hyprland", link: "/usage/launch" },
           { text: "Keybindings", link: "/usage/keybindings" },
@@ -72,6 +75,7 @@ export default {
       },
       {
         text: "Customization",
+        // collapsed: false,
         items: [
           { text: "Dotfiles Customization", link: "/customization/dotfiles" },
           { text: "Add Dock (nwg-dock)", link: "/customization/dock" },
@@ -84,6 +88,7 @@ export default {
       },
       {
         text: "ML4W Apps",
+        // collapsed: false,
         items: [
           { text: "Welcome App", link: "/ml4w-apps/welcome" },
           { text: "Sidebar App", link: "/ml4w-apps/sidebar" },
@@ -93,15 +98,24 @@ export default {
       },
       {
         text: "Qtile",
+         collapsed: true,
         items: [
           { text: "Qtile Setup", link: "/qtile/qtile" },
         ],
       },
       {
         text: "Help",
+        // collapsed: false,
         items: [
           { text: "Troubleshooting", link: "/help/troubleshooting" },
         ],
+      },
+      {
+        text: "Development",
+        collapsed: true,
+        items: [
+          { text: "Contributing to wiki", link: "development/wiki" },
+        ]
       },
     ],
     socialLinks: [
@@ -118,4 +132,3 @@ export default {
     sidebarMenuLabel: 'Menu',
   },
 };
-
