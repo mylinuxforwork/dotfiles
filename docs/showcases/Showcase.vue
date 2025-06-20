@@ -5,6 +5,10 @@ defineProps({
   title: { type: String, default: "" },
   index: { type: Number, required: true }
 })
+
+const isMp4 = (url) => {
+  return url && url.endsWith('.mp4')
+}
 </script>
 
 <template>
@@ -14,7 +18,20 @@ defineProps({
   >
     <div class="image-wrapper">
       <template v-if="videoUrl">
+        <video
+          v-if="isMp4(videoUrl)"
+          controls
+          muted
+          loop
+          :src="videoUrl"
+          :title="title"
+          width="100%"
+          height="400"
+          class="rounded-video"
+        />
+
         <iframe
+          v-else
           width="100%"
           height="400"
           :src="videoUrl"
@@ -24,6 +41,7 @@ defineProps({
           allowfullscreen
         ></iframe>
       </template>
+
       <template v-else>
         <img :src="image" :alt="title" loading="lazy" />
       </template>
@@ -59,14 +77,25 @@ defineProps({
 .image-wrapper {
   width: 100%;
   position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, rgba(0,255,255,0.05), rgba(0,150,255,0.08));
 }
 
-img {
+.image-wrapper:hover {
+  transform: scale(1.02) translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 255, 255, 0.2);
+}
+
+img, video {
   width: 100%;
   height: auto;
   object-fit: contain;
-  border-radius: 1rem;
   display: block;
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
 }
 
 .title-pill {
@@ -80,29 +109,4 @@ img {
   border-radius: 999px;
   backdrop-filter: blur(5px);
 }
-
-.image-wrapper {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  border-radius: 1rem;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(135deg, rgba(0,255,255,0.05), rgba(0,150,255,0.08));
-}
-
-.image-wrapper:hover {
-  transform: scale(1.02) translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 255, 255, 0.2);
-}
-
-
-img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
 </style>

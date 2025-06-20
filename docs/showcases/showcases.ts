@@ -60,6 +60,10 @@ const showcases: Showcase[] = [
     videoUrl: "https://www.youtube.com/embed/dxiX3E5B8bU",
     title: ""
   },
+//  {
+//    videoUrl: "/dotfiles/test.mp4", 
+//    title: ""
+//  },
 ]
 
 export default showcases
