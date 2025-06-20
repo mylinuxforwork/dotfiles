@@ -30,16 +30,15 @@ const isMp4 = (url) => {
           class="rounded-video"
         />
 
-        <iframe
-          v-else
-          width="100%"
-          height="400"
-          :src="videoUrl"
-          :title="title"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+        <div v-else class="youtube-wrapper">
+          <iframe
+            :src="videoUrl"
+            :title="title"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
       </template>
 
       <template v-else>
@@ -109,4 +108,23 @@ img, video {
   border-radius: 999px;
   backdrop-filter: blur(5px);
 }
+
+.youtube-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.youtube-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 1rem;
+}
+
 </style>
