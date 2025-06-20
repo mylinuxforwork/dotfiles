@@ -24,27 +24,17 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - uses: oven-sh/setup-bun@v2
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
       - name: Install dependencies
-        run: |
-          cd docs
-          bun install
-
+        run: bun install
       - name: Build with VitePress
-        run: |
-          cd docs
-          bun run docs:build
-
+        run: bun run docs:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
