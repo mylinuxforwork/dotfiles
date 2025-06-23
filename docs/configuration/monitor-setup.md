@@ -1,4 +1,12 @@
+<div class="tip custom-block" style="padding-top: 1px; padding-bottom: 8px;">
+
+<div align="center"> <h3>Monitor Setup</h3> </div>
+
+---
+
 **If you want to change the default monitor configuration, you can setup your own personal monitor variation or use nwg-displays.**
+
+</div>
 
 ## Personal Monitor Variation
 
@@ -6,21 +14,23 @@ Please open the ML4W Dotfiles Settings App and select the system tab. When you s
 
 ![image](/monitor.png)
 
-You can also create your own variation as described here: https://github.com/mylinuxforwork/dotfiles/wiki/Configuration-Variations
+You can also create your own variation as described [here](https://github.com/mylinuxforwork/dotfiles/wiki/Configuration-Variations).
+
+<!-- maybe update this wiki link in the future -->
 
 ## Use nwg-displays
 
-The ML4W Dotfiles are supporting the application nwg-displays (https://github.com/nwg-piotr/nwg-displays) to configure your display settings.
+The ML4W Dotfiles are supporting the application [nwg-displays](https://github.com/nwg-piotr/nwg-displays) to configure your display settings.
 
 Install nwg-displays on Arch Linux with
 
 ::: code-group
 
-```sh [Arch]
+```sh [<i class="devicon-archlinux-plain"></i> Arch]
 sudo pacman -S nwg-displays
 ```
 
-```sh [Fedora]
+```sh [<i class="devicon-fedora-plain"></i> Fedora]
 sudo dnf install nwg-displays
 ```
 :::

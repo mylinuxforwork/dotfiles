@@ -1,4 +1,4 @@
-> [!NOTE]
+> [!CAUTION]
 > There is no official Hyprland support for Nvidia hardware. However, you might make it work properly following this page.
 https://wiki.hyprland.org/Nvidia/
 
@@ -11,9 +11,12 @@ Install the dotfiles with:
 ml4w-hyprland-setup -m nvidia
 ```
 
-> Please select the following variation in the ML4W Settings app (system/environment):
+<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 8px;">
 
->https://github.com/mylinuxforwork/dotfiles/blob/main/share/dotfiles/.config/hypr/conf/environments/nvidia.conf
+**Please select the [following variation](https://github.com/mylinuxforwork/dotfiles/blob/main/share/dotfiles/.config/hypr/conf/environments/nvidia.conf
+) in the ML4W Settings app (system/environment)**
+Or
+ set the included environment variables in hyprland.conf
 
-> Or set the included environment variables in hyprland.conf
+</div>
 

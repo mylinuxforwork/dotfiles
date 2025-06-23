@@ -1,9 +1,20 @@
+<!--
+
 ![image](/install.png)
 
-## Before you start
+i am commenting out this image, if you want you can uncomment it in future. the reason for commenting is that it is not looking good in the top installation part.
 
-> [!CAUTION]
-> **PLEASE BACKUP YOUR EXISTING `~/.config` FOLDER WITH YOUR DOTFILES BEFORE STARTING THE SCRIPTS FOR INITIAL INSTALLTION.**
+-->
+
+<div class="tip custom-block" style="padding-top: 1px">
+
+<div align="center"> <h4> Before You Start </h4> </div>
+
+---
+
+**Please back up your existing `~/.config` folder with your dotfiles before starting the scripts for initial installation.**
+
+</div>
 
 The installation script will create a backups from configurations of your .config folder that will be overwritten from the installation procedure and previous ML4W Dotfiles installation.
 
@@ -24,7 +35,7 @@ I recommend to install a base Hyprland system before installing the ML4W Hyprlan
 
 On Arch Linux you can also install the Hyprland Desktop Profile first.
 
-You can find the Hyprland Installation instructions here: https://wiki.hyprland.org/Getting-Started/Installation/
+You can find the Hyprland Installation instructions on [hyprland wiki](https://wiki.hyprland.org/Getting-Started/Installation/)
 
 ## Distro (based)
 
@@ -52,11 +63,18 @@ bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/mai
 
 :::
 
-### Installation folder
 
-The script will ask for an installation folder. Please enter a folder name without spaces. The script will create the folder for you and continue with the installation.
+<div class="tip custom-block" style="padding-top: 8px">
 
-You can also install multiple versions of the ML4W Dotfiles in parallel in different folders. You can switch between the folders with the included activation script (only works with 2.9.5 or higher). 
+<div align="center"> <h4>Installation folder</h4> </div>
+
+---
+
+> The script will ask for an installation folder. Please enter a folder name without spaces. The script will create the folder for you and continue with the installation.
+
+> You can also install multiple versions of the ML4W Dotfiles in parallel in different folders. You can switch between the folders with the included activation script (only works with 2.9.5 or higher). 
+
+</div>
 
 ## Installation with GIT (Rolling Release)
 

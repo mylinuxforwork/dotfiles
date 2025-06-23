@@ -1,4 +1,8 @@
-The default browser is Firefox. But you can use any browser as your default browser.
+<div align="center" class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
+
+**The default browser is Firefox. But you can use any browser as your default browser.**
+
+</div>
 
 As an example, let's install brave.
 
@@ -16,5 +20,4 @@ Then execute the following command in a terminal:
 xdg-settings set default-web-browser brave.desktop
 ```
 
-To change the Waybar quicklink for the browser follow the instructions here https://github.com/mylinuxforwork/dotfiles/wiki/Waybar#define-your-quicklinks
-
+To change the Waybar quicklink for the browser follow the instructions from `Customize Waybar Section` 

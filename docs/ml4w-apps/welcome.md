@@ -1,4 +1,8 @@
+<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
+
 **After starting the ML4W dotfiles for the first time, the ML4W Welcome App opens. This app is the starting point to discover the Hyprland setup.**
+
+</div>
 
 ![image](/welcome.png)
 
@@ -9,7 +13,7 @@ ml4w
 ```
 The welcome screen includes the most important keybindings to open a terminal or a browser.
 
-You can start the ML4W Welcome App by clicking on the L icon on the right side in waybar, using the rofi application launcher or by typing ml4w in your terminal (if you're using the .bashrc from the dotfiles).
+You can start the ML4W Welcome App by clicking on the `L` icon on the right side in waybar, using the rofi application launcher or by typing ml4w in your terminal (if you're using the `.bashrc` from the dotfiles).
 
 In the Settings Menu you can access the following functions:
 
@@ -24,6 +28,5 @@ In the Settings Menu you can access the following functions:
 - Reload Waybar: Reloads the waybar
 - Toggle Waybar: You can hide or show waybar when you want to try our other status bars.
 
-You can find the sourcecode of the ML4W Welcome App in this repository:
-https://github.com/mylinuxforwork/dotfiles-welcome
+You can find the sourcecode in [ML4W Welcome App repository](https://github.com/mylinuxforwork/dotfiles-welcome)
 

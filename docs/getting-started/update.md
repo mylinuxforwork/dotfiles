@@ -1,7 +1,13 @@
+<div align="center">
+
+# Update
+
+</div>
+
 Start the ML4W Welcome App. You will see a notification when an update is available. You can start the update or re-installation of the ML4W Dotfiles at any time.
 
 > [!NOTE]
-> you can create a backup of your existing configuration with the backup feature of the install script. It's recommended to remove the folder ~/dotfiles only after creating a backup. 
+> You can create a backup of your existing configuration with the backup feature of the install script. It's recommended to remove the folder ~/dotfiles only after creating a backup. 
 
 ## Update from the Welcome App
 

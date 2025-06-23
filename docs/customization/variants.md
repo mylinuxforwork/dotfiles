@@ -1,4 +1,8 @@
+<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
+
 **With configuration variations, you can prepare different settings and configurations for your Hyprland installation.**
+
+</div>
 
 ![Screenshot](/config-var.png)
 

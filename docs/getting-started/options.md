@@ -1,4 +1,14 @@
+<div align="center"> 
+
+# Install Options 
+
+</div>
+
+<div class="tip custom-block" style="padding-top: 8px">
+
 After the successful installation of the ML4W Dotfiles for Hyprland, you can install or replace main applications with the Installation Options script:
+
+</div>
 
 ![image](/install-option.png)
 

@@ -51,7 +51,7 @@ export default {
       },
       {
         text: "Configuration",
-        // collapsed: false,
+        collapsed: true,
         items: [
           { text: "Preserve Config & Customize", link: "/configuration/preserve-config" },
           { text: "Auto Setup & Update", link: "/configuration/auto-setup" },
@@ -63,7 +63,7 @@ export default {
       },
       {
         text: "Usage",
-        // collapsed: false,
+        collapsed: true,
         items: [
           { text: "Launch Hyprland", link: "/usage/launch" },
           { text: "Keybindings", link: "/usage/keybindings" },
@@ -75,7 +75,7 @@ export default {
       },
       {
         text: "Customization",
-        // collapsed: false,
+        collapsed: true,
         items: [
           { text: "Dotfiles Customization", link: "/customization/dotfiles" },
           { text: "Add Dock (nwg-dock)", link: "/customization/dock" },
@@ -88,7 +88,7 @@ export default {
       },
       {
         text: "ML4W Apps",
-        // collapsed: false,
+        collapsed: true,
         items: [
           { text: "Welcome App", link: "/ml4w-apps/welcome" },
           { text: "Sidebar App", link: "/ml4w-apps/sidebar" },

@@ -47,6 +47,28 @@ description: An advanced and full-featured configuration for the dynamic tiling 
   style="max-width: 900px; width: 100%; border-radius: 12px; margin: 2rem auto; display: block;"
 />
 
+<div align="center">
+
+### Setup 
+
+Get started by running the installation command in your terminal:
+
+<i class="devicon-archlinux-plain"></i> **For Arch-based systems:**
+
+```sh
+bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)"
+```
+
+---
+
+<i class="devicon-fedora-plain"></i> **For Fedora-based systems:**
+
+```sh
+bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)"
+```
+
+</div>
+
 <style>
 :root {
   --vp-home-hero-name-color: transparent;
@@ -103,5 +125,5 @@ description: An advanced and full-featured configuration for the dynamic tiling 
 </style>
 
 <footer style="text-align:center; font-size: 0.75rem; color: var(--vp-c-text-muted, #888); margin-top: 3rem;">
-  Docs built by <a href="https://github.com/harilvfs" target="_blank" rel="noopener" style="color: var(--vp-c-brand-2); text-decoration: none;">harilvfs</a>
+ 🐙 Docs built by <a href="https://github.com/harilvfs" target="_blank" rel="noopener" style="color: var(--vp-c-brand-2); text-decoration: none;">harilvfs</a>
 </footer>

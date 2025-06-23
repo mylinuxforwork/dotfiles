@@ -21,7 +21,7 @@ The waybar status bar includes a section for quicklinks.
 
 ![image](/bar.png)
 
-The icon for ChatGPT and Settings are fixed. All the other icons can be customized or extended in ~/.config/ml4w/settings/waybar-quicklinks.json
+The icon for ChatGPT and Settings are fixed. All the other icons can be customized or extended in `~/.config/ml4w/settings/waybar-quicklinks.json`
 
 In the JSON file you can define up to 10 Quicklinks and add them into the quicklinks group in Waybar:
 https://github.com/mylinuxforwork/dotfiles/blob/main/share/dotfiles/.config/ml4w/settings/waybar-quicklinks.json
@@ -101,9 +101,9 @@ This configuration includes already a prepared quicklink for Firefox incl. the c
 
 | Reload after changes          |
 |------------------------------|
-| After changing the file, reload Waybar with <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd>. |
+| After changing the file, reload Waybar with <kbd>`SUPER`</kbd> + <kbd>`SHIFT`</kbd> + <kbd>`B`</kbd>. |
 
-You can find free icons of font-awesome here: https://fontawesome.com/search?o=r&m=free
+You can find free icons of font-awesome on [fontawesome.com](https://fontawesome.com/search?o=r&m=free)
 
 ## Define your own config and style.css for a ML4W theme
 
@@ -115,7 +115,7 @@ With a personal config-custom you can also load a personal modules.json with add
 
 ## Create your own theme based on the starter theme
 
-Please check the configurations of the folders in ~/dotfiles/waybar/themes/
+Please check the configurations of the folders in `~/dotfiles/waybar/themes/`
 
 A good starting point is to copy the the waybar starter theme.
 
@@ -130,16 +130,16 @@ theme_name="MyTheme"
 
 | How to select new theme       |
 |------------------------------|
-| Select your new theme by clicking the "..." icon in Waybar or using <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>T</kbd>. |
+| Select your new theme by clicking the "..." icon in Waybar or using <kbd>`SUPER`</kbd> + <kbd>`CTRL`</kbd> + <kbd>`T`</kbd>. |
 
 To customize your theme, you can edit the files config, `style.css` and `modules.json` 
 
 | Reload theme shortcut         |
 |------------------------------|
-| You can reload the Waybar theme with <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd>. |
+| You can reload the Waybar theme with <kbd>`SUPER`</kbd> + <kbd>`SHIFT`</kbd> + <kbd>`B`</kbd>. |
 
 ## Waybar documentation
 
-Waybar configuration: https://github.com/Alexays/Waybar/wiki/Configuration
-Waybar Styling: https://github.com/Alexays/Waybar/wiki/Styling
+- Waybar configuration: https://github.com/Alexays/Waybar/wiki/Configuration
+- Waybar Styling: https://github.com/Alexays/Waybar/wiki/Styling
 

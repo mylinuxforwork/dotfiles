@@ -1,10 +1,14 @@
-Nearly all steps of the installation/update script can be automated to reduce the time for the installation significantly if you want to keep your dotfiles up-to-date with the rolling release.
+<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
+
+**Nearly all steps of the installation/update script can be automated to reduce the time for the installation significantly if you want to keep your dotfiles up-to-date with the rolling release.**
+
+</div>
 
 ## Preparing the automation.sh file
 
 After an initial installetion you will find an automation template in the folder `~/.ml4w-hyprland`
 
-Copy the automation.tpl to automation.sh and make it executable:
+Copy the `automation.tpl` to `automation.sh` and make it executable:
 
 ```sh
 cp automation.tpl automation.sh
@@ -14,7 +18,7 @@ chmod +x automation.sh
 Just run the installer again to see the defined installation steps automated.
 In case of an upcoming update or new installation the defined steps will be executed automatically.
 
-You can deactive the automation by renaming the file to automation.bak.
+You can deactive the automation by renaming the file to `automation.bak`.
 
 ## Overview of the available automation parameter
 

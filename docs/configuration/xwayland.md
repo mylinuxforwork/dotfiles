@@ -1,4 +1,8 @@
-Some games are using old SDL version that is compiled without Wayland support. That means they will not likely want to run - crash on startup - if SDL_VIDEODRIVER is set to Wayland.
+<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
+
+**Some games are using old SDL version that is compiled without Wayland support. That means they will not likely want to run - crash on startup - if `SDL_VIDEODRIVER` is set to Wayland.**
+
+</div>
 
 You can switch between wayland and x11 in the file `~/dotfiles/hypr/conf/custom.conf`: 
 

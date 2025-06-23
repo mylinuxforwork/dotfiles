@@ -1,10 +1,10 @@
 > [!CAUTION]
 > The following instructions are barely tested and in BETA. But you can give it a try and please report back your experiences.
 
-The ML4W Dotfiles are shipped with a comprehensive Hyprland configuration. Some scripts (check for updates) are implemented for Arch only but the general configurations could also work on other distributions.
+The ML4W Dotfiles are shipped with a comprehensive Hyprland configuration. Some scripts (*check for updates*) are implemented for Arch only but the general configurations could also work on other distributions.
 
 Please make sure that the following packages are installed on your system:
-* Required packages: https://github.com/mylinuxforwork/dotfiles/tree/main/share/packages
+* Required packages: [packages list](https://github.com/mylinuxforwork/dotfiles/tree/main/share/packages)
 
 Follow the steps to install the dotfiles:
 
@@ -26,5 +26,6 @@ cd dotfiles/share/dotfiles/.config
 cp -r . ~/.config
 
 ```
-Some system related scripts will not work. But feel free to share your experiences.
+
+>Some system related scripts will not work. But feel free to share your experiences.
 

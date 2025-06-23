@@ -16,7 +16,7 @@ In virt-manager please make sure that 3D acceleration is enabled in Video Virtio
 | <kbd>SUPER</kbd> + <kbd>P</kbd> | Pass the SUPER key to the virtual machine |
 ## Troubleshooting for Hyprland 0.45.2
 
-The current version 0.45.2 isn't working in a Virtual Machine (See https://github.com/hyprwm/aquamarine/issues/109)
+The current version 0.45.2 isn't working in a Virtual Machine, See: https://github.com/hyprwm/aquamarine/issues/109
 
 You have to downgrade to an older version 0.45.0.
 

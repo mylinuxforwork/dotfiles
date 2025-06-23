@@ -17,7 +17,7 @@ Included is a pywal configuration that changes the color scheme based on a rando
 
 > In waypaper you can select a wallpaper from any folder of your system.
 
-> The default wallpaper engine is **hyprpaper**. But you can optionally install **swww** manually and switch in the ML4W Dotfiles Settings app from hyprpaper to swww.  
+> The default wallpaper engine is **`hyprpaper`**. But you can optionally install **swww** manually and switch in the ML4W Dotfiles Settings app from hyprpaper to swww.  
 
 >Open the ML4W Dotfiles Settings app and select the tab system. At the top you can find the Wallpaper Engine Selector.
 
@@ -40,7 +40,7 @@ You can enable wallpaper effects to completely change the visualization of your 
 
 You can add you own effects in the folder `/dotfiles/hypr/effects/wallpaper`
 
-You can execute multiple magick commands. $wallpaper is the selected wallpaper, $used_wallpaper the executed wallpaper.
+You can execute multiple `magick` commands. `$wallpaper` is the selected wallpaper, $used_wallpaper the executed wallpaper.
 
 ```sh
 magick $wallpaper -negate $used_wallpaper
@@ -70,5 +70,5 @@ You can set the current used wallpaper as background image for the display manag
 
 ## The ML4W Wallpaper repository
 
-You can download more wallpapers here: https://github.com/mylinuxforwork/wallpaper/blob/main/README.md
+You can download more wallpapers [ML4W Wallpaper repository](https://github.com/mylinuxforwork/wallpaper/blob/main/README.md)
 
