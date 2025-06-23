@@ -35,7 +35,6 @@ fi
 threshhold_green=0
 threshhold_yellow=25
 threshhold_red=100
-install_platform="$(cat ~/.config/ml4w/settings/platform.sh)"
 
 # ----------------------------------------------------- 
 # Check for updates
