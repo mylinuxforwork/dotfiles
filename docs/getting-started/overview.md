@@ -54,26 +54,26 @@ The ML4W Dotfiles are tested with the following distributions:
 
 ## Main packages
 
-- Terminal: kitty
-- Editor: nvim
-- Prompt: oh-my-posh
-- Wallpaper: hyprpaper with waypaper (swww optional)
-- Icons: Font Awesome
-- Launch Menus: Rofi (Wayland)
-- Color theme: pywal
-- Browsers: Firefox (Chromium and Brave optional)
-- Filemanager: Nautilus (yazi and dolphin optional)
-- Cursor: Bibata Modern Ice
-- Icons: Papirus-Icon-Theme
-- Status Bar: waybar
-- Screenshots: grim & slurp & grimblast
-- Clipboard Manager: cliphist
-- Logout: wlogout 
-- Idle Manager: hypridle
-- Screenlock: hyprlock
-- Dock: nwg-dock-hyprland
-- GTK Theme Manager: nwg-look
-- QT6 Theme Manager: qt6ct
+- Terminal: `kitty`
+- Editor: `nvim`
+- Prompt: `oh-my-posh`
+- Wallpaper: `hyprpaper` with `waypaper` (swww optional)
+- Icons: `Font Awesome`
+- Launch Menus: `Rofi` (Wayland)
+- Color theme: `pywal`
+- Browsers: `Firefox` (Chromium and Brave optional)
+- Filemanager: `Nautilus` (yazi and dolphin optional)
+- Cursor: `Bibata Modern Ice`
+- Icons: `Papirus-Icon-Theme`
+- Status Bar: `waybar`
+- Screenshots: `grim` & `slurp` & `grimblast`
+- Clipboard Manager: `cliphist`
+- Logout: `wlogout` 
+- Idle Manager: `hypridle`
+- Screenlock: `hyprlock`
+- Dock: `nwg-dock-hyprland`
+- GTK Theme Manager: `nwg-look`
+- QT6 Theme Manager: `qt6ct`
 
 ![image](/overview-2.png)
 
