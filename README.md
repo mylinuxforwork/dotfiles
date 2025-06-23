@@ -72,7 +72,7 @@ Thanks for using the ML4W Dotfiles on your system. If you find a problem or a bu
 
 You can also visit the [ML4W Discord Server](https://discord.gg/c4fJK7Za3g) to start a discussion with other users.
 
-# Contributors 
+## Contributors 
 
 Thanks to all the contributors who helped find bugs, test, refine, and submit PRs. Your valuable efforts are truly appreciated! 💖 
 
