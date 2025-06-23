@@ -72,6 +72,12 @@ Thanks for using the ML4W Dotfiles on your system. If you find a problem or a bu
 
 You can also visit the [ML4W Discord Server](https://discord.gg/c4fJK7Za3g) to start a discussion with other users.
 
+# Contributors 
+
+Thanks to all the contributors who helped find bugs, test, refine, and submit PRs. Your valuable efforts are truly appreciated! 💖 
+
+[![contributors](https://contrib.rocks/image?repo=mylinuxforwork/dotfiles)](https://github.com/mylinuxforwork/dotfiles/graphs/contributors)
+
 ## Screenshots
 
 ![screenshot_06022025_165339](https://github.com/user-attachments/assets/2d281632-762f-465c-99e2-6933f1507cac)
