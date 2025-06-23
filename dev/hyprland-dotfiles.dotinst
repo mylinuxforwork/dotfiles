@@ -6,7 +6,7 @@
 	"author": "Stephan Raabe",
 	"homepage": "https://github.com/mylinuxforwork/dotfiles",
 	"dependencies": "https://github.com/mylinuxforwork/dotfiles",
-	"source": ".ml4w-hyprland/dotfiles",
+	"source": "Projects/dotfiles",
 	"subfolder": "share/dotfiles",
 	"dev":{
 		"ignore":"keyboard.conf"
