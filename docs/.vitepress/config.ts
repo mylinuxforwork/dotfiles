@@ -1,7 +1,7 @@
 // .vitepress/config.ts
 export default {
-  title: 'ML4W-Hyprland',
-  description: ' ML4W-Hypland Dotfiles wiki',
+  title: 'ML4W-Hyprland wiki',
+  description: 'An advanced and full-featured configuration for the dynamic tiling window manager Hyprland',
   base: "/dotfiles/",
   lastUpdated: true,
   cleanUrls: true,
