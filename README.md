@@ -12,7 +12,7 @@ YouTube Video https://youtu.be/gtjzAjt39Og
 
 ## Installation
 
-The installation should work on all Arch Linux and Fedora based distributions. You can find more information on [wiki](https://mylinuxforwork.github.io/dotfiles/). <!-- migrate to vitepress wiki site -->
+The installation should work on all Arch Linux and Fedora based distributions. You can find more information on [Ml4W-Hyprland wiki](https://mylinuxforwork.github.io/dotfiles/). <!-- migrate to vitepress wiki site -->
 
 I recommend to install a base Hyprland system before installing the ML4W Hyprland Dotfiles. Then you have a stable starting point and can test Hyprland on your system beforehand. Hyprland is complex, under ongoing development, and requires additional components.
 
