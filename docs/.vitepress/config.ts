@@ -1,6 +1,6 @@
 // .vitepress/config.ts
 export default {
-  title: 'ML4W-Hyprland Dotfiles',
+  title: 'ML4W-Hyprland',
   description: ' ML4W-Hypland Dotfiles wiki',
   base: "/dotfiles/",
   lastUpdated: true,
@@ -11,7 +11,7 @@ export default {
   ],
 
   themeConfig: {
-    siteTitle: "ML4W-Hyprland Dotfiles",
+    siteTitle: "ML4W-Hyprland",
     logo: "/ml4w.png",
     outline: "deep",
     docsDir: "/docs",
