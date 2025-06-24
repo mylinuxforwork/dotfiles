@@ -171,11 +171,20 @@ export default {
     socialLinks: [
       { icon: "discord", link: "https://discord.gg/c4fJK7Za3g" },
       { icon: "github", link: "https://github.com/mylinuxforwork" },
+      { 
+        icon: {
+        svg: '<img src="https://raw.githubusercontent.com/mylinuxforwork/dotfiles-installer/refs/heads/master/data/icons/hicolor/scalable/apps/com.ml4w.dotfilesinstaller.svg" width="24" height="24" alt="dots installer" />'
+      }, 
+        link: "https://github.com/mylinuxforwork/dotfiles-installer" 
+      },
     ],
 
     footer: {
-      message: "Released under the GPL License.",
-      copyright: "Copyright © 2025 Stephan Raabe",
+      message: "Released under the GPL License",
+      copyright: `<a href="https://ml4w.com" target="_blank">
+        <img src="/dotfiles/ml4w.png" alt="ML4W" />
+        Copyright © 2025 Stephan Raabe
+      </a>`,
     },
 
     search: {
