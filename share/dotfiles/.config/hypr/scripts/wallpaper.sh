@@ -17,16 +17,25 @@ else
 fi
 
 # -----------------------------------------------------
+# Create cache folder
+# -----------------------------------------------------
+ml4w_cache_folder="$HOME/.cache/ml4w/hyprland-dotfiles"
+
+if [ ! -d $ml4w_cache_folder ]; then
+    mkdir -p $ml4w_cache_folder
+fi
+
+# -----------------------------------------------------
 # Set defaults
 # -----------------------------------------------------
 
 force_generate=0
-generatedversions="$HOME/.config/ml4w/cache/wallpaper-generated"
-waypaperrunning=$HOME/.config/ml4w/cache/waypaper-running
-cachefile="$HOME/.config/ml4w/cache/current_wallpaper"
-blurredwallpaper="$HOME/.config/ml4w/cache/blurred_wallpaper.png"
-squarewallpaper="$HOME/.config/ml4w/cache/square_wallpaper.png"
-rasifile="$HOME/.config/ml4w/cache/current_wallpaper.rasi"
+generatedversions="$ml4w_cache_folder/wallpaper-generated"
+waypaperrunning=$ml4w_cache_folder/waypaper-running
+cachefile="$ml4w_cache_folder/current_wallpaper"
+blurredwallpaper="$ml4w_cache_folder/blurred_wallpaper.png"
+squarewallpaper="$ml4w_cache_folder/square_wallpaper.png"
+rasifile="$ml4w_cache_folder/current_wallpaper.rasi"
 blurfile="$HOME/.config/ml4w/settings/blur.sh"
 defaultwallpaper="$HOME/wallpaper/default.jpg"
 wallpapereffect="$HOME/.config/ml4w/settings/wallpaper-effect.sh"
