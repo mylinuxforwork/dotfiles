@@ -1,9 +1,10 @@
 // .vitepress/config.ts
 export default {
   title: 'ML4W-Hyprland',
-  description: 'Documentation website of ML4W-Hypland Dotfiles',
+  description: ' ML4W-Hypland Dotfiles wiki',
   base: "/dotfiles/",
   lastUpdated: true,
+  cleanUrls: true,
 
   head: [
     ["link", { rel: "icon", href: "ml4w.png" }],
