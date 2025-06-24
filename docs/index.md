@@ -100,7 +100,7 @@ bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/mai
     border: none;
   }
 
-  .VPNavBar:not(.top) {
+  .VPNavBar {
     background-color: transparent !important;
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
@@ -123,7 +123,3 @@ bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/mai
   }
 }
 </style>
-
-<footer style="text-align:center; font-size: 0.75rem; color: var(--vp-c-text-muted, #888); margin-top: 3rem;">
- 🐙 Docs built by <a href="https://github.com/harilvfs" target="_blank" rel="noopener" style="color: var(--vp-c-brand-2); text-decoration: none;">harilvfs</a>
-</footer>
