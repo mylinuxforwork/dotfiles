@@ -16,7 +16,7 @@ The installation should work on all Arch Linux and Fedora based distributions. Y
 
 I recommend to install a base Hyprland system before installing the ML4W Hyprland Dotfiles. Then you have a stable starting point and can test Hyprland on your system beforehand. Hyprland is complex, under ongoing development, and requires additional components.
 
-You can find the Hyprland Installation instructions on [hyprland wiki](https://wiki.hyprland.org/Getting-Started/Installation/ )
+You can find the Hyprland Installation instructions on [official hyprland wiki](https://wiki.hyprland.org/Getting-Started/Installation/ )
 
 > [!IMPORTANT]
 > Please make sure that all packages on your system are updated before running the installation script.
