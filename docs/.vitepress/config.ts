@@ -40,17 +40,10 @@ export default {
         items: [
           {
             text: 'Dotfiles Installer',
+//          we can define like this, see below in sidebar section for more info  
 //          link: '/dots-installer/overview'
             link: 'https://github.com/mylinuxforwork/dotfiles-installer'
           },
-//        {
-//         text: 'Contributing',
-//         link: '/development/wiki'
-//        },
-//        {
-//         text: 'Troubleshooting',
-//         link: '/help/troubleshooting'
-//        },
           {
             text: 'Hyprland Starter',
             link: 'https://github.com/mylinuxforwork/hyprland-starter'
@@ -59,12 +52,23 @@ export default {
             text: 'Wallpapers',
             link: 'https://github.com/mylinuxforwork/wallpaper'
           },
+          {
+           text: 'Contributing to wiki →',
+           link: '/development/wiki'
+          },
+          {
+           text: 'Troubleshooting →',
+           link: '/help/troubleshooting'
+          },
         ],
       },
     ],
 
     sidebar: {
-     // may be needed in future
+    // future feature may be needed: sep sidebar for dots-installer section or any other
+    // basicallyy when user visits /dots-installer/ page it will only show dots-installer menu items
+    // just like how vitepress docs sep "refrence" section https://vitepress.dev/
+
      // '/dots-installer/': [
      //   {
      //    text: "Dots Installer",
@@ -76,6 +80,8 @@ export default {
      //     ],
      //   },
      // ],
+
+    // default sidebar '/' that shows for all pages except those with specific sidebar rules above...
 
       '/': [
         {
