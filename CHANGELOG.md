@@ -1,5 +1,6 @@
 Version 2.9.8.7
 --------------------------------------------------------
+- Improved waybar modwern theme
 - Installation of Sequoia Theme removed from the installation script. 
 - You can restore the standard SDDM Theme and install your custom display manager individually.
 - How to install Sequoia Theme guide on ML4W Dotfiles Wiki https://github.com/mylinuxforwork/dotfiles/wiki/Customize-sddm

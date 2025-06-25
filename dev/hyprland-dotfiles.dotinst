@@ -9,7 +9,7 @@
 	"source": "Projects/dotfiles",
 	"subfolder": "share/dotfiles",
 	"dev":{
-		"ignore":"keyboard.conf,settings"
+		"ignore":"keyboard.conf,monitor.conf"
 	},
 	"restore":[
 		{
