@@ -1,3 +1,5 @@
+# Keybindings
+
 Here are the most important keybindings that you need to know to start with the ML4W Dotfiles and Hyprland:
 
 ### 🖥️ Window & Workspace Management
