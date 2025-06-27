@@ -1,1 +1,0 @@
-export { CustomCommand, CustomTab, addCustomCommand, addCustomTab, onDevToolsClientConnected, onDevToolsConnected, removeCustomCommand, setupDevToolsPlugin, setupDevToolsPlugin as setupDevtoolsPlugin } from '@vue/devtools-kit';
