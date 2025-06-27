@@ -1,10 +1,4 @@
-<h1></h1>
-
-<div align="center">
-
 # Overview
-
-</div>
 
 <div class="tip custom-block" style="padding-top: 8px">
 
