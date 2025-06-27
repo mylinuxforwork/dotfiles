@@ -7,7 +7,7 @@ Included is a pywal configuration that changes the color scheme based on a rando
 | Keybind | Action |
 |--------|--------|
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> | Change wallpaper (random from `~/wallpaper/`) |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>W</kbd> | Open Waypaper with wallpaper thumbnails |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>W</kbd> | Open Waypaper |
 | <kbd>SUPER</kbd> + <kbd>ALT</kbd> + <kbd>W</kbd> | Start/Stop wallpaper automation |
 
 > [!NOTE]  
@@ -61,12 +61,6 @@ You can clear the cache in the ML4W Settings App or with
 ```
 
 You can regenerate the version of the current wallpaper by switching of the cache in the settings app and select the same wallpaper again.
-
-## Wallpaper for sddm
-
-You can set the current used wallpaper as background image for the display manager sddm by using the shown function in the ML4W Sidebar App:
-
-![image](/wall-sddm.png)
 
 ## The ML4W Wallpaper repository
 
