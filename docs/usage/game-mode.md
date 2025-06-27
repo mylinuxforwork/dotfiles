@@ -1,3 +1,5 @@
+# Game mode
+
 You can toggle a game mode to increase the performance in gaming situations. 
 
 ### 🎛️ Effects & Animations
