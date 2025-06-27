@@ -1,5 +1,6 @@
 ---
 layout: home
+footer: false
 ---
 
 <script setup>
