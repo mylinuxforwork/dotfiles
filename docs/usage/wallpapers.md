@@ -1,4 +1,4 @@
-# Wallpaper with hyprpaper and Pywal (swww optional supported)
+# Wallpaper with hyprpaper (swww optional supported)
 
 Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding below you can change the wallpaper stored in the folder `~/wallpaper/`.
 
