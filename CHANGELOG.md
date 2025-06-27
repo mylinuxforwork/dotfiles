@@ -1,5 +1,6 @@
 Version 2.9.8.7
 --------------------------------------------------------
+- New Wiki launched under https://mylinuxforwork.github.io/dotfiles/
 - All ML4W apps are following now the GTK4 Theme. Please make sure that the ml4w-repo is added to your system and all ml4w flatpaks are installed system wide, not user.
 - Improved waybar modern theme
 - Installation of Sequoia Theme removed from the installation script. 

@@ -13,9 +13,13 @@ This package includes an installation script to install and set up the required 
 
 YouTube Video https://youtu.be/gtjzAjt39Og
 
+## Documentation (Wiki)
+
+You can find the complete documentation of the ML4W Dotfiles here: <b>https://mylinuxforwork.github.io/dotfiles/</b>
+
 ## Installation
 
-The installation should work on all Arch Linux and Fedora based distributions. [You can find more information here](https://github.com/mylinuxforwork/dotfiles/wiki).
+The installation should work on all Arch Linux and Fedora based distributions. [You can find more information here](https://mylinuxforwork.github.io/dotfiles/getting-started/install).
 
 I recommend to install a base Hyprland system before installing the ML4W Hyprland Dotfiles. Then you have a stable starting point and can test Hyprland on your system beforehand. Hyprland is complex, under ongoing development, and requires additional components.
 
@@ -43,11 +47,7 @@ bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/mai
 ```
 ## Troubleshooting
 
-You can find solutions to common issues in the Wiki troubleshooting section: https://github.com/mylinuxforwork/dotfiles/wiki/Troubleshooting
-
-## Documentation (Wiki)
-
-You can find the complete documentation of the ML4W Dotfiles in the Wiki. <b>[Open the Wiki here](https://github.com/mylinuxforwork/dotfiles/wiki)</b>
+You can find solutions to common issues in the Wiki troubleshooting section: https://mylinuxforwork.github.io/dotfiles/help/troubleshooting
 
 ## Contributing
 
