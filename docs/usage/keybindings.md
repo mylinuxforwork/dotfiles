@@ -8,13 +8,14 @@ Here are the most important keybindings that you need to know to start with the 
 | <kbd>SUPER</kbd> + <kbd>T</kbd> | Toggle floating/tiling window |
 | <kbd>SUPER</kbd> + 🖱️ Left Click | Move window |
 | <kbd>SUPER</kbd> + 🖱️ Right Click | Resize window |
+| <kbd>SUPER</kbd> + <kbd>Q</kbd> | Close active window |
 
 ### 💻 Applications & Utilities
 
 | Keybind | Action |
 |--------|--------|
-| <kbd>SUPER</kbd> + <kbd>RETURN</kbd> | Open Alacritty terminal |
-| <kbd>SUPER</kbd> + <kbd>B</kbd> | Open Firefox |
+| <kbd>SUPER</kbd> + <kbd>RETURN</kbd> | Open terminal |
+| <kbd>SUPER</kbd> + <kbd>B</kbd> | Open browser |
 | <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>RETURN</kbd> | Launch `rofi` app launcher |
 | <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> | Launch ML4W settings script |
 
