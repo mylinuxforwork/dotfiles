@@ -1,6 +1,7 @@
 Version 2.9.8.7
 --------------------------------------------------------
-- Improved waybar modwern theme
+- All ML4W apps are following now the GTK4 Theme. Please make sure that the ml4w-repo is added to your system and all ml4w flatpaks are installed system wide, not user.
+- Improved waybar modern theme
 - Installation of Sequoia Theme removed from the installation script. 
 - You can restore the standard SDDM Theme and install your custom display manager individually.
 - How to install Sequoia Theme guide on ML4W Dotfiles Wiki https://github.com/mylinuxforwork/dotfiles/wiki/Customize-sddm
