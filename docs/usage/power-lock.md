@@ -1,3 +1,5 @@
+# Power and screen lock
+
 <div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
 
 **Hypridle will start Hyprlock after 10 minutes of inactivity and will try to suspend one minutes later.**
