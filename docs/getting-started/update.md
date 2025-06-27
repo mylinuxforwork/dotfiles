@@ -1,8 +1,4 @@
-<div align="center">
-
 # Update
-
-</div>
 
 Start the ML4W Welcome App. You will see a notification when an update is available. You can start the update or re-installation of the ML4W Dotfiles at any time.
 
