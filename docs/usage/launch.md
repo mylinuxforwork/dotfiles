@@ -1,4 +1,4 @@
-<div align="center"> <h1>Launch Hyprland</h1> </div>
+# Launch Hyprland
 
 <div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
 
