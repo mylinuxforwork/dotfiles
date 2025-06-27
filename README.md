@@ -34,26 +34,6 @@ Recommended is to install the Hyprland Desktop Profile from archinstall first.
 ```shell
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)"
 ```
-
-
-YouTube Video https://youtu.be/sVFnd5LAYAc
-
-You can also install the main release with your preferred AUR helper.
-
-```shell
-yay -S ml4w-hyprland
-ml4w-hyprland-setup
-```
-
-You can install the rolling release with
-
-```shell
-yay -S ml4w-hyprland-git
-ml4w-hyprland-setup
-```
-
-Please rebuild all packages to ensure that you get the latest commit.
-
 ### Fedora Linux (based)
 
 Tested on Fedora Workstation 41 and 42.
@@ -61,7 +41,6 @@ Tested on Fedora Workstation 41 and 42.
 ```shell
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)"
 ```
-
 ## Troubleshooting
 
 You can find solutions to common issues in the Wiki troubleshooting section: https://github.com/mylinuxforwork/dotfiles/wiki/Troubleshooting
