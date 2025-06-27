@@ -94,7 +94,6 @@ export default {
             { text: "Install Options", link: "/getting-started/options" },
             { text: "Install in VM (KVM)", link: "/getting-started/vm-install" },
             { text: "Update", link: "/getting-started/update" },
-            { text: "Uninstall", link: "/getting-started/uninstall" },
           ],
         },
         {
@@ -126,12 +125,11 @@ export default {
           collapsed: true,
           items: [
             { text: "Dotfiles Customization", link: "/customization/dotfiles" },
-            { text: "Add Dock (nwg-dock)", link: "/customization/dock" },
+            { text: "Config Variants", link: "/customization/variants" },
             { text: "Customize Waybar", link: "/customization/waybar" },
             { text: "Shell (Zsh & Bash)", link: "/customization/shell" },
             { text: "Default Terminal", link: "/customization/terminal" },
             { text: "Default Browser", link: "/customization/browser" },
-            { text: "Config Variants", link: "/customization/variants" },
           ],
         },
         {

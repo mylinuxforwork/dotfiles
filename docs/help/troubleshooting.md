@@ -24,24 +24,12 @@ If you notice an error with the new Sequoia theme, you can uninstall the theme w
 sudo rm -rf /usr/share/sddm/themes/sequoia
 ```
 
-</div>
-
-## Check that all key packages and commands are available
-
-<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
-
-The ML4W Welcome App includes a system diagnosis feature available in the menu with the three dots.
-
-Or open the script in a terminal with
+Open from /etc/sddm.conf.d/sddm.conf and restore back the default theme.
 
 ```sh
-ml4w-diagnosis
+[Theme]
+Current=elarum
 ```
-
-Please run the diagnosis to see if all essential packages and related commands are available on your system.
-
-If not, you need to install the missing packages manually.
-
 </div>
 
 ## At the end of the update from earlier versions to `2.9.5` or higher I see an error message in the terminal
@@ -120,63 +108,6 @@ This package provides proper rendering for CJK characters across the system.
 
 </div>
 
-## Rofi (application launcher) is not working
-
-<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
-
-If the installation of `rofi-wayland` fails in the installation/update procedure please try to install it manually:
-
-```sh
-yay -S rofi-wayland
-```
-
-If rofi-wayland isn't available please try rofi:
-
-```sh
-yay -S rofi
-```
-
-</div>
-
-## Hypridle and hyprlock is not starting after an update of the dotfiles
-
-<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
-
-Please make sure that `hypridle` and `hyprlock` has been installed successfully with
-
-```sh
-yay -S hypridle hyprlock
-```
-
-If there is an file conflict the remove the files manually with:
-
-```sh
-sudo rm /usr/lib/debug/usr/bin/hypridle.debug
-sudo rm /usr/lib/debug/usr/bin/hyprlock.debug
-```
-
-and start the installation again with
-
-```sh
-yay -S hypridle hyprlock
-```
-
-</div>
-
-## GTK apps not using dark theme
-
-<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
-
-Please try to install `xdg-desktop-portal-gtk`
-
-```sh
-sudo pacman -S xdg-desktop-portal-gtk
-```
-
-You can also try to remove `xdg-desktop-portal-gtk` and reinstall it again.
-
-</div>
-
 ## Missing icons in waybar
 
 <div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
@@ -213,5 +144,4 @@ sudo systemctl stop sddm.service
 sudo systemctl disable sddm.service
 sudo rm /etc/systemd/system/display-manager.service
 ```
-
 </div>

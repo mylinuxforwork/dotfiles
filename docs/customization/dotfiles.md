@@ -1,6 +1,6 @@
 <div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
 
-The ML4W Dotfiles can be customized to your personal preferences in various ways.
+**The ML4W Dotfiles can be customized to your personal preferences in various ways.**
 
 </div>
 
@@ -8,13 +8,13 @@ The easiest way is using the shipped ML4W Apps. Just click on the ML4W logo an t
 
 <div align="center">
 
-![image](/cs.png)
+![image](/sidebar.png)
 
 </div>
 
 ## ML4W Welcome App
 
-![image](/cs1.png)
+![image](/welcome.png)
 
 The ML4W Welcome App is an easy access point to several fundamental system settings. 
 
