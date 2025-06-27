@@ -1,8 +1,4 @@
-<div align="center">
-
-# Screenshot Tooling
-
-</div>
+# Screenshots
 
 The ML4W Dotfiles are shipped with grimblast. You can open the screenshot menu with `SUPER + PRINT`
 
