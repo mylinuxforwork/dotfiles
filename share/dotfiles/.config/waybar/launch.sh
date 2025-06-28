@@ -14,6 +14,13 @@ exec 200>/tmp/waybar-launch.lock
 flock -n 200 || exit 0
 
 # -----------------------------------------------------
+# Prevent duplicate launches: only the first parallel
+# invocation proceeds; all others exit immediately.
+# -----------------------------------------------------
+exec 200>/tmp/waybar-launch.lock
+flock -n 200 || exit 0
+
+# -----------------------------------------------------
 # Quit all running waybar instances
 # -----------------------------------------------------
 killall waybar || true
