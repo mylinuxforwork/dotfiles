@@ -1,10 +1,4 @@
-<!--
-
-![image](/install.png)
-
-i am commenting out this image, if you want you can uncomment it in future. the reason for commenting is that it is not looking good in the top installation part.
-
--->
+# Installation
 
 <div class="tip custom-block" style="padding-top: 1px">
 
