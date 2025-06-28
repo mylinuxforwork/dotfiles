@@ -1,3 +1,6 @@
+# Customization
+
+
 <div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
 
 **The ML4W Dotfiles can be customized to your personal preferences in various ways.**
