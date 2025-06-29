@@ -8,7 +8,6 @@ post_hook = 'hyprctl reload'
 [templates.waybar]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
-mode = 'dark'
 
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
