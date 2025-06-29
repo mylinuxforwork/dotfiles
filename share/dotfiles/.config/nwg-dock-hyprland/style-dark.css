@@ -9,8 +9,8 @@ window {
 }
 
 #box {
-  /* Define attributes of the box surrounding icons here */
-  padding: 10px
+  	/* Define attributes of the box surrounding icons here */
+  	padding: 10px;
 }
 
 #active {
