@@ -17,11 +17,11 @@ else
 fi
 
 # Install FiraCode to enable icons on sequoia theme
-if [ -d /usr/share/fonts/FiraCode ]; then
-    _writeLogTerminal 0 "FiraCode fonts is already installed"
+if [ -d /usr/share/fonts/Fira_Sans ]; then
+    _writeLogTerminal 0 "Fira Sans font is already installed"
 else
-    sudo cp -rf $fonts_directory/FiraCode /usr/share/fonts
-    _writeLogTerminal 0 "FiraCode fonts installed"
+    sudo cp -rf $fonts_directory/Fira_Sans /usr/share/fonts
+    _writeLogTerminal 0 "Fira_Sans font installed"
 fi
 
 # Update font cache and log the output
