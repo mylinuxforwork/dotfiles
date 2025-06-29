@@ -29,7 +29,7 @@ by Stephan Raabe (2023)
 window {
 	background: url("../../.cache/ml4w/hyprland-dotfiles/blurred_wallpaper.png");
 	background-size: cover;
-	font-size: 24pt;
+	font-size: 16pt;
 	/* background-color: rgba(30, 30, 46, 0.8); */
 	color: @foreground;
 
@@ -37,11 +37,11 @@ window {
 
 button {
 	background-repeat: no-repeat;
-    	background-position: center;
-    	background-size: 20%;
-    	background-color: rgba(200, 220, 255, 0);
-    	animation: gradient_f 20s ease-in infinite;
-    	border-radius: 80px; /* Increased border radius for a more rounded look */
+	background-position: center;
+	background-size: 20%;
+	background-color: rgba(200, 220, 255, 0);
+	animation: gradient_f 20s ease-in infinite;
+	border-radius: 80px; /* Increased border radius for a more rounded look */
 	border:0px;
 	transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
