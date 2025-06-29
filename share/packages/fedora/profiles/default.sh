@@ -43,7 +43,6 @@ packages=(
     "grimblast-git"
     "bibata-cursor-theme"
     "fontawesome-6-free-fonts"
-    "mozilla-fira-sans-fonts"
     "fira-code-fonts"
     "flatpak"
     "oh-my-posh"

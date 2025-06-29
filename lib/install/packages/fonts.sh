@@ -16,14 +16,6 @@ else
     _writeLogTerminal 0 "JetBrainsMono fonts installed"
 fi
 
-# Install FiraCode to enable icons on sequoia theme
-if [ -d /usr/share/fonts/FiraCode ]; then
-    _writeLogTerminal 0 "FiraCode font is already installed"
-else
-    sudo cp -rf $fonts_directory/FiraCode /usr/share/fonts
-    _writeLogTerminal 0 "FiraCode font installed"
-fi
-
 # Install Fira_Sans to enable icons on sequoia theme
 if [ -d /usr/share/fonts/Fira_Sans ]; then
     _writeLogTerminal 0 "Fira Sans font is already installed"

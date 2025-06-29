@@ -15,13 +15,73 @@
 			"value":true
 		},
 		{
-			"title":"Keyboard settings",
+			"title":"Keyboard",
 			"source":".config/hypr/conf/keyboard.conf",
 			"value":true
 		},
 		{
-			"title":"Monitor settings",
-			"source":".config/hypr/conf/keyboard.conf",
+			"title":"Monitor",
+			"source":".config/hypr/conf/monitor.conf",
+			"value":true
+		},
+		{
+			"title":"Hypridle",
+			"source":".config/hypr/hypridle.conf",
+			"value":true
+		},
+		{
+			"title":"Keybindings",
+			"source":".config/hypr/conf/keybinding.conf",
+			"value":true
+		},
+		{
+			"title":"Environment",
+			"source":".config/hypr/conf/environment.conf",
+			"value":true
+		},
+		{
+			"title":"Layout",
+			"source":".config/hypr/conf/layout.conf",
+			"value":true
+		},
+		{
+			"title":"Windowrules",
+			"source":".config/hypr/conf/windowrule.conf",
+			"value":true
+		},
+		{
+			"title":"Animation",
+			"source":".config/hypr/conf/animation.conf",
+			"value":true
+		},
+		{
+			"title":"Decoration",
+			"source":".config/hypr/conf/decoration.conf",
+			"value":true
+		},
+		{
+			"title":"Window",
+			"source":".config/hypr/conf/window.conf",
+			"value":true
+		},
+		{
+			"title":"Your custom configuration",
+			"source":".config/hypr/conf/custom.conf",
+			"value":true
+		},
+		{
+			"title":"GTK 3",
+			"source":".config/gtk-3.0",
+			"value":true
+		},
+		{
+			"title":"GTK 4",
+			"source":".config/gtk-4.0",
+			"value":true
+		},
+		{
+			"title":"GTK 2",
+			"source":".gtkrc-2.0",
 			"value":true
 		}
 	],
