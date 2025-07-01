@@ -11,34 +11,23 @@ packages=(
     "figlet"
     "xdg-user-dirs"
     # Hyprland
-    "hyprland"
+    "hyprland-devel"
+    "hyprland-qtutils"
     "hyprpaper"
     "hyprlock"
     "hypridle"
     "hyprpicker"
-    "noto-fonts"
-    "noto-fonts-emoji"
-    "noto-fonts-cjk"
-    "noto-fonts-extra"
     "xdg-desktop-portal-hyprland"
-    "libnotify"
     "kitty"
-    "qt5-wayland"
+    "libqt5-qtwayland"
     "qt6-wayland"
-    "uwsm"
     "fastfetch"
     "xdg-desktop-portal-gtk"
     "eza"
-    "python-3pip"
-    "python-gobject"
+    "python313-pip"
     "tumbler"
     "brightnessctl"
-    "nm-connection-editor"
-    "network-manager-applet"
-    "gtk4"
-    "libadwaita"
-    "fuse2"
-    "imageMagick"
+    "ImageMagick"
     "jq"
     "xclip"
     "kitty"
@@ -54,24 +43,20 @@ packages=(
     "nwg-look"
     "qt6ct"
     "waybar"
+    "fontawesome-fonts"
     "rofi-wayland"
     "zsh"
     "fzf"
     "pavucontrol"
     "papirus-icon-theme"
-    "papirus-icon-theme-dark"
     "breeze"
     "flatpak"
     "SwayNotificationCenter"
     "gvfs"
     "wlogout"
-    "hyprshade"
     "pinta"
-    "bibata-cursor-themes"
-    "fontawesome-6-free-fonts"
     "mozilla-fira-sans-fonts"
     "fira-code-fonts"
-    "flatpak"
     "NetworkManager-tui"
     "nwg-dock-hyprland"
 )
@@ -148,12 +133,6 @@ while true; do
             ;;
     esac
 done
-
-sudo dnf copr enable --assumeyes solopasha/hyprland
-sudo dnf copr enable --assumeyes peterwu/rendezvous
-sudo dnf copr enable --assumeyes wef/cliphist
-sudo dnf copr enable --assumeyes "tofik/nwg-shell"
-sudo dnf copr enable --assumeyes erikreider/SwayNotificationCenter
 
 # Packages
 _installPackages "${packages[@]}"
