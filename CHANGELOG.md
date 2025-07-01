@@ -7,6 +7,7 @@ Version 2.9.8.7
 - You can restore the standard SDDM Theme and install your custom display manager individually.
 - How to install Sequoia Theme guide on ML4W Dotfiles Wiki https://github.com/mylinuxforwork/dotfiles/wiki/Customize-sddm
 - Wallust for terminal color generation
+- New immediate screenshot keybinidngs: SUPER+ALT+F for fullscreen, SUPER+ALT+S for area screenshot
 
 Version 2.9.8.6
 --------------------------------------------------------
