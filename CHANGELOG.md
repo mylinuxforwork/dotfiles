@@ -1,3 +1,15 @@
+Version 2.9.8.7
+--------------------------------------------------------
+- New Wiki launched under https://mylinuxforwork.github.io/dotfiles/
+- All ML4W apps are following now the GTK4 Theme. Please make sure that the ml4w-repo is added to your system and all ml4w flatpaks are installed system wide, not user.
+- Improved waybar modern theme
+- Installation of Sequoia Theme removed from the installation script. 
+- You can restore the standard SDDM Theme and install your custom display manager individually.
+- How to install Sequoia Theme guide on ML4W Dotfiles Wiki https://github.com/mylinuxforwork/dotfiles/wiki/Customize-sddm
+- Wallust for terminal color generation
+- New immediate screenshot keybinidngs: SUPER+ALT+F for fullscreen, SUPER+ALT+S for area screenshot
+- AUR packages of ML4W Dotfiles removed. Please use the install script from https://mylinuxforwork.github.io/dotfiles/
+
 Version 2.9.8.6
 --------------------------------------------------------
 - Matugen color theme improvements

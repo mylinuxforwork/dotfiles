@@ -6,6 +6,8 @@
 # /_/   \_\__,_|\__\___/     \_/\_/  |_|
 #
 
+ml4w_cache_folder="$HOME/.cache/ml4w/hyprland-dotfiles"
+
 sec=$(cat ~/.config/ml4w/settings/wallpaper-automation.sh)
 _setWallpaperRandomly() {
     waypaper --random
@@ -14,13 +16,13 @@ _setWallpaperRandomly() {
     _setWallpaperRandomly
 }
 
-if [ ! -f ~/.config/ml4w/cache/wallpaper-automation ]; then
-    touch ~/.config/ml4w/cache/wallpaper-automation
+if [ ! -f $ml4w_cache_folder/wallpaper-automation ]; then
+    touch $ml4w_cache_folder/wallpaper-automation
     echo ":: Start wallpaper automation script"
     notify-send "Wallpaper automation process started" "Wallpaper will be changed every $sec seconds."
     _setWallpaperRandomly
 else
-    rm ~/.config/ml4w/cache/wallpaper-automation
+    rm $ml4w_cache_folder/wallpaper-automation
     notify-send "Wallpaper automation process stopped."
     echo ":: Wallpaper automation script process $wp stopped"
     wp=$(pgrep -f wallpaper-automation.sh)

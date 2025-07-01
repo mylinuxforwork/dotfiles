@@ -35,7 +35,7 @@ configuration {
 @theme "~/.config/rofi/colors.rasi"
 
 /* ---- Load wallpaper ---- */
-@import "~/.config/ml4w/cache/current_wallpaper.rasi"
+@import "~/.cache/ml4w/hyprland-dotfiles/current_wallpaper.rasi"
 
 /* ---- Load border width ---- */
 @import "~/.config/ml4w/settings/rofi-border.rasi"
@@ -96,7 +96,7 @@ inputbar {
     padding:                     1em;
     children:                    [ "textbox-prompt-colon", "entry" ];
     background-color:            transparent;
-    background-image:            url("~/.config/ml4w/cache/current_wallpaper", width);
+    background-image:            url("~/.cache/ml4w/hyprland-dotfiles/current_wallpaper", width);
 }
 
 textbox-prompt-colon {
@@ -107,7 +107,7 @@ textbox-prompt-colon {
     text-color:                  @foreground;
     border-radius:               2em 0em 0em 2em;
     background-color:            @color5;
-    background-image:            url("~/.config/ml4w/cache/current_wallpaper", width);
+    background-image:            url("~/.cache/ml4w/hyprland-dotfiles/current_wallpaper", width);
 }
 
 entry {

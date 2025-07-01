@@ -14,8 +14,11 @@
 # Set defaults
 # -----------------------------------------------------
 
+ml4w_cache_folder="$HOME/.cache/ml4w/hyprland-dotfiles"
+
 defaultwallpaper="$HOME/wallpaper/default.jpg"
-cachefile="$HOME/.config/ml4w/cache/current_wallpaper"
+
+cachefile="$ml4w_cache_folder/current_wallpaper"
 
 # -----------------------------------------------------
 # Get current wallpaper

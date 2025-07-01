@@ -9,14 +9,14 @@ window {
 }
 
 #box {
-  /* Define attributes of the box surrounding icons here */
-  padding: 10px
+  	/* Define attributes of the box surrounding icons here */
+  	padding: 10px;
 }
 
 #active {
 	/* This is to underline the button representing the currently active window */
 	border-bottom: solid 0px;
-	border-color: @on_surface
+	border-color: @on_surface;
 }
 
 button, image {
@@ -40,5 +40,5 @@ button:hover {
 }
 
 button:focus {
-	box-shadow: none
+	box-shadow: none;
 }

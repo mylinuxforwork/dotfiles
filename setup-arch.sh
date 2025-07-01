@@ -178,24 +178,36 @@ echo "Please choose between: "
 echo "- ML4W Dotfiles for Hyprland $latest_version (latest stable release)"
 echo "- ML4W Dotfiles for Hyprland Rolling Release (main branch including the latest commits)"
 echo
-version=$(gum choose "main-release" "rolling-release" "CANCEL")
+version=$(gum choose "main-release" "rolling-release" "cancel")
 if [ "$version" == "main-release" ]; then
     echo ":: Installing Main Release"
-    yay -S --noconfirm ml4w-hyprland
+    echo
+    git clone --branch $latest_version --depth 1 https://github.com/mylinuxforwork/dotfiles.git $download_folder/dotfiles
 elif [ "$version" == "rolling-release" ]; then
     echo ":: Installing Rolling Release"
-    yay -S ml4w-hyprland-git
-elif [ "$version" == "CANCEL" ]; then
+    echo
+    git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git $download_folder/dotfiles
+elif [ "$version" == "cancel" ]; then
     echo ":: Setup canceled"
     exit 130
 else
     echo ":: Setup canceled"
     exit 130
 fi
-echo ":: Installation complete."
+echo ":: Download complete."
 echo
+# Cd into dotfiles folder
+cd $download_folder/dotfiles/bin/
+
 # Start Spinner
-gum spin --spinner dot --title "Starting setup now..." -- sleep 3
+gum spin --spinner dot --title "Starting the installation now..." -- sleep 3
+
+# Start installation
+./ml4w-hyprland-setup -m install
+echo
+
+# Start Spinner
+gum spin --spinner dot --title "Starting the setup now..." -- sleep 3
 
 # Start setup
-ml4w-hyprland-setup -p arch
+./ml4w-hyprland-setup -p arch

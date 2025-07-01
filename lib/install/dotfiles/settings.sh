@@ -94,19 +94,6 @@ if [ -f ~/.config/ml4w/settings/waybar_backlight.sh ]; then
     _writeLog 1 "waybar_backlight restored"
 fi
 
-# Replace waybar_chatgpt
-if [ -f ~/.config/ml4w/settings/waybar_chatgpt.sh ]; then
-    replace_value=$(cat ~/.config/ml4w/settings/waybar_chatgpt.sh)
-    search_str="chatgpt"
-    if [[ $replace_value == "True" ]]; then
-        replace_str="\ \ \ \ \ \ \"custom\/chatgpt\","
-    else
-        replace_str="\ \ \ \ \ \ \/\/\"custom\/chatgpt\","
-    fi
-    _replaceLineInFileCheckpoint "$search_str" "$replace_str" "links" "$HOME/.config/waybar/modules.json"
-    _writeLog 1 "waybar_chatgpt restored"
-fi
-
 # Replace waybar_systray
 if [ -f ~/.config/ml4w/settings/waybar_systray.sh ]; then
     replace_value=$(cat ~/.config/ml4w/settings/waybar_systray.sh)
