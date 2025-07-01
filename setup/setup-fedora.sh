@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 packages=(
     "wget"
     "unzip"
@@ -89,16 +91,14 @@ _checkCommandExists() {
 
 _isInstalled() {
     package="$1"
-    package_info=$(zypper se -i "$package" 2>/dev/null | grep "^i" | awk '{print $3}')
-    ret=1
-    for pkg in $package_info
-    do
-	if [ "$package" == "$pkg" ]; then
-		ret=0
-		break
-	fi
-	done
-	echo $ret
+    check=$(yum list installed | grep $package)
+    if [ -z "$check" ]; then
+        echo 1
+        return #false
+    else
+        echo 0
+        return #true
+    fi
 }
 
 _installPackages() {
@@ -114,7 +114,7 @@ _installPackages() {
         return
     fi
     printf "Package not installed:\n%s\n" "${toInstall[@]}"
-    sudo zypper -n install "${toInstall[@]}"
+    sudo dnf install --assumeyes "${toInstall[@]}"
 }
 
 # Header
@@ -180,6 +180,36 @@ sudo pip install pywalfox
 sudo pywalfox install
 sudo pip install screeninfo
 sudo pip install waypaper
+
+# ML4W Apps
+ml4w_app="com.ml4w.welcome"
+ml4w_app_repo="dotfiles-welcome"
+echo ":: Installing $ml4w_app"
+bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
+
+ml4w_app="com.ml4w.settings"
+ml4w_app_repo="dotfiles-settings"
+echo ":: Installing $ml4w_app"
+bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
+
+ml4w_app="com.ml4w.sidebar"
+ml4w_app_repo="dotfiles-sidebar"
+echo ":: Installing $ml4w_app"
+bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
+
+ml4w_app="com.ml4w.calendar"
+ml4w_app_repo="dotfiles-calendar"
+echo ":: Installing $ml4w_app"
+bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
+
+ml4w_app="com.ml4w.hyprlandsettings"
+ml4w_app_repo="hyprland-settings"
+echo ":: Installing $ml4w_app"
+bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
+
+# Fonts
+sudo cp -rf $SCRIPT_DIR/fonts/FiraCode /usr/share/fonts
+sudo cp -rf $SCRIPT_DIR/fonts/Fira_Sans /usr/share/fonts
 
 echo ":: Installation complete."
 echo ":: Ready to install the dotfiles with the Dotfiles Installer."

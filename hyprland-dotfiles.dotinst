@@ -8,6 +8,7 @@
 	"dependencies": "https://github.com/mylinuxforwork/dotfiles",
 	"source": "https://github.com/mylinuxforwork/dotfiles.git",
 	"subfolder": "share/dotfiles",
+	"setupscript":"setup/setup.sh",
 	"restore":[
 		{
 			"title":"ML4W Settings",
