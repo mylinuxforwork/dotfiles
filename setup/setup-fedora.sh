@@ -52,7 +52,6 @@ packages=(
     "waybar"
     "rofi-wayland"
     "zsh"
-    "zoxide"
     "fzf"
     "pavucontrol"
     "papirus-icon-theme"

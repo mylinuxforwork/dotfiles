@@ -56,7 +56,6 @@ packages=(
     "polkit-gnome"
     "zsh"
     "zsh-completions"
-    "zoxide"
     "fzf"
     "pavucontrol"
     "papirus-icon-theme"
