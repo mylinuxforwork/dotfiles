@@ -15,27 +15,26 @@ packages=(
     "hyprlock"
     "hypridle"
     "hyprpicker"
-    "google-noto-fonts"
+    "noto-fonts"
     "google-noto-emoji-fonts"
     "google-noto-sans-cjk-fonts"
     "xdg-desktop-portal-hyprland"
     "libnotify"
     "kitty"
-    "qt5-qwayland"
-    "qt6-qwayland"
+    "qt5-qtwayland"
+    "qt6-qtwayland"
     "uwsm"
     "fastfetch"
     "xdg-desktop-portal-gtk"
-    "eza"
-    "python-3pip"
-    "python-gobject"
+    "python-pip"
+    "python3-gobject"
     "tumbler"
     "brightnessctl"
     "nm-connection-editor"
     "network-manager-applet"
     "gtk4"
     "libadwaita"
-    "fuse2"
+    "fuse"
     "ImageMagick"
     "jq"
     "xclip"
@@ -44,8 +43,8 @@ packages=(
     "htop"
     "rust"
     "cargo"
-    "pinta"
     "blueman"
+    "waypaper"
     "grim"
     "slurp"
     "cliphist"
@@ -63,12 +62,8 @@ packages=(
     "SwayNotificationCenter"
     "gvfs"
     "wlogout"
-    "hyprshade"
-    "pinta"
     "bibata-cursor-themes"
     "fontawesome-fonts"
-    "mozilla-fira-fonts"
-    "ttf-firacode-nerd"
     "dejavu-fonts-all"
     "flatpak"
     "NetworkManager-tui"
@@ -90,7 +85,7 @@ _checkCommandExists() {
 
 _isInstalled() {
     package="$1"
-    check=$(yum list installed | grep $package)
+    check=$(dnf list --installed | grep $package)
     if [ -z "$check" ]; then
         echo 1
         return #false
@@ -113,7 +108,7 @@ _installPackages() {
         return
     fi
     printf "Package not installed:\n%s\n" "${toInstall[@]}"
-    sudo dnf install --assumeyes "${toInstall[@]}"
+    sudo dnf install --assumeyes --skip-unavailable "${toInstall[@]}"
 }
 
 # Header
@@ -149,7 +144,7 @@ done
 sudo dnf copr enable --assumeyes solopasha/hyprland
 sudo dnf copr enable --assumeyes peterwu/rendezvous
 sudo dnf copr enable --assumeyes wef/cliphist
-sudo dnf copr enable --assumeyes "tofik/nwg-shell"
+sudo dnf copr enable --assumeyes tofik/nwg-shell
 sudo dnf copr enable --assumeyes erikreider/SwayNotificationCenter
 
 # Packages
@@ -165,8 +160,7 @@ gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
 sudo yum install --assumeyes gum
 
 # Oh My Posh
-sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
-sudo chmod +x /usr/local/bin/oh-my-posh
+sudo curl -s https://ohmyposh.dev/install.sh | bash -s
 
 # Cargo
 cargo install -q matugen

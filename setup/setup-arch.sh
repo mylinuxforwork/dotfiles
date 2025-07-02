@@ -76,7 +76,6 @@ packages=(
     "ttf-firacode-nerd"
     "ttf-dejavu"
     "nwg-dock-hyprland"
-    "oh-my-posh-bin"
     "checkupdates-with-aur"
     "loupe"
     "power-profiles-daemon"
@@ -176,6 +175,9 @@ fi
 
 # Packages
 _installPackages "${packages[@]}"
+
+# Oh My Posh
+sudo curl -s https://ohmyposh.dev/install.sh | bash -s
 
 # Cargo
 cargo install -q matugen
