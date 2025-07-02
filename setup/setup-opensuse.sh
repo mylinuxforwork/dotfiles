@@ -141,6 +141,16 @@ done
 # Packages
 _installPackages "${packages[@]}"
 
+# Snap
+sudo zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed snappy
+sudo zypper --gpg-auto-import-keys refresh
+sudo zypper dup --from snappy
+sudo zypper install snapd
+sudo systemctl enable snapd
+sudo systemctl start snapd
+sudo systemctl enable snapd.apparmor
+sudo systemctl start snapd.apparmor
+
 # Gum
 echo '[charm]
 name=Charm
@@ -200,6 +210,9 @@ flatpak install flathub com.github.PintaProject.Pinta
 
 # Grimblast
 sudo cp $SCRIPT_DIR/scripts/grimblast /usr/bin
+
+# Bibata Cursor Theme
+sudo snap install cursor-theme-bibata
 
 # Fonts
 sudo cp -rf $SCRIPT_DIR/fonts/FiraCode /usr/share/fonts
