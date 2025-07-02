@@ -10,21 +10,19 @@ packages=(
     "git"
     "figlet"
     "xdg-user-dirs"
-    # Hyprland
     "hyprland"
     "hyprpaper"
     "hyprlock"
     "hypridle"
     "hyprpicker"
     "noto-fonts"
-    "noto-fonts-emoji"
-    "noto-fonts-cjk"
-    "noto-fonts-extra"
+    "google-noto-emoji-fonts"
+    "google-noto-sans-cjk-fonts"
     "xdg-desktop-portal-hyprland"
     "libnotify"
     "kitty"
-    "qt5-wayland"
-    "qt6-wayland"
+    "qt5-qwayland"
+    "qt6-qwayland"
     "uwsm"
     "fastfetch"
     "xdg-desktop-portal-gtk"
@@ -68,9 +66,10 @@ packages=(
     "hyprshade"
     "pinta"
     "bibata-cursor-themes"
-    "fontawesome-6-free-fonts"
-    "mozilla-fira-sans-fonts"
-    "fira-code-fonts"
+    "fontawesome-fonts"
+    "mozilla-fira-fonts"
+    "ttf-firacode-nerd"
+    "dejavu-fonts-all"
     "flatpak"
     "NetworkManager-tui"
     "nwg-dock-hyprland"
@@ -206,6 +205,12 @@ ml4w_app="com.ml4w.hyprlandsettings"
 ml4w_app_repo="hyprland-settings"
 echo ":: Installing $ml4w_app"
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
+
+# Flatpaks
+flatpak install flathub com.github.PintaProject.Pinta
+
+# Grimblast
+sudo cp $SCRIPT_DIR/scripts/grimblast /usr/bin
 
 # Fonts
 sudo cp -rf $SCRIPT_DIR/fonts/FiraCode /usr/share/fonts
