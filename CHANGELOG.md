@@ -9,6 +9,7 @@ Version 2.9.8.7
 - Wallust for terminal color generation
 - New immediate screenshot keybinidngs: SUPER+ALT+F for fullscreen, SUPER+ALT+S for area screenshot
 - AUR packages of ML4W Dotfiles removed. Please use the install script from https://mylinuxforwork.github.io/dotfiles/
+- Default Wallpaper folder moved to ~/.config/ml4w/wallpapers and new default wallpaper
 
 Version 2.9.8.6
 --------------------------------------------------------
