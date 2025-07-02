@@ -35,7 +35,6 @@ packages=(
     "htop"
     "rust"
     "cargo"
-    "pinta"
     "blueman"
     "grim"
     "slurp"

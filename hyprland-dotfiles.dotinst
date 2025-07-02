@@ -26,6 +26,11 @@
 			"value":true
 		},
 		{
+			"title":"Waypaper",
+			"source":".config/waypaper",
+			"value":true
+		},
+		{
 			"title":"Hypridle",
 			"source":".config/hypr/hypridle.conf",
 			"value":true
