@@ -84,3 +84,5 @@ power-profiles-daemon
 python-pywalfox
 
 ```
+
+After installing the dependencies you can install the Dotfiles with the Dotfiles Installer.
