@@ -91,6 +91,7 @@ export default {
           items: [
             { text: "Overview", link: "/getting-started/overview" },
             { text: "Install", link: "/getting-started/install" },
+            { text: "Dependencies", link: "/getting-started/depenencies" },
             { text: "Install Options", link: "/getting-started/options" },
             { text: "Install in VM (KVM)", link: "/getting-started/vm-install" },
             { text: "Update", link: "/getting-started/update" },
