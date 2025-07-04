@@ -28,7 +28,7 @@ export default {
         activeMatch: "/showcases/",
       },
      {
-        text: "2.9.8.6",
+        text: "2.9.8.7",
         items: [
           {
             text: 'Changelog',
@@ -40,13 +40,13 @@ export default {
         text: "More",
         items: [
           {
-            text: 'Dotfiles Installer',
+            text: 'ML4W Dotfiles Installer',
 //          we can define like this, see below in sidebar section for more info  
 //          link: '/dots-installer/overview'
-            link: 'https://github.com/mylinuxforwork/dotfiles-installer'
+            link: 'https://mylinuxforwork.github.io/dotfiles-installer/'
           },
           {
-            text: 'Hyprland Starter',
+            text: 'ML4W Hyprland Starter',
             link: 'https://github.com/mylinuxforwork/hyprland-starter'
           },
           {
