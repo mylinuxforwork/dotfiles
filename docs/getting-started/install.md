@@ -60,6 +60,20 @@ bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/mai
 
 </div>
 
+## Installation with the Dotfiles Installer (Beta)
+
+You can install the ML4W Dotfiles for Hyprland on any distribution by using the Dotfiles Installer.
+
+<a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
+
+The setup scripts included for Arch, Fedora and openSuse Tumbleweed. For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
+
+Copy the folling url to the Dotfiles Installer:
+
+```sh
+https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
+```
+
 ## Installation with GIT (Rolling Release)
 
 You can install the dotfiles by cloning the latest version (rolling release):
@@ -81,3 +95,11 @@ cd dotfiles/bin
 > [!NOTE]
 > Not all features will work, when you install the dotfiles from GIT.
 
+## Install in a Virtual Machine (KVM)
+
+In virt-manager please make sure that 3D acceleration is enabled in Video Virtio and the Listen type is set to None in Display Spice.
+
+| Keybind | Action |
+|--------|--------|
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> | Open Hyprland Settings |
+| *(Inside Settings → Environments)* | Select `kvm.conf` for better VM support |

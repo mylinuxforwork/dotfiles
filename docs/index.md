@@ -8,7 +8,7 @@ hero:
     src: /ml4w.png
     alt: Linux logo
     style: "width: 200px; height: auto;"
-  tagline: An advanced and full-featured configuration for the dynamic tiling window manager Hyprland including an easy to use installation script for Arch and Fedora based Linux distributions.
+  tagline: An advanced and full-featured configuration for the dynamic tiling window manager Hyprland.
   actions:
     - theme: brand
       text: Get Started 
@@ -23,11 +23,7 @@ hero:
 features:
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/807/807262.png" alt="scripts"/>
     title: One Script to Rule Them All
-    details: Includes a powerful installation script to automate everything on Arch or Fedora based systems.
-
-  - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/8142/8142663.png" alt="distro"/>
-    title: For Arch & Fedora (more coming soon)
-    details: Fully compatible with both Arch and Fedora, with intelligent behavior based on the detected system.
+    details: Includes a powerful installation script to automate everything on Arch or Fedora based systems. Or use the Dotfiles Installer for other distros.
 
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/16076/16076100.png" alt="theme"/>
     title: Dynamic Themes & Desktop
@@ -65,6 +61,18 @@ bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/mai
 
 ```sh
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)"
+```
+
+**Or on any other distribution with Dotfiles Installer (Beta):**
+
+<a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
+
+The setup scripts included for Arch, Fedora and openSuse Tumbleweed. For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
+
+Copy the folling url to the Dotfiles Installer:
+
+```sh
+https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
 
 </div>

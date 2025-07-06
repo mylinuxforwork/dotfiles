@@ -1,6 +1,6 @@
 <div align="center"> 
 
-# Install Options 
+# Application Options
 
 </div>
 
