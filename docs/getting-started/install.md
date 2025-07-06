@@ -1,14 +1,8 @@
 # Installation
 
-<div class="tip custom-block" style="padding-top: 1px">
-
-<div align="center"> <h4> Before You Start </h4> </div>
-
----
-
-**Please back up your existing `~/.config` folder with your dotfiles before starting the scripts for initial installation.**
-
-</div>
+::: warning BEFORE YOU START
+Please back up your existing `~/.config` folder with your dotfiles before starting the scripts for initial installation.
+:::
 
 The installation script will create a backups from configurations of your .config folder that will be overwritten from the installation procedure and previous ML4W Dotfiles installation.
 
@@ -47,18 +41,22 @@ bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/mai
 
 :::
 
+::: warning AUR not supported anymore
+Please note that the AUR packages for the ML4W Dotfiles for Hyprland are not supported anymore. Please uninstall the package with 
 
-<div class="tip custom-block" style="padding-top: 8px">
+```sh 
+yay -R ml4w-dotfiles # Main Release
+yay -R ml4w-dotfiles-git # Wolling Release
+```
 
-<div align="center"> <h4>Installation folder</h4> </div>
+:::
 
----
+::: info Installation folder
+The script will ask for an installation folder. Please enter a folder name without spaces. The script will create the folder for you and continue with the installation.
 
-> The script will ask for an installation folder. Please enter a folder name without spaces. The script will create the folder for you and continue with the installation.
+You can also install multiple versions of the ML4W Dotfiles in parallel in different folders. You can switch between the folders with the included activation script (only works with 2.9.5 or higher). 
+:::
 
-> You can also install multiple versions of the ML4W Dotfiles in parallel in different folders. You can switch between the folders with the included activation script (only works with 2.9.5 or higher). 
-
-</div>
 
 ## Installation with the Dotfiles Installer (Beta)
 
@@ -73,6 +71,8 @@ Copy the folling url to the Dotfiles Installer:
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
+
+The Dotfiles will be installed into the folder `~/.mydotfiles` with symbolic links into `~/.config`.
 
 ## Installation with GIT (Rolling Release)
 

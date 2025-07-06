@@ -11,6 +11,10 @@ You can start the update directly from the ML4W Welcome App. Select Update/Reins
 
 ![image](/update.png)
 
+## Update with the Dotfiles Installer
+
+If you have installed the Dotfiles with the Dotfiles Installer, just open the Dotfiles Installer and click on the Refresh Icon to start the update.
+
 ## Update with GIT
 
 Please follow the steps to update from earlier dotfiles versions to 2.8.3

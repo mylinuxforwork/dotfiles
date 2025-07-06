@@ -92,7 +92,6 @@ export default {
             { text: "Overview", link: "/getting-started/overview" },
             { text: "Install", link: "/getting-started/install" },
             { text: "Dependencies", link: "/getting-started/dependencies" },
-            { text: "Application Options", link: "/getting-started/options" },
             { text: "Update", link: "/getting-started/update" },
           ],
         },

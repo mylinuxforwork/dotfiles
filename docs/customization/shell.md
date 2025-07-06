@@ -1,12 +1,6 @@
-<div align="center" class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
+# Shell (ZSH & Bash)
 
-**You can switch between zsh and bash with the ML4W Welcome App.**
-
-</div>
-
-![image](/shell.png)
-
-Click on Installation Options and change your shell.
+The ML4W Dotfiles for Hyprland are shipped with configurations for bash and zsh. 
 
 ## Customize the `.zshrc`
 

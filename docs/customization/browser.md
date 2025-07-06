@@ -1,3 +1,5 @@
+# Default Browser
+
 <div align="center" class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
 
 **The default browser is Firefox. But you can use any browser as your default browser.**
