@@ -69,7 +69,7 @@ bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/mai
 
 The setup scripts included for Arch, Fedora and openSuse Tumbleweed. For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
 
-Copy the folling url to the Dotfiles Installer:
+Copy the following url to the Dotfiles Installer:
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst

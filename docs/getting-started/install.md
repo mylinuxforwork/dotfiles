@@ -4,7 +4,7 @@
 Please back up your existing `~/.config` folder with your dotfiles before starting the scripts for initial installation.
 :::
 
-The installation script will create a backups from configurations of your .config folder that will be overwritten from the installation procedure and previous ML4W Dotfiles installation.
+The installation script will create a backups from configurations of your `.config` folder that will be overwritten from the installation procedure and previous ML4W Dotfiles installation.
 
 If possible, please create a snapshot of your current system if snapper or Timeshift is installed and available.
 
@@ -46,7 +46,7 @@ Please note that the AUR packages for the ML4W Dotfiles for Hyprland are not sup
 
 ```sh 
 yay -R ml4w-dotfiles # Main Release
-yay -R ml4w-dotfiles-git # Wolling Release
+yay -R ml4w-dotfiles-git # Rolling Release
 ```
 
 :::
@@ -66,7 +66,7 @@ You can install the ML4W Dotfiles for Hyprland on any distribution by using the 
 
 The setup scripts included for Arch, Fedora and openSuse Tumbleweed. For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
 
-Copy the folling url to the Dotfiles Installer:
+Copy the following url to the Dotfiles Installer:
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
