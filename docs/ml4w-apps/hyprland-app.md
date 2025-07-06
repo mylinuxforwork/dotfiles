@@ -4,7 +4,7 @@
 
 </div>
 
-![Screenshot](/hypr-setting.png)
+![Screenshot](/hyprland-settings.jpg)
 
 <div class="note custom-block" style="padding-top: 20px; padding-bottom: 20px;">
 
