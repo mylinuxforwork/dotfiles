@@ -163,11 +163,13 @@ sudo yum install --assumeyes gum
 sudo curl -s https://ohmyposh.dev/install.sh | bash -s
 
 # Cargo
+echo ":: Installing packages with cargo"
 cargo install -q matugen
 cargo install -q wallust
 cargo install -q eza
 
 # Pip
+echo ":: Installing packages with pip"
 sudo pip install hyprshade
 sudo pip install pywalfox
 sudo pywalfox install
@@ -175,6 +177,8 @@ sudo pip install screeninfo
 sudo pip install waypaper
 
 # ML4W Apps
+echo ":: Installing the ML4W Apps"
+
 ml4w_app="com.ml4w.welcome"
 ml4w_app_repo="dotfiles-welcome"
 echo ":: Installing $ml4w_app"
@@ -201,7 +205,7 @@ echo ":: Installing $ml4w_app"
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
 
 # Flatpaks
-flatpak install flathub com.github.PintaProject.Pinta
+flatpak install -y flathub com.github.PintaProject.Pinta
 
 # Grimblast
 sudo cp $SCRIPT_DIR/scripts/grimblast /usr/bin

@@ -71,8 +71,22 @@ Copy the folling url to the Dotfiles Installer:
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
-
 The Dotfiles will be installed into the folder `~/.mydotfiles` with symbolic links into `~/.config`.
+
+### Minimal Arch Linux
+
+Install the following dependencies on a minimal Arch Linux installation
+
+```sh [<i class="devicon-archlinux-plain"></i> Arch]
+sudo pacman -S hyprland vim git wget curl kitty wofi firefox flatpak
+
+```
+Reboot and then start Hyprland with 
+
+```sh [<i class="devicon-archlinux-plain"></i> Arch]
+Hyprland
+
+```
 
 ## Installation with GIT (Rolling Release)
 

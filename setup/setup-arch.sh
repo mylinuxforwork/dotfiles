@@ -180,10 +180,13 @@ _installPackages "${packages[@]}"
 sudo curl -s https://ohmyposh.dev/install.sh | bash -s
 
 # Cargo
+echo ":: Installing packages with cargo"
 cargo install -q matugen
 cargo install -q wallust
 
 # ML4W Apps
+echo ":: Installing the ML4W Apps"
+
 ml4w_app="com.ml4w.welcome"
 ml4w_app_repo="dotfiles-welcome"
 echo ":: Installing $ml4w_app"
@@ -210,7 +213,7 @@ echo ":: Installing $ml4w_app"
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
 
 # Flatpaks
-flatpak install flathub com.github.PintaProject.Pinta
+flatpak install -y flathub com.github.PintaProject.Pinta
 
 # Fonts
 sudo cp -rf $SCRIPT_DIR/fonts/FiraCode /usr/share/fonts
