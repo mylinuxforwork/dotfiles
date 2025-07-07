@@ -20,6 +20,7 @@ This pull request adds/updates/fixes [describe the main goal or feature].
 <!-- Describe the steps you followed to test the changes. If applicable, mention the specific environment where the testing took place. -->
 - [ ] Tested on Arch Linux/Based Distro.
 - [ ] Tested on Fedora Linux/Based Distro.
+- [ ] Tested on openSuse.
 
 ### Checklist
 
