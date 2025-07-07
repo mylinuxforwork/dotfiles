@@ -31,7 +31,10 @@ sudo pacman -S nwg-displays
 ```
 
 ```sh [<i class="devicon-fedora-plain"></i> Fedora]
-sudo dnf install nwg-displays
+sudo dnf install python-build python-installer python-wheel python-setuptools
+git clone https://github.com/nwg-piotr/nwg-displays ~/nwg-displays
+cd ~/nwg-displays && chmod +x install.sh
+sudo ./install.sh
 ```
 :::
 
