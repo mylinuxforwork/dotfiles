@@ -25,4 +25,4 @@ Endeavour = "Endeavour"
 # ser = "ser"                 # e.g., serializer module name
 
 [default.extend-ignore-re]
-"^capitaliseUsername=false$" # sddm theme.conf 
+"^capitaliseUsername=false$"
