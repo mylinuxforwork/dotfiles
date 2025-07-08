@@ -4,6 +4,9 @@
 
 [default]
 locale = "en-us"
+# Ignored typos regexes
+[extend-ignore-re]
+capitalise-username = "^capitaliseUsername=false$"
 
 # [files]
 # ignore-hidden = false # Include hidden files
@@ -24,5 +27,4 @@ Endeavour = "Endeavour"
 # [default.extend-identifiers] # Uncomment to allow specific identifiers (case-sensitive)
 # ser = "ser"                 # e.g., serializer module name
 
-[default.extend-ignore-re]
-capitalise-username = "^capitaliseUsername=false$"
+
