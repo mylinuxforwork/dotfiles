@@ -180,9 +180,9 @@ _installPackages "${packages[@]}"
 sudo curl -s https://ohmyposh.dev/install.sh | bash -s
 
 # Cargo
-echo ":: Installing packages with cargo"
-cargo install -q matugen
-cargo install -q wallust
+echo ":: Installing packages with cargo (this can take a while...)"
+cargo install matugen
+cargo install wallust
 
 # ML4W Apps
 echo ":: Installing the ML4W Apps"

@@ -163,10 +163,10 @@ sudo yum install --assumeyes gum
 sudo curl -s https://ohmyposh.dev/install.sh | bash -s
 
 # Cargo
-echo ":: Installing packages with cargo"
-cargo install -q matugen
-cargo install -q wallust
-cargo install -q eza
+echo ":: Installing packages with cargo (this can take a while...)"
+cargo install matugen
+cargo install wallust
+cargo install eza
 
 # Pip
 echo ":: Installing packages with pip"

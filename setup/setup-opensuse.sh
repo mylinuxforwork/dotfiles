@@ -163,10 +163,10 @@ sudo yum install --assumeyes gum
 sudo curl -s https://ohmyposh.dev/install.sh | bash -s
 
 # Cargo
-echo ":: Installing packages with cargo"
-cargo install -q matugen
-cargo install -q wallust
-cargo install -q eza
+echo ":: Installing packages with cargo (this can take a while...)"
+cargo install matugen
+cargo install wallust
+cargo install eza
 
 # Install waypaper dependencies before using pip
 sudo zypper install gcc pkg-config cairo-devel gobject-introspection-devel libgirepository-1_0-1-devel python3-devel libgtk-4-devel typelib-1_0-Gtk-4_0
