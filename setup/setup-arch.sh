@@ -28,6 +28,7 @@ packages=(
     "fastfetch"
     "xdg-desktop-portal-gtk"
     "eza"
+    "nautilus"
     "python-pip"
     "python-gobject"
     "python-screeninfo"

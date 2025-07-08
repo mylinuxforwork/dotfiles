@@ -35,6 +35,7 @@ packages=(
     "gtk4"
     "libadwaita"
     "fuse"
+    "nautilus"
     "ImageMagick"
     "jq"
     "xclip"
