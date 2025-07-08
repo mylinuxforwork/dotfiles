@@ -5,8 +5,8 @@
 [default]
 locale = "en-us"
 
-[files]
-ignore-hidden = false # Include hidden files
+# [files]
+# ignore-hidden = false # Include hidden files
 
 # extend-exclude = [
 #  "*.pbxproj",  # Ignore Xcode project metadata
