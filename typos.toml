@@ -15,11 +15,14 @@ locale = "en-us"
 #  ".git/",      # Ignore Git metadata
 # ]
 
-# [default.extend-words]      # Uncomment to allow specific words (case-insensitive)
-# LOD = "LOD"                 # e.g., Level of Detail
+[default.extend-words]
+colour = "colour" 
+ags = "ags"
+behaviour = "behaviour"
+Endeavour = "Endeavour"
 
 # [default.extend-identifiers] # Uncomment to allow specific identifiers (case-sensitive)
 # ser = "ser"                 # e.g., serializer module name
 
-# [default.extend-ignore-re] # Uncomment to ignore words via regex patterns
-# "\\bNDKs\\b",               # e.g., acronym or brand names
+[default.extend-ignore-re]
+"^capitaliseUsername=false$" # sddm theme.conf 

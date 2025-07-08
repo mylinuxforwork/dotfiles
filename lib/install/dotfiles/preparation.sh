@@ -34,7 +34,7 @@ rsync -a -I --exclude-from=$includes_directory/excludes.txt $share_directory/dot
 
 # Check copy success
 if [[ $(_isFolderEmpty $ml4w_directory/$version/) == 0 ]]; then
-    _writeLogTerminal 2 "AN ERROR HAS OCCURED. Preparation of $ml4w_directory/$version/ failed"
+    _writeLogTerminal 2 "AN ERROR HAS OCCURRED. Preparation of $ml4w_directory/$version/ failed"
     _writeLog 2 "Please check that rsync is installad on your system."
     _writeLog 2 "Execution of rsync -a -I --exclude-from=$includes_directory/excludes.txt . $ml4w_directory/$version/ is required."
     exit

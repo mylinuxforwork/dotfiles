@@ -42,7 +42,7 @@ The ML4W Dotfiles are tested with the following distributions:
 - CachyOS
 - Fedora Workstation 41
 
-> **For Manjaro users:** Hyprland and required packages are under ongoing development. That's why it could be possible that some packages are not immediatly available on Manjaro. But usually, the packages will be published later. Maybe you can install required packages manually.
+> **For Manjaro users:** Hyprland and required packages are under ongoing development. That's why it could be possible that some packages are not immediately available on Manjaro. But usually, the packages will be published later. Maybe you can install required packages manually.
 
 > **For Arco Linux users**: Please install hyprutils first with `yay -S extra/hyprutils`
 

@@ -18,7 +18,7 @@ chmod +x automation.sh
 Just run the installer again to see the defined installation steps automated.
 In case of an upcoming update or new installation the defined steps will be executed automatically.
 
-You can deactive the automation by renaming the file to `automation.bak`.
+You can deactivate the automation by renaming the file to `automation.bak`.
 
 ## Overview of the available automation parameter
 
@@ -63,7 +63,7 @@ automation_optional=false
 automation_backup=true
 
 # -----------------------------------------------------
-# INSTALLTION
+# INSTALLATION
 # true: Start the installation of new packages
 # -----------------------------------------------------
 automation_installation=true

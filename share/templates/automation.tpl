@@ -23,7 +23,7 @@ automation_dotfilesfolder="dotfiles"
 automation_backup=true
 
 # -----------------------------------------------------
-# INSTALLTION
+# INSTALLATION
 # true: Start the installation of new packages
 # -----------------------------------------------------
 automation_installation=true
