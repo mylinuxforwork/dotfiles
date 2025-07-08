@@ -17,7 +17,7 @@ The package includes an installation script that will guide you through all step
 https://github.com/mylinuxforwork/dotfiles/wiki/Installation
 -->
 
-The ML4W Dotfiles can be installed with the installer from the latest official release or with the latest commits from the tolling release (main branch)
+The ML4W Dotfiles can be installed with the installer from the latest official release or with the latest commits from the rolling release (main branch)
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/6B4Kf30CWLg" 
 title="ML4W YouTube Video" frameborder="0" 
