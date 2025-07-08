@@ -4,9 +4,18 @@
 
 [default]
 locale = "en-us"
-extend-ignore-re = [
-    "\\bcapitalise\\b"
-]
+
+[default.extend-words]
+colour = "colour" # british spell 
+ags = "ags"
+behaviour = "behaviour" # british spell
+Endeavour = "Endeavour"
+
+[default.extend-identifiers]
+capitaliseUsername = "capitaliseUsername"
+
+# [default.extend-ignore-re] # Uncomment to ignore words via regex patterns
+# "\\bNDKs\\b",               # e.g., acronym or brand names
 
 # [files]
 # ignore-hidden = false # Include hidden files
@@ -17,12 +26,3 @@ extend-ignore-re = [
 #  "*.bin",      # Ignore binary files
 #  ".git/",      # Ignore Git metadata
 # ]
-
-[default.extend-words]
-colour = "colour" # british spell 
-ags = "ags"
-behaviour = "behaviour" # british spell
-Endeavour = "Endeavour"
-
-# [default.extend-identifiers] # Uncomment to allow specific identifiers (case-sensitive)
-# ser = "ser"                 # e.g., serializer module name
