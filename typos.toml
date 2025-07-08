@@ -4,9 +4,9 @@
 
 [default]
 locale = "en-us"
-# Ignored typos regexes
-[extend-ignore-re]
-capitalise-username = "^capitaliseUsername=false$"
+extend-ignore-re = [
+    "^capitaliseUsername=false$"
+]
 
 # [files]
 # ignore-hidden = false # Include hidden files
