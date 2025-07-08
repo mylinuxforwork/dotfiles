@@ -118,21 +118,13 @@ _installYay() {
 }
 
 _installPackages() {
-    toInstall=()
     for pkg; do
         if [[ $(_isInstalled "${pkg}") == 0 ]]; then
             echo ":: ${pkg} is already installed."
             continue
         fi
-        toInstall+=("${pkg}")
+        yay --noconfirm -S "${pkg}"
     done
-    if [[ "${toInstall[@]}" == "" ]]; then
-        return
-    fi
-    if [[ ! ${toInstall[@]} == "cargo" ]]; then
-        printf "Package not installed:\n%s\n" "${toInstall[@]}"
-    fi
-    yay --noconfirm -S "${toInstall[@]}"
 }
 
 # Header

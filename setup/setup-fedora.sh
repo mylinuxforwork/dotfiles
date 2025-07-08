@@ -96,19 +96,13 @@ _isInstalled() {
 }
 
 _installPackages() {
-    toInstall=()
     for pkg; do
         if [[ $(_isInstalled "${pkg}") == 0 ]]; then
             echo "${pkg} is already installed."
             continue
         fi
-        toInstall+=("${pkg}")
+        sudo dnf install --assumeyes --skip-unavailable "${pkg}"
     done
-    if [[ "${toInstall[@]}" == "" ]]; then
-        return
-    fi
-    printf "Package not installed:\n%s\n" "${toInstall[@]}"
-    sudo dnf install --assumeyes --skip-unavailable "${toInstall[@]}"
 }
 
 # Header

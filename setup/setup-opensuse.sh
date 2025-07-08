@@ -92,13 +92,11 @@ _isInstalled() {
 }
 
 _installPackages() {
-    toInstall=()
     for pkg; do
         if [[ $(_isInstalled "${pkg}") == 0 ]]; then
             echo "${pkg} is already installed."
             continue
         fi
-        toInstall+=("${pkg}")
         sudo zypper -n install "${pkg}"
     done
 }
