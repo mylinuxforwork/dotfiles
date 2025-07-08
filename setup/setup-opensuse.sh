@@ -99,12 +99,8 @@ _installPackages() {
             continue
         fi
         toInstall+=("${pkg}")
+        sudo zypper -n install "${pkg}"
     done
-    if [[ "${toInstall[@]}" == "" ]]; then
-        return
-    fi
-    printf "Package not installed:\n%s\n" "${toInstall[@]}"
-    sudo zypper -n install "${toInstall[@]}"
 }
 
 # Header
