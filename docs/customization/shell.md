@@ -45,7 +45,7 @@ The keybinding for FZF key is `CTRL + R` for fuzzy history finder
 
 ### oh-my-posh
 
-The promt is based on `oh-my-posh` and the awesome configuration of the minimal but powerful zen prompt by **Dreams of Autonomy**
+The prompt is based on `oh-my-posh` and the awesome configuration of the minimal but powerful zen prompt by **Dreams of Autonomy**
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/9U8LCjuQzdc" 
 title="Dreams of Autonomy" frameborder="0" 

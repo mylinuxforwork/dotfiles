@@ -5,7 +5,7 @@
 [default]
 locale = "en-us"
 extend-ignore-re = [
-    "^capitaliseUsername=false$"
+    "\\bcapitalise\\b"
 ]
 
 # [files]
@@ -19,12 +19,10 @@ extend-ignore-re = [
 # ]
 
 [default.extend-words]
-colour = "colour" 
+colour = "colour" # british spell 
 ags = "ags"
-behaviour = "behaviour"
+behaviour = "behaviour" # british spell
 Endeavour = "Endeavour"
 
 # [default.extend-identifiers] # Uncomment to allow specific identifiers (case-sensitive)
 # ser = "ser"                 # e.g., serializer module name
-
-
