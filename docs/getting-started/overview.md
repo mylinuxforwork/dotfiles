@@ -31,7 +31,7 @@ The ML4W Dotfiles are tested with the following distributions:
 - Garuda Linux
 - Arco Linux
 - CachyOS
-- Fedora Workstation 41
+- Fedora Workstation 42
 
 > **For Manjaro users:** Hyprland and required packages are under ongoing development. That's why it could be possible that some packages are not immediately available on Manjaro. But usually, the packages will be published later. Maybe you can install required packages manually.
 
