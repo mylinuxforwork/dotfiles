@@ -41,7 +41,7 @@ elif [[ $shell == "zsh" ]]; then
     echo ":: Shell is now zsh."
 
     # Installing oh-my-posh
-    curl -s https://ohmyposh.dev/install.sh | sudo bash -s
+    curl -s https://ohmyposh.dev/install.sh | bash -s
 
     # Installing oh-my-zsh
     if [ ! -d "$HOME/.oh-my-zsh" ]; then

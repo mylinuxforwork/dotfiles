@@ -154,7 +154,7 @@ gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
 sudo yum install --assumeyes gum
 
 # Oh My Posh
-curl -s https://ohmyposh.dev/install.sh | sudo bash -s
+curl -s https://ohmyposh.dev/install.sh | bash -s
 
 # Cargo
 echo ":: Installing packages with cargo (this can take a while...)"
