@@ -57,7 +57,6 @@ packages=(
     "rofi-wayland"
     "polkit-gnome"
     "zsh"
-    "zsh-completions"
     "fzf"
     "pavucontrol"
     "papirus-icon-theme"
