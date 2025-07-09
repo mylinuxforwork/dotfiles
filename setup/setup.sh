@@ -41,7 +41,7 @@ EOF
     echo "5: Cancel"
     echo 
     while true; do
-        read -p "Plase select: " yn
+        read -p "Please select: " yn
         case $yn in
             1)
                 $SCRIPT_DIR/setup-arch.sh

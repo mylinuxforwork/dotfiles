@@ -2,7 +2,7 @@
 
 The ML4W Dotfiles are shipped with grimblast. You can open the screenshot menu with `SUPER + PRINT`
 
-Please follow the screenshot wizzard.
+Please follow the screenshot wizard.
 
 ![image](/screenshot.png)
 

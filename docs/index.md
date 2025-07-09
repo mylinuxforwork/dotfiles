@@ -45,9 +45,22 @@ description: An advanced and full-featured configuration for the dynamic tiling 
 
 <div align="center">
 
-### Setup 
+### Installation
 
-Get started by running the installation command in your terminal:
+You can install the ML4W Dotfiles for Hyprland with the Dotfiles Installer. Click in the badge below to install the app.
+
+<a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
+
+Copy the following url into to the Dotfiles Installer and start the installation:
+
+```sh
+https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
+```
+Setup scripts to install the required dependencies are included for <i class="devicon-archlinux-plain"></i> **Arch, <i class="devicon-fedora-plain"></i> Fedora and <i class="devicon-opensuse-plain"></i> openSuse Tumbleweed**. For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
+
+---
+
+Alternatively you can run the legacy installation scripts for Arch or Fedora.
 
 <i class="devicon-archlinux-plain"></i> **For Arch-based systems:**
 
@@ -55,24 +68,10 @@ Get started by running the installation command in your terminal:
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)"
 ```
 
----
-
 <i class="devicon-fedora-plain"></i> **For Fedora-based systems:**
 
 ```sh
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)"
-```
-
-**Or on any other distribution with Dotfiles Installer (Beta):**
-
-<a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
-
-The setup scripts included for Arch, Fedora and openSuse Tumbleweed. For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
-
-Copy the following url to the Dotfiles Installer:
-
-```sh
-https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
 
 </div>

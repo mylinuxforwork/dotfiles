@@ -11,18 +11,9 @@
 > [!NOTE]
 > This Wiki is covering the latest features of the ML4W Dotfiles. Please make sure that the latest version of the ML4W Dotfiles is installed on your system. Follow the installation and update instructions.
 
-The package includes an installation script that will guide you through all steps of the installation or update process.
+The ML4W Dotfiles can be installed with the Dotfiles Installer.
 
-<!--
-https://github.com/mylinuxforwork/dotfiles/wiki/Installation
--->
-
-The ML4W Dotfiles can be installed with the installer from the latest official release or with the latest commits from the rolling release (main branch)
-
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/6B4Kf30CWLg" 
-title="ML4W YouTube Video" frameborder="0" 
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-allowfullscreen></iframe>
+<a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
 
 ## Latest features
 
@@ -42,7 +33,7 @@ The ML4W Dotfiles are tested with the following distributions:
 - CachyOS
 - Fedora Workstation 41
 
-> **For Manjaro users:** Hyprland and required packages are under ongoing development. That's why it could be possible that some packages are not immediatly available on Manjaro. But usually, the packages will be published later. Maybe you can install required packages manually.
+> **For Manjaro users:** Hyprland and required packages are under ongoing development. That's why it could be possible that some packages are not immediately available on Manjaro. But usually, the packages will be published later. Maybe you can install required packages manually.
 
 > **For Arco Linux users**: Please install hyprutils first with `yay -S extra/hyprutils`
 
