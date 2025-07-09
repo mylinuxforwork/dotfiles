@@ -66,7 +66,6 @@ packages=(
     "bibata-cursor-themes"
     "fontawesome-fonts"
     "dejavu-fonts-all"
-    "flatpak"
     "NetworkManager-tui"
     "nwg-dock-hyprland"
 )
