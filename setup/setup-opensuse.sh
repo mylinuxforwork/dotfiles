@@ -24,7 +24,7 @@ packages=(
     "fastfetch"
     "xdg-desktop-portal-gtk"
     "eza"
-    "python313-pip"
+    "python313-pipx"
     "tumbler"
     "brightnessctl"
     "ImageMagick"
