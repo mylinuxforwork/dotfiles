@@ -58,22 +58,6 @@ https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles
 ```
 Setup scripts to install the required dependencies are included for <i class="devicon-archlinux-plain"></i> **Arch, <i class="devicon-fedora-plain"></i> Fedora and <i class="devicon-opensuse-plain"></i> openSuse Tumbleweed**. For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
 
----
-
-Alternatively you can run the legacy installation scripts for Arch or Fedora.
-
-<i class="devicon-archlinux-plain"></i> **For Arch-based systems:**
-
-```sh
-bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)"
-```
-
-<i class="devicon-fedora-plain"></i> **For Fedora-based systems:**
-
-```sh
-bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)"
-```
-
 </div>
 
 <style>
