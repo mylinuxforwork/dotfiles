@@ -56,7 +56,8 @@ Copy the following url into to the Dotfiles Installer and start the installation
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
-Setup scripts to install the required dependencies are included for <i class="devicon-archlinux-plain"></i> **Arch, <i class="devicon-fedora-plain"></i> Fedora and <i class="devicon-opensuse-plain"></i> openSuse Tumbleweed**. For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
+Setup scripts to install the required dependencies are included for <i class="devicon-archlinux-plain"></i> **Arch, <i class="devicon-fedora-plain"></i> Fedora and <i class="devicon-opensuse-plain"></i> openSuse Tumbleweed**.<br>
+For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
 
 </div>
 
