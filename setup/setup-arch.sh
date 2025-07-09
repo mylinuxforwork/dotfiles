@@ -169,7 +169,7 @@ fi
 _installPackages "${packages[@]}"
 
 # Oh My Posh
-sudo curl -s https://ohmyposh.dev/install.sh | bash -s
+curl -s https://ohmyposh.dev/install.sh | sudo bash -s
 
 # Cargo
 echo ":: Installing packages with cargo (this can take a while...)"
