@@ -43,4 +43,7 @@ fi
 # -----------------------------------------------------
 
 echo ":: Setting wallpaper with source image $wallpaper"
+if [ -f ~/.local/bin/waypaper ]; then
+    export PATH=$PATH:~/.local/bin/
+fi
 waypaper --wallpaper "$wallpaper"
