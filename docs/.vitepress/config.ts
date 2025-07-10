@@ -100,7 +100,6 @@ export default {
           collapsed: true,
           items: [
             { text: "Preserve Config & Customize", link: "/configuration/preserve-config" },
-            { text: "Auto Setup & Update", link: "/configuration/auto-setup" },
             { text: "Use on Other Distros", link: "/configuration/distros" },
             { text: "Monitor Setup", link: "/configuration/monitor-setup" },
             { text: "Hyprland + NVIDIA", link: "/configuration/hypr-nvidia" },
