@@ -1,3 +1,5 @@
+# Use on other Distros
+
 > [!CAUTION]
 > The following instructions are barely tested and in BETA. But you can give it a try and please report back your experiences.
 

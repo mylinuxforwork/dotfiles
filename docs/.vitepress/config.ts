@@ -100,7 +100,7 @@ export default {
           collapsed: true,
           items: [
             { text: "Preserve Config & Customize", link: "/configuration/preserve-config" },
-            { text: "Use on Other Distros", link: "/configuration/distros" },
+            { text: "Use on other Distros", link: "/configuration/distros" },
             { text: "Monitor Setup", link: "/configuration/monitor-setup" },
             { text: "Hyprland + NVIDIA", link: "/configuration/hypr-nvidia" },
             { text: "Switch SDL (X11/Wayland)", link: "/configuration/xwayland" },
@@ -115,7 +115,6 @@ export default {
             { text: "Screenshots", link: "/usage/screenshots" },
             { text: "Game Mode", link: "/usage/game-mode" },
             { text: "Wallpapers", link: "/usage/wallpapers" },
-            { text: "Power & Screenlock", link: "/usage/power-lock" },
           ],
         },
         {
