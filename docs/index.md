@@ -47,11 +47,11 @@ description: An advanced and full-featured configuration for the dynamic tiling 
 
 ### Installation
 
-You can install the ML4W Dotfiles for Hyprland with the Dotfiles Installer.<br>Click in the badge below to install the app.
+You can install the ML4W Dotfiles for Hyprland with the Dotfiles Installer from Flathub.<br>Click on the badge below to install the app.
 
 <a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
 
-Copy the following url into to the Dotfiles Installer and start the installation:
+Copy the following url into the Dotfiles Installer and start the installation:
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
