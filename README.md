@@ -8,7 +8,7 @@ An advanced configuration of Hyprland for Arch Linux based distributions. Full d
 
 ## Installation and Documentation (NEW)
 
-You can find the installation guide and the documentation of the ML4W Dotfiles for Hyprland here: <b>https://mylinuxforwork.github.io/dotfiles/</b>
+You can find the installation guide and the documentation of the ML4W Dotfiles for Hyprland here:<br><b>https://mylinuxforwork.github.io/dotfiles/</b>
 
 YouTube Video https://youtu.be/gtjzAjt39Og
 
