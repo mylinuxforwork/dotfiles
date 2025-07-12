@@ -37,7 +37,7 @@ The Dotfiles will be installed into the folder `~/.mydotfiles` with symbolic lin
 Install the following dependencies on a minimal Arch Linux installation
 
 ```sh [<i class="devicon-archlinux-plain"></i> Arch]
-sudo pacman -S hyprland vim wget curl kitty wofi firefox flatpak
+sudo pacman -S hyprland vim wget curl kitty rofi firefox flatpak
 
 ```
 Reboot and then start Hyprland with 
