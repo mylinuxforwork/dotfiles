@@ -28,7 +28,12 @@ Copy the following url into the Dotfiles Installer:
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
 
-Setup scripts to install the required dependencies are included for Arch, Fedora and openSuse Tumbleweed. For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
+Setup scripts to install the required dependencies are included for Arch, Fedora and openSuse Tumbleweed. 
+
+> [!NOTE]
+> The installation of dependencies can take between 15 to 30 minutes. 
+
+For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
 
 The Dotfiles will be installed into the folder `~/.mydotfiles` with symbolic links into `~/.config`.
 
