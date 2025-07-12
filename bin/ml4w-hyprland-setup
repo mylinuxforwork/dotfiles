@@ -136,7 +136,7 @@ _run_dotfiles() {
 }
 
 # -----------------------------------------------------
-# Run unstaller
+# Run uninstaller
 # -----------------------------------------------------
 _run_options() {
     source $options_directory/options.sh

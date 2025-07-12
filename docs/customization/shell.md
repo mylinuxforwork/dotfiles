@@ -1,12 +1,8 @@
-<div align="center" class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
+# Shell (ZSH & Bash)
 
-**You can switch between zsh and bash with the ML4W Welcome App.**
+The ML4W Dotfiles for Hyprland are shipped with configurations for bash and zsh. You can change the shell from the ML4W Welcome App: Settings/System/Change Shell.
 
-</div>
-
-![image](/shell.png)
-
-Click on Installation Options and change your shell.
+![image](/change-shell.jpg)
 
 ## Customize the `.zshrc`
 
@@ -29,7 +25,7 @@ Your customization is protected from ML4W Updates.
 
 ### oh-my-zsh
 
-The zsh configuration is based on `oh-my-zsh` to manage plugins and `oh-my-posh` to setup the promt. The following plugins are installed:
+The zsh configuration is based on `oh-my-zsh` to manage plugins and `oh-my-posh` to setup the prompt. The following plugins are installed:
 
 ```sh
 plugins=(
@@ -51,7 +47,7 @@ The keybinding for FZF key is `CTRL + R` for fuzzy history finder
 
 ### oh-my-posh
 
-The promt is based on `oh-my-posh` and the awesome configuration of the minimal but powerful zen promt by **Dreams of Autonomy**
+The prompt is based on `oh-my-posh` and the awesome configuration of the minimal but powerful zen prompt by **Dreams of Autonomy**
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/9U8LCjuQzdc" 
 title="Dreams of Autonomy" frameborder="0" 
@@ -62,7 +58,7 @@ If you want to create your own custom theme save your configuration in `~/.confi
 
 ```sh
 # -----------------------------------------------------
-# oh-my-posh promt
+# oh-my-posh prompt
 # -----------------------------------------------------
 # Custom Theme
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"

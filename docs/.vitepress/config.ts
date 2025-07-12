@@ -28,7 +28,7 @@ export default {
         activeMatch: "/showcases/",
       },
      {
-        text: "2.9.8.6",
+        text: "2.9.8.7",
         items: [
           {
             text: 'Changelog',
@@ -40,13 +40,13 @@ export default {
         text: "More",
         items: [
           {
-            text: 'Dotfiles Installer',
+            text: 'ML4W Dotfiles Installer',
 //          we can define like this, see below in sidebar section for more info  
 //          link: '/dots-installer/overview'
-            link: 'https://github.com/mylinuxforwork/dotfiles-installer'
+            link: 'https://mylinuxforwork.github.io/dotfiles-installer/'
           },
           {
-            text: 'Hyprland Starter',
+            text: 'ML4W Hyprland Starter',
             link: 'https://github.com/mylinuxforwork/hyprland-starter'
           },
           {
@@ -91,8 +91,7 @@ export default {
           items: [
             { text: "Overview", link: "/getting-started/overview" },
             { text: "Install", link: "/getting-started/install" },
-            { text: "Install Options", link: "/getting-started/options" },
-            { text: "Install in VM (KVM)", link: "/getting-started/vm-install" },
+            { text: "Dependencies", link: "/getting-started/dependencies" },
             { text: "Update", link: "/getting-started/update" },
           ],
         },
@@ -101,8 +100,7 @@ export default {
           collapsed: true,
           items: [
             { text: "Preserve Config & Customize", link: "/configuration/preserve-config" },
-            { text: "Auto Setup & Update", link: "/configuration/auto-setup" },
-            { text: "Use on Other Distros", link: "/configuration/distros" },
+            { text: "Use on other Distros", link: "/configuration/distros" },
             { text: "Monitor Setup", link: "/configuration/monitor-setup" },
             { text: "Hyprland + NVIDIA", link: "/configuration/hypr-nvidia" },
             { text: "Switch SDL (X11/Wayland)", link: "/configuration/xwayland" },
@@ -117,7 +115,6 @@ export default {
             { text: "Screenshots", link: "/usage/screenshots" },
             { text: "Game Mode", link: "/usage/game-mode" },
             { text: "Wallpapers", link: "/usage/wallpapers" },
-            { text: "Power & Screenlock", link: "/usage/power-lock" },
           ],
         },
         {

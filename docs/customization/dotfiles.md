@@ -17,7 +17,7 @@ The easiest way is using the shipped ML4W Apps. Just click on the ML4W logo an t
 
 ## ML4W Welcome App
 
-![image](/welcome.png)
+![image](/welcome.jpg)
 
 The ML4W Welcome App is an easy access point to several fundamental system settings. 
 

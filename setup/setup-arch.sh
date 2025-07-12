@@ -10,7 +10,6 @@ packages=(
     "git"
     "figlet"
     "xdg-user-dirs"    
-    # Hyprland
     "hyprland"
     "hyprpaper"
     "hyprlock"
@@ -29,6 +28,7 @@ packages=(
     "fastfetch"
     "xdg-desktop-portal-gtk"
     "eza"
+    "nautilus"
     "python-pip"
     "python-gobject"
     "python-screeninfo"
@@ -47,7 +47,6 @@ packages=(
     "htop"
     "rust"
     "cargo"
-    "pinta"
     "blueman"
     "grim"
     "slurp"
@@ -79,7 +78,6 @@ packages=(
     "ttf-firacode-nerd"
     "ttf-dejavu"
     "nwg-dock-hyprland"
-    "oh-my-posh-bin"
     "checkupdates-with-aur"
     "loupe"
     "power-profiles-daemon"
@@ -122,21 +120,13 @@ _installYay() {
 }
 
 _installPackages() {
-    toInstall=()
     for pkg; do
         if [[ $(_isInstalled "${pkg}") == 0 ]]; then
             echo ":: ${pkg} is already installed."
             continue
         fi
-        toInstall+=("${pkg}")
+        yay --noconfirm -S "${pkg}"
     done
-    if [[ "${toInstall[@]}" == "" ]]; then
-        return
-    fi
-    if [[ ! ${toInstall[@]} == "cargo" ]]; then
-        printf "Package not installed:\n%s\n" "${toInstall[@]}"
-    fi
-    yay --noconfirm -S "${toInstall[@]}"
 }
 
 # Header
@@ -180,11 +170,17 @@ fi
 # Packages
 _installPackages "${packages[@]}"
 
+# Oh My Posh
+curl -s https://ohmyposh.dev/install.sh | bash -s
+
 # Cargo
-cargo install -q matugen
-cargo install -q wallust
+echo ":: Installing packages with cargo (this can take a while...)"
+cargo install matugen
+cargo install wallust
 
 # ML4W Apps
+echo ":: Installing the ML4W Apps"
+
 ml4w_app="com.ml4w.welcome"
 ml4w_app_repo="dotfiles-welcome"
 echo ":: Installing $ml4w_app"
@@ -209,6 +205,9 @@ ml4w_app="com.ml4w.hyprlandsettings"
 ml4w_app_repo="hyprland-settings"
 echo ":: Installing $ml4w_app"
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
+
+# Flatpaks
+flatpak install -y flathub com.github.PintaProject.Pinta
 
 # Fonts
 sudo cp -rf $SCRIPT_DIR/fonts/FiraCode /usr/share/fonts

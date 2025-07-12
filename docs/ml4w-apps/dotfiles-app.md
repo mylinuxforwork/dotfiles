@@ -4,7 +4,7 @@ You can open the ML4W dotfiles settings app with `SUPER + CTRL + S` to change se
 
 </div>
 
-![Screenshot](/dot-settings.png)
+![Screenshot](/settings.jpg)
 
 You can create custom variations by copying a file from the `~/dotfiles/hypr/conf` subfolders like `monitor/default.conf`, give the file a custom name (e.g., `mymonitor.conf`) and select the variation in the dotfiles settings app in the corresponding section.
 

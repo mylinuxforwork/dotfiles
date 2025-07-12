@@ -10,35 +10,33 @@ packages=(
     "git"
     "figlet"
     "xdg-user-dirs"
-    # Hyprland
     "hyprland"
     "hyprpaper"
     "hyprlock"
     "hypridle"
     "hyprpicker"
     "noto-fonts"
-    "noto-fonts-emoji"
-    "noto-fonts-cjk"
-    "noto-fonts-extra"
+    "google-noto-emoji-fonts"
+    "google-noto-sans-cjk-fonts"
     "xdg-desktop-portal-hyprland"
     "libnotify"
     "kitty"
-    "qt5-wayland"
-    "qt6-wayland"
+    "qt5-qtwayland"
+    "qt6-qtwayland"
     "uwsm"
     "fastfetch"
     "xdg-desktop-portal-gtk"
-    "eza"
-    "python-3pip"
-    "python-gobject"
+    "python-pip"
+    "python3-gobject"
     "tumbler"
     "brightnessctl"
     "nm-connection-editor"
     "network-manager-applet"
     "gtk4"
     "libadwaita"
-    "fuse2"
-    "imageMagick"
+    "fuse"
+    "nautilus"
+    "ImageMagick"
     "jq"
     "xclip"
     "kitty"
@@ -46,8 +44,8 @@ packages=(
     "htop"
     "rust"
     "cargo"
-    "pinta"
     "blueman"
+    "waypaper"
     "grim"
     "slurp"
     "cliphist"
@@ -66,13 +64,9 @@ packages=(
     "SwayNotificationCenter"
     "gvfs"
     "wlogout"
-    "hyprshade"
-    "pinta"
     "bibata-cursor-themes"
-    "fontawesome-6-free-fonts"
-    "mozilla-fira-sans-fonts"
-    "fira-code-fonts"
-    "flatpak"
+    "fontawesome-fonts"
+    "dejavu-fonts-all"
     "NetworkManager-tui"
     "nwg-dock-hyprland"
 )
@@ -92,7 +86,7 @@ _checkCommandExists() {
 
 _isInstalled() {
     package="$1"
-    check=$(yum list installed | grep $package)
+    check=$(dnf list --installed | grep $package)
     if [ -z "$check" ]; then
         echo 1
         return #false
@@ -103,19 +97,13 @@ _isInstalled() {
 }
 
 _installPackages() {
-    toInstall=()
     for pkg; do
         if [[ $(_isInstalled "${pkg}") == 0 ]]; then
             echo "${pkg} is already installed."
             continue
         fi
-        toInstall+=("${pkg}")
+        sudo dnf install --assumeyes --skip-unavailable "${pkg}"
     done
-    if [[ "${toInstall[@]}" == "" ]]; then
-        return
-    fi
-    printf "Package not installed:\n%s\n" "${toInstall[@]}"
-    sudo dnf install --assumeyes "${toInstall[@]}"
 }
 
 # Header
@@ -151,7 +139,7 @@ done
 sudo dnf copr enable --assumeyes solopasha/hyprland
 sudo dnf copr enable --assumeyes peterwu/rendezvous
 sudo dnf copr enable --assumeyes wef/cliphist
-sudo dnf copr enable --assumeyes "tofik/nwg-shell"
+sudo dnf copr enable --assumeyes tofik/nwg-shell
 sudo dnf copr enable --assumeyes erikreider/SwayNotificationCenter
 
 # Packages
@@ -167,15 +155,16 @@ gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
 sudo yum install --assumeyes gum
 
 # Oh My Posh
-sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
-sudo chmod +x /usr/local/bin/oh-my-posh
+curl -s https://ohmyposh.dev/install.sh | bash -s
 
 # Cargo
-cargo install -q matugen
-cargo install -q wallust
-cargo install -q eza
+echo ":: Installing packages with cargo (this can take a while...)"
+cargo install matugen
+cargo install wallust
+cargo install eza
 
 # Pip
+echo ":: Installing packages with pip"
 sudo pip install hyprshade
 sudo pip install pywalfox
 sudo pywalfox install
@@ -183,6 +172,8 @@ sudo pip install screeninfo
 sudo pip install waypaper
 
 # ML4W Apps
+echo ":: Installing the ML4W Apps"
+
 ml4w_app="com.ml4w.welcome"
 ml4w_app_repo="dotfiles-welcome"
 echo ":: Installing $ml4w_app"
@@ -207,6 +198,12 @@ ml4w_app="com.ml4w.hyprlandsettings"
 ml4w_app_repo="hyprland-settings"
 echo ":: Installing $ml4w_app"
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
+
+# Flatpaks
+flatpak install -y flathub com.github.PintaProject.Pinta
+
+# Grimblast
+sudo cp $SCRIPT_DIR/scripts/grimblast /usr/bin
 
 # Fonts
 sudo cp -rf $SCRIPT_DIR/fonts/FiraCode /usr/share/fonts

@@ -1,6 +1,6 @@
 # Wallpaper with hyprpaper (swww optional supported)
 
-Included is a pywal configuration that changes the color scheme based on a randomly selected wallpaper. With the key binding below you can change the wallpaper stored in the folder `~/wallpaper/`.
+Included is a matugen and wallust configuration that changes the color scheme based on a randomly selected wallpaper.
 
 ### 🎨 Wallpaper Keybindings
 
@@ -9,9 +9,6 @@ Included is a pywal configuration that changes the color scheme based on a rando
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> | Change wallpaper (random from `~/wallpaper/`) |
 | <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>W</kbd> | Open Waypaper |
 | <kbd>SUPER</kbd> + <kbd>ALT</kbd> + <kbd>W</kbd> | Start/Stop wallpaper automation |
-
-> [!NOTE]  
-> Please make sure you don't have a space in the file name. Pywal will then not be able to generate the color scheme.
 
 ![image](/wallpapers.png)
 

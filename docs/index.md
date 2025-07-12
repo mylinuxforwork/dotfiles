@@ -8,7 +8,7 @@ hero:
     src: /ml4w.png
     alt: Linux logo
     style: "width: 200px; height: auto;"
-  tagline: An advanced and full-featured configuration for the dynamic tiling window manager Hyprland including an easy to use installation script for Arch and Fedora based Linux distributions.
+  tagline: An advanced and full-featured configuration for the dynamic tiling window manager Hyprland.
   actions:
     - theme: brand
       text: Get Started 
@@ -23,11 +23,7 @@ hero:
 features:
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/807/807262.png" alt="scripts"/>
     title: One Script to Rule Them All
-    details: Includes a powerful installation script to automate everything on Arch or Fedora based systems.
-
-  - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/8142/8142663.png" alt="distro"/>
-    title: For Arch & Fedora (more coming soon)
-    details: Fully compatible with both Arch and Fedora, with intelligent behavior based on the detected system.
+    details: Includes a powerful installation script to automate everything on Arch or Fedora based systems. Or use the Dotfiles Installer for other distros.
 
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/16076/16076100.png" alt="theme"/>
     title: Dynamic Themes & Desktop
@@ -49,23 +45,19 @@ description: An advanced and full-featured configuration for the dynamic tiling 
 
 <div align="center">
 
-### Setup 
+### Installation
 
-Get started by running the installation command in your terminal:
+You can install the ML4W Dotfiles for Hyprland with the Dotfiles Installer.<br>Click in the badge below to install the app.
 
-<i class="devicon-archlinux-plain"></i> **For Arch-based systems:**
+<a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
 
-```sh
-bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)"
-```
-
----
-
-<i class="devicon-fedora-plain"></i> **For Fedora-based systems:**
+Copy the following url into to the Dotfiles Installer and start the installation:
 
 ```sh
-bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)"
+https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
+Setup scripts to install the required dependencies are included for <i class="devicon-archlinux-plain"></i> **Arch, <i class="devicon-fedora-plain"></i> Fedora and <i class="devicon-opensuse-plain"></i> openSuse Tumbleweed**.<br>
+For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
 
 </div>
 
