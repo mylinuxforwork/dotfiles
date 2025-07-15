@@ -68,6 +68,7 @@ packages=(
     "dejavu-fonts-all"
     "NetworkManager-tui"
     "nwg-dock-hyprland"
+    "vlc"
 )
 
 GREEN='\033[0;32m'

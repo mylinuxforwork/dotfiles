@@ -62,6 +62,7 @@ packages=(
     "fira-code-fonts"
     "NetworkManager-tui"
     "nwg-dock-hyprland"
+    "vlc"
 )
 
 GREEN='\033[0;32m'

@@ -80,6 +80,7 @@ packages=(
     "loupe"
     "power-profiles-daemon"
     "python-pywalfox"
+    "vlc"
 )
 
 GREEN='\033[0;32m'
