@@ -1,5 +1,5 @@
 {
-	"name": "ML4W Dotfiles for Hyprland",
+	"name": "ML4W Dotfiles for Hyprland (Stable)",
 	"id": "com.ml4w.dotfiles",
 	"description": "Advanced configuration for the dynamic tiling window manager Hyprland",
 	"version":"2.9.8.7",
