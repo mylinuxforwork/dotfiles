@@ -82,6 +82,7 @@ nwg-dock-hyprland
 checkupdates-with-aur
 power-profiles-daemon
 python-pywalfox
+vlc
 
 ```
 
