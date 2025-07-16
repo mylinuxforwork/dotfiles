@@ -22,7 +22,14 @@ You can install the ML4W Dotfiles for Hyprland on any distribution by using the 
 
 <a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
 
-Copy the following url into the Dotfiles Installer:
+Copy the following url into the Dotfiles Installer.
+
+#### Stable Release 2.9.8.7 (Requires Dotfiles Installer 0.8.9 or newer)
+
+```sh
+https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable.dotinst
+```
+#### Rolling Release
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
