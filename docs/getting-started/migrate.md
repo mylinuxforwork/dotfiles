@@ -2,27 +2,28 @@
 
 The ML4W Dotfiles for Hyprland will be installed with the Dotfiles Installer. You can migrate your legacy installtion to the new Dotfiles Installer setup by following the next steps.
 
-## 1. Install the Dotfiles Installer
+::: info
+Version 0.9.1 of the Dotfiles Instakker or higher is required
+:::
+
+### 1. Install the Dotfiles Installer
 
 Click on the badge below to install the Dotfiles Installer from Flathub.
 
 <a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
 
-> [!NOTE]
-> Version 0.9.1 or higher is required
-
-## 2. Start the Dotfiles Installer
+### 2. Start the Dotfiles Installer
 
 Open the app launcher to start the app or run 
 
 ```sh
 flatpak run com.ml4w.dotfilesinstaller
 ```
-## 3. Load the .dotinst file and download the latest version
+### 3. Load the .dotinst file and download the latest version
 
 Copy the following url into the Dotfiles Installer and click on Load.
 
-#### Stable Release 2.9.8.7 (Requires Dotfiles Installer 0.8.9 or newer)
+#### Stable Release
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable.dotinst
@@ -36,19 +37,23 @@ Then click on Download to download the latest version.
 
 Run the setup script to install the latest dependencies.
 
-> [!NOTE]
-> You can probably skip the setup step when you have already installed the latest version before.
+::: info
+You can probably skip the setup step when you have already installed the latest version before.
+:::
 
-## 4. Create the target folder and migrate your files
+### 4. Migrate the dotfiles
 
-Then replace all files in the `prepared` folder.
+After downloading the dotfiles, click on the folder menu and select `Open Prepared Folder`. Replace all files in the `prepared` folder with the files and folders of `~/dotfiles`.
 
-Then click on `Next`.
+![image](/migrate.jpg)
 
+Then click on `Migrate from Prepared Folder`.
 
-## Protect your configuration
+### 5. Protect your configuration
 
-## Install your dotfiles
+In case that you have custom adaptations of the dotfiles, please select the files and folder that you want to protect from overwriting during the installation or update. Your selection will be saved for upcoming updates. 
 
-Click on activate
+### 6. Install the dotfiles
+
+You can install and activate the dotfiles directly. 
 

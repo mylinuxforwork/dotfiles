@@ -90,7 +90,8 @@ export default {
           // collapsed: false,
           items: [
             { text: "Overview", link: "/getting-started/overview" },
-            { text: "Install", link: "/getting-started/install" },
+            { text: "Installation", link: "/getting-started/install" },
+            { text: "Migration", link: "/getting-started/migrate" },
             { text: "Dependencies", link: "/getting-started/dependencies" },
             { text: "Update", link: "/getting-started/update" },
           ],
