@@ -53,7 +53,10 @@ Then click on `Migrate from Prepared Folder`.
 
 In case that you have custom adaptations of the dotfiles, please select the files and folder that you want to protect from overwriting during the installation or update. Your selection will be saved for upcoming updates. 
 
-### 6. Install the dotfiles
+### 6. Install Dotfiles
 
 You can install and activate the dotfiles directly. 
 
+### 7. Update Dotfiles
+
+You can always update the Dotfiles from the Dotfiles Installer Start Screen to the latest version.
