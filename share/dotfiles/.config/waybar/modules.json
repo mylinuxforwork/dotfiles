@@ -189,14 +189,6 @@
     "escape": true
   },
 
-  // Hyprshade
-  "custom/hyprshade": {
-    "format": "",
-    "tooltip-format": "Toggle Screen Shader",
-    "on-click": "sleep 0.5; ~/.config/hypr/scripts/hyprshade.sh",
-    "on-click-right": "sleep 0.5; ~/.config/hypr/scripts/hyprshade.sh rofi"
-  },
-
   // Hypridle inhibitor
   "custom/hypridle": {
     "format": "",

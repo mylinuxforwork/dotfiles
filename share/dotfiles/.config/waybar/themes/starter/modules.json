@@ -65,14 +65,6 @@
         "tooltip": false
     },
 
-    // Hyprshade
-    "custom/hyprshade": {
-        "format": "",
-        "on-click": "sleep 0.1; ~/.config/hypr/scripts/hyprshade.sh",
-        "on-click-right": "sleep 0.1; ~/.config/hypr/scripts/hyprshade.sh rofi",
-        "tooltip": false
-    },
-
     // Hypridle inhibitor
     "custom/hypridle": {
         "format": "",
