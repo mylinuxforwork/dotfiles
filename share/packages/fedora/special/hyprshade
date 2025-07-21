@@ -1,1 +1,0 @@
-sudo pip install hyprshade &>> $(_getLogFile)

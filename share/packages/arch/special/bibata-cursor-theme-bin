@@ -1,1 +1,0 @@
-$aur_helper --noconfirm -S "bibata-cursor-theme-bin" &>> $(_getLogFile)

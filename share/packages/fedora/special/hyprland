@@ -1,2 +1,0 @@
-sudo dnf copr enable --assumeyes solopasha/hyprland &>> $(_getLogFile)
-sudo dnf install --assumeyes hyprland &>> $(_getLogFile)

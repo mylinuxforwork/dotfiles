@@ -1,9 +1,0 @@
-packages=(
-  "firefox"
-  "nautilus"
-  "gnome-text-editor"
-  "gnome-calculator"
-  "mpv"
-  "imv"
-  "ffmpegthumbnailer"
-)

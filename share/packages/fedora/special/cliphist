@@ -1,2 +1,0 @@
-sudo dnf copr enable --assumeyes wef/cliphist &>> $(_getLogFile)
-sudo dnf install --assumeyes cliphist &>> $(_getLogFile)

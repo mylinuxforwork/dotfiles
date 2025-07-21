@@ -7,7 +7,7 @@
 	"homepage": "https://mylinuxforwork.github.io/dotfiles/",
 	"dependencies": "https://mylinuxforwork.github.io/dotfiles/getting-started/dependencies",
 	"source": "Projects/dotfiles",
-	"subfolder": "share/dotfiles",
+	"subfolder": "dotfiles",
 	"dev":{
 		"ignore":"keyboard.conf,monitor.conf"
 	},

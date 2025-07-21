@@ -1,1 +1,0 @@
-$aur_helper --noconfirm -S "brave-bin" &>> $(_getLogFile)
