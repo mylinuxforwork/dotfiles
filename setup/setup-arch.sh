@@ -108,8 +108,12 @@ _isInstalled() {
 }
 
 _installYay() {
-    _installPackages "base-devel"
-    _installPackages "git"
+    if [[ ! $(_isInstalled "base-devel") == 0 ]]; then
+        sudo pacman --noconfirm -S "base-devel"
+    fi
+    if [[ ! $(_isInstalled "git") == 0 ]]; then
+        sudo pacman --noconfirm -S "git"
+    fi
     if [ -d $HOME/Downloads/yay ]; then
         rm -rf $HOME/Downloads/yay
     fi
