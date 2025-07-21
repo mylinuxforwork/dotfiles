@@ -26,7 +26,6 @@
 
     // Load Modules
     "include": [
-        "~/.config/ml4w/settings/waybar-quicklinks.json",
         "~/.config/waybar/themes/starter/modules.json"
     ],
 
@@ -34,8 +33,6 @@
     "modules-left": [
         "custom/appmenu",
         "custom/settings",
-        //"wlr/taskbar",
-        "group/quicklinks",
         "hyprland/window",
         "custom/starter"
     ],
@@ -49,7 +46,6 @@
     "modules-right": [
         "custom/updates",
         "pulseaudio",
-        //"backlight",
         "bluetooth",
         "battery", 
         "network",

@@ -113,7 +113,7 @@
     // Settings
     "custom/settings": {
         "format": "",
-        "on-click": "~/.config/ml4w/apps/ML4W_Dotfiles_Settings-x86_64.AppImage",
+        "on-click": "flatpak run com.ml4w.settings",
         "tooltip": false
     },
 
@@ -140,8 +140,8 @@
 
     // ML4W Welcome App
     "custom/ml4w-welcome": {
-        "on-click": "sleep 0.1 && ~/.config/ml4w/settings/ml4w-sidebar.sh",
-        "on-click-right": "sleep 0.1 && com.ml4w.welcome",
+        "on-click": "flatpak run com.ml4w.sidebar",
+        "on-click-right": "flatpak run com.ml4w.welcome",
         "format": " ",
         "tooltip-format": "Open Sidebar"
     },
@@ -188,7 +188,7 @@
     // Clock
     "clock": {
         "format": "{:%H:%M %a}",
-        "on-click": "ags -t calendar",
+        "on-click": "flatpak run com.ml4w.calendar",
         "tooltip": false
     },
 
@@ -284,10 +284,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}   {capacity}%",
-        "format-charging": "  {capacity}%",
-        "format-plugged": "  {capacity}%",
-        "format-alt": "{icon}  {time}",
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": [" ", " ", " ", " ", " "]

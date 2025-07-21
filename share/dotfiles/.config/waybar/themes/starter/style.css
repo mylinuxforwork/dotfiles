@@ -182,6 +182,10 @@ window#waybar.empty #window {
     color: @iconcolor;
 }
 
+#custom-settings {
+    margin-right:16px;
+}
+
 #custom-hyprshade {
     margin-right:12px;
 }
