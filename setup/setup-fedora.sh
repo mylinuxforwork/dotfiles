@@ -157,11 +157,21 @@ sudo yum install --assumeyes gum
 # Oh My Posh
 curl -s https://ohmyposh.dev/install.sh | bash -s
 
-# Cargo
-echo ":: Installing packages with cargo (this can take a while...)"
-cargo install matugen
-cargo install wallust
-cargo install eza
+# Prebuild Packages
+if [ ! -d $HOME/.local/bin ]; then
+    mkdir -p $HOME/.local/bin
+fi
+echo "Installing Matugen v2.4.1 into ~/.local/bin"
+# https://github.com/InioX/matugen/releases
+cp $SCRIPT_DIR/packages/matugen $HOME/.local/bin
+
+echo "Installing Wallust v3.4.0 into ~/.local/bin"
+# https://codeberg.org/explosion-mental/wallust/releases
+cp $SCRIPT_DIR/packages/wallust $HOME/.local/bin
+
+echo "Installing eza v0.23.0"
+# https://github.com/eza-community/eza/releases
+sudo cp $SCRIPT_DIR/packages/eza /usr/bin
 
 # Pip
 echo ":: Installing packages with pip"
