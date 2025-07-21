@@ -38,7 +38,7 @@ https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles
 Setup scripts to install the required dependencies are included for Arch, Fedora and openSuse Tumbleweed. 
 
 > [!NOTE]
-> The installation of dependencies can take between 15 to 30 minutes. 
+> The installation of dependencies can take between 10 to 20 minutes. 
 
 For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
 
