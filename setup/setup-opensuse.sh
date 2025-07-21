@@ -33,8 +33,6 @@ packages=(
     "kitty"
     "neovim"
     "htop"
-    "rust"
-    "cargo"
     "blueman"
     "grim"
     "slurp"

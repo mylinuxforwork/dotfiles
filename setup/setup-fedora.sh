@@ -42,8 +42,6 @@ packages=(
     "kitty"
     "neovim"
     "htop"
-    "rust"
-    "cargo"
     "blueman"
     "waypaper"
     "grim"
