@@ -114,13 +114,13 @@ _installYay() {
     if [[ ! $(_isInstalled "git") == 0 ]]; then
         sudo pacman --noconfirm -S "git"
     fi
-    if [ -d $HOME/Downloads/yay ]; then
-        rm -rf $HOME/Downloads/yay
+    if [ -d $HOME/Downloads/yay-bin ]; then
+        rm -rf $HOME/Downloads/yay-bin
     fi
     SCRIPT=$(realpath "$0")
     temp_path=$(dirname "$SCRIPT")
-    git clone https://aur.archlinux.org/yay.git $HOME/Downloads/yay
-    cd $HOME/Downloads/yay
+    git clone https://aur.archlinux.org/yay-bin.git $HOME/Downloads/yay-bin
+    cd $HOME/Downloads/yay-bin
     makepkg -si
     cd $temp_path
     echo ":: yay has been installed successfully."
