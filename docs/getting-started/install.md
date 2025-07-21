@@ -24,7 +24,7 @@ You can install the ML4W Dotfiles for Hyprland on any distribution by using the 
 
 Copy the following url into the Dotfiles Installer.
 
-#### Stable Release 2.9.8.7 (Requires Dotfiles Installer 0.8.9 or newer)
+#### Stable Release
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable.dotinst
@@ -44,12 +44,12 @@ For other distros, please install <a href="/dotfiles/getting-started/dependencie
 
 The Dotfiles will be installed into the folder `~/.mydotfiles` with symbolic links into `~/.config`.
 
-### Minimal Arch Linux
+### For Minimal Arch Linux installations
 
 Install the following dependencies on a minimal Arch Linux installation
 
 ```sh [<i class="devicon-archlinux-plain"></i> Arch]
-sudo pacman -S hyprland vim wget curl kitty wofi firefox flatpak
+sudo pacman -S hyprland vim kitty firefox flatpak
 
 ```
 Reboot and then start Hyprland with 
@@ -58,22 +58,7 @@ Reboot and then start Hyprland with
 Hyprland
 
 ```
-
-## By Distro (Legacy)
-
-Just copy the following command into your terminal and execute:
-
-::: code-group
-
-```sh [<i class="devicon-archlinux-plain"></i> Arch]
-bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)"
-```
-
-```sh [<i class="devicon-fedora-plain"></i> Fedora]
-bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)"
-```
-
-:::
+Open Firefox, open the Dotfiles Installer Homepage and follow the installation instructions.
 
 ::: warning AUR not supported anymore
 Please note that the AUR packages for the ML4W Dotfiles for Hyprland are not supported anymore. Please uninstall the package with 
@@ -82,35 +67,7 @@ Please note that the AUR packages for the ML4W Dotfiles for Hyprland are not sup
 yay -R ml4w-dotfiles # Main Release
 yay -R ml4w-dotfiles-git # Rolling Release
 ```
-
 :::
-
-::: info Installation folder
-The script will ask for an installation folder. Please enter a folder name without spaces. The script will create the folder for you and continue with the installation.
-
-You can also install multiple versions of the ML4W Dotfiles in parallel in different folders. You can switch between the folders with the included activation script (only works with 2.9.5 or higher). 
-:::
-
-## Installation with GIT (Rolling Release)
-
-You can install the dotfiles by cloning the latest version (rolling release):
-
-```sh
-# 1.) Change into your Downloads folder (create the folder if not available)
-cd ~/Downloads
-
-# 2.) Clone the dotfiles repository into the Downloads folder
-git clone --depth=1 https://github.com/mylinuxforwork/dotfiles.git
-
-# 3.) Change into the dotfiles/bin folder
-cd dotfiles/bin
-
-# 4.) Start the installation
-./ml4w-hyprland-setup
-```
-
-> [!NOTE]
-> Not all features will work, when you install the dotfiles from GIT.
 
 ## Install in a Virtual Machine (KVM)
 
