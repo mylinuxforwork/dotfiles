@@ -1,2 +1,0 @@
-sudo dnf copr enable --assumeyes "tofik/nwg-shell" &>> $(_getLogFile)
-sudo dnf install --assumeyes nwg-look &>> $(_getLogFile)

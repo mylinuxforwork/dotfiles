@@ -1,2 +1,0 @@
-sudo dnf copr enable --assumeyes peterwu/rendezvous &>> $(_getLogFile)
-sudo dnf install --assumeyes bibata-cursor-themes &>> $(_getLogFile)

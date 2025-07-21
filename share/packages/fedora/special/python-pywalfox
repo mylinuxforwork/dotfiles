@@ -1,2 +1,0 @@
-sudo pip install pywalfox &>> $(_getLogFile)
-sudo pywalfox install

@@ -1,4 +1,0 @@
-optdepends=(
-    "htop"
-    "btop"
-)
