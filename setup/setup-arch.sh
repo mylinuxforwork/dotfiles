@@ -109,10 +109,13 @@ _isInstalled() {
 
 _installYay() {
     _installPackages "base-devel"
+    if [ -d $HOME/Downloads/yay ]; then
+        rm -rf $HOME/Downloads/yay
+    fi
     SCRIPT=$(realpath "$0")
     temp_path=$(dirname "$SCRIPT")
-    git clone https://aur.archlinux.org/yay.git $download_folder/yay
-    cd $download_folder/yay
+    git clone https://aur.archlinux.org/yay.git $HOME/Downloads/yay
+    cd $HOME/Downloads/yay
     makepkg -si
     cd $temp_path
     echo ":: yay has been installed successfully."
