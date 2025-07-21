@@ -1,3 +1,7 @@
+Version 2.9.9
+--------------------------------------------------------
+- Remove legacy installer and folders restructured
+
 Version 2.9.8.8
 --------------------------------------------------------
 - Optimized setup scripts for Arch, Fedora and openSuse
