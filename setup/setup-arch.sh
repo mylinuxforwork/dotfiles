@@ -109,6 +109,7 @@ _isInstalled() {
 
 _installYay() {
     _installPackages "base-devel"
+    _installPackages "git"
     if [ -d $HOME/Downloads/yay ]; then
         rm -rf $HOME/Downloads/yay
     fi
