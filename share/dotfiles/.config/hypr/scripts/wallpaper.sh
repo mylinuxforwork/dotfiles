@@ -124,14 +124,14 @@ fi
 
 _writeLog "Execute matugen with $used_wallpaper"
 # $HOME/.cargo/bin/matugen image $used_wallpaper
-$HOME/.cargo/bin/matugen image $used_wallpaper -m "dark"
+$HOME/.local/bin/matugen image $used_wallpaper -m "dark"
 
 # -----------------------------------------------------
 # Execute wallust
 # -----------------------------------------------------
 
 _writeLog "Execute wallust with $used_wallpaper"
-$HOME/.cargo/bin/wallust run $used_wallpaper
+$HOME/.local/bin/wallust run $used_wallpaper
 
 # -----------------------------------------------------
 # Reload Waybar

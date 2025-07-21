@@ -45,8 +45,6 @@ packages=(
     "kitty"
     "neovim"
     "htop"
-    "rust"
-    "cargo"
     "blueman"
     "grim"
     "slurp"
@@ -181,9 +179,12 @@ _installPackages "${packages[@]}"
 curl -s https://ohmyposh.dev/install.sh | bash -s
 
 # Cargo
-echo ":: Installing packages with cargo (this can take a while...)"
-cargo install matugen
-cargo install wallust
+echo ":: Installing packages"
+if [ ! -d $HOME/.local/bin ]; then
+    mkdir -p $HOME/.local/bin
+fi
+cp $SCRIPT_DIR/packages/matugen $HOME/.local/bin
+cp $SCRIPT_DIR/packages/wallust $HOME/.local/bin
 
 # ML4W Apps
 echo ":: Installing the ML4W Apps"
