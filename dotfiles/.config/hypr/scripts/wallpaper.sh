@@ -123,7 +123,6 @@ fi
 # -----------------------------------------------------
 
 _writeLog "Execute matugen with $used_wallpaper"
-# $HOME/.cargo/bin/matugen image $used_wallpaper
 $HOME/.local/bin/matugen image $used_wallpaper -m "dark"
 
 # -----------------------------------------------------
@@ -137,7 +136,7 @@ $HOME/.local/bin/wallust run $used_wallpaper
 # Reload Waybar
 # -----------------------------------------------------
 
-sleep 2
+sleep 1
 $HOME/.config/waybar/launch.sh
 
 # -----------------------------------------------------

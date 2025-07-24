@@ -124,6 +124,7 @@ export default {
           items: [
             { text: "Dotfiles Customization", link: "/customization/dotfiles" },
             { text: "Config Variants", link: "/customization/variants" },
+            { text: "Display Manager", link: "/customization/displaymanager" },
             { text: "Customize Waybar", link: "/customization/waybar" },
             { text: "Shell (Zsh & Bash)", link: "/customization/shell" },
             { text: "Default Terminal", link: "/customization/terminal" },
