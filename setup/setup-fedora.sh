@@ -35,14 +35,13 @@ packages=(
     "gtk4"
     "libadwaita"
     "fuse"
+    "nautilus"
     "ImageMagick"
     "jq"
     "xclip"
     "kitty"
     "neovim"
     "htop"
-    "rust"
-    "cargo"
     "blueman"
     "waypaper"
     "grim"
@@ -65,9 +64,9 @@ packages=(
     "bibata-cursor-themes"
     "fontawesome-fonts"
     "dejavu-fonts-all"
-    "flatpak"
     "NetworkManager-tui"
     "nwg-dock-hyprland"
+    "vlc"
 )
 
 GREEN='\033[0;32m'
@@ -96,19 +95,13 @@ _isInstalled() {
 }
 
 _installPackages() {
-    toInstall=()
     for pkg; do
         if [[ $(_isInstalled "${pkg}") == 0 ]]; then
             echo "${pkg} is already installed."
             continue
         fi
-        toInstall+=("${pkg}")
+        sudo dnf install --assumeyes --skip-unavailable "${pkg}"
     done
-    if [[ "${toInstall[@]}" == "" ]]; then
-        return
-    fi
-    printf "Package not installed:\n%s\n" "${toInstall[@]}"
-    sudo dnf install --assumeyes --skip-unavailable "${toInstall[@]}"
 }
 
 # Header
@@ -160,13 +153,23 @@ gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
 sudo yum install --assumeyes gum
 
 # Oh My Posh
-sudo curl -s https://ohmyposh.dev/install.sh | bash -s
+curl -s https://ohmyposh.dev/install.sh | bash -s
 
-# Cargo
-echo ":: Installing packages with cargo"
-cargo install -q matugen
-cargo install -q wallust
-cargo install -q eza
+# Prebuild Packages
+if [ ! -d $HOME/.local/bin ]; then
+    mkdir -p $HOME/.local/bin
+fi
+echo "Installing Matugen v2.4.1 into ~/.local/bin"
+# https://github.com/InioX/matugen/releases
+cp $SCRIPT_DIR/packages/matugen $HOME/.local/bin
+
+echo "Installing Wallust v3.4.0 into ~/.local/bin"
+# https://codeberg.org/explosion-mental/wallust/releases
+cp $SCRIPT_DIR/packages/wallust $HOME/.local/bin
+
+echo "Installing eza v0.23.0"
+# https://github.com/eza-community/eza/releases
+sudo cp $SCRIPT_DIR/packages/eza /usr/bin
 
 # Pip
 echo ":: Installing packages with pip"

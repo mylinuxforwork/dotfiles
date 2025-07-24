@@ -1,0 +1,7 @@
+/* ---- Load colors ---- */
+@theme "~/.config/rofi/rofi-colors.rasi"
+
+* {
+    background: @on-primary;
+    foreground: @on-surface;
+}

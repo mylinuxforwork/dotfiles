@@ -28,7 +28,7 @@ export default {
         activeMatch: "/showcases/",
       },
      {
-        text: "2.9.8.7",
+        text: "2.9.8.8",
         items: [
           {
             text: 'Changelog',
@@ -90,7 +90,8 @@ export default {
           // collapsed: false,
           items: [
             { text: "Overview", link: "/getting-started/overview" },
-            { text: "Install", link: "/getting-started/install" },
+            { text: "Installation", link: "/getting-started/install" },
+            { text: "Migration", link: "/getting-started/migrate" },
             { text: "Dependencies", link: "/getting-started/dependencies" },
             { text: "Update", link: "/getting-started/update" },
           ],
@@ -100,8 +101,7 @@ export default {
           collapsed: true,
           items: [
             { text: "Preserve Config & Customize", link: "/configuration/preserve-config" },
-            { text: "Auto Setup & Update", link: "/configuration/auto-setup" },
-            { text: "Use on Other Distros", link: "/configuration/distros" },
+            { text: "Use on other Distros", link: "/configuration/distros" },
             { text: "Monitor Setup", link: "/configuration/monitor-setup" },
             { text: "Hyprland + NVIDIA", link: "/configuration/hypr-nvidia" },
             { text: "Switch SDL (X11/Wayland)", link: "/configuration/xwayland" },
@@ -116,7 +116,6 @@ export default {
             { text: "Screenshots", link: "/usage/screenshots" },
             { text: "Game Mode", link: "/usage/game-mode" },
             { text: "Wallpapers", link: "/usage/wallpapers" },
-            { text: "Power & Screenlock", link: "/usage/power-lock" },
           ],
         },
         {
@@ -125,6 +124,7 @@ export default {
           items: [
             { text: "Dotfiles Customization", link: "/customization/dotfiles" },
             { text: "Config Variants", link: "/customization/variants" },
+            { text: "Display Manager", link: "/customization/displaymanager" },
             { text: "Customize Waybar", link: "/customization/waybar" },
             { text: "Shell (Zsh & Bash)", link: "/customization/shell" },
             { text: "Default Terminal", link: "/customization/terminal" },

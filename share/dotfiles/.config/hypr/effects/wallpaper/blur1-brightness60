@@ -1,2 +1,0 @@
-magick $wallpaper -blur "50x30" $used_wallpaper
-magick $used_wallpaper -brightness-contrast -40% $used_wallpaper

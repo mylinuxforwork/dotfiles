@@ -1,3 +1,0 @@
-optdepends=(
-    "gnome-calculator"
-)

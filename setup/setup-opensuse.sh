@@ -24,7 +24,7 @@ packages=(
     "fastfetch"
     "xdg-desktop-portal-gtk"
     "eza"
-    "python313-pip"
+    "python313-pipx"
     "tumbler"
     "brightnessctl"
     "ImageMagick"
@@ -33,8 +33,6 @@ packages=(
     "kitty"
     "neovim"
     "htop"
-    "rust"
-    "cargo"
     "blueman"
     "grim"
     "slurp"
@@ -62,6 +60,7 @@ packages=(
     "fira-code-fonts"
     "NetworkManager-tui"
     "nwg-dock-hyprland"
+    "vlc"
 )
 
 GREEN='\033[0;32m'
@@ -92,19 +91,13 @@ _isInstalled() {
 }
 
 _installPackages() {
-    toInstall=()
     for pkg; do
         if [[ $(_isInstalled "${pkg}") == 0 ]]; then
             echo "${pkg} is already installed."
             continue
         fi
-        toInstall+=("${pkg}")
+        sudo zypper -n install "${pkg}"
     done
-    if [[ "${toInstall[@]}" == "" ]]; then
-        return
-    fi
-    printf "Package not installed:\n%s\n" "${toInstall[@]}"
-    sudo zypper -n install "${toInstall[@]}"
 }
 
 # Header
@@ -160,13 +153,23 @@ gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
 sudo yum install --assumeyes gum
 
 # Oh My Posh
-sudo curl -s https://ohmyposh.dev/install.sh | bash -s
+curl -s https://ohmyposh.dev/install.sh | bash -s
 
-# Cargo
-echo ":: Installing packages with cargo"
-cargo install -q matugen
-cargo install -q wallust
-cargo install -q eza
+# Prebuild Packages
+if [ ! -d $HOME/.local/bin ]; then
+    mkdir -p $HOME/.local/bin
+fi
+echo "Installing Matugen v2.4.1 into ~/.local/bin"
+# https://github.com/InioX/matugen/releases
+cp $SCRIPT_DIR/packages/matugen $HOME/.local/bin
+
+echo "Installing Wallust v3.4.0 into ~/.local/bin"
+# https://codeberg.org/explosion-mental/wallust/releases
+cp $SCRIPT_DIR/packages/wallust $HOME/.local/bin
+
+echo "Installing eza"
+sudo zypper ar https://download.opensuse.org/tumbleweed/repo/oss/ factory-oss
+sudo zypper -n install eza
 
 # Install waypaper dependencies before using pip
 sudo zypper install gcc pkg-config cairo-devel gobject-introspection-devel libgirepository-1_0-1-devel python3-devel libgtk-4-devel typelib-1_0-Gtk-4_0

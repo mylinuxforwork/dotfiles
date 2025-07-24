@@ -1,1 +1,0 @@
-$aur_helper --noconfirm -S "python-screeninfo" &>> $(_getLogFile)

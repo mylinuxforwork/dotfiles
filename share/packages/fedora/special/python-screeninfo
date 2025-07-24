@@ -1,1 +1,0 @@
-sudo pip install screeninfo &>> $(_getLogFile)

@@ -45,35 +45,26 @@ description: An advanced and full-featured configuration for the dynamic tiling 
 
 <div align="center">
 
-### Setup 
+### Installation
 
-Get started by running the installation command in your terminal:
-
-<i class="devicon-archlinux-plain"></i> **For Arch-based systems:**
-
-```sh
-bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)"
-```
-
----
-
-<i class="devicon-fedora-plain"></i> **For Fedora-based systems:**
-
-```sh
-bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)"
-```
-
-**Or on any other distribution with Dotfiles Installer (Beta):**
+You can install the ML4W Dotfiles for Hyprland with the Dotfiles Installer from Flathub.<br>Click on the badge below to install the app.
 
 <a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
 
-The setup scripts included for Arch, Fedora and openSuse Tumbleweed. For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
+Copy the following url into the Dotfiles Installer and start the installation.
 
-Copy the following url to the Dotfiles Installer:
+#### Stable Release
+
+```sh
+https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable.dotinst
+```
+#### Rolling Release
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
+Setup scripts to install the required dependencies are included for <i class="devicon-archlinux-plain"></i> **Arch, <i class="devicon-fedora-plain"></i> Fedora and <i class="devicon-opensuse-plain"></i> openSuse Tumbleweed**.<br>
+For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
 
 </div>
 

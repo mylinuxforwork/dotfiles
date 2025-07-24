@@ -1,5 +1,0 @@
-optdepends=(
-    "htop"
-    "btop"
-    "missioncenter"
-)

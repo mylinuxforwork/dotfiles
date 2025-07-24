@@ -1,6 +1,8 @@
 # Shell (ZSH & Bash)
 
-The ML4W Dotfiles for Hyprland are shipped with configurations for bash and zsh. 
+The ML4W Dotfiles for Hyprland are shipped with configurations for bash and zsh. You can change the shell from the ML4W Welcome App: Settings/System/Change Shell.
+
+![image](/change-shell.jpg)
 
 ## Customize the `.zshrc`
 
