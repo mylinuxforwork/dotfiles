@@ -2,6 +2,9 @@
 
 This tutorial will guide you through installing a display manager like SDDM and switching between different display managers like SDDM and GDM on a Linux system. Display managers provide a graphical login screen and manage user sessions.
 
+> [!NOTE]
+> The ML4W Dotfiles does not include a Display Manager configuration because of the prevention to manipulate a sensitive system resource like display managers directly.
+
 First update your package list before installing the display manager.
 
 ::: code-group
