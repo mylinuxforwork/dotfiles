@@ -80,7 +80,12 @@ _installPackages() {
 # Install Gum
 # --------------------------------------------------------------
 
-_installPackages "gum"
+if [[ $(_checkCommandExists "gum") == 0 ]]; then
+    echo ":: gum is already installed"
+else
+    echo ":: The installer requires gum. gum will be installed now"
+    sudo zypper -n install gum
+fi
 
 # --------------------------------------------------------------
 # Header

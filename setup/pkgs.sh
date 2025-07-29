@@ -6,6 +6,7 @@ general=(
     "unzip"
     "jq"
     "flatpak"
+    "vim"
 )
 
 hyprland=(

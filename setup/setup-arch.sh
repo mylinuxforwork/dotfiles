@@ -24,7 +24,6 @@ packages=(
     "python-screeninfo"
     "nm-connection-editor"
     "network-manager-applet"
-    # "fuse2"
     "imagemagick"
     "polkit-gnome"
     "hyprshade"
@@ -43,8 +42,6 @@ packages=(
     "bibata-cursor-theme-bin"
     "papirus-icon-theme"
     "breeze"
-    # "gtk4"
-    # "libadwaita"
     # Fonts
     "otf-font-awesome"
     "ttf-fira-sans"
