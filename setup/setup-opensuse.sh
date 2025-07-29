@@ -3,64 +3,31 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 packages=(
-    "wget"
-    "unzip"
-    "gum"
-    "rsync"
-    "git"
-    "figlet"
-    "xdg-user-dirs"
+    # Hyprland
     "hyprland-devel"
     "hyprland-qtutils"
-    "hyprpaper"
-    "hyprlock"
-    "hypridle"
-    "hyprpicker"
-    "xdg-desktop-portal-hyprland"
+    # Tools
+    "gum"
+    "eza"
     "libnotify-tools"
-    "kitty"
     "libqt5-qtwayland"
     "qt6-wayland"
-    "fastfetch"
-    "xdg-desktop-portal-gtk"
-    "eza"
     "python313-pipx"
-    "tumbler"
-    "brightnessctl"
     "ImageMagick"
-    "jq"
-    "xclip"
-    "kitty"
-    "neovim"
-    "htop"
-    "blueman"
-    "grim"
-    "slurp"
-    "cliphist"
-    "nwg-look"
-    "qt6ct"
-    "waybar"
     "NetworkManager-connection-editor"
-    "fontawesome-fonts"
-    "rofi-wayland"
-    "zsh"
-    "fzf"
-    "pavucontrol"
+    "NetworkManager-tui"
+    # Apps
+    "SwayNotificationCenter"
+    # Themes
     "papirus-icon-theme"
+    "breeze"
+    # Fonts
+    "mozilla-fira-sans-fonts"
+    "fira-code-fonts"
     "google-noto-fonts"
     "google-noto-emoji-fonts"
     "fontawesome-fonts"
     "dejavu-fonts"
-    "breeze"
-    "flatpak"
-    "SwayNotificationCenter"
-    "gvfs"
-    "wlogout"
-    "mozilla-fira-sans-fonts"
-    "fira-code-fonts"
-    "NetworkManager-tui"
-    "nwg-dock-hyprland"
-    "vlc"
 )
 
 GREEN='\033[0;32m'
@@ -142,15 +109,6 @@ sudo systemctl enable snapd
 sudo systemctl start snapd
 sudo systemctl enable snapd.apparmor
 sudo systemctl start snapd.apparmor
-
-# Gum
-echo '[charm]
-name=Charm
-baseurl=https://repo.charm.sh/yum/
-enabled=1
-gpgcheck=1
-gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
-sudo yum install --assumeyes gum
 
 # Oh My Posh
 curl -s https://ohmyposh.dev/install.sh | bash -s
