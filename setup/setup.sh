@@ -19,8 +19,8 @@ _selectDistribution() {
 # Header
 # ----------------------------------------------------------
 
-    clear
-    echo -e "${GREEN}"
+clear
+echo -e "${GREEN}"
 cat <<"EOF"
    ____    __          
   / __/__ / /___ _____ 

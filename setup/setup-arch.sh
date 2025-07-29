@@ -2,10 +2,19 @@
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+# --------------------------------------------------------------
+# General Packages
+# --------------------------------------------------------------
+
+source pkgs.sh
+
+# --------------------------------------------------------------
+# Distro related packages
+# --------------------------------------------------------------
+
 packages=(
     # Hyprland
     "hyprland"
-    "gum"
     "libnotify"
     "qt5-wayland"
     "qt6-wayland"
@@ -101,37 +110,39 @@ _installPackages() {
     done
 }
 
+# --------------------------------------------------------------
+# Install Gum
+# --------------------------------------------------------------
+
+_installPackages "gum"
+
+# --------------------------------------------------------------
 # Header
+# --------------------------------------------------------------
+
+clear
 echo -e "${GREEN}"
 cat <<"EOF"
-   ____         __       ____
-  /  _/__  ___ / /____ _/ / /__ ____
- _/ // _ \(_-</ __/ _ `/ / / -_) __/
-/___/_//_/___/\__/\_,_/_/_/\__/_/
-
+   ____    __          
+  / __/__ / /___ _____ 
+ _\ \/ -_) __/ // / _ \
+/___/\__/\__/\_,_/ .__/
+                /_/    
 EOF
-echo "ML4W Dotfiles for Hyprland"
+echo "ML4W Dotfiles for Hyprland for Arch"
 echo -e "${NONE}"
-while true; do
-    read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
-    case $yn in
-        [Yy]*)
-            echo ":: Installation started."
-            echo
-            break
-            ;;
-        [Nn]*)
-            echo ":: Installation canceled"
-            exit
-            break
-            ;;
-        *)
-            echo ":: Please answer yes or no."
-            ;;
-    esac
-done
+if gum confirm "DO YOU WANT TO START THE SETUP NOW?: "; then
+    echo ":: Installation started."
+    echo
+else
+    echo ":: Installation canceled"
+    exit
+fi
 
+# --------------------------------------------------------------
 # Install yay if needed
+# --------------------------------------------------------------
+
 if [[ $(_checkCommandExists "yay") == 0 ]]; then
     echo ":: yay is already installed"
 else
@@ -139,16 +150,54 @@ else
     _installYay
 fi
 
+# --------------------------------------------------------------
+# General
+# --------------------------------------------------------------
+
+_installPackages "${general[@]}"
+
+# --------------------------------------------------------------
+# Apps
+# --------------------------------------------------------------
+
+_installPackages "${apps[@]}"
+
+# --------------------------------------------------------------
+# Tools
+# --------------------------------------------------------------
+
+_installPackages "${tools[@]}"
+
+# --------------------------------------------------------------
 # Packages
+# --------------------------------------------------------------
+
 _installPackages "${packages[@]}"
 
-# Oh My Posh
-curl -s https://ohmyposh.dev/install.sh | bash -s
+# --------------------------------------------------------------
+# Hyprland
+# --------------------------------------------------------------
 
-# Prebuild Packages
+_installPackages "${hyprland[@]}"
+
+# --------------------------------------------------------------
+# Create .local/bin folder
+# --------------------------------------------------------------
+
 if [ ! -d $HOME/.local/bin ]; then
     mkdir -p $HOME/.local/bin
 fi
+
+# --------------------------------------------------------------
+# Oh My Posh
+# --------------------------------------------------------------
+
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
+
+# --------------------------------------------------------------
+# Prebuild Packages
+# --------------------------------------------------------------
+
 echo "Installing Matugen v2.4.1 into ~/.local/bin"
 # https://github.com/InioX/matugen/releases
 cp $SCRIPT_DIR/packages/matugen $HOME/.local/bin
@@ -157,7 +206,10 @@ echo "Installing Wallust v3.4.0 into ~/.local/bin"
 # https://codeberg.org/explosion-mental/wallust/releases
 cp $SCRIPT_DIR/packages/wallust $HOME/.local/bin
 
+# --------------------------------------------------------------
 # ML4W Apps
+# --------------------------------------------------------------
+
 echo ":: Installing the ML4W Apps"
 
 ml4w_app="com.ml4w.welcome"
@@ -185,10 +237,16 @@ ml4w_app_repo="hyprland-settings"
 echo ":: Installing $ml4w_app"
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
 
+# --------------------------------------------------------------
 # Flatpaks
+# --------------------------------------------------------------
+
 flatpak install -y flathub com.github.PintaProject.Pinta
 
+# --------------------------------------------------------------
 # Fonts
+# --------------------------------------------------------------
+
 sudo cp -rf $SCRIPT_DIR/fonts/FiraCode /usr/share/fonts
 sudo cp -rf $SCRIPT_DIR/fonts/Fira_Sans /usr/share/fonts
 

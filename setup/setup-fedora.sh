@@ -2,6 +2,16 @@
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+# --------------------------------------------------------------
+# General Packages
+# --------------------------------------------------------------
+
+source pkgs.sh
+
+# --------------------------------------------------------------
+# Distro related packages
+# --------------------------------------------------------------
+
 packages=(
     # Hyprland
     "hyprland"
@@ -68,46 +78,10 @@ _installPackages() {
     done
 }
 
-# Header
-echo -e "${GREEN}"
-cat <<"EOF"
-   ____         __       ____
-  /  _/__  ___ / /____ _/ / /__ ____
- _/ // _ \(_-</ __/ _ `/ / / -_) __/
-/___/_//_/___/\__/\_,_/_/_/\__/_/
-
-EOF
-echo "ML4W Dotfiles for Hyprland"
-echo -e "${NONE}"
-while true; do
-    read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
-    case $yn in
-        [Yy]*)
-            echo ":: Installation started."
-            echo
-            break
-            ;;
-        [Nn]*)
-            echo ":: Installation canceled"
-            exit
-            break
-            ;;
-        *)
-            echo ":: Please answer yes or no."
-            ;;
-    esac
-done
-
-sudo dnf copr enable --assumeyes solopasha/hyprland
-sudo dnf copr enable --assumeyes peterwu/rendezvous
-sudo dnf copr enable --assumeyes wef/cliphist
-sudo dnf copr enable --assumeyes tofik/nwg-shell
-sudo dnf copr enable --assumeyes erikreider/SwayNotificationCenter
-
-# Packages
-_installPackages "${packages[@]}"
-
+# --------------------------------------------------------------
 # Gum
+# --------------------------------------------------------------
+
 echo '[charm]
 name=Charm
 baseurl=https://repo.charm.sh/yum/
@@ -116,13 +90,83 @@ gpgcheck=1
 gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
 sudo yum install --assumeyes gum
 
-# Oh My Posh
-curl -s https://ohmyposh.dev/install.sh | bash -s
+# --------------------------------------------------------------
+# Header
+# --------------------------------------------------------------
 
-# Prebuild Packages
+clear
+echo -e "${GREEN}"
+cat <<"EOF"
+   ____    __          
+  / __/__ / /___ _____ 
+ _\ \/ -_) __/ // / _ \
+/___/\__/\__/\_,_/ .__/
+                /_/    
+EOF
+echo "ML4W Dotfiles for Hyprland for Fedora"
+echo -e "${NONE}"
+if gum confirm "DO YOU WANT TO START THE SETUP NOW?: "; then
+    echo ":: Installation started."
+    echo
+else
+    echo ":: Installation canceled"
+    exit
+fi
+
+sudo dnf copr enable --assumeyes solopasha/hyprland
+sudo dnf copr enable --assumeyes peterwu/rendezvous
+sudo dnf copr enable --assumeyes wef/cliphist
+sudo dnf copr enable --assumeyes tofik/nwg-shell
+sudo dnf copr enable --assumeyes erikreider/SwayNotificationCenter
+
+# --------------------------------------------------------------
+# General
+# --------------------------------------------------------------
+
+_installPackages "${general[@]}"
+
+# --------------------------------------------------------------
+# Apps
+# --------------------------------------------------------------
+
+_installPackages "${apps[@]}"
+
+# --------------------------------------------------------------
+# Tools
+# --------------------------------------------------------------
+
+_installPackages "${tools[@]}"
+
+# --------------------------------------------------------------
+# Packages
+# --------------------------------------------------------------
+
+_installPackages "${packages[@]}"
+
+# --------------------------------------------------------------
+# Hyprland
+# --------------------------------------------------------------
+
+_installPackages "${hyprland[@]}"
+
+# --------------------------------------------------------------
+# Create .local/bin folder
+# --------------------------------------------------------------
+
 if [ ! -d $HOME/.local/bin ]; then
     mkdir -p $HOME/.local/bin
 fi
+
+# --------------------------------------------------------------
+# Oh My Posh
+# --------------------------------------------------------------
+
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
+
+# --------------------------------------------------------------
+# Prebuild Packages
+# --------------------------------------------------------------
+
 echo "Installing Matugen v2.4.1 into ~/.local/bin"
 # https://github.com/InioX/matugen/releases
 cp $SCRIPT_DIR/packages/matugen $HOME/.local/bin
@@ -135,7 +179,10 @@ echo "Installing eza v0.23.0"
 # https://github.com/eza-community/eza/releases
 sudo cp $SCRIPT_DIR/packages/eza /usr/bin
 
+# --------------------------------------------------------------
 # Pip
+# --------------------------------------------------------------
+
 echo ":: Installing packages with pip"
 sudo pip install hyprshade
 sudo pip install pywalfox
@@ -143,7 +190,10 @@ sudo pywalfox install
 sudo pip install screeninfo
 sudo pip install waypaper
 
+# --------------------------------------------------------------
 # ML4W Apps
+# --------------------------------------------------------------
+
 echo ":: Installing the ML4W Apps"
 
 ml4w_app="com.ml4w.welcome"
@@ -171,13 +221,22 @@ ml4w_app_repo="hyprland-settings"
 echo ":: Installing $ml4w_app"
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
 
+# --------------------------------------------------------------
 # Flatpaks
+# --------------------------------------------------------------
+
 flatpak install -y flathub com.github.PintaProject.Pinta
 
+# --------------------------------------------------------------
 # Grimblast
+# --------------------------------------------------------------
+
 sudo cp $SCRIPT_DIR/scripts/grimblast /usr/bin
 
+# --------------------------------------------------------------
 # Fonts
+# --------------------------------------------------------------
+
 sudo cp -rf $SCRIPT_DIR/fonts/FiraCode /usr/share/fonts
 sudo cp -rf $SCRIPT_DIR/fonts/Fira_Sans /usr/share/fonts
 

@@ -2,12 +2,21 @@
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+# --------------------------------------------------------------
+# General Packages
+# --------------------------------------------------------------
+
+source pkgs.sh
+
+# --------------------------------------------------------------
+# Distro related packages
+# --------------------------------------------------------------
+
 packages=(
     # Hyprland
     "hyprland-devel"
     "hyprland-qtutils"
     # Tools
-    "gum"
     "eza"
     "libnotify-tools"
     "libqt5-qtwayland"
@@ -67,40 +76,69 @@ _installPackages() {
     done
 }
 
+# --------------------------------------------------------------
+# Install Gum
+# --------------------------------------------------------------
+
+_installPackages "gum"
+
+# --------------------------------------------------------------
 # Header
+# --------------------------------------------------------------
+
+clear
 echo -e "${GREEN}"
 cat <<"EOF"
-   ____         __       ____
-  /  _/__  ___ / /____ _/ / /__ ____
- _/ // _ \(_-</ __/ _ `/ / / -_) __/
-/___/_//_/___/\__/\_,_/_/_/\__/_/
-
+   ____    __          
+  / __/__ / /___ _____ 
+ _\ \/ -_) __/ // / _ \
+/___/\__/\__/\_,_/ .__/
+                /_/    
 EOF
-echo "ML4W Dotfiles for Hyprland"
+echo "ML4W Dotfiles for Hyprland for openSuse Tumbleweed"
 echo -e "${NONE}"
-while true; do
-    read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
-    case $yn in
-        [Yy]*)
-            echo ":: Installation started."
-            echo
-            break
-            ;;
-        [Nn]*)
-            echo ":: Installation canceled"
-            exit
-            break
-            ;;
-        *)
-            echo ":: Please answer yes or no."
-            ;;
-    esac
-done
+if gum confirm "DO YOU WANT TO START THE SETUP NOW?: "; then
+    echo ":: Installation started."
+    echo
+else
+    echo ":: Installation canceled"
+    exit
+fi
 
+# --------------------------------------------------------------
+# General
+# --------------------------------------------------------------
+
+_installPackages "${general[@]}"
+
+# --------------------------------------------------------------
+# Apps
+# --------------------------------------------------------------
+
+_installPackages "${apps[@]}"
+
+# --------------------------------------------------------------
+# Tools
+# --------------------------------------------------------------
+
+_installPackages "${tools[@]}"
+
+# --------------------------------------------------------------
 # Packages
+# --------------------------------------------------------------
+
 _installPackages "${packages[@]}"
 
+# --------------------------------------------------------------
+# Hyprland
+# --------------------------------------------------------------
+
+_installPackages "${hyprland[@]}"
+
+# --------------------------------------------------------------
 # Snap
+# --------------------------------------------------------------
+
 sudo zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed snappy
 sudo zypper --gpg-auto-import-keys refresh
 sudo zypper dup --from snappy
@@ -110,13 +148,24 @@ sudo systemctl start snapd
 sudo systemctl enable snapd.apparmor
 sudo systemctl start snapd.apparmor
 
-# Oh My Posh
-curl -s https://ohmyposh.dev/install.sh | bash -s
+# --------------------------------------------------------------
+# Create .local/bin folder
+# --------------------------------------------------------------
 
-# Prebuild Packages
 if [ ! -d $HOME/.local/bin ]; then
     mkdir -p $HOME/.local/bin
 fi
+
+# --------------------------------------------------------------
+# Oh My Posh
+# --------------------------------------------------------------
+
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
+
+# --------------------------------------------------------------
+# Prebuild Packages
+# --------------------------------------------------------------
+
 echo "Installing Matugen v2.4.1 into ~/.local/bin"
 # https://github.com/InioX/matugen/releases
 cp $SCRIPT_DIR/packages/matugen $HOME/.local/bin
@@ -129,10 +178,16 @@ echo "Installing eza"
 sudo zypper ar https://download.opensuse.org/tumbleweed/repo/oss/ factory-oss
 sudo zypper -n install eza
 
+# --------------------------------------------------------------
 # Install waypaper dependencies before using pip
+# --------------------------------------------------------------
+
 sudo zypper install gcc pkg-config cairo-devel gobject-introspection-devel libgirepository-1_0-1-devel python3-devel libgtk-4-devel typelib-1_0-Gtk-4_0
 
+# --------------------------------------------------------------
 # Pip
+# --------------------------------------------------------------
+
 echo ":: Installing packages with pip"
 sudo pipx install hyprshade
 sudo pipx install pywalfox
@@ -140,7 +195,10 @@ sudo pywalfox install
 sudo pipx install screeninfo
 sudo pipx install waypaper
 
+# --------------------------------------------------------------
 # ML4W Apps
+# --------------------------------------------------------------
+
 echo ":: Installing the ML4W Apps"
 
 ml4w_app="com.ml4w.welcome"
@@ -168,16 +226,28 @@ ml4w_app_repo="hyprland-settings"
 echo ":: Installing $ml4w_app"
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
 
+# --------------------------------------------------------------
 # Flatpaks
+# --------------------------------------------------------------
+
 flatpak install -y flathub com.github.PintaProject.Pinta
 
+# --------------------------------------------------------------
 # Grimblast
+# --------------------------------------------------------------
+
 sudo cp $SCRIPT_DIR/scripts/grimblast /usr/bin
 
+# --------------------------------------------------------------
 # Bibata Cursor Theme
+# --------------------------------------------------------------
+
 sudo snap install cursor-theme-bibata
 
+# --------------------------------------------------------------
 # Fonts
+# --------------------------------------------------------------
+
 sudo cp -rf $SCRIPT_DIR/fonts/FiraCode /usr/share/fonts
 sudo cp -rf $SCRIPT_DIR/fonts/Fira_Sans /usr/share/fonts
 
