@@ -3,15 +3,15 @@ sleep 1
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-_checkCommandExists() {
-    cmd="$1"
-    if ! command -v "$cmd" >/dev/null; then
-        echo 1
-        return
-    fi
-    echo 0
-    return
-}
+# --------------------------------------------------------------
+# Library
+# --------------------------------------------------------------
+
+source _lib.sh
+
+# ----------------------------------------------------------
+# Detect distribution
+# ----------------------------------------------------------
 
 _selectDistribution() {
 
@@ -78,5 +78,5 @@ elif [[ $(_checkCommandExists "dnf") == 0 ]]; then
 elif [[ $(_checkCommandExists "zypper") == 0 ]]; then
     $SCRIPT_DIR/setup-opensuse.sh
 else
-    $SCRIPT_DIR/setup-dependencies.sh
+    $SCRIPT_DIR/dependencies.sh
 fi

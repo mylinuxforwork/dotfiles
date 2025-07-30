@@ -115,24 +115,7 @@ fi
 # Header
 # --------------------------------------------------------------
 
-clear
-echo -e "${GREEN}"
-cat <<"EOF"
-   ____    __          
-  / __/__ / /___ _____ 
- _\ \/ -_) __/ // / _ \
-/___/\__/\__/\_,_/ .__/
-                /_/    
-EOF
-echo "ML4W Dotfiles for Hyprland for Arch"
-echo -e "${NONE}"
-if gum confirm "DO YOU WANT TO START THE SETUP NOW?: "; then
-    echo ":: Installation started."
-    echo
-else
-    echo ":: Installation canceled"
-    exit
-fi
+_writeHeader "Arch"
 
 # --------------------------------------------------------------
 # Install yay if needed
