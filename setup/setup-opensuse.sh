@@ -3,6 +3,12 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # --------------------------------------------------------------
+# Library
+# --------------------------------------------------------------
+
+source _lib.sh
+
+# --------------------------------------------------------------
 # General Packages
 # --------------------------------------------------------------
 
@@ -38,19 +44,6 @@ packages=(
     "fontawesome-fonts"
     "dejavu-fonts"
 )
-
-GREEN='\033[0;32m'
-NONE='\033[0m'
-
-_checkCommandExists() {
-    cmd="$1"
-    if ! command -v "$cmd" >/dev/null; then
-        echo 1
-        return
-    fi
-    echo 0
-    return
-}
 
 _isInstalled() {
     package="$1"
@@ -171,13 +164,7 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 # Prebuild Packages
 # --------------------------------------------------------------
 
-echo "Installing Matugen v2.4.1 into ~/.local/bin"
-# https://github.com/InioX/matugen/releases
-cp $SCRIPT_DIR/packages/matugen $HOME/.local/bin
-
-echo "Installing Wallust v3.4.0 into ~/.local/bin"
-# https://codeberg.org/explosion-mental/wallust/releases
-cp $SCRIPT_DIR/packages/wallust $HOME/.local/bin
+source _prebuilt.sh
 
 echo "Installing eza"
 sudo zypper ar https://download.opensuse.org/tumbleweed/repo/oss/ factory-oss
@@ -204,38 +191,13 @@ sudo pipx install waypaper
 # ML4W Apps
 # --------------------------------------------------------------
 
-echo ":: Installing the ML4W Apps"
-
-ml4w_app="com.ml4w.welcome"
-ml4w_app_repo="dotfiles-welcome"
-echo ":: Installing $ml4w_app"
-bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
-
-ml4w_app="com.ml4w.settings"
-ml4w_app_repo="dotfiles-settings"
-echo ":: Installing $ml4w_app"
-bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
-
-ml4w_app="com.ml4w.sidebar"
-ml4w_app_repo="dotfiles-sidebar"
-echo ":: Installing $ml4w_app"
-bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
-
-ml4w_app="com.ml4w.calendar"
-ml4w_app_repo="dotfiles-calendar"
-echo ":: Installing $ml4w_app"
-bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
-
-ml4w_app="com.ml4w.hyprlandsettings"
-ml4w_app_repo="hyprland-settings"
-echo ":: Installing $ml4w_app"
-bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/$ml4w_app_repo/master/setup.sh)"
+source _ml4w-apps.sh
 
 # --------------------------------------------------------------
 # Flatpaks
 # --------------------------------------------------------------
 
-flatpak install -y flathub com.github.PintaProject.Pinta
+source _flatpaks.sh
 
 # --------------------------------------------------------------
 # Grimblast
@@ -253,8 +215,10 @@ sudo snap install cursor-theme-bibata
 # Fonts
 # --------------------------------------------------------------
 
-sudo cp -rf $SCRIPT_DIR/fonts/FiraCode /usr/share/fonts
-sudo cp -rf $SCRIPT_DIR/fonts/Fira_Sans /usr/share/fonts
+source _fonts.sh
 
-echo ":: Installation complete."
-echo ":: Ready to install the dotfiles with the Dotfiles Installer."
+# --------------------------------------------------------------
+# Finish
+# --------------------------------------------------------------
+
+_finishMessage
