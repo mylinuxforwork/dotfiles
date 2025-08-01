@@ -164,11 +164,11 @@ sudo zypper install gcc pkg-config cairo-devel gobject-introspection-devel libgi
 # --------------------------------------------------------------
 
 echo ":: Installing packages with pip"
-sudo pipx install hyprshade
-sudo pipx install pywalfox
+sudo zypper install python313-screeninfo
+pipx install hyprshade
+pipx install pywalfox
 sudo pywalfox install
-sudo pipx install screeninfo
-sudo pipx install waypaper
+pipx install waypaper
 
 # --------------------------------------------------------------
 # ML4W Apps
