@@ -62,6 +62,7 @@ Add your quicklinks in your desired order to the status bar
       "custom/quicklink_browser",
       "custom/quicklink_email",
       "custom/quicklink_filemanager",
+      "custom/quicklink_flower",
 
       /*
 Don't remove the quicklinkempty
