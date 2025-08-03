@@ -1,6 +1,6 @@
 {
 	"name": "ML4W Dotfiles for Hyprland (VOVA RELEASE)",
-	"id": "com.ml4w.dotfiles",
+	"id": "pro.bilous.dotfiles",
 	"description": "Advanced configuration for the dynamic tiling window manager Hyprland",
 	"version":"2.9.9",
 	"author": "Vova Bilous",
