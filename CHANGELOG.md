@@ -2,6 +2,7 @@ Version 2.9.9
 --------------------------------------------------------
 - Remove legacy installer and folders restructured
 - Add Font Awesome 7 support
+- Optimized setup script to lower time of the installation of dependencies
 
 Version 2.9.8.8
 --------------------------------------------------------
