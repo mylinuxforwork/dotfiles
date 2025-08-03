@@ -154,7 +154,6 @@ echo ":: Installing packages with pip"
 sudo zypper -n install python313-screeninfo
 pipx install hyprshade
 pipx install pywalfox
-sudo pywalfox install
 pipx install waypaper
 
 # --------------------------------------------------------------
