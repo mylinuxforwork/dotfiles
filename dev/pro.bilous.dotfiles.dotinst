@@ -1,0 +1,14 @@
+{
+	"name": "MY Dotfiles for Hyprland DEV",
+	"id": "pro.bilous.dotfiles.dev",
+	"description": "",
+	"version":"0.1",
+	"author": "Vova Bilous",
+	"homepage": "",
+	"dependencies": "",
+	"source": "Projects/PRO/ml4w-dotfiles",
+	"subfolder": "dotfiles",
+	"setupscript":"setup.sh",
+	"restore":[],
+	"settings":[]
+}
