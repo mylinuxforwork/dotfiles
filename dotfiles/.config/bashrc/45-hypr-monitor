@@ -1,0 +1,31 @@
+#!/bin/bash
+
+hypr_switch() {
+  # Monitor parameters
+  local MONITOR_NAME="HDMI-A-1"
+  local POSITION="0x0"
+  local SCALE="1.0"
+
+  case "$1" in
+    local)
+      local RES="3840x2560@50"
+      hyprctl keyword monitor "$MONITOR_NAME,$RES,$POSITION,$SCALE"
+      notify-send "Hyprland Monitor" "🔌 Applied LOCAL profile: $RES"
+      ;;
+    remote)
+      local RES="2560x1600@50"
+      hyprctl keyword monitor "$MONITOR_NAME,$RES,$POSITION,$SCALE"
+      notify-send "Hyprland Monitor" "🌐 Applied REMOTE profile: $RES"
+      ;;
+    *)
+      echo -e "Usage:\n  hypr-monitor local   # for local full-res usage\n  hypr-monitor remote  # for remote streaming (Moonlight)"
+      return 1
+      ;;
+  esac
+}
+
+# Only run when executed directly, not when sourced
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  hypr_switch "$@"
+fi
+

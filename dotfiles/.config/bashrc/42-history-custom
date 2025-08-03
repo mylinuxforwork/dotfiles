@@ -1,0 +1,8 @@
+
+# CTRL+R for fuzzy reverse search
+__fzf_history_widget() {
+  BUFFER=$(history | fzf +s --tac | sed 's/ *[0-9]* *//')
+  CURSOR=${#BUFFER}
+  zle reset-prompt
+}
+bind -x '"\C-r": "BUFFER=$(history | fzf +s --tac | sed '\''s/ *[0-9]* *//'\''); READLINE_LINE=$BUFFER; READLINE_POINT=${#BUFFER}"'
