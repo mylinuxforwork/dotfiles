@@ -1,0 +1,39 @@
+#!/bin/bash
+
+eval "$(direnv hook bash)"
+
+for f in ~/.config/local-scripts/*; do
+  if [ ! -d "$f" ]; then
+    [[ -f "$f" ]] && source "$f"
+  fi
+done
+
+bgit() {
+  local email="${GITHUB_EMAIL:-}"
+  local name="Vova Bilous"
+
+  if [[ -z "$email" ]]; then
+    echo "GITHUB_EMAIL environment variable is not set."
+    return 1
+  fi
+
+  # Function to set git config in a directory
+  set_git_config() {
+    local dir="$1"
+    if [[ -d "$dir/.git" ]]; then
+      git -C "$dir" config user.email "$email"
+      git -C "$dir" config user.name "$name"
+      echo "Set git config in $dir"
+    fi
+  }
+
+  # Check if current directory is a git repo
+  if [[ -d .git ]]; then
+    set_git_config "$(pwd)"
+  else
+    # Iterate over first-level subdirectories
+    for dir in */; do
+      set_git_config "$dir"
+    done
+  fi
+}
