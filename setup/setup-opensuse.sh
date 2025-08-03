@@ -123,11 +123,9 @@ _installPackages "${hyprland[@]}"
 sudo zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed snappy
 sudo zypper --gpg-auto-import-keys refresh
 sudo zypper dup --from snappy
-sudo zypper install snapd
-sudo systemctl enable snapd
-sudo systemctl start snapd
-sudo systemctl enable snapd.apparmor
-sudo systemctl start snapd.apparmor
+sudo zypper -n install snapd
+sudo systemctl enable --now snapd
+sudo systemctl enable --now snapd.apparmor
 
 # --------------------------------------------------------------
 # Create .local/bin folder
@@ -164,7 +162,7 @@ sudo zypper install gcc pkg-config cairo-devel gobject-introspection-devel libgi
 # --------------------------------------------------------------
 
 echo ":: Installing packages with pip"
-sudo zypper install python313-screeninfo
+sudo zypper -n install python313-screeninfo
 pipx install hyprshade
 pipx install pywalfox
 sudo pywalfox install
@@ -189,10 +187,10 @@ source _flatpaks.sh
 sudo cp $SCRIPT_DIR/scripts/grimblast /usr/bin
 
 # --------------------------------------------------------------
-# Bibata Cursor Theme
+# Cursors
 # --------------------------------------------------------------
 
-sudo snap install cursor-theme-bibata
+source _cursors.sh
 
 # --------------------------------------------------------------
 # Fonts

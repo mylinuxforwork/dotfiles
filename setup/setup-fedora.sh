@@ -40,7 +40,6 @@ packages=(
     "papirus-icon-theme"
     "papirus-icon-theme-dark"
     "breeze"
-    "bibata-cursor-themes"
     # Fonts
     "dejavu-fonts-all"
     "fontawesome-fonts"
@@ -186,6 +185,12 @@ source _flatpaks.sh
 # --------------------------------------------------------------
 
 sudo cp $SCRIPT_DIR/scripts/grimblast /usr/bin
+
+# --------------------------------------------------------------
+# Cursors
+# --------------------------------------------------------------
+
+source _cursors.sh
 
 # --------------------------------------------------------------
 # Fonts
