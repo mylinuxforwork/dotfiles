@@ -377,7 +377,7 @@
     "format-disabled": "",
     "format-off": "",
     "interval": 30,
-    "on-click": "blueman-manager",
+    "on-click": "sleep 0.1 && ~/.config/ml4w/settings/bluetooth.sh",
     "format-no-controller": ""
   },
 
