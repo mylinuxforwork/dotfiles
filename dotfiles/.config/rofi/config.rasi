@@ -14,11 +14,10 @@ configuration {
     modi:                       "drun,filebrowser,window,run";
     font:                       "Fira Sans 11";
     show-icons:                 true;
-    icon-theme:                 "kora";
     display-drun:                " ";
     display-run:                 " ";
-    display-filebrowser:         "  ";
-    display-window:              "  ";
+    display-filebrowser:         "";
+    display-window:              "";
 	drun-display-format:        "{name}";
     hover-select:               false;
     scroll-method:              1;
@@ -70,43 +69,74 @@ mainbox {
     enabled:                     true;
     spacing:                     0em;
     padding:                     0em;
-    orientation:                 vertical;
-    children:                    [ "inputbar" , "listbox" ];
+    orientation:                 horizontal;
+    children:                    [ "imagebox" , "listbox" ];
     background-color:            transparent;
     background-image:            @current-image;
 }
 
+imagebox {
+    padding:                     20px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "dummy", "mode-switcher" ];
+}
+
+dummy {
+    background-color:            transparent;
+}
+
+// Modes //
+mode-switcher {
+    orientation:                 horizontal;
+    width:                       6.6em;
+    enabled:                     true;
+    padding:                     1.5em;
+    spacing:                     1.5em;
+    background-color:            transparent;
+}
+
+button {
+    padding:                     15px;
+    border-radius:               2em;    
+    cursor:                      pointer;
+    background-color:            @background;
+    text-color:                  @foreground;
+}
+
+button selected {
+    padding:                     15px;
+    border-radius:               2em;    
+    background-color:            @color5;
+    text-color:                  @foreground;
+}
 
 // Inputs //
 inputbar {
     enabled:                     true;
-    spacing:                     0em;
-    padding:                     5em;
+    margin: 1em;
     children:                    [ "textbox-prompt-colon", "entry" ];
-    background-color:            transparent;
-    background-image:            url("~/.cache/ml4w/hyprland-dotfiles/current_wallpaper", width);
+    border-radius:               2em;
+    background-color:            @color5;
 }
 
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
     str:                         "  ";
-    padding:                     1em 0.2em 0em 0em;
+    padding:                     1em 0.3em 0 0;
     text-color:                  @foreground;
-    border-radius:               2em 0em 0em 2em;
-    background-color:            @color5;
-    background-image:            url("~/.cache/ml4w/hyprland-dotfiles/current_wallpaper", width);
+    background-color:            transparent;
 }
 
 entry {
     enabled:                     true;
-    border-radius:               0em 2em 2em 0em;
     spacing:                     1em;
     padding:                     1em;
-    background-color:            @color5;
     text-color:                  @foreground;
     cursor:                      text;
     placeholder:                 "Search";
+    background-color:            transparent;
     placeholder-color:           inherit;
 }
 
@@ -115,7 +145,7 @@ listbox {
     padding:                     0em;
     spacing:                     0em;
     orientation:                 horizontal;
-    children:                    [ "listview" , "mode-switcher" ];
+    children:                    [ "listview" ];
     background-color:            @background;
 }
 
@@ -123,8 +153,8 @@ listview {
     padding:                     1.5em;
     spacing:                     0.5em;
     enabled:                     true;
-    columns:                     2;
-    lines:                       3;
+    columns:                     1;
+    lines:                       1;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -134,29 +164,6 @@ listview {
     fixed-columns:               true;
     cursor:                      "default";
     background-color:            transparent;
-    text-color:                  @foreground;
-}
-
-
-// Modes //
-mode-switcher {
-    orientation:                 vertical;
-    width:                       6.6em;
-    enabled:                     true;
-    padding:                     1.5em;
-    spacing:                     1.5em;
-    background-color:            transparent;
-}
-
-button {
-    cursor:                      pointer;
-    border-radius:               2em;
-    background-color:            @background;
-    text-color:                  @foreground;
-}
-
-button selected {
-    background-color:            @color5;
     text-color:                  @foreground;
 }
 
