@@ -1,8 +1,10 @@
 Version 2.9.9
 --------------------------------------------------------
-- Remove legacy installer and folders restructured
-- Add Font Awesome 7 support
+- Legacy installer removed and folders restructured 
+- Font Awesome 7 support added
 - Optimized setup script to lower time of the installation of dependencies
+- Waybar with blur background as default (powered by Hyprland). Can be switched off in the Dotfiles Settings app/Appearance/Decoration -> no blur
+- ML4W blur theme removed. See above to toggle blur
 
 Version 2.9.8.8
 --------------------------------------------------------
