@@ -5,6 +5,7 @@ Version 2.9.9
 - Optimized setup script to lower time of the installation of dependencies
 - Waybar with blur background as default (powered by Hyprland). Can be switched off in the Dotfiles Settings app/Appearance/Decoration -> no blur
 - ML4W blur theme removed. See above to toggle blur
+- Add Display Zoom: Zoom in with SUPER+SHIFT+Mousewheel up, Zoom out with SUPER+SHIFT+Mousewheel down, Reset Zoom with SUPER+SHIFT+Z
 
 Version 2.9.8.8
 --------------------------------------------------------
