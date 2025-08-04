@@ -22,15 +22,15 @@ hero:
 
 features:
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/807/807262.png" alt="scripts"/>
-    title: One Script to Rule Them All
-    details: Includes a powerful installation script to automate everything on Arch or Fedora based systems. Or use the Dotfiles Installer for other distros.
+    title: Easy Installation
+    details: Full support for all distributions with Dotfiles Installer. Includes setup scripts to install all dependencies for Arch, Fedora and openSuse. 
 
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/16076/16076100.png" alt="theme"/>
     title: Dynamic Themes & Desktop
     details: Experience a complete desktop with Hyprland, dynamic material themes, and deep customization via dotfiles.
 
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/3815/3815573.png" alt="configuration"/>
-    title: Easy to Customize
+    title: Many Customization Options
     details: Comes with helpful graphical apps to configure your setup, change themes, and tweak your environment.
 
 metaTitle: "The ML4W Dotfiles for Hyprland"
@@ -38,7 +38,7 @@ description: An advanced and full-featured configuration for the dynamic tiling 
 ---
 
 <img
-  src="/ml4w-preview.png"
+  src="/ml4w-preview.jpg"
   alt="preview"
   style="max-width: 900px; width: 100%; border-radius: 12px; margin: 2rem auto; display: block;"
 />
