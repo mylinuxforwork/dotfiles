@@ -38,7 +38,6 @@ packages=(
     "loupe"
     "power-profiles-daemon"
     # Apps
-    "pacseek"
     "waypaper"
     "swaync"
     # Tools
