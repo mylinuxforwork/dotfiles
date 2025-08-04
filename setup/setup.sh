@@ -7,7 +7,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 # Library
 # --------------------------------------------------------------
 
-source _lib.sh
+source $SCRIPT_DIR/_lib.sh
 
 # ----------------------------------------------------------
 # Detect distribution

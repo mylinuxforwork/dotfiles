@@ -6,13 +6,13 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 # Library
 # --------------------------------------------------------------
 
-source _lib.sh
+source $SCRIPT_DIR/_lib.sh
 
 # --------------------------------------------------------------
 # General Packages
 # --------------------------------------------------------------
 
-source pkgs.sh
+source $SCRIPT_DIR/pkgs.sh
 
 # --------------------------------------------------------------
 # Distro related packages
@@ -151,7 +151,7 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 # Prebuild Packages
 # --------------------------------------------------------------
 
-source _prebuilt.sh
+source $SCRIPT_DIR/_prebuilt.sh
 
 echo "Installing eza v0.23.0"
 # https://github.com/eza-community/eza/releases
@@ -172,13 +172,13 @@ sudo pip install waypaper
 # ML4W Apps
 # --------------------------------------------------------------
 
-source _ml4w-apps.sh
+source $SCRIPT_DIR/_ml4w-apps.sh
 
 # --------------------------------------------------------------
 # Flatpaks
 # --------------------------------------------------------------
 
-source _flatpaks.sh
+source $SCRIPT_DIR/_flatpaks.sh
 
 # --------------------------------------------------------------
 # Grimblast
@@ -190,13 +190,13 @@ sudo cp $SCRIPT_DIR/scripts/grimblast /usr/bin
 # Cursors
 # --------------------------------------------------------------
 
-source _cursors.sh
+source $SCRIPT_DIR/_cursors.sh
 
 # --------------------------------------------------------------
 # Fonts
 # --------------------------------------------------------------
 
-source _fonts.sh
+source $SCRIPT_DIR/_fonts.sh
 
 # --------------------------------------------------------------
 # Finish
