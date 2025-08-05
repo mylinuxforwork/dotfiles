@@ -7,6 +7,7 @@ Version 2.9.9
 - ML4W blur theme removed. See above to toggle blur
 - Add Display Zoom: Zoom in with SUPER+SHIFT+Mousewheel up, Zoom out with SUPER+SHIFT+Mousewheel down, Reset Zoom with SUPER+SHIFT+Z
 - Link to ML4W Wallpaper Bank added to Welcome App main menu
+- Specific variations for game mode added to start Hyprland in game mode: Settings app, Appearance: Decoration: gamemode.conf, Window: gamemode.conf, Animation: disabled.conf
 
 Version 2.9.8.8
 --------------------------------------------------------
