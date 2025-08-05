@@ -2,8 +2,8 @@ Version 2.9.9
 --------------------------------------------------------
 - Legacy installer removed and folders restructured 
 - Font Awesome 7 support added
-- Optimized setup script to lower time of the installation of dependencies
-- Waybar with blur background as default (powered by Hyprland). Can be switched off in the Dotfiles Settings app/Appearance/Decoration -> no blur
+- Optimized setup script to reduce the installation time of dependencies
+- Waybar with blurred background as default (powered by Hyprland). Can be switched off in the Dotfiles Settings app/Appearance/Decoration Variations -> no blur
 - ML4W blur theme removed. See above to toggle blur
 - Add Display Zoom: Zoom in with SUPER+SHIFT+Mousewheel up, Zoom out with SUPER+SHIFT+Mousewheel down, Reset Zoom with SUPER+SHIFT+Z
 - Link to ML4W Wallpaper Bank added to Welcome App main menu
