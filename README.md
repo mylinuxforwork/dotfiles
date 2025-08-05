@@ -2,7 +2,7 @@
 
 An advanced configuration of Hyprland for Arch Linux based distributions. Full desktop environment based on the tiling window manager Hyprland with dynamic material color themes based on your wallpaper for all main modules and comprehensive apps to customize your configuration.
 
-![image](https://github.com/user-attachments/assets/c9ffd710-381e-43bb-b819-450b174ca3fd)
+![image](https://mylinuxforwork.github.io/dotfiles/ml4w-preview-299.jpg)
 
 > About the screenshot: The dock can be enabled in the ML4W Sidebar or Settings app. The waybar theme is ML4W Modern Light.
 
