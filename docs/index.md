@@ -38,7 +38,7 @@ description: An advanced and full-featured configuration for the dynamic tiling 
 ---
 
 <img
-  src="/ml4w-preview.jpg"
+  src="/ml4w-preview-299.jpg"
   alt="preview"
   style="max-width: 900px; width: 100%; border-radius: 12px; margin: 2rem auto; display: block;"
 />
