@@ -27,7 +27,7 @@ https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
 Setup scripts to install the required dependencies are included for <i class="devicon-archlinux-plain"></i> **Arch, <i class="devicon-fedora-plain"></i> Fedora and <i class="devicon-opensuse-plain"></i> openSuse Tumbleweed**.<br>
-For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
+For other distros, please install <a href="https://mylinuxforwork.github.io/dotfiles/getting-started/dependencies">the dependencies</a> first.
 
 ## Wallpaper repository
 
