@@ -48,7 +48,7 @@ echo
 
 if gum confirm "DO YOU WANT TO START THE UPDATE NOW?"; then
     echo
-    echo ":: Update started."
+    echo ":: Update started..."
 elif [ $? -eq 130 ]; then
     exit 130
 else
@@ -64,50 +64,26 @@ fi
 # Arch
 if [[ $(_checkCommandExists "pacman") == 0 ]]; then
     aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
-
-    if [[ $(_isInstalled "timeshift") == "0" ]]; then
-        echo
-        if gum confirm "DO YOU WANT TO CREATE A SNAPSHOT?"; then
-            echo
-            c=$(gum input --placeholder "Enter a comment for the snapshot...")
-            sudo timeshift --create --comments "$c"
-            sudo timeshift --list
-            sudo grub-mkconfig -o /boot/grub/grub.cfg
-            echo ":: DONE. Snapshot $c created!"
-            echo
-        elif [ $? -eq 130 ]; then
-            echo ":: Snapshot skipped."
-            exit 130
-        else
-            echo ":: Snapshot skipped."
-        fi
-        echo
-    fi
-
     $aur_helper
 
-    if [[ $(_isInstalled "flatpak") == "0" ]]; then
-        flatpak update
-    fi
 # Fedora
 elif [[ $(_checkCommandExists "dnf") == 0 ]]; then
     sudo dnf upgrade
-    if [[ $(_isInstalled "flatpak") == "0" ]]; then
-        flatpak update
-    fi
 else
     echo ":: ERROR - Platform not supported"
     echo "Press [ENTER] to close."
     read
 fi
-
-notify-send "Update complete"
-echo
-echo ":: Update complete"
-echo
 echo
 
+# Flatpak
+echo ":: Searching for Flatpak updates..."
+flatpak update
+echo
+
+# Reload Waybar
 pkill -RTMIN+1 waybar
 
-echo "Press [ENTER] to close."
+# Finishing
+echo ":: Update complete! Press [ENTER] to close."
 read

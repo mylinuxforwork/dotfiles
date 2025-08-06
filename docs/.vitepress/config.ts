@@ -94,6 +94,7 @@ export default {
             { text: "Migration", link: "/getting-started/migrate" },
             { text: "Dependencies", link: "/getting-started/dependencies" },
             { text: "Update", link: "/getting-started/update" },
+            { text: "Uninstall", link: "/getting-started/uninstall" },
           ],
         },
         {
