@@ -7,6 +7,7 @@ general=(
     "jq"
     "flatpak"
     "vim"
+    "inotify-tools"
 )
 
 hyprland=(
