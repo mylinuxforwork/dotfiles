@@ -78,7 +78,7 @@ mainbox {
     orientation:                 horizontal;
     children:                    [ "listbox" ];
     background-color:            transparent;
-    background-image:            url("~/.cache/ml4w/hyprland-dotfiles/blurred_wallpaper.png", width);
+    background-image:            @current-image;
 }
 
 /* ---- Imagebox ---- */
@@ -96,7 +96,6 @@ inputbar {
     padding:                     1em;
     children:                    [ "textbox-prompt-colon", "entry" ];
     background-color:            transparent;
-    background-image:            url("~/.cache/ml4w/hyprland-dotfiles/current_wallpaper", width);
 }
 
 textbox-prompt-colon {
@@ -107,7 +106,6 @@ textbox-prompt-colon {
     text-color:                  @foreground;
     border-radius:               2em 0em 0em 2em;
     background-color:            @color5;
-    background-image:            url("~/.cache/ml4w/hyprland-dotfiles/current_wallpaper", width);
 }
 
 entry {

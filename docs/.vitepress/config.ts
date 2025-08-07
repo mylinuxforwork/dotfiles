@@ -28,7 +28,7 @@ export default {
         activeMatch: "/showcases/",
       },
      {
-        text: "2.9.8.8",
+        text: "2.9.9",
         items: [
           {
             text: 'Changelog',
@@ -94,6 +94,7 @@ export default {
             { text: "Migration", link: "/getting-started/migrate" },
             { text: "Dependencies", link: "/getting-started/dependencies" },
             { text: "Update", link: "/getting-started/update" },
+            { text: "Uninstall", link: "/getting-started/uninstall" },
           ],
         },
         {

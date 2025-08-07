@@ -46,3 +46,22 @@ button {
     color: #ffffff;
     background: transparent;
 }
+
+.close-button {
+    background: @bordercolor;
+    text-shadow: none;
+    padding: 0;
+    border-radius: 15px;
+    margin-top: 9px;
+    margin-right: 10px;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+.close-button:hover {
+    background: #ffffff;
+}
+
+.notification-group .notification-group-close-button .close-button {
+    margin: 15px 22px;
+}

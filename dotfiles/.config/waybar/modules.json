@@ -90,8 +90,7 @@
     "interval": 1800,
     "signal": 1,
     "hide-empty-text": true,
-    "on-click": "~/.config/ml4w/settings/installupdates.sh",
-    "on-click-right": "~/.config/ml4w/settings/software.sh"
+    "on-click": "~/.config/ml4w/settings/installupdates.sh"
   },
 
   // Wallpaper
@@ -149,7 +148,7 @@
 
   // Rofi Application Launcher
   "custom/appmenuicon": {
-    "format": "",
+    "format": "",
     "on-click": "sleep 0.2;rofi -show drun -replace",
     "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
@@ -377,7 +376,7 @@
     "format-disabled": "",
     "format-off": "",
     "interval": 30,
-    "on-click": "blueman-manager",
+    "on-click": "sleep 0.1 && ~/.config/ml4w/settings/bluetooth.sh",
     "format-no-controller": ""
   },
 
