@@ -35,6 +35,17 @@ packages=(
     "NetworkManager-tui"
     # Apps
     "waypaper"
+    "grim"
+    "slurp"
+    "cliphist"
+    "nwg-look"
+    "qt6ct"
+    "waybar"
+    "rofi-wayland"
+    "zsh"
+    "zoxide"
+    "fzf"
+    "pavucontrol"
     "SwayNotificationCenter"
     # Themes
     "papirus-icon-theme"
@@ -202,4 +213,6 @@ source $SCRIPT_DIR/_fonts.sh
 # Finish
 # --------------------------------------------------------------
 
+echo ":: Installation complete."
+echo ":: Ready to install the dotfiles with the Dotfiles Installer."
 _finishMessage

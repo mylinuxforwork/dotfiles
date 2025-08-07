@@ -30,6 +30,12 @@ packages=(
     "python313-pipx"
     "ImageMagick"
     "NetworkManager-connection-editor"
+    "fontawesome-fonts"
+    "rofi-wayland"
+    "zsh"
+    "zoxide"
+    "fzf"
+    "pavucontrol"
     "NetworkManager-tui"
     # Apps
     "SwayNotificationCenter"

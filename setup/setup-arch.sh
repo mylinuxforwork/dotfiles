@@ -32,6 +32,17 @@ packages=(
     "network-manager-applet"
     "imagemagick"
     "polkit-gnome"
+    "zsh"
+    "zsh-completions"
+    "zoxide"
+    "fzf"
+    "pavucontrol"
+    "papirus-icon-theme"
+    "breeze"
+    "flatpak"
+    "swaync"
+    "gvfs"
+    "wlogout"
     "hyprshade"
     "grimblast-git"
     "checkupdates-with-aur"
@@ -204,4 +215,6 @@ source $SCRIPT_DIR/_fonts.sh
 # Finish
 # --------------------------------------------------------------
 
+echo ":: Installation complete."
+echo ":: Ready to install the dotfiles with the Dotfiles Installer."
 _finishMessage
