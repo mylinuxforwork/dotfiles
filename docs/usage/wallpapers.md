@@ -1,6 +1,9 @@
-# Wallpaper with hyprpaper (swww optional supported)
+# Wallpaper with waypaper (hyprpaper and swww as option)
 
-Included is a matugen and wallust configuration that changes the color scheme based on a randomly selected wallpaper.
+You can select a wallpaper with Waypaper. You can start Waypaper from the App Launcher or from the sidebar.
+
+> [!NOTE]
+> You can install more wallpapers from the ML4W Wallpaper Repository: https://github.com/mylinuxforwork/wallpaper
 
 ### 🎨 Wallpaper Keybindings
 

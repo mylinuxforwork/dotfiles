@@ -1,6 +1,13 @@
 Version 2.9.9
 --------------------------------------------------------
-- Remove legacy installer and folders restructured
+- Legacy installer removed and folders restructured 
+- Font Awesome 7 support added
+- Optimized setup script to reduce the installation time of dependencies
+- Waybar with blurred background as default (powered by Hyprland). Can be switched off in the Dotfiles Settings app/Appearance/Decoration Variations -> no blur
+- ML4W blur theme removed. See above to toggle blur
+- Add Display Zoom: Zoom in with SUPER+SHIFT+Mousewheel up, Zoom out with SUPER+SHIFT+Mousewheel down, Reset Zoom with SUPER+SHIFT+Z
+- Link to ML4W Wallpaper Bank added to Welcome App main menu
+- Specific variations for game mode added to start Hyprland in game mode: Settings app, Appearance: Decoration: gamemode.conf, Window: gamemode.conf, Animation: disabled.conf
 
 Version 2.9.8.8
 --------------------------------------------------------
