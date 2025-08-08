@@ -96,13 +96,6 @@ case "$1" in
         done
         echo "All registered listeners processed."
         ;;
-    --startall-init)
-        echo "Starting all registered listeners in init-only mode..."
-        for key in "${!LISTENERS[@]}"; do
-            start_listener "$key" "--init-only"
-        done
-        echo "All registered listeners processed."
-        ;;
     --stopall)
         echo "Stopping all registered listeners..."
         for key in "${!LISTENERS[@]}"; do
@@ -124,14 +117,6 @@ case "$1" in
             exit 1
         fi
         start_listener "$2"
-        ;;
-    --start-init)
-        if [ -z "$2" ]; then
-            echo "Error: Missing listener name for --start-init option."
-            echo "Usage: $0 --start-init <listener_name>"
-            exit 1
-        fi
-        start_listener "$2" "--init-only"
         ;;
     --stop)
         if [ -z "$2" ]; then
