@@ -40,6 +40,10 @@ window#waybar {
     margin:8px 0px 8px 0px;
 }
 
+#group-quicklinks {
+    background: @surface;   
+}
+
 /* -----------------------------------------------------
  * Workspaces
  * ----------------------------------------------------- */
@@ -62,7 +66,6 @@ window#waybar {
     color: @on_secondary;
     background-color: @secondary;
     transition: all 0.1s linear;
-    opacity: 0.4;
 }
 
 #workspaces button.active {
@@ -71,14 +74,12 @@ window#waybar {
     border-radius: 3px 3px 3px 3px;
     min-width: 30px;
     transition: all 0.1s linear;
-    opacity:1.0;
 }
 
 #workspaces button:hover {
     color: @on_primary_container;
     background: @primary_container;
     border-radius: 5px 5px 5px 5px;
-    opacity:0.7;
 }
 
 /* -----------------------------------------------------
@@ -109,7 +110,6 @@ tooltip label {
     font-size:16px;
     font-weight:normal;
     opacity:1.0;
-    text-shadow: 0px 0px 8px rgba(0,0,0,0.3);    
 }
 
 window#waybar.empty #window {
@@ -224,7 +224,7 @@ window#waybar.empty #window {
 }
 
 #custom-hypridle.notactive {
-    color: #dc2f2f;
+    color: @error;
 }
 
 #custom-ml4w-welcome {
@@ -263,7 +263,7 @@ window#waybar.empty #window {
     font-size: 20px;
     font-weight: bold;
     opacity: 1.0;
-    color: #dc2f2f;
+    color: @error;
 }
 
 /* -----------------------------------------------------
@@ -279,7 +279,6 @@ window#waybar.empty #window {
     margin: 2px 17px 2px 0px;
     opacity: 1.0;
     border: 3px solid @surface;
-    /* box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.); */
 }
 
 /* -----------------------------------------------------
@@ -326,13 +325,13 @@ window#waybar.empty #window {
 }
 
 #custom-updates.yellow {
-    background-color: #ff9a3c;
-    color: #FFFFFF;
+    background-color: @tertiary;
+    color: @on_tertiary;
 }
 
 #custom-updates.red {
-    background-color: #dc2f2f;
-    color: #FFFFFF;
+    background-color: @error;
+    color: @on_error;
 }
 
 /* -----------------------------------------------------
@@ -480,8 +479,8 @@ window#waybar.empty #window {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: @on_surface;
+    background-color: @error;
+    color: @on_error;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -504,5 +503,3 @@ window#waybar.empty #window {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
 }
-
-

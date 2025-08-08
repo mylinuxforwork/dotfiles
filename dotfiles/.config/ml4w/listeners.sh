@@ -14,6 +14,7 @@ LISTENERS["gtk-theme-switcher"]="$HOME/.config/ml4w/listeners/gtk-theme-switcher
 # Function to start a specific listener script
 start_listener() {
     local script_name="$1"
+    local init_flag="$2" # New argument for initialization flag
     local script_path="${LISTENERS[$script_name]}"
 
     if [ -z "$script_path" ]; then
@@ -41,7 +42,7 @@ start_listener() {
 
     # Start the script in the background using nohup to detach it from the terminal
     # Redirect stdout and stderr to /dev/null to prevent nohup.out files
-    nohup "$script_path" > /dev/null 2>&1 &
+    nohup "$script_path" "$init_flag" > /dev/null 2>&1 &
     echo "Listener '$script_name' started successfully."
 }
 
@@ -95,6 +96,13 @@ case "$1" in
         done
         echo "All registered listeners processed."
         ;;
+    --startall-init)
+        echo "Starting all registered listeners in init-only mode..."
+        for key in "${!LISTENERS[@]}"; do
+            start_listener "$key" "--init-only"
+        done
+        echo "All registered listeners processed."
+        ;;
     --stopall)
         echo "Stopping all registered listeners..."
         for key in "${!LISTENERS[@]}"; do
@@ -117,6 +125,14 @@ case "$1" in
         fi
         start_listener "$2"
         ;;
+    --start-init)
+        if [ -z "$2" ]; then
+            echo "Error: Missing listener name for --start-init option."
+            echo "Usage: $0 --start-init <listener_name>"
+            exit 1
+        fi
+        start_listener "$2" "--init-only"
+        ;;
     --stop)
         if [ -z "$2" ]; then
             echo "Error: Missing listener name for --stop option."
@@ -134,7 +150,7 @@ case "$1" in
         restart_listener "$2"
         ;;
     *)
-        echo "Usage: $0 [--startall | --stopall | --restartall | --start <listener_name> | --stop <listener_name> | --restart <listener_name>]"
+        echo "Usage: $0 [--startall | --stopall | --restartall | --startall-init | --start <listener_name> | --stop <listener_name> | --restart <listener_name> | --start-init <listener_name>]"
         echo ""
         echo "Registered listeners:"
         for key in "${!LISTENERS[@]}"; do

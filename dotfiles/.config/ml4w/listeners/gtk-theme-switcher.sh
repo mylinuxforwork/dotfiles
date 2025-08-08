@@ -4,6 +4,12 @@
 # and automatically switches the 'matugen' theme between light and dark
 # based on the 'gtk-application-prefer-dark-theme' setting.
 
+# Check for --init-only flag
+if [[ "$1" == "--init-only" ]]; then
+    echo "gtk-theme-switcher: Initializing without applying theme."
+    exit 0
+fi
+
 # Path to the GTK settings file
 SETTINGS_FILE="$HOME/.config/gtk-4.0/settings.ini"
 
