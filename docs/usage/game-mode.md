@@ -1,8 +1,6 @@
 # Game mode
 
-You can toggle a game mode to increase the performance in gaming situations. 
-
-### 🎛️ Effects & Animations
+You can toggle a game mode to increase the performance in gaming situations from the sidebar app or with a key binding:
 
 | Keybind | Action |
 |--------|--------|
@@ -10,7 +8,12 @@ You can toggle a game mode to increase the performance in gaming situations.
 
 With the same key binding you can bring back the effects.
 
-The gamemode can also be toggled in the ML4W Settings App.
+If you want to enable the game mode permanently, you can activate the related variations in the ML4W Settings app:
 
-![image](/game-mode.png)
+Open the Appearance tab. Change the variations to:
 
+- Decoration Variations: gamemode.conf
+- Window Variations: gamemode.conf
+- Animation Variations: disabled.conf
+
+![image](/gamemode-settings.jpg)

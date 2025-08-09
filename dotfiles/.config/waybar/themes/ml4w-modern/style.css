@@ -10,11 +10,6 @@
 */
 
 /* -----------------------------------------------------
- * Import Pywal colors
- * ----------------------------------------------------- */
-/* @import 'style-light.css'; */
-
-/* -----------------------------------------------------
  * General
  * ----------------------------------------------------- */
 
@@ -31,6 +26,18 @@ window#waybar {
     background: transparent;
     transition-property: background-color;
     transition-duration: .5s;
+}
+
+.modules-left {
+    margin:8px 0px 8px 10px;
+}
+
+.modules-right {
+    margin:8px 10px 8px 0px;
+}
+
+.modules-center {
+    margin:8px 0px 8px 0px;
 }
 
 /* -----------------------------------------------------
