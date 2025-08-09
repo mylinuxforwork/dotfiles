@@ -199,6 +199,21 @@
     "on-click": "~/.config/hypr/scripts/hypridle.sh toggle"
   },
 
+  // Hyprsunset
+  "custom/hyprsunset": {
+    "exec": "temp=$(hyprctl hyprsunset temperature 2>/dev/null || echo '6000'); echo \"{\\\"alt\\\": \\\"$temp\\\"}\"",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+      "4000": "",
+      "default": ""
+    },
+    "escape": true,
+    "tooltip-format": "Nightlight",
+    "interval": "once",
+    "on-click": "~/.config/hypr/scripts/hyprsunset-toggle.sh"
+    },
+
   // Keyboard State
   "keyboard-state": {
     "numlock": true,
@@ -277,7 +292,7 @@
       "custom/tools",
       "custom/cliphist",
       "custom/hypridle",
-      "custom/hyprshade"
+      "custom/hyprsunset"
     ]
   },
 

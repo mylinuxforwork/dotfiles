@@ -15,6 +15,7 @@ hyprland=(
     "hypridle"
     "hyprpicker"
     "xdg-desktop-portal-hyprland"
+    "hyprsunset"
 )
 
 apps=(
