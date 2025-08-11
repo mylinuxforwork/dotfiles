@@ -3,15 +3,8 @@
  * ----------------------------------------------------- */
  @import '../../../../../.config/waybar/colors.css';
 
- @define-color backgroundlight #000000;
- @define-color backgrounddark #000000;
- @define-color workspacesbackground1 #000000;
- @define-color workspacesbackground2 @on_secondary;
- @define-color bordercolor #000000;
- @define-color textcolor1 @on_surface;
- @define-color textcolor2 @on_surface;
- @define-color textcolor3 #000000;
- @define-color iconcolor #000000;
+ @define-color surface #000000;
+ @define-color on_surface #FFFFFF;
  
  @import '../style.css';
  

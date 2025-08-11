@@ -1,19 +1,3 @@
-# Globbing errors on startup
-
-<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
-
-![image](/troubleshoot.png)
-
-Please change the wallpaper with `SUPER+SHIFT+W`.
-
-If this doesn't fix it please open the application launcher and start waypaper. 
-
-Select any other wallpaper and reboot your system.
-
-The issue should be solved.
-
-</div>
-
 ## Issues with SDDM Sequoia Theme
 
 <div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
@@ -74,24 +58,6 @@ If there is still this issue, please uninstall `xdg-desktop-portal-gtk`. If dark
 
 </div>
 
-## No dark theme on GTK4 apps
-
-<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
-
-The package `xdg-desktop-portal-gtk` is not installed. 
-
-Can be installed with the Post Installation Script from the ML4W Welcome App - 3 dots menu.
-
-Or with
-
-```sh
-sudo pacman -S xdg-desktop-portal-gtk
-```
-
-And then reboot your system.
-
-</div>
-
 ## Add noto-fonts-cjk to ml4w-hyprland-git Dependencies for Proper CJK Character Rendering
 
 <div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
@@ -119,29 +85,4 @@ yay -R ttf-ms-fonts
 yay -S ttf-font-awesome otf-font-awesome
 ```
 
-</div>
-
-## SDDM not showing (only black screen with cursor)
-
-<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
-
-Switch to another tty with `CTRL + ALT + F3` Now you can login with your user.
-
-Start Hyprland with Hyprland.
-
-You can try to reinstall all sddm related packages.
-
-```sh
-yay -S sddm-git sddm-sugar-candy-git
-```
-
-Or you can install another display manager.
-
-To stop, disable and remove sddm service.
-
-```sh
-sudo systemctl stop sddm.service
-sudo systemctl disable sddm.service
-sudo rm /etc/systemd/system/display-manager.service
-```
 </div>
