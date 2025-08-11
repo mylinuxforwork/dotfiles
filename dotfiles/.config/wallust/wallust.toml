@@ -1,5 +1,6 @@
-backend = "resized"
+backend = "wal"
 threshold = 10
+check_contrast = true
 
 [templates]
 kitty.template = 'kitty-colors.conf'
