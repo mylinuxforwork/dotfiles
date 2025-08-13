@@ -137,17 +137,6 @@ else
 fi
 
 # -----------------------------------------------------
-# Execute wallust
-# -----------------------------------------------------
-
-_writeLog "Execute wallust with $used_wallpaper"
-if [ "$THEME_PREF" -eq 1 ]; then
-    $HOME/.local/bin/wallust run $used_wallpaper --check-contrast --palette dark
-else
-    $HOME/.local/bin/wallust run $used_wallpaper --check-contrast --palette light
-fi
-
-# -----------------------------------------------------
 # Reload Waybar
 # -----------------------------------------------------
 
