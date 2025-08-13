@@ -69,6 +69,36 @@ yay -R ml4w-dotfiles-git # Rolling Release
 ```
 :::
 
+## Installation with GNU stow
+
+The installation without the Dotfiles Installer is possible but not recommended (especially not for beginners). 
+
+> [!NOTE]
+> Please create a backup from your current configuration. This guide is under developement
+
+The manual installation requires stow. Please install it on your system e.g., on Arch with
+
+```sh 
+sudo pacman -S stow
+```
+
+Please follow the following steps:
+
+```sh 
+mkdir -p ~/Projects # Create a projects folder 
+git clone --depth 1 https://github.com/mylinuxforwork/dotfiles # Rolling Release
+cd ~/Projects/dotfiles/setup # cd into the setup folder
+./setup.sh # Run the setup script to install the dependencies
+```
+Create symlinks into your home folder
+
+```sh 
+cd ~/Projects/dotfiles
+stow dotfiles
+```
+
+Restart your system.
+
 ## Install in a Virtual Machine (KVM)
 
 In virt-manager please make sure that 3D acceleration is enabled in Video Virtio and the Listen type is set to None in Display Spice.
