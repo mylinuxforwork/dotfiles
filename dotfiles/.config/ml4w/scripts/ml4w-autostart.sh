@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Start ML4W Welcome App
 if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then

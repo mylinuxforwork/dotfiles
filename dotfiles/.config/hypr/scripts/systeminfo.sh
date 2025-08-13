@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 clear
 figlet -f smslant "Systeminfo"
 echo

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ml4w_cache_folder="$HOME/.cache/ml4w/hyprland-dotfiles"
 
