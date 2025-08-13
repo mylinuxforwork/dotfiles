@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Toggles between light and dark themes for GTK
 
 GTK3_SETTINGS_FILE="$HOME/.config/gtk-3.0/settings.ini"
