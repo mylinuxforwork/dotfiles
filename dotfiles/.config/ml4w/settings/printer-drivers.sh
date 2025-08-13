@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Installation of Printer Drivers
 # Please add your drivers to the package list
 # Example:
