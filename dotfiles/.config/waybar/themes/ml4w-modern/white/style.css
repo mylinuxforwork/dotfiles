@@ -1,18 +1,18 @@
 /* -----------------------------------------------------
  * Import Pywal colors
  * ----------------------------------------------------- */
- @import '../../../../../.config/waybar/colors.css';
+@import '../../../../../.config/waybar/colors.css';
 
- @define-color surface #FFFFFF;
- @define-color on_surface #000000;
+@define-color primary #FFFFFF;
+@define-color on_primary #000000;
+@define-color icon_color #FFFFFF;
+@define-color on_surface #000000;
+@define-color surface #FFFFFF;
+@define-color border_color #FFFFFF;
+
+@import '../style.css';
  
- @import '../style.css';
- 
- #custom-ml4w-welcome {
-     background-image: url("../../assets/ml4w-icon-white.svg");
- }
- 
- #custom-chatgpt {
-     background-image: url("../../assets/openai-white.svg");
- }
+#custom-ml4w-welcome {
+    background-image: url("../../assets/ml4w-icon-white.svg");
+}
  

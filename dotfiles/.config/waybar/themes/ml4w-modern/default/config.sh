@@ -1,2 +1,2 @@
 #!/bin/bash
-theme_name="ML4W Modern"
+theme_name="ML4W Modern Default"

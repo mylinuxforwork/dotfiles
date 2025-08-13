@@ -41,12 +41,31 @@ if [ -f ~/.config/ml4w/settings/waybar-theme.sh ]; then
     "/ml4w-modern;/ml4w-modern/dark")
         echo "$default_theme" >~/.config/ml4w/settings/waybar-theme.sh
         ;;
+    "/ml4w;/ml4w/light")
+        echo "$default_theme" >~/.config/ml4w/settings/waybar-theme.sh
+        ;;
+    "/ml4w;/ml4w/dark")
+        echo "$default_theme" >~/.config/ml4w/settings/waybar-theme.sh
+        ;;
     *)
         echo
         ;;
     esac
-    rm -rf $HOME/.config/waybar/themes/ml4w-modern/light
-    rm -rf $HOME/.config/waybar/themes/ml4w-modern/dark
+    if [ -d $HOME/.config/waybar/themes/ml4w-modern/light ]; then
+        rm -rf $HOME/.config/waybar/themes/ml4w-modern/light
+    fi
+    if [ -d $HOME/.config/waybar/themes/ml4w-modern/dark ]; then
+        rm -rf $HOME/.config/waybar/themes/ml4w-modern/dark
+    fi
+    if [ -d $HOME/.config/waybar/themes/ml4w-modern/colored ]; then
+        rm -rf $HOME/.config/waybar/themes/ml4w-modern/colored
+    fi
+    if [ -d $HOME/.config/waybar/themes/ml4w/light ]; then
+        rm -rf $HOME/.config/waybar/themes/ml4w/light
+    fi
+    if [ -d $HOME/.config/waybar/themes/ml4w/dark ]; then
+        rm -rf $HOME/.config/waybar/themes/ml4w/dark
+    fi
 fi
 
 # -----------------------------------------------------

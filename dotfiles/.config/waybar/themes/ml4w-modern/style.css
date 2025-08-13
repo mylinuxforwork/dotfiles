@@ -20,10 +20,7 @@
 }
 
 window#waybar {
-    background-color: @blur_background8;
-    border-bottom: 0px solid #ffffff;
-    /* color: #FFFFFF; */
-    background: transparent;
+    background-color: rgba(0,0,0,0.4);
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -40,22 +37,17 @@ window#waybar {
     margin:8px 0px 8px 0px;
 }
 
-#group-quicklinks {
-    background: @surface;   
-}
-
 /* -----------------------------------------------------
  * Workspaces
  * ----------------------------------------------------- */
 
 #workspaces {
-    background: @surface;
+    background: @border_color;
     margin: 2px 18px 3px 1px;
     padding: 0px 2px;
     border-radius: 5px 5px 5px 5px;
     font-weight: bold;
     font-style: normal;
-    opacity: 1.0;
     color: @on_surface;
 }
 
@@ -63,14 +55,14 @@ window#waybar {
     padding: 0px 6px;
     margin: 3px 2px;
     border-radius: 3px 3px 3px 3px;
-    color: @on_secondary;
-    background-color: @secondary;
+    color: @on_surface;
+    background-color: @surface;
     transition: all 0.1s linear;
 }
 
 #workspaces button.active {
-    color: @on_primary;
-    background: @primary;
+    color: @on_primary_container;
+    background: @primary_container;
     border-radius: 3px 3px 3px 3px;
     min-width: 30px;
     transition: all 0.1s linear;
@@ -89,7 +81,6 @@ window#waybar {
 tooltip {
     border-radius: 10px;
     background-color: @surface;
-    opacity: 0.9;
     padding: 5px;
     margin: 0px;
 }
@@ -106,10 +97,9 @@ tooltip label {
     margin: 3px 15px 3px 0px;
     padding: 2px 10px 0px 10px;
     border-radius: 5px 5px 5px 5px;
-    color:@surface;
+    color:@icon_color;
     font-size:16px;
     font-weight:normal;
-    opacity:1.0;
 }
 
 window#waybar.empty #window {
@@ -121,14 +111,14 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #taskbar {
-    background: @surface;
+    background: @primary;
     margin: 3px 15px 3px 0px;
     padding:0px;
     border-radius: 5px 5px 5px 5px;
     font-weight: normal;
     font-style: normal;
     opacity:1.0;
-    border: 3px solid @surface;
+    border: 3px solid @border_color;
 }
 
 #taskbar button {
@@ -198,8 +188,7 @@ window#waybar.empty #window {
     margin-right: 16px;
     font-size: 20px;
     font-weight: bold;
-    opacity: 1.0;
-    color: @surface;
+    color: @icon_color;
 }
 
 #custom-quicklink1,
@@ -220,7 +209,7 @@ window#waybar.empty #window {
 }
 
 #custom-hypridle.active {
-    color: @surface;
+    color: @icon_color;
 }
 
 #custom-hypridle.notactive {
@@ -236,16 +225,6 @@ window#waybar.empty #window {
     padding-right: 20px;
 }
 
-#custom-chatgpt {
-    margin-right: 16px;
-    background-image: url("../assets/openai.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    padding-right: 18px;
-    opacity: 1.0;
-}
-
 /* -----------------------------------------------------
  * Idle Inhibator
  * ----------------------------------------------------- */
@@ -255,7 +234,7 @@ window#waybar.empty #window {
     font-size: 22px;
     font-weight: bold;
     opacity: 1.0;
-    color: @surface;
+    color: @icon_color;
 }
 
 #idle_inhibitor.activated {
@@ -267,7 +246,7 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
- * Custom Modules
+ * App Launcher
  * ----------------------------------------------------- */
 
 #custom-appmenu {
@@ -277,8 +256,7 @@ window#waybar.empty #window {
     border-radius: 5px 5px 5px 5px;
     padding: 0px 10px 0px 10px;
     margin: 2px 17px 2px 0px;
-    opacity: 1.0;
-    border: 3px solid @surface;
+    border: 3px solid @border_color;
 }
 
 /* -----------------------------------------------------
@@ -289,8 +267,7 @@ window#waybar.empty #window {
     margin: 0px 13px 0px 0px;
     padding: 0px;
     font-size: 20px;
-    color: @surface;
-    opacity: 1.0;
+    color: @icon_color;
 }
 
 /* -----------------------------------------------------
@@ -301,8 +278,7 @@ window#waybar.empty #window {
     margin: 0px 13px 0px 0px;
     padding: 0px;
     font-size: 20px;
-    color: @surface;
-    opacity: 1.0;
+    color: @icon_color;
 }
 
 /* -----------------------------------------------------
@@ -316,8 +292,7 @@ window#waybar.empty #window {
     border-radius: 5px 5px 5px 5px;
     padding: 2px 10px 0px 10px;
     margin: 3px 15px 3px 0px;
-    opacity: 1.0;
-    border: 3px solid @surface;
+    border: 3px solid @border_color;
 }
 
 #custom-updates.green {
@@ -342,7 +317,7 @@ window#waybar.empty #window {
     margin: 0px;
     padding: 0px;
     font-size: 16px;
-    color: @surface;
+    color: @icon_color;
 }
 
 #language {
@@ -357,7 +332,7 @@ window#waybar.empty #window {
     margin: 0px 13px 0px 0px;
     padding: 0px;
     font-size: 16px;
-    color: @surface;
+    color: @icon_color;
 }
 
 /* -----------------------------------------------------
@@ -371,8 +346,7 @@ window#waybar.empty #window {
     border-radius: 3px 5px 3px 5px;
     padding: 1px 10px 0px 10px;
     margin: 3px 0px 3px 0px;
-    opacity: 1.0;
-    border: 3px solid @surface;
+    border: 3px solid @border_color;
 }
 
 /* -----------------------------------------------------
@@ -386,7 +360,7 @@ window#waybar.empty #window {
     border-radius: 5px 5px 5px 5px;
     padding: 2px 10px 0px 10px;
     margin: 3px 15px 3px 0px;
-    opacity: 1.0;
+    border: 3px solid @border_color;
 }
 
 /* -----------------------------------------------------
@@ -401,6 +375,7 @@ window#waybar.empty #window {
     padding: 2px 10px 0px 10px;
     margin: 3px 15px 3px 0px;
     opacity: 1.0;
+    border: 3px solid @border_color;
 }
 
 #pulseaudio.muted {
@@ -419,7 +394,7 @@ window#waybar.empty #window {
     border-radius: 5px 5px 5px 5px;
     padding: 2px 10px 0px 10px;
     margin: 3px 15px 3px 0px;
-    opacity: 1.0;
+    border: 3px solid @border_color;
 }
 
 #network.ethernet {
@@ -443,7 +418,7 @@ window#waybar.empty #window {
     border-radius: 5px 5px 5px 5px;
     padding: 2px 10px 0px 10px;
     margin: 3px 15px 3px 0px;
-    opacity: 1.0;
+    border: 3px solid @border_color;
 }
 
 #bluetooth.off {
@@ -464,6 +439,7 @@ window#waybar.empty #window {
     padding: 2px 15px 0px 10px;
     margin: 3px 15px 3px 0px;
     opacity: 1.0;
+    border: 3px solid @border_color;
 }
 
 #battery.charging, #battery.plugged {
