@@ -39,14 +39,14 @@ apply_theme() {
         echo "Detected dark theme preference (gtk-application-prefer-dark-theme=1). Applying dark matugen theme..."
         $HOME/.local/bin/matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper)
 
-        bash $HOME/.config/nwg-dock-hyprland/launch.sh &
-        bash $HOME/.config/waybar/launch.sh &
+        $HOME/.config/nwg-dock-hyprland/launch.sh &
+        $HOME/.config/waybar/launch.sh &
     elif [ "$THEME_PREF" -eq 0 ]; then
         echo "Detected light theme preference (gtk-application-prefer-dark-theme=0). Applying light matugen theme..."
         $HOME/.local/bin/matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) -m "light"
 
-        bash $HOME/.config/nwg-dock-hyprland/launch.sh &
-        bash $HOME/.config/waybar/launch.sh &
+        $HOME/.config/nwg-dock-hyprland/launch.sh &
+        $HOME/.config/waybar/launch.sh &
     else
         echo "Warning: Unexpected value for gtk-application-prefer-dark-theme: $THEME_PREF. Expected 0 or 1. Skipping theme application."
     fi
