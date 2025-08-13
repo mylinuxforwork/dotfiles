@@ -5,7 +5,7 @@
 # based on the 'gtk-application-prefer-dark-theme' setting.
 
 # Path to the GTK settings file
-SETTINGS_FILE="$HOME/.config/gtk-4.0/settings.ini"
+SETTINGS_FILE="$HOME/.config/gtk-3.0/settings.ini"
 
 # Ensure inotify-tools is installed
 if ! command -v inotifywait &> /dev/null
