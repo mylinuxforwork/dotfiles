@@ -130,8 +130,20 @@ _installPackages "${packages[@]}"
 # --------------------------------------------------------------
 # Hyprland
 # --------------------------------------------------------------
-
 _installPackages "${hyprland[@]}"
+
+# --------------------------------------------------------------
+# Fix xdg-desktop-portal conflicts
+# --------------------------------------------------------------
+echo ":: Configuring xdg-desktop-portal to use Hyprland as default"
+# Create the directory if it doesn't exist
+if [ ! -d /etc/xdg/xdg-desktop-portal ]; then
+    sudo mkdir -p /etc/xdg/xdg-desktop-portal
+fi
+
+# Create the configuration file to prioritize Hyprland
+echo "[main]" | sudo tee /etc/xdg/xdg-desktop-portal/hyprland-portal.conf
+echo "default=hyprland" | sudo tee -a /etc/xdg/xdg-desktop-portal/hyprland-portal.conf
 
 # --------------------------------------------------------------
 # Create .local/bin folder
