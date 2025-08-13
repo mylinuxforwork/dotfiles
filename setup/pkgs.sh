@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 general=(
     "wget"
     "curl"
