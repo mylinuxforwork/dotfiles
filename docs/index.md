@@ -58,7 +58,7 @@ Copy the following url into the Dotfiles Installer and start the installation.
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable.dotinst
 ```
-#### Rolling Release (DEV 2.9.9.1)
+#### Rolling Release (BETA 2.9.9.1)
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
