@@ -43,13 +43,6 @@ configuration {
 /* ---- Load border radius ---- */
 @import "~/.config/ml4w/settings/rofi-border-radius.rasi"
 
-/* ---- Map colors ---- */
-* {
-    color11: @primary;
-    color5: @on-primary-fixed;
-    foreground: @on-surface;
-}
-
 // Main //
 window {
     width:                        30em;
@@ -60,7 +53,7 @@ window {
     margin:                       0em; 
     color:                      #FFFFFF;
     border:                       @border-width;
-    border-color:                 @color11;
+    border-color:                 @primary;
     cursor:                       "default";
     transparency:                 "real";
     location:                     north;
@@ -95,26 +88,25 @@ inputbar {
     spacing:                     0em;
     padding:                     1em;
     children:                    [ "textbox-prompt-colon", "entry" ];
-    background-color:            transparent;
+    background-color:            @surface;
 }
 
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
     str:                         "  ";
-    padding:                     1em 0.2em 0em 0em;
-    text-color:                  @foreground;
+    padding:                     0.5em 0.2em 0em 0em;
+    text-color:                  @on-surface;
     border-radius:               2em 0em 0em 2em;
-    background-color:            @color5;
+    background-color:            transparent;
 }
 
 entry {
     enabled:                     true;
-    border-radius:               0em 2em 2em 0em;
     spacing:                     1em;
-    padding:                     1em;
-    background-color:            @color5;
-    text-color:                  @foreground;
+    padding:                     0.5em;
+    background-color:            @surface;
+    text-color:                  @on-surface;
     cursor:                      text;
     placeholder:                 "Search";
     placeholder-color:           inherit;
@@ -145,30 +137,7 @@ listview {
     fixed-columns:               true;
     cursor:                      "default";
     background-color:            transparent;
-    text-color:                  @foreground;
-}
-
-
-// Modes //
-mode-switcher {
-    orientation:                 vertical;
-    width:                       6.6em;
-    enabled:                     true;
-    padding:                     1.5em;
-    spacing:                     1.5em;
-    background-color:            transparent;
-}
-
-button {
-    cursor:                      pointer;
-    border-radius:               2em;
-    background-color:            @background;
-    text-color:                  @foreground;
-}
-
-button selected {
-    background-color:            @color5;
-    text-color:                  @background;
+    text-color:                  @on-surface;
 }
 
 // Elements //
@@ -178,54 +147,54 @@ element {
     margin:                      0em;
     cursor:                      pointer;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @on-surface;
     border-radius:               1.1em;
 }
 
 element selected.normal {
-    background-color:            @color5;
-    text-color:                  @foreground;
+    background-color:            @surface;
+    text-color:                  @on-surface;
     border-radius:               1.5em;
 }
 
 element normal.normal {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @on-surface;
 }
 
 element normal.urgent {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @on-surface;
 }
 
 element normal.active {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @on-surface;
 }
 
 element selected.urgent {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @on-surface;
 }
 
 element selected.active {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @on-surface;
 }
 
 element alternate.normal {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @on-surface;
 }
 
 element alternate.urgent {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @on-surface;
 }
 
 element alternate.active {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @on-surface;
 }
 
 element-icon {
@@ -242,31 +211,4 @@ element-text {
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;
-}
-
-/*****----- Message -----*****/
-message {
-    background-color:            transparent;
-    border:                      0em;
-    margin:                      2.2em 0em 0em 0em;
-    padding:                     0em;
-    spacing:                     0em;
-    border-radius:               1.1em;
-}
-
-textbox {
-    padding:                     2em;
-    margin:                      0em;
-    border-radius:               0em;
-    background-color:            @background;
-    text-color:                  @foreground;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
-}
-
-error-message {
-    padding:                     2em;
-    border-radius:               2.1em;
-    background-color:            @background;
-    text-color:                  @foreground;
 }

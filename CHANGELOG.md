@@ -5,7 +5,6 @@ Version 2.9.9.1
 - Wallust removed as color generator. Not needed anymore for kitty.
 - Fish configuration added and shell script extended
 
-
 Version 2.9.9
 --------------------------------------------------------
 - Legacy installer removed and folders restructured 
