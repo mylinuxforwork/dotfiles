@@ -4,6 +4,7 @@ Version 2.9.9.1
 - Waybar Theme ML4W Modern Dark and Light consolidated into ML4W Modern Theme
 - Wallust removed as color generator. Not needed anymore for kitty.
 - Fish configuration added and shell script extended
+- New default wallpaper
 
 Version 2.9.9
 --------------------------------------------------------
