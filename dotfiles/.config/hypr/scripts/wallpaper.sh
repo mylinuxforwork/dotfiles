@@ -122,7 +122,7 @@ fi
 # Detect Theme
 # -----------------------------------------------------
 
-SETTINGS_FILE="$HOME/.config/gtk-4.0/settings.ini"
+SETTINGS_FILE="$HOME/.config/gtk-3.0/settings.ini"
 THEME_PREF=$(grep -E '^gtk-application-prefer-dark-theme=' "$SETTINGS_FILE" | awk -F'=' '{print $2}')
 
 # -----------------------------------------------------
