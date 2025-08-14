@@ -7,8 +7,8 @@
 @define-color on_primary #000000;
 @define-color icon_color #FFFFFF;
 @define-color on_surface #000000;
-@define-color surface #FFFFFF;
 @define-color border_color #FFFFFF;
+@define-color background #FFFFFF;
 
 @import '../style.css';
  

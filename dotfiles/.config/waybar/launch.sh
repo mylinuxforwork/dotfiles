@@ -57,9 +57,6 @@ if [ -f ~/.config/ml4w/settings/waybar-theme.sh ]; then
     if [ -d $HOME/.config/waybar/themes/ml4w-modern/dark ]; then
         rm -rf $HOME/.config/waybar/themes/ml4w-modern/dark
     fi
-    if [ -d $HOME/.config/waybar/themes/ml4w-modern/colored ]; then
-        rm -rf $HOME/.config/waybar/themes/ml4w-modern/colored
-    fi
     if [ -d $HOME/.config/waybar/themes/ml4w/light ]; then
         rm -rf $HOME/.config/waybar/themes/ml4w/light
     fi
