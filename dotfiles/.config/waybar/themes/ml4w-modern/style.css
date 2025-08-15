@@ -226,6 +226,30 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
+ * Custom Nowplaying
+ * ----------------------------------------------------- */
+
+#custom-nowplaying {
+  background-color: transparent;
+  font-size: 11px;
+  color: @textcolor2;
+  border-radius: 5px 5px 5px 5px;
+  padding: 2px 10px 0px 10px;
+  margin: 3px 15px 3px 0px;
+  opacity: 1;
+  border: 3px solid @backgrounddark;
+}
+
+#custom-nowplaying.playing {
+  background-color: @backgroundlight;
+}
+
+#custom-nowplaying.paused {
+  background-color: @backgrounddark;
+  color: @textcolor1;
+}
+
+/* -----------------------------------------------------
  * Idle Inhibator
  * ----------------------------------------------------- */
 
