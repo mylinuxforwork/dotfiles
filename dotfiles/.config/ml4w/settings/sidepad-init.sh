@@ -1,0 +1,1 @@
+--class "io.github.qwersyk.Newelle" --init "flatpak run io.github.qwersyk.Newelle"
