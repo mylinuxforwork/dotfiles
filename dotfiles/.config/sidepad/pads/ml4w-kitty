@@ -1,0 +1,3 @@
+# Sidepad configuration for Kitty
+SIDEPAD_APP="kitty"
+SIDEPAD_CLASS="dotfiles-sidepad"

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+SIDEPAD_ACTIVE=$(cat "$HOME/.config/ml4w/settings/sidepad-active")
+SIDEPAD_OPTIONS=""
+source $HOME/.config/sidepad/pads/$SIDEPAD_ACTIVE
+
+SIDEPAD="$HOME/.config/sidepad/scripts/sidepad.sh --class '$SIDEPAD_CLASS'"
+SIDEPAD_INIT="$SIDEPAD --init '$SIDEPAD_APP'"
+SIDEPAD_HIDE="$SIDEPAD --hide"
+SIDEPAD_SELECT="$HOME/.config/sidepad/scripts/select.sh"
+
+if [[ "$1" == "--init" ]]; then
+    eval "$SIDEPAD_INIT"
+elif [[ "$1" == "--hide" ]]; then
+    eval "$SIDEPAD_HIDE"
+elif [[ "$1" == "--select" ]]; then
+    eval "$SIDEPAD_SELECT"
+else
+    eval "$SIDEPAD $SIDEPAD_OPTIONS"
+fi

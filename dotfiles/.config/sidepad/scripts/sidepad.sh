@@ -12,8 +12,8 @@ HIDDEN_LEFT_GAP=10
 VISIBLE_LEFT_GAP=20
 TARGET_WIDTH=500
 TARGET_WIDTH_MAX=1000
-TOP_GAP=70
-BOTTOM_GAP=20
+TOP_GAP=76
+BOTTOM_GAP=91
 
 # --- Script Variables ---
 HIDE_REQUESTED=0
@@ -33,6 +33,7 @@ show_help() {
     echo "  --top-gap <px>         Override the top gap (Default: $TOP_GAP)"
     echo "  --bottom-gap <px>      Override the bottom gap (Default: $BOTTOM_GAP)"
     echo "  --hide                 Force the window to the hidden state."
+    echo "  --kill                 Kills the running app with WINDOW_CLASS."
     echo "  -h, --help             Display this help and exit"
     exit 0
 }
@@ -73,16 +74,36 @@ while [[ $# -gt 0 ]]; do
         HIDE_REQUESTED=1
         shift
         ;;
+        --kill)
+        WINDOW_PID=$(hyprctl clients -j | jq -r --arg class "$WINDOW_CLASS" '.[] | select(.class == $class) | .pid')
+        if [ -n "$WINDOW_PID" ] && [ "$WINDOW_PID" -ne -1 ]; then
+            echo "Killing process with PID $WINDOW_PID for window class '$WINDOW_CLASS'."
+            kill "$WINDOW_PID"
+        else
+            echo "Error: Window with class '$WINDOW_CLASS' not found or has no valid PID." >&2
+        fi
+        exit 0
+        ;;
         --init)
-        eval "$2" &
-        HIDE_REQUESTED=1
-        # Wait for the window to appear, with a timeout
-        for i in {1..50}; do # ~2 seconds timeout
-            if hyprctl clients -j | jq -e --arg class "$WINDOW_CLASS" '.[] | select(.class == $class)' > /dev/null; then
-                break
+
+        echo "$WINDOW_CLASS"
+        # Check if the window already exists, if not launch it
+        if ! hyprctl clients -j | jq -e --arg class "$WINDOW_CLASS" '.[] | select(.class == $class)' > /dev/null; then
+            notify-send "Sidepad will be initialized with" "$2"
+            if [[ "$WINDOW_CLASS" == "dotfiles-sidepad" ]]; then
+                eval "$2 --class $WINDOW_CLASS" &
+            else
+                eval "$2" &
             fi
-            sleep 0.1
-        done
+            # Wait for the window to appear, with a timeout
+            for i in {1..50}; do # ~2 seconds timeout
+                if hyprctl clients -j | jq -e --arg class "$WINDOW_CLASS" '.[] | select(.class == $class)' > /dev/null; then
+                    break
+                fi
+                sleep 0.1
+            done
+        fi
+        HIDE_REQUESTED=1
         shift 2
         ;;
         -h|--help)
@@ -134,7 +155,7 @@ fi
 # Case 2: Window is hidden, so show it.
 if (( WINDOW_X < 0 )); then
     echo "--- Showing window ---"
-    PIXELS_TO_MOVE_X=$(( TARGET_WIDTH - HIDDEN_LEFT_GAP + VISIBLE_LEFT_GAP ))
+    PIXELS_TO_MOVE_X=$(( VISIBLE_LEFT_GAP - WINDOW_X ))
     WIDTH_CHANGE=$(( TARGET_WIDTH - WINDOW_WIDTH ))
     PIXELS_TO_MOVE_Y=$(( TOP_GAP - WINDOW_Y ))
     TARGET_HEIGHT=$(( MONITOR_HEIGHT - TOP_GAP - BOTTOM_GAP ))
