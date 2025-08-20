@@ -2,10 +2,10 @@ Version 2.9.9.1
 --------------------------------------------------------
 - Full dark and light theme support. Change preferred theme in nw-look. A listener script will reload waybar and nwg-dock-hyprland when the file ~/.config/gtk-4.0/settings.ini will be changed.
 - Waybar Theme ML4W Modern Dark and Light consolidated into ML4W Modern Theme
-- Wallust removed as color generator. Not needed anymore for kitty.
-- Fish configuration added and shell script extended
+- Wallust removed as color generator. Not needed anymore for kitty colors.
+- Fish configuration added and shell selection script extended.
 - New default wallpaper
-- New sidepad feature to move windows to the right side of the screen.
+- New sidepad feature to move windows to the right side of the screen. https://mylinuxforwork.github.io/dotfiles/usage/sidepad
 - New focus script: Select window and switch to workspace with CTRL + Tab
 
 Version 2.9.9

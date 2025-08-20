@@ -1,5 +1,15 @@
 # Sidepad
 
+The Sidepad is a useful feature for quickly and easily accessing a persistent window across all workspaces. 
+
+![image](/sidepad-open.jpg)
+
+When the Sidepad is initialized, the right window frame appears on the left edge of the screen. Keybindings can be used to display and enlarge the window completely.
+
+![image](/sidepad-closed.jpg)
+
+The Sidepad is suitable as a scratchpad replacement, for terminals, and AI assistance that needs to be accessed permanently.
+
 ## Key bindings
 
 The ML4W Dotfiles include teh following kebindings for Sidepd:
@@ -14,7 +24,7 @@ You will also find a special sectio in the ML4W Sidebar.
 
 ## Configuration
 
-You can add your own custom sidepad configuration in ~/.config/sidepad/pads The configuration will automatically appear in the Sidepad selector.
+Ths Sidepad on the ML4W Dotfile is shipped with the following configurations:
 
 ```sh
 # Sidepad configuration for Kitty
@@ -35,6 +45,14 @@ SIDEPAD_APP="firefox --no-remote -P default --name dotfiles-sidepad"
 SIDEPAD_CLASS="dotfiles-sidepad"
 ```
 
+You can add your own custom sidepad configurations in `~/.config/sidepad/pads` The configuration will automatically appear in the Sidepad selector.
+
+## Scripting
+
+The Sidepad script is working also stand-alone without the ML4W Dotfiles.
+
+You can find the script here: https://github.com/mylinuxforwork/dotfiles/tree/main/dotfiles/.config/sidepad
+
 ```sh
 Options:
   --class <name>         Override the window class (Default: dotfiles-sidepad)
@@ -48,10 +66,10 @@ Options:
   --kill                 Kills the running app with WINDOW_CLASS.
   -h, --help             Display this help and exit
 ```
-# Scripting
+
 
 You can script the sidepad functionality by creating an own dispatcher script and connect it to your key bindings.
 
-The sidepad dispatcher for the ML4W Dotfiles is available here: 
+The sidepad dispatcher for the ML4W Dotfiles is available here: https://github.com/mylinuxforwork/dotfiles/blob/main/dotfiles/.config/ml4w/scripts/sidepad.sh
 
 
