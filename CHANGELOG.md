@@ -5,6 +5,7 @@ Version 2.9.9.1
 - Wallust removed as color generator. Not needed anymore for kitty.
 - Fish configuration added and shell script extended
 - New default wallpaper
+- New sidepad feature to move windows to the right side of the screen.
 
 Version 2.9.9
 --------------------------------------------------------
