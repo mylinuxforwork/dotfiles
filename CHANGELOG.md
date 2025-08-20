@@ -6,6 +6,7 @@ Version 2.9.9.1
 - Fish configuration added and shell script extended
 - New default wallpaper
 - New sidepad feature to move windows to the right side of the screen.
+- New focus script: Select window and switch to workspace with CTRL + Tab
 
 Version 2.9.9
 --------------------------------------------------------
