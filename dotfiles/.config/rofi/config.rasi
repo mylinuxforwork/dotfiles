@@ -165,7 +165,7 @@ listview {
 // Elements //
 element {
     enabled:                     true;
-    spacing:                     0em;
+    spacing:                     10px;
     padding:                     0.5em;
     cursor:                      pointer;
     background-color:            transparent;
@@ -228,7 +228,7 @@ element-icon {
 
 element-text {
     vertical-align:              0.5;
-    horizontal-align:            0.1;
+    horizontal-align:            0.0;
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;

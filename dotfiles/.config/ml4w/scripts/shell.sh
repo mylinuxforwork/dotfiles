@@ -26,6 +26,9 @@ if [[ $shell == "bash" ]]; then
     done
     echo ":: Shell is now bash."
 
+    # Installing oh-my-posh
+    curl -s https://ohmyposh.dev/install.sh | bash -s
+
     gum spin --spinner dot --title "Please reboot your system." -- sleep 3
 
 # -----------------------------------------------------
@@ -42,6 +45,9 @@ elif [[ $shell == "fish" ]]; then
             sleep 1
         done
         echo ":: Shell is now fish."
+
+        # Installing oh-my-posh
+        curl -s https://ohmyposh.dev/install.sh | bash -s
 
         gum spin --spinner dot --title "Please reboot your system." -- sleep 3
     fi
