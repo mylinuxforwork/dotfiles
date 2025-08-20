@@ -114,6 +114,7 @@ export default {
           items: [
             { text: "Launch Hyprland", link: "/usage/launch" },
             { text: "Keybindings", link: "/usage/keybindings" },
+            { text: "Sidepad", link: "/usage/sidepad" },
             { text: "Screenshots", link: "/usage/screenshots" },
             { text: "Game Mode", link: "/usage/game-mode" },
             { text: "Wallpapers", link: "/usage/wallpapers" },
