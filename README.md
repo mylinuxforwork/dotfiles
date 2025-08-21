@@ -1,7 +1,9 @@
-# ML4W Dotfiles for Hyprland
+# FalcoArchLinuxCore0 Dotfiles for Hyprland
+## Inspired from ML4W Dotfiles for Hyprland
 
 An advanced configuration of Hyprland for Arch Linux based distributions. Full featured desktop environment based on the tiling window manager Hyprland with dynamic material color themes based on the selected wallpaper for all main modules. Including a comprehensive selection of apps with the ability to customize the configuration to your personal needs.
 
+Check out ML4W:
 ![image](https://mylinuxforwork.github.io/dotfiles/ml4w-preview-299.jpg)
 
 ## Installation and Documentation
