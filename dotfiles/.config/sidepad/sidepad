@@ -34,8 +34,19 @@ show_help() {
     echo "  --bottom-gap <px>      Override the bottom gap (Default: $BOTTOM_GAP)"
     echo "  --hide                 Force the window to the hidden state."
     echo "  --kill                 Kills the running app with WINDOW_CLASS."
+    echo "  --test                 Test for running app with WINDOW_CLASS."
     echo "  -h, --help             Display this help and exit"
     exit 0
+}
+
+test_sidepad() {
+    if ! hyprctl clients -j | jq -e --arg class "$WINDOW_CLASS" '.[] | select(.class == $class)' > /dev/null; then
+        echo "1"
+        return 1
+    else
+        echo "0"
+        return 0
+    fi
 }
 
 init_sidepad() {
@@ -111,6 +122,11 @@ while [[ $# -gt 0 ]]; do
         --hide)
             HIDE_REQUESTED=1
             shift
+        ;;
+
+        --test)
+            test_sidepad
+            exit 0
         ;;
 
         --kill)

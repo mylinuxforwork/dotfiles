@@ -49,6 +49,10 @@ if [[ "$1" == "--init" ]]; then
     eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --init '$SIDEPAD_APP'"
 elif [[ "$1" == "--hide" ]]; then
     eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --hide"
+elif [[ "$1" == "--test" ]]; then
+    eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --test"
+elif [[ "$1" == "--kill" ]]; then
+    eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --kill"
 elif [[ "$1" == "--select" ]]; then
     select_sidepad
 else
