@@ -7,6 +7,7 @@ Version 2.9.9.1
 - New default wallpaper
 - New sidepad feature to move windows to the right side of the screen. https://mylinuxforwork.github.io/dotfiles/usage/sidepad
 - New focus script: Select window and switch to workspace with CTRL + Tab
+- New Sidebar App layout with Light/Dark theme toggle button
 
 Version 2.9.9
 --------------------------------------------------------

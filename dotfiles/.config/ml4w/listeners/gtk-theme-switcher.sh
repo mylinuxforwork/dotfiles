@@ -6,6 +6,8 @@
 
 # Path to the GTK settings file
 SETTINGS_FILE="$HOME/.config/gtk-3.0/settings.ini"
+SETTINGS_DIR="$HOME/.config/gtk-3.0"
+SETTINGS_BASENAME=$(basename "$SETTINGS_FILE")
 
 # Ensure inotify-tools is installed
 if ! command -v inotifywait &> /dev/null
@@ -38,24 +40,24 @@ apply_theme() {
     if [ "$THEME_PREF" -eq 1 ]; then
         echo "Detected dark theme preference (gtk-application-prefer-dark-theme=1). Applying dark matugen theme..."
         $HOME/.local/bin/matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper)
-
         $HOME/.config/nwg-dock-hyprland/launch.sh &
         $HOME/.config/waybar/launch.sh &
+        $HOME/.config/hypr/scripts/gtk.sh &
     elif [ "$THEME_PREF" -eq 0 ]; then
         echo "Detected light theme preference (gtk-application-prefer-dark-theme=0). Applying light matugen theme..."
         $HOME/.local/bin/matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) -m "light"
-
         $HOME/.config/nwg-dock-hyprland/launch.sh &
         $HOME/.config/waybar/launch.sh &
+        $HOME/.config/hypr/scripts/gtk.sh &
     else
         echo "Warning: Unexpected value for gtk-application-prefer-dark-theme: $THEME_PREF. Expected 0 or 1. Skipping theme application."
     fi
 }
 
-# Loop indefinitely, waiting for file modifications
-# -m: monitor for modify events
-# -q: quiet mode, only output events
-while inotifywait -q -e modify "$SETTINGS_FILE"; do
-    echo "Change detected in $SETTINGS_FILE. Re-applying theme..."
-    apply_theme
+# Loop indefinitely, reading output from inotifywait
+inotifywait -m -q -e close_write,moved_to "$SETTINGS_DIR" | while read -r dir events filename; do
+    if [[ "$filename" == "$SETTINGS_BASENAME" ]]; then
+        echo "Change detected in $SETTINGS_FILE. Re-applying theme..."
+        apply_theme
+    fi
 done
