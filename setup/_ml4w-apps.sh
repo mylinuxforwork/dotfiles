@@ -5,6 +5,8 @@
 
 echo ":: Installing the ML4W Apps"
 
+flatpak update
+
 ml4w_app="com.ml4w.welcome"
 ml4w_app_repo="dotfiles-welcome"
 echo ":: Installing $ml4w_app"
