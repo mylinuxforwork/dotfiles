@@ -26,18 +26,24 @@ You will also find a special sectio in the ML4W Sidebar.
 
 Ths Sidepad on the ML4W Dotfile is shipped with the following configurations:
 
+### Terminal
+
 ```sh
 # Sidepad configuration for Kitty
 SIDEPAD_APP="kitty"
 SIDEPAD_CLASS="dotfiles-sidepad"
 ```
 
+### AI assistance 
+
 ```sh
 # Sidepad configuration for Newelle
+# Installation with flatpak install io.github.qwersyk.Newelle
 SIDEPAD_APP="flatpak run io.github.qwersyk.Newelle"
 SIDEPAD_CLASS="io.github.qwersyk.Newelle"
 SIDEPAD_OPTIONS="--width 700"
 ```
+### Browser
 
 ```sh
 # Sidepad configuration for Firefox
