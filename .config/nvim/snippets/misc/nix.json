@@ -1,0 +1,46 @@
+{
+  "shell": {
+    "prefix": "shell",
+    "body": [
+      "{pkgs ? import <nixpkgs> {}}:",
+      "pkgs.mkShell {",
+      "\tpackages = with pkgs; [",
+      "\t\t$0",
+      "\t];",
+      "}"
+    ],
+    "description": "Nix Shell template."
+  },
+  "flake": {
+    "prefix": "flake",
+    "body": [
+      "{",
+      "\tdescription = \"A basic flake with a shell\";",
+      "\tinputs.nixpkgs.url = \"github:NixOS/nixpkgs/nixpkgs-unstable\";",
+      "\tinputs.systems.url = \"github:nix-systems/default\";",
+      "\tinputs.flake-utils = {",
+      "\t\turl = \"github:numtide/flake-utils\";",
+      "\t\tinputs.systems.follows = \"systems\";",
+      "\t};",
+      "",
+      "\toutputs = {",
+      "\t\tnixpkgs,",
+      "\t\tflake-utils,",
+      "\t\t...",
+      "\t}:",
+      "\t\tflake-utils.lib.eachDefaultSystem (",
+      "\t\t\tsystem: let",
+      "\t\t\t\tpkgs = nixpkgs.legacyPackages.\\${system};",
+      "\t\t\tin {",
+      "\t\t\t\tdevShells.default = pkgs.mkShell {",
+      "\t\t\t\t\tpackages = with pkgs; [",
+      "\t\t\t\t\t\t$0",
+      "\t\t\t\t\t];",
+      "\t\t\t\t};",
+      "\t\t\t}",
+      "\t\t);",
+      "}"
+    ],
+    "description": "Nix Flake template."
+  }
+}

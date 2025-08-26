@@ -1,0 +1,324 @@
+{
+  "cfg": {
+    "prefix": "cfg",
+    "body": [
+      "#[cfg(${1})]"
+    ],
+    "description": "#[cfg(…)]"
+  },
+  "format": {
+    "prefix": "format",
+    "body": [
+      "format!(\"${1}\")"
+    ],
+    "description": "format!(…)"
+  },
+  "panic": {
+    "prefix": "panic",
+    "body": [
+      "panic!(\"${1}\");"
+    ],
+    "description": "panic!(…);"
+  },
+  "print": {
+    "prefix": "print",
+    "body": [
+      "print!(\"${1}\");"
+    ],
+    "description": "print!(…);"
+  },
+  "println": {
+    "prefix": "println",
+    "body": [
+      "println!(\"${1}\");"
+    ],
+    "description": "println!(…);"
+  },
+  "unimplemented": {
+    "prefix": "unimplemented",
+    "body": [
+      "unimplemented!()"
+    ],
+    "description": "unimplemented!()"
+  },
+  "unreachable": {
+    "prefix": "unreachable",
+    "body": [
+      "unreachable!(${1})"
+    ],
+    "description": "unreachable!(…)"
+  },
+  "vec": {
+    "prefix": "vec",
+    "body": [
+      "vec![${1}]"
+    ],
+    "description": "vec![…]"
+  },
+  "Err": {
+    "prefix": "Err",
+    "body": [
+      "Err(${1})"
+    ],
+    "description": "Err(…)"
+  },
+  "Ok": {
+    "prefix": "Ok",
+    "body": [
+      "Ok(${1:result})"
+    ],
+    "description": "Ok(…)"
+  },
+  "Some": {
+    "prefix": "Some",
+    "body": [
+      "Some(${1})"
+    ],
+    "description": "Some(…)"
+  },
+  "assert": {
+    "prefix": "assert",
+    "body": [
+      "assert!(${1});"
+    ],
+    "description": "assert!(…);"
+  },
+  "assert_eq": {
+    "prefix": "assert_eq",
+    "body": [
+      "assert_eq!(${1}, ${2});"
+    ],
+    "description": "assert_eq!(…, …);"
+  },
+  "const": {
+    "prefix": "const",
+    "body": [
+      "const ${1:CONST}: ${2:Type} = ${4:init};"
+    ],
+    "description": "const …: … = …;"
+  },
+  "derive": {
+    "prefix": "derive",
+    "body": [
+      "#[derive(${1})]"
+    ],
+    "description": "#[derive(…)]"
+  },
+  "else": {
+    "prefix": "else",
+    "body": [
+      "else {",
+      "    ${1:unimplemented!();}",
+      "}"
+    ],
+    "description": "else { … }"
+  },
+  "enum": {
+    "prefix": "enum",
+    "body": [
+      "#[derive(Debug)]",
+      "enum ${1:Name} {",
+      "    ${2:Variant1},",
+      "    ${3:Variant2},",
+      "}"
+    ],
+    "description": "enum … { … }"
+  },
+  "pfn": {
+    "prefix": "pfn",
+    "body": [
+      "pub fn ${1:name}(${2:arg}: ${3:Type})${4} {",
+      "    ${5:unimplemented!();}",
+      "}"
+    ],
+    "description": "pub fn …(…) { … }"
+  },
+  "fn": {
+    "prefix": "fn",
+    "body": [
+      "fn ${1:name}(${2:arg}: ${3:Type})${4} {",
+      "    ${5:unimplemented!();}",
+      "}"
+    ],
+    "description": "fn …(…) { … }"
+  },
+  "if-let": {
+    "prefix": "if-let",
+    "body": [
+      "if let ${1:Some(pat)} = ${2:expr} {",
+      "    ${0:unimplemented!();}",
+      "}"
+    ],
+    "description": "if let … = … { … }"
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition} {",
+      "    ${2:unimplemented!();}",
+      "}"
+    ],
+    "description": "if … { … }"
+  },
+  "impl-trait": {
+    "prefix": "impl-trait",
+    "body": [
+      "impl ${1:Trait} for ${2:Type} {",
+      "    ${3:// add code here}",
+      "}"
+    ],
+    "description": "impl … for … { … }"
+  },
+  "impl": {
+    "prefix": "impl",
+    "body": [
+      "impl ${1:Type} {",
+      "    ${2:// add code here}",
+      "}"
+    ],
+    "description": "impl … { … }"
+  },
+  "inline-fn": {
+    "prefix": "inline-fn",
+    "body": [
+      "#[inline]",
+      "pub fn ${1:name}() {",
+      "    ${2:unimplemented!();}",
+      "}"
+    ],
+    "description": "inlined function"
+  },
+  "let": {
+    "prefix": "let",
+    "body": [
+      "let ${1:pat} = ${2:expr};"
+    ],
+    "description": "let … = …;"
+  },
+  "main": {
+    "prefix": "main",
+    "body": [
+      "fn main() {",
+      "    ${1:unimplemented!();}",
+      "}"
+    ],
+    "description": "fn main() { … }"
+  },
+  "match": {
+    "prefix": "match",
+    "body": [
+      "match ${1:expr} {}"
+    ],
+    "description": "match … { … }"
+  },
+  "mod": {
+    "prefix": "mod",
+    "body": [
+      "mod ${1:name};"
+    ],
+    "description": "mod …;"
+  },
+  "mod-block": {
+    "prefix": "mod-block",
+    "body": [
+      "mod ${1:name} {",
+      "    ${2:// add code here}",
+      "}"
+    ],
+    "description": "mod … { … }"
+  },
+  "static": {
+    "prefix": "static",
+    "body": [
+      "static ${1:STATIC}: ${2:Type} = ${4:init};"
+    ],
+    "description": "static …: … = …;"
+  },
+  "struct-tuple": {
+    "prefix": "struct-tuple",
+    "body": [
+      "struct ${1:Name}(${2:Type});"
+    ],
+    "description": "struct …(…);"
+  },
+  "struct-unit": {
+    "prefix": "struct-unit",
+    "body": [
+      "struct ${1:Name};"
+    ],
+    "description": "struct …;"
+  },
+  "struct": {
+    "prefix": "struct",
+    "body": [
+      "#[derive(Debug)]",
+      "struct ${1:Name} {",
+      "    ${2:field}: ${3:Type}",
+      "}"
+    ],
+    "description": "struct … { … }"
+  },
+  "test": {
+    "prefix": "test",
+    "body": [
+      "#[test]",
+      "fn ${1:name}() {",
+      "    ${2:unimplemented!();}",
+      "}"
+    ],
+    "description": "#[test]"
+  },
+  "trait": {
+    "prefix": "trait",
+    "body": [
+      "trait ${1:Name} {",
+      "    ${2:// add code here}",
+      "}",
+      ""
+    ],
+    "description": "trait … { … }"
+  },
+  "type": {
+    "prefix": "type",
+    "body": [
+      "type ${1:Alias} = ${2:Type};"
+    ],
+    "description": "type … = …;"
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for ${1:pat} in ${2:expr} {",
+      "    ${3:unimplemented!();}",
+      "}"
+    ],
+    "description": "for … in … { … }"
+  },
+  "loop": {
+    "prefix": "loop",
+    "body": [
+      "loop {",
+      "    ${2:unimplemented!();}",
+      "}"
+    ],
+    "description": "loop { … }"
+  },
+  "while": {
+    "prefix": "while",
+    "body": [
+      "while ${1:condition} {",
+      "    ${2:unimplemented!();}",
+      "}"
+    ],
+    "description": "while … { … }"
+  },
+  "while-let": {
+    "prefix": "while-let",
+    "body": [
+      "while let ${1:Some(pat)} = ${2:expr} {",
+      "    ${0:unimplemented!();}",
+      "}"
+    ],
+    "description": "while let … = … { … }"
+  }
+}

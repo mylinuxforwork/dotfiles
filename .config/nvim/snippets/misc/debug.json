@@ -1,0 +1,73 @@
+{
+  "debug-config-skeleton": {
+    "prefix": [
+      "dap",
+      "launch"
+    ],
+    "body": [
+      "{",
+      "\t\"version\": \"0.2.0\",",
+      "\t\"configurations\": [",
+      "\t\t$0",
+      "\t]",
+      "}"
+    ],
+    "description": "Debug configurations skeleton."
+  },
+  "launch-django": {
+    "prefix": "django",
+    "body": [
+      "{",
+      "\t\"type\": \"python\",",
+      "\t\"request\": \"launch\",",
+      "\t\"name\": \"Python: Django\",",
+      "\t\"program\": \"\\${workspaceFolder}/manage.py\",",
+      "\t\"args\": [",
+      "\t\t\"runserver\",",
+      "\t\t$3",
+      "\t],",
+      "\t\"env\": {",
+      "\t\t\"${4:key}\": \"${5:value}\"",
+      "\t}",
+      "}$0"
+    ],
+    "description": "Django debug configurations template."
+  },
+  "launch-fastapi": {
+    "prefix": "fastapi",
+    "body": [
+      "{",
+      "\t\"type\": \"python\",",
+      "\t\"request\": \"launch\",",
+      "\t\"name\": \"Python: FastAPI\",",
+      "\t\"module\": \"uvicorn\",",
+      "\t\"args\": [",
+      "\t\t\"${3:app.main}:${4:app}\",",
+      "\t\t$5",
+      "\t],",
+      "\t\"env\": {",
+      "\t\t\"${6:key}\": \"${7:value}\"",
+      "\t}",
+      "}$0"
+    ],
+    "description": "FastAPI debug configurations template."
+  },
+  "launch-go": {
+    "prefix": "go",
+    "body": [
+      "{",
+      "\t\"name\": \"GO: ${1}\",",
+      "\t\"type\": \"go\",",
+      "\t\"request\": \"launch\",",
+      "\t\"program\": \"\\${workspaceFolder}/cmd/${2}\",",
+      "\t\"args\": [",
+      "\t\t$3",
+      "\t],",
+      "\t\"env\": {",
+      "\t\t\"${4:key}\": \"${5:value}\"",
+      "\t}",
+      "}$0"
+    ],
+    "description": "Go launch template"
+  }
+}

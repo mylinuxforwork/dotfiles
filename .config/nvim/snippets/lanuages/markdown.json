@@ -1,0 +1,288 @@
+{
+  "header 1": {
+    "prefix": "h1",
+    "body": ["# ${0}"],
+    "description": "Add header level 1"
+  },
+  "header 2": {
+    "prefix": "h2",
+    "body": ["## ${0}"],
+    "description": "Add header level 2"
+  },
+  "header 3": {
+    "prefix": "h3",
+    "body": ["### ${0}"],
+    "description": "Add header level 3"
+  },
+  "header 4": {
+    "prefix": "h4",
+    "body": ["#### ${0}"],
+    "description": "Add header level 4"
+  },
+  "header 5": {
+    "prefix": "h5",
+    "body": ["##### ${0}"],
+    "description": "Add header level 5"
+  },
+  "header 6": {
+    "prefix": "h6",
+    "body": ["###### ${0}"],
+    "description": "Add header level 6"
+  },
+  "Links": {
+    "prefix": ["l", "link"],
+    "body": ["[${1}](${2}) ${0}"],
+    "description": "Add links"
+  },
+  "URLS": {
+    "prefix": ["u", "url"],
+    "body": ["<${1}> ${0}"],
+    "description": "Add urls"
+  },
+  "Images": {
+    "prefix": "img",
+    "body": ["![${1}](${2}) ${0}"],
+    "description": "Add images"
+  },
+  "Insert strikethrough": {
+    "prefix": "strikethrough",
+    "body": "~~${1}~~ ${0}",
+    "description": "Insert strikethrough"
+  },
+  "Insert bold text": {
+    "prefix": ["bold", "b"],
+    "body": "**${1}** $0",
+    "description": "Insert bold text"
+  },
+  "Insert italic text": {
+    "prefix": ["i", "italic"],
+    "body": "*${1}* $0",
+    "description": "Insert italic text"
+  },
+  "Insert bold and italic text": {
+    "prefix": ["bold and italic", "bi"],
+    "body": "***${1}*** $0",
+    "description": "Insert bold and italic text"
+  },
+  "Insert quoted text": {
+    "prefix": "quote",
+    "body": "> ${1}",
+    "description": "Insert quoted text"
+  },
+  "Insert code": {
+    "prefix": "code",
+    "body": "`${1}` $0",
+    "description": "Insert code"
+  },
+  "Insert code block": {
+    "prefix": "codeblock",
+    "body": ["```${1:language}", "$0", "```"],
+    "description": "Insert fenced code block"
+  },
+  "Insert unordered list": {
+    "prefix": "unordered list",
+    "body": ["- ${1:first}", "- ${2:second}", "- ${3:third}", "$0"],
+    "description": "Insert unordered list"
+  },
+  "Insert ordered list": {
+    "prefix": "ordered list",
+    "body": ["1. ${1:first}", "2. ${2:second}", "3. ${3:third}", "$0"],
+    "description": "Insert ordered list"
+  },
+  "Insert horizontal rule": {
+    "prefix": "horizontal rule",
+    "body": "----------\n",
+    "description": "Insert horizontal rule"
+  },
+  "Insert task list": {
+    "prefix": "task",
+    "body": ["- [${1| ,x|}] ${2:text}", "${0}"],
+    "description": "Insert task list"
+  },
+  "Insert task list 2": {
+    "prefix": "task2",
+    "body": ["- [${1| ,x|}] ${2:text}", "- [${3| ,x|}] ${4:text}", "${0}"],
+    "description": "Insert task list with 2 tasks"
+  },
+  "Insert task list 3": {
+    "prefix": "task3",
+    "body": [
+      "- [${1| ,x|}] ${2:text}",
+      "- [${3| ,x|}] ${4:text}",
+      "- [${5| ,x|}] ${6:text}",
+      "${0}"
+    ],
+    "description": "Insert task list with 3 tasks"
+  },
+  "Insert task list 4": {
+    "prefix": "task4",
+    "body": [
+      "- [${1| ,x|}] ${2:text}",
+      "- [${3| ,x|}] ${4:text}",
+      "- [${5| ,x|}] ${6:text}",
+      "- [${7| ,x|}] ${8:text}",
+      "${0}"
+    ],
+    "description": "Insert task list with 4 tasks"
+  },
+  "Insert task list 5": {
+    "prefix": "task5",
+    "body": [
+      "- [${1| ,x|}] ${2:text}",
+      "- [${3| ,x|}] ${4:text}",
+      "- [${5| ,x|}] ${6:text}",
+      "- [${7| ,x|}] ${8:text}",
+      "- [${9| ,x|}] ${10:text}",
+      "${0}"
+    ],
+    "description": "Insert task list with 5 tasks"
+  },
+  "Insert table": {
+    "prefix": "table",
+    "body": [
+      "| ${1:Column1}  | ${2:Column2}   | ${3:Column3}   |",
+      "|-------------- | -------------- | -------------- |",
+      "| ${4:Item1}    | ${5:Item1}     | ${6:Item1}     |",
+      "${0}"
+    ],
+    "description": "Insert table with 2 rows and 3 columns. First row is heading."
+  },
+  "Insert 2x1 table": {
+    "prefix": "2x1table",
+    "body": [
+      "| ${1:Column1}  |",
+      "|-------------- |",
+      "| ${2:Item1}    |",
+      "${0}"
+    ],
+    "description": "Insert table with 2 rows and 1 column. First row is heading."
+  },
+  "Insert 3x1 table": {
+    "prefix": "3x1table",
+    "body": [
+      "| ${1:Column1}  |",
+      "|-------------- |",
+      "| ${2:Item1}    |",
+      "| ${3:Item2}    |",
+      "${0}"
+    ],
+    "description": "Insert table with 3 rows and 1 column. First row is heading."
+  },
+  "Insert 4x1 table": {
+    "prefix": "4x1table",
+    "body": [
+      "| ${1:Column1}  |",
+      "|-------------- |",
+      "| ${2:Item1}    |",
+      "| ${3:Item2}    |",
+      "| ${4:Item3}    |",
+      "${0}"
+    ],
+    "description": "Insert table with 4 rows and 1 column. First row is heading."
+  },
+  "Insert 5x1 table": {
+    "prefix": "5x1table",
+    "body": [
+      "| ${1:Column1}  |",
+      "|-------------- |",
+      "| ${2:Item1}    |",
+      "| ${3:Item2}    |",
+      "| ${4:Item3}    |",
+      "| ${5:Item4}    |",
+      "${0}"
+    ],
+    "description": "Insert table with 5 rows and 1 column. First row is heading."
+  },
+  "Insert 2x2 table": {
+    "prefix": "2x2table",
+    "body": [
+      "| ${1:Column1}   | ${2:Column2}    |",
+      "|--------------- | --------------- |",
+      "| ${3:Item1.1}   | ${4:Item2.1}   |",
+      "${0}"
+    ],
+    "description": "Insert table with 2 rows and 2 columns. First row is heading."
+  },
+  "Insert 3x2 table": {
+    "prefix": "3x2table",
+    "body": [
+      "| ${1:Column1}   | ${2:Column2}    |",
+      "|--------------- | --------------- |",
+      "| ${3:Item1.1}   | ${4:Item2.1}   |",
+      "| ${5:Item1.2}   | ${6:Item2.2}   |",
+      "${0}"
+    ],
+    "description": "Insert table with 3 rows and 2 columns. First row is heading."
+  },
+  "Insert 4x2 table": {
+    "prefix": "4x2table",
+    "body": [
+      "| ${1:Column1}   | ${2:Column2}    |",
+      "|--------------- | --------------- |",
+      "| ${3:Item1.1}   | ${4:Item2.1}   |",
+      "| ${5:Item1.2}   | ${6:Item2.2}   |",
+      "| ${7:Item1.3}   | ${8:Item2.3}   |",
+      "${0}"
+    ],
+    "description": "Insert table with 4 rows and 2 columns. First row is heading."
+  },
+  "Insert 5x2 table": {
+    "prefix": "5x2table",
+    "body": [
+      "| ${1:Column1}   | ${2:Column2}    |",
+      "|--------------- | --------------- |",
+      "| ${3:Item1.1}   | ${4:Item2.1}   |",
+      "| ${4:Item1.2}   | ${5:Item2.2}   |",
+      "| ${6:Item1.3}   | ${7:Item2.3}   |",
+      "| ${8:Item1.4}   | ${9:Item2.4}   |",
+      "${0}"
+    ],
+    "description": "Insert table with 5 rows and 2 columns. First row is heading."
+  },
+  "Insert 2x3 table": {
+    "prefix": "2x3table",
+    "body": [
+      "| ${1:Column1}    | ${2:Column2}    | ${3:Column3}    |",
+      "|---------------- | --------------- | --------------- |",
+      "| ${4:Item1.1}    | ${5:Item2.1}    | ${6:Item3.1}    |",
+      "${0}"
+    ],
+    "description": "Insert table with 2 rows and 3 columns. First row is heading."
+  },
+  "Insert 3x3 table": {
+    "prefix": "3x3table",
+    "body": [
+      "| ${1:Column1}    | ${2:Column2}    | ${3:Column3}    |",
+      "|---------------- | --------------- | --------------- |",
+      "| ${4:Item1.1}    | ${5:Item2.1}    | ${6:Item3.1}    |",
+      "| ${7:Item1.2}    | ${8:Item2.2}    | ${9:Item3.2}    |",
+      "${0}"
+    ],
+    "description": "Insert table with 3 rows and 3 columns. First row is heading."
+  },
+  "Insert 4x3 table": {
+    "prefix": "4x3table",
+    "body": [
+      "| ${1:Column1}    | ${2:Column2}    | ${3:Column3}    |",
+      "|---------------- | --------------- | --------------- |",
+      "| ${4:Item1.1}    | ${5:Item2.1}    | ${6:Item3.1}    |",
+      "| ${7:Item1.2}    | ${8:Item2.2}    | ${9:Item3.2}    |",
+      "| ${10:Item1.3}   | ${11:Item2.3}   | ${12:Item3.3}   |",
+      "${0}"
+    ],
+    "description": "Insert table with 4 rows and 3 columns. First row is heading."
+  },
+  "Insert 5x3 table": {
+    "prefix": "5x3table",
+    "body": [
+      "| ${1:Column1}    | ${2:Column2}    | ${3:Column3}    |",
+      "|---------------- | --------------- | --------------- |",
+      "| ${4:Item1.1}    | ${5:Item2.1}    | ${6:Item3.1}    |",
+      "| ${7:Item1.2}    | ${8:Item2.2}    | ${9:Item3.2}    |",
+      "| ${10:Item1.3}   | ${11:Item2.3}   | ${12:Item3.3}   |",
+      "| ${13:Item1.4}   | ${14:Item2.4}   | ${15:Item3.4}   |",
+      "${0}"
+    ],
+    "description": "Insert table with 5 rows and 3 columns. First row is heading."
+  }
+}

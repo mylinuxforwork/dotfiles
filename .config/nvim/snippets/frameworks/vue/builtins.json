@@ -1,0 +1,157 @@
+{
+  "v-text": {
+    "prefix": "vtext",
+    "body": "v-text=\"${1:msg}\"$0",
+    "description": "Update the element's text content."
+  },
+  "v-html": {
+    "prefix": "vhtml",
+    "body": "v-html=\"${1:html}\"$0",
+    "description": "Update the element's innerHTML."
+  },
+  "v-show": {
+    "prefix": "vshow",
+    "body": "v-show=\"${1:condition}\"$0",
+    "description": "Toggle the element's visibility based on the truthy-ness of the expression value."
+  },
+  "v-if": {
+    "prefix": "vif",
+    "body": "v-if=\"${1:condition}\"$0",
+    "description": "Conditionally render an element or a template fragment based on the truthy-ness of the expression value."
+  },
+  "v-else": {
+    "prefix": "velse",
+    "body": "v-else$0",
+    "description": "Denote the 'else block' for v-if or a v-if / v-else-if chain."
+  },
+  "v-else-if": {
+    "prefix": "velif",
+    "body": "v-else-if=\"${1:condition}\"$0",
+    "description": "Denote the 'else if block' for v-if. Can be chained."
+  },
+  "v-for": {
+    "prefix": "vfor",
+    "body": "v-for=\"${1:item} in ${2:items}\" :key=\"${3:item.id}\"$0",
+    "description": "Render the element or template block multiple times based on the source data."
+  },
+  "v-on": {
+    "prefix": "v-on",
+    "body": "v-on:${1:event}=\"${2:handle}\"$0",
+    "description": "Attach an event listener to the element."
+  },
+  "v-on-shorthand": {
+    "prefix": "von",
+    "body": "@:${1:event}=\"${2:handle}\"$0",
+    "description": "Attach an event listener to the element."
+  },
+  "v-bind": {
+    "prefix": "v-bind",
+    "body": "v-bind:$1=\"${2}\"$0",
+    "description": "Dynamically bind one or more attributes, or a component prop to an expression."
+  },
+  "v-bind-shorthand": {
+    "prefix": "vbind",
+    "body": ":$1=\"${2}\"$0",
+    "description": "Dynamically bind one or more attributes, or a component prop to an expression."
+  },
+  "v-model": {
+    "prefix": "vmodel",
+    "body": "v-model=\"${1:something}\"$0",
+    "description": "Create a two-way binding on a form input element or a component."
+  },
+  "v-slot": {
+    "prefix": "vslot=",
+    "body": "v-slot=\"${$1}\"$0",
+    "description": "Denote named slots or slots that expect to receive props."
+  },
+  "v-slot:": {
+    "prefix": "v-slot:",
+    "body": "v-slot:\"${$1}\"$0",
+    "description": "Denote named slots or slots that expect to receive props."
+  },
+  "v-slot-shorthand": {
+    "prefix": "vslot",
+    "body": "#\"${$1}\"$0",
+    "description": "Denote named slots or slots that expect to receive props."
+  },
+  "v-pre": {
+    "prefix": "vpre",
+    "body": "v-pre",
+    "description": "Skip compilation for this element and all its children."
+  },
+  "v-once": {
+    "prefix": "vonce",
+    "body": "v-once",
+    "description": "Render the element and component once only, and skip future updates."
+  },
+  "v-memo": {
+    "prefix": "vmemo",
+    "body": "v-memo=\"[$1]\"$0",
+    "description": ""
+  },
+  "v-cloak": {
+    "prefix": "vcloak",
+    "body": "v-cloak",
+    "description": "Used to hide un-compiled template until it is ready."
+  },
+  "transition": {
+    "prefix": "trans",
+    "body": "<transition$1>\n\t$1</transition>$0",
+    "description": "Provides animated transition effects to a single element or component."
+  },
+  "transition group": {
+    "prefix": "transgroup",
+    "body": "<transition-group$1>\n\t$1</transition-group>$0",
+    "description": "Provides transition effects for multiple elements or components in a list."
+  },
+  "keep alive": {
+    "prefix": "keep",
+    "body": "<keep-alive$1>\n\t$1</keep-alive>$0",
+    "description": "Caches dynamically toggled components wrapped inside."
+  },
+  "teleport": {
+    "prefix": "teleport>",
+    "body": "<teleport$1>\n\t$1</teleport>$0",
+    "description": "Renders its slot content to another part of the DOM."
+  },
+  "teleport slef close": {
+    "prefix": "teleport/",
+    "body": "<teleport$1 />$0",
+    "description": "Renders its slot content to another part of the DOM."
+  },
+  "suspense": {
+    "prefix": "suspense",
+    "body": "<suspense$1>\n\t$1</suspense>$0",
+    "description": "Used for orchestrating nested async dependencies in a component tree."
+  },
+  "component": {
+    "prefix": "comp",
+    "body": "<component :is=\"$1\"$2 />$0",
+    "description": "A 'meta component' for rendering dynamic components or elements."
+  },
+  "slot": {
+    "prefix": "slot>",
+    "body": "<slot$1>$1</slot>$0",
+    "description": "Denotes slot content outlets in templates."
+  },
+  "slot self close": {
+    "prefix": "slot/",
+    "body": "<slot$1 />$0",
+    "description": "Denotes slot content outlets in templates."
+  },
+  "key": {
+    "prefix": "key",
+    "body": ":key=\"$1\"$0",
+    "description": "The key special attribute is primarily used as a hint for Vue's virtual DOM algorithm to identify vnodes when diffing the new list of nodes against the old list."
+  },
+  "ref": {
+    "prefix": "ref",
+    "body": "ref=\"$1\"$0",
+    "description": "Denotes a template ref."
+  },
+  "is": {
+    "prefix": "is",
+    "body": ":is=\"$1\"$0",
+    "description": "Used for binding dynamic components."
+  }
+}

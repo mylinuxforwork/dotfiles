@@ -1,0 +1,206 @@
+{
+  "comment": {
+    "prefix": "///",
+    "body": [
+      "/// ${1:Description.}$0",
+      "///",
+      "/// # Arguments",
+      "///",
+      "/// * ${3:`argument_name`} - ${4:type and description.}",
+      "///",
+      "/// # Returns",
+      "/// ${2:type and description of the returned object.}",
+      "///",
+      "/// # Examples",
+      "/// ```rust",
+      "/// ${5:write me later}",
+      "/// ```"
+    ],
+    "description": "A Rust comment with description, parameters, returns, and examples."
+  },
+  "crate": {
+    "prefix": "//!",
+    "body": [
+      "//! ${1:Description.}$0",
+      "//!",
+      "//! # Examples",
+      "//! ```rust",
+      "//! ${2:write me later}",
+      "//! ```"
+    ],
+    "description": "A special Rust comment to describe a crate, with description and examples."
+  },
+  "test": {
+    "prefix": "///test",
+    "body": [
+      "/// ${1:Description.}$0",
+      "///",
+      "/// # Examples",
+      "/// ```rust",
+      "/// ${2:write me later}",
+      "/// ```"
+    ],
+    "description": "A Rust comment to describe a test, with description and examples."
+  },
+  "html_favicon_url": {
+    "prefix": "#![doc(html_favicon_url)]",
+    "body": [
+      "#![doc(html_favicon_url = \"${1:https://example.com/favicon.ico}$0\")]"
+    ],
+    "description": "This form of the doc attribute lets you control the favicon of your docs.\n\n* How to use: This style option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "html_logo_url": {
+    "prefix": "#![doc(html_logo_url)]",
+    "body": [
+      "#![doc(html_logo_url = \"${1:https://example.com/logo.jpg}$0\")]"
+    ],
+    "description": "This form of the doc attribute lets you control the logo in the upper left hand side of the docs.\n\n* How to use: This style option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "html_playground_url": {
+    "prefix": "#![doc(html_playground_url)]",
+    "body": [
+      "#![doc(html_playground_url = \"${1:https://playground.example.com/}$0\")]"
+    ],
+    "description": "This form of the doc attribute lets you control where the \"run\" buttons on your documentation examples make requests to.\n\n* How to use: This style option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "issue_tracker_base_url": {
+    "prefix": "#![doc(issue_tracker_base_url)]",
+    "body": [
+      "#![doc(issue_tracker_base_url = \"${1:https://github.com/rust-lang/rust/issues/}$0\")]"
+    ],
+    "description": "This form of the doc attribute is mostly only useful for the standard library; When a feature is unstable, an issue number for tracking the feature must be given. rustdoc uses this number, plus the base URL given here, to link to the tracking issue.\n\n* How to use: This style option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "html_root_url": {
+    "prefix": "#![doc(html_root_url)]",
+    "body": [
+      "#![doc(html_root_url = \"${1:https://docs.rs/serde/1.0}$0\")]"
+    ],
+    "description": "indicates the URL for generating links to external crates.\n\n* How to use: This style option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "html_no_source": {
+    "prefix": "#![doc(html_no_source)]",
+    "body": [
+      "#![doc(html_no_source)]$0"
+    ],
+    "description": "By default, rustdoc will include the source code of your program, with links to it in the docs. But if you include this, it will not.\n\n* How to use: This style option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "test_no_crate_inject": {
+    "prefix": "#![doc(test(no_crate_inject))]",
+    "body": [
+      "#![doc(test(no_crate_inject))]$0"
+    ],
+    "description": "By default, rustdoc will automatically add a line with extern crate my_crate; into each doctest.  But if you include this, it will not.\n\n* How to use: This style option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "test_attr": {
+    "prefix": "#![doc(test(attr(deny(warnings))))]",
+    "body": [
+      "#![doc(test(attr(deny(warnings))))]$0"
+    ],
+    "description": "This form of the doc attribute allows you to add arbitrary attributes to all your doctests. For example, if you want your doctests to fail if they produce any warnings, you could add this.\n\n* How to use: This style option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "inline": {
+    "prefix": "#[doc(inline)]",
+    "body": [
+      "#[doc(inline)]$0"
+    ],
+    "description": "These attribute is used on use statements, and control where the documentation shows up.\n\n* How to use: You can use this on use statements. For example:\n`pub use bar::Bar;`"
+  },
+  "no_inline": {
+    "prefix": "#[doc(no_inline)]",
+    "body": [
+      "#[doc(no_inline)]$0"
+    ],
+    "description": "These attribute is used on use statements, and control where the documentation shows up.\n\n* How to use: You can use this on use statements. For example:\n`pub use bar::Bar;`"
+  },
+  "hidden": {
+    "prefix": "#[doc(hidden)]",
+    "body": [
+      "#[doc(hidden)]$0"
+    ],
+    "description": "Any item annotated with #[doc(hidden)] will not appear in the documentation, unless the strip-hidden pass is removed.\n\n* How to use: You can use this on any item."
+  },
+  "alias": {
+    "prefix": "#[doc(alias)]",
+    "body": [
+      "#[doc(alias = \"${1:name}$0\")]"
+    ],
+    "description": "This feature allows you to add alias(es) to an item when using the rustdoc search through the doc(alias) attribute.\n\n* How to use: You can use this on any item."
+  },
+  "broken_intra_doc_links": {
+    "prefix": "#![warn(rustdoc::broken_intra_doc_links)]",
+    "body": [
+      "#![${1:warn}$0(rustdoc::broken_intra_doc_links)]"
+    ],
+    "description": "How to report broken links when generating the documentation.\n\n* Accepted vales: allow, warn, deny.\n\n* Default: warn\n\n* How to use: This lint option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "private_intra_doc_links": {
+    "prefix": "#![warn(rustdoc::private_intra_doc_links)]",
+    "body": [
+      "#![${1:warn}$0(rustdoc::private_intra_doc_links)]"
+    ],
+    "description": "How to report when a public item is documented as private by mistake, or vice-versa, when generating the documentation.\n\n* Accepted vales: allow, warn, deny.\n\n* Default: warn\n\n* How to use: This lint option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "missing_docs": {
+    "prefix": "#![warn(missing_docs)]",
+    "body": [
+      "#![${1:warn}$0(missing_docs)]"
+    ],
+    "description": "How to report when an item is missing comments, when generating the documentation.\n\n* Accepted vales: allow, warn, deny.\n\n* Default: allow\n\n* How to use: This lint option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "missing_crate_level_docs": {
+    "prefix": "#![warn(rustdoc::missing_crate_level_docs)]",
+    "body": [
+      "#![${1:warn}$0(rustdoc::missing_crate_level_docs)]"
+    ],
+    "description": "How to report when a crate is missing comments, when generating the documentation.\n\n* Accepted vales: allow, warn, deny.\n\n* Default: allow\n\n* How to use: This lint option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "missing_doc_code_examples": {
+    "prefix": "#![warn(rustdoc::missing_doc_code_examples)]",
+    "body": [
+      "#![${1:warn}$0(rustdoc::missing_doc_code_examples)]"
+    ],
+    "description": "How to report when a crate is missing examples, when generating the documentation.\n\n* Accepted vales: allow, warn, deny.\n\n* Default: allow\n\n* How to use: This lint option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "private_doc_tests": {
+    "prefix": "#![warn(rustdoc::private_doc_tests)]",
+    "body": [
+      "#![${1:warn}$0(rustdoc::private_doc_tests)]"
+    ],
+    "description": "How to report documentation tests when they are on a private item, when generating the documentation.\n\n* Accepted vales: allow, warn, deny.\n\n* Default: allow\n\n* How to use: This lint option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "invalid_codeblock_attributes": {
+    "prefix": "#![warn(rustdoc::invalid_codeblock_attributes)]",
+    "body": [
+      "#![${1:warn}$0(rustdoc::invalid_codeblock_attributes)]"
+    ],
+    "description": "How to report code block attributes in examples that have potentially mis-typed values, when generating the documentation.\n\n* Accepted vales: allow, warn, deny.\n\n* Default: warn\n\n* How to use: This lint option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "invalid_html_tags": {
+    "prefix": "#![warn(rustdoc::invalid_html_tags)]",
+    "body": [
+      "#![${1:warn}$0(rustdoc::invalid_html_tags)]"
+    ],
+    "description": "How to report unclosed or invalid HTML tags, when generating the documentation.\n\n* Accepted vales: allow, warn, deny.\n\n* Default: warn\n\n* How to use: This lint option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "invalid_rust_codeblocks": {
+    "prefix": "#![warn(rustdoc::invalid_rust_codeblocks)]",
+    "body": [
+      "#![${1:warn}$0(rustdoc::invalid_rust_codeblocks)]"
+    ],
+    "description": "How to report code blocks in examples that are invalid, when generating the documentation.\n\n* Accepted vales: allow, warn, deny.\n\n* Default: warn\n\n* How to use: This lint option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "bare_urls": {
+    "prefix": "#![warn(rustdoc::bare_urls)]",
+    "body": [
+      "#![${1:warn}$0(rustdoc::bare_urls)]"
+    ],
+    "description": "How to report URLs which are not links, when generating the documentation.\n\n* Accepted vales: allow, warn, deny.\n\n* Default: warn\n\n* How to use: This lint option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  },
+  "cfg": {
+    "prefix": "#[cfg()]",
+    "body": [
+      "#[cfg(any(${1:unix}$0, doc))"
+    ],
+    "description": "Documents the item can only be used on Unix.\n\n* Accepted vales: unix, windows\n\n* How to use: This style option must be added at the top of the src/lib.rs or main.rs file in your binary project."
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "shebang": {
+    "prefix": [
+      "env",
+      "shebang"
+    ],
+    "body": [
+      "#!/usr/bin/env ${1|python3,python|}",
+      "# -*- coding=utf-8 -*-",
+      "",
+      "$0"
+    ],
+    "description": "Add shebang line for default python interpreter"
+  },
+  "import": {
+    "prefix": "imp",
+    "body": "import ${1:module}$0",
+    "description": "Import a package or module"
+  },
+  "from ... import ...": {
+    "prefix": [
+      "fim",
+      "from"
+    ],
+    "body": "from ${1:module} import ${2:names}$0",
+    "description": "Import statement from the module"
+  },
+  "class": {
+    "prefix": "class",
+    "body": [
+      "class ${1:ClassName}($2):",
+      "\t${3:pass}$0"
+    ],
+    "description": "Code snippet for a class definition"
+  },
+  "New class": {
+    "prefix": "classi",
+    "body": [
+      "class ${1:ClassName}($2):",
+      "\t\"\"\"${3:docstring for $1.}\"\"\"",
+      "\tdef __init__(self$4):",
+      "\t\t${5:pass}$0"
+    ],
+    "description": "Code snippet for a class definition."
+  },
+  "New method": {
+    "prefix": "defs",
+    "body": [
+      "def ${1:mname}(self$2):",
+      "\t${3:pass}$0"
+    ],
+    "description": "Code snippet for a class method definition."
+  },
+  "New method w/ return": {
+    "prefix": "defst",
+    "body": [
+      "def ${1:mname}(self$2) -> ${3:return_type}:",
+      "\t${4:pass}$0"
+    ],
+    "description": "Code snippet for a class method definition."
+  },
+  "New function": {
+    "prefix": "def",
+    "body": [
+      "def ${1:fname}($2):",
+      "\t${3:pass}$0"
+    ],
+    "description": "Code snippet for function definition."
+  },
+  "New function w/ return": {
+    "prefix": "deft",
+    "body": [
+      "def ${1:fname}($2) -> ${3:return_type}:",
+      "\t${4:pass}$0"
+    ],
+    "description": "Code snippet for function definition."
+  },
+  "New async function": {
+    "prefix": "adef",
+    "body": [
+      "async def ${1:fname}($2):",
+      "\t${3:pass}$0"
+    ],
+    "description": "Code snippet for async function definition."
+  },
+  "New property": {
+    "prefix": "property",
+    "body": [
+      "@property",
+      "def ${1:foo}(self):",
+      "\t\"\"\"${2:The $1 property.}\"\"\"",
+      "\t${3:return self._$1}",
+      "",
+      "@${4:$1}.setter",
+      "def ${5:$1}(self, value):",
+      "\t${6:self._$1} = value"
+    ],
+    "description": "New property: get and set via decorator"
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition}:",
+      "\t${2:pass}$0"
+    ],
+    "description": "Code snippet for the if statement."
+  },
+  "if/else": {
+    "prefix": "ifelse",
+    "body": [
+      "if ${1:condition}:",
+      "\t${2:pass}",
+      "else:",
+      "\t${3:pass}"
+    ],
+    "description": "Code snippet for an if statement with else"
+  },
+  "elif": {
+    "prefix": "elif",
+    "body": [
+      "elif ${1:expression}:",
+      "\t${2:pass}"
+    ],
+    "description": "Code snippet for an elif"
+  },
+  "else": {
+    "prefix": "else",
+    "body": [
+      "else:",
+      "\t${1:pass}"
+    ],
+    "description": "Code snippet for an else"
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for ${1:value} in ${2:iterable}:",
+      "\t${3:pass}$0"
+    ],
+    "description": "Code snippet to create a for loop structure."
+  },
+  "while": {
+    "prefix": "while",
+    "body": [
+      "while ${1:condition}:",
+      "\t${2:pass}$0"
+    ],
+    "description": "Code snippet to create a while loop structure."
+  },
+  "while/else": {
+    "prefix": "whelse",
+    "body": [
+      "while ${1:expression}:",
+      "\t${2:pass}",
+      "else:",
+      "\t${3:pass}"
+    ],
+    "description": "Code snippet for a while loop with else"
+  },
+  "try:except:": {
+    "prefix": "try",
+    "body": [
+      "try:",
+      "\t${1:pass}",
+      "except ${2:Exception} as ${3:e}:",
+      "\t${4:log}$0"
+    ],
+    "description": "Code Snippet for a try and except blocks."
+  },
+  "try:except:else:finally": {
+    "prefix": "tryef",
+    "body": [
+      "try:",
+      "\t${1:pass}",
+      "except ${2:Exception} as ${3:e}}:",
+      "\t${5:raise}",
+      "else:",
+      "\t${6:pass}",
+      "finally:",
+      "\t${7:pass}$0"
+    ],
+    "description": "Code Snippet for a try/except/finally with else statement."
+  },
+  "try:except:else": {
+    "prefix": "trye",
+    "body": [
+      "try:",
+      "\t${1:pass}",
+      "except ${2:Exception} as ${3:e}:",
+      "\t${4:raise $3}",
+      "else:",
+      "\t${5:pass}$0"
+    ],
+    "description": "Code Snippet for a try/except with else statement."
+  },
+  "try:except:finally": {
+    "prefix": "tryf",
+    "body": [
+      "try:",
+      "\t${1:pass}",
+      "except ${2:Exception} as ${3:e}:",
+      "\t${4:raise $3}",
+      "finally:",
+      "\t${5:pass}$0"
+    ],
+    "description": "Code Snippet for a try/except/finally."
+  },
+  "with": {
+    "prefix": "with",
+    "body": [
+      "with ${1:expression} as ${2:target}:",
+      "\t${3:pass}"
+    ],
+    "description": "Code snippet for a with statement"
+  },
+  "self": {
+    "prefix": ".",
+    "body": "self.$0",
+    "description": "Shortend snippet to reference the self property in an object."
+  },
+  "__magic__": {
+    "prefix": "__",
+    "body": "__${1:init}__$0",
+    "description": "Code snippet to create magic methods."
+  },
+  "if __name__ == \"__main__\"": {
+    "prefix": "ifmain",
+    "body": [
+      "if __name__ == \"__main__\":",
+      "\t${1:main()}$0"
+    ],
+    "description": "Create implicitly all the code at the top level using the __name__ special variable."
+  }
+}

@@ -1,0 +1,6 @@
+*.tmp
+*.temp
+*.bak
+*.old
+*.backup
+.direnv/

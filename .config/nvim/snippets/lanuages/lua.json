@@ -1,0 +1,126 @@
+{
+  "require": {
+    "prefix": "req",
+    "body": [
+      "require(\"${1:module}\")"
+    ],
+    "description": "Require module"
+  },
+  "return": {
+    "prefix": "rt",
+    "body": [
+      "return $0"
+    ],
+    "description": "return value"
+  },
+  "assigment": {
+    "prefix": "ll",
+    "body": [
+      "local ${1:varName} = ${2:value}$0"
+    ],
+    "description": "create a variable"
+  },
+  "locreq": {
+    "prefix": "lreq",
+    "body": [
+      "local ${1:var} = require(\"${2:module}\")$0"
+    ],
+    "description": "Require module as a variable"
+  },
+  "class": {
+    "prefix": "cl",
+    "body": [
+      "${1:className} = {}\n",
+      "$1.${2:new} = function($3)",
+      "\tlocal ${4:varName} = ${5:{}}\n",
+      "\t${6: --code}\n",
+      "\treturn $4",
+      "end$0"
+    ],
+    "description": "Create a class"
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if ${1:true} then",
+      "\t$2",
+      "end$0"
+    ]
+  },
+  "elseif": {
+    "prefix": "elseif",
+    "body": [
+      "elseif ${1:true} then",
+      "\t$0"
+    ]
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for ${1:i}=${2:1},${3:10} do",
+      "\t$4",
+      "end$0"
+    ],
+    "description": "for loop range"
+  },
+  "foreach": {
+    "prefix": "foreach",
+    "body": [
+      "for i, ${1:x} in pairs(${2:table}) do",
+      "\t$3",
+      "end$0"
+    ]
+  },
+  "function": {
+    "prefix": "fn",
+    "body": [
+      "function ${1:name}($2)",
+      "\t${3:-- code}",
+      "end$0"
+    ]
+  },
+  "inline-function": {
+    "prefix": "fn=",
+    "body": [
+      "local ${1:name} = function($2)",
+      "\t${3:-- code}",
+      "end$0"
+    ]
+  },
+  "print": {
+    "prefix": "p",
+    "body": [
+      "print(${0})"
+    ]
+  },
+  "self": {
+    "prefix": "self:",
+    "body": [
+      "function self:${1:methodName}($2)",
+      "\t$3",
+      "end$0"
+    ]
+  },
+  "while": {
+    "prefix": "while",
+    "body": [
+      "while ${1:true} do",
+      "\t$2",
+      "end$0"
+    ]
+  },
+  "pcall": {
+    "prefix": "pca",
+    "body": [
+      "pcall(${1:function})$0"
+    ],
+    "description": "Protect call a function"
+  },
+  "locpcall": {
+    "prefix": "lpca",
+    "body": [
+      "local ${1:status}, ${2:err_or_value} = pcall(${3:function})$0"
+    ],
+    "description": "Protect call a function as a variable"
+  }
+}
