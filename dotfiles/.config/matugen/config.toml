@@ -19,12 +19,20 @@ input_path = '~/.config/matugen/templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/colors.rasi'
 
 [templates.gtk3]
-input_path = '~/.config/matugen/templates/gtk-colors.css'
+input_path = '~/.config/matugen/templates/gtk3-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'
+
+[templates.gtk3-theme]
+input_path = '~/.config/matugen/templates/gtk3-colors.css'
+output_path = '~/.themes/Material-Gnome/gtk-3.0/colors.css'
 
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.gtk4-theme]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.themes/Material-Gnome/gtk-4.0/colors.css'
 
 [templates.pywalfox]
 input_path = '~/.config/matugen/templates/pywalfox-colors.json'
