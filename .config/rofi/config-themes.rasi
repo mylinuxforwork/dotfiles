@@ -1,0 +1,213 @@
+/*
+#  ____        __ _  
+# |  _ \ ___  / _(_) 
+# | |_) / _ \| |_| | 
+# |  _ < (_) |  _| | 
+# |_| \_\___/|_| |_| 
+#                    
+# by Stephan Raabe (2023) 
+# ----------------------------------------------------- 
+*/
+
+/* ---- Configuration ---- */
+configuration {
+    modi:                       "drun,filebrowser,window,run";
+    font:                       "Fira Sans 11";
+    show-icons:                 true;
+    icon-theme:                 "Tela-circle-dracula";
+    display-drun:                " ";
+    display-run:                 " ";
+    display-filebrowser:         " ";
+    display-window:              " ";
+	drun-display-format:        "{name}";
+    hover-select:               false;
+    scroll-method:              1;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
+    window-format:              "{w} · {c} · {t}";
+    
+}
+
+/* ---- Load font ---- */
+@import "~/.config/ml4w/settings/rofi-font.rasi"
+
+/* ---- Load colors ---- */
+@theme "~/.config/rofi/colors.rasi"
+
+/* ---- Load wallpaper ---- */
+@import "~/.cache/ml4w/hyprland-dotfiles/current_wallpaper.rasi"
+
+/* ---- Load border width ---- */
+@import "~/.config/ml4w/settings/rofi-border.rasi"
+
+/* ---- Load border radius ---- */
+@import "~/.config/ml4w/settings/rofi-border-radius.rasi"
+
+// Main //
+window {
+    width:                        25em;
+    x-offset:                     0em;
+    y-offset:                     2em;
+    spacing:                      0em;
+    padding:                      0em;
+    margin:                       0px; 
+    color:                        #FFFFFF;
+    border:                       @border-width;
+    border-color:                 @primary;
+    background-color:             @background;
+    cursor:                       "default";
+    transparency:                 "real";
+    location:                     north;
+    anchor:                       north;
+    fullscreen:                   false;
+    enabled:                      true;
+    border-radius:                @border-radius;
+    background-color:             @background;
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     0em;
+    orientation:                 horizontal;
+    children:                    [ "listbox" ];
+    background-color:            transparent;
+    background-image:            @current-image;
+}
+
+/* ---- Imagebox ---- */
+imagebox {
+    padding:                      1em;
+    background-color:             transparent;
+    orientation:                  horizontal;
+    children:                     [ "inputbar" ];
+}
+
+// Inputs //
+inputbar {
+    enabled:                     true;
+    spacing:                     0em;
+    padding:                     1em;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+    background-color:            @surface;
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "  ";
+    padding:                     0.5em 0.2em 0em 0em;
+    text-color:                  @on-surface;
+    border-radius:               2em 0em 0em 2em;
+    background-color:            transparent;
+}
+
+entry {
+    enabled:                     true;
+    spacing:                     1em;
+    padding:                     0.5em;
+    background-color:            @surface;
+    text-color:                  @on-surface;
+    cursor:                      text;
+    placeholder:                 "Search";
+    placeholder-color:           inherit;
+}
+
+// Lists //
+listbox {
+    padding:                     0em;
+    spacing:                     0em;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listview" ];
+    background-color:            @background;
+}
+
+listview {
+    padding:                     1em;
+    spacing:                     0em;
+    margin:                      0em;
+    enabled:                     true;
+    columns:                     1;
+    lines:                       8;
+    cycle:                       false;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    cursor:                      "default";
+    background-color:            transparent;
+    text-color:                  @on-surface;
+}
+
+// Elements //
+element {
+    enabled:                     true;
+    padding:                     0.8em;
+    margin:                      0.2em;
+    cursor:                      pointer;
+    background-color:            transparent;
+    text-color:                  @on-surface;
+    border-radius:               1.1em;
+}
+
+element selected.normal {
+    background-color:            @surface;
+    text-color:                  @on-surface;
+    border-radius:               1.5em;
+}
+
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element normal.urgent {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element normal.active {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element selected.urgent {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element selected.active {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element alternate.normal {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element alternate.urgent {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element alternate.active {
+    background-color:            inherit;
+    text-color:                  @on-surface;
+}
+
+element-icon {
+    size:                        7.2em;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+
+element-text {
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}

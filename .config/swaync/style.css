@@ -1,0 +1,67 @@
+/* Colors */
+
+@import 'colors.css';
+@define-color background @background;
+@define-color groupbackground @background;
+@define-color buttoncolor @secondary;
+@define-color bordercolor @primary;
+@define-color fontcolor @on_surface;
+
+* {
+    font-family: "Fira Sans Semibold";
+}
+
+/* Control Center */
+
+.control-center {
+    border: 3px solid @bordercolor;
+    padding: 10px;
+}
+
+button {
+    border: 0px;
+    min-width: 35px;
+    background: @buttoncolor;
+    color: @on_secondary;
+}
+
+.notification-group-header {
+    font-size: 14px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    margin:5px;
+}
+
+/* Notification */
+
+.notification {
+    border: 3px solid @bordercolor;
+	border-radius: 10px;
+    padding:10px;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+    color: #ffffff;
+    background: transparent;
+}
+
+.close-button {
+    background: @bordercolor;
+    text-shadow: none;
+    padding: 0;
+    border-radius: 15px;
+    margin-top: 9px;
+    margin-right: 10px;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+.close-button:hover {
+    background: #ffffff;
+}
+
+.notification-group .notification-group-close-button .close-button {
+    margin: 15px 22px;
+}

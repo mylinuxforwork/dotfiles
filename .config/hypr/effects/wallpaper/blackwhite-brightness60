@@ -1,0 +1,2 @@
+magick $wallpaper -set colorspace Gray -separate -average $used_wallpaper
+magick $used_wallpaper -brightness-contrast -40% $used_wallpaper

@@ -1,0 +1,16 @@
+/* -----------------------------------------------------
+ * Import Pywal colors
+ * ----------------------------------------------------- */
+@import '../../../../../.config/waybar/colors.css';
+
+@define-color primary #000000;
+@define-color on_primary #FFFFFF;
+@define-color icon_color #000000;
+@define-color border_color #000000;
+@define-color background #000000;
+
+@import '../style.css';
+ 
+#custom-ml4w-welcome {
+    background-image: url("../../assets/ml4w-icon-black.svg");
+}

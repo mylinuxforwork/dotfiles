@@ -1,0 +1,15 @@
+/* -----------------------------------------------------
+ * Import Pywal colors
+ * ----------------------------------------------------- */
+@import '../../../../../.config/waybar/colors.css';
+@define-color backgroundlight @surface;
+@define-color backgrounddark @surface;
+@define-color workspacesbackground1 @surface;
+@define-color workspacesbackground2 @secondary;
+@define-color bordercolor @on_surface;
+@define-color textcolor1 @on_surface;
+@define-color textcolor2 @surface;
+@define-color textcolor3 @on_surface;
+@define-color iconcolor @surface;
+
+@import '../style.css';

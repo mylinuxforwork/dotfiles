@@ -1,0 +1,1 @@
+nautilus --new-window
