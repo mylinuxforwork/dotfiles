@@ -53,3 +53,16 @@ You can uninstall <a href="/dotfiles/getting-started/dependencies">dependencies<
 
 > [!WARNING]
 > Please make sure that you don't uninstall packages that are required by your system.
+
+## Uninstall ML4W Apps
+
+Please run the following commands to uninstall the ML4W Flatpak Apps from your system:
+
+```sh
+flatpak uninstall com.ml4w.welcome
+flatpak uninstall com.ml4w.settings
+flatpak uninstall com.ml4w.calendar
+flatpak uninstall com.ml4w.sidebar
+flatpak uninstall com.ml4w.hyprlandsettings
+
+```
