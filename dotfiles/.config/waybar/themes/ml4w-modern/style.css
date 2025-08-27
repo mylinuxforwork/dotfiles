@@ -381,7 +381,7 @@ window#waybar.empty #window {
 
 #pulseaudio.muted {
     background-color: @on_primary_fixed;
-    color: @surface;
+    color: @on_surface;
 }
 
 /* -----------------------------------------------------
