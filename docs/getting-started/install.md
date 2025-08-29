@@ -1,26 +1,20 @@
 # Installation
 
+## Installation with the Dotfiles Installer
+
 ::: warning BEFORE YOU START
 Please back up your existing `~/.config` folder with your dotfiles before starting the scripts for initial installation.
 :::
 
-The Dotfiles Installer will create a backup from configurations of your `.config` folder that will be overwritten from the installation procedure and previous ML4W Dotfiles installations.
-
-If possible, please create a snapshot of your current system if snapper or Timeshift is installed and available.
-
-## Recommendation
-
-I recommend to install a base Hyprland system before installing the ML4W Hyprland Dotfiles. Then you have a stable starting point and can test Hyprland on your system before. Hyprland is complex, under ongoing development and requires additional components. 
-
-On Arch Linux you can also install the Hyprland Desktop Profile first.
-
-You can find the Hyprland Installation instructions on [hyprland wiki](https://wiki.hyprland.org/Getting-Started/Installation/)
-
-## Installation with the Dotfiles Installer
-
 You can install the ML4W Dotfiles for Hyprland on any distribution by using the Dotfiles Installer from Flathub. Click on the badge below to install the app:
 
 <a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
+
+::: warning BEFORE YOU START
+The Dotfiles Installer will create a backup from configurations of your `.config` folder that will be overwritten from the installation procedure and previous ML4W Dotfiles installations.
+
+If possible, please create a snapshot of your current system if snapper or Timeshift is installed and available.
+:::
 
 Copy the following url into the Dotfiles Installer.
 
@@ -37,12 +31,21 @@ https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles
 
 Setup scripts to install the required dependencies are included for Arch, Fedora and openSuse Tumbleweed. 
 
-> [!NOTE]
-> The installation of dependencies can take between 10 to 20 minutes. 
+The installation of dependencies can take between 5 to 15 minutes depending on your internet connection and system performance.
 
-For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
+::: info UNSUPPORTED DISTROS
+For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first. Then install the Dotfiles by skipping the setup script.
+:::
 
 The Dotfiles will be installed into the folder `~/.mydotfiles` with symbolic links into `~/.config`.
+
+::: info RECOMMENDATION
+I recommend to install a base Hyprland system before installing the ML4W Hyprland Dotfiles. Then you have a stable starting point and can test Hyprland on your system before. Hyprland is complex, under ongoing development and requires additional components. 
+
+On Arch Linux you can also install the Hyprland Desktop Profile first.
+
+You can find the Hyprland Installation instructions on [hyprland wiki](https://wiki.hyprland.org/Getting-Started/Installation/)
+:::
 
 ### For Minimal Arch Linux installations
 
@@ -99,7 +102,7 @@ stow dotfiles
 
 Restart your system.
 
-## Install in a Virtual Machine (KVM)
+## Installation in a Virtual Machine (KVM)
 
 In virt-manager please make sure that 3D acceleration is enabled in Video Virtio and the Listen type is set to None in Display Spice.
 

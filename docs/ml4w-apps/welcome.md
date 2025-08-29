@@ -1,8 +1,6 @@
-<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
+# Welcome App
 
-**After starting the ML4W dotfiles for the first time, the ML4W Welcome App opens. This app is the starting point to discover the Hyprland setup.**
-
-</div>
+After starting the ML4W dotfiles for the first time, the ML4W Welcome App opens. This app is the starting point to discover the Hyprland setup.
 
 ![image](/welcome.jpg)
 

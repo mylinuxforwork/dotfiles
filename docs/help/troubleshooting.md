@@ -1,3 +1,5 @@
+# Troubleshooting
+
 ## Issues with SDDM Sequoia Theme
 
 <div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
@@ -14,16 +16,6 @@ Open from /etc/sddm.conf.d/sddm.conf and restore back the default theme.
 [Theme]
 Current=elarum
 ```
-</div>
-
-## At the end of the update from earlier versions to `2.9.5` or higher I see an error message in the terminal
-
-<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
-
-This is not a problem. Just reboot as suggested after the update and the error message is gone. 
-
-From `2.9.5` onwards the ML4W Dotfiles will be installed in a new file structure and the `starship.toml` has been moved to another location. 
-
 </div>
 
 ## Waybar is not loading

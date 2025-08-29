@@ -1,3 +1,5 @@
+# Hyprland and NVIDIA
+
 > [!CAUTION]
 > There is no official Hyprland support for Nvidia hardware. However, you might make it work properly following this page.
 https://wiki.hyprland.org/Nvidia/

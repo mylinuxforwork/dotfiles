@@ -1,17 +1,12 @@
-# Customization
+# Overview
 
-
-<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
-
-**The ML4W Dotfiles can be customized to your personal preferences in various ways.**
-
-</div>
+The ML4W Dotfiles can be customized to your personal preferences in various ways.
 
 The easiest way is using the shipped ML4W Apps. Just click on the ML4W logo an the upper right side of the status bar. This will open the sidebar with the icons of three apps.
 
 <div align="center">
 
-![image](/sidebar.png)
+![image](/sidebar.jpg)
 
 </div>
 
@@ -29,7 +24,7 @@ The ML4W Dotfiles Settings App gives you access to Waybar settings e.g., time/da
 
 ## ML4W Hyprland Settings App
 
-![image](/cs3.png)
+![image](/hyprland-settings.jpg)
 
 The ML4W Hyprland App enables you to customize nearly all variables of Hyprland. You can define the window border size, gaps, blur settings, shadows and much more.
 
@@ -43,6 +38,3 @@ The ML4W Dotfiles include a selection of themes for the status bar waybar. You c
 
 If you want to extend the Hyprland configuration directly e.g., if you want to add another autostart command, environment variable, etc. you can edit the custom.conf in `~/.config/hypr/conf/custom.conf` The custom.conf can be restored during an update. You can open the custom.conf from the ML4W Dotfiles Settings App.
 
-## Using the Installation `hook.sh`
-
-And you can protect files and folders from getting overwritten from an update by using the Installation Hook or with the file PROTECTED. Check `Preserve Config & customize`

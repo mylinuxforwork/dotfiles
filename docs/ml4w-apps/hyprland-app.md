@@ -1,8 +1,6 @@
-<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
+# Hyprland Settings
 
-**This applications supports you to customize your Hyprland installation. You can overwrite the existing configuration with custom values without adding complex configuration files.**
-
-</div>
+This applications supports you to customize your Hyprland installation. You can overwrite the existing configuration with custom values without adding complex configuration files.**
 
 ![Screenshot](/hyprland-settings.jpg)
 

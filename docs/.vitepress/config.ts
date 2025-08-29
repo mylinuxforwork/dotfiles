@@ -28,7 +28,7 @@ export default {
         activeMatch: "/showcases/",
       },
      {
-        text: "RC 2.9.9.1",
+        text: "2.9.9.1",
         items: [
           {
             text: 'Changelog',
@@ -91,33 +91,28 @@ export default {
           items: [
             { text: "Overview", link: "/getting-started/overview" },
             { text: "Installation", link: "/getting-started/install" },
-            { text: "Migration", link: "/getting-started/migrate" },
-            { text: "Dependencies", link: "/getting-started/dependencies" },
+            { text: "Launch Hyprland", link: "/usage/launch" },
             { text: "Update", link: "/getting-started/update" },
             { text: "Uninstall", link: "/getting-started/uninstall" },
+            { text: "Migration", link: "/getting-started/migrate" },
+            { text: "Dependencies", link: "/getting-started/dependencies" },
           ],
         },
         {
           text: "Configuration",
-          collapsed: true,
           items: [
-            { text: "Preserve Config & Customize", link: "/configuration/preserve-config" },
-            { text: "Use on other Distros", link: "/configuration/distros" },
             { text: "Monitor Setup", link: "/configuration/monitor-setup" },
+            { text: "Keyboard, Mouse, Touchpad", link: "/configuration/input" },
+            { text: "Shell", link: "/customization/shell" },
+            { text: "Default Terminal", link: "/customization/terminal" },
+            { text: "Default Browser", link: "/customization/browser" },
+            { text: "Display Manager", link: "/customization/displaymanager" },
             { text: "Hyprland + NVIDIA", link: "/configuration/hypr-nvidia" },
             { text: "Switch SDL (X11/Wayland)", link: "/configuration/xwayland" },
-          ],
-        },
-        {
-          text: "Usage",
-          collapsed: true,
-          items: [
-            { text: "Launch Hyprland", link: "/usage/launch" },
             { text: "Keybindings", link: "/usage/keybindings" },
             { text: "Sidepad", link: "/usage/sidepad" },
             { text: "Screenshots", link: "/usage/screenshots" },
             { text: "Game Mode", link: "/usage/game-mode" },
-            { text: "Wallpapers", link: "/usage/wallpapers" },
           ],
         },
         {
@@ -125,12 +120,10 @@ export default {
           collapsed: true,
           items: [
             { text: "Dotfiles Customization", link: "/customization/dotfiles" },
+            { text: "Wallpapers", link: "/usage/wallpapers" },
             { text: "Config Variants", link: "/customization/variants" },
-            { text: "Display Manager", link: "/customization/displaymanager" },
             { text: "Customize Waybar", link: "/customization/waybar" },
-            { text: "Shell (Zsh & Bash)", link: "/customization/shell" },
-            { text: "Default Terminal", link: "/customization/terminal" },
-            { text: "Default Browser", link: "/customization/browser" },
+            { text: "Preserve your Customization", link: "/configuration/preserve-config" },
           ],
         },
         {

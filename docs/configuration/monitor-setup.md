@@ -1,12 +1,6 @@
-<div class="tip custom-block" style="padding-top: 1px; padding-bottom: 8px;">
+# Monitor Setup
 
-<div align="center"> <h3>Monitor Setup</h3> </div>
-
----
-
-**If you want to change the default monitor configuration, you can setup your own personal monitor variation or use nwg-displays.**
-
-</div>
+If you want to change the default monitor configuration, you can setup your own personal monitor variation or use nwg-displays.
 
 ## Personal Monitor Variation
 
@@ -22,7 +16,7 @@ You can also create your own variation as described [here](https://github.com/my
 
 The ML4W Dotfiles are supporting the application [nwg-displays](https://github.com/nwg-piotr/nwg-displays) to configure your display settings.
 
-Install nwg-displays on Arch Linux with
+Install nwg-displays on your distribution with:
 
 ::: code-group
 
@@ -36,6 +30,11 @@ git clone https://github.com/nwg-piotr/nwg-displays ~/nwg-displays
 cd ~/nwg-displays && chmod +x install.sh
 sudo ./install.sh
 ```
+```sh [<i class="devicon-opensuse-plain"></i> openSuse]
+sudo zypper install nwg-displays
+```
+
+
 :::
 
 Open the app and apply your desired monitor settings.

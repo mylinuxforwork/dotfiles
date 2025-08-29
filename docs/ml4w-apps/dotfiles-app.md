@@ -1,8 +1,6 @@
-<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
+# Dotfiles Settings
 
 You can open the ML4W dotfiles settings app with `SUPER + CTRL + S` to change selected dotfiles configurations and choose from variations for your hyprland.conf to customize your desktop even more.
-
-</div>
 
 ![Screenshot](/settings.jpg)
 
