@@ -150,6 +150,13 @@ export default {
             { text: "Contributing to wiki", link: "development/wiki" },
           ]
         },
+        {
+          text: "Credentials",
+          collapsed: true,
+          items: [
+            { text: "Special Thanks", link: "credentials/thankyou" },
+          ]
+        },      
       ],
     },
 

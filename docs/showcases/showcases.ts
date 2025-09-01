@@ -5,6 +5,14 @@ type Showcase = {
 
 const showcases: Showcase[] = [
   {
+    videoUrl: "https://www.youtube.com/embed/40NhOyP3a18",
+    title: ""
+  },
+  {
+    videoUrl: "https://www.youtube.com/embed/k6KKhgVqVIM",
+    title: ""
+  },  
+  {
     image: "/dotfiles/ss/ss.png",
     title: "",
   },
@@ -19,47 +27,7 @@ const showcases: Showcase[] = [
   {
     image: "/dotfiles/dock.png",
     title: "",
-  },
-  {
-    image: "/dotfiles/ml4w-preview.png",
-    title: "",
-  },
-  {
-    image: "/dotfiles/uninstall.png",
-    title: "",
-  },
-  {
-    image: "/dotfiles/update.png",
-    title: "",
-  },
-  {
-    image: "/dotfiles/cs4.png",
-    title: "",
-  },
-  {
-    image: "/dotfiles/wallpapers.png",
-    title: "",
-  },
-  {
-    image: "/dotfiles/cs1.png",
-    title: "",
-  },
-  {
-    image: "/dotfiles/sidebar.png",
-    title: "",
-  },
-  {
-    image: "/dotfiles/cs.png",
-    title: "",
-  },
-  {
-    videoUrl: "https://www.youtube.com/embed/sVFnd5LAYAc",
-    title: ""
-  },
-  {
-    videoUrl: "https://www.youtube.com/embed/dxiX3E5B8bU",
-    title: ""
-  },
+  }
 //  {
 //    videoUrl: "/dotfiles/test.mp4", 
 //    title: ""
