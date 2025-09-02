@@ -9,32 +9,42 @@
 
     # The list of dependencies for Hyprland
     home.packages = with pkgs; [
+        # General
         wget
+        curl
         unzip
         gum
         rsync
         git
         figlet
+        xdg-utils
         xdg-user-dirs
+        libnotify
+        vim
+        python3
+        flatpak
+        jq
+        xclip
+        neovim
+        fzf
+        # Hyprland
         hyprland
         hyprpaper
         hyprlock
         hypridle
+        hyprland-qt-support
         hyprpicker
         xdg-desktop-portal-gtk
         xdg-desktop-portal-hyprland
-        libnotify
+        # Terminal
         kitty
+        # Tools
         kdePackages.qtwayland
         fastfetch
         eza
-        python3
         brightnessctl
         networkmanagerapplet
         imagemagick
-        jq
-        xclip
-        neovim
         htop
         blueman
         grim
@@ -48,10 +58,8 @@
         polkit_gnome
         zsh
         zsh-completions
-        fzf
         pavucontrol
         papirus-icon-theme
-        flatpak
         swaynotificationcenter
         gvfs
         wlogout
@@ -64,25 +72,30 @@
         vlc
     ];
 
-    fonts.packages = with pkgs; [
-        noto-fonts
-        noto-fonts-cjk-sans
-        noto-fonts-emoji
-        liberation_ttf
-        fira-code
-        fira-code-symbols
-    ];
+    #FONTS
+    fonts = {
+        packages = with pkgs; [
+            noto-fonts
+            noto-fonts-cjk-sans
+            noto-fonts-emoji
+            liberation_ttf
+            fira-code
+            fira-code-symbols
+        ];
+    };
 
-    # Enable the Hyprland module
-    # wayland.windowManager.hyprland.enable = true;
+    xwayland.enable = true;
+
+    programs = {
+	    hyprland = {
+            enable = true;
+            portalPackage = pkgs.xdg-desktop-portal-hyprland; # xdph none git
+            xwayland.enable = true;
+        };    
 
     # Optionally, enable the Zsh program
     # programs.zsh = {
     #     enable = true;
     #     enableCompletion = true;
-    # };
-
-    # You can also add your Hyprland configuration files here
-    # For example, to link a hyprland.conf file from your repository:
-    # home.file.".config/hypr/hyprland.conf".source = ./path/to/your/hyprland.conf;
+    };
 }
