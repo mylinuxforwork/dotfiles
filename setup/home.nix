@@ -62,7 +62,8 @@
         polkit_gnome
         zsh
         zsh-completions
-        python3.12-screeninfo
+        python3Packages.screeninfo
+        python3Packages.gobject
         pavucontrol
         papirus-icon-theme
         swaynotificationcenter
