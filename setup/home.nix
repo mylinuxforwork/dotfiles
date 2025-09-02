@@ -63,7 +63,6 @@
         zsh
         zsh-completions
         python3Packages.screeninfo
-        python3Packages.gobject
         pavucontrol
         papirus-icon-theme
         swaynotificationcenter
