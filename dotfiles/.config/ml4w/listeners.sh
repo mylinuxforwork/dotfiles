@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script provides a central control for managing various background listener scripts.
 # It allows starting, stopping, and restarting individual listeners or all registered listeners.

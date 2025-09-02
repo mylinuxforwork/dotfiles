@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script monitors changes to the GTK settings.ini file
 # and automatically switches the 'matugen' theme between light and dark
