@@ -6,3 +6,10 @@
 # Install Dependencies: Run the following command from the same directory where you created the files:
 # nix develop --command sh -c "nix-shell --command 'home-manager switch --flake .'"
 # home-manager switch --flake .#your-username
+
+# /etc/nixos/configuration.nix
+# Enable the Flakes feature and the accompanying new nix command-line tool
+nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+# Install flake
+nix run home-manager switch --flake .#raabe
