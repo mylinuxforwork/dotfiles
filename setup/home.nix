@@ -62,6 +62,7 @@
         polkit_gnome
         zsh
         zsh-completions
+        screeninfo
         pavucontrol
         papirus-icon-theme
         swaynotificationcenter
@@ -74,34 +75,21 @@
         power-profiles-daemon
         pywalfox-native
         vlc
-    ]) ++ (with pkgs.gnome; [ 
         nautilus
+
+        # Fonts
+        noto-fonts
+        noto-fonts-cjk-sans
+        noto-fonts-emoji
+        liberation_ttf
+        fira-code
+        fira-code-symbols
+
     ]);
-
-    #FONTS
-    fonts = {
-        fonts = with pkgs; [
-            noto-fonts
-            noto-fonts-cjk-sans
-            noto-fonts-emoji
-            liberation_ttf
-            fira-code
-            fira-code-symbols
-        ];
-    };
-
-    xwayland.enable = true;
-
-    programs = {
-	    hyprland = {
-            enable = true;
-            portalPackage = pkgs.xdg-desktop-portal-hyprland; # xdph none git
-            xwayland.enable = true;
-        };    
 
     # Optionally, enable the Zsh program
     # programs.zsh = {
     #     enable = true;
     #     enableCompletion = true;
-    };
+    # };
 }

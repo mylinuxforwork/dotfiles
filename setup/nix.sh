@@ -13,3 +13,5 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 # Install flake
 nix run home-manager switch --flake .#raabe
+
+# https://nixos-and-flakes.thiscute.world/

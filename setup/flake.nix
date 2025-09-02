@@ -14,8 +14,6 @@
     let
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
-
-        # Import the home.nix module to get its configuration
         homeConfig = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [ ./home.nix ];
