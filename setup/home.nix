@@ -1,14 +1,14 @@
-{ config, pkgs, ... }:
-
-{
-    # Set a state version to prevent a warning
-    home.stateVersion = "24.05"; # Replace with your NixOS version
-	
-	home.username = "raabe";
-	home.homeDirectory = "/home/raabe";
+{ config, pkgs, ... }: {
+    
+    home = {
+        stateVersion = "24.05"; # Replace with your NixOS version
+        username = "raabe";
+        homeDirectory = "/home/raabe";
+    };
 
     # The list of dependencies for Hyprland
-    home.packages = with pkgs; [
+    home.packages = (with pkgs; [
+
         # General
         wget
         curl
@@ -27,6 +27,8 @@
         xclip
         neovim
         fzf
+        pavucontrol
+
         # Hyprland
         hyprland
         hyprpaper
@@ -36,8 +38,10 @@
         hyprpicker
         xdg-desktop-portal-gtk
         xdg-desktop-portal-hyprland
+
         # Terminal
         kitty
+
         # Tools
         kdePackages.qtwayland
         fastfetch
@@ -70,11 +74,13 @@
         power-profiles-daemon
         pywalfox-native
         vlc
-    ];
+    ]) ++ (with pkgs.gnome; [ 
+        nautilus
+    ]);
 
     #FONTS
     fonts = {
-        packages = with pkgs; [
+        fonts = with pkgs; [
             noto-fonts
             noto-fonts-cjk-sans
             noto-fonts-emoji
