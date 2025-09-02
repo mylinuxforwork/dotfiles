@@ -5,3 +5,4 @@
 # Replace Username: In flake.nix, change "your-username" to your actual username.
 # Install Dependencies: Run the following command from the same directory where you created the files:
 # nix develop --command sh -c "nix-shell --command 'home-manager switch --flake .'"
+# home-manager switch --flake .#your-username
