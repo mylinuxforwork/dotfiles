@@ -3,6 +3,9 @@
 {
   # Set a state version to prevent a warning
   home.stateVersion = "24.05"; # Replace with your NixOS version
+	
+	home.username = "raabe";
+	home.homeDirectory = "/home/raabe";
 
   # The list of dependencies for Hyprland
   home.packages = with pkgs; [
@@ -27,17 +30,12 @@
     xdg-desktop-portal-hyprland
     libnotify
     kitty
-    qt5-wayland
-    qt6-wayland
+    kdePackages.qtwayland
     fastfetch
     eza
     python3
-    python3Packages.gobject
-    python3Packages.screeninfo
-    tumbler
     brightnessctl
-    nm-connection-editor
-    network-manager-applet
+    networkmanagerapplet
     imagemagick
     jq
     xclip
@@ -48,28 +46,26 @@
     slurp
     cliphist
     nwg-look
-    qt6ct
+libsForQt5.qt5ct
+    kdePackages.qt6ct
     waybar
     rofi-wayland
-    polkit-gnome
+    polkit_gnome
     zsh
     zsh-completions
     fzf
     pavucontrol
     papirus-icon-theme
-    breeze
     flatpak
-    swaync
+    swaynotificationcenter
     gvfs
     wlogout
     waypaper
     grimblast
-    bibata-cursor-theme
-    pacseek
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    bibata-cursors
     nwg-dock-hyprland
     power-profiles-daemon
-    python3Packages.pywalfox
+    pywalfox-native
     vlc
   ];
 
