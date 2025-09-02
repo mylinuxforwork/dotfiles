@@ -12,18 +12,22 @@
       # Define a common system to avoid repetition
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      # This is the main output for Home Manager
-      homeConfigurations."your-username" = home-manager.lib.homeManagerConfiguration {
+
+      # Import the home.nix module to get its configuration
+      homeConfig = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home.nix ];
       };
+    in
+    {
+      # This is the main output for Home Manager
+      homeConfigurations."raabe" = homeConfig;
 
-      # This provides a development shell with all the packages from home.nix
-      # This will make the `nix develop` command work as you intended.
+      # This provides a development shell with all the packages.
       devShells.${system}.default = pkgs.mkShell {
-        packages = (import ./home.nix { inherit config pkgs; }).home.packages;
+        # Directly list the packages from your home.nix
+        # This avoids trying to evaluate the full config variable.
+        packages = (import ./home.nix { inherit pkgs; config = { }; }).home.packages;
       };
     };
 }
