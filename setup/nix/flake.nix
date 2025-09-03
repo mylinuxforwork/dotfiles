@@ -41,6 +41,7 @@
               python313Packages.screeninfo
               python313Packages.pygobject3
               python313Packages.pycairo
+              python313Packages.cairo-gobject
               flatpak
               jq
               xclip
