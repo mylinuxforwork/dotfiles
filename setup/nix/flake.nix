@@ -51,6 +51,7 @@
               meson
               gcc
               pkg-config
+              cairo
               # waypaper
                 
               # Hyprland
