@@ -47,7 +47,8 @@
               fzf
               pavucontrol
               pipx
-
+                waypaper
+                
               # Hyprland
               hyprland
               hyprpaper
