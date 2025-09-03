@@ -50,6 +50,7 @@
               ninja
               meson
               gcc
+              pkg-config
               # waypaper
                 
               # Hyprland
