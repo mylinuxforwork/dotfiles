@@ -9,7 +9,7 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in 
+    in
     {
       # This is the key part: A flake-based NixOS configuration
       nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
