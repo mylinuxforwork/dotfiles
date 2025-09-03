@@ -45,7 +45,7 @@
               fzf
               pavucontrol
               pipx
-            python3.13-pygobject
+            python3-pygobject
 
               # Hyprland
               hyprland
