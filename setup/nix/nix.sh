@@ -17,3 +17,5 @@
 
 # Install packages with flake
 # nix profile install /path/to/your/flake/directory
+
+# sudo nixos-rebuild switch --flake .
