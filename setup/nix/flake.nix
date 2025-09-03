@@ -19,7 +19,7 @@
           # You can safely leave this out if your existing configuration.nix is minimal.
           # If you want to use this flake as your primary config, you should define
           # all of your other system settings here.
-          ./configuration.nix
+          /etc/nixos/configuration.nix
 
           # All your system-wide packages and configurations go here
           {
