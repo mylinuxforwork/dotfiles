@@ -52,6 +52,7 @@
             # Tools
             kdePackages.qtwayland
             fastfetch
+            matugen
             eza
             brightnessctl
             networkmanagerapplet

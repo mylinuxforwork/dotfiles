@@ -9,5 +9,8 @@
 # Rebuild system
 # sudo nixos-rebuild switch
 
+# Add Flathub repository
+# flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
 # Install packages with flake
 # nix profile install /path/to/your/flake/directory
