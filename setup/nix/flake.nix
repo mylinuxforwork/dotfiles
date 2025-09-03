@@ -39,7 +39,7 @@
               vim
               python313
               python313Packages.screeninfo
-              python313Packages.pygobject              
+              python313Packages.pygobject3              
               flatpak
               jq
               xclip
