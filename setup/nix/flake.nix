@@ -47,7 +47,9 @@
               fzf
               pavucontrol
               pipx
-                waypaper
+              ninja
+              meson
+              # waypaper
                 
               # Hyprland
               hyprland
