@@ -44,6 +44,7 @@
               neovim
               fzf
               pavucontrol
+              pipx
 
               # Hyprland
               hyprland
@@ -85,7 +86,7 @@
               swaynotificationcenter
               gvfs
               wlogout
-              waypaper
+              # waypaper
               grimblast
               bibata-cursors
               nwg-dock-hyprland
