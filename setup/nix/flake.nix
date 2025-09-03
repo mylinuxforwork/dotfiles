@@ -37,7 +37,9 @@
               xdg-user-dirs
               libnotify
               vim
-              python3
+              python313
+              python313Packages.screeninfo
+              python313Packages.gobject              
               flatpak
               jq
               xclip
@@ -45,7 +47,6 @@
               fzf
               pavucontrol
               pipx
-            python3-pygobject
 
               # Hyprland
               hyprland
