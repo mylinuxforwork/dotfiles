@@ -41,7 +41,7 @@
 
     // Modules Right    
     "modules-right": [
-        "custom/nowplaying,
+        "custom/nowplaying",
         "custom/updates",
         "pulseaudio",
         //"backlight",
