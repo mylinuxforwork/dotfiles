@@ -49,6 +49,7 @@
               pipx
               ninja
               meson
+              gcc
               # waypaper
                 
               # Hyprland
