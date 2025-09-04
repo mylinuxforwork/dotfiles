@@ -5,7 +5,7 @@ pageClass: home-page
 hero:
   name: The ML4W Dotfiles for Hyprland  
   image:
-    src: /ml4w.png
+    src: /ml4w.svg
     alt: ML4W logo
     style: "width: 200px; height: auto;"
   tagline: An advanced and full-featured configuration for the dynamic tiling window manager Hyprland.
