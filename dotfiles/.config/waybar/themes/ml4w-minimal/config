@@ -1,27 +1,15 @@
-// __        __          _                 
-// \ \      / /_ _ _   _| |__   __ _ _ __  
-//  \ \ /\ / / _` | | | | '_ \ / _` | '__| 
-//   \ V  V / (_| | |_| | |_) | (_| | |    
-//    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    
-//                 |___/                   
-//  
-// by Stephan Raabe (2023) 
-// ----------------------------------------------------- 
-//
 {
     // General Settings
     "layer": "top",
     "margin-bottom": 0,
     "margin-left": 0,
-    "margin-right": 0,    
+    "margin-right": 0,
     "spacing": 0,
-
     // Load Modules
     "include": [
         "~/.config/ml4w/settings/waybar-quicklinks.json",
         "~/.config/waybar/modules.json"
     ],
-
     // Updates Count
     "custom/updates": {
         "format": "   {}",
@@ -32,7 +20,6 @@
         "on-click": "$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e ~/.config/ml4w/scripts/installupdates.sh",
         "on-click-right": "~/.config/ml4w/settings/software.sh"
     },
-
     // Pulseaudio
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -43,17 +30,20 @@
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-        "headphone": " ",
-        "hands-free": " ",
-        "headset": " ",
-        "phone": " ",
-        "portable": " ",
-        "car": " ",
-        "default": [" ", " ", " "]
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [
+                " ",
+                " ",
+                " "
+            ]
         },
         "on-click": "pavucontrol"
     },
-
     // Modules Left
     "modules-left": [
         "custom/appmenuicon",
@@ -62,13 +52,11 @@
         "group/quicklinks",
         "custom/empty"
     ],
-
     // Modules Center
     "modules-center": [
         "hyprland/window",
         "custom/empty"
     ],
-
     // Modules Right    
     "modules-right": [
         "custom/updates",
@@ -76,7 +64,7 @@
         //"backlight",
         "bluetooth",
         "network",
-        "battery", 
+        "battery",
         "power-profiles-daemon",
         "group/hardware",
         "group/tools",
