@@ -261,7 +261,8 @@
       "custom/tools",
       "custom/cliphist",
       "custom/hypridle",
-      "custom/hyprshade"
+      "custom/hyprshade",
+      "power-profiles-daemon"
     ]
   },
   // Group Links
