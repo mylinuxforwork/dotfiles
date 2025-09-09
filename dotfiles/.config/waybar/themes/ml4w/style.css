@@ -325,7 +325,7 @@ window#waybar.empty #window {
 #custom-updates {
     background-color: @backgroundlight;
     font-size: 16px;
-    color: @textcolor2;
+    color: @textcolor1;
     border-radius: 15px;
     padding: 2px 10px 0px 10px;
     margin: 5px 15px 5px 0px;

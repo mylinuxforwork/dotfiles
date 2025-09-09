@@ -1,3 +1,7 @@
+Version 2.9.9.2
+--------------------------------------------------------
+- New default wallpaper
+
 Version 2.9.9.1
 --------------------------------------------------------
 - Full dark and light theme support. Change preferred theme in nw-look. A listener script will reload waybar and nwg-dock-hyprland when the file ~/.config/gtk-4.0/settings.ini will be changed.
