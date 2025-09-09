@@ -152,7 +152,6 @@ export default {
         },
         {
           text: "Credentials",
-          collapsed: false,
           items: [
             { text: "Special Thanks", link: "credentials/thankyou" },
           ]
