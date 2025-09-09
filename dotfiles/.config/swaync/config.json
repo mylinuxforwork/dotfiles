@@ -1,84 +1,97 @@
 {
-    "$schema": "/etc/xdg/swaync/configSchema.json",
-    "positionX": "right",
-    "positionY": "top",
-    "layer": "overlay",
-    "control-center-layer": "top",
-    "layer-shell": true,
-    "cssPriority": "user",
-    "control-center-margin-top": 13,
-    "control-center-margin-bottom": 0,
-    "control-center-margin-right": 14,
-    "control-center-margin-left": 0,
-    "notification-2fa-action": true,
-    "notification-inline-replies": false,
-    "notification-icon-size": 24,
-    "notification-body-image-height": 100,
-    "notification-body-image-width": 100,
-    "notification-window-width": 300,
-    "timeout": 6,
-    "timeout-low": 3,
-    "timeout-critical": 0,
-    "fit-to-screen": false,
-    "control-center-width": 400,
-    "control-center-height": 720,
-    "keyboard-shortcuts": true,
-    "image-visibility": "when-available",
-    "transition-time": 200,
-    "hide-on-clear": false,
-    "hide-on-action": true,
-    "script-fail-notify": true,
-    "widgets": [
-        "dnd",
-        "buttons-grid",
-        "mpris",
-        "volume",
-        "backlight",
-        "title",
-        "notifications"
-    ],
-    "widget-config": {
-        "title": {
-            "text": "Notifications",
-            "clear-all-button": true,
-            "button-text": "Clear"
-        },
-        "dnd": {
-            "text": "Do Not Disturb"
-        },
-        "label": {
-            "max-lines": 1,
-            "text": "Notification"
-        },
-        "mpris": {
-            "image-size": 50,
-            "image-radius": 0
-        },
-        "volume": {
-            "label": "󰕾"
-        },
-        "backlight": {
-            "label": "󰃟"
-        },
-        "buttons-grid": {
-            "actions": [
-                {
-                    "label": "",
-                    "command": "hyprlock"
-                },
-                {
-                    "label": "󰝟",
-                    "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-                },
-                {
-                    "label": "󰂯",
-                    "command": "blueman-manager"
-                },
-                {
-                    "label": "",
-                    "command": "bash -c $HOME/.config/ml4w/scripts/wlogout.sh"
-                }
-            ]
-        }
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "cssPriority": "user",
+
+  "control-center-width": 360,
+  "control-center-height": 560,
+  "control-center-margin-top": 13,
+  "control-center-margin-bottom": 13,
+  "control-center-margin-right": 14,
+  "control-center-margin-left": 0,
+
+  "notification-window-width": 300,
+  "notification-icon-size": 24,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 200,
+
+  "timeout": 4,
+  "timeout-low": 2,
+  "timeout-critical": 6,
+
+  "fit-to-screen": true,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 200,
+  "hide-on-clear": true,
+  "hide-on-action": true,
+  "script-fail-notify": true,
+  "scripts": {},
+  "notification-visibility": {
+    "example-name": {
+      "state": "muted",
+      "urgency": "Normal",
+      "app-name": "Spotify"
     }
+  },
+  "widgets": [
+    "dnd",
+    "buttons-grid",
+    "backlight",
+    "volume",
+    "mpris",
+    "title",
+    "notifications"
+  ],
+  "widget-config": {
+    "dnd": {
+      "text": "Do not Disturb"
+    },
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear"
+    },
+    "mpris": {
+      "image-size": 0,
+      "image-radius": 0
+    },
+    "backlight": {
+      "label": "󰃟"
+    },
+    "volume": {
+      "label": ""
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "",
+          "type": "toggle",
+          "active": true,
+          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
+          "update-command": "sh -c '[[ $(nmcli r wifi) == \"enabled\" ]] && echo true || echo false'"
+        },
+        {
+          "label": "",
+          "type": "toggle",
+          "active": true,
+          "command": "rfkill toggle bluetooth",
+          "update-command": ""
+        },
+        {
+          "label": "󰕾",
+          "type": "toggle",
+          "active": true,
+          "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+          "update-command": ""
+        },
+        {
+          "label": "",
+          "command": "hyprlock"
+        }
+      ]
+    }
+  }
 }
