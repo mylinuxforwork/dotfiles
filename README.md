@@ -2,7 +2,7 @@
 
 An advanced configuration of Hyprland for Arch Linux based distributions. Full featured desktop environment based on the dynamic tiling window manager Hyprland with adaptive material color themes based on the selected wallpaper for all components. Including a comprehensive selection of apps with the ability to customize the configuration to your personal needs.
 
-![image](https://mylinuxforwork.github.io/dotfiles/ml4w-preview-2991.jpg)
+![image](https://mylinuxforwork.github.io/dotfiles/screen-2992.jpg)
 
 ## Installation and Documentation
 
