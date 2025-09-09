@@ -43,6 +43,7 @@ packages=(
     # Fonts
     "dejavu-fonts-all"
     "fontawesome-fonts"
+    "material-design-icons-fonts"
     "noto-fonts"
     "google-noto-emoji-fonts"
     "google-noto-sans-cjk-fonts"
