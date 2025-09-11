@@ -8,6 +8,7 @@
 	"dependencies": "https://mylinuxforwork.github.io/dotfiles/getting-started/dependencies",
 	"source": "Projects/dotfiles",
 	"subfolder": "dotfiles",
+	"setupscript":"setup/setup.sh",
 	"dev":{
 		"ignore":"keyboard.conf,monitor.conf,waypaper,sidepad-active"
 	},

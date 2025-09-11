@@ -2,7 +2,7 @@
 @import 'colors.css';
 
 /* === Derived dynamic colors === */
-@define-color base alpha(#000000, 0.5);                          /* translucent blurred base */
+@define-color base alpha(@surface, 0.5);
 @define-color surface_custom alpha(@surface_container_high,0.8);
 @define-color hovercolor alpha(@surface_container_high,0.8);
 @define-color activecolor @primary_container;
@@ -25,8 +25,6 @@
   FontAwesome;
   transition: 200ms;
 }
-
-
 
 /* === Control Center Container === */
 .control-center {
