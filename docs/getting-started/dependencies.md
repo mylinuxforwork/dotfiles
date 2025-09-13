@@ -18,10 +18,6 @@ hyprpaper
 hyprlock
 hypridle
 hyprpicker
-noto-fonts
-noto-fonts-emoji
-noto-fonts-cjk
-noto-fonts-extra
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 libnotify
@@ -70,7 +66,6 @@ otf-font-awesome
 ttf-fira-sans
 ttf-fira-code
 ttf-firacode-nerd
-ttf-dejavu
 nwg-dock-hyprland
 power-profiles-daemon
 python-pywalfox

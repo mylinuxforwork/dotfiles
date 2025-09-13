@@ -48,15 +48,7 @@ packages=(
     "breeze"
     # Fonts
     "otf-font-awesome"
-    "ttf-material-icons"
-    "ttf-fira-sans"
-    "ttf-fira-code"
     "ttf-firacode-nerd"
-    "ttf-dejavu"
-    "noto-fonts"
-    "noto-fonts-emoji"
-    "noto-fonts-cjk"
-    "noto-fonts-extra"
 )
 
 _isInstalled() {

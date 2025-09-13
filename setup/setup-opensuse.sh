@@ -37,13 +37,7 @@ packages=(
     "papirus-icon-theme"
     "breeze"
     # Fonts
-    "mozilla-fira-sans-fonts"
-    "fira-code-fonts"
-    "google-noto-fonts"
-    "google-noto-emoji-fonts"
-	"fonts-materialdesignicons"
     "fontawesome-fonts"
-    "dejavu-fonts"
 )
 
 _isInstalled() {
