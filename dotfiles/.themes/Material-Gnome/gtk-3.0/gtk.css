@@ -532,6 +532,7 @@ treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:f
 .photos-entry-tag:active,
 .documents-entry-tag:active {
   background-color: alpha(@color13, 0.25);
+  color: alpha(@color0, 0.7);
 }
 
 /***********
@@ -1437,7 +1438,7 @@ button:not(.suggested-action):not(.destructive-action).text-button {
 }
 
 .titlebar.selection-mode:backdrop {
-  color: alpha(@color7, 0.7);
+  color: alpha(@color0, 0.7);
   background-color: alpha(@color13, 0.8);
 }
 
@@ -1774,7 +1775,7 @@ treeview.view.progressbar {
 treeview.view.progressbar:selected, treeview.view.progressbar:selected:hover, treeview.view.progressbar:selected:focus {
   box-shadow: none;
   background-color: @color13;
-  color: @color7;
+  color: @color0;
 }
 
 treeview.view.progressbar:selected:backdrop, treeview.view.progressbar:selected:hover:backdrop, treeview.view.progressbar:selected:focus:backdrop {
@@ -2028,15 +2029,6 @@ popover.background {
   padding: 0;
   background-color: @color0;
   border-radius: 12px;
-}
-
-popover.background, .csd popover.background {
-  box-shadow: 0 2px 3px -1px alpha(@color7, 0.15), 0 4px 3px 0 alpha(@color7, 0.18), 0 1px 6px 0 alpha(@color7, 0.12);
-  box-shadow: 0 8px 6px -5px alpha(@color7, 0.2), 0 16px 15px 2px alpha(@color7, 0.14), 0 6px 18px 5px alpha(@color7, 0.12), inset 0 1px alpha(@color7, 0.1), 0 0 36px transparent;
-}
-
-popover.background:backdrop, .csd popover.background:backdrop {
-  box-shadow: 0 3px 2px -2px alpha(@color7, 0.05), 0 2px 3px -1px alpha(@color7, 0.06), 0 1px 4px 0 alpha(@color7, 0.05);
 }
 
 popover.background > stack {
@@ -2642,25 +2634,117 @@ menu menuitem check, menu menuitem check:hover, menu menuitem check:disabled, me
   box-shadow: none;
 }
 
+check {
+  -gtk-icon-size: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  background: transparent;
+  border: 2px solid alpha(@color13, 0.38);
+  border-radius: 3px;
+}
 
 check:checked {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/scalable/checkbox-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/checkbox-checked-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: @color13;
+  border-color: @color13;
+  box-shadow: 
+    0 0 0 1px @color13,
+    inset 0 0 0 2px @color0;
 }
 
+check:checked::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+  border: solid @color0;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
 
 check:indeterminate {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/scalable/checkbox-mixed-symbolic.svg")), -gtk-recolor(url("assets/scalable/checkbox-mixed-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: @color13;
+  border-color: @color13;
+  box-shadow: 
+    0 0 0 1px @color13,
+    inset 0 0 0 2px @color0;
 }
 
+check:indeterminate::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 4px;
+  top: 8px;
+  width: 8px;
+  height: 2px;
+  background: @color0;
+  border-radius: 1px;
+}
+
+check:focus,
+radio:focus {
+  outline: 1px solid @color13;
+  outline-offset: 2px;
+}
+
+check:hover,
+radio:hover {
+  background-color: alpha(@color13, 0.2);
+}
+
+check:active,
+radio:active {
+  background-color: alpha(@color13, 0.4);
+}
+
+check:disabled,
+radio:disabled {
+  opacity: 0.5;
+  background-color: transparent;
+  border-color: #2a3b37;
+}
+
+check:disabled:checked,
+radio:disabled:checked {
+  background-color: alpha(@color13, 0.58);
+  border-color: alpha(@color13, 0.58);
+  box-shadow: 
+    inset 0 0 0 4px @color0,
+    0 0 0 1px alpha(@color13, 0.58);
+}
+
+radio {
+  -gtk-icon-size: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  background: transparent;
+  border: 2px solid alpha(@color13, 0.38);
+  border-radius: 50%;
+}
 
 radio:checked {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/scalable/radio-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-checked-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: @color13;
+  border-color: @color13;
+  box-shadow: 
+    inset 0 0 0 4px @color0,
+    0 0 0 1px @color13;
 }
-
 
 radio:indeterminate {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/scalable/radio-mixed-symbolic.svg")), -gtk-recolor(url("assets/scalable/radio-mixed-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: @color0;
+  border-color: @color13;
+  box-shadow: 
+    inset 0 0 0 2px @color13,
+    0 0 0 1px @color13;
 }
+
 
 #MozillaGtkWidget > widget > checkbutton > check,
 menu menuitem check {
@@ -2670,12 +2754,28 @@ menu menuitem check {
 
 #MozillaGtkWidget > widget > checkbutton > check:checked,
 menu menuitem check:checked {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-checkbox-checked-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: @color13;
+  border: 2px solid @color13;
+  border-radius: 3px;
+  box-shadow: 
+    0 0 0 1px @color13,
+    inset 0 0 0 2px @color0;
+  min-height: 16px;
+  min-width: 16px;
 }
 
 #MozillaGtkWidget > widget > checkbutton > check:indeterminate,
 menu menuitem check:indeterminate {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-checkbox-mixed-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: @color13;
+  border: 2px solid @color13;
+  border-radius: 3px;
+  box-shadow: 
+    0 0 0 1px @color13,
+    inset 0 0 0 2px @color0;
+  min-height: 16px;
+  min-width: 16px;
 }
 
 #MozillaGtkWidget > widget > radiobutton > radio,
@@ -2686,12 +2786,22 @@ menu menuitem radio {
 
 #MozillaGtkWidget > widget > radiobutton > radio:checked,
 menu menuitem radio:checked {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/scalable/small-radio-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-radio-checked-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: @color13;
+  border-color: @color13;
+  box-shadow: 
+    inset 0 0 0 3px @color0,
+    0 0 0 1px @color13;
 }
 
 #MozillaGtkWidget > widget > radiobutton > radio:indeterminate,
 menu menuitem radio:indeterminate {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic.svg")), -gtk-recolor(url("assets/scalable/small-radio-mixed-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: @color0;
+  border-color: @color13;
+  box-shadow: 
+    inset 0 0 0 1.5px @color13,
+    0 0 0 1px @color13;
 }
 
 check:not(:checked):active {
@@ -2756,7 +2866,11 @@ treeview.view check:indeterminate {
 .content-view .tile check:not(list):checked {
   background-color: @color13;
   color: @color0;
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/scalable/checkbox-checked-symbolic.svg")), -gtk-recolor(url("assets/scalable/checkbox-checked-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  border: 2px solid @color13;
+  box-shadow: 
+    0 0 0 1px @color13,
+    inset 0 0 0 2px @color0;
 }
 
 /************
@@ -2872,19 +2986,59 @@ scale.marks-before:not(.marks-after) slider:disabled, scale.marks-after:not(.mar
 }
 
 scale.horizontal.marks-before:not(.marks-after) slider {
-  -gtk-icon-source: -gtk-recolor(url("assets/scalable/scale-horz-marks-before-slider-symbolic.svg"));
+  -gtk-icon-source: none;
+  background-image: 
+    linear-gradient(to right, alpha(@color13, 0.38) 1px, transparent 1px),
+    linear-gradient(to bottom, @color13 60%, transparent 60%);
+  background-size: 4px 100%, 100% 100%;
+  background-position: 0 0, center;
+  background-repeat: repeat-y, no-repeat;
+  min-width: 16px;
+  min-height: 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px alpha(@color13, 0.3);
 }
 
 scale.horizontal.marks-after:not(.marks-before) slider {
-  -gtk-icon-source: -gtk-recolor(url("assets/scalable/scale-horz-marks-after-slider-symbolic.svg"));
+  -gtk-icon-source: none;
+  background-image: 
+    linear-gradient(to right, alpha(@color13, 0.38) 1px, transparent 1px),
+    linear-gradient(to bottom, @color13 60%, transparent 60%);
+  background-size: 4px 100%, 100% 100%;
+  background-position: 100% 0, center;
+  background-repeat: repeat-y, no-repeat;
+  min-width: 16px;
+  min-height: 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px alpha(@color13, 0.3);
 }
 
 scale.vertical.marks-before:not(.marks-after) slider {
-  -gtk-icon-source: -gtk-recolor(url("assets/scalable/scale-vert-marks-before-slider-symbolic.svg"));
+  -gtk-icon-source: none;
+  background-image: 
+    linear-gradient(to bottom, alpha(@color13, 0.38) 1px, transparent 1px),
+    linear-gradient(to right, @color13 60%, transparent 60%);
+  background-size: 100% 4px, 100% 100%;
+  background-position: 0 0, center;
+  background-repeat: repeat-x, no-repeat;
+  min-width: 16px;
+  min-height: 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px alpha(@color13, 0.3);
 }
 
 scale.vertical.marks-after:not(.marks-before) slider {
-  -gtk-icon-source: -gtk-recolor(url("assets/scalable/scale-vert-marks-after-slider-symbolic.svg"));
+  -gtk-icon-source: none;
+  background-image: 
+    linear-gradient(to bottom, alpha(@color13, 0.38) 1px, transparent 1px),
+    linear-gradient(to right, @color13 60%, transparent 60%);
+  background-size: 100% 4px, 100% 100%;
+  background-position: 0 100%, center;
+  background-repeat: repeat-x, no-repeat;
+  min-width: 16px;
+  min-height: 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px alpha(@color13, 0.3);
 }
 
 scale indicator {
@@ -3508,7 +3662,6 @@ messagedialog.background .titlebar {
   min-height: 12px;
   background-color: @color0;
   border: none;
-  box-shadow: inset 0 1px alpha(@color7, 0.1);
 }
 
 messagedialog.background .titlebar, messagedialog.background .titlebar:backdrop {
@@ -3522,7 +3675,6 @@ messagedialog.background.csd {
 
 messagedialog .titlebar, messagedialog.background.csd .titlebar {
   border: none;
-  box-shadow: inset 0 1px alpha(@color7, 0.1);
 }
 
 messagedialog .dialog-action-box {
@@ -3756,7 +3908,6 @@ placessidebar.sidebar row.sidebar-new-bookmark-row image.sidebar-icon {
 
 placessidebar.sidebar row:drop(active) {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), box-shadow 0ms, background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 1200ms cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: inset 0 0 0 9999px alpha(currentColor, 0.08);
   background-color: alpha(@color13, 0.15)
 }
 
@@ -4414,7 +4565,7 @@ popover.emoji-completion .emoji:hover {
   border: none;
   border-radius: 12px;
   background-color: @color13;
-  color: @color7;
+  color: @color0;
   box-shadow: 0 3px 2px -2px alpha(@color7, 0.05), 0 2px 3px -1px alpha(@color7, 0.06), 0 1px 4px 0 alpha(@color7, 0.05);
 }
 
@@ -5146,7 +5297,6 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem >
 }
 
 .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar {
-  box-shadow: inset 0 1px alpha(@color7, 0.12);
 }
 
 .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button {
@@ -5209,7 +5359,6 @@ window.background > box.vertical > toolbar.primary-toolbar {
 window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button.image-button.raised {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 1200ms cubic-bezier(0, 0, 0.2, 1);
   outline: none;
-  box-shadow: inset 0 0 0 9999px transparent;
   background-color: alpha(@color0, 0.08);
   background-image: radial-gradient(circle, transparent 10%, transparent 0%);
   background-repeat: no-repeat;
@@ -6671,4 +6820,3 @@ window.background:not(.csd) > box
   padding-top: 3px;
   padding-bottom: 3px;
 }
-
