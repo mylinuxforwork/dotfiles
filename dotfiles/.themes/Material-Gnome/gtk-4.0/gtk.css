@@ -805,7 +805,7 @@ headerbar popover.background button:disabled:not(.suggested-action):not(.destruc
 
 headerbar popover.background button:checked:not(.suggested-action):not(.destructive-action):not(.flat), button:checked {
   background-color: var(--color13);
-  color: var(--color7);
+  color: var(--color0);
 }
 
 headerbar popover.background button:checked:hover:not(.suggested-action):not(.destructive-action):not(.flat), button:checked:hover {
@@ -3634,7 +3634,7 @@ radio:disabled {
 check:checked, check:indeterminate,
 radio:checked,
 radio:indeterminate {
-  color: rgba(var(--color2-r), var(--color2-g), var(--color2-b), 0.7);
+  color: rgba(var(--color0-r), var(--color0-g), var(--color0-b), 0.7);
   background-color: var(--color13);
 }
 
@@ -3695,53 +3695,111 @@ popover.menu check, popover.menu check:hover, popover.menu check:disabled, popov
   box-shadow: none;
 }
 
-
 check {
   -gtk-icon-size: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  background: transparent;
+  border: 2px solid rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.35);
+  border-radius: 3px;
 }
-
 
 check:checked {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/checkbox-checked-symbolic.svg")), -gtk-recolor(url("assets/checkbox-checked-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: var(--color13);
+  border-color: var(--color13);
+  box-shadow: 
+    0 0 0 1px var(--color13),
+    inset 0 0 0 2px var(--color0);
 }
-
 
 check:indeterminate {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/checkbox-mixed-symbolic.svg")), -gtk-recolor(url("assets/checkbox-mixed-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: var(--color13);
+  border-color: var(--color13);
+  box-shadow: 
+    0 0 0 1px var(--color13),
+    inset 0 0 0 2px var(--color0);
 }
 
+check:checked::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+  border: solid var(--color0);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+check:indeterminate::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 4px;
+  top: 8px;
+  width: 8px;
+  height: 2px;
+  background: var(--color0);
+  border-radius: 1px;
+}
+
+check:focus {
+  outline: 1px solid var(--color13);
+  outline-offset: 2px;
+}
+
+check:hover {
+  background-color: rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.2);
+}
+
+check:active {
+  background-color: rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.4);
+}
+
+check:disabled {
+  opacity: 0.5;
+  background-color: transparent;
+  border-color: rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.35);
+}
+
+check:disabled:checked {
+  background-color: rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.55);
+  border-color: rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.55);
+  box-shadow: 
+    0 0 0 1px rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.55),
+    inset 0 0 0 2px var(--color0);
+}
 
 radio {
   -gtk-icon-size: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  background: transparent;
+  border: 2px solid rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.38);
+  border-radius: 50%;
 }
-
 
 radio:checked {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/radio-checked-symbolic.svg")), -gtk-recolor(url("assets/radio-checked-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: var(--color13);
+  border-color: var(--color13);
+  box-shadow: 
+    inset 0 0 0 4px var(--color0),
+    0 0 0 1px var(--color13);
 }
-
 
 radio:indeterminate {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/radio-mixed-symbolic.svg")), -gtk-recolor(url("assets/radio-mixed-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: var(--color0);
+  border-color: var(--color13);
+  box-shadow: 
+    inset 0 0 0 2px var(--color13),
+    0 0 0 1px var(--color13);
 }
-
-
-popover.menu check {
-  min-height: 16px;
-  min-width: 16px;
-  -gtk-icon-size: 16px;
-}
-
-
-popover.menu check:checked {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/small-checkbox-checked-symbolic.svg")), -gtk-recolor(url("assets/small-checkbox-checked-symbolic@2.svg")));
-}
-
-
-popover.menu check:indeterminate {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/small-checkbox-mixed-symbolic.svg")), -gtk-recolor(url("assets/small-checkbox-mixed-symbolic@2.svg")));
-}
-
 
 popover.menu radio {
   min-height: 16px;
@@ -3749,14 +3807,89 @@ popover.menu radio {
   -gtk-icon-size: 16px;
 }
 
-
 popover.menu radio:checked {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/small-radio-checked-symbolic.svg")), -gtk-recolor(url("assets/small-radio-checked-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: var(--color13);
+  border-color: var(--color13);
+  box-shadow: 
+    inset 0 0 0 3px var(--color0),
+    0 0 0 1px var(--color13);
 }
 
-
 popover.menu radio:indeterminate {
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/small-radio-mixed-symbolic.svg")), -gtk-recolor(url("assets/small-radio-mixed-symbolic@2.svg")));
+  -gtk-icon-source: none;
+  background-color: var(--color0);
+  border-color: var(--color13);
+  box-shadow: 
+    inset 0 0 0 1.5px var(--color13),
+    0 0 0 1px var(--color13);
+}
+
+radio:focus {
+  outline: 1px solid var(--color13);
+  outline-offset: 2px;
+}
+
+radio:hover {
+  background-color: rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.2);
+}
+
+radio:active {
+  background-color: rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.4);
+}
+
+radio:disabled {
+  opacity: 0.5;
+  background-color: transparent;
+  border-color: rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.35);
+}
+
+radio:disabled:checked {
+  background-color: rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.55);
+  border-color: rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.55);
+  box-shadow: 
+    inset 0 0 0 4px var(--color0),
+    0 0 0 1px rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.55);
+}
+
+popover.menu check {
+  min-height: 16px;
+  min-width: 16px;
+  -gtk-icon-size: 16px;
+  border-radius: 2px;
+}
+
+popover.menu check:checked {
+  -gtk-icon-source: none;
+  background-color: var(--color13);
+  border-color: var(--color13);
+  box-shadow: 
+    0 0 0 1px var(--color13),
+    inset 0 0 0 2px var(--color0);
+}
+
+popover.menu check:indeterminate {
+  -gtk-icon-source: none;
+  background-color: var(--color13);
+  border-color: var(--color13);
+  box-shadow: 
+    0 0 0 1px var(--color13),
+    inset 0 0 0 2px var(--color0);
+}
+
+popover.menu check:checked::after {
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+popover.menu check:indeterminate::after {
+  left: 3px;
+  top: 6px;
+  width: 6px;
+  height: 1.5px;
 }
 
 check:not(:checked):active {
@@ -5580,7 +5713,6 @@ windowcontrols > button:not(.suggested-action):not(.destructive-action) > image 
   padding: 0;
 }
 
-
 .view:selected, iconview:selected, gridview > child:selected, columnview.view:selected,
 treeview.view:selected, calendar:selected, calendar > grid > label.day-number:selected {
   background-color: alpha(currentColor, 0.06);
@@ -5608,7 +5740,48 @@ headerbar popover.background entry entry > text > selection, calendar > grid > l
  **********************/
 cursor-handle {
   color: var(--color13);
-  -gtk-icon-source: -gtk-recolor(url("assets/cursor-handle-symbolic.svg"));
+  -gtk-icon-source: none;
+  background-image: 
+    radial-gradient(circle, var(--color13) 40%, transparent 40%),
+    linear-gradient(to right, transparent 35%, var(--color13) 35%, var(--color13) 65%, transparent 65%),
+    linear-gradient(to bottom, transparent 35%, var(--color13) 35%, var(--color13) 65%, transparent 65%);
+  background-size: 100% 100%, 100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 16px;
+  min-height: 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.3);
+}
+
+cursor-handle:hover {
+  background-image: 
+    radial-gradient(circle, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.7) 40%, transparent 40%),
+    linear-gradient(to right, transparent 35%, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.3) 35%, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.3) 65%, transparent 65%),
+    linear-gradient(to bottom, transparent 35%, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.3) 35%, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.3) 65%, transparent 65%);
+  box-shadow: 0 0 0 2px rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.5);
+}
+
+cursor-handle:active {
+  background-image: 
+    radial-gradient(circle, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.77) 40%, transparent 40%),
+    linear-gradient(to right, transparent 35%, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.77) 35%, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.77) 65%, transparent 65%),
+    linear-gradient(to bottom, transparent 35%, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.77) 35%, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.77) 65%, transparent 65%);
+  box-shadow: 0 0 0 2px rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.8);
+}
+
+cursor-handle:focus {
+  outline: 1px solid var(--color13);
+  outline-offset: 2px;
+}
+
+cursor-handle:disabled {
+  opacity: 0.5;
+  background-image: 
+    radial-gradient(circle, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.32) 40%, transparent 40%),
+    linear-gradient(to right, transparent 35%, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.32) 35%, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.32) 65%, transparent 65%),
+    linear-gradient(to bottom, transparent 35%, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.32) 35%, rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.32) 65%, transparent 65%);
+  box-shadow: 0 0 0 1px rgba(var(--color13-r), var(--color13-g), var(--color13-b), 0.3);
 }
 
 cursor-handle.insertion-cursor:dir(ltr), cursor-handle.insertion-cursor:dir(rtl) {
@@ -6064,18 +6237,18 @@ label.secondary-label {
   color: rgba(var(--color2-r), var(--color2-g), var(--color2-b), 0.7);
 }
 
-toastoverlay toast {
-  background-color: var(--color17) !important;
-  color: var(--color2) !important;
+.toast-overlay .toast {
+  background-color: #E9E9DD;
+  color: #1A1C15;
   border-radius: 12px;
   padding: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-toastoverlay datechooser.view,
-toastoverlay agenda-view.view,
-toastoverlay agenda-view.view list,
-toastoverlay stack.view {
+.datechooser.view,
+.agenda-view.view,
+.agenda-view.view list,
+.stack.view {
   background-color: transparent;
 }
 
@@ -7637,27 +7810,27 @@ avatar.image {
   outline: 0 solid transparent;
 }
 
-toast {
+.toast {
   margin: 12px;
   margin-bottom: 24px;
   border-radius: 9999px;
   border-spacing: 6px;
   padding: 6px;
   box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1), 0 4px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 10px 0 rgba(0, 0, 0, 0.1), inset 0 1px rgba(var(--color2-r), var(--color2-g), var(--color2-b), 0.1);
-  background-color: var(--color17);
+  background-color: #E9E9DD;
   color: var(--color7);
   border: none;
 }
 
-toast:dir(ltr) {
+.toast:dir(ltr) {
   padding-left: 12px;
 }
 
-toast:dir(rtl) {
+.toast:dir(rtl) {
   padding-right: 12px;
 }
 
-toast > label {
+.toast > label {
   margin: 0 6px;
 }
 
@@ -8422,9 +8595,13 @@ panelthemeselector checkbutton.theme-selector radio:checked {
 themeselector checkbutton.theme-selector radio:checked,
 panelthemeselector checkbutton.theme-selector radio:checked {
   -gtk-icon-size: 20px;
-  -gtk-icon-source: -gtk-scaled(-gtk-recolor(url("assets/checkbox-checked-symbolic.svg")), -gtk-recolor(url("assets/checkbox-checked-symbolic@2.svg")));
+  -gtk-icon-source: none;
   color: var(--color0);
   background-color: var(--color13);
+  border: 2px solid var(--color13);
+  box-shadow: 
+    0 0 0 1px var(--color13),
+    inset 0 0 0 2px var(--color0);
 }
 
 themeselector checkbutton.theme-selector radio:checked, themeselector checkbutton.theme-selector radio:checked:hover, themeselector checkbutton.theme-selector radio:checked:active,
@@ -8490,4 +8667,3 @@ themeswitcher checkbutton.dark {
   color: var(--color7);
   background-color: var(--color0);
 }
-
