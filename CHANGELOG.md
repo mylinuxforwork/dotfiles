@@ -1,9 +1,9 @@
 Version 2.9.9.2
 --------------------------------------------------------
+- New ML4W Logo
 - Compatible with Hyprland 0.51.x
 - New default wallpaper
 - New swaync layout with dark or light theme support
-- New ML4W Logo
 
 Version 2.9.9.1
 --------------------------------------------------------
