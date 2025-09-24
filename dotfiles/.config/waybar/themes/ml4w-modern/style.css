@@ -346,7 +346,7 @@ window#waybar.empty #window {
     background-color: @background;
     font-size: 16px;
     color: @on_surface;
-    border-radius: 3px 5px 3px 5px;
+    border-radius: 5px;
     padding: 1px 10px 0px 10px;
     margin: 3px 0px 3px 0px;
     border: 3px solid @border_color;
