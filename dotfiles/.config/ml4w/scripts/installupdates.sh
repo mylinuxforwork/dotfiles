@@ -45,8 +45,9 @@ sleep 1
 clear
 figlet -f smslant "Updates"
 echo
-
-if gum confirm "DO YOU WANT TO START THE UPDATE NOW?"; then
+primarycolor=$(cat ~/.config/ml4w/colors/primary)
+onsurfacecolor=$(cat ~/.config/ml4w/colors/onsurface)
+if gum confirm --selected.background=$primarycolor --prompt.foreground=$onsurfacecolor "DO YOU WANT TO START THE UPDATE NOW?"; then
     echo
     echo ":: Update started..."
 elif [ $? -eq 130 ]; then

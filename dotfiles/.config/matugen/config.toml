@@ -46,6 +46,18 @@ output_path = '~/.config/nwg-dock-hyprland/colors.css'
 input_path = '~/.config/matugen/templates/sequences'
 output_path = '~/.cache/wal/sequences'
 
+[templates.primary]
+input_path = '~/.config/matugen/templates/primary'
+output_path = '~/.config/ml4w/colors/primary'
+
+[templates.secondary]
+input_path = '~/.config/matugen/templates/secondary'
+output_path = '~/.config/ml4w/colors/secondary'
+
+[templates.on_surface]
+input_path = '~/.config/matugen/templates/onsurface'
+output_path = '~/.config/ml4w/colors/onsurface'
+
 [templates.ohmyposh]
 input_path = '~/.config/matugen/templates/ohmyposh-colors.json'
 output_path = '~/.config/ohmyposh/colors.json'
