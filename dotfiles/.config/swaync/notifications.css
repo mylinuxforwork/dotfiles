@@ -38,18 +38,9 @@
 
 .floating-notifications.background .notification-row .notification-background {
   background: @base;       /* translucent blur */
-  border-radius: 20px;
+  border-radius: 10px;
   border: 2px solid @primary;
-  margin: 10px 0;
-  padding: 8px;
-}
-
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification {
-  padding: 0.4rem;
-  border-radius: 0.8rem;
+  margin: 5px 10px;
 }
 
 /* Critical floating notifications (still blurred but with error tint) */
@@ -59,6 +50,7 @@
 .notification.critical {
   background: alpha(@error_container, 0.85);   /* semi-solid error tint */
   color: @on_error_container;
+  border-radius: 10px;
 }
 
 
@@ -67,7 +59,7 @@
   .notification-background
   .notification
   .notification-content {
-  margin: 1rem;
+  margin: 1.2rem;
 }
 
 .floating-notifications.background
