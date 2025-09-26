@@ -12,7 +12,7 @@ sudo rm -rf /usr/share/sddm/themes/sequoia
 
 Open from /etc/sddm.conf.d/sddm.conf and restore back the default theme.
 
-```sh
+```ini
 [Theme]
 Current=elarum
 ```
