@@ -1,0 +1,12 @@
+This is one of my first attempts at using Git and submitting a pull request,  
+so please excuse any rough edges in the code or commit structure.
+
+Changes I made:
+- Switched to a pixel-style font for a retro and cleaner appearance.
+- Added transparency to modules to blend better with the wallpaper.
+- Removed unused/extra modules to keep the bar minimal and focused.
+- Switched to a monochrome color scheme for a more strict and clean style.
+- Added a wallpapers folder to match the new look.
+
+Screenshot attached for a quick preview of the result.
+
