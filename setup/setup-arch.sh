@@ -34,7 +34,6 @@ packages=(
     "polkit-gnome"
     "hyprshade"
     "grimblast-git"
-    "checkupdates-with-aur"
     "loupe"
     "power-profiles-daemon"
     # Apps
