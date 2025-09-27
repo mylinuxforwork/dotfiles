@@ -1,0 +1,24 @@
+/* -----------------------------------------------------
+ * Import Pywal colors
+ * ----------------------------------------------------- */
+ @import '../../../../../.config/waybar/colors.css';
+ 
+ @define-color backgroundlight rgba(0,0,0,0.5);
+ @define-color backgrounddark rgba(0,0,0,0.5);
+ @define-color workspacesbackground1 #FFFFFF;
+ @define-color workspacesbackground2 @on_surface;
+ @define-color bordercolor #FFFFFF;
+ @define-color textcolor1 #000000;
+ @define-color textcolor2 #000000;
+ @define-color textcolor3 #FFFFFF;
+ @define-color iconcolor #FFFFFF;
+
+@import '../style.css';
+
+#custom-ml4w-welcome {
+    background-image: url("../../assets/ml4w-icon-white.svg");
+}
+
+#custom-chatgpt {
+    background-image: url("../../assets/openai-white.svg");
+}

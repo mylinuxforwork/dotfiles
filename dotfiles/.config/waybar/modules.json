@@ -12,7 +12,7 @@
     "on-scroll-down": "hyprctl dispatch workspace r+1",
     "on-click": "activate",
     "active-only": false,
-    "all-outputs": true,
+    "all-outputs": false,
     "format": "{}",
     "format-icons": {
       "urgent": "",
@@ -203,7 +203,7 @@
   },
   // Clock
   "clock": {
-    "format": "{:%H:%M %a}",
+    "format": "  {:%H       :       %M}  ",
     "on-click": "flatpak run com.ml4w.calendar",
     "timezone": "",
     "tooltip": false
@@ -260,7 +260,7 @@
     "modules": [
       "custom/tools",
       "custom/cliphist",
-      "custom/hypridle",
+//      "custom/hypridle",
       "custom/hyprshade",
       "power-profiles-daemon"
     ]
@@ -290,9 +290,9 @@
   // Network
   "network": {
     "format": "{ifname}",
-    "format-wifi": " {signalStrength}%",
-    "format-ethernet": "  {ifname}",
-    "format-disconnected": "Disconnected ⚠",
+    "format-wifi": "--    {signalStrength} --",
+    "format-ethernet": "    ",
+    "format-disconnected": " -- ⚠ -- ",
     "tooltip-format": " {ifname} via {gwaddri}",
     "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
     "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
@@ -338,7 +338,7 @@
   // Pulseaudio
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
-    "format": "{icon}  {volume}%",
+    "format": "  {volume}  {icon}  ",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": " {format_source}",
