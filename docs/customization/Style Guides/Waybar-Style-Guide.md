@@ -61,7 +61,7 @@ Organize your Waybar configuration as follows:
 - **Selector Specificity**: Prefer class selectors over IDs. Chain selectors for modules (e.g., `.module.cpu`).
 - **Ordering**: Style modules in the order they appear in the bar for easier navigation.
 - **Units**: Use `px` for pixel-precise elements, `em` or `%` for scalable properties.
-- **Variables**: Use CSS variables (`:root {}`) for colors, spacing, and fonts.
+- **Variables**: Use CSS variables for colors, spacing, and fonts.
 - **Imports**: Import theme or color files at the top of `style.css`.
 
 ---
