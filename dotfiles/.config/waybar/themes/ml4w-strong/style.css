@@ -19,14 +19,13 @@
  * ----------------------------------------------------- */
 
 * {
-    font-family: Edit Undo BRK, "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, "Material Icons", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, "Material Icons", Roboto, Helvetica, Arial, sans-serif;
     border: none;
     border-radius: 0px;
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0.8);
-    border-bottom: 0px solid #ffffff;
+    /*background-color: @backgrounddark;*/
     /* color: #FFFFFF; */
     background: transparent;
     transition-property: background-color;
@@ -50,7 +49,7 @@ window#waybar {
  * ----------------------------------------------------- */
 
 #workspaces {
-    background: rgba(0, 0, 0, 0.5);
+    background: @backgroundlight;
     margin: 4px 10px 4px 1px;
     padding: 0px 0px 0px 0px;
     border-radius: 8px;
@@ -60,7 +59,7 @@ window#waybar {
     opacity: 1;
     font-size: 16px;
     color: #FFFFFF;
-    min-width: 25px;
+    min-width: 25px; 
 }
 
 #workspaces button {
@@ -70,21 +69,20 @@ window#waybar {
     border-radius: 8px;
     min-width: 30px;
     border: 0px;
-    color: @textcolor;
+    color: @textcolor3;
     /* background-color: @workspacesbackground1; */
     transition: all 0.2s ease-in-out;
 }
 
 #workspaces button.active {
-    color: @textcolor;
+    color: @textcolor3;
     /* background: @primary; */
     border-radius: 8px;
     min-width: 60px;
     font-size: 16px;
     border: 0px;
     transition: all 0.2s ease-in-out;
-    border:1px solid #FFFFFF;
-    transition: all 0.2s ease-in-out;
+    border:1px groove @bordercolor;
 }
 
 /*
@@ -325,7 +323,7 @@ window#waybar.empty #window {
     margin: 0px 13px 0px 0px;
     padding:0px;
     font-size:20px;
-    color: #FFFFFF;
+    color: @textcolor3;
     opacity: 1;
 }
 
@@ -389,15 +387,15 @@ window#waybar.empty #window {
 
 #clock {
     background: transparent;
-    background-color: rgba(0, 0, 0, 0.5);
-    font-family: Edit Undo BRK;
+    background-color: @backgroundlight;
     font-size: 22px;
     font-weight: normal;
-    color: #FFFFFF;
+    color: @textcolor3;
     border-radius: 8px;
     padding: 0px 60px 0px 60px;
     margin: 4px 0px 4px 0px;
     opacity:1;
+    min-width: 170px;
     border:0px solid @bordercolor;
 }
 
@@ -420,9 +418,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #pulseaudio {
-    background-color: rgba (0,0,0,0.5);
+    background-color: @backgroundlight;
     font-size: 16px;
-    color: #FFFFFF;
+    color: @textcolor3;
     border-radius: 8px;
     /*text-align: center;
     justify-content: center;
@@ -445,9 +443,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #network {
-    background-color: rgba (0,0,0,0.5);
+    background-color: @backgroundlight;
     font-size: 16px;
-    color: @textcolor1;
+    color: @textcolor3;
     border-radius: 8px;
     padding: 0px 10px 0px 10px;
     margin: 4px 15px 4px 0px;
@@ -455,14 +453,14 @@ window#waybar.empty #window {
 }
 
 #network.ethernet {
-    background-color: rgba (0,0,0,0.5);
-    color: #FFFFFF;
+    background-color: @backgroundlight;
+    color: @textcolor3;
 
 }
 
 #network.wifi {
-    background-color: rgba (0,0,0,0.5);
-    color: @textcolor1;
+    background-color: @backgroundlight;
+    color: @textcolor3;
 }
 
 /* -----------------------------------------------------
