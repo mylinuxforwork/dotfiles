@@ -55,7 +55,10 @@ if [[ $(_checkCommandExists "pacman") == 0 ]]; then
 
     check_lock_files
 
-    updates=$($aur_helper -Qu | wc -l)
+    updates_aur=$($aur_helper -Qua | wc -l)
+    updates_pacman=$(checkupdates | wc -l)
+    updates=$((updates_aur+updates_pacman))
+    
 # Fedora
 elif [[ $(_checkCommandExists "dnf") == 0 ]]; then
     updates=$(dnf check-update -q | grep -c ^[a-z0-9])

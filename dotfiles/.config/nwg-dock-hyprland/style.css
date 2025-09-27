@@ -1,10 +1,10 @@
 @import url("colors.css");
+@import url("../ml4w/settings/dock-border.css");
 
 window {
-  	background: @surface;
+  	background: @blur_background8;
 	border-radius: 10px;
 	border-style: solid;
-	border-width: 3px;
 	border-color: @primary;
 }
 
