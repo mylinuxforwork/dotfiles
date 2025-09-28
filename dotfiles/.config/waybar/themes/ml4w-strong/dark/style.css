@@ -15,10 +15,10 @@
 
 @import '../style.css';
 
-#custom-ml4w-welcome {
-    background-image: url("../../assets/ml4w-icon-white.svg");
+/*#custom-ml4w-welcome {
+    background-image: url("../../assets/ml4w-icon-dark-transparent.png");
 }
-
+*/
 #custom-chatgpt {
     background-image: url("../../assets/openai-white.svg");
 }

@@ -57,7 +57,7 @@
   // ML4W Welcome App
   "custom/ml4w-welcome": {
     "on-click": "flatpak run com.ml4w.sidebar",
-    "format": " ",
+    "format": " ml. ",
     "tooltip-format": "Open ML4W Sidebar App"
   },
   // Empty

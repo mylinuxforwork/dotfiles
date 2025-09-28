@@ -38,6 +38,7 @@
         //"group/tools",
         //"tray",
         //"custom/notification",
+        "custom/ml4w-welcome",
         "custom/exit"
         //"custom/ml4w-welcome"
         //"clock"

@@ -64,7 +64,7 @@ window#waybar {
 
 #workspaces button {
     /* background: rgba(0, 0, 0, 0.5); */
-    padding: 0px 4px 0px 4px;
+    padding: 0px 7px 0px 7px;
     margin: 0px 0px 0px 0px;
     border-radius: 8px;
     min-width: 30px;
@@ -78,7 +78,7 @@ window#waybar {
     color: @textcolor3;
     /* background: @primary; */
     border-radius: 8px;
-    min-width: 60px;
+    min-width: 70px;
     font-size: 16px;
     border: 0px;
     transition: all 0.2s ease-in-out;
@@ -249,8 +249,15 @@ window#waybar.empty #window {
 }
 
 #custom-ml4w-welcome {
-    margin-right: 12px;
-    background-image: url("../assets/ml4w-icon.svg");
+    font-size: 14px;
+    font-weight: normal;
+    color: @textcolor3;
+    border-radius: 8px;
+    padding: 0px 0px 0px 20px;
+    margin: 4px 12px 4px 0px;
+    min-width: 20px;
+    background-color: @backgroundlight;
+    /*background-image: url("../assets/ml4w-icon.svg");*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -450,6 +457,7 @@ window#waybar.empty #window {
     padding: 0px 10px 0px 10px;
     margin: 4px 15px 4px 0px;
     opacity:1;
+    min-width: 40px;
 }
 
 #network.ethernet {
