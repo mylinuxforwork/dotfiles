@@ -1,3 +1,10 @@
+Version 2.9.9.3
+--------------------------------------------------------
+- New Default icons Colloid
+- Improved Waybar modern theme
+- Reduced border size to 2px
+- Boder size of NWG Dock Hyprland can be modified in ~/.config/ml4w/settings/dock-border.css
+
 Version 2.9.9.2
 --------------------------------------------------------
 - New ML4W Logo

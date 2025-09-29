@@ -33,9 +33,6 @@ packages=(
     "NetworkManager-tui"
     # Apps
     "SwayNotificationCenter"
-    # Themes
-    "papirus-icon-theme"
-    "breeze"
     # Fonts
     "fontawesome-fonts"
 )
@@ -180,6 +177,12 @@ source $SCRIPT_DIR/_cursors.sh
 # --------------------------------------------------------------
 
 source $SCRIPT_DIR/_fonts.sh
+
+# --------------------------------------------------------------
+# Icons
+# --------------------------------------------------------------
+
+source $SCRIPT_DIR/_icons.sh
 
 # --------------------------------------------------------------
 # Finish

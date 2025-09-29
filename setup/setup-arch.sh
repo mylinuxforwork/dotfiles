@@ -42,9 +42,6 @@ packages=(
     # Tools
     "eza"
     "python-pywalfox"
-    # Themes
-    "papirus-icon-theme"
-    "breeze"
     # Fonts
     "otf-font-awesome"
     "ttf-firacode-nerd"
@@ -191,6 +188,12 @@ source $SCRIPT_DIR/_cursors.sh
 # --------------------------------------------------------------
 
 source $SCRIPT_DIR/_fonts.sh
+
+# --------------------------------------------------------------
+# Icons
+# --------------------------------------------------------------
+
+source $SCRIPT_DIR/_icons.sh
 
 # --------------------------------------------------------------
 # Finish

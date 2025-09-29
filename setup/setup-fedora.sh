@@ -36,10 +36,6 @@ packages=(
     # Apps
     "waypaper"
     "SwayNotificationCenter"
-    # Themes
-    "papirus-icon-theme"
-    "papirus-icon-theme-dark"
-    "breeze"
     # Fonts
     "fontawesome-fonts"
 )
@@ -193,6 +189,12 @@ source $SCRIPT_DIR/_cursors.sh
 # --------------------------------------------------------------
 
 source $SCRIPT_DIR/_fonts.sh
+
+# --------------------------------------------------------------
+# Icons
+# --------------------------------------------------------------
+
+source $SCRIPT_DIR/_icons.sh
 
 # --------------------------------------------------------------
 # Finish
