@@ -52,7 +52,7 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0px 6px;
+    padding: 0px 5px;
     margin: 4px 3px;
     border-radius: 15px;
     color: @on_surface;
@@ -62,17 +62,18 @@ window#waybar {
 }
 
 #workspaces button.active {
-    color: @on_primary_container;
-    background: @primary_container;
+    color: @on_primary;
+    background: @primary;
     border-radius: 15px;
     transition: all 0.3s ease-out;
-    border-color: @primary_container;
+    border-color: @primary;
 }
 
 #workspaces button:hover {
-    color: @on_primary_container;
+    color: @on_surface;
     background: @primary_container;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 8px;
+    border-color: @primary;
 }
 
 /* -----------------------------------------------------
@@ -259,6 +260,13 @@ window#waybar.empty #window {
     padding: 4px 10px 4px 10px;
     margin: 2px 5px 2px 0px;
     border: 2px solid @border_color;
+    transition: all 0.3s ease-out;    
+}
+
+#custom-appmenu:hover {
+    color: @on_surface;
+    background: @primary_container;
+    border-color: @primary;
 }
 
 /* -----------------------------------------------------
@@ -350,7 +358,15 @@ window#waybar.empty #window {
     padding: 1px 10px 0px 10px;
     margin: 3px 0px 3px 0px;
     border: 2px solid @border_color;
+    transition: all 0.3s ease-out;    
 }
+
+#clock:hover {
+    color: @on_surface;
+    background: @primary_container;
+    border-color: @primary;
+}
+
 
 /* -----------------------------------------------------
  * Backlight
@@ -364,6 +380,13 @@ window#waybar.empty #window {
     padding: 2px 10px 0px 10px;
     margin: 3px 10px 3px 0px;
     border: 2px solid @border_color;
+    transition: all 0.3s ease-out;    
+}
+
+#backlight:hover {
+    color: @on_surface;
+    background: @primary_container;
+    border-color: @primary;
 }
 
 /* -----------------------------------------------------
@@ -379,6 +402,13 @@ window#waybar.empty #window {
     margin: 3px 10px 3px 0px;
     opacity: 1.0;
     border: 2px solid @border_color;
+    transition: all 0.3s ease-out;    
+}
+
+#pulseaudio:hover {
+    color: @on_surface;
+    background: @primary_container;
+    border-color: @primary;
 }
 
 #pulseaudio.muted {
@@ -398,6 +428,19 @@ window#waybar.empty #window {
     padding: 2px 10px 0px 10px;
     margin: 3px 10px 3px 0px;
     border: 2px solid @border_color;
+    transition: all 0.3s ease-out;    
+}
+
+#network.ethernet:hover {
+    color: @on_surface;
+    background: @primary_container;
+    border-color: @primary;
+}
+
+#network.wifi:hover {
+    color: @on_surface;
+    background: @primary_container;
+    border-color: @primary;
 }
 
 #network.ethernet {
@@ -422,6 +465,13 @@ window#waybar.empty #window {
     padding: 2px 10px 0px 10px;
     margin: 3px 10px 3px 0px;
     border: 2px solid @border_color;
+    transition: all 0.3s ease-out;    
+}
+
+#bluetooth:hover {
+    color: @on_surface;
+    background: @primary_container;
+    border-color: @primary;
 }
 
 #bluetooth.off {
