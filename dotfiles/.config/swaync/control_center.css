@@ -45,7 +45,7 @@
   padding: 1.3rem 4rem;
   background: @buttoncolor;
   color: @on_primary_fixed;
-  border-radius: 7px;
+  border-radius: 8px;
   border: 2px solid @bordercolor;
   font-size: 15em;
 }
@@ -65,7 +65,7 @@
 .widget-volume {
   padding: 12px 16px;
   margin: 0px 12px 12px 12px;
-  border-radius: 7px;
+  border-radius: 8px;
   background: @surface_custom;
 }
 
@@ -144,7 +144,7 @@
 
 .widget-title button {
   background: @surface_container;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 4px 16px;
 }
 
@@ -160,7 +160,7 @@
 
 .widget-dnd > switch {
   color: @text;
-  background: @surface_container;
+  background: @buttoncolor;
   border-radius: 5px;
   box-shadow: none;
 }
