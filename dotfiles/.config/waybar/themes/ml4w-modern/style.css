@@ -53,7 +53,7 @@ window#waybar {
     color: @on_surface;
     background-color: @background;
     transition: all 0.3s ease-out;
-    border: 2px solid @border_color;
+    border: 2px solid @primary;
 }
 
 #workspaces button.active {
