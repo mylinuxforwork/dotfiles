@@ -9,9 +9,6 @@
 	"source": "Projects/dotfiles",
 	"subfolder": "dotfiles",
 	"setupscript":"setup/setup.sh",
-	"dev":{
-		"ignore":"keyboard.conf,monitor.conf,waypaper,sidepad-active"
-	},
 	"restore":[
 		{
 			"title":"ML4W Settings",
