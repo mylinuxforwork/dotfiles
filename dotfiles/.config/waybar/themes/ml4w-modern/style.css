@@ -49,7 +49,7 @@ window#waybar {
 #workspaces button {
     padding: 0px 6px;
     margin: 3px 3px;
-    border-radius: 15px;
+    border-radius: 8px;
     color: @on_surface;
     background-color: @background;
     transition: all 0.3s ease-out;
@@ -68,7 +68,7 @@ window#waybar {
 #workspaces button:hover {
     color: @on_surface;
     background: @primary_container;
-    border-radius: 8px;
+    border-radius: 15px;
     border-color: @primary;
     box-shadow: none;                /* Fix for weird white bar at top */
 }
