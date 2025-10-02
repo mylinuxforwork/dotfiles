@@ -18,6 +18,7 @@
         "group/links",
         //"wlr/taskbar",
         "group/quicklinks",
+        "custom/nowplaying",
         "custom/empty"
     ],
     // Modules Center
