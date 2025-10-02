@@ -47,8 +47,8 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0px 5px;
-    margin: 4px 3px;
+    padding: 0px 6px;
+    margin: 3px 3px;
     border-radius: 15px;
     color: @on_surface;
     background-color: @background;
@@ -59,10 +59,10 @@ window#waybar {
 #workspaces button.active {
     color: @on_primary;
     background: @primary;
-    border-radius: 15px;
-    transition: all 0.3s ease-out;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
     border-color: @primary;
-    min-width: 30px;
+    min-width: 25px;
 }
 
 #workspaces button:hover {
@@ -70,6 +70,7 @@ window#waybar {
     background: @primary_container;
     border-radius: 8px;
     border-color: @primary;
+    box-shadow: none;                /* Fix for weird white bar at top */
 }
 
 /* -----------------------------------------------------
@@ -123,6 +124,11 @@ window#waybar.empty #window {
     margin:0;
     border-radius: 8px;
     padding: 0px 5px 0px 5px;
+}
+
+#taskbar button:hover {
+    background: alpha(#ffffff,0.1);
+    box-shadow: none;
 }
 
 #taskbar.empty {
@@ -234,6 +240,7 @@ window#waybar.empty #window {
     font-weight: bold;
     opacity: 1.0;
     color: @icon_color;
+    transition: all 0.3s ease-out;    
 }
 
 #idle_inhibitor.activated {
@@ -254,7 +261,7 @@ window#waybar.empty #window {
     color: @on_surface;
     border-radius: 8px;
     padding: 4px 10px 4px 10px;
-    margin: 2px 10px 2px 0px;
+    margin: 3px 10px 3px 0px;
     border: 2px solid @border_color;
     transition: all 0.3s ease-out;    
 }
