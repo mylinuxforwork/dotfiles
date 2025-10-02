@@ -34,6 +34,7 @@ packages=(
     "polkit-gnome"
     "hyprshade"
     "grimblast-git"
+    "pacman-contrib"
     "loupe"
     "power-profiles-daemon"
     # Apps
