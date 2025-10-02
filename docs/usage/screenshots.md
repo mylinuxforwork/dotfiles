@@ -28,5 +28,5 @@ You can change the screenshot editor in the ML4W Settings App:
 
 ![image](/screenshot2.png)
 
-For example if you want to use swappy enter `spappy -f`. If you want to use gimp enter `gimp`
+For example if you want to use swappy enter `swappy -f`. If you want to use gimp enter `gimp`
 

@@ -32,4 +32,4 @@ Here are the most important keybindings that you need to know to start with the 
 
 All keybindings for Hyprland with right mouse click on Apps in waybar or here:
 
-- [Hyprland keybindings overview](https://github.com/mylinuxforwork/dotfiles/blob/main/share/dotfiles/.config/hypr/conf/keybindings/default.conf)
+- [Hyprland keybindings overview](https://github.com/mylinuxforwork/dotfiles/blob/main/dotfiles/.config/hypr/conf/keybindings/default.conf)
