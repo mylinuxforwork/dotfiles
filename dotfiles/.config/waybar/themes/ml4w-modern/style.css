@@ -261,7 +261,7 @@ window#waybar.empty #window {
     font-size: 16px;
     color: @on_surface;
     border-radius: 8px;
-    padding: 4px 10px 4px 10px;
+    padding: 3px 10px 3px 10px;
     margin: 3px 10px 3px 0px;
     border: 2px solid @border_color;
     transition: all 0.3s ease-out;    
