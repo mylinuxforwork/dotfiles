@@ -43,7 +43,8 @@ window#waybar {
  * ----------------------------------------------------- */
 
 #workspaces {
-    margin: 0px 10px 0px 0px;
+    margin: 0px 7px 0px 0px;
+    min-width: 204px;
 }
 
 #workspaces button {
@@ -52,7 +53,7 @@ window#waybar {
     border-radius: 8px;
     color: @on_surface;
     background-color: @background;
-    transition: all 0.3s ease-out;
+    transition: all 0.3s ease-in-out;
     border: 2px solid @primary;
 }
 
@@ -260,7 +261,7 @@ window#waybar.empty #window {
     font-size: 16px;
     color: @on_surface;
     border-radius: 8px;
-    padding: 4px 10px 4px 10px;
+    padding: 3px 10px 3px 10px;
     margin: 3px 10px 3px 0px;
     border: 2px solid @border_color;
     transition: all 0.3s ease-out;    
