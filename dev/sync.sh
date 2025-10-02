@@ -24,6 +24,7 @@ else
 fi
 TARGET_DIR="$HOME/.mydotfiles/$project_id"
 EVENTS="modify,create,delete,move"
+EXCLUDE_FILE="protected.txt"
 echo "Source: $SOURCE_DIR"
 echo "Target: $TARGET_DIR"
 echo
@@ -33,9 +34,14 @@ echo ":: Starting Folder Sync Daemon for $project_name"
 while true; do
     echo "Waiting for changes in $SOURCE_DIR..."
     inotifywait -r -e "$EVENTS" "$SOURCE_DIR"
-    sleep 2 
+    sleep 1 
     echo "Change detected! Running sync..."
-    rsync -azv --delete --exclude="config.dotinst" --exclude="keyboard.conf" --exclude="waypaper/" "$SOURCE_DIR/" "$TARGET_DIR"
+    if [ -f "$EXCLUDE_FILE" ]; then
+        echo "protected.txt file detected. Using it for exclude-from."
+        rsync -azv --delete --exclude-from="$EXCLUDE_FILE" "$SOURCE_DIR/" "$TARGET_DIR"
+    else
+        rsync -azv --delete "$SOURCE_DIR/" "$TARGET_DIR"
+    fi
     echo "Sync successful. Returning to monitor mode."
 done
 exit 0
