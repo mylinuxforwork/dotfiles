@@ -8,7 +8,7 @@
 	"dependencies": "https://mylinuxforwork.github.io/dotfiles/getting-started/dependencies",
 	"source": "Projects/dotfiles",
 	"subfolder": "dotfiles",
-	"setupscript":"setup/setup.sh"
+	"setupscript":"setup/setup.sh",
 	"restore":[
 		{
 			"title":"ML4W Settings",
