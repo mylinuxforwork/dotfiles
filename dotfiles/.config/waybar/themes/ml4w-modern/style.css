@@ -71,7 +71,7 @@ window#waybar {
     background: @primary_container;
     border-radius: 15px;
     border-color: @primary;
-    box-shadow: none;                /* Fix for weird white bar at top */
+    box-shadow: none;
 }
 
 /* -----------------------------------------------------
