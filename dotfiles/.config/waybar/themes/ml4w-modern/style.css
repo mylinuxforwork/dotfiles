@@ -44,7 +44,7 @@ window#waybar {
 
 #workspaces {
     margin: 0px 7px 0px 0px;
-    min-width: 204px;
+    min-width: 210px;
 }
 
 #workspaces button {
@@ -63,7 +63,7 @@ window#waybar {
     border-radius: 12px;
     transition: all 0.3s ease-in-out;
     border-color: @primary;
-    min-width: 25px;
+    min-width: 30px;
 }
 
 #workspaces button:hover {
