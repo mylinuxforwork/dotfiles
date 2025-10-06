@@ -49,7 +49,7 @@
         "custom/appmenuicon",
         "hyprland/workspaces",
         "group/links",
-        "group/quicklinks",
+        //"group/quicklinks",
         "custom/empty"
     ],
     // Modules Center
