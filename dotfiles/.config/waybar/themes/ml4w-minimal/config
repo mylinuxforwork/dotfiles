@@ -48,7 +48,6 @@
     "modules-left": [
         "custom/appmenuicon",
         "hyprland/workspaces",
-        "group/links",
         //"group/quicklinks",
         "custom/empty"
     ],
