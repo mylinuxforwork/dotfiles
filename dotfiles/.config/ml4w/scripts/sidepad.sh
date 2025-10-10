@@ -6,6 +6,11 @@
 #               /_/                
 # Dispatcher
 
+# -----------------------------------------------------
+# Load Launcher
+# -----------------------------------------------------
+launcher=$(cat $HOME/.config/ml4w/settings/launcher)
+
 # Configuration
 SIDEPAD_PATH="$HOME/.config/sidepad/sidepad"
 SIDEPAD_DATA="$HOME/.config/ml4w/settings/sidepad-active"
@@ -24,7 +29,11 @@ echo ":: Current sidepad class: $SIDEPAD_CLASS"
 # Select new sidepad with rofi
 select_sidepad() {
     # Open rofi
-    pad=$(ls $SIDEPAD_PADS_FOLDER | rofi -dmenu -replace -i -config ~/.config/rofi/config-compact.rasi -no-show-icons -width 30 -p "Sidepads")
+    if [ "$launcher" == "walker" ]; then
+        pad=$(ls $SIDEPAD_PADS_FOLDER | walker -d -N -H --maxheight 400 -p "Sidepads")
+    else
+        pad=$(ls $SIDEPAD_PADS_FOLDER | rofi -dmenu -replace -i -config ~/.config/rofi/config-compact.rasi -no-show-icons -width 30 -p "Sidepads")
+    fi
 
     # Set new sidepad
     if [ ! -z $pad ]; then
