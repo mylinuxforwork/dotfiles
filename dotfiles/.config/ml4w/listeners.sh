@@ -8,6 +8,7 @@
 # LISTENERS["short-name"]="full/path/to/script.sh"
 declare -A LISTENERS
 LISTENERS["gtk-theme-switcher"]="$HOME/.config/ml4w/listeners/gtk-theme-switcher.sh"
+LISTENERS["low-bat-notification"]="$HOME/.config/ml4w/listeners/low-bat-notification.sh"
 # Example for another listener:
 # LISTENERS["another-listener"]="$HOME/.config/ml4w/listeners/another-listener.sh"
 
@@ -35,14 +36,14 @@ start_listener() {
     fi
 
     # Check if the script is already running
-    if pgrep -f "$script_path" > /dev/null; then
+    if pgrep -f "$script_path" >/dev/null; then
         echo "Listener '$script_name' is already running (PID: $(pgrep -f "$script_path"))."
         return 0
     fi
 
     # Start the script in the background using nohup to detach it from the terminal
     # Redirect stdout and stderr to /dev/null to prevent nohup.out files
-    nohup "$script_path" "$init_flag" > /dev/null 2>&1 &
+    nohup "$script_path" "$init_flag" >/dev/null 2>&1 &
     echo "Listener '$script_name' started successfully."
 }
 
@@ -69,7 +70,7 @@ stop_listener() {
         kill $pid
         # Give it a moment to terminate gracefully
         sleep 1
-        if pgrep -f "$script_path" > /dev/null; then
+        if pgrep -f "$script_path" >/dev/null; then
             echo "Listener '$script_name' did not stop gracefully. Sending SIGKILL..."
             kill -9 $pid
             echo "Listener '$script_name' forcefully stopped."
@@ -89,60 +90,58 @@ restart_listener() {
 
 # Main script logic based on command-line arguments
 case "$1" in
-    --startall)
-        echo "Starting all registered listeners..."
-        for key in "${!LISTENERS[@]}"; do
-            start_listener "$key"
-        done
-        echo "All registered listeners processed."
-        ;;
-    --stopall)
-        echo "Stopping all registered listeners..."
-        for key in "${!LISTENERS[@]}"; do
-            stop_listener "$key"
-        done
-        echo "All registered listeners processed."
-        ;;
-    --restartall)
-        echo "Restarting all registered listeners..."
-        for key in "${!LISTENERS[@]}"; do
-            restart_listener "$key"
-        done
-        echo "All registered listeners processed."
-        ;;
-    --start)
-        if [ -z "$2" ]; then
-            echo "Error: Missing listener name for --start option."
-            echo "Usage: $0 --start <listener_name>"
-            exit 1
-        fi
-        start_listener "$2"
-        ;;
-    --stop)
-        if [ -z "$2" ]; then
-            echo "Error: Missing listener name for --stop option."
-            echo "Usage: $0 --stop <listener_name>"
-            exit 1
-        fi
-        stop_listener "$2"
-        ;;
-    --restart)
-        if [ -z "$2" ]; then
-            echo "Error: Missing listener name for --restart option."
-            echo "Usage: $0 --restart <listener_name>"
-            exit 1
-        fi
-        restart_listener "$2"
-        ;;
-    *)
-        echo "Usage: $0 [--startall | --stopall | --restartall | --startall-init | --start <listener_name> | --stop <listener_name> | --restart <listener_name> | --start-init <listener_name>]"
-        echo ""
-        echo "Registered listeners:"
-        for key in "${!LISTENERS[@]}"; do
-            echo "  - $key"
-        done
+--startall)
+    echo "Starting all registered listeners..."
+    for key in "${!LISTENERS[@]}"; do
+        start_listener "$key"
+    done
+    echo "All registered listeners processed."
+    ;;
+--stopall)
+    echo "Stopping all registered listeners..."
+    for key in "${!LISTENERS[@]}"; do
+        stop_listener "$key"
+    done
+    echo "All registered listeners processed."
+    ;;
+--restartall)
+    echo "Restarting all registered listeners..."
+    for key in "${!LISTENERS[@]}"; do
+        restart_listener "$key"
+    done
+    echo "All registered listeners processed."
+    ;;
+--start)
+    if [ -z "$2" ]; then
+        echo "Error: Missing listener name for --start option."
+        echo "Usage: $0 --start <listener_name>"
         exit 1
-        ;;
+    fi
+    start_listener "$2"
+    ;;
+--stop)
+    if [ -z "$2" ]; then
+        echo "Error: Missing listener name for --stop option."
+        echo "Usage: $0 --stop <listener_name>"
+        exit 1
+    fi
+    stop_listener "$2"
+    ;;
+--restart)
+    if [ -z "$2" ]; then
+        echo "Error: Missing listener name for --restart option."
+        echo "Usage: $0 --restart <listener_name>"
+        exit 1
+    fi
+    restart_listener "$2"
+    ;;
+*)
+    echo "Usage: $0 [--startall | --stopall | --restartall | --startall-init | --start <listener_name> | --stop <listener_name> | --restart <listener_name> | --start-init <listener_name>]"
+    echo ""
+    echo "Registered listeners:"
+    for key in "${!LISTENERS[@]}"; do
+        echo "  - $key"
+    done
+    exit 1
+    ;;
 esac
-
-
