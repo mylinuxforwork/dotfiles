@@ -30,7 +30,7 @@ echo ":: Current sidepad class: $SIDEPAD_CLASS"
 select_sidepad() {
     # Open rofi
     if [ "$launcher" == "walker" ]; then
-        pad=$(ls $SIDEPAD_PADS_FOLDER | walker -d -N -H --maxheight 400 -p "Sidepads")
+        pad=$(ls $SIDEPAD_PADS_FOLDER | walker -d -n -N -H --maxheight 400 -p "Sidepads")
     else
         pad=$(ls $SIDEPAD_PADS_FOLDER | rofi -dmenu -replace -i -config ~/.config/rofi/config-compact.rasi -no-show-icons -width 30 -p "Sidepads")
     fi
