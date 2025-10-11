@@ -1,6 +1,10 @@
 #!/bin/bash
 
-BAT="/sys/class/power_supply/BAT1"
+BAT=$(command ls -d /sys/class/power_supply/BAT* 2>/dev/null | head -n 1)
+if [[ -z "$BAT" ]]; then
+    exit 0
+fi
+
 NOTIFIED_20=false
 NOTIFIED_15=false
 
@@ -19,6 +23,9 @@ while true; do
             NOTIFIED_20=false
             NOTIFIED_15=false
         fi
+    else
+        NOTIFIED_20=false
+        NOTIFIED_15=false
     fi
 
     sleep 60
