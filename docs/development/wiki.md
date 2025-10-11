@@ -51,13 +51,32 @@ Also, I request you not to rewrite or fully write things using LLMs.
 Please we don't want to see `em dashes` here.
 
 > We want the docs to be clean & minimal so please follow these guidelines.
-
 ## Multi-Lang Support
 
-This is not planned yet. But in case someone in the future knows how to implement multi-lang support with Vitepress, you're more than welcome to contribute.
+> [!WARNING]
+>
+> Documentation in languages other than English may not be up to date. Check the date and the ml4w version shown, and consult the English documentation if in doubt.
 
-The first language we are expecting support for is German (`de`).
+** To add a new language, follow these steps:**
 
-If you're interested in implementing multi-lang support, you can refer to [this docs](https://github.com/carch-org/docs), where multi-lang setup has already been done, for reference.
+1. Create a folder named with the language code (e.g., `docs/de/`) and put the translated Markdown files there.
+2. Add the locale in `.vitepress/config.ts`. Minimal example:
+
+```ts
+// .vitepress/config.ts
+export default {
+  locales: {
+    de: {
+      label: "Deutsch",
+      lang: "de-DE",
+      title: 'ML4W Dotfiles für Hyprland Wiki',
+      description: 'Eine fortschrittliche und voll ausgestattete Konfiguration für den dynamischen Tiling-Window-Manager Hyprland',
+    }
+  }
+}
+```
+
+3. Verify routes and navigation use the language prefix (e.g., `/de/`) and update internal links accordingly.
+4. In this section, indicate the date and the ml4w version corresponding to the last modification of the documentation in that language.
 
 > Thank you for your support.
