@@ -43,6 +43,7 @@ scrollbar {
 
 .search-container {
   border-radius: 10px;
+  border: 2px solid @primary;
 }
 
 .input placeholder {
@@ -50,10 +51,9 @@ scrollbar {
 }
 
 .input {
-  caret-color: @on_secondary;
-  background: darker(@secondary);
+  background: transparent;
   padding: 10px;
-  color: @on_secondary;
+  color: @on_surface;
 }
 
 .input:focus,
@@ -154,7 +154,7 @@ child:selected .item-box {
 }
 
 .keybinds-wrapper {
-  border-top: 1px solid lighter(@primary);
+  border-top: 0px solid lighter(@primary);
   font-size: 12px;
   opacity: 0.5;
   color: @on_surface;

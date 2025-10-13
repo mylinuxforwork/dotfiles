@@ -55,7 +55,7 @@ done
 # -----------------------------------------------------
 _get_choice_walker() {
 
-    choice=$(echo -e "$listNames" | walker -d -N -H -p "Search Theme")
+    choice=$(echo -e "$listNames" | walker -d -N -H --height 400 -p "Search Theme")
     IFS="~"
     read -r -a themesArray <<< "$listNames2"
     foundIndex=""
