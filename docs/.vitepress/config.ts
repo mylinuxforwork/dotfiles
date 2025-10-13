@@ -28,7 +28,7 @@ export default {
         activeMatch: "/showcases/",
       },
      {
-        text: "2.9.9.2",
+        text: "2.9.9.3",
         items: [
           {
             text: 'Changelog',
@@ -113,6 +113,7 @@ export default {
             { text: "Sidepad", link: "/usage/sidepad" },
             { text: "Screenshots", link: "/usage/screenshots" },
             { text: "Game Mode", link: "/usage/game-mode" },
+            { text: "Activate Walker", link: "/configuration/walker" },
           ],
         },
         {
