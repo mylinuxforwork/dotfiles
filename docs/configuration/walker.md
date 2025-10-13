@@ -30,3 +30,9 @@ cd ~/.config/ml4w/settings
 Open the file `launcher` and replace `rofi` with `walker`
 
 Reboot your system.
+
+## Walker/Elephant Documenation
+
+https://github.com/abenz1267/walker
+
+https://github.com/abenz1267/elephant
