@@ -38,7 +38,7 @@ description: An advanced and full-featured configuration for the dynamic tiling 
 ---
 
 <img
-  src="/screen-2992.jpg"
+  src="/screen-2993.jpg"
   alt="preview"
   style="max-width: 900px; width: 100%; border-radius: 12px; margin: 2rem auto; display: block;"
 />
