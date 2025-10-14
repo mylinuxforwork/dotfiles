@@ -10,6 +10,8 @@ if [ ! -f "$GTK3_SETTINGS_FILE" ]; then
     exit 1
 fi
 
+# ToDo: True/False
+
 # Toggle theme based on current setting in GTK3 file
 if grep -q "gtk-application-prefer-dark-theme=1" "$GTK3_SETTINGS_FILE"; then
     # Switch to light theme
