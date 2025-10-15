@@ -42,7 +42,6 @@ threshhold_red=100
 
 # Arch
 if [[ $(_checkCommandExists "pacman") == 0 ]]; then
-    aur_helper="$(cat ~/.config/ml4w/settings/aur.sh)"
 
     check_lock_files() {
         local pacman_lock="/var/lib/pacman/db.lck"
@@ -55,6 +54,21 @@ if [[ $(_checkCommandExists "pacman") == 0 ]]; then
 
     check_lock_files
 
+    yay_installed="false"
+    paru_installed="false"
+    if [[ $(_checkCommandExists "yay") == 0 ]]; then
+        yay_installed="true"
+    fi
+    if [[ $(_checkCommandExists "paru") == 0 ]]; then
+        paru_installed="true"
+    fi
+    if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
+        aur_helper="yay"
+    elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]]; then
+        aur_helper="paru"
+    else
+        aur_helper="yay"
+    fi
     updates_aur=$($aur_helper -Qum | wc -l)
     updates_pacman=$(checkupdates | wc -l)
     updates=$((updates_aur+updates_pacman))
@@ -80,7 +94,6 @@ fi
 if [ "$updates" -gt $threshhold_red ]; then
     css_class="red"
 fi
-
 if [ "$updates" != 0 ]; then
     if [ "$updates" -gt $threshhold_green ]; then
         printf '{"text": "%s", "alt": "%s", "tooltip": "Click to update your system", "class": "%s"}' "$updates" "$updates" "$css_class"

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+yay_installed="false"
+paru_installed="false"
+aur_helper=""
 
 # --------------------------------------------------------------
 # Library
@@ -78,13 +81,70 @@ _installYay() {
     echo ":: yay has been installed successfully."
 }
 
+_installParu() {
+    if [[ ! $(_isInstalled "base-devel") == 0 ]]; then
+        sudo pacman --noconfirm -S "base-devel"
+    fi
+    if [[ ! $(_isInstalled "git") == 0 ]]; then
+        sudo pacman --noconfirm -S "git"
+    fi
+    if [ -d $HOME/Downloads/paru-bin ]; then
+        rm -rf $HOME/Downloads/paru-bin
+    fi
+    SCRIPT=$(realpath "$0")
+    temp_path=$(dirname "$SCRIPT")
+    git clone https://aur.archlinux.org/paru-bin.git $HOME/Downloads/paru-bin
+    cd $HOME/Downloads/paru-bin
+    makepkg -si
+    cd $temp_path
+    echo ":: paru has been installed successfully."
+}
+
+_selectAURHelper() {
+    echo ":: Please select your preferred AUR Helper"
+    echo
+    aur_helper=$(gum choose "yay" "paru")
+    if [ -z $aur_helper ]; then
+        _selectAURHelper
+    fi
+    echo ":: Using $aur_helper as AUR Helper"
+}
+
+_checkAURHelper() {
+    if [[ $(_checkCommandExists "yay") == 0 ]]; then
+        echo ":: yay is installed"
+        yay_installed="true"
+    fi
+    if [[ $(_checkCommandExists "paru") == 0 ]]; then
+        echo ":: paru is installed"
+        paru_installed="true"
+    fi
+    if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
+        echo ":: Using AUR Helper yay"
+        aur_helper="yay"
+    elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]]; then
+        echo ":: Using AUR Helper paru"
+        aur_helper="paru"
+    elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "false" ]]; then
+        echo ":: No AUR Helper installed"
+        _selectAURHelper
+        if [[ $aur_helper == "yay" ]]; then
+            _installYay
+        else
+            _installParu
+        fi
+    else
+        _selectAURHelper
+    fi
+}
+
 _installPackages() {
     for pkg; do
         if [[ $(_isInstalled "${pkg}") == 0 ]]; then
             echo ":: ${pkg} is already installed."
             continue
         fi
-        yay --noconfirm -S "${pkg}"
+        $aur_helper --noconfirm -S "${pkg}"
     done
 }
 
@@ -109,12 +169,7 @@ _writeHeader "Arch"
 # Install yay if needed
 # --------------------------------------------------------------
 
-if [[ $(_checkCommandExists "yay") == 0 ]]; then
-    echo ":: yay is already installed"
-else
-    echo ":: The installer requires yay. yay will be installed now"
-    _installYay
-fi
+_checkAURHelper
 
 # --------------------------------------------------------------
 # General
