@@ -25,7 +25,7 @@ echo "GTK-Theme:" $gtk_theme
 echo "Icon Theme:" $icon_theme
 echo "Cursor Theme:" $cursor_theme
 echo "Cursor Size:" $cursor_size
-if [ $prefer_dark_theme == "0" ]; then
+if [[ $prefer_dark_theme == "0" || $prefer_dark_theme == "false" ]]; then
     prefer_dark_theme_value="prefer-light"
 else
     prefer_dark_theme_value="prefer-dark"
