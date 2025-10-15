@@ -19,6 +19,7 @@ yay -S elephant-menus
 # Fedora
 sudo dnf copr enable errornointernet/walker
 sudo dnf install walker
+sudo dnf install elephant
 ```
 
 ## Activate Walker
