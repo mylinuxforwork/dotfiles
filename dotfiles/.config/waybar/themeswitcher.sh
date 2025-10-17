@@ -54,28 +54,14 @@ done
 # Use Walker to select the theme
 # -----------------------------------------------------
 _get_choice_walker() {
-
-    choice=$(echo -e "$listNames" | walker -d -N -H --height 400 -p "Search Theme")
-    IFS="~"
-    read -r -a themesArray <<< "$listNames2"
-    foundIndex=""
-    for i in "${!themesArray[@]}"; do
-        if [[ "${themesArray[i]}" == "$choice" ]]; then
-            foundIndex="$i"
-            break # Exit the loop once found
-        fi
-    done
-    echo $foundIndex
-
+    echo $(echo -e "$listNames" | $HOME/.config/walker/launch.sh -d -i -N -H --height 400 -p "Search Theme")
 }
 
 # -----------------------------------------------------
 # Use Rofi to select the theme
 # -----------------------------------------------------
 _get_choice_rofi() {
-
     echo $(echo -e "$listNames" | rofi -dmenu -replace -i -config ~/.config/rofi/config-themes.rasi -no-show-icons -width 30 -p "Themes" -format i)
-
 }
 
 # -----------------------------------------------------

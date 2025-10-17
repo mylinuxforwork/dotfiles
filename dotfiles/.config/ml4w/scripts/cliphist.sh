@@ -15,7 +15,7 @@ launcher=$(cat $HOME/.config/ml4w/settings/launcher)
 case $1 in
     d)
         if [ "$launcher" == "walker" ]; then
-            cliphist list | walker -d -N -H -p "Search" | cliphist delete
+            cliphist list | $HOME/.config/walker/launch.sh -d -N -H -p "Search" | cliphist delete
         else
             cliphist list | rofi -dmenu -replace -config ~/.config/rofi/config-cliphist.rasi | cliphist delete
         fi
@@ -23,7 +23,7 @@ case $1 in
 
     w)    
         if [ "$launcher" == "walker" ]; then
-            if [ $(echo -e "Clear\nCancel" | walker -d -n -N -H --maxheight 100) == "Clear" ]; then
+            if [ $(echo -e "Clear\nCancel" | $HOME/.config/walker/launch.sh -d -n -N -H --maxheight 100) == "Clear" ]; then
                 cliphist wipe
             fi
         else
@@ -35,7 +35,7 @@ case $1 in
 
     *)
         if [ "$launcher" == "walker" ]; then
-            cliphist list | walker -d -N -H -p "Search" | cliphist decode | wl-copy
+            cliphist list | $HOME/.config/walker/launch.sh -d -N -H -p "Search" | cliphist decode | wl-copy
         else
             cliphist list | rofi -dmenu -replace -config ~/.config/rofi/config-cliphist.rasi | cliphist decode | wl-copy
         fi

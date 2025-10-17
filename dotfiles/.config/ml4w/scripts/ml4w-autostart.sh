@@ -8,10 +8,3 @@ if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then
 else
     echo ":: Autostart of ML4W Welcome App disabled."
 fi
-
-# Start Walker
-launcher=$(cat $HOME/.config/ml4w/settings/launcher)
-
-if [ "$launcher" == "walker" ]; then
-    $HOME/.config/walker/autostart.sh
-fi
