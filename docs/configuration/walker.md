@@ -26,15 +26,15 @@ sudo dnf install elephant
 # openSuse Tumbleweed
 
 # Dependencies
-sudo zypper install gtk4-devel gtk4-layer-shell-devel libpoppler-glib-devel protobuf-devel cairo-devel go make
+sudo zypper install git cargo gtk4-devel gtk4-layer-shell-devel libpoppler-glib-devel protobuf-devel cairo-devel go make
 
 # Walker
-git clone https://github.com/abenz1267/walker.git ~/Downloads
+git clone https://github.com/abenz1267/walker.git ~/Downloads/walker
 cd ~/Downloads/walker
 sudo make install
 
 # Elephant
-git clone https://github.com/abenz1267/elephant ~/Downloads
+git clone https://github.com/abenz1267/elephant ~/Downloads/elephant
 cd ~/Downloads/elephant
 sudo make install
 
