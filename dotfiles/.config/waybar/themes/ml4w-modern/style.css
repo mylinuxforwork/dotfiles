@@ -277,25 +277,34 @@ window#waybar.empty #window {
  * Custom Now Playing
  * ----------------------------------------------------- */
 
- #custom-nowplaying {
-    background-color: @background;
-    font-size: 11px;
-    color: @on_surface;
-    border-radius: 5px 5px 5px 5px;
-    padding: 0px 10px 0px 10px;
-    margin: 3px 0px 3px 15px;
-    opacity: 1.0;
-    border: 1px solid @border_color;
+#custom-nowplaying {
+background-color: @background;
+font-size: 11px;
+color: @on_surface;
+border-radius: 8px;
+padding: 0px 10px 0px 10px;
+margin: 3px 10px 3px 10px;
+opacity: 1.0;
+border: 2px solid @border_color;
+transition: all 0.5s ease-in-out;
 }
 
- #custom-nowplaying.playing {
-    background-color: @primary_container;
-    color: @on_primary_container;
+#custom-nowplaying.playing {
+background-color: @primary_container;
+color: @on_surface;
 }
 
- #custom-nowplaying.paused {
-    background-color: @background;
+#custom-nowplaying.paused {
+background-color: @background;
+color: @on_surface;
 }
+
+#custom-nowplaying:hover {
+color: @on_surface;
+background: @primary_container;
+border-color: @primary;
+}
+
 
 /* -----------------------------------------------------
  * Custom Notification
@@ -533,6 +542,11 @@ window#waybar.empty #window {
 #battery.charging, #battery.plugged {
     color: @on_surface;
     background-color: @background;
+}
+
+#battery.charging:hover, #battery.plugged:hover {
+    border-color: @primary;
+    background: @primary_container;
 }
 
 @keyframes blink {
