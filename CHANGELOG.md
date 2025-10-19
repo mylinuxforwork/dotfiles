@@ -4,7 +4,7 @@ Version 2.9.9.3
 - Improved Waybar modern theme and new minimal version
 - Reduced border size to 2px
 - Border size of NWG Dock Hyprland can be modified in ~/.config/ml4w/settings/dock-border.css
-- Walker can be optionally activated as system-wide launcher (except screenshot). http://localhost:5173/dotfiles/configuration/walker
+- Walker can be optionally activated as system-wide launcher (except screenshot). https://mylinuxforwork.github.io/dotfiles/configuration/walker
 - New default wallpaper
 
 Version 2.9.9.2
