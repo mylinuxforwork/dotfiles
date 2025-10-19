@@ -49,4 +49,5 @@ tools=(
     "cliphist"
     "gvfs"
     "grim"
+    "breeze"
 )
