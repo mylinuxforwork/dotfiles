@@ -5,7 +5,7 @@ pageClass: home-page
 hero:
   name: The ML4W Dotfiles for Hyprland  
   image:
-    src: /ml4w.png
+    src: /ml4w.svg
     alt: ML4W logo
     style: "width: 200px; height: auto;"
   tagline: An advanced and full-featured configuration for the dynamic tiling window manager Hyprland.
@@ -38,7 +38,7 @@ description: An advanced and full-featured configuration for the dynamic tiling 
 ---
 
 <img
-  src="/ml4w-preview-2991.jpg"
+  src="/screen-2993.jpg"
   alt="preview"
   style="max-width: 900px; width: 100%; border-radius: 12px; margin: 2rem auto; display: block;"
 />
@@ -58,7 +58,7 @@ Copy the following url into the Dotfiles Installer and start the installation.
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable.dotinst
 ```
-#### Rolling Release (RC 2.9.9.1)
+#### Rolling Release
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst

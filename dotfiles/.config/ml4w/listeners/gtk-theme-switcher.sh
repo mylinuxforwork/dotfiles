@@ -37,20 +37,22 @@ apply_theme() {
         return 0
     fi
 
-    if [ "$THEME_PREF" -eq 1 ]; then
-        echo "Detected dark theme preference (gtk-application-prefer-dark-theme=1). Applying dark matugen theme..."
+    if [[ "$THEME_PREF" == "1" || "$THEME_PREF" == "true" ]]; then
+        echo "Detected dark theme preference (gtk-application-prefer-dark-theme=1/true). Applying dark matugen theme..."
         $HOME/.local/bin/matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper)
         $HOME/.config/nwg-dock-hyprland/launch.sh &
         $HOME/.config/waybar/launch.sh &
         $HOME/.config/hypr/scripts/gtk.sh &
-    elif [ "$THEME_PREF" -eq 0 ]; then
-        echo "Detected light theme preference (gtk-application-prefer-dark-theme=0). Applying light matugen theme..."
+        swaync-client -rs
+    elif [[ "$THEME_PREF" == "0" || "$THEME_PREF" == "false" ]]; then
+        echo "Detected light theme preference (gtk-application-prefer-dark-theme=0/false). Applying light matugen theme..."
         $HOME/.local/bin/matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) -m "light"
         $HOME/.config/nwg-dock-hyprland/launch.sh &
         $HOME/.config/waybar/launch.sh &
         $HOME/.config/hypr/scripts/gtk.sh &
+        swaync-client -rs
     else
-        echo "Warning: Unexpected value for gtk-application-prefer-dark-theme: $THEME_PREF. Expected 0 or 1. Skipping theme application."
+        echo "Warning: Unexpected value for gtk-application-prefer-dark-theme: $THEME_PREF. Expected 0/1/true/false. Skipping theme application."
     fi
 }
 

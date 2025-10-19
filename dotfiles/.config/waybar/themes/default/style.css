@@ -1,5 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
+	/* `Material-Icons` is required for notification cneter */
     font-family: "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }

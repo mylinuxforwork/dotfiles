@@ -50,22 +50,6 @@ If there is still this issue, please uninstall `xdg-desktop-portal-gtk`. If dark
 
 </div>
 
-## Add noto-fonts-cjk to ml4w-hyprland-git Dependencies for Proper CJK Character Rendering
-
-<div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
-
-On Arch Linux, Chinese, Japanese, and Korean (CJK) characters display as unreadable squares or pixelated text in some applications.
-
-Install the `noto-fonts-cjk` package with:
-
-```sh
-sudo pacman -S noto-fonts-cjk
-```
-
-This package provides proper rendering for CJK characters across the system.
-
-</div>
-
 ## Missing icons in waybar
 
 <div class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">

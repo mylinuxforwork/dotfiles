@@ -33,16 +33,8 @@ packages=(
     "NetworkManager-tui"
     # Apps
     "SwayNotificationCenter"
-    # Themes
-    "papirus-icon-theme"
-    "breeze"
     # Fonts
-    "mozilla-fira-sans-fonts"
-    "fira-code-fonts"
-    "google-noto-fonts"
-    "google-noto-emoji-fonts"
     "fontawesome-fonts"
-    "dejavu-fonts"
 )
 
 _isInstalled() {
@@ -185,6 +177,12 @@ source $SCRIPT_DIR/_cursors.sh
 # --------------------------------------------------------------
 
 source $SCRIPT_DIR/_fonts.sh
+
+# --------------------------------------------------------------
+# Icons
+# --------------------------------------------------------------
+
+source $SCRIPT_DIR/_icons.sh
 
 # --------------------------------------------------------------
 # Finish

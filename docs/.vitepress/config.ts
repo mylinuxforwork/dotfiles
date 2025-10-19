@@ -7,12 +7,12 @@ export default {
   cleanUrls: true,
 
   head: [
-    ["link", { rel: "icon", href: "ml4w.png" }],
+    ["link", { rel: "icon", href: "ml4w.svg" }],
   ],
 
   themeConfig: {
     siteTitle: "ML4W Hyprland Dotfiles ",
-    logo: "/ml4w.png",
+    logo: "/ml4w.svg",
     outline: "deep",
     docsDir: "/docs",
     editLink: {
@@ -28,7 +28,7 @@ export default {
         activeMatch: "/showcases/",
       },
      {
-        text: "2.9.9.1",
+        text: "2.9.9.3",
         items: [
           {
             text: 'Changelog',
@@ -113,6 +113,7 @@ export default {
             { text: "Sidepad", link: "/usage/sidepad" },
             { text: "Screenshots", link: "/usage/screenshots" },
             { text: "Game Mode", link: "/usage/game-mode" },
+            { text: "Activate Walker", link: "/configuration/walker" },
           ],
         },
         {
@@ -152,7 +153,6 @@ export default {
         },
         {
           text: "Credentials",
-          collapsed: true,
           items: [
             { text: "Special Thanks", link: "credentials/thankyou" },
           ]

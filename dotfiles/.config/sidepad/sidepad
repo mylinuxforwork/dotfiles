@@ -9,11 +9,11 @@
 # --- Configuration ---
 WINDOW_CLASS="dotfiles-sidepad"
 HIDDEN_LEFT_GAP=10
-VISIBLE_LEFT_GAP=20
-TARGET_WIDTH=500
+VISIBLE_LEFT_GAP=10
+TARGET_WIDTH=700
 TARGET_WIDTH_MAX=1000
-TOP_GAP=76
-BOTTOM_GAP=91
+TOP_GAP=100
+BOTTOM_GAP=100
 
 # --- Script Variables ---
 HIDE_REQUESTED=0
@@ -52,7 +52,6 @@ test_sidepad() {
 init_sidepad() {
     # Check if the window already exists, if not launch it
     if ! hyprctl clients -j | jq -e --arg class "$WINDOW_CLASS" '.[] | select(.class == $class)' > /dev/null; then
-        notify-send "Sidepad will be initialized with" "$1"
         if [[ "$WINDOW_CLASS" == "dotfiles-sidepad" ]]; then
             eval "$1 --class $WINDOW_CLASS" &
         else

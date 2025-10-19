@@ -13,6 +13,11 @@ config_file=$(<~/.config/hypr/conf/keybinding.conf)
 config_file=${config_file//source = ~//home/$USER}
 
 # -----------------------------------------------------
+# Load Launcher
+# -----------------------------------------------------
+launcher=$(cat $HOME/.config/ml4w/settings/launcher)
+
+# -----------------------------------------------------
 # Path to keybindings config file
 # -----------------------------------------------------
 echo "Reading from: $config_file"
@@ -35,4 +40,10 @@ keybinds=$(awk -F'[=#]' '
 ' "$config_file")
 
 sleep 0.2
-rofi -dmenu -i -markup -eh 2 -replace -p "Keybinds" -config ~/.config/rofi/config-compact.rasi <<<"$keybinds"
+
+if [ "$launcher" == "walker" ]; then
+    keybinds=$(echo -n "$keybinds" | tr '\r' ':')
+    $HOME/.config/walker/launch.sh -d -N -H -p "Search Keybinds" <<<"$keybinds"
+else
+    rofi -dmenu -i -markup -eh 2 -replace -p "Keybinds" -config ~/.config/rofi/config-compact.rasi <<<"$keybinds"
+fi

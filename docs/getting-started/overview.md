@@ -6,7 +6,7 @@
 
 </div>
 
-![image](/ml4w-preview-2991.jpg)
+![image](/screen-2993.jpg)
 
 > [!NOTE]
 > This Wiki is covering the latest features of the ML4W Dotfiles. Please make sure that the latest version of the ML4W Dotfiles is installed on your system. Follow the installation and update instructions.
@@ -60,6 +60,8 @@ The ML4W Dotfiles are tested with the following distributions:
 - Dock: `nwg-dock-hyprland`
 - GTK Theme Manager: `nwg-look`
 - QT6 Theme Manager: `qt6ct`
+
+![image](/screen-2992-light.jpg)
 
 ![image](/overview-2.png)
 

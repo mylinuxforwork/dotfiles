@@ -1,3 +1,19 @@
+Version 2.9.9.3
+--------------------------------------------------------
+- New Default icons Colloid
+- Improved Waybar modern theme and new minimal version
+- Reduced border size to 2px
+- Border size of NWG Dock Hyprland can be modified in ~/.config/ml4w/settings/dock-border.css
+- Walker can be optionally activated as system-wide launcher (except screenshot). http://localhost:5173/dotfiles/configuration/walker
+- New default wallpaper
+
+Version 2.9.9.2
+--------------------------------------------------------
+- New ML4W Logo
+- Compatible with Hyprland 0.51.x
+- New default wallpaper
+- New swaync layout with dark or light theme support
+
 Version 2.9.9.1
 --------------------------------------------------------
 - Full dark and light theme support. Change preferred theme in nw-look. A listener script will reload waybar and nwg-dock-hyprland when the file ~/.config/gtk-4.0/settings.ini will be changed.

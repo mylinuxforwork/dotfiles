@@ -1,0 +1,11 @@
+/* -----------------------------------------------------
+ * Import Matugen Colors
+ * ----------------------------------------------------- */
+@import '../../../../../.config/waybar/colors.css';
+
+@define-color icon_color #FFFFFF;
+@define-color border_color @secondary;
+@define-color background transparent;
+@define-color on_surface #FFFFFF;
+
+@import '../style.css';

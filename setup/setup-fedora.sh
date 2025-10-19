@@ -36,16 +36,8 @@ packages=(
     # Apps
     "waypaper"
     "SwayNotificationCenter"
-    # Themes
-    "papirus-icon-theme"
-    "papirus-icon-theme-dark"
-    "breeze"
     # Fonts
-    "dejavu-fonts-all"
     "fontawesome-fonts"
-    "noto-fonts"
-    "google-noto-emoji-fonts"
-    "google-noto-sans-cjk-fonts"
 )
 
 _isInstalled() {
@@ -197,6 +189,12 @@ source $SCRIPT_DIR/_cursors.sh
 # --------------------------------------------------------------
 
 source $SCRIPT_DIR/_fonts.sh
+
+# --------------------------------------------------------------
+# Icons
+# --------------------------------------------------------------
+
+source $SCRIPT_DIR/_icons.sh
 
 # --------------------------------------------------------------
 # Finish

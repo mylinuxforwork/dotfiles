@@ -1,0 +1,153 @@
+@import 'colors.css';
+
+/* === Derived dynamic colors === */
+@define-color base alpha(@surface, 0.5);                      /* translucent blurred base */
+@define-color surface_custom alpha(@surface_container_high,0.8);
+@define-color hovercolor alpha(@surface_container_high,0.8);
+@define-color activecolor @primary_container;
+
+@define-color buttoncolor alpha(@inverse_primary,0.3);
+@define-color hoverbutton alpha(@inverse_primary,0.5);
+@define-color activebutton @inverse_primary;
+
+@define-color bordercolor @primary;
+@define-color fontcolor @on_surface;
+@define-color text @on_surface;
+
+
+* {
+  color: @text;
+  font-size: 1rem;
+  font-weight: 900;
+  all: unset;
+  font-family: "Fira Sans Semibold", "Font Awesome 7 Free",
+  "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands",
+  FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  transition: 200ms;
+}
+
+.widget-mpris {
+  all: unset;
+}
+
+.notification-row {
+  outline: none;
+  margin: 0;
+  padding: 0px;
+}
+
+.floating-notifications.background .notification-row .notification-background {
+  background: @base;       /* translucent blur */
+  border-radius: 10px;
+  border: 2px solid @primary;
+  margin: 5px 10px;
+}
+
+/* Critical floating notifications (still blurred but with error tint) */
+.floating-notifications.background
+.notification-row
+.notification-background
+.notification.critical {
+  background: alpha(@error_container, 0.85);   /* semi-solid error tint */
+  color: @on_error_container;
+  border-radius: 10px;
+}
+
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content {
+  margin: 1.2rem;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > * {
+  min-height: 2.4em;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action {
+  border-radius: 0.5rem;
+  background-color: alpha(@crust, 0.95);
+  margin: 0.4rem;
+  border: 1px solid transparent;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:hover {
+  background-color: @hover;
+  border: 1px solid @primary;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:active {
+  background-color: @primary;
+  color: @text;
+}
+
+
+.summary {
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.body {
+  font-size: 0.8rem;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button {
+  background: transparent;
+  border-radius: 20px;
+  color: @text;
+  background-color: alpha(#fff, 0.5);
+  margin: 0px;
+  padding: 4px;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button:hover {
+  background-color: @primary;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button:active {
+  background-color: @primary;
+  color: @text;
+}
+
+.notification.critical progress {
+  background-color: @primary;
+}
+
+.notification.low progress,
+.notification.normal progress {
+  background-color: @primary;
+}

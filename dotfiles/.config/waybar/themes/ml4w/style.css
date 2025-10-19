@@ -19,7 +19,7 @@
  * ----------------------------------------------------- */
 
 * {
-    font-family: "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, "Material Icons", Roboto, Helvetica, Arial, sans-serif;
     border: none;
     border-radius: 0px;
 }
@@ -301,7 +301,8 @@ window#waybar.empty #window {
  #custom-notification {
     margin: 0px 13px 0px 0px;
     padding:0px;
-    font-size:20px;
+    font-size:24px;
+    font-family: "Material Icons";
     color: @iconcolor;
     opacity: 0.8;
 }
@@ -325,7 +326,7 @@ window#waybar.empty #window {
 #custom-updates {
     background-color: @backgroundlight;
     font-size: 16px;
-    color: @textcolor2;
+    color: @textcolor1;
     border-radius: 15px;
     padding: 2px 10px 0px 10px;
     margin: 5px 15px 5px 0px;

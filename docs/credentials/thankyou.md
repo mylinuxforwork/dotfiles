@@ -6,7 +6,7 @@ Special Thanks do to...
 
 https://github.com/harilvfs for supporting me in creating the new Wiki https://mylinuxforwork.github.io/dotfiles/
 
-https://github.com/Mat-Armstrong for the new ML4W Logo Design.
+https://github.com/Mat-Armstrong for the new ML4W Logo Design and much more.
 
 https://github.com/dwilliam62 for all your support and testings since the start of the Project
 
