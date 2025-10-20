@@ -61,7 +61,7 @@ while true; do
     echo ":: Change detected! Running sync now..."
     
     # Construct the base rsync command flags
-    RSYNC_CMD="rsync -azv --delete $DRY_RUN_FLAG"
+    RSYNC_CMD="rsync -azv --delete --exclude=config.dotinst $DRY_RUN_FLAG"
 
     # Add the exclude-from option if the file exists
     if [ -f "$EXCLUDE_FILE" ]; then
