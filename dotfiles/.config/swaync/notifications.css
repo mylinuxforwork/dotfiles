@@ -16,13 +16,10 @@
 
 
 * {
-  color: @text;
   font-size: 1rem;
   font-weight: 900;
   all: unset;
-  font-family: "Fira Sans Semibold", "Font Awesome 7 Free",
-  "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands",
-  FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
   transition: 200ms;
 }
 
@@ -36,23 +33,12 @@
   padding: 0px;
 }
 
-.floating-notifications.background .notification-row .notification-background {
+.floating-notifications.background .notification-row .notification-background .notification.critical {
   background: @base;       /* translucent blur */
   border-radius: 10px;
   border: 2px solid @primary;
   margin: 5px 10px;
 }
-
-/* Critical floating notifications (still blurred but with error tint) */
-.floating-notifications.background
-.notification-row
-.notification-background
-.notification.critical {
-  background: alpha(@error_container, 0.85);   /* semi-solid error tint */
-  color: @on_error_container;
-  border-radius: 10px;
-}
-
 
 .floating-notifications.background
   .notification-row

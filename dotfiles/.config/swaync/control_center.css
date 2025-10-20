@@ -185,19 +185,13 @@
 }
 
 /* === Notifications === */
-.control-center .notification-row .notification-background {
+.control-center .notification-row .notification-background .notification.critical {
   background-color: @surface_container;
   border-radius: 10px;
   margin: 5px 0px;
   padding: 15px;
   border: 2px solid @bordercolor;
   min-height: 2.5em;
-}
-
-.control-center .notification-row .notification-background .notification.critical {
-  background-color: @error_container;
-  color: @on_error_container;
-  border-radius: 10px;
 }
 
 .control-center .notification-row .notification-background .close-button {

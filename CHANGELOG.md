@@ -6,6 +6,7 @@ Version 2.9.9.3
 - Border size of NWG Dock Hyprland can be modified in ~/.config/ml4w/settings/dock-border.css
 - Walker can be optionally activated as system-wide launcher (except screenshot). https://mylinuxforwork.github.io/dotfiles/configuration/walker
 - New default wallpaper
+- Arch setup script checks for installed AUR helper (yay or paru)
 
 Version 2.9.9.2
 --------------------------------------------------------
