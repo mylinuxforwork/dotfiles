@@ -185,10 +185,16 @@
 }
 
 /* === Notifications === */
-.control-center .notification-row .notification-background .notification.critical {
+
+
+.control-center .notification-row {
+  margin: 0 0 5px 0;
+}
+
+.control-center .notification-row .notification-background .notification {
   background-color: @surface_container;
   border-radius: 10px;
-  margin: 5px 0px;
+  margin: 0px 0px 10px 0px;
   padding: 15px;
   border: 2px solid @bordercolor;
   min-height: 2.5em;
@@ -200,7 +206,7 @@
   color: @text;
   padding: 5px;
 }
-z
+
 .control-center .notification-row .notification-background .close-button:hover {
   background-color: @activecolor;
 }
@@ -217,9 +223,11 @@ trough highlight {
 .notification-group {
   margin: 4px 12px 4px 12px;
 }
+
 .notification-group-headers {
   font-weight: 900;
-  font-size: 0
+  font-size: 0;
+  padding-bottom: 15px;
 }
 
 .notification-group-icon {
