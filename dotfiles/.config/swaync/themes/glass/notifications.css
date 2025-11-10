@@ -1,4 +1,4 @@
-@import 'colors.css';
+@import '../../colors.css';
 
 /* === Derived dynamic colors === */
 @define-color base alpha(@surface, 0.5);                      /* translucent blurred base */
@@ -34,10 +34,15 @@
 }
 
 .floating-notifications.background .notification-row .notification-background .notification.critical {
-  background: @base;       /* translucent blur */
-  border-radius: 10px;
-  border: 2px solid @primary;
-  margin: 5px 10px;
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, @surface, @surface_dim) padding-box,
+        linear-gradient(#FFFFFF,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.7;
+    margin:10px;
+    margin-right:18px;
+    box-shadow: 1 1 5 1px @shadow;
 }
 
 .floating-notifications.background

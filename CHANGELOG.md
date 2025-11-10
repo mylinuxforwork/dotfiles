@@ -1,3 +1,8 @@
+Version 2.9.9.4
+--------------------------------------------------------
+- Theme support for nwg-dock-hyprland and swaync
+- New glass theme
+
 Version 2.9.9.3
 --------------------------------------------------------
 - New Default icons Colloid
