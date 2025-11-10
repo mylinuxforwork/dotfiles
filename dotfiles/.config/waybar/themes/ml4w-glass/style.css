@@ -7,9 +7,6 @@
  *                 |___/                              |___/
  *
  * -----------------------------------------------------
-*/
-
-/* -----------------------------------------------------
  * General
  * ----------------------------------------------------- */
 
@@ -30,7 +27,7 @@ window#waybar {
         linear-gradient(@primary,@on_primary) border-box;
     border: 1px solid transparent;	
     opacity:0.7;
-    margin:10px;
+    padding:0px 6px 0px 6px;
     box-shadow: 1 1 5 1px @shadow;
 }
 
@@ -41,7 +38,7 @@ window#waybar {
         linear-gradient(@primary,@on_primary) border-box;
     border: 1px solid transparent;	
     opacity:0.7;
-    margin:10px;
+    padding:0px 0px 0px 6px;
     box-shadow: 1 1 5 1px @shadow;
 }
 
@@ -52,7 +49,6 @@ window#waybar {
         linear-gradient(@primary,@on_primary) border-box;
     border: 1px solid transparent;	
     opacity:0.7;
-    margin:10px;
     box-shadow: 1 1 5 1px @shadow;    
 }
 
@@ -183,7 +179,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-appmenu {
-    margin-left: 12px;
+    padding-right:8px;
 }
 
 #custom-appmenu:hover {

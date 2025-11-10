@@ -3,8 +3,8 @@
 
 window {
     padding: 10px; 
-	background: radial-gradient(circle at 50% 250%, @surface, @surface_dim, @on_primary_fixed) padding-box,
-		linear-gradient(@on_surface,@surface) border-box;
+    background: radial-gradient(circle at 50% 250%, @surface, @surface_dim) padding-box,
+		linear-gradient(@primary,@on_primary) border-box;
   	border-radius: 1em;
   	opacity: 0.7;
   	border: 1px solid transparent;	
