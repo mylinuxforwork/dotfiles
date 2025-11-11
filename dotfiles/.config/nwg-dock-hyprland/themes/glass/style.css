@@ -3,10 +3,11 @@
 
 window {
     padding: 10px; 
-    background: radial-gradient(circle at 50% 250%, @surface, @surface_dim) padding-box,
-		linear-gradient(@primary,@on_primary) border-box;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+        linear-gradient(@primary,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.8;
   	border-radius: 1em;
-  	opacity: 0.7;
   	border: 1px solid transparent;	
 	margin:10px;
 }

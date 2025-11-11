@@ -23,36 +23,39 @@ window#waybar {
 .modules-left {
     background-color: @surface;
     border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, @surface, @surface_dim) padding-box,
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
         linear-gradient(@primary,@on_primary) border-box;
     border: 1px solid transparent;	
-    opacity:0.7;
-    padding:0px 6px 0px 6px;
+    opacity:0.8;
+    padding:0px;
     margin:10px;
     box-shadow: 1 1 5 1px @shadow;
+    -webkit-backdrop-filter: blur(2.4px);
 }
 
 .modules-right {
     background-color: @surface;
     border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, @surface, @surface_dim) padding-box,
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
         linear-gradient(@primary,@on_primary) border-box;
     border: 1px solid transparent;	
-    opacity:0.7;
-    padding:0px 0px 0px 6px;
+    opacity:0.8;
+    padding:0px;
     margin:10px;
+    -webkit-backdrop-filter: blur(2.4px);
     box-shadow: 1 1 5 1px @shadow;
 }
 
 .modules-center {
     background-color: @surface;
     border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, @surface, @surface_dim) padding-box,
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
         linear-gradient(@primary,@on_primary) border-box;
     border: 1px solid transparent;	
-    opacity:0.7;
+    opacity:0.8;
     margin:10px;
     box-shadow: 1 1 5 1px @shadow;    
+    -webkit-backdrop-filter: blur(70px);
 }
 
 label.module {
@@ -83,7 +86,7 @@ label.module:hover {
  * ----------------------------------------------------- */
 
 #workspaces {
-    padding: 5px 0px 5px 0px;
+    padding: 5px 5px 5px 0px;
 }
 
 #workspaces button {
@@ -182,6 +185,7 @@ window#waybar.empty #window {
 
 #custom-appmenu {
     padding-right:3px;
+    padding-left:5px;
 }
 
 #custom-appmenu:hover {
