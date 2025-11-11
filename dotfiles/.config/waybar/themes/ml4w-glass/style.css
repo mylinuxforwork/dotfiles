@@ -28,6 +28,7 @@ window#waybar {
     border: 1px solid transparent;	
     opacity:0.7;
     padding:0px 6px 0px 6px;
+    margin:10px;
     box-shadow: 1 1 5 1px @shadow;
 }
 
@@ -39,6 +40,7 @@ window#waybar {
     border: 1px solid transparent;	
     opacity:0.7;
     padding:0px 0px 0px 6px;
+    margin:10px;
     box-shadow: 1 1 5 1px @shadow;
 }
 
@@ -49,6 +51,7 @@ window#waybar {
         linear-gradient(@primary,@on_primary) border-box;
     border: 1px solid transparent;	
     opacity:0.7;
+    margin:10px;
     box-shadow: 1 1 5 1px @shadow;    
 }
 
@@ -86,7 +89,7 @@ label.module:hover {
 #workspaces button {
     border-radius: 6px;
     padding:0px 5px 0px 5px;
-    margin-right:5px;
+    margin:0px 2px 0px 2px;
 }
 
 #workspaces button.active {
@@ -139,7 +142,6 @@ window#waybar.empty #window {
 #taskbar button {
     border-radius: 6px;
     padding:0px 5px 0px 5px;
-    margin-right:5px;
 }
 
 #taskbar button:hover {
@@ -179,7 +181,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-appmenu {
-    padding-right:8px;
+    padding-right:3px;
 }
 
 #custom-appmenu:hover {
