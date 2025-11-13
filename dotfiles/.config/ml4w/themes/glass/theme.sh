@@ -16,6 +16,9 @@ swaync-client -rs
 # Set wlogout
 echo '@import "themes/glass/style.css";' > $HOME/.config/wlogout/style.css
 
+# Set launcher
+echo 'walker";' > $HOME/.config/ml4w/settings/launcher
+
 # Set rofi
 echo '* { border-width: 1px; }' > $HOME/.config/ml4w/settings/rofi-border.rasi
 

@@ -16,6 +16,8 @@ swaync-client -rs
 # Set wlogout
 echo '@import "themes/modern/style.css";' > $HOME/.config/wlogout/style.css
 
+# Set launcher
+
 # Set rofi
 echo '* { border-width: 2px; }' > $HOME/.config/ml4w/settings/rofi-border.rasi
 
