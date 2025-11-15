@@ -1,0 +1,362 @@
+/*
+ * __        __          _                  ____  _         _
+ * \ \      / /_ _ _   _| |__   __ _ _ __  / ___|| |_ _   _| | ___
+ *  \ \ /\ / / _` | | | | '_ \ / _` | '__| \___ \| __| | | | |/ _ \
+ *   \ V  V / (_| | |_| | |_) | (_| | |     ___) | |_| |_| | |  __/
+ *    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    |____/ \__|\__, |_|\___|
+ *                 |___/                              |___/
+ *
+ * -----------------------------------------------------
+ * General
+ * ----------------------------------------------------- */
+
+ * {
+    font-family: "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, "Material Icons", Roboto, Helvetica, Arial, sans-serif;
+    border: none;
+    border-radius: 0px;
+}
+
+window#waybar {
+    background:transparent;
+}
+
+.modules-left {
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+        linear-gradient(@primary,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.8;
+    padding:0px;
+    margin:10px;
+    box-shadow: 1 1 5 1px @shadow;
+    -webkit-backdrop-filter: blur(2.4px);
+}
+
+.modules-right {
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+        linear-gradient(@primary,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.8;
+    padding:0px;
+    margin:10px;
+    -webkit-backdrop-filter: blur(2.4px);
+    box-shadow: 1 1 5 1px @shadow;
+}
+
+.modules-center {
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+        linear-gradient(@primary,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.8;
+    margin:10px;
+    box-shadow: 1 1 5 1px @shadow;    
+    -webkit-backdrop-filter: blur(70px);
+}
+
+label.module {
+    font-size: 14px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 5px;
+}
+
+/*
+label.module {
+    font-size: 14px;
+    color: @on_surface;
+    padding:3px 10px;
+    transition: all 0.3s ease-out;    
+    background: radial-gradient(circle at 50% 250%, @on_tertiary_fixed_variant, @on_tertiary_fixed) padding-box,
+        linear-gradient(@on_primary_fixed_variant, @on_primary_fixed) border-box;
+    border-radius: 10px;
+    border: 0px solid transparent;	
+}
+
+label.module:hover {
+}
+*/
+
+/* -----------------------------------------------------
+ * Workspaces
+ * ----------------------------------------------------- */
+
+#workspaces {
+    padding: 5px 5px 5px 0px;
+}
+
+#workspaces button {
+    border-radius: 6px;
+    padding:0px 5px 0px 5px;
+    margin:0px 2px 0px 2px;
+}
+
+#workspaces button.active {
+    background:@primary;
+    color:@on_primary;
+}
+
+#workspaces button:hover {
+    background:@primary;
+    color:@on_primary;
+}
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+
+tooltip {
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, @surface, @surface_dim) padding-box,
+        linear-gradient(#FFFFFF,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.7;
+    margin:10px;
+}
+
+tooltip label {
+    color: @on_surface;
+}
+
+/* -----------------------------------------------------
+ * Window
+ * ----------------------------------------------------- */
+
+#window {
+}
+
+window#waybar.empty #window {
+    background-color:transparent;
+}
+
+/* -----------------------------------------------------
+ * Taskbar
+ * ----------------------------------------------------- */
+
+#taskbar {
+    padding: 5px 0px 5px 0px;
+}
+
+#taskbar button {
+    border-radius: 6px;
+    padding:0px 5px 0px 5px;
+}
+
+#taskbar button:hover {
+    background:@primary;
+    color:@on_primary;    
+}
+
+#taskbar.empty {
+}
+
+/* -----------------------------------------------------
+ * ML4W Icon
+ * ----------------------------------------------------- */
+
+#custom-ml4w-welcome {
+    margin-top:5px;
+    margin-bottom:5px;
+    background-image: url("../assets/ml4w-icon.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-right: 20px;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibitor
+ * ----------------------------------------------------- */
+
+#idle_inhibitor {
+}
+
+#idle_inhibitor.activated {
+}
+
+/* -----------------------------------------------------
+ * App Launcher
+ * ----------------------------------------------------- */
+
+#custom-appmenu {
+    padding-right:3px;
+    padding-left:5px;
+}
+
+#custom-appmenu:hover {
+}
+
+/* -----------------------------------------------------
+ * Custom Now Playing
+ * ----------------------------------------------------- */
+
+#custom-nowplaying {
+}
+
+#custom-nowplaying.playing {
+}
+
+#custom-nowplaying.paused {
+}
+
+/* -----------------------------------------------------
+ * Custom Notification
+ * ----------------------------------------------------- */
+
+#custom-notification {
+    font-size: 20px;
+    font-family: "Material Icons";
+    color: @icon_color;
+}
+
+/* -----------------------------------------------------
+ * Custom Exit
+ * ----------------------------------------------------- */
+
+#custom-exit {
+}
+
+/* -----------------------------------------------------
+ * Custom Updates
+ * ----------------------------------------------------- */
+
+#custom-updates.yellow {
+    border-radius: 20px;
+    margin:5px 0px 5px 5px;
+    padding:0px 4px 0px 4px;
+    background-color: @secondary;
+    color: @on_secondary;
+}
+
+#custom-updates.red {
+    border-radius: 6px;
+    margin:6px 0px 6px 7px;
+    padding:0px 6px 0px 6px;
+    background-color: @error;
+    color:@on_error;
+}
+
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- */
+
+#disk,#memory,#cpu,#language {
+}
+
+#language {
+}
+
+/* -----------------------------------------------------
+ * Power Profiles Daemon
+ * ----------------------------------------------------- */
+
+#power-profiles-daemon {
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+#clock:hover {
+}
+
+/* -----------------------------------------------------
+ * Backlight
+ * ----------------------------------------------------- */
+
+#backlight {
+}
+
+#backlight:hover {
+}
+
+/* -----------------------------------------------------
+ * Pulseaudio
+ * ----------------------------------------------------- */
+
+#pulseaudio {
+}
+
+#pulseaudio:hover {
+}
+
+#pulseaudio.muted {
+}
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+}
+
+#network.ethernet:hover {
+}
+
+#network.wifi:hover {
+}
+
+#network.ethernet {
+}
+
+#network.wifi {
+}
+
+/* -----------------------------------------------------
+ * Bluetooth
+ * ----------------------------------------------------- */
+
+#bluetooth, #bluetooth.on, #bluetooth.connected {
+}
+
+#bluetooth:hover {
+}
+
+#bluetooth.off {
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+}
+
+#battery.charging, #battery.plugged {
+}
+
+@keyframes blink {
+    to {
+        background-color: @background;
+        color: @on_surface;
+    }
+}
+
+#battery.critical:not(.charging) {
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+    padding: 0px 5px 0px 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}

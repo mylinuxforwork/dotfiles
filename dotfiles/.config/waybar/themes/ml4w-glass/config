@@ -1,10 +1,10 @@
 {
     // General Settings
     "layer": "top",
-    "margin-top": 0,
+    "margin-top": 8,
     "margin-bottom": 0,
-    "margin-left": 0,
-    "margin-right": 0,
+    "margin-left": 8,
+    "margin-right": 8,
     "spacing": 0,
     // Load Modules
     "include": [
@@ -22,7 +22,7 @@
     ],
     // Modules Center
     "modules-center": [
-        "hyprland/window",
+        "clock",
         "custom/empty"
     ],
     // Modules Right    
@@ -38,7 +38,6 @@
         "tray",
         "custom/notification",
         "custom/exit",
-        "custom/ml4w-welcome",
-        "clock"
+        "custom/ml4w-welcome"
     ]
 }

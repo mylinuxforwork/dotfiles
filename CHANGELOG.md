@@ -1,3 +1,8 @@
+Version 2.9.9.4
+--------------------------------------------------------
+- Global Theme support: CTRL+ALT+T to open the thene selector
+- New global glass theme
+
 Version 2.9.9.3
 --------------------------------------------------------
 - New Default icons Colloid

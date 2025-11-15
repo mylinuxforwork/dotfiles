@@ -1,16 +1,20 @@
-@import url("colors.css");
-@import url("../ml4w/settings/dock-border.css");
+@import url("../../colors.css");
+@import url("../../../ml4w/settings/dock-border.css");
 
 window {
-  	background: @blur_background8;
-	border-radius: 10px;
-	border-style: solid;
-	border-color: @primary;
+    padding: 10px; 
+    background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+        linear-gradient(@primary,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:0.8;
+  	border-radius: 1em;
+  	border: 1px solid transparent;	
+	margin:10px;
 }
 
 #box {
   	/* Define attributes of the box surrounding icons here */
-  	padding: 10px;
+  	padding: 8px;
 }
 
 #active {
