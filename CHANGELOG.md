@@ -2,6 +2,7 @@ Version 2.9.9.4
 --------------------------------------------------------
 - Global Theme support: CTRL+ALT+T to open the thene selector
 - New global glass theme
+- New Animation Smooth: You can select it in the Settings app.
 
 Version 2.9.9.3
 --------------------------------------------------------
