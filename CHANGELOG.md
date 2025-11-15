@@ -1,7 +1,7 @@
 Version 2.9.9.4
 --------------------------------------------------------
-- Theme support for nwg-dock-hyprland and swaync
-- New glass theme
+- Global Theme support: CTRL+ALT+T to open the thene selector
+- New global glass theme
 
 Version 2.9.9.3
 --------------------------------------------------------

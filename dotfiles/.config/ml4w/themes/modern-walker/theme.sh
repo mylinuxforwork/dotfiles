@@ -17,7 +17,7 @@ swaync-client -rs
 echo '@import "themes/modern/style.css";' > $HOME/.config/wlogout/style.css
 
 # Set launcher
-echo 'walker' > $HOME/.config/ml4w/settings/launcher
+echo 'rofi' > $HOME/.config/ml4w/settings/launcher
 
 # Set Window Border
 echo 'source = ~/.config/hypr/conf/windows/default.conf' > $HOME/.config/hypr/conf/window.conf
