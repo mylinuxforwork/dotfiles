@@ -10,8 +10,13 @@ launcher=$(cat $HOME/.config/ml4w/settings/launcher)
 # -----------------------------------------------------
 # Themes
 # -----------------------------------------------------
-THEME_OPTIONS=$(find "$SCRIPT_DIR" -maxdepth 1 -mindepth 1 -type d | awk -F/ '{ print $NF }')
-
+if command -v walker > /dev/null 2>&1; then
+    # Walker installed
+    THEME_OPTIONS=$(find "$SCRIPT_DIR" -maxdepth 1 -mindepth 1 -type d | awk -F/ '{ print $NF }')
+else
+    # Walker not installed
+    THEME_OPTIONS=$(find "$SCRIPT_DIR" -maxdepth 1 -mindepth 1 -type d -not -name "*walker*" | awk -F/ '{ print $NF }')
+fi
 # -----------------------------------------------------
 # Start Launcher
 # -----------------------------------------------------

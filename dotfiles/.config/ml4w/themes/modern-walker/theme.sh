@@ -17,7 +17,7 @@ swaync-client -rs
 echo '@import "themes/modern/style.css";' > $HOME/.config/wlogout/style.css
 
 # Set launcher
-echo 'rofi' > $HOME/.config/ml4w/settings/launcher
+echo 'walker' > $HOME/.config/ml4w/settings/launcher
 
 # Set walker theme
 echo 'modern' > $HOME/.config/ml4w/settings/walker-theme
