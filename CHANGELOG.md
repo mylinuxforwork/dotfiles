@@ -3,6 +3,7 @@ Version 2.9.9.4
 - Global Theme support: CTRL+ALT+T to open the thene selector
 - New global glass theme
 - New Animation Smooth: You can select it in the Settings app.
+- Dock Auto-hide can be activated by adding a file dock-autohide into .config/ml4w/settings
 
 Version 2.9.9.3
 --------------------------------------------------------
