@@ -195,12 +195,13 @@
 }
 
 /* === Notifications === */
+
 .control-center .notification-row .notification-background .notification.critical {
   background-color: @surface_container;
   border-radius: 10px;
   margin: 5px 0px;
-  padding: 15px;
-  border: 2px solid @bordercolor;
+  padding: 10px;
+  border: 2px solid red;
   min-height: 2.5em;
 }
 
@@ -216,6 +217,7 @@
 }
 
 /* === Progress Bars === */
+
 trough highlight {
   background: @primary;
   border: 2px solid @primary_fixed;
@@ -246,4 +248,16 @@ trough highlight {
 .notification-group-collapse-button:hover,
 .notification-group-close-all-button:hover {
   background: @hovercolor;
+}
+
+.notification {
+    background-color: @surface;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, @primary, @surface) padding-box,
+        linear-gradient(#FFFFFF,@on_primary) border-box;
+    border: 1px solid transparent;	
+    opacity:1.0;
+    padding:10px;
+    margin:10px 0px 0px 0px;
+    box-shadow: 1 1 5 1px @shadow;
 }
