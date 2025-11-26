@@ -1,0 +1,2 @@
+alias vpn="sudo wg-quick up laptop"
+alias vpn-down="sudo wg-quick down laptop"
