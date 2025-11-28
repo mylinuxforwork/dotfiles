@@ -6,4 +6,5 @@ rm -rf ~/.config/fish/
 rm -rf ~/.config/hypr/
 rm -rf ~/.config/kitty
 
-stow ../dotfiles/
+cd ..
+stow dotfiles
