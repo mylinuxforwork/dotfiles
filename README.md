@@ -29,6 +29,30 @@ Test the ML4W OS without risk on your computer or in a Virtual Machine with the 
 
 You can install the ML4W OS on your hard drive with the command `sudo install-ml4w-os` (BETA).
 
+## Installation with GNU stow
+
+The installation without the Dotfiles Installer is possible but not recommended (especially not for beginners).
+
+> [!NOTE]
+> Please create a backup from your current configuration. This guide is under developement
+
+The manual installation requires stow. Please install it on your system e.g., on Arch with
+
+```sh 
+sudo pacman -S stow
+```
+
+Please follow the following steps:
+
+```sh 
+git clone --depth 1 https://github.com/corazon008/dotfiles # Rolling Release
+cd ~/dotfiles/setup # cd into the setup folder
+./setup.sh # Run the setup script to install the dependencies
+./install.sh # Run the install script to make the symlinks
+```
+
+Restart your system.
+
 ## Special Thanks
 
 I want to say thank you to all contributors of the ML4W OS and all other Developers who are creating awesome configurations for our favorite Tiling Window Manager Hyprland. Your support, the testing of every version and all your valuable Pull Requests with improvements and bug fixes have repeatedly improved the overall project and increased its relevance and quality.

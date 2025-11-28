@@ -14,6 +14,7 @@ general=(
     "udisks2"
     "gvfs"
     "udiskie"
+    "stow"
 )
 
 hyprland=(
@@ -29,7 +30,6 @@ apps=(
     "wlogout"
     "vlc"
     "nwg-dock-hyprland"
-    "nwg-displays"
     "waybar"
     "rofi"
     "nwg-look"
@@ -38,13 +38,11 @@ apps=(
     "blueman"
     "qt6ct"
     "nautilus"
-    "gnome-text-editor"
-    "firefox"
 )
 
 tools=(
-    "xdg-user-dirs"
-    "xdg-desktop-portal-gtk"
+    "xdg-user-dirs"    
+    "xdg-desktop-portal-gtk"    
     "figlet"
     "fastfetch"
     "htop"
@@ -58,7 +56,5 @@ tools=(
     "gvfs"
     "grim"
     "breeze"
-    "tesseract"
-    "wl-clipboard"
     "btop"
 )
