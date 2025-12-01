@@ -23,6 +23,7 @@
       "*": 5
     }
   },
+
   // Taskbar
   "wlr/taskbar": {
     "format": "{icon}",
@@ -42,6 +43,7 @@
       "Foot Server": "Terminal"
     }
   },
+
   // Hyprland Window
   "hyprland/window": {
     "max-length": 60,
@@ -54,16 +56,19 @@
     },
     "separate-outputs": true
   },
+
   // ML4W Welcome App
   "custom/ml4w-welcome": {
     "on-click": "flatpak run com.ml4w.sidebar",
     "format": " ",
     "tooltip-format": "Open ML4W Sidebar App"
   },
+
   // Empty
   "custom/empty": {
     "format": ""
   },
+
   // Tools
   "custom/tools": {
     "format": "",
@@ -96,6 +101,7 @@
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
+
   // Updates Count
   "custom/updates": {
     "format": "  {}",
@@ -107,6 +113,7 @@
     "hide-empty-text": true,
     "on-click": "~/.config/ml4w/settings/installupdates.sh"
   },
+
   // Wallpaper
   "custom/wallpaper": {
     "format": "",
@@ -114,24 +121,28 @@
     "on-click-right": "~/.config/hypr/scripts/wallpaper-effects.sh",
     "tooltip-format": "Left: Select a wallpaper\nRight: Select wallpaper effect"
   },
+
   // Waybar Themes
   "custom/waybarthemes": {
     "format": "",
     "on-click": "~/.config/waybar/themeswitcher.sh",
     "tooltip-format": "Select a waybar theme"
   },
+
   // Settings
   "custom/settings": {
     "format": "",
     "on-click": "sleep 0.1 && com.ml4w.dotfilessettings",
     "tooltip-format": "ML4W Settings"
   },
+
   // Keybindings
   "custom/keybindings": {
     "format": "",
     "on-click": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip": false
   },
+
   // Calculator
   "custom/calculator": {
     "format": "",
@@ -147,6 +158,7 @@
     "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
   },
+
   // Rofi Application Launcher
   "custom/appmenuicon": {
     "format": "",
@@ -154,6 +166,7 @@
     "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
   },
+
   // Power Menu
   "custom/exit": {
     "format": "",
@@ -161,8 +174,9 @@
     "on-click-right": "hyprlock",
     "tooltip-format": "Left: Power menu\nRight: Lock screen"
   },
+
   // SwayNC
-  "custom/notification": {
+  "custom/notification_new": {
     "tooltip-format": "Left: Notifications\nRight: Do not disturb",
     "format": "{icon}",
     "format-icons": {
@@ -182,6 +196,32 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true
   },
+
+  "custom/notification": {
+    "tooltip-format": "Left: Notifications\nRight: Do not disturb",
+    "format": "{icon}",
+    "format-icons": {
+      "notification":
+        "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+      "none": "",
+      "dnd-notification":
+        "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+      "dnd-none": "",
+      "inhibited-notification":
+        "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification":
+        "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
   // Hyprshade
   "custom/hyprshade": {
     "format": "",
@@ -191,6 +231,7 @@
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
+
   // Hypridle inhibitor
   "custom/hypridle": {
     "format": "",
@@ -203,6 +244,7 @@
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
+
   // Keyboard State
   "keyboard-state": {
     "numlock": true,
@@ -215,18 +257,31 @@
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
+
   // System tray
   "tray": {
     "icon-size": 21,
     "spacing": 10
   },
+
   // Clock
   "clock": {
-    "format": "{:%H:%M %a}",
+    "format": "{:%H:%M - %a %Od}",
     "on-click": "flatpak run com.ml4w.calendar",
     "timezone": "",
     "tooltip": false
   },
+
+  "custom/wg": {
+    "format": "󰒍   {}",
+    "return-type": "json",
+    "on-click": "~/.mydotfiles/com.ml4w.dotfiles.stable/.config/custom/wg.sh switch_state",
+    "tooltip": true,
+    "interval": 1,
+    "exec": "~/.mydotfiles/com.ml4w.dotfiles.stable/.config/custom/wg.sh status",
+    "exec-on-event": true
+  },
+
   // System
   "custom/system": {
     "format": "",
@@ -234,6 +289,7 @@
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
+
   // CPU
   "cpu": {
     "format": "/ C {usage}% ",
@@ -241,6 +297,16 @@
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
+
+  // Temp CPU
+  "temperature": {
+    "thermal-zone": 0,
+    // "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+    "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C ",
+    "format": "/   {temperatureC}°C"
+  },
+
   // Memory
   "memory": {
     "format": "/ M {}% ",
@@ -248,6 +314,7 @@
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
+
   // Harddisc space used
   "disk": {
     "interval": 30,
@@ -257,11 +324,13 @@
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
+
   "hyprland/language": {
     "format": "/ K {short}",
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
+
   // Group Hardware
   "group/hardware": {
     "orientation": "inherit",
@@ -274,10 +343,11 @@
       "custom/system",
       "disk",
       "cpu",
-      "memory",
-      "hyprland/language"
+      "temperature",
+      "memory"
     ]
   },
+
   // Group Tools
   "group/tools": {
     "orientation": "inherit",
@@ -294,6 +364,7 @@
       "power-profiles-daemon"
     ]
   },
+
   // Group Links
   "group/links": {
     "orientation": "horizontal",
@@ -302,6 +373,7 @@
       "custom/empty"
     ]
   },
+
   // Group Settings
   "group/settings": {
     "orientation": "inherit",
@@ -316,6 +388,7 @@
       "custom/wallpaper"
     ]
   },
+
   // Network
   "network": {
     "format": "{ifname}",
@@ -330,6 +403,7 @@
     "on-click": "~/.config/ml4w/settings/networkmanager.sh",
     "on-click-right": "~/.config/ml4w/scripts/nm-applet.sh toggle",
   },
+
   // Battery
   "battery": {
     "interval": 1,
@@ -352,6 +426,7 @@
       " "
     ]
   },
+
   // Power Profiles Daemon
   "power-profiles-daemon": {
     "format": "{icon}",
@@ -366,6 +441,7 @@
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
+
   // Pulseaudio
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
@@ -390,6 +466,7 @@
     },
     "on-click": "pavucontrol"
   },
+
   // Bluetooth
   "bluetooth": {
   "format": " {status}",
@@ -402,12 +479,14 @@
   "tooltip-format-enumerate-connected-battery": "{device_alias}\t| Battery life: {device_battery_percentage}%",
   "format-no-controller": ""
   },
+
   // Other
   "user": {
     "format": "{user}",
     "interval": 60,
     "icon": false
   },
+
   // backlight:
   "backlight": {
     "format": "{icon} {percent}%",
