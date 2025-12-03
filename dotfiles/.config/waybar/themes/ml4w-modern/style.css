@@ -20,10 +20,10 @@
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0.2);
-    background: transparent;
+    background-color: rgba(0,0,0,0.05);
+    background: rgba(0,0,0,0.05);
     transition-property: background-color;
-    transition-duration: .5s;
+    transition-duration: 0.5s;
 }
 
 .modules-left {
@@ -80,8 +80,7 @@ window#waybar {
 
 tooltip {
     border-radius: 10px;
-    background-color: @surface;
-    border: 2px solid @border_color;
+    background-color: @background;
     padding: 5px;
     margin: 0px;
 }
