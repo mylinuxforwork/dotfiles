@@ -70,6 +70,7 @@ tools=(
     "gvfs"
     "grim"
     "breeze"
+    "btop"
 
     # My tools
     "wireguard-tools"
