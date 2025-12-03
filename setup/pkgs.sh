@@ -38,6 +38,20 @@ apps=(
     "blueman"
     "qt6ct"
     "nautilus"
+
+    # My apps
+    "firefox"
+    "zen-browser-bin"
+    "jetbrains-toolbox"
+    "github-desktop"
+    "parsec-bin"
+    "obsidian"
+    "remmina"
+    "vorta"
+    "nextcloud-client"
+    "vlc"
+    "filezilla"
+
 )
 
 tools=(
@@ -56,5 +70,10 @@ tools=(
     "gvfs"
     "grim"
     "breeze"
-    "btop"
+
+    # My tools
+    "wireguard_tools"
+    "gvfs-mtp"
+    "gvfs-smb"
+    "ncdu"
 )
