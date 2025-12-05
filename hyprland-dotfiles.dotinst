@@ -1,12 +1,12 @@
 {
-	"name": "ML4W Dotfiles for Hyprland (ROLLING RELEASE)",
-	"id": "com.ml4w.dotfiles",
-	"description": "Advanced configuration for the dynamic tiling window manager Hyprland",
-	"version":"2.9.9.4",
-	"author": "Stephan Raabe",
+	"name": "Ryan's ML4W Dotfiles for Hyprland (ROLLING RELEASE)",
+	"id": "com.ml4w.the-iron-ryan.dotfiles",
+	"description": "Ryan's Advanced configuration for the dynamic tiling window manager Hyprland",
+	"version":"1.0.0",
+	"author": "Ryan Dougherty",
 	"homepage": "https://mylinuxforwork.github.io/dotfiles/",
 	"dependencies": "https://mylinuxforwork.github.io/dotfiles/getting-started/dependencies",
-	"source": "https://github.com/mylinuxforwork/dotfiles.git",
+	"source": "https://github.com/the-iron-ryan/hyprland-dotfiles.git",
 	"subfolder": "dotfiles",
 	"setupscript":"setup/setup.sh",
 	"restore":[
@@ -111,16 +111,6 @@
 			"search":"kb_variant",
 			"value":"",
 			"template":"    kb_variant = [VALUE]"
-		},
-		{
-			"type":"text",
-			"mode":"replacesingleline",
-			"title":"Screen Resolution",
-			"file":".config/hypr/conf/monitors/default.conf",
-			"checkpoint":"Check",
-			"search":"monitor=,preferred,",
-			"value":"preferred",
-			"template":"monitor=,[VALUE],auto,1"
 		},
 		{
 			"type":"text",

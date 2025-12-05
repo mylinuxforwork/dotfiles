@@ -42,6 +42,7 @@ packages=(
     "power-profiles-daemon"
     # Apps
     "waypaper"
+    "mpvpaper"
     "swaync"
     # Tools
     "eza"
