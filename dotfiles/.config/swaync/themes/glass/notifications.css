@@ -43,8 +43,7 @@
 .floating-notifications.background .notification-row .notification-background .notification.critical {
     background-color: @surface;
     border-radius: 12px;
-    background: radial-gradient(circle at 50% 250%, @primary, @surface) padding-box,
-        linear-gradient(#FFFFFF,@on_primary) border-box;
+    background: radial-gradient(circle at 55% -80%, alpha(@primary, 1), alpha(black,0.7)) padding-box, linear-gradient(transparent, alpha(white, 0.5)) padding-box;;
     border: 1px solid transparent;	
     opacity:1.0;
     margin:10px;
