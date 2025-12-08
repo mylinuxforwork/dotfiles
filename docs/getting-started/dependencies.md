@@ -12,7 +12,7 @@ gum
 rsync
 git
 figlet
-xdg-user-dirs    
+xdg-user-dirs
 hyprland
 hyprpaper
 hyprlock
@@ -42,6 +42,9 @@ htop
 blueman
 grim
 slurp
+tesseract
+tesseract-data-eng (or tesseract-langpack-eng on Fedora, tesseract-ocr-traineddata-eng on openSUSE)
+wl-clipboard
 cliphist
 nwg-look
 qt6ct
