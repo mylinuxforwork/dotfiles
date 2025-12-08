@@ -35,8 +35,8 @@ apps=(
 )
 
 tools=(
-    "xdg-user-dirs"    
-    "xdg-desktop-portal-gtk"    
+    "xdg-user-dirs"
+    "xdg-desktop-portal-gtk"
     "figlet"
     "fastfetch"
     "htop"
@@ -50,4 +50,6 @@ tools=(
     "gvfs"
     "grim"
     "breeze"
+    "tesseract"
+    "wl-clipboard"
 )

@@ -31,6 +31,7 @@ packages=(
     "ImageMagick"
     "NetworkManager-connection-editor"
     "NetworkManager-tui"
+    "tesseract-ocr-traineddata-eng"
     # Apps
     "SwayNotificationCenter"
     # Fonts
