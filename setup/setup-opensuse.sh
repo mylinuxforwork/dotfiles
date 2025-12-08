@@ -22,6 +22,7 @@ packages=(
     # Hyprland
     "hyprland-devel"
     "hyprland-qtutils"
+    "polkit-gnome"
     # Tools
     "eza"
     "libnotify-tools"
