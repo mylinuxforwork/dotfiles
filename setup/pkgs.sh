@@ -5,6 +5,7 @@ general=(
     "git"
     "rsync"
     "unzip"
+    "tar"
     "jq"
     "flatpak"
     "vim"
