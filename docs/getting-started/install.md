@@ -29,7 +29,7 @@ https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
 
-Setup scripts to install the required dependencies are included for Arch, Fedora and openSuse Tumbleweed.
+Setup scripts to install the required dependencies are included for Arch, Fedora and openSuse Tumbleweed. 
 
 The installation of dependencies can take between 5 to 15 minutes depending on your internet connection and system performance.
 
@@ -40,7 +40,7 @@ For other distros, please install <a href="/dotfiles/getting-started/dependencie
 The Dotfiles will be installed into the folder `~/.mydotfiles` with symbolic links into `~/.config`.
 
 ::: info RECOMMENDATION
-I recommend to install a base Hyprland system before installing the ML4W Hyprland Dotfiles. Then you have a stable starting point and can test Hyprland on your system before. Hyprland is complex, under ongoing development and requires additional components.
+I recommend to install a base Hyprland system before installing the ML4W Hyprland Dotfiles. Then you have a stable starting point and can test Hyprland on your system before. Hyprland is complex, under ongoing development and requires additional components. 
 
 On Arch Linux you can also install the Hyprland Desktop Profile first.
 
@@ -55,7 +55,7 @@ Install the following dependencies on a minimal Arch Linux installation
 sudo pacman -S hyprland vim kitty firefox flatpak
 
 ```
-Reboot and then start Hyprland with
+Reboot and then start Hyprland with 
 
 ```sh [<i class="devicon-archlinux-plain"></i> Arch]
 Hyprland
@@ -64,9 +64,9 @@ Hyprland
 Open Firefox, open the Dotfiles Installer Homepage and follow the installation instructions.
 
 ::: warning AUR not supported anymore
-Please note that the AUR packages for the ML4W Dotfiles for Hyprland are not supported anymore. Please uninstall the package with
+Please note that the AUR packages for the ML4W Dotfiles for Hyprland are not supported anymore. Please uninstall the package with 
 
-```sh
+```sh 
 yay -R ml4w-dotfiles # Main Release
 yay -R ml4w-dotfiles-git # Rolling Release
 ```
@@ -74,21 +74,21 @@ yay -R ml4w-dotfiles-git # Rolling Release
 
 ## Installation with GNU stow
 
-The installation without the Dotfiles Installer is possible but not recommended (especially not for beginners).
+The installation without the Dotfiles Installer is possible but not recommended (especially not for beginners). 
 
 > [!NOTE]
 > Please create a backup from your current configuration. This guide is under developement
 
 The manual installation requires stow. Please install it on your system e.g., on Arch with
 
-```sh
+```sh 
 sudo pacman -S stow
 ```
 
 Please follow the following steps:
 
-```sh
-mkdir -p ~/Projects # Create a projects folder
+```sh 
+mkdir -p ~/Projects # Create a projects folder 
 cd ~/Projects #cd into the Projects directory
 git clone --depth 1 https://github.com/mylinuxforwork/dotfiles # Rolling Release
 cd ~/Projects/dotfiles/setup # cd into the setup folder
@@ -96,7 +96,7 @@ cd ~/Projects/dotfiles/setup # cd into the setup folder
 ```
 Create symlinks into your home folder
 
-```sh
+```sh 
 cd ~/Projects/dotfiles
 stow dotfiles
 ```
