@@ -77,4 +77,6 @@ tools=(
     "gvfs-smb"
     "ncdu"
     "sddm"
+    "qt5-graphicaleffects"
+    "qt5-quickcontrols"
 )
