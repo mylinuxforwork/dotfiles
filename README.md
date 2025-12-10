@@ -72,7 +72,7 @@ Please follow the following steps:
 git clone --depth 1 https://github.com/corazon008/dotfiles # Rolling Release
 cd ~/dotfiles/setup # cd into the setup folder
 ./setup.sh # Run the setup script to install the dependencies
-./install.sh # Run the install script to make the symlinks
+./custom/post-install.sh 
 ```
 
 Restart your system.
