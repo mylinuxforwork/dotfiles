@@ -76,4 +76,5 @@ tools=(
     "gvfs-mtp"
     "gvfs-smb"
     "ncdu"
+    "sddm"
 )
