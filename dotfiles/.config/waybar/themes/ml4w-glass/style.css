@@ -29,8 +29,7 @@ window#waybar {
     opacity:0.8;
     padding:0px;
     margin:10px;
-    box-shadow: 1 1 5 1px @shadow;
-    -webkit-backdrop-filter: blur(2.4px);
+    box-shadow: 0 0 6 @shadow;
 }
 
 .modules-right {
@@ -42,8 +41,7 @@ window#waybar {
     opacity:0.8;
     padding:0px;
     margin:10px;
-    -webkit-backdrop-filter: blur(2.4px);
-    box-shadow: 1 1 5 1px @shadow;
+    box-shadow: 0 0 6 @shadow;
 }
 
 .modules-center {
@@ -54,8 +52,7 @@ window#waybar {
     border: 1px solid transparent;	
     opacity:0.8;
     margin:10px;
-    box-shadow: 1 1 5 1px @shadow;    
-    -webkit-backdrop-filter: blur(70px);
+    box-shadow: 0 0 6 @shadow;
 }
 
 label.module {
