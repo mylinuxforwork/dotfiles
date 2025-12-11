@@ -72,7 +72,7 @@ tools=(
     "breeze"
 
     # My tools
-    "wireguard_tools"
+    "wireguard-tools"
     "gvfs-mtp"
     "gvfs-smb"
     "ncdu"
