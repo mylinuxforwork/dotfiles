@@ -23,7 +23,7 @@ echo 'rofi' > $HOME/.config/ml4w/settings/launcher
 echo 'glass' > $HOME/.config/ml4w/settings/walker-theme
 
 # Set Window Border
-echo 'source = ~/.config/hypr/conf/windows/glass.conf' > $HOME/.config/hypr/conf/window.conf
+echo 'source = ~/.config/hypr/conf/windows/default.conf' > $HOME/.config/hypr/conf/window.conf
 
 # Set rofi
 echo '* { border-width: 1px; }' > $HOME/.config/ml4w/settings/rofi-border.rasi
