@@ -89,6 +89,7 @@ Please follow the following steps:
 
 ```sh 
 mkdir -p ~/Projects # Create a projects folder 
+cd ~/Projects #cd into the Projects directory
 git clone --depth 1 https://github.com/mylinuxforwork/dotfiles # Rolling Release
 cd ~/Projects/dotfiles/setup # cd into the setup folder
 ./setup.sh # Run the setup script to install the dependencies
