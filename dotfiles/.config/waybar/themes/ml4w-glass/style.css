@@ -86,11 +86,11 @@ label.module:hover {
  * ----------------------------------------------------- */
 
 #workspaces {
-    padding: 5px 5px 5px 0px;
+    padding: 5px 3px 5px 0px;
 }
 
 #workspaces button {
-    border-radius: 6px;
+    border-radius: 8px;
     padding:0px 5px 0px 5px;
     margin:0px 2px 0px 2px;
 }
@@ -226,15 +226,15 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-updates.yellow {
-    border-radius: 20px;
+    border-radius: 8px;
     margin:5px 0px 5px 5px;
-    padding:0px 4px 0px 4px;
+    padding:0px 6px 0px 6px;
     background-color: @secondary;
     color: @on_secondary;
 }
 
 #custom-updates.red {
-    border-radius: 6px;
+    border-radius: 8px;
     margin:6px 0px 6px 7px;
     padding:0px 6px 0px 6px;
     background-color: @error;
