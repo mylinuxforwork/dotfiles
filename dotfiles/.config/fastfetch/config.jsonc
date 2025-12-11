@@ -27,7 +27,7 @@
         },
         {
           "type": "command",
-          "key": "│ {#33}󱦟 OS Age  {#keys}|",
+          "key": "│ {#33}󱦟 os age  {#keys}|",
           "keyColor": "magenta",
           "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
         },
