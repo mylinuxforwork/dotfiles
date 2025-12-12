@@ -11,8 +11,8 @@
   "control-center-margin-right": 3,
   "control-center-margin-left": 0,
 
-  "notification-window-width": 300,
-  "notification-icon-size": 24,
+  "notification-window-width": 360,
+  "notification-icon-size": 48,
   "notification-body-image-height": 100,
   "notification-body-image-width": 200,
 

@@ -62,7 +62,7 @@
   .notification-background
   .notification
   .notification-content {
-  margin: 1.2rem;
+  margin: 10px;
 }
 
 .floating-notifications.background
@@ -113,10 +113,12 @@
 .summary {
   font-weight: 800;
   font-size: 1rem;
+  padding-left: 5px;
 }
 
 .body {
   font-size: 0.8rem;
+  padding-left: 5px;
 }
 
 .floating-notifications.background
