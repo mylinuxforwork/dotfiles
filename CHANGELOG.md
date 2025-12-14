@@ -5,7 +5,10 @@ Version 2.9.9.4
 - New Animation Smooth: You can select it in the Settings app.
 - Dock Auto-hide can be activated by adding a file dock-autohide into .config/ml4w/settings
 - New Default Cursor Theme ArcAurora with two additional variants
-- Add new apps launch terminal script. Just enter 'apps'
+- Terminal CLI: Add new apps launch terminal script. Just enter 'apps'
+- Terminal CLI: Add new screenshot script. Just enter 'screenshot'
+- Terminal CLI: Enter 'updates' to launch the update script
+- Terminal CLI: Enter 'filemanager' to launch yazi (to be installed separately)
 
 Version 2.9.9.3
 --------------------------------------------------------
