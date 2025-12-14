@@ -18,6 +18,9 @@ alias vim='$EDITOR'
 alias wifi='nmtui'
 alias arch-cleanup='~/.config/ml4w/scripts/arch/cleanup.sh'
 alias apps='~/.config/ml4w/bin/ml4w-apps.sh'
+alias screenshot='~/.config/ml4w/bin/ml4w-screenshot.sh'
+alias updates='~/.config/ml4w/scripts/installupdates.sh'
+alias filemanager='yazi'
 
 # -----------------------------------------------------
 # ML4W Apps
