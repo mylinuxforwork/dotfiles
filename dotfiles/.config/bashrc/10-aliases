@@ -21,6 +21,8 @@ alias apps='~/.config/ml4w/bin/ml4w-apps.sh'
 alias screenshot='~/.config/ml4w/bin/ml4w-screenshot.sh'
 alias updates='~/.config/ml4w/scripts/installupdates.sh'
 alias filemanager='yazi'
+alias lock='hyprlock'
+alias clock='tty-clock'
 
 # -----------------------------------------------------
 # ML4W Apps

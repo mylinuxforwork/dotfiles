@@ -49,6 +49,7 @@ packages=(
     # Fonts
     "otf-font-awesome"
     "ttf-firacode-nerd"
+    "tty-clock"
 )
 
 _isInstalled() {
