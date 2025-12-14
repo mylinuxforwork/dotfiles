@@ -15,9 +15,9 @@ alias lt='eza -a --tree --level=1 --icons=always'
 alias shutdown='systemctl poweroff'
 alias v='$EDITOR'
 alias vim='$EDITOR'
-alias ts='~/.config/ml4w/scripts/arch/snapshot.sh'
 alias wifi='nmtui'
-alias cleanup='~/.config/ml4w/scripts/arch/cleanup.sh'
+alias arch-cleanup='~/.config/ml4w/scripts/arch/cleanup.sh'
+alias apps='~/.config/ml4w/bin/ml4w-apps.sh'
 
 # -----------------------------------------------------
 # ML4W Apps
@@ -32,13 +32,6 @@ alias ml4w-diagnosis='~/.config/hypr/scripts/diagnosis.sh'
 alias ml4w-hyprland-diagnosis='~/.config/hypr/scripts/diagnosis.sh'
 alias ml4w-qtile-diagnosis='~/.config/ml4w/qtile/scripts/diagnosis.sh'
 alias ml4w-update='~/.config/ml4w/scripts/installupdates.sh'
-
-# -----------------------------------------------------
-# Window Managers
-# -----------------------------------------------------
-
-alias Qtile='startx'
-# Hyprland with Hyprland
 
 # -----------------------------------------------------
 # Git
