@@ -6,7 +6,7 @@
 
 </div>
 
-![image](/screen-2993.jpg)
+![image](/screen-2994.jpg)
 
 > [!NOTE]
 > This Wiki is covering the latest features of the ML4W Dotfiles. Please make sure that the latest version of the ML4W Dotfiles is installed on your system. Follow the installation and update instructions.

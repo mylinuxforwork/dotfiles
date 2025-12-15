@@ -38,7 +38,7 @@ description: An advanced and full-featured configuration for the dynamic tiling 
 ---
 
 <img
-  src="/screen-2993.jpg"
+  src="/screen-2994.jpg"
   alt="preview"
   style="max-width: 900px; width: 100%; border-radius: 12px; margin: 2rem auto; display: block;"
 />
@@ -53,12 +53,12 @@ You can install the ML4W Dotfiles for Hyprland with the Dotfiles Installer avail
 
 Copy the following url into the Dotfiles Installer and start the installation.
 
-#### Stable Release
+#### Stable Release (2.9.9.3)
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable.dotinst
 ```
-#### Rolling Release
+#### Rolling Release (2.9.9.4 RC)
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
