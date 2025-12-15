@@ -1,4 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# ------------------------------------------
+# CLI Application Launcher
+# ------------------------------------------
 
 # --- Configuration ---
 INCLUDE_TERMINAL_APPS=true
@@ -45,7 +49,7 @@ SELECTED=$(echo "$LIST" | grep . | sort -u | fzf \
     --layout reverse \
     --border \
     --prompt "🚀 Run: " \
-    --header "󰀻  System | $FLATPAK_ICON Flatpak")
+    --header "󰀻  System |   Terminal | 󰏖 Flatpak")
 
 # --- 4. Launch ---
 if [ -n "$SELECTED" ]; then

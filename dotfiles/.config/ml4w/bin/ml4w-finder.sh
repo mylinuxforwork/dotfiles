@@ -1,4 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# ------------------------------------------
+# CLI Fuzzy Finder
+# ------------------------------------------
 
 # --- 1. Generate List with find's internal type check ---
 # %y = type (d=dir, f=file), %p = path

@@ -1,4 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# ------------------------------------------
+# CLI Screenshot Tool
+# ------------------------------------------
 
 # --- Configuration ---
 SAVE_DIR="$HOME/Pictures/Screenshots"
@@ -65,7 +69,7 @@ MODE_CHOICE=$(echo -e "area\nwindow\nfullscreen" | fzf \
     --height 15% \
     --layout reverse \
     --border \
-    --prompt "🎯 Select Mode: " \
+    --prompt "🎯 Select Screenshot Mode: " \
     --header "ESC to cancel")
 
 [ -z "$MODE_CHOICE" ] && exit 0
