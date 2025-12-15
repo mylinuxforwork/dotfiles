@@ -9,6 +9,7 @@ Version 2.9.9.4
 - Terminal CLI: Add new screenshot script. Just enter 'screenshot'
 - Terminal CLI: Enter 'updates' to launch the update script
 - Terminal CLI: Enter 'filemanager' to launch yazi (to be installed separately)
+- Terminal CLI: Enter 'system' to launch btop
 - Terminal CLI: Enter 'lock' to lock the screen with hyprlock
 
 Version 2.9.9.3

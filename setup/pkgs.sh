@@ -51,4 +51,5 @@ tools=(
     "gvfs"
     "grim"
     "breeze"
+    "btop"
 )
