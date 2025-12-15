@@ -5,6 +5,7 @@ You can use and launch several function directly from your terminal.
 ```bash
 apps # CLI application launcher
 screenshot # CLI screenshot tool
+finder # CLI fuzzy finder
 update # Update package script
 filemanager # Launch yazi (if installed)
 system # Launch btop

@@ -1,72 +1,55 @@
-#!/usr/bin/env bash
-
-######################################
-# Application Launcher with gum
-######################################
+#!/bin/bash
 
 # --- Configuration ---
 INCLUDE_TERMINAL_APPS=true
-DIRS=(
-    "/usr/share/applications" 
-    "$HOME/.local/share/applications"
-    "/var/lib/flatpak/exports/share/applications"
-    "$HOME/.local/share/flatpak/exports/share/applications"
-)
+DIRS=("/usr/share/applications" "$HOME/.local/share/applications")
+FLATPAK_SYM="󰏖"  # Distinct icon for all Flatpaks
+FLATPAK_ICON="$FLATPAK_SYM "  # Distinct icon for all Flatpaks
 
-trap "clear; exit" SIGINT
-clear
-
-# --- High-Speed Data Collection ---
-LIST=$(find -L "${DIRS[@]}" -name "*.desktop" -type f -print0 2>/dev/null | xargs -0 awk -v include_term="$INCLUDE_TERMINAL_APPS" '
-    BEGINFILE { 
-        name=""; exec=""; is_term="false"; 
-    }
-    # Use index and substr to split only at the FIRST equals sign
-    /^Name=/ { if (name == "") { i=index($0,"="); name=substr($0,i+1) } }
-    /^Exec=/ { if (exec == "") { i=index($0,"="); exec=substr($0,i+1) } }
-    /^Terminal=/ { i=index($0,"="); is_term=substr($0,i+1) }
-    
-    ENDFILE {
-        # Cleanup placeholders and whitespace
-        gsub(/%[a-zA-Z]/, "", exec);
-        gsub(/^[ \t]+|[ \t]+$/, "", exec);
-        gsub(/^[ \t]+|[ \t]+$/, "", name);
-
+# --- 1. Collect Standard Apps (AWK) ---
+LIST=$(find -L "${DIRS[@]}" -name "*.desktop" -type f 2>/dev/null | xargs awk -F'=' -v inc_term="$INCLUDE_TERMINAL_APPS" '
+    function print_entry() {
         if (name != "" && exec != "") {
-            if (include_term == "true" || is_term != "true") {
+            if (inc_term == "true" || is_term != "true") {
                 icon = (is_term == "true") ? " " : "󰀻 ";
-                if (FILENAME ~ /flatpak/) icon = " ";
-                
-                # We use a unique separator sequence " || " to avoid pipe conflicts
-                print icon " " name " || " exec;
+                printf "%s %s | %s | %s\n", icon, name, exec, f
             }
         }
     }
-' | sort -u)
+    f != FILENAME { print_entry(); f = FILENAME; name = ""; exec = ""; is_term = "false"; }
+    /^Name=/     { if (!name) { sub(/^Name=/, ""); name = $0 } }
+    /^Exec=/     { if (!exec) { sub(/^Exec=/, ""); exec = $0; gsub(/%[a-zA-Z]/, "", exec) } }
+    /^Terminal=/ { sub(/^Terminal=/, ""); is_term = tolower($0) }
+    END { print_entry() }
+' 2>/dev/null)
 
-# --- UI Selection ---
-SELECTED=$(echo "$LIST" | gum filter \
-    --indicator="→" \
-    --match.foreground="212" \
-    --indicator.foreground="212" \
-    --placeholder="Search Apps...")
+# --- 2. Collect Flatpaks (Direct Query) ---
+if command -v flatpak >/dev/null 2>&1; then
+    while IFS=$'\t' read -r id fp_name; do
+        [ -z "$id" ] && continue
+        
+        fp_file=$(find /var/lib/flatpak/exports/share/applications/ ~/.local/share/flatpak/exports/share/applications/ -name "$id.desktop" 2>/dev/null | head -n 1)
+        
+        if [ -n "$fp_file" ]; then
+            fp_exec=$(grep -m 1 "^Exec=" "$fp_file" | cut -d= -f2- | sed "s/%[a-zA-Z]//g" | xargs)
+            LIST+=$'\n'"$FLATPAK_ICON $fp_name | $fp_exec | $fp_file"
+        fi
+    done < <(flatpak list --app --columns=application,name 2>/dev/null)
+fi
 
-clear
+# --- 3. UI Selection (Preview Removed) ---
+SELECTED=$(echo "$LIST" | grep . | sort -u | fzf \
+    --delimiter '|' \
+    --with-nth '1,2' \
+    --height 40% \
+    --layout reverse \
+    --border \
+    --prompt "🚀 Run: " \
+    --header "󰀻  System | $FLATPAK_ICON Flatpak")
 
-# --- Execution ---
+# --- 4. Launch ---
 if [ -n "$SELECTED" ]; then
-    # Extract everything after the " || " separator
-    CMD=$(echo "$SELECTED" | sed 's/.* || //')
-    
-    if [[ "$SELECTED" == " "* ]]; then
-        TERM_BIN=$(command -v kitty || command -v alacritty || command -v xterm)
-        $TERM_BIN -e $CMD & 
-    else
-        setsid bash -c "$CMD" >/dev/null 2>&1 &
-    fi
-    
-    disown
-    echo "🚀 Launching $CMD..."
-    sleep 0.5
-    clear
+    CMD=$(echo "$SELECTED" | cut -d'|' -f2 | xargs)
+    setsid $CMD >/dev/null 2>&1 &
+    exit 0
 fi
