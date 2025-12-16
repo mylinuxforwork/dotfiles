@@ -5,16 +5,31 @@
 # ------------------------------------------
 
 # --- Configuration ---
-SAVE_DIR="$HOME/Pictures/Screenshots"
+
+# Defaults
+SAVE_DIR="$HOME/Pictures"
+SAVE_FILENAME="screenshot_$(date +%d%m%Y_%H%M%S).jpg"
+
+# Load Settings
+if [ -f ~/.config/ml4w/settings/screenshot-folder ]; then
+    SAVE_DIR=$(cat ~/.config/ml4w/settings/screenshot-folder)
+fi
+if [ -f ~/.config/ml4w/settings/screenshot-filename ]; then
+    SAVE_FILENAME=$(cat ~/.config/ml4w/settings/screenshot-filename)
+fi
+
+# Generate path
+eval screenshot_folder="$SAVE_DIR"
+eval filename="$SAVE_FILENAME"
+path="$screenshot_folder/$filename"
+
+# Create Screenshot folder
 mkdir -p "$SAVE_DIR"
 
-# --- Function to handle the screenshot ---
+# Handle the screenshot
 take_screenshot() {
     local mode=$1
     local delay=$2
-    local filename="screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"
-    local path="$SAVE_DIR/$filename"
-
     # Apply delay
     if [ "$delay" -gt 0 ]; then
         echo "⏱️ Waiting $delay seconds..."
