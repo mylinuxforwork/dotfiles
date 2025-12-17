@@ -1,4 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# ------------------------------------------
+# CLI Quicklink Tool
+# ------------------------------------------
 
 # --- Configuration ---
 CONFIG_FILE="$HOME/.quicklinks"
@@ -8,7 +12,7 @@ if [[ ! -f "$CONFIG_FILE" ]]; then
     echo "--------------------------------------------------------"
     echo "⚠️  Quicklinks file not found!"
     echo "Please create: $CONFIG_FILE"
-    echo "Format: Name | Description | Command"
+    echo "Format: Name | Description | Command or Script"
     echo "--------------------------------------------------------"
     
     # Optional: Ask to create a template
@@ -23,6 +27,7 @@ fi
 
 # 2. UI Selection
 SELECTED_LINE=$(cat "$CONFIG_FILE" | fzf \
+    --style full \
     --height 40% --layout reverse --border \
     --prompt "🚀 Quick Access: " \
     --delimiter "|" --with-nth 1..3)

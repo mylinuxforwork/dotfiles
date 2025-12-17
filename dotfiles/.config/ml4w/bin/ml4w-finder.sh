@@ -14,6 +14,7 @@ LIST=$(find -L . -maxdepth 4 -printf "%y %p\n" 2>/dev/null | awk '
 
 # --- 2. UI Selection ---
 SELECTED_RAW=$(echo "$LIST" | fzf \
+    --style full \
     --height 50% \
     --layout reverse \
     --border \

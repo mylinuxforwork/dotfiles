@@ -81,6 +81,7 @@ fi
 
 # Selection 1: Choose Mode
 MODE_CHOICE=$(echo -e "area\nwindow\nfullscreen" | fzf \
+    --style full \
     --height 15% \
     --layout reverse \
     --border \
@@ -91,6 +92,7 @@ MODE_CHOICE=$(echo -e "area\nwindow\nfullscreen" | fzf \
 
 # Selection 2: Choose Delay
 DELAY_CHOICE=$(echo -e "0s\n2s\n5s\n10s" | fzf \
+    --style full \
     --height 15% \
     --layout reverse \
     --border \

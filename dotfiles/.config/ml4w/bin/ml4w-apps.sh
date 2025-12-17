@@ -43,13 +43,14 @@ fi
 
 # --- 3. UI Selection (Preview Removed) ---
 SELECTED=$(echo "$LIST" | grep . | sort -u | fzf \
+    --style full \
     --delimiter '|' \
     --with-nth '1,2' \
     --height 40% \
     --layout reverse \
     --border \
     --prompt "🚀 Run: " \
-    --header "󰀻  System |   Terminal | 󰏖 Flatpak")
+    --header "󰀻 System | 󰏖 Flatpak |   Terminal")
 
 # --- 4. Launch ---
 if [ -n "$SELECTED" ]; then
