@@ -9,6 +9,7 @@ finder # CLI fuzzy finder
 update # Update package script
 filemanager # Launch yazi (if installed)
 quick # Launch quicklinks CLI
+wallpaper # Launch the wallpaper selector CLI
 system # Launch btop
 v # Neovim
 lock # Lock the screen

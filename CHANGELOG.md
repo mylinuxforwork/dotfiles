@@ -13,6 +13,7 @@ Version 2.9.9.4
 - Terminal CLI: Enter 'system' to launch btop
 - Terminal CLI: Enter 'lock' to lock the screen with hyprlock
 - Terminal CLI: Enter 'quick' to start the quicklinks script
+- Terminal CLI: Enter 'wallpaper' to start the wallpaper selector CLI
 - New screenshot configuration file names (without .sh) in ~/.config/ml4w/settings
 
 Version 2.9.9.3
