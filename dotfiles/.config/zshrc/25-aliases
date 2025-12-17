@@ -24,6 +24,7 @@ alias filemanager='~/.config/ml4w/settings/filemanager'
 alias lock='hyprlock'
 alias clock='tty-clock'
 alias system='~/.config/ml4w/settings/systemmonitor'
+alias quick='~/.config/ml4w/bin/ml4w-quicklinks.sh'
 
 # -----------------------------------------------------
 # ML4W Apps

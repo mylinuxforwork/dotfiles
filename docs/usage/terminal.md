@@ -8,6 +8,7 @@ screenshot # CLI screenshot tool
 finder # CLI fuzzy finder
 update # Update package script
 filemanager # Launch yazi (if installed)
+quick # Launch quicklinks CLI
 system # Launch btop
 v # Neovim
 lock # Lock the screen
