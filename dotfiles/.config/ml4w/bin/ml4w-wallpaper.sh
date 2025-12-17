@@ -44,8 +44,7 @@ SELECTED=$(echo "$LIST" | fzf \
     --border \
     --prompt "🖼️ Select Image: " \
     --header "ENTER to set wallpaper with waypaper" \
-    --preview-window right:50%:wrap \
-    --preview "kitten icat {}"
+    --preview-window right:50%:wrap
     )
 # --- 4. Action ---
 if [ -n "$SELECTED" ]; then
