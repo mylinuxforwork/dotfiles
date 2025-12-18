@@ -2,7 +2,7 @@
 
 <div class="tip custom-block" style="padding-top: 8px">
 
-**An advanced configuration of Hyprland for Arch Linux (limited support for Fedora and openSuse Tumbleweed based distributions). This package includes an installation script to install and setup the required components.**
+**An advanced configuration of Hyprland for Arch Linux and openSuse Tumbleweed (Fedora with limitations). This package includes an installation script to install and setup the required components.**
 
 </div>
 
@@ -34,8 +34,8 @@ The ML4W Dotfiles are tested with the following distributions:
 - Garuda Linux
 - Arco Linux
 - CachyOS
-- Fedora Workstation 42
 - openSuse Tumbleweed
+- Fedora Workstation 43 with limitations
 
 > **For Manjaro users:** Hyprland and required packages are under ongoing development. That's why it could be possible that some packages are not immediately available on Manjaro. But usually, the packages will be published later. Maybe you can install required packages manually.
 

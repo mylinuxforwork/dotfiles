@@ -23,7 +23,7 @@ hero:
 features:
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/807/807262.png" alt="scripts"/>
     title: Easy Installation
-    details: Dotfiles Installer support and setup scripts to install all dependencies for Arch (& Fedora and openSuse with limitations).  
+    details: Dotfiles Installer support and setup scripts to install all dependencies for Arch and openSuse (& Fedora with limitations).  
 
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/16076/16076100.png" alt="theme"/>
     title: Dynamic Themes & Desktop
@@ -34,7 +34,7 @@ features:
     details: Comes with helpful graphical apps to configure your setup, change themes, and tweak your environment.
 
 metaTitle: "The ML4W Dotfiles for Hyprland"
-description: An advanced and full-featured configuration for the dynamic tiling window manager Hyprland including an easy to use installation procedure with the Dotfiles Installer script and full support for for Arch Linux, Fedora and openSuse.
+description: An advanced and full-featured configuration for the dynamic tiling window manager Hyprland including an easy to use installation procedure with the Dotfiles Installer script and full support for for Arch Linux and openSuse (Fedora with limitations).
 ---
 
 <img
@@ -63,7 +63,7 @@ https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
-Setup scripts to install the required dependencies are included for <i class="devicon-archlinux-plain"></i> **Arch, <i class="devicon-fedora-plain"></i> Fedora and <i class="devicon-opensuse-plain"></i> openSuse Tumbleweed**.<br>
+Setup scripts to install the required dependencies are included for <i class="devicon-archlinux-plain"></i> **Arch, <i class="devicon-opensuse-plain"></i> openSuse Tumbleweed** and <i class="devicon-fedora-plain"></i> Fedora.<br>
 For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
 
 </div>

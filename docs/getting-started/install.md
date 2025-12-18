@@ -29,7 +29,7 @@ https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
 
-Setup scripts to install the required dependencies are included for Arch (limited support for Fedora and openSuse Tumbleweed).
+Setup scripts to install the required dependencies are included for Arch and openSuse Tumbleweed (Fedora with limitations).
 
 > [!IMPORTANT]
 > Hyprland Wiki: We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro (not based on Arch/Nix) you might have varying amounts of success. However, since Hyprland is extremely bleeding-edge, point release distros like Pop!_OS, Fedora, Ubuntu, etc. will have major issues running Hyprland. Rolling release distros like openSUSE, Solus ,etc. will likely be fine.
