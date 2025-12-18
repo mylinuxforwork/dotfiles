@@ -2,11 +2,14 @@
 
 <div class="tip custom-block" style="padding-top: 8px">
 
-**An advanced configuration of Hyprland for Arch Linux and Fedora based distributions. This package includes an installation script to install and setup the required components.**
+**An advanced configuration of Hyprland for Arch Linux (limited support for Fedora and openSuse Tumbleweed based distributions). This package includes an installation script to install and setup the required components.**
 
 </div>
 
 ![image](/screen-2994.jpg)
+
+> [!IMPORTANT]
+> Hyprland Wiki: We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro (not based on Arch/Nix) you might have varying amounts of success. However, since Hyprland is extremely bleeding-edge, point release distros like Pop!_OS, Fedora, Ubuntu, etc. will have major issues running Hyprland. Rolling release distros like openSUSE, Solus ,etc. will likely be fine.
 
 > [!NOTE]
 > This Wiki is covering the latest features of the ML4W Dotfiles. Please make sure that the latest version of the ML4W Dotfiles is installed on your system. Follow the installation and update instructions.

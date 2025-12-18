@@ -23,7 +23,7 @@ hero:
 features:
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/807/807262.png" alt="scripts"/>
     title: Easy Installation
-    details: Dotfiles Installer support and setup scripts to install all dependencies for Arch, Fedora and openSuse.  
+    details: Dotfiles Installer support and setup scripts to install all dependencies for Arch (& Fedora and openSuse with limitations).  
 
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/16076/16076100.png" alt="theme"/>
     title: Dynamic Themes & Desktop
