@@ -1,3 +1,8 @@
+Version 2.9.9.5
+--------------------------------------------------------
+- Replace copr for Hyprland on Fedora. Please run the setup script again with the Dotfiles Installer
+- New Glass Center Waybar Theme witn the Workspace Selector in the center.
+
 Version 2.9.9.4
 --------------------------------------------------------
 - Global Theme support: CTRL+ALT+T to open the theme selector
