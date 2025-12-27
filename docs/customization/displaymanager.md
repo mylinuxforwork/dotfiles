@@ -125,7 +125,7 @@ sudo vim /etc/sddm.conf
 
 The section should look something like this:
 
-```sh 
+```ini
 [Theme]
 Current=Nordic-SDDM
 ```
@@ -141,7 +141,7 @@ sudo vim /etc/sddm.conf.d/custom-theme.conf
 ```
 Then, add the following content:
 
-```sh 
+```ini
 [Theme]
 Current=Nordic-SDDM
 ```
