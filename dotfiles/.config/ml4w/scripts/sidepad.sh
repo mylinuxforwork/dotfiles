@@ -14,17 +14,24 @@ launcher=$(cat $HOME/.config/ml4w/settings/launcher)
 # Configuration
 SIDEPAD_PATH="$HOME/.config/sidepad/sidepad"
 SIDEPAD_DATA="$HOME/.config/ml4w/settings/sidepad-active"
+SIDEPAD_POS_FILE="$HOME/.config/ml4w/settings/sidepad-position"
 SIDEPAD_PADS_FOLDER="$HOME/.config/sidepad/pads"
 SIDEPAD_SELECT="$HOME/.config/sidepad/scripts/select.sh"
 
 # Load active sidepad
 SIDEPAD_OPTIONS=""
 SIDEPAD_ACTIVE=$(cat "$SIDEPAD_DATA")
+if [ -f "$SIDEPAD_POS_FILE" ]; then
+    SIDEPAD_POS=$(cat "$SIDEPAD_POS_FILE")
+else
+    SIDEPAD_POS="left"
+fi
 source $SIDEPAD_PADS_FOLDER/$(cat "$SIDEPAD_DATA")
 source $SIDEPAD_PADS_FOLDER/$SIDEPAD_ACTIVE
 echo ":: Current sidepad: $SIDEPAD_ACTIVE"
 echo ":: Current sidepad app: $SIDEPAD_APP"
 echo ":: Current sidepad class: $SIDEPAD_CLASS"
+echo ":: Current sidepad position: $SIDEPAD_POS"
 
 # Select new sidepad with rofi
 select_sidepad() {
@@ -40,7 +47,7 @@ select_sidepad() {
         echo ":: New sidepad: $pad"
 
         # Kill existing sidepad
-        eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --kill"
+        eval "$SIDEPAD_PATH --position '$SIDEPAD_POS' --class '$SIDEPAD_CLASS' --kill"
 
         # Write pad into active data file
         echo "$pad" > "$SIDEPAD_DATA"
@@ -48,22 +55,30 @@ select_sidepad() {
 
         # Init sidepad
         source $SIDEPAD_PADS_FOLDER/$pad
-        eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --init '$SIDEPAD_APP'"
+        eval "$SIDEPAD_PATH --position '$SIDEPAD_POS' --class '$SIDEPAD_CLASS' --init '$SIDEPAD_APP'"
         echo ":: Sidepad switched"
     fi
 }
 
 # Dispatch parameters
 if [[ "$1" == "--init" ]]; then
-    eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --init '$SIDEPAD_APP'"
+    eval "$SIDEPAD_PATH --position '$SIDEPAD_POS' --class '$SIDEPAD_CLASS' --init '$SIDEPAD_APP'"
 elif [[ "$1" == "--hide" ]]; then
-    eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --hide"
+    if [[ "$SIDEPAD_POS" == "left" ]]; then
+        eval "$SIDEPAD_PATH --position '$SIDEPAD_POS' --class '$SIDEPAD_CLASS' --hide"
+    else
+        eval "$SIDEPAD_PATH --position '$SIDEPAD_POS' --class '$SIDEPAD_CLASS' $SIDEPAD_OPTIONS"
+    fi
 elif [[ "$1" == "--test" ]]; then
-    eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --test"
+    eval "$SIDEPAD_PATH --position '$SIDEPAD_POS' --class '$SIDEPAD_CLASS' --test"
 elif [[ "$1" == "--kill" ]]; then
-    eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --kill"
+    eval "$SIDEPAD_PATH --position '$SIDEPAD_POS' --class '$SIDEPAD_CLASS' --kill"
 elif [[ "$1" == "--select" ]]; then
     select_sidepad
 else
-    eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' $SIDEPAD_OPTIONS"
+    if [[ "$SIDEPAD_POS" == "left" ]]; then
+        eval "$SIDEPAD_PATH --position '$SIDEPAD_POS' --class '$SIDEPAD_CLASS' $SIDEPAD_OPTIONS"
+    else
+        eval "$SIDEPAD_PATH --position '$SIDEPAD_POS' --class '$SIDEPAD_CLASS' --hide"
+    fi
 fi
