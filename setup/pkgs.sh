@@ -10,6 +10,7 @@ general=(
     "flatpak"
     "vim"
     "inotify-tools"
+    "gnome-themes-extra"
 )
 
 hyprland=(
