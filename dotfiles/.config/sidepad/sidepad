@@ -8,12 +8,14 @@
 
 # --- Configuration ---
 WINDOW_CLASS="dotfiles-sidepad"
-HIDDEN_LEFT_GAP=10
-VISIBLE_LEFT_GAP=10
+POSITION="left"
+HIDDEN_GAP=10
+VISIBLE_GAP=10
 TARGET_WIDTH=700
 TARGET_WIDTH_MAX=1000
 TOP_GAP=100
 BOTTOM_GAP=100
+PREV_FOCUS_FILE="/tmp/sidepad-prev-focus"
 
 # --- Script Variables ---
 HIDE_REQUESTED=0
@@ -26,8 +28,9 @@ show_help() {
     echo ""
     echo "Options:"
     echo "  --class <name>         Override the window class (Default: $WINDOW_CLASS)"
-    echo "  --hidden-gap <px>      Override the hidden left gap (Default: $HIDDEN_LEFT_GAP)"
-    echo "  --visible-gap <px>     Override the visible left gap (Default: $VISIBLE_LEFT_GAP)"
+    echo "  --position <pos>       Override the position 'left' or 'right' (Default: $POSITION)"
+    echo "  --hidden-gap <px>      Override the hidden gap (Default: $HIDDEN_GAP)"
+    echo "  --visible-gap <px>     Override the visible gap (Default: $VISIBLE_GAP)"
     echo "  --width <px>           Override the target width (Default: $TARGET_WIDTH)"
     echo "  --width-max <px>       Override the maximum target width (Default: $TARGET_WIDTH_MAX)"
     echo "  --top-gap <px>         Override the top gap (Default: $TOP_GAP)"
@@ -88,13 +91,18 @@ while [[ $# -gt 0 ]]; do
             shift; shift
         ;;
 
+        --position)
+            POSITION="$2"
+            shift; shift
+        ;;
+
         --hidden-gap)
-            HIDDEN_LEFT_GAP="$2"
+            HIDDEN_GAP="$2"
             shift; shift
         ;;
 
         --visible-gap)
-            VISIBLE_LEFT_GAP="$2"
+            VISIBLE_GAP="$2"
             shift; shift
         ;;
 
@@ -152,12 +160,13 @@ done
 
 # --- Get Window and Monitor Info ---
 WINDOW_INFO=$(hyprctl clients -j | jq --arg class "$WINDOW_CLASS" '.[] | select(.class == $class)')
-MONITOR_INFO=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true)')
 
 if [ -z "$WINDOW_INFO" ]; then
     echo "Error: Window with class '$WINDOW_CLASS' not found. Is the window open?"
     exit 1
 fi
+
+MONITOR_INFO=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true)')
 
 WINDOW_ADDRESS=$(echo "$WINDOW_INFO" | jq -r '.address')
 WINDOW_WIDTH=$(echo "$WINDOW_INFO" | jq -r '.size[0]')
@@ -165,20 +174,49 @@ WINDOW_HEIGHT=$(echo "$WINDOW_INFO" | jq -r '.size[1]')
 WINDOW_X=$(echo "$WINDOW_INFO" | jq -r '.at[0]')
 WINDOW_Y=$(echo "$WINDOW_INFO" | jq -r '.at[1]')
 MONITOR_HEIGHT=$(echo "$MONITOR_INFO" | jq -r '.height')
+MONITOR_WIDTH=$(echo "$MONITOR_INFO" | jq -r '.width')
+MONITOR_X=$(echo "$MONITOR_INFO" | jq -r '.x')
+MONITOR_Y=$(echo "$MONITOR_INFO" | jq -r '.y')
 
 # --- Main Logic ---
 
+# Determine if window is hidden
+IS_HIDDEN=0
+if [[ "$POSITION" == "right" ]]; then
+    if (( WINDOW_X > MONITOR_X + MONITOR_WIDTH - TARGET_WIDTH || WINDOW_X < MONITOR_X )); then
+        IS_HIDDEN=1
+    fi
+else
+    if (( WINDOW_X < MONITOR_X || WINDOW_X > MONITOR_X + MONITOR_WIDTH )); then
+        IS_HIDDEN=1
+    fi
+fi
+
 # Case 1: --hide flag is used, unconditionally hide the window.
 if [[ "$HIDE_REQUESTED" -eq 1 ]]; then
-    if (( WINDOW_X >= 0 )); then # Only act if it is not already hidden
+    if [[ "$IS_HIDDEN" -eq 0 ]]; then # Only act if it is not already hidden
         echo "--- Hiding window (--hide) ---"
-        PIXELS_TO_MOVE_X=$(( (WINDOW_X * -1) - TARGET_WIDTH + HIDDEN_LEFT_GAP ))
+        if [[ "$POSITION" == "right" ]]; then
+            TARGET_X=$(( MONITOR_X + MONITOR_WIDTH - HIDDEN_GAP ))
+        else
+            TARGET_X=$(( MONITOR_X - TARGET_WIDTH + HIDDEN_GAP ))
+        fi
+        PIXELS_TO_MOVE_X=$(( TARGET_X - WINDOW_X ))
+        
         WIDTH_CHANGE=$(( TARGET_WIDTH - WINDOW_WIDTH ))
-        PIXELS_TO_MOVE_Y=$(( TOP_GAP - WINDOW_Y ))
+        PIXELS_TO_MOVE_Y=$(( MONITOR_Y + TOP_GAP - WINDOW_Y ))
         TARGET_HEIGHT=$(( MONITOR_HEIGHT - TOP_GAP - BOTTOM_GAP ))
         HEIGHT_CHANGE=$(( TARGET_HEIGHT - WINDOW_HEIGHT ))
 
         hyprctl --batch "dispatch resizewindowpixel $WIDTH_CHANGE $HEIGHT_CHANGE,address:$WINDOW_ADDRESS; dispatch movewindowpixel $PIXELS_TO_MOVE_X $PIXELS_TO_MOVE_Y,address:$WINDOW_ADDRESS"
+        
+        # Restore focus
+        if [ -f "$PREV_FOCUS_FILE" ]; then
+            PREV_FOCUS=$(cat "$PREV_FOCUS_FILE")
+            hyprctl dispatch focuswindow address:$PREV_FOCUS
+            rm "$PREV_FOCUS_FILE"
+        fi
+        
         echo "Operation completed."
     else
         echo "Window is already hidden."
@@ -187,36 +225,59 @@ if [[ "$HIDE_REQUESTED" -eq 1 ]]; then
 fi
 
 # Case 2: Window is hidden, so show it.
-if (( WINDOW_X < 0 )); then
+if [[ "$IS_HIDDEN" -eq 1 ]]; then
     echo "--- Showing window ---"
-    PIXELS_TO_MOVE_X=$(( VISIBLE_LEFT_GAP - WINDOW_X ))
+    
+    # Save current focus
+    CURRENT_FOCUS=$(hyprctl activewindow -j | jq -r '.address')
+    if [[ "$CURRENT_FOCUS" != "$WINDOW_ADDRESS" ]]; then
+        echo "$CURRENT_FOCUS" > "$PREV_FOCUS_FILE"
+    fi
+
+    if [[ "$POSITION" == "right" ]]; then
+        TARGET_X=$(( MONITOR_X + MONITOR_WIDTH - TARGET_WIDTH - VISIBLE_GAP ))
+    else
+        TARGET_X=$(( MONITOR_X + VISIBLE_GAP ))
+    fi
+    PIXELS_TO_MOVE_X=$(( TARGET_X - WINDOW_X ))
+
     WIDTH_CHANGE=$(( TARGET_WIDTH - WINDOW_WIDTH ))
-    PIXELS_TO_MOVE_Y=$(( TOP_GAP - WINDOW_Y ))
+    PIXELS_TO_MOVE_Y=$(( MONITOR_Y + TOP_GAP - WINDOW_Y ))
     TARGET_HEIGHT=$(( MONITOR_HEIGHT - TOP_GAP - BOTTOM_GAP ))
     HEIGHT_CHANGE=$(( TARGET_HEIGHT - WINDOW_HEIGHT ))
 
-    hyprctl --batch "dispatch resizewindowpixel $WIDTH_CHANGE $HEIGHT_CHANGE,address:$WINDOW_ADDRESS; dispatch movewindowpixel $PIXELS_TO_MOVE_X $PIXELS_TO_MOVE_Y,address:$WINDOW_ADDRESS"
+    hyprctl --batch "dispatch resizewindowpixel $WIDTH_CHANGE $HEIGHT_CHANGE,address:$WINDOW_ADDRESS; dispatch movewindowpixel $PIXELS_TO_MOVE_X $PIXELS_TO_MOVE_Y,address:$WINDOW_ADDRESS; dispatch focuswindow address:$WINDOW_ADDRESS"
     echo "Operation completed."
 
 # Case 3: Window is visible, so toggle its width and correct its position.
 else
     # Ensure vertical position and height are correct
-    PIXELS_TO_MOVE_Y=$(( TOP_GAP - WINDOW_Y ))
+    PIXELS_TO_MOVE_Y=$(( MONITOR_Y + TOP_GAP - WINDOW_Y ))
     TARGET_HEIGHT=$(( MONITOR_HEIGHT - TOP_GAP - BOTTOM_GAP ))
     HEIGHT_CHANGE=$(( TARGET_HEIGHT - WINDOW_HEIGHT ))
     
-    # Don't move horizontally
-    PIXELS_TO_MOVE_X=0
-
     # Calculate width change
     if (( WINDOW_WIDTH == TARGET_WIDTH )); then
         echo "--- Expanding width to max ---"
         WIDTH_CHANGE=$(( TARGET_WIDTH_MAX - WINDOW_WIDTH ))
+        NEW_WIDTH=$TARGET_WIDTH_MAX
     else
         echo "--- Shrinking width to default ---"
         WIDTH_CHANGE=$(( TARGET_WIDTH - WINDOW_WIDTH ))
+        NEW_WIDTH=$TARGET_WIDTH
     fi
 
-    hyprctl --batch "dispatch resizewindowpixel $WIDTH_CHANGE $HEIGHT_CHANGE,address:$WINDOW_ADDRESS; dispatch movewindowpixel $PIXELS_TO_MOVE_X $PIXELS_TO_MOVE_Y,address:$WINDOW_ADDRESS"
+    # Calculate horizontal move
+    if [[ "$POSITION" == "right" ]]; then
+        # If right aligned, we need to move X to keep right edge constant
+        TARGET_X=$(( MONITOR_X + MONITOR_WIDTH - NEW_WIDTH - VISIBLE_GAP ))
+        PIXELS_TO_MOVE_X=$(( TARGET_X - WINDOW_X ))
+    else
+        # If left aligned, X stays same (or we enforce VISIBLE_GAP)
+        TARGET_X=$(( MONITOR_X + VISIBLE_GAP ))
+        PIXELS_TO_MOVE_X=$(( TARGET_X - WINDOW_X ))
+    fi
+
+    hyprctl --batch "dispatch resizewindowpixel $WIDTH_CHANGE $HEIGHT_CHANGE,address:$WINDOW_ADDRESS; dispatch movewindowpixel $PIXELS_TO_MOVE_X $PIXELS_TO_MOVE_Y,address:$WINDOW_ADDRESS; dispatch focuswindow address:$WINDOW_ADDRESS"
     echo "Operation completed."
 fi
