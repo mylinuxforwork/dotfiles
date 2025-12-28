@@ -92,6 +92,10 @@ while [[ $# -gt 0 ]]; do
         ;;
 
         --position)
+            if [[ "$2" != "left" && "$2" != "right" ]]; then
+                echo "Error: --position must be either 'left' or 'right' (got '$2')." >&2
+                exit 1
+            fi
             POSITION="$2"
             shift; shift
         ;;
@@ -213,7 +217,10 @@ if [[ "$HIDE_REQUESTED" -eq 1 ]]; then
         # Restore focus
         if [ -f "$PREV_FOCUS_FILE" ]; then
             PREV_FOCUS=$(cat "$PREV_FOCUS_FILE")
-            hyprctl dispatch focuswindow address:$PREV_FOCUS
+            if [[ -n "$PREV_FOCUS" ]]; then
+                # Suppress errors in case the previous window no longer exists or the address is invalid
+                hyprctl dispatch focuswindow address:"$PREV_FOCUS" 2>/dev/null || true
+            fi
             rm "$PREV_FOCUS_FILE"
         fi
         

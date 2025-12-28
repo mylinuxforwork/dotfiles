@@ -26,7 +26,6 @@ if [ -f "$SIDEPAD_POS_FILE" ]; then
 else
     SIDEPAD_POS="left"
 fi
-source $SIDEPAD_PADS_FOLDER/$(cat "$SIDEPAD_DATA")
 source $SIDEPAD_PADS_FOLDER/$SIDEPAD_ACTIVE
 echo ":: Current sidepad: $SIDEPAD_ACTIVE"
 echo ":: Current sidepad app: $SIDEPAD_APP"
@@ -65,8 +64,10 @@ if [[ "$1" == "--init" ]]; then
     eval "$SIDEPAD_PATH --position '$SIDEPAD_POS' --class '$SIDEPAD_CLASS' --init '$SIDEPAD_APP'"
 elif [[ "$1" == "--hide" ]]; then
     if [[ "$SIDEPAD_POS" == "left" ]]; then
+        # Hide left sidepad
         eval "$SIDEPAD_PATH --position '$SIDEPAD_POS' --class '$SIDEPAD_CLASS' --hide"
     else
+        # Show right sidepad
         eval "$SIDEPAD_PATH --position '$SIDEPAD_POS' --class '$SIDEPAD_CLASS' $SIDEPAD_OPTIONS"
     fi
 elif [[ "$1" == "--test" ]]; then
