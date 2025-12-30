@@ -18,12 +18,12 @@ If possible, please create a snapshot of your current system if snapper or Times
 
 Copy the following url into the Dotfiles Installer.
 
-#### Stable Release
+#### Stable Release (for Hyprland 0.52.x)
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable.dotinst
 ```
-#### Rolling Release
+#### Rolling Release (for Hyprland 0.53.x)
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
