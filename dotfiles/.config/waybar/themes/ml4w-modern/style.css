@@ -80,7 +80,8 @@ window#waybar {
 
 tooltip {
     border-radius: 10px;
-    background-color: @background;
+    background-color: @surface;
+    border: 2px solid @border_color;
     padding: 5px;
     margin: 0px;
 }

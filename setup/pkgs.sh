@@ -5,10 +5,12 @@ general=(
     "git"
     "rsync"
     "unzip"
+    "tar"
     "jq"
     "flatpak"
     "vim"
     "inotify-tools"
+    "gnome-themes-extra"
 )
 
 hyprland=(
@@ -51,4 +53,5 @@ tools=(
     "grim"
     "breeze"
     "playerctl"
+    "btop"
 )

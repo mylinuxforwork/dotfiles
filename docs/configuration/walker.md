@@ -13,6 +13,7 @@ yay -S elephant
 yay -S elephant-desktopapplications
 yay -S elephant-files
 yay -S elephant-menus
+yay -S elephant-clipboard
 ```
 
 ```bash
@@ -48,6 +49,10 @@ sudo make install
 
 # Provider files
 cd ~/Downloads/elephant/internal/providers/files
+sudo make install
+
+# Provider clipboard
+cd ~/Downloads/elephant/internal/providers/clipboard
 sudo make install
 
 ```

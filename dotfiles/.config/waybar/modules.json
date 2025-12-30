@@ -376,12 +376,15 @@
   },
   // Bluetooth
   "bluetooth": {
-    "format": " {status}",
-    "format-disabled": "",
-    "format-off": "",
-    "interval": 30,
-    "on-click": "sleep 0.1 && ~/.config/ml4w/settings/bluetooth.sh",
-    "format-no-controller": ""
+  "format": " {status}",
+  "format-disabled": "",
+  "format-off": "",
+  "interval": 30,
+  "on-click": "sleep 0.1 && ~/.config/ml4w/settings/bluetooth.sh",
+  "tooltip-format-connected": "Connected devices: {num_connections} connected\n\n{device_enumerate}",
+  "tooltip-format-enumerate-connected": "{device_alias}",
+  "tooltip-format-enumerate-connected-battery": "{device_alias}\t| Battery life: {device_battery_percentage}%",
+  "format-no-controller": ""
   },
   // Other
   "user": {

@@ -3,6 +3,10 @@
 # Cursors
 # --------------------------------------------------------------
 
+# --------------------------------------------------------------
+# Bibata Cursors
+# --------------------------------------------------------------
+
 download_folder="$HOME/Downloads/bibata-cursors"
 bibata_url="https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/"
 
@@ -36,3 +40,23 @@ tar -xf $download_folder/Bibata-Modern-Ice.tar.xz -C ~/.local/share/icons/
 if [ -d $download_folder ]; then
     rm -rf $download_folder
 fi
+
+# --------------------------------------------------------------
+# Arc Cursors
+# --------------------------------------------------------------
+
+if [ -d ~/.local/share/icons/ArcAurora-cursors ]; then
+    rm -rf ~/.local/share/icons/ArcAurora-cursors
+fi
+
+if [ -d ~/.local/share/icons/ArcDusk-cursors ]; then
+    rm -rf ~/.local/share/icons/ArcDusk-cursors
+fi
+
+if [ -d ~/.local/share/icons/ArcStarry-cursors ]; then
+    rm -rf ~/.local/share/icons/ArcStarry-cursors
+fi
+
+unzip $SCRIPT_DIR/cursors/ArcAurora-cursors.zip -d ~/.local/share/icons/
+unzip $SCRIPT_DIR/cursors/ArcDusk-cursors.zip -d ~/.local/share/icons/
+unzip $SCRIPT_DIR/cursors/ArcStarry-cursors.zip -d ~/.local/share/icons/
