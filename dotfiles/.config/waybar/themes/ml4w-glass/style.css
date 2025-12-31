@@ -29,7 +29,7 @@ window#waybar {
     opacity:0.8;
     padding:0px;
     margin:10px;
-    box-shadow: 0 0 6 @shadow;
+    box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.2);
 }
 
 .modules-right {
@@ -41,7 +41,7 @@ window#waybar {
     opacity:0.8;
     padding:0px;
     margin:10px;
-    box-shadow: 0 0 6 @shadow;
+    box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.3);
 }
 
 .modules-center {
@@ -52,7 +52,7 @@ window#waybar {
     border: 1px solid transparent;	
     opacity:0.8;
     margin:10px;
-    box-shadow: 0 0 6 @shadow;
+    box-shadow: inset 0px 2px 2px rgba(255, 255, 255, 0.2);
 }
 
 label.module {
@@ -84,22 +84,30 @@ label.module:hover {
 
 #workspaces {
     padding: 5px 3px 5px 3px;
+    min-width: 180px;
 }
 
 #workspaces button {
-    border-radius: 8px;
+    color: @on_surface;
+    border-radius: 6px;
     padding:0px 5px 0px 5px;
     margin:0px 2px 0px 2px;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent;
 }
 
 #workspaces button.active {
-    background:@primary;
-    color:@on_primary;
+    background:alpha(@primary,0.2);
+    border: 1px solid transparent;
+    transition: all 0.3s ease-in-out;
+    min-width: 30px;
+    border-radius: 12px;
+    box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.8);
 }
 
 #workspaces button:hover {
-    background:@primary;
-    color:@on_primary;
+    background:alpha(@secondary,0.2);
+    border-radius: 15px;
 }
 
 /* -----------------------------------------------------
