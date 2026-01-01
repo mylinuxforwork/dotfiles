@@ -128,9 +128,20 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 
 source $SCRIPT_DIR/_prebuilt.sh
 
+# --------------------------------------------------------------
+# Install eza
+# --------------------------------------------------------------
+
 echo "Installing eza"
 sudo zypper ar https://download.opensuse.org/tumbleweed/repo/oss/ factory-oss
 sudo zypper -n install eza
+
+# --------------------------------------------------------------
+# Install swww
+# --------------------------------------------------------------
+
+sudo zypper addrepo https://download.opensuse.org/repositories/X11:Wayland/openSUSE_Tumbleweed/X11:Wayland.repo
+sudo zypper -n install swww
 
 # --------------------------------------------------------------
 # Install waypaper dependencies before using pip
@@ -183,6 +194,12 @@ source $SCRIPT_DIR/_fonts.sh
 # --------------------------------------------------------------
 
 source $SCRIPT_DIR/_icons.sh
+
+# --------------------------------------------------------------
+# Create XDG Directories
+# --------------------------------------------------------------
+
+xdg-user-dirs-update
 
 # --------------------------------------------------------------
 # Finish

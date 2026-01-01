@@ -3,4 +3,4 @@
 # Flatpaks
 # --------------------------------------------------------------
 
-flatpak install -y flathub com.github.PintaProject.Pinta
+# flatpak install -y flathub com.github.PintaProject.Pinta

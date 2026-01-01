@@ -1,11 +1,37 @@
+Version 2.9.9.5
+--------------------------------------------------------
+- New windowrule syntac required for Hyprland 0.53.x
+- swww is the new default wallpaper engine
+- Replace copr for Hyprland on Fedora. Please run the setup script again with the Dotfiles Installer
+- New Glass Center Waybar Theme witn the Workspace Selector in the center.
+
+Version 2.9.9.4
+--------------------------------------------------------
+- Global Theme support: CTRL+ALT+T to open the theme selector
+- New global glass theme
+- New Animation Smooth: You can select it in the Settings app.
+- Dock Auto-hide can be activated by adding a file dock-autohide into .config/ml4w/settings (BETA)
+- New Default Cursor Theme ArcAurora with two additional variants
+- Terminal CLI: Enter 'apps' to launch the launcher script
+- Terminal CLI: Enter 'screenshot' to launch the screenshot script
+- Terminal CLI: Enter 'finder' to launch a fuzzy finder script
+- Terminal CLI: Enter 'updates' to launch the update script
+- Terminal CLI: Enter 'filemanager' to launch yazi (to be installed separately)
+- Terminal CLI: Enter 'system' to launch btop
+- Terminal CLI: Enter 'lock' to lock the screen with hyprlock
+- Terminal CLI: Enter 'quick' to start the quicklinks script
+- Terminal CLI: Enter 'wallpaper' to start the wallpaper selector CLI
+- New screenshot configuration file names (without .sh) in ~/.config/ml4w/settings
+
 Version 2.9.9.3
 --------------------------------------------------------
 - New Default icons Colloid
 - Improved Waybar modern theme and new minimal version
 - Reduced border size to 2px
 - Border size of NWG Dock Hyprland can be modified in ~/.config/ml4w/settings/dock-border.css
-- Walker can be optionally activated as system-wide launcher (except screenshot). http://localhost:5173/dotfiles/configuration/walker
+- Walker can be optionally activated as system-wide launcher (except screenshot). https://mylinuxforwork.github.io/dotfiles/configuration/walker
 - New default wallpaper
+- Arch setup script checks for installed AUR helper (yay or paru)
 
 Version 2.9.9.2
 --------------------------------------------------------

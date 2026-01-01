@@ -11,8 +11,11 @@ else
     elephant &
 fi
 
+# Get walker theme
+walker_theme=$(cat $HOME/.config/ml4w/settings/walker-theme)
+
 # Send this diagnostic message to Standard Error (2>&1)
 echo ":: Launching walker with arguments: $* ::" >&2
 
 # Execute the walker command. Its output will go to stdout.
-walker "$@"
+walker -t $walker_theme "$@"

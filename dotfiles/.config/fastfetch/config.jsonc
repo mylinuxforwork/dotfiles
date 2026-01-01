@@ -26,7 +26,13 @@
             "format": "{host-name}"
         },
         {
-            "key": "│ {#33}󰅐 uptime  {#keys}│",
+          "type": "command",
+          "key": "│ {#33}󱦟 os age  {#keys}|",
+          "keyColor": "magenta",
+          "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
+        },
+        {
+            "key": "│ {#34}󰅐 uptime  {#keys}│",
             "type": "uptime"
         },
         {
