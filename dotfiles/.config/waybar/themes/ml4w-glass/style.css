@@ -84,12 +84,12 @@ label.module:hover {
 
 #workspaces {
     padding: 5px 3px 5px 3px;
-    min-width: 180px;
+    min-width: 174px;
 }
 
 #workspaces button {
     color: @on_surface;
-    border-radius: 6px;
+    border-radius: 3px;
     padding:0px 5px 0px 5px;
     margin:0px 2px 0px 2px;
     transition: all 0.3s ease-in-out;
@@ -101,7 +101,7 @@ label.module:hover {
     border: 1px solid transparent;
     transition: all 0.3s ease-in-out;
     min-width: 30px;
-    border-radius: 12px;
+    border-radius: 8px;
     box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.8);
 }
 
