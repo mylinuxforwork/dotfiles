@@ -49,6 +49,7 @@ packages=(
     # Fonts
     "otf-font-awesome"
     "ttf-firacode-nerd"
+    "ttf-jetbrains-mono-nerd"
     "tty-clock"
     "swww"
 )

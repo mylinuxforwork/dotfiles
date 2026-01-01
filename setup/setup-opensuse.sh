@@ -144,6 +144,13 @@ sudo zypper addrepo https://download.opensuse.org/repositories/X11:Wayland/openS
 sudo zypper -n install swww
 
 # --------------------------------------------------------------
+# JetBrains Mono Nerd Font
+# --------------------------------------------------------------
+
+sudo zypper addrepo https://download.opensuse.org/repositories/X11:fonts/openSUSE_Factory/X11:fonts.repo
+sudo zypper -n install jetbrainsmono-nerd-fonts
+
+# --------------------------------------------------------------
 # Install waypaper dependencies before using pip
 # --------------------------------------------------------------
 

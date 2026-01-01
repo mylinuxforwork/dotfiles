@@ -39,6 +39,7 @@ packages=(
     "SwayNotificationCenter"
     # Fonts
     "fontawesome-fonts"
+    "nerd-fonts-JetBrainsMono"
 )
 
 _isInstalled() {
@@ -96,6 +97,7 @@ sudo dnf copr enable --assumeyes peterwu/rendezvous
 sudo dnf copr enable --assumeyes wef/cliphist
 sudo dnf copr enable --assumeyes wef/swww
 sudo dnf copr enable --assumeyes tofik/nwg-shell
+sudo dnf copr enable --assumeyes che/nerd-fonts
 sudo dnf copr enable --assumeyes erikreider/SwayNotificationCenter
 
 # --------------------------------------------------------------
