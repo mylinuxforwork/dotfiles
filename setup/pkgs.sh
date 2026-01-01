@@ -27,7 +27,7 @@ apps=(
     "vlc"
     "nwg-dock-hyprland"
     "waybar"
-    "rofi-wayland"
+    "rofi"
     "nwg-look"
     "pavucontrol"
     "neovim"
