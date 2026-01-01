@@ -1,6 +1,6 @@
 {
 	"name": "ML4W Dotfiles for Hyprland (STABLE RELEASE)",
-	"id": "com.ml4w.dotfiles.stable",
+	"id": "com.ml4w.dotfiles.stable.052",
 	"description": "Advanced configuration for the dynamic tiling window manager Hyprland",
 	"version":"2.9.9.4",
 	"author": "Stephan Raabe",
