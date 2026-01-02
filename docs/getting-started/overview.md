@@ -6,7 +6,7 @@
 
 </div>
 
-![image](/screen-2994.jpg)
+![image](/dotfiles2995.jpg)
 
 > [!IMPORTANT]
 > Hyprland Wiki: We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro (not based on Arch/Nix) you might have varying amounts of success. However, since Hyprland is extremely bleeding-edge, point release distros like Pop!_OS, Fedora, Ubuntu, etc. will have major issues running Hyprland. Rolling release distros like openSUSE, Solus ,etc. will likely be fine.
@@ -35,7 +35,7 @@ The ML4W Dotfiles are tested with the following distributions:
 - Arco Linux
 - CachyOS
 - openSuse Tumbleweed
-- Fedora Workstation 43 with limitations
+- Fedora Workstation 43
 
 > **For Manjaro users:** Hyprland and required packages are under ongoing development. That's why it could be possible that some packages are not immediately available on Manjaro. But usually, the packages will be published later. Maybe you can install required packages manually.
 

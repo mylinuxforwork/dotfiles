@@ -23,11 +23,11 @@ hero:
 features:
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/807/807262.png" alt="scripts"/>
     title: Easy Installation
-    details: Dotfiles Installer support and setup scripts to install all dependencies for Arch and openSuse (& Fedora with limitations).  
+    details: Dotfiles Installer support and setup scripts included to install all dependencies for Arch Linux (recommended), Fedora and openSuse Tumbleweed.  
 
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/16076/16076100.png" alt="theme"/>
     title: Dynamic Themes & Desktop
-    details: Experience a complete desktop with Hyprland, adaptive material themes, and deep customization via dotfiles.
+    details: Experience a complete desktop with Hyprland, adaptive material themes, dark & light mode. and deep customization via dotfiles and UI tools.
 
   - icon: <img width="35" height="35" src="https://cdn-icons-png.flaticon.com/128/3815/3815573.png" alt="configuration"/>
     title: Many Customization Options
@@ -38,7 +38,7 @@ description: An advanced and full-featured configuration for the dynamic tiling 
 ---
 
 <img
-  src="/screen-2994.jpg"
+  src="/dotfiles2995.jpg"
   alt="preview"
   style="max-width: 900px; width: 100%; border-radius: 12px; margin: 2rem auto; display: block;"
 />
@@ -53,7 +53,7 @@ You can install the ML4W Dotfiles for Hyprland with the Dotfiles Installer avail
 
 Copy the following url into the Dotfiles Installer and start the installation.
 
-#### Stable Release (for Hyprland 0.52.x)
+#### Stable Release (for Hyprland 0.53.x)
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable.dotinst
@@ -63,6 +63,13 @@ https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
+
+#### Stable Release 2.9.9.4 (for Hyprland 0.52.x)
+
+```sh
+https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable-hyprland-0.52.dotinst
+```
+
 Setup scripts to install the required dependencies are included for <i class="devicon-archlinux-plain"></i> **Arch, <i class="devicon-opensuse-plain"></i> openSuse Tumbleweed** and <i class="devicon-fedora-plain"></i> Fedora.<br>
 For other distros, please install <a href="/dotfiles/getting-started/dependencies">the dependencies</a> first.
 

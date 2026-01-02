@@ -94,7 +94,6 @@ export default {
             { text: "Launch Hyprland", link: "/usage/launch" },
             { text: "Update", link: "/getting-started/update" },
             { text: "Uninstall", link: "/getting-started/uninstall" },
-            { text: "Migration", link: "/getting-started/migrate" },
             { text: "Dependencies", link: "/getting-started/dependencies" },
           ],
         },
