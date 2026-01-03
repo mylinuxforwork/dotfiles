@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="smb://nas.lan/" added="2025-12-26T20:55:20.141873Z" modified="2025-12-26T20:55:20.141887Z" visited="2025-12-26T20:55:20.141880Z">
+    <title>Windows shares on nas.lan</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2025-12-26T20:55:20.141884Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://nas.lan/public/" added="2025-12-26T23:53:26.784036Z" modified="2025-12-26T23:53:26.784057Z" visited="2025-12-26T23:53:26.784047Z">
+    <title>public on nas.lan</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2025-12-26T23:53:26.784051Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>
