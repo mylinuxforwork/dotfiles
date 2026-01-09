@@ -30,7 +30,6 @@ window {
 	background: url("../../../../.cache/ml4w/hyprland-dotfiles/blurred_wallpaper.png");
 	background-size: cover;
 	font-size: 16pt;
-
 }
 
 button {
@@ -44,6 +43,9 @@ button {
 	transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 	color: @foreground;
 	background-color: transparent;
+	margin: 10px; 
+    min-width: 150px;
+    min-height: 150px;		
 }
 
 button:focus {
