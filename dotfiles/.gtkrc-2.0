@@ -4,7 +4,7 @@
 include "/home/raabe/.gtkrc-2.0.mine"
 gtk-theme-name="Adwaita"
 gtk-icon-theme-name="Colloid"
-gtk-font-name="Cantarell 11"
+gtk-font-name="Fira Sans 11"
 gtk-cursor-theme-name="Bibata-Modern-Ice"
 gtk-cursor-theme-size=24
 gtk-toolbar-style=GTK_TOOLBAR_ICONS
