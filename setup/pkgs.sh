@@ -52,5 +52,6 @@ tools=(
     "gvfs"
     "grim"
     "breeze"
+    "playerctl"
     "btop"
 )
