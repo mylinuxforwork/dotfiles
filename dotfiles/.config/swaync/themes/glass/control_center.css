@@ -3,12 +3,12 @@
 
 /* === Derived dynamic colors === */
 @define-color base alpha(@surface, 0.5);
-@define-color surface_custom alpha(@surface_container_high,0.8);
-@define-color hovercolor alpha(@surface_container_high,0.8);
+@define-color surface_custom alpha(@surface_container_high,1);
+@define-color hovercolor alpha(@surface_container_high,1);
 @define-color activecolor @primary_container;
 
-@define-color buttoncolor alpha(@inverse_primary,0.3);
-@define-color hoverbutton alpha(@inverse_primary,0.5);
+@define-color buttoncolor alpha(@inverse_primary,0.5);
+@define-color hoverbutton alpha(@inverse_primary,0.7);
 @define-color activebutton @inverse_primary;
 
 @define-color bordercolor @primary;
@@ -23,11 +23,11 @@
   font-family: "Fira Sans Semibold", "Font Awesome 7 Free",
   "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands",
   FontAwesome;
-  transition: 200ms;
+  transition: 250ms;
 }
 
 #window {
-    padding:20px;
+    padding:40px;
 
 }
 
@@ -50,31 +50,54 @@
   border-radius: 0px;
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button {
+.widget-buttons-grid button {
   margin: 7px 7px 7px 7px;
-  padding: 1.3rem 4rem;
+  padding: 1rem 1.9rem;
   background: @buttoncolor;
   color: @on_primary_fixed;
   border-radius: 8px;
   border: 2px solid @bordercolor;
-  font-size: 15em;
+  font-size: 5em;
+  transition: all 0.2s ease-in-out;
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+.widget-buttons-grid button:hover {
   background: @hoverbutton;
   color: @text;
+  border-radius: 20px;
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+.widget-buttons-grid button.toggle:checked {
   background: @activebutton;
   color: @on_primary;
+  border-radius: 15px;
+}
+
+.widget-buttons-grid label {
+  font-size: 19px;
+  transition: all 0.2s ease-in-out;
+}
+
+.widget-buttons-grid button:hover label {
+  transform: scale(0.8)
+}
+
+.widget-buttons-grid button:checked label {
+  transform: scale(0.8)
 }
 
 /* === Brightness === */
-.widget-backlight,
 .widget-volume {
   padding: 12px 16px;
-  margin: 0px 12px 12px 12px;
+  margin: 0px 12px 20px 12px;
+  border-radius: 8px;
+  background: @surface_custom;
+}
+
+
+.widget-backlight {
+  padding: 12px 16px;
+  margin: 7px 12px 20px 12px;
   border-radius: 8px;
   background: @surface_custom;
 }
@@ -91,6 +114,14 @@
   background: @primary;
   border: 2px solid @primary;
   border-radius: 5px;
+}
+
+.widget-volume label {
+  font-size: 14px;
+}
+
+.widget-backlight label {
+  font-size: 20px;
 }
 
 /* === Music Player === */
@@ -153,45 +184,55 @@
 }
 
 .widget-title button {
-  background: @surface_container;
+  background: @surface_custom;
   border-radius: 8px;
   padding: 4px 16px;
 }
 
 .widget-title button:hover {
   background: @hovercolor;
+  background: alpha(@primary,0.3);
+  border-radius: 15px;
 }
 
 /* === Do Not Disturb === */
 
 .widget-dnd {
-  margin: 5px 12px 0px 12px;
+  margin: 15px 15px 5px 12px;
 }
 
 .widget-dnd > switch {
   color: @text;
-  background: @buttoncolor;
+  background: @hovercolor;
   border-radius: 5px;
   box-shadow: none;
 }
 
 .widget-dnd > switch:hover {
-  background: @hovercolor;
+  background: @buttoncolor;
+  border-radius: 10px;
 }
 
 .widget-dnd > switch:checked {
   background: @buttoncolor;
   color: @on_primary;
+  border-radius: 7px;
 }
 
 .widget-dnd > switch slider {
-  background: @secondary;
+  background: @bordercolor;
   border-radius: 5px;
+  border: 2px solid @buttoncolor;
+}
+
+.widget-dnd > switch:hover slider {
+  border-radius: 10px;
   border: 2px solid @buttoncolor;
 }
 
 .widget-dnd > switch:checked slider {
   background: @inverse_primary;
+  border-radius: 7px;
 }
 
 /* === Notifications === */
@@ -206,14 +247,20 @@
 }
 
 .control-center .notification-row .notification-background .close-button {
-  background-color: @hoverbutton;
-  border-radius: 5px;
+  background-color: alpha(@hoverbutton,0.5);
+  border-radius: 8px;
   color: @text;
-  padding: 5px;
+  padding: 3px;
+  margin: 12px 2px;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
-  background-color: @activecolor;
+   border-radius: 12px;
+}
+
+.control-center .notification-content .time {
+  font-size: 0.7em;
+  margin: 10px 15px;
 }
 
 /* === Progress Bars === */

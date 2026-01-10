@@ -1,0 +1,48 @@
+@import url("../../colors.css");
+@import url("../../../ml4w/settings/dock-border.css");
+
+window {
+    padding: 10px; 
+    background:transparent;
+    color: white;
+	opacity: 0.8;
+	border: 1px solid transparent;	
+  	border-radius: 1em;
+	margin:10px;
+    box-shadow: inset 2px 2px 14px rgba(255, 255, 255, 0.6), inset 0 1px 2px 0px rgba(255, 255, 255, 0.6), inset 1px 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+#box {
+  	/* Define attributes of the box surrounding icons here */
+  	padding: 8px;
+}
+
+#active {
+	/* This is to underline the button representing the currently active window */
+	border-bottom: solid 0px;
+	border-color: @primary;
+}
+
+button, image {
+	background: none;
+	border-style: none;
+	box-shadow: none;
+	color: @primary;
+}
+
+button {
+	padding: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+	color: @primary;
+	font-size: 12px
+}
+
+button:hover {
+	background-color: @primary_container;
+	border-radius: 10px;
+}
+
+button:focus {
+	box-shadow: none;
+}

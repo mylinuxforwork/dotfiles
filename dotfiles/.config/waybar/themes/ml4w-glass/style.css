@@ -29,8 +29,7 @@ window#waybar {
     opacity:0.8;
     padding:0px;
     margin:10px;
-    box-shadow: 1 1 5 1px @shadow;
-    -webkit-backdrop-filter: blur(2.4px);
+    box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.2);
 }
 
 .modules-right {
@@ -42,8 +41,7 @@ window#waybar {
     opacity:0.8;
     padding:0px;
     margin:10px;
-    -webkit-backdrop-filter: blur(2.4px);
-    box-shadow: 1 1 5 1px @shadow;
+    box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.3);
 }
 
 .modules-center {
@@ -54,8 +52,7 @@ window#waybar {
     border: 1px solid transparent;	
     opacity:0.8;
     margin:10px;
-    box-shadow: 1 1 5 1px @shadow;    
-    -webkit-backdrop-filter: blur(70px);
+    box-shadow: inset 0px 2px 2px rgba(255, 255, 255, 0.2);
 }
 
 label.module {
@@ -86,23 +83,31 @@ label.module:hover {
  * ----------------------------------------------------- */
 
 #workspaces {
-    padding: 5px 5px 5px 0px;
+    padding: 5px 3px 5px 3px;
+    min-width: 176px;
 }
 
 #workspaces button {
-    border-radius: 6px;
+    color: @on_surface;
+    border-radius: 3px;
     padding:0px 5px 0px 5px;
     margin:0px 2px 0px 2px;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent;
 }
 
 #workspaces button.active {
-    background:@primary;
-    color:@on_primary;
+    background:alpha(@primary,0.2);
+    border: 1px solid transparent;
+    transition: all 0.3s ease-in-out;
+    min-width: 30px;
+    border-radius: 8px;
+    box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.8);
 }
 
 #workspaces button:hover {
-    background:@primary;
-    color:@on_primary;
+    background:alpha(@secondary,0.2);
+    border-radius: 15px;
 }
 
 /* -----------------------------------------------------
@@ -226,15 +231,15 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-updates.yellow {
-    border-radius: 20px;
+    border-radius: 8px;
     margin:5px 0px 5px 5px;
-    padding:0px 4px 0px 4px;
+    padding:0px 6px 0px 6px;
     background-color: @secondary;
     color: @on_secondary;
 }
 
 #custom-updates.red {
-    border-radius: 6px;
+    border-radius: 8px;
     margin:6px 0px 6px 7px;
     padding:0px 6px 0px 6px;
     background-color: @error;

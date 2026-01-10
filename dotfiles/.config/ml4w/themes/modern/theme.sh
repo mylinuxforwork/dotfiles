@@ -23,7 +23,7 @@ echo 'rofi' > $HOME/.config/ml4w/settings/launcher
 echo 'modern' > $HOME/.config/ml4w/settings/walker-theme
 
 # Set Window Border
-echo 'source = ~/.config/hypr/conf/windows/default.conf' > $HOME/.config/hypr/conf/window.conf
+echo 'source = ~/.config/hypr/conf/windows/border-2.conf' > $HOME/.config/hypr/conf/window.conf
 
 # Set rofi
 echo '* { border-width: 2px; }' > $HOME/.config/ml4w/settings/rofi-border.rasi

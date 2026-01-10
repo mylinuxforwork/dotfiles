@@ -28,7 +28,7 @@ export default {
         activeMatch: "/showcases/",
       },
      {
-        text: "2.9.9.3",
+        text: "2.9.9.5",
         items: [
           {
             text: 'Changelog',
@@ -94,7 +94,6 @@ export default {
             { text: "Launch Hyprland", link: "/usage/launch" },
             { text: "Update", link: "/getting-started/update" },
             { text: "Uninstall", link: "/getting-started/uninstall" },
-            { text: "Migration", link: "/getting-started/migrate" },
             { text: "Dependencies", link: "/getting-started/dependencies" },
           ],
         },
@@ -111,6 +110,7 @@ export default {
             { text: "Switch SDL (X11/Wayland)", link: "/configuration/xwayland" },
             { text: "Keybindings", link: "/usage/keybindings" },
             { text: "Sidepad", link: "/usage/sidepad" },
+            { text: "Terminal CLI", link: "/usage/terminal" },
             { text: "Screenshots", link: "/usage/screenshots" },
             { text: "Game Mode", link: "/usage/game-mode" },
             { text: "Activate Walker", link: "/configuration/walker" },
@@ -122,6 +122,7 @@ export default {
           items: [
             { text: "Dotfiles Customization", link: "/customization/dotfiles" },
             { text: "Wallpapers", link: "/usage/wallpapers" },
+            { text: "Global Themes", link: "/usage/themes" },
             { text: "Config Variants", link: "/customization/variants" },
             { text: "Customize Waybar", link: "/customization/waybar" },
             { text: "Preserve your Customization", link: "/configuration/preserve-config" },

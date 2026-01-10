@@ -49,7 +49,7 @@ cliphist
 nwg-look
 qt6ct
 waybar
-rofi-wayland
+rofi
 polkit-gnome
 zsh
 zsh-completions

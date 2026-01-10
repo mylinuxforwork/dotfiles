@@ -2,7 +2,7 @@
 
 An advanced configuration of Hyprland for Arch Linux based distributions. Full featured desktop environment based on the dynamic tiling window manager Hyprland with adaptive material color themes based on the selected wallpaper for all components. Including a comprehensive selection of apps with the ability to customize the configuration to your personal needs.
 
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/23647579-62b3-401d-ba4f-21e3f175fec2" />
+![dotfiles2995](https://github.com/user-attachments/assets/fb3e92ee-ea5a-4950-b1aa-b074698b17fe)
 
 ## Installation and Documentation
 
@@ -14,16 +14,23 @@ You can install the ML4W Dotfiles for Hyprland with the Dotfiles Installer (Avai
 
 Copy the following url into the Dotfiles Installer and start the installation.
 
-#### Stable Release
+#### Stable Release (for Hyprland 0.53.x)
 
 ```
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable.dotinst
 ```
-#### Rolling Release
+#### Rolling Release (for Hyprland 0.53.x)
 
 ```
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
+
+#### Stable Release 2.9.9.4 (for Hyprland 0.52.x)
+
+```
+https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable-hyprland-0.52.dotinst
+```
+
 Setup scripts to install the required dependencies are included for <i class="devicon-archlinux-plain"></i> **Arch, <i class="devicon-fedora-plain"></i> Fedora and <i class="devicon-opensuse-plain"></i> openSuse Tumbleweed**.<br>
 For other distros, please install <a href="https://mylinuxforwork.github.io/dotfiles/getting-started/dependencies" target="_blank">the dependencies</a> first.
 

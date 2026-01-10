@@ -18,18 +18,27 @@ If possible, please create a snapshot of your current system if snapper or Times
 
 Copy the following url into the Dotfiles Installer.
 
-#### Stable Release
+#### Stable Release (for Hyprland 0.53.x)
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable.dotinst
 ```
-#### Rolling Release
+#### Rolling Release (for Hyprland 0.53.x)
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
 ```
 
-Setup scripts to install the required dependencies are included for Arch, Fedora and openSuse Tumbleweed. 
+#### Stable Release 2.9.9.4 (for Hyprland 0.52.x)
+
+```sh
+https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable-hyprland-0.52.dotinst
+```
+
+Setup scripts to install the required dependencies are included for Arch Linux (recommended), Fedora and openSuse Tumbleweed.
+
+> [!IMPORTANT]
+> From Hyprland Wiki: We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro (not based on Arch/Nix) you might have varying amounts of success. However, since Hyprland is extremely bleeding-edge, point release distros like Pop!_OS, Fedora, Ubuntu, etc. will have major issues running Hyprland. Rolling release distros like openSUSE, Solus ,etc. will likely be fine.
 
 The installation of dependencies can take between 5 to 15 minutes depending on your internet connection and system performance.
 
@@ -89,6 +98,7 @@ Please follow the following steps:
 
 ```sh 
 mkdir -p ~/Projects # Create a projects folder 
+cd ~/Projects #cd into the Projects directory
 git clone --depth 1 https://github.com/mylinuxforwork/dotfiles # Rolling Release
 cd ~/Projects/dotfiles/setup # cd into the setup folder
 ./setup.sh # Run the setup script to install the dependencies

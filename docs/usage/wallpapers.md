@@ -1,6 +1,8 @@
-# Wallpaper with waypaper (hyprpaper and swww as option)
+# Wallpaper with waypaper
 
 You can select a wallpaper with Waypaper. You can start Waypaper from the App Launcher or from the sidebar.
+
+The wallpaper engines swww and hyprpaper are installed. swww is the dafault wallpaper engine.
 
 > [!NOTE]
 > You can install more wallpapers from the ML4W Wallpaper Repository: https://github.com/mylinuxforwork/wallpaper

@@ -1,9 +1,28 @@
+Version 2.9.9.5
+--------------------------------------------------------
+- New windowrule syntax required for Hyprland 0.53.x
+- swww is the new default wallpaper engine. Please switch from hyprpaper to swww in waypaper in case of an Dotfiles update.
+- New Global Theme "transparent"
+- copr for Hyprland on Fedora replaced. Please run the setup script again with the Dotfiles Installer.
+- New Glass Center Waybar Theme with workspace selector in the center.
+
 Version 2.9.9.4
 --------------------------------------------------------
-- Global Theme support: CTRL+ALT+T to open the thene selector
+- Global Theme support: CTRL+ALT+T to open the theme selector
 - New global glass theme
 - New Animation Smooth: You can select it in the Settings app.
-- Dock Auto-hide can be activated by adding a file dock-autohide into .config/ml4w/settings
+- Dock Auto-hide can be activated by adding a file dock-autohide into .config/ml4w/settings (BETA)
+- New Default Cursor Theme ArcAurora with two additional variants
+- Terminal CLI: Enter 'apps' to launch the launcher script
+- Terminal CLI: Enter 'screenshot' to launch the screenshot script
+- Terminal CLI: Enter 'finder' to launch a fuzzy finder script
+- Terminal CLI: Enter 'updates' to launch the update script
+- Terminal CLI: Enter 'filemanager' to launch yazi (to be installed separately)
+- Terminal CLI: Enter 'system' to launch btop
+- Terminal CLI: Enter 'lock' to lock the screen with hyprlock
+- Terminal CLI: Enter 'quick' to start the quicklinks script
+- Terminal CLI: Enter 'wallpaper' to start the wallpaper selector CLI
+- New screenshot configuration file names (without .sh) in ~/.config/ml4w/settings
 
 Version 2.9.9.3
 --------------------------------------------------------
