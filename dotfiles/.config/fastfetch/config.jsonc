@@ -27,9 +27,9 @@
         },
         {
           "type": "command",
-          "key": "│ {#33}󱦟 os age  {#keys}|",
+          "key": "│ {#33}󱦟 os age  {#keys}│",
           "keyColor": "magenta",
-          "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
+          "text": "printf \"\\e[0m%s days\\e[0m\" \"$(( ($(date +%s) - $(stat -c %W /)) / 86400 ))\""
         },
         {
             "key": "│ {#34}󰅐 uptime  {#keys}│",
