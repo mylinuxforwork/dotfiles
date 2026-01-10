@@ -33,6 +33,7 @@ packages=(
     "fuse"
     "ImageMagick"
     "NetworkManager-tui"
+    "tesseract-langpack-eng"
     # Apps
     "waypaper"
     "swww"
