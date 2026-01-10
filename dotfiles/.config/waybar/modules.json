@@ -67,7 +67,9 @@
   // Tools
   "custom/tools": {
     "format": "",
-    "tooltip-format": "Tools"
+    "tooltip-format": "Tools",
+    "on-scroll-up": "true",
+    "on-scroll-down": "true"
   },
 
   // Now Playing
@@ -134,12 +136,6 @@
     "on-click": "qalculate-gtk",
     "tooltip-format": "Open calculator"
   },
-  // Windows VM
-  "custom/windowsvm": {
-    "format": "",
-    "on-click": "~/.config/ml4w/scripts/launchvm.sh",
-    "tooltip": false
-  },
   // Rofi Application Launcher
   "custom/appmenu": {
     // START APPS LABEL
@@ -189,7 +185,9 @@
     "format": "",
     "tooltip-format": "Toggle Screen Shader",
     "on-click": "sleep 0.5; ~/.config/hypr/scripts/hyprshade.sh",
-    "on-click-right": "sleep 0.5; ~/.config/hypr/scripts/hyprshade.sh rofi"
+    "on-click-right": "sleep 0.5; ~/.config/hypr/scripts/hyprshade.sh rofi",
+    "on-scroll-up": "true",
+    "on-scroll-down": "true"
   },
   // Hypridle inhibitor
   "custom/hypridle": {
@@ -199,7 +197,9 @@
     "exec-on-event": true,
     "interval": 60,
     "exec": "~/.config/hypr/scripts/hypridle.sh status",
-    "on-click": "~/.config/hypr/scripts/hypridle.sh toggle"
+    "on-click": "~/.config/hypr/scripts/hypridle.sh toggle",
+    "on-scroll-up": "true",
+    "on-scroll-down": "true"
   },
   // Keyboard State
   "keyboard-state": {
@@ -209,7 +209,9 @@
     "format-icons": {
       "locked": "",
       "unlocked": ""
-    }
+    },
+    "on-scroll-up": "true",
+    "on-scroll-down": "true"
   },
   // System tray
   "tray": {
@@ -226,27 +228,37 @@
   // System
   "custom/system": {
     "format": "",
-    "tooltip": false
+    "tooltip": false,
+    "on-scroll-up": "true",
+    "on-scroll-down": "true"
   },
   // CPU
   "cpu": {
     "format": "/ C {usage}% ",
-    "on-click": "~/.config/ml4w/settings/system-monitor.sh"
+    "on-click": "~/.config/ml4w/settings/system-monitor.sh",
+    "on-scroll-up": "true",
+    "on-scroll-down": "true"
   },
   // Memory
   "memory": {
     "format": "/ M {}% ",
-    "on-click": "~/.config/ml4w/settings/system-monitor.sh"
+    "on-click": "~/.config/ml4w/settings/system-monitor.sh",
+    "on-scroll-up": "true",
+    "on-scroll-down": "true"
   },
   // Harddisc space used
   "disk": {
     "interval": 30,
     "format": "D {percentage_used}% ",
     "path": "/",
-    "on-click": "~/.config/ml4w/settings/system-monitor.sh"
+    "on-click": "~/.config/ml4w/settings/system-monitor.sh",
+    "on-scroll-up": "true",
+    "on-scroll-down": "true"
   },
   "hyprland/language": {
-    "format": "/ K {short}"
+    "format": "/ K {short}",
+    "on-scroll-up": "true",
+    "on-scroll-down": "true"
   },
   // Group Hardware
   "group/hardware": {
