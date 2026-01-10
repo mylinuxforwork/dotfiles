@@ -1,3 +1,8 @@
+Version 2.9.9.6
+--------------------------------------------------------
+- Glass and Transparent theme updated for Blur decoration. Can be set in the settings app.
+- New text extractor script to extract text from a screenshot into the clipboard. SUPER+ALT+A
+
 Version 2.9.9.5
 --------------------------------------------------------
 - New windowrule syntax required for Hyprland 0.53.x
