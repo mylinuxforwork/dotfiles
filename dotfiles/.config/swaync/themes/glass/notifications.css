@@ -125,7 +125,7 @@
   border-radius: 7px;
   color: @text;
   background-color: alpha(#fff, 0.5);
-  margin: 16px 24px;
+  margin: 0px;
   padding: 2px;
 }
 
