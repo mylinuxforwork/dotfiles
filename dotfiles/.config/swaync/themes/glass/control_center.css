@@ -251,11 +251,10 @@
   border-radius: 8px;
   color: @text;
   padding: 3px;
-  margin: 12px 2px;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
-   border-radius: 12px;
+  border-radius: 12px;
 }
 
 .control-center .notification-content .time {

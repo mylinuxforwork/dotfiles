@@ -200,7 +200,7 @@
   color: @text;
   padding: 5px;
 }
-z
+
 .control-center .notification-row .notification-background .close-button:hover {
   background-color: @activecolor;
 }
