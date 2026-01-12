@@ -63,7 +63,7 @@ blur=$(cat $blurfile)
 # -----------------------------------------------------
 
 if [ -z "$1" ]; then
-    if [ -f $cachefile ]; then
+    if [ -f "$cachefile" ]; then
         wallpaper=$(cat $cachefile)
         # Remove escaped backslashes from the path (convert "\ " to " ")
         wallpaper=$(echo "$wallpaper" | sed 's/\\ / /g')
