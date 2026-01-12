@@ -75,7 +75,7 @@ else
     # Remove escaped backslashes from the path (convert "\ " to " ")
     wallpaper=$(echo "$wallpaper" | sed 's/\\ / /g')
 fi
-used_wallpaper=$wallpaper
+used_wallpaper="$wallpaper"
 _writeLog "Setting wallpaper with source image $wallpaper"
 tmpwallpaper=$wallpaper
 
