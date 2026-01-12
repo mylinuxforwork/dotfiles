@@ -68,7 +68,7 @@ if [ -z "$1" ]; then
         # Remove escaped backslashes from the path (convert "\ " to " ")
         wallpaper=$(echo "$wallpaper" | sed 's/\\ / /g')
     else
-        wallpaper=$defaultwallpaper
+        wallpaper="$defaultwallpaper"
     fi
 else
     wallpaper="$1"
