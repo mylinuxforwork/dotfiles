@@ -62,7 +62,7 @@ blur=$(cat $blurfile)
 # Get selected wallpaper
 # -----------------------------------------------------
 
-if [ -z $1 ]; then
+if [ -z "$1" ]; then
     if [ -f $cachefile ]; then
         wallpaper=$(cat $cachefile)
         # Remove escaped backslashes from the path (convert "\ " to " ")
