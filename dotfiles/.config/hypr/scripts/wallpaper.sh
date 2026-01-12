@@ -101,7 +101,7 @@ _writeLog "Wallpaper Filename: $wallpaperfilename"
 # -----------------------------------------------------
 
 if [ -f $wallpapereffect ]; then
-    effect=$(cat $wallpapereffect)
+    effect=$(cat "$wallpapereffect")
     if [ ! "$effect" == "off" ]; then
         used_wallpaper="$generatedversions/$effect-$wallpaperfilename"
         if [ -f "$generatedversions/$effect-$wallpaperfilename" ] && [ "$force_generate" == "0" ] && [ "$use_cache" == "1" ]; then
