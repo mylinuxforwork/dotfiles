@@ -251,6 +251,8 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #disk,#memory,#cpu,#language {
+    margin:0px;
+    padding:0px;
 }
 
 #language {

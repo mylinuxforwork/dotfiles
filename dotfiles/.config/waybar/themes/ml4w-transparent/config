@@ -33,7 +33,7 @@
         "bluetooth",
         "network",
         "battery",
-        //"group/hardware",
+        "group/hardware",
         "group/tools",
         "tray",
         "custom/notification",
