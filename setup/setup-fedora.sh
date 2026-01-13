@@ -26,7 +26,7 @@ packages=(
     "qt5-qtwayland"
     "qt6-qtwayland"
     "uwsm"
-    "python-pip"
+    "pip"
     "python3-gobject"
     "nm-connection-editor"
     "network-manager-applet"
@@ -45,7 +45,7 @@ packages=(
 
 _isInstalled() {
     package="$1"
-    check=$(dnf list --installed | grep $package)
+    check=$(dnf list --installed | grep -w "$package")
     if [ -z "$check" ]; then
         echo 1
         return #false
@@ -162,7 +162,6 @@ sudo cp $SCRIPT_DIR/packages/eza /usr/bin
 echo ":: Installing packages with pip"
 sudo pip install hyprshade
 sudo pip install pywalfox
-sudo pywalfox install
 sudo pip install screeninfo
 sudo pip install waypaper
 
