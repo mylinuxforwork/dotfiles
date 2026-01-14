@@ -26,7 +26,7 @@ packages=(
     "qt5-qtwayland"
     "qt6-qtwayland"
     "uwsm"
-    "pip"
+    "python3-pip"
     "python3-gobject"
     "nm-connection-editor"
     "network-manager-applet"
