@@ -1,7 +1,8 @@
 Version 2.9.9.6
 --------------------------------------------------------
 - Glass and Transparent theme updated for Blur decoration. Can be set in the settings app.
-- New text extractor script to extract text from a screenshot into the clipboard. SUPER+ALT+A
+- Several fixes for Fedora 43 setup script
+- Global font set in nwg-look
 
 Version 2.9.9.5
 --------------------------------------------------------
