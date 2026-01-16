@@ -3,6 +3,7 @@ Version 2.9.9.6
 - Glass and Transparent theme updated for Blur decoration. Can be set in the settings app.
 - Several fixes for Fedora 43 setup script
 - Global font set in nwg-look
+- Fix Quicklinks module in glass and transparent waybar theme
 
 Version 2.9.9.5
 --------------------------------------------------------
