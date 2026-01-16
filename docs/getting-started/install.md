@@ -18,21 +18,15 @@ If possible, please create a snapshot of your current system if snapper or Times
 
 Copy the following url into the Dotfiles Installer.
 
-#### Stable Release (for Hyprland 0.53.x)
+#### Stable Release
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable.dotinst
 ```
-#### Rolling Release (for Hyprland 0.53.x)
+#### Rolling Release
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
-```
-
-#### Stable Release 2.9.9.4 (for Hyprland 0.52.x)
-
-```sh
-https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable-hyprland-0.52.dotinst
 ```
 
 Setup scripts to install the required dependencies are included for Arch Linux (recommended), Fedora and openSuse Tumbleweed.

@@ -3,7 +3,7 @@ layout: home
 pageClass: home-page
 
 hero:
-  name: The ML4W Dotfiles for Hyprland  
+  name: ML4W Dotfiles for Hyprland  
   image:
     src: /ml4w.svg
     alt: ML4W logo
@@ -53,21 +53,15 @@ You can install the ML4W Dotfiles for Hyprland with the Dotfiles Installer avail
 
 Copy the following url into the Dotfiles Installer and start the installation.
 
-#### Stable Release (for Hyprland 0.53.x)
+#### Stable Release
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable.dotinst
 ```
-#### Rolling Release (for Hyprland 0.53.x)
+#### Rolling Release
 
 ```sh
 https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles.dotinst
-```
-
-#### Stable Release 2.9.9.4 (for Hyprland 0.52.x)
-
-```sh
-https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles-stable-hyprland-0.52.dotinst
 ```
 
 Setup scripts to install the required dependencies are included for <i class="devicon-archlinux-plain"></i> **Arch, <i class="devicon-opensuse-plain"></i> openSuse Tumbleweed** and <i class="devicon-fedora-plain"></i> Fedora.<br>
