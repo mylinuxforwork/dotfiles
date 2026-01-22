@@ -26,6 +26,29 @@ echo ":: Current sidepad: $SIDEPAD_ACTIVE"
 echo ":: Current sidepad app: $SIDEPAD_APP"
 echo ":: Current sidepad class: $SIDEPAD_CLASS"
 
+# Check if sidepad window exists
+is_sidepad_running() {
+    hyprctl clients -j | jq -e --arg class "$SIDEPAD_CLASS" '.[] | select(.class == $class)' > /dev/null
+    return $?
+}
+
+# Check if sidepad is visible
+is_sidepad_visible() {
+    local window_x=$(hyprctl clients -j | jq -r --arg class "$SIDEPAD_CLASS" '.[] | select(.class == $class) | .at[0]')
+
+    # If window doesn't exist, return false (not visible)
+    if [ -z "$window_x" ] || [ "$window_x" == "null" ]; then
+        return 1
+    fi
+
+    # Window is visible if X position >= 0
+    if (( window_x >= 0 )); then
+        return 0  # visible
+    else
+        return 1  # hidden
+    fi
+}
+
 # Select new sidepad with rofi
 select_sidepad() {
     # Open rofi
@@ -58,6 +81,15 @@ if [[ "$1" == "--init" ]]; then
     eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --init '$SIDEPAD_APP'"
 elif [[ "$1" == "--hide" ]]; then
     eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --hide"
+elif [[ "$1" == "--toggle" ]]; then
+    if ! is_sidepad_running; then
+        echo ":: Sidepad not running, initializing..."
+        eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --init '$SIDEPAD_APP'"
+    elif is_sidepad_visible; then
+        eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --hide"
+    else
+        eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS'"
+    fi
 elif [[ "$1" == "--test" ]]; then
     eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --test"
 elif [[ "$1" == "--kill" ]]; then
@@ -65,5 +97,11 @@ elif [[ "$1" == "--kill" ]]; then
 elif [[ "$1" == "--select" ]]; then
     select_sidepad
 else
-    eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' $SIDEPAD_OPTIONS"
+    # Default action: init if not running, otherwise show
+    if ! is_sidepad_running; then
+        echo ":: Sidepad not running, initializing..."
+        eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' --init '$SIDEPAD_APP'"
+    else
+        eval "$SIDEPAD_PATH --class '$SIDEPAD_CLASS' $SIDEPAD_OPTIONS"
+    fi
 fi
