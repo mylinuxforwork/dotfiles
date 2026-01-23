@@ -8,6 +8,11 @@
 # Source library.sh
 source $HOME/.config/ml4w/library.sh
 
+# Notifications
+source "$HOME/.config/ml4w/scripts/notification-handler.sh"
+APP_NAME="Waypaper"
+NOTIFICATION_ICON="preferences-desktop-wallpaper-symbolic"
+
 # -----------------------------------------------------
 # Check to use wallpaper cache
 # -----------------------------------------------------
@@ -108,7 +113,13 @@ if [ -f "$wallpapereffect" ]; then
             _writeLog "Use cached wallpaper $effect-$wallpaperfilename"
         else
             _writeLog "Generate new cached wallpaper $effect-$wallpaperfilename with effect $effect"
-            notify-send --replace-id=1 "Using wallpaper effect $effect..." "with image $wallpaperfilename" -h int:value:33
+            
+            notify_user \
+                --a "${APP_NAME}" \
+                --i "${NOTIFICATION_ICON}" \
+                --s "Wallpaper" \
+                --m "Using wallpaper effect $effect\n with image $wallpaperfilename"
+
             source $HOME/.config/hypr/effects/wallpaper/$effect
         fi
         _writeLog "Loading wallpaper $generatedversions/$effect-$wallpaperfilename with effect $effect"
@@ -176,7 +187,6 @@ if [ -f "$generatedversions/blur-$blur-$effect-$wallpaperfilename.png" ] && [ "$
     _writeLog "Use cached wallpaper blur-$blur-$effect-$wallpaperfilename"
 else
     _writeLog "Generate new cached wallpaper blur-$blur-$effect-$wallpaperfilename with blur $blur"
-    # notify-send --replace-id=1 "Generate new blurred version" "with blur $blur" -h int:value:66
     magick "$used_wallpaper" -resize 75% "$blurredwallpaper"
     _writeLog "Resized to 75%"
     if [ ! "$blur" == "0x0" ]; then

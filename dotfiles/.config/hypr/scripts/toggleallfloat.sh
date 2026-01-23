@@ -7,4 +7,10 @@
 #
 
 hyprctl dispatch workspaceopt allfloat
-notify-send "Windows on this workspace toggled to floating/tiling"
+
+# Notifications
+source "$HOME/.config/ml4w/scripts/notification-handler.sh"
+
+notify_user \
+        --a "System" \
+        --m "Windows on this workspace toggled to floating/tiling"

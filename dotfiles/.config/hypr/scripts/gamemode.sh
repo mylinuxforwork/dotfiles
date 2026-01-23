@@ -6,8 +6,15 @@
 # /___/                                     
 # 
 
+
 ml4w_cache_folder="$HOME/.cache/ml4w/hyprland-dotfiles"
 gamemode_monitor="$HOME/.config/hypr/conf/monitors/gamemode.conf"
+
+# Notifications
+source "$HOME/.config/ml4w/scripts/notification-handler.sh"
+APP_NAME="System"
+NOTIFICATION_ICON="joystick"
+
 
 if [ -f $HOME/.config/ml4w/settings/gamemode-enabled ]; then
   if [ -f $ml4w_cache_folder/last_monitor.conf ]; then
@@ -20,7 +27,10 @@ if [ -f $HOME/.config/ml4w/settings/gamemode-enabled ]; then
   fi
   hyprctl reload
   rm $HOME/.config/ml4w/settings/gamemode-enabled
-  notify-send "Gamemode deactivated" "Animations and blur enabled"
+  notify_user --a "${APP_NAME}" \
+            --i "${NOTIFICATION_ICON}" \
+            --s "Gamemode deactivated" \
+            --m "Animations and blur are now enabled."
 else
   if [ -f $gamemode_monitor ]; then
     cat $HOME/.config/hypr/conf/monitor.conf > $ml4w_cache_folder/last_monitor.conf
@@ -42,5 +52,8 @@ else
     keyword decoration:fullscreen_opacity 1;\
     keyword decoration:rounding 0"
   touch $HOME/.config/ml4w/settings/gamemode-enabled
-  notify-send "Gamemode activated" "Animations and blur disabled"
+  notify_user --a "${APP_NAME}" \
+          --i "${NOTIFICATION_ICON}" \
+          --s "Gamemode activated" \
+          --m "Animations and blur are now disabled."
 fi

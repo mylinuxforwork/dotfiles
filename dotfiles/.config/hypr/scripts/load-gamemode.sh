@@ -6,6 +6,9 @@
 # /___/                                     
 # 
 
+# Notifications
+source "$HOME/.config/ml4w/scripts/notification-handler.sh"
+
 _loadGameMode() {
     hyprctl --batch "\
         keyword animations:enabled 0;\
@@ -19,5 +22,8 @@ _loadGameMode() {
 
 if [ -f $HOME/.config/ml4w/settings/gamemode-enabled ]; then
     _loadGameMode
-    notify-send "Gamemode activated" "Animations and blur disabled"
+    notify_user --a "System" \
+        --i "joystick" \
+        --s "Gamemode activated" \
+        --m "Animations and blur are now disabled."
 fi

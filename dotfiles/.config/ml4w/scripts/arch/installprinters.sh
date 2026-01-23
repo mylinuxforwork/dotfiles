@@ -16,6 +16,9 @@ figlet -f smslant "Printers"
 # Confirm Start
 # ------------------------------------------------------
 
+# Notifications
+source "$HOME/.config/ml4w/scripts/notification-handler.sh"
+
 if gum confirm "DO YOU WANT TO START TO INSTALL PRINTER SYSTEM NOW?"; then
     echo
     echo ":: Install started."
@@ -47,7 +50,12 @@ fi
 
 yay -S cups cups-pdf cups-filters nss-mdns system-config-printer foomatic-db footmatic-db-engine foomatic-db-nonfree doomatic-db-nonfree-ppds foomatic-db-ppds cups-browsed libusb ipp-usb xdg-utils colord logrotate
 
-notify-send "Installing printer system complete"
+notify_user \
+    --a "System" \
+    --i "printer-symbolic" \
+    --s "Printers" \
+    --m "Installing printer system complete"
+
 echo
 echo ":: Installing printer system complete"
 sleep 2
