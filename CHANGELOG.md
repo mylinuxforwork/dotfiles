@@ -1,3 +1,7 @@
+Version 2.9.9.7
+--------------------------------------------------------
+- btop is now using the matugen generated color theme
+
 Version 2.9.9.6
 --------------------------------------------------------
 - Glass and Transparent theme updated for Blur decoration. Can be set in the settings app.
