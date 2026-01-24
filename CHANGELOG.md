@@ -1,6 +1,8 @@
 Version 2.9.9.7
 --------------------------------------------------------
 - btop is now using the matugen generated color theme
+- New Calendar App with the possibility to add events. CREDITS TO https://github.com/defaltastra
+- Cleaned up Settings App
 
 Version 2.9.9.6
 --------------------------------------------------------
