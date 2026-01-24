@@ -14,6 +14,7 @@
 # files in ~/.config/zshrc
 # or by creating a folder ~/.config/zshrc/custom
 # with copies of files from ~/.config/zshrc
+# You can also create a .zshrc_custom file in your home directory
 # -----------------------------------------------------
 
 # -----------------------------------------------------

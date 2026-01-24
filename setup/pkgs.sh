@@ -34,6 +34,7 @@ apps=(
     "blueman"
     "qt6ct"
     "nautilus"
+    "gnome-text-editor"
 )
 
 tools=(

@@ -26,8 +26,6 @@ The wallpaper engines swww and hyprpaper are installed. swww is the dafault wall
 > [!NOTE]  
 > A logout and login is required to activate the new wallpaper application.
 
-The hyprpaper engine uses a template stored in `dotfiles/.settings/hyprpaper.tpl`. You can add additional configurations there. The `WALLPAPER` placeholder will be replaced with the current wallpaper.
-
 ## Wallpaper Automation
 
 You can activate an automated wallpaper change with the key binding above. The automated wallpaper process can be stopped with the same key binindg.
