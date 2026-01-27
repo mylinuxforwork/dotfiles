@@ -275,10 +275,10 @@
   "custom/wg": {
     "format": "󰒍   {}",
     "return-type": "json",
-    "on-click": "~/dotfiles/dotfiles/.config/custom/wg.sh switch_state",
+    "on-click": "~/.config/custom/wg.sh switch_state",
     "tooltip": true,
     "interval": 1,
-    "exec": "~/dotfiles/dotfiles/.config/custom/wg.sh status",
+    "exec": "~/.config/custom/wg.sh status",
     "exec-on-event": true
   },
 
