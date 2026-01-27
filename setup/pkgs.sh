@@ -26,6 +26,7 @@ apps=(
     "wlogout"
     "vlc"
     "nwg-dock-hyprland"
+    "nwg-displays"
     "waybar"
     "rofi"
     "nwg-look"
