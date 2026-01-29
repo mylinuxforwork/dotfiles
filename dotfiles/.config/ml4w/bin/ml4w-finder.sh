@@ -31,5 +31,4 @@ if [ "$TYPE_ICON" == "" ]; then
     echo "TYPE_DIR:$PATH_VAL"
 else
     echo "TYPE_FILE:$PATH_VAL"
-    ${EDITOR:-nano} "$PATH_VAL"
 fi
