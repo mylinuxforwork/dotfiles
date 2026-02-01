@@ -1,8 +1,8 @@
 {
-	"name": "ML4W Dotfiles for Hyprland DEV",
+	"name": "ML4W OS - Dotfiles for Hyprland DEV",
 	"id": "com.ml4w.dotfiles.dev",
 	"description": "Advanced configuration for the dynamic tiling window manager Hyprland",
-	"version":"2.9.9.7 DEV",
+	"version":"2.10",
 	"author": "Stephan Raabe",
 	"homepage": "https://mylinuxforwork.github.io/dotfiles/",
 	"dependencies": "https://mylinuxforwork.github.io/dotfiles/getting-started/dependencies",
