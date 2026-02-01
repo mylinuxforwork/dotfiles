@@ -26,7 +26,7 @@ sleep 0.5
 # Default theme: /THEMEFOLDER;/VARIATION
 # -----------------------------------------------------
 
-default_theme="/ml4w-modern;/ml4w-modern/default"
+default_theme="/ml4w-glass-center;/ml4w-glass-center/default"
 
 # -----------------------------------------------------
 # Remove incompatible themes
