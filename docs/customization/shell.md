@@ -1,6 +1,6 @@
 # Shell (Bash, ZSH, Fish)
 
-The ML4W Dotfiles for Hyprland are shipped with configurations for bash, zsh and fish. You can change the shell from the ML4W Welcome App: Settings/System/Change Shell.
+The ML4W OS Hyprland are shipped with configurations for bash, zsh and fish. You can change the shell from the ML4W Welcome App: Settings/System/Change Shell.
 
 ![image](/change-shell.jpg)
 

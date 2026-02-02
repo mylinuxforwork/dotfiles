@@ -4,7 +4,7 @@ If you want to change the default monitor configuration, you can setup your own 
 
 ## Personal Monitor Variation
 
-Please open the ML4W Dotfiles Settings App and select the system tab. When you scroll down you can see shipped monitor monitor variation.
+Please open the ML4W Settings App and select the system tab. When you scroll down you can see shipped monitor monitor variation.
 
 ![image](/monitor.png)
 
@@ -14,7 +14,7 @@ You can also create your own variation as described [here](https://github.com/my
 
 ## Use nwg-displays
 
-The ML4W Dotfiles are supporting the application [nwg-displays](https://github.com/nwg-piotr/nwg-displays) to configure your display settings.
+The ML4W OS supports the application [nwg-displays](https://github.com/nwg-piotr/nwg-displays) to configure your display settings.
 
 Install nwg-displays on your distribution with:
 

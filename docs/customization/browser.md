@@ -12,7 +12,7 @@ As an example, let's install brave.
 yay -S brave-bin
 ```
 
-Then open the ML4W Dotfiles Settings app with `SUPER+CTRL+S`, open the waybar tab, scroll down and change the browser to brave.
+Then open the Dotfiles Settings app with `SUPER+CTRL+S`, open the waybar tab, scroll down and change the browser to brave.
 
 ![image](/browser.png)
 

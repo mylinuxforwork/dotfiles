@@ -1,6 +1,6 @@
 # Activate Walker (optional)
 
-The ML4W Dotfiles include an option to replace the launcher rofi with walker (except screenshot options).
+The ML4W OS include an option to replace the launcher rofi with walker (except screenshot options).
 
 ![image](/walker.jpg)
 

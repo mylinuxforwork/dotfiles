@@ -1,4 +1,4 @@
-The status bar for the ML4W Dotfiles is **Waybar**. You can find the waybar configuration in `~/dotfiles/waybar`.
+The status bar for the ML4W OS is **Waybar**. You can find the waybar configuration in `~/dotfiles/waybar`.
 
 ### Waybar Keybindings
 

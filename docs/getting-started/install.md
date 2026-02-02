@@ -1,17 +1,21 @@
 # Installation
 
+## Test and Install (BETA) with the ML4W OS Live ISO
+
+
+
 ## Installation with the Dotfiles Installer
 
 ::: warning BEFORE YOU START
 Please back up your existing `~/.config` folder with your dotfiles before starting the scripts for initial installation.
 :::
 
-You can install the ML4W Dotfiles for Hyprland on any distribution by using the Dotfiles Installer from Flathub. Click on the badge below to install the app:
+You can install the ML4W OS Hyprland on any distribution by using the Dotfiles Installer from Flathub. Click on the badge below to install the app:
 
 <a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
 
 ::: warning BEFORE YOU START
-The Dotfiles Installer will create a backup from configurations of your `.config` folder that will be overwritten from the installation procedure and previous ML4W Dotfiles installations.
+The Dotfiles Installer will create a backup from configurations of your `.config` folder that will be overwritten from the installation procedure and previous ML4W OS installations.
 
 If possible, please create a snapshot of your current system if snapper or Timeshift is installed and available.
 :::
@@ -65,15 +69,6 @@ Hyprland
 
 ```
 Open Firefox, open the Dotfiles Installer Homepage and follow the installation instructions.
-
-::: warning AUR not supported anymore
-Please note that the AUR packages for the ML4W Dotfiles for Hyprland are not supported anymore. Please uninstall the package with 
-
-```sh 
-yay -R ml4w-dotfiles # Main Release
-yay -R ml4w-dotfiles-git # Rolling Release
-```
-:::
 
 ## Installation with GNU stow
 

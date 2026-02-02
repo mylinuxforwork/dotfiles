@@ -19,9 +19,9 @@ The wallpaper engines swww and hyprpaper are installed. swww is the dafault wall
 
 > In waypaper you can select a wallpaper from any folder of your system.
 
-> The default wallpaper engine is **`hyprpaper`**. But you can optionally install **swww** manually and switch in the ML4W Dotfiles Settings app from hyprpaper to swww.  
+> The default wallpaper engine is **`hyprpaper`**. But you can optionally install **swww** manually and switch in the ML4W Settings app from hyprpaper to swww.  
 
->Open the ML4W Dotfiles Settings app and select the tab system. At the top you can find the Wallpaper Engine Selector.
+>Open the ML4W Settings app and select the tab system. At the top you can find the Wallpaper Engine Selector.
 
 > [!NOTE]  
 > A logout and login is required to activate the new wallpaper application.

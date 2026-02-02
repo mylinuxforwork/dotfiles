@@ -1,6 +1,6 @@
 # Special Thanks
 
-I want to say thank you to all contributors of the ML4W Dotfiles and all other Developers who are creating awesome configurations for our favorite Tiling Window Manager Hyprland. Your support, the testing of every version and all your valuable Pull Requests with improvements and bug fixes have repeatedly improved the overall project and increased its relevance and quality.
+I want to say thank you to all contributors of the ML4W OS - Dotfiles for Hyprland and all other Developers who are creating awesome configurations for our favorite Tiling Window Manager Hyprland. Your support, the testing of every version and all your valuable Pull Requests with improvements and bug fixes have repeatedly improved the overall project and increased its relevance and quality.
 
 Special Thanks do to...
 

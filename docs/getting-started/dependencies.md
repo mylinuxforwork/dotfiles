@@ -1,6 +1,6 @@
 # Dependencies
 
-You can install the ML4W Dotfiles for Hyprland on every Linux distribution if you install the following packages upfront.
+You can install the ML4W OS Hyprland on every Linux distribution if you install the following packages upfront.
 
 > [!NOTE]
 > The package names may differ per distribution.

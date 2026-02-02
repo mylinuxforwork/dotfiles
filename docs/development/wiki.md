@@ -2,7 +2,7 @@
 
 This wiki is built with [Vitepress](https://vitepress.dev/).
 
-You can find the wiki files in the [ml4w dotfiles](https://github.com/mylinuxforwork/dotfiles) repo.
+You can find the wiki files in the [ML4W OS](https://github.com/mylinuxforwork/dotfiles) repo.
 
 If you want to contribute to this site, you can fork the repo, make your changes, and submit a PR.
 

@@ -1,4 +1,4 @@
-# Uninstall the ML4W Dotfiles
+# Uninstall the ML4W OS
 
 The uninstallation requires some manual steps. It requires the removal of the dotfiles, the restore of configuration files from the backup and the unstallation of dependencies.
 
@@ -10,7 +10,7 @@ The uninstallation requires some manual steps. It requires the removal of the do
 
 ## Remove the Hyprland configuration
 
-Logout from the ML4W dotfiles and open another desktop environment (if available on your system) or switch to a tty. 
+Logout from the ML4W OS and open another desktop environment (if available on your system) or switch to a tty. 
 
 ```sh
 cd ~/.config # CD into the config folder

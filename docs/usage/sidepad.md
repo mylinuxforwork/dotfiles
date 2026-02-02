@@ -12,7 +12,7 @@ The Sidepad is suitable as a scratchpad replacement, for terminals, and AI assis
 
 ## Key bindings
 
-The ML4W Dotfiles include teh following kebindings for Sidepd:
+The ML4W OS include teh following kebindings for Sidepd:
 
 - SUPER + S: Initialize the sidepad
 - SUPER + Shift + S: Opens the sidepad selector
@@ -55,7 +55,7 @@ You can add your own custom sidepad configurations in `~/.config/sidepad/pads` T
 
 ## Scripting
 
-The Sidepad script is working also stand-alone without the ML4W Dotfiles.
+The Sidepad script is working also stand-alone without the ML4W OS.
 
 You can find the script here: https://github.com/mylinuxforwork/dotfiles/tree/main/dotfiles/.config/sidepad
 
@@ -76,6 +76,6 @@ Options:
 
 You can script the sidepad functionality by creating an own dispatcher script and connect it to your key bindings.
 
-The sidepad dispatcher for the ML4W Dotfiles is available here: https://github.com/mylinuxforwork/dotfiles/blob/main/dotfiles/.config/ml4w/scripts/sidepad.sh
+The sidepad dispatcher for the ML4W OS is available here: https://github.com/mylinuxforwork/dotfiles/blob/main/dotfiles/.config/ml4w/scripts/sidepad.sh
 
 

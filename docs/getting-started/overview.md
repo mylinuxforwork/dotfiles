@@ -12,9 +12,9 @@
 > Hyprland Wiki: We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro (not based on Arch/Nix) you might have varying amounts of success. However, since Hyprland is extremely bleeding-edge, point release distros like Pop!_OS, Fedora, Ubuntu, etc. will have major issues running Hyprland. Rolling release distros like openSUSE, Solus ,etc. will likely be fine.
 
 > [!NOTE]
-> This Wiki is covering the latest features of the ML4W Dotfiles. Please make sure that the latest version of the ML4W Dotfiles is installed on your system. Follow the installation and update instructions.
+> This Wiki is covering the latest features of the ML4W OS. Please make sure that the latest version of the ML4W OS is installed on your system. Follow the installation and update instructions.
 
-The ML4W Dotfiles can be installed with the Dotfiles Installer.
+The ML4W OS can be installed with the Dotfiles Installer.
 
 <a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
 
@@ -26,7 +26,7 @@ You can find the latest features in the [CHANGELOG](https://github.com/mylinuxfo
 
 The installation should work on all Arch Linux and Fedora based distributions.
 
-The ML4W Dotfiles are tested with the following distributions:
+The ML4W OS Hyprland are tested with the following distributions:
 
 - Arch Linux
 - EndeavourOS

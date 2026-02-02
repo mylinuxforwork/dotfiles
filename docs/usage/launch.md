@@ -6,7 +6,7 @@ https://wiki.hypr.land/Getting-Started/Master-Tutorial/#launching-hyprland
 
 ## From SDDM
 
-The recommended way to launch the ML4W Dotfiles for Hyprland is with the Display Manager SDDM.
+The recommended way to launch the ML4W OS Hyprland is with the Display Manager SDDM.
 
 ## From TTY
 

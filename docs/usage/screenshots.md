@@ -1,6 +1,6 @@
 # Screenshots
 
-The ML4W Dotfiles are shipped with grimblast. You can open the screenshot menu with `SUPER + PRINT`
+The ML4W OS are shipped with grimblast. You can open the screenshot menu with `SUPER + PRINT`
 
 Please follow the screenshot wizard.
 

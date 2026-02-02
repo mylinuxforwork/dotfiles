@@ -2,7 +2,7 @@
 
 <div align="center" class="tip custom-block" style="padding-top: 20px; padding-bottom: 20px;">
 
-**Open the ML4W Dotfiles Settings App and the tab system.**
+**Open the ML4W Settings App and the tab system.**
 
 </div>
 

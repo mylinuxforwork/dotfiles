@@ -19,7 +19,7 @@ cat <<"EOF"
 /___/\__/\__/\_,_/ .__/
                 /_/    
 EOF
-echo "ML4W Dotfiles for Hyprland: Dependencies"
+echo "ML4W OS Hyprland: Dependencies"
 echo -e "${NONE}"
 echo "Your distribution isn't directly supported by this setup script."
 echo

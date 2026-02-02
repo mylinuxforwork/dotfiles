@@ -12,5 +12,5 @@ If you have installed the Dotfiles with the Dotfiles Installer, just open the Do
 The Dotfiles Installer will offer to create a backup, to restore your existing settings and to protect your own customization (if needed).
 
 ::: warning RESTORE AND PROTECT
-Every version of the ML4W Dotfiles is shipped with new features and updated configuration files. To make sure that the update generates no sideeffects, please reduce the amount of restored files to a minimum. 
+Every version of the ML4W OS is shipped with new features and updated configuration files. To make sure that the update generates no sideeffects, please reduce the amount of restored files to a minimum. 
 :::

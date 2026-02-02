@@ -1,6 +1,6 @@
 # Welcome App
 
-After starting the ML4W dotfiles for the first time, the ML4W Welcome App opens. This app is the starting point to discover the Hyprland setup.
+After starting the ML4W OS for the first time, the ML4W Welcome App opens. This app is the starting point to discover the Hyprland setup.
 
 ![image](/welcome.jpg)
 

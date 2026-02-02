@@ -45,7 +45,7 @@ cat <<"EOF"
 /___/\__/__/\_,_/ .__/
                 /_/    
 EOF
-    echo "ML4W Dotfiles for Hyprland for $distro"
+    echo "ML4W OS Hyprland for $distro"
     echo -e "${NONE}"
     echo "This setup script will install all required packages and dependencies for the dotfiles."
     echo

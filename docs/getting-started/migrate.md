@@ -1,6 +1,6 @@
 # Migration to the new Dotfiles Installer
 
-The ML4W Dotfiles for Hyprland will be installed with the Dotfiles Installer. You can migrate your legacy installtion to the new Dotfiles Installer setup by following the next steps.
+The ML4W OS Hyprland will be installed with the Dotfiles Installer. You can migrate your legacy installtion to the new Dotfiles Installer setup by following the next steps.
 
 ::: info
 Version 0.9.1 of the Dotfiles Installer or higher is required
