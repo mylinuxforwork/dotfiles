@@ -6,9 +6,19 @@ An advanced configuration of Hyprland for Arch Linux based distributions. Full f
 
 ## Installation and Documentation
 
-You can find the installation guide and the documentation of the ML4W OS for Hyprland here:<br><b>https://mylinuxforwork.github.io/dotfiles/</b>
+You can find all installation options in the documentation of the ML4W OS for Hyprland here:<br><b>https://mylinuxforwork.github.io/dotfiles/</b>
 
-You can install the ML4W OS for Hyprland with the Dotfiles Installer (Available on Flathub).<br>Click on the badge below to install the app.
+### Test and install with the ML4W OS Live ISO
+
+Test the ML4W OS without risk on your computer or in a Virtual Machine with the ML4W Live ISO.
+
+<a href="https://ml4w.com/iso/ml4w-os/ml4w-os-2.10.0-x86_64.iso">Download the ML4W ISO</a>
+
+You can install the ML4W OS on your hard drive with the command `sudo install-ml4w-os` (BETA).
+
+### Install the ML4W OS on your distribution
+
+Install the ML4W OS on top of your current distro with the Dotfiles Installer (Available on Flathub).<br>Click on the badge below to install the app.
 
 <a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
 

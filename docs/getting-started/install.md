@@ -2,7 +2,38 @@
 
 ## Test and Install (BETA) with the ML4W OS Live ISO
 
+You can test the ML4W OS without risk with the ML4W OS Live ISO.
 
+<a href="https://ml4w.com/iso/ml4w-os/ml4w-os-2.10.0-x86_64.iso">Download ML4W OS Live ISO</a>
+
+### Real Hardware
+
+If you want to try ML4W OS on a real hardware, please prepare a bootable USB Stick (e.g. with Balena Etcher or Rufus on Windows).
+
+Insert the USB Stick and select it from your BIOS Boot Manager. 
+
+The system will boot up directly into ML4W OS.
+
+### Virtual Machine (KVM/Qemu)
+
+Create a Virtual Machine in Virt Manager, select the stick, set the possible RAM and CPUs and select min. 10 GB harddisc.
+
+Select UEFI and enable 3D acceleration.
+
+Click on Begin Installation to boot up the System into ML4W OS.
+
+> [!IMPORTANT]
+> You can change the screen resolution from the Welcome App: Settings/Monitors. Then Logout from the Power Button in the status bar and login again with liveuser (no password).
+
+### Install the Live ISO (BETA)
+
+You can install the Live ISO to your hard drive by opening a terminal and enter:
+
+`sudo install-ml4w-os`
+
+Please select your hard drive (all data will be erased!) and follow the instructions.
+
+Please wait until the installation is done and reboot your system.
 
 ## Installation with the Dotfiles Installer
 

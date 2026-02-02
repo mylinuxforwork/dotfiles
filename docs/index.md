@@ -47,9 +47,9 @@ description: An advanced and full-featured Operating System and configuration fo
 
 ### ML4W OS Live ISO
 
-Run ML4W OS from a bootable USB Stick or directly in a KVM/Qemu virtual machine.<br>Run `install-ml4w-os` in a terminal to install the ML4W OS with Arch Linux (BETA).
+Run ML4W OS from a bootable USB Stick or directly in a KVM/Qemu virtual machine.<br>Run `sudo install-ml4w-os` in a terminal to install the ML4W OS with Arch Linux (BETA).
 
-<a href="#" class="VPMyButton">Download the Live ISO </a>
+<a href="https://ml4w.com/iso/ml4w-os/ml4w-os-2.10.0-x86_64.iso" class="VPMyButton">Download the Live ISO </a>
 
 ### Installation on your Linux Distribution
 
