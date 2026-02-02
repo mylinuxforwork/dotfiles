@@ -6,7 +6,7 @@
 
 </div>
 
-![image](/dotfiles2995.jpg)
+![image](/dotfiles2100.jpg)
 
 > [!IMPORTANT]
 > Hyprland Wiki: We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro (not based on Arch/Nix) you might have varying amounts of success. However, since Hyprland is extremely bleeding-edge, point release distros like Pop!_OS, Fedora, Ubuntu, etc. will have major issues running Hyprland. Rolling release distros like openSUSE, Solus ,etc. will likely be fine.
@@ -63,6 +63,9 @@ The ML4W OS Hyprland are tested with the following distributions:
 - Dock: `nwg-dock-hyprland`
 - GTK Theme Manager: `nwg-look`
 - QT6 Theme Manager: `qt6ct`
+
+
+![image](/dotfiles2995.jpg)
 
 ![image](/screen-2992-light.jpg)
 
