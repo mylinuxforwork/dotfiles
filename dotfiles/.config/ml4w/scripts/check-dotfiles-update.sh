@@ -59,6 +59,5 @@ get_latest_release() {
 }
 
 REMOTE_TAG=$(get_latest_release "mylinuxforwork/dotfiles")
-version=$(cat ~/.config/ml4w/version/name)
-# testvercomp $version $REMOTE_TAG "<"
+version=$(jq -r '.Version' ~/.config/ml4w/version/version.json)
 testvercomp $version $REMOTE_TAG "<"
