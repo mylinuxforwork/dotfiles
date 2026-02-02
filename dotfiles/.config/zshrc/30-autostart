@@ -11,6 +11,13 @@ finder() {
     if [[ "$result" == TYPE_DIR:* ]]; then
         local target_dir="${result#TYPE_DIR:}"
         cd "$target_dir" && ls
+    elif [[ "$result" == TYPE_FILE:* ]]; then
+    # Check if we have a file
+        ${EDITOR:-nano} "${result#TYPE_FILE:}"
+    else
+    # Return an error
+        echo "Could not read $result" >&2
+        return 1
     fi
 }
 
