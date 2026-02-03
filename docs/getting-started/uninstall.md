@@ -16,7 +16,7 @@ Logout from the ML4W OS and open another desktop environment (if available on yo
 cd ~/.config # CD into the config folder
 rm -rf hypr # Remove the current symlink to the ML4W hypr config
 ```
-If you're on tty, you can login again to Hyprland now and you should see the default configuration. Please not that you need to open kitty now with SUPER+Q.
+If you're on tty, you can login again to Hyprland now and you should see the default configuration. Please note that you need to open kitty now with SUPER+Q.
 
 ## Restore your first backup
 
