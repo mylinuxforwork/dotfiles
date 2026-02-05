@@ -2,9 +2,13 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
-        "type": "small",
+        "source": "~/.config/ml4w/assets/ml4w.png", // Path to your logo file
+        "type": "auto",                    // 'auto' detects the best protocol for your terminal
+        "width": 16,                       // Adjust width (in characters)
         "padding": {
-            "top": 1
+            "top": 1,
+            "right": 4,
+            "left": 3
         }
     },
     "display": {

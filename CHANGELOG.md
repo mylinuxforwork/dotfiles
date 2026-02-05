@@ -1,3 +1,8 @@
+Version 2.10.1
+--------------------------------------------------------
+- ML4W Logo added to fastfetch
+- Hide fastfetch by adding a file to ~/.config/ml4w/settings/hide-fastfetch
+
 Version 2.10.0
 --------------------------------------------------------
 - Project renamed to ML4W OS
