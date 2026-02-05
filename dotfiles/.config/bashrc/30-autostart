@@ -25,5 +25,7 @@ finder() {
 # Fastfetch
 # -----------------------------------------------------
 if [[ $(tty) == *"pts"* ]]; then
-    fastfetch
+    if [ ! -f $HOME/.config/ml4w/settings/hide-fastfetch ]; then
+        fastfetch
+    fi
 fi
