@@ -198,5 +198,7 @@ else
     esac
 fi
 
-# Final message
-echo ":: Done!"
+# Finishing
+echo
+echo ":: Installation complete! Press [ENTER] to close."
+read
