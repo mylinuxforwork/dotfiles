@@ -93,12 +93,12 @@ install_theme() {
     
     # Clone repository
     # Copy repository
+    # Activate Theme
 
     # cd SilentSDDM/
     # sudo mkdir -p /usr/share/sddm/themes/ml4w
     # sudo cp -rf . /usr/share/sddm/themes/ml4w/
 
-    sleep 2 # Simulating work
     echo ":: ML4W SDDM theme installed succesfully"
 }
 
