@@ -67,6 +67,10 @@ output_path = '~/.config/ml4w/colors/secondary'
 input_path = '~/.config/matugen/templates/onsurface'
 output_path = '~/.config/ml4w/colors/onsurface'
 
+[templates.on_primary]
+input_path = '~/.config/matugen/templates/onprimary'
+output_path = '~/.config/ml4w/colors/onprimary'
+
 [templates.ohmyposh]
 input_path = '~/.config/matugen/templates/ohmyposh-colors.json'
 output_path = '~/.config/ohmyposh/colors.json'
