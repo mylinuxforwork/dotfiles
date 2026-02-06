@@ -36,6 +36,7 @@ apps=(
     "qt6ct"
     "nautilus"
     "gnome-text-editor"
+    "firefox"
 )
 
 tools=(
