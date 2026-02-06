@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # --- 1. PRE-FLIGHT CHECKS ---
 
@@ -44,7 +44,6 @@ check_sddm_active() {
 }
 
 install_sddm() {
-    # Sudo refresh to ensure password prompt is seen
     sudo -v
     gum spin --spinner dot --title "Installing SDDM on $DISTRO..." -- bash -c "$INSTALL_CMD"
 }
@@ -60,20 +59,15 @@ disable_other_dms() {
 }
 
 activate_sddm() {
-    # 1. Force a sudo refresh so the user can type the password NOW
     if ! sudo -v; then
         echo "ERROR: Authentication failed. Aborting."
         exit 1
     fi
 
-    # 2. Disable other DMs first (only disables auto-start, does not kill current session)
     disable_other_dms
     
-    # 3. Enable SDDM (removed --now so it doesn't start immediately)
     if gum spin --spinner dot --title "Enabling SDDM Service..." -- sudo systemctl enable sddm; then
         echo ":: SDDM Service Enabled."
-        
-        # 4. Notify user that reboot is required
         echo ":: Please reboot your system to apply changes."
     else
         echo "ERROR: Failed to enable SDDM systemd service."
@@ -82,7 +76,6 @@ activate_sddm() {
 }
 
 deactivate_sddm() {
-    # Sudo refresh
     if ! sudo -v; then exit 1; fi
     gum spin --spinner dot --title "Deactivating SDDM..." -- sudo systemctl disable sddm
     echo ":: SDDM has been deactivated. You are currently without an active Display Manager."
@@ -91,15 +84,50 @@ deactivate_sddm() {
 install_theme() {
     echo ":: Starting installation of the ML4W SDDM theme..."
     
-    # Clone repository
-    # Copy repository
-    # Activate Theme
+    echo ":: Creating temporary directory..."
+    rm -rf $HOME/.cache/ml4w-tmp
+    mkdir -p $HOME/.cache/ml4w-tmp
+    
+    echo ":: Cloning theme into temporary directory..."
+    git clone --depth 1 https://github.com/mylinuxforwork/ml4w-sddm $HOME/.cache/ml4w-tmp/ml4w-sddm
 
-    # cd SilentSDDM/
-    # sudo mkdir -p /usr/share/sddm/themes/ml4w
-    # sudo cp -rf . /usr/share/sddm/themes/ml4w/
+    echo ":: Copy theme to sddm folder..."
+    sudo mkdir -p /usr/share/sddm/themes/ml4w
+    sudo cp -rf $HOME/.cache/ml4w-tmp/ml4w-sddm/. /usr/share/sddm/themes/ml4w/
+
+    apply_theme
+
+    echo ":: Cleaning up..."
+    rm -rf $HOME/.cache/ml4w-tmp
 
     echo ":: ML4W SDDM theme installed succesfully"
+}
+
+apply_theme () {
+    echo ":: Activating theme in /etc/sddm.conf..."
+    if [[ -f /etc/sddm.conf ]]; then
+        sudo cp -f /etc/sddm.conf /etc/sddm.conf.bak
+        echo ":: Backup for SDDM config saved in /etc/sddm.conf.bak"
+
+        if grep -Pzq '\[Theme\]\nCurrent=' /etc/sddm.conf; then
+            sudo sed -i '/^\[Theme\]$/{N;s/\(Current=\).*/\1ml4w/;}' /etc/sddm.conf
+        else
+            echo -e "\n[Theme]\nCurrent=ml4w" | sudo tee -a /etc/sddm.conf
+        fi
+
+        if ! grep -Pzq 'InputMethod=qtvirtualkeyboard' /etc/sddm.conf; then
+            echo -e "\n[General]\nInputMethod=qtvirtualkeyboard" | sudo tee -a /etc/sddm.conf
+        fi
+
+        # "InputMethod" was supposed to automatically set "QT_IM_MODULE", but it doesn't, so we manually export it.
+        if ! grep -Pzq 'GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/ml4w/components/,QT_IM_MODULE=qtvirtualkeyboard' /etc/sddm.conf; then
+            echo -e "\n[General]\nGreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/ml4w/components/,QT_IM_MODULE=qtvirtualkeyboard" | sudo tee -a /etc/sddm.conf
+        fi
+    else
+        echo -e "[Theme]\nCurrent=ml4w" | sudo tee -a /etc/sddm.conf
+        echo -e "\n[General]\nInputMethod=qtvirtualkeyboard" | sudo tee -a /etc/sddm.conf
+        echo -e "GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/ml4w/components/,QT_IM_MODULE=qtvirtualkeyboard" | sudo tee -a /etc/sddm.conf
+    fi
 }
 
 # --- 4. MAIN LOGIC ---
@@ -109,8 +137,8 @@ figlet -f smslant "ML4W SDDM"
 
 # STATE 1: SDDM Not Installed
 if ! check_sddm_installed; then
-    gum style --foreground "#FFCC00" "Status: SDDM is NOT installed."
-    
+    echo ":: Status: SDDM is NOT installed."
+    echo
     if gum confirm "Do you want to install SDDM?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor; then
         install_sddm
         
@@ -137,6 +165,7 @@ if ! check_sddm_installed; then
 # STATE 2: Installed but Not Active
 elif ! check_sddm_active; then
     echo ":: SDDM is installed but NOT active."
+    echo
     if gum confirm "Do you want to activate SDDM?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor; then
         activate_sddm
         echo ":: SDDM Activated."
@@ -149,7 +178,7 @@ elif ! check_sddm_active; then
 # STATE 3: Installed and Active
 else
     echo ":: SDDM is installed and active."
-    
+    echo
     # Using gum choose for multiple options in this state
     ACTION=$(gum choose "Install ML4W Theme" "Deactivate SDDM" "Exit" --selected.background=$primarycolor --selected.foreground=$onprimarycolor)
     
