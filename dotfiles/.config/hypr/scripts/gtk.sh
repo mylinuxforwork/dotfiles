@@ -12,7 +12,8 @@ if [ ! -f "$config" ]; then exit 1; fi
 
 # Read settings file
 gnome_schema="org.gnome.desktop.interface"
-gtk_theme="$(grep 'gtk-theme-name' "$config" | sed 's/.*\s*=\s*//')"
+# gtk_theme="$(grep 'gtk-theme-name' "$config" | sed 's/.*\s*=\s*//')"
+gtk_theme="Adwaita"
 icon_theme="$(grep 'gtk-icon-theme-name' "$config" | sed 's/.*\s*=\s*//')"
 cursor_theme="$(grep 'gtk-cursor-theme-name' "$config" | sed 's/.*\s*=\s*//')"
 cursor_size="$(grep 'gtk-cursor-theme-size' "$config" | sed 's/.*\s*=\s*//')"
@@ -46,8 +47,3 @@ if [ -f ~/.config/hypr/conf/cursor.conf ]; then
     echo "exec-once = hyprctl setcursor $cursor_theme $cursor_size" >~/.config/hypr/conf/cursor.conf
     hyprctl setcursor $cursor_theme $cursor_size
 fi
-
-# Update gsettings for open any terminal
-gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal "$terminal"
-gsettings set com.github.stunkymonkey.nautilus-open-any-terminal use-generic-terminal-name "true"
-gsettings set com.github.stunkymonkey.nautilus-open-any-terminal keybindings "<Ctrl><Alt>t"
