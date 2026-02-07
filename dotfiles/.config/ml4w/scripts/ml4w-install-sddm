@@ -139,18 +139,18 @@ figlet -f smslant "ML4W SDDM"
 if ! check_sddm_installed; then
     echo ":: Status: SDDM is NOT installed."
     echo
-    if gum confirm "Do you want to install SDDM?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor; then
+    if gum confirm "Do you want to install SDDM?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor --prompt.foreground=$onsurfacecolor; then
         install_sddm
         
         if check_sddm_installed; then
             echo ":: SDDM installed successfully!"
             
-            if gum confirm "Do you want to activate SDDM now?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor; then
+            if gum confirm "Do you want to activate SDDM now?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor --prompt.foreground=$onsurfacecolor; then
                 activate_sddm
                 echo ":: SDDM Activated."
             fi
             
-            if gum confirm "Install the special ML4W SDDM Theme?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor; then
+            if gum confirm "Install the special ML4W SDDM Theme?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor --prompt.foreground=$onsurfacecolor; then
                 install_theme
             fi
         else
@@ -166,12 +166,12 @@ if ! check_sddm_installed; then
 elif ! check_sddm_active; then
     echo ":: SDDM is installed but NOT active."
     echo
-    if gum confirm "Do you want to activate SDDM?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor; then
+    if gum confirm "Do you want to activate SDDM?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor --prompt.foreground=$onsurfacecolor; then
         activate_sddm
         echo ":: SDDM Activated."
     fi
     
-    if gum confirm "Install the special ML4W SDDM Theme?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor; then
+    if gum confirm "Install the special ML4W SDDM Theme?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor --prompt.foreground=$onsurfacecolor; then
         install_theme
     fi
 
@@ -180,14 +180,14 @@ else
     echo ":: SDDM is installed and active."
     echo
     # Using gum choose for multiple options in this state
-    ACTION=$(gum choose "Install ML4W Theme" "Deactivate SDDM" "Exit" --selected.background=$primarycolor --selected.foreground=$onprimarycolor)
+    ACTION=$(gum choose "Install ML4W Theme" "Deactivate SDDM" "Exit" --selected.background=$primarycolor --selected.foreground=$onprimarycolor --prompt.foreground=$onsurfacecolor)
     
     case $ACTION in
         "Install ML4W Theme")
             install_theme
             ;;
         "Deactivate SDDM")
-            if gum confirm "Are you sure you want to deactivate SDDM?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor; then
+            if gum confirm "Are you sure you want to deactivate SDDM?" --selected.background=$primarycolor --selected.foreground=$onprimarycolor --prompt.foreground=$onsurfacecolor; then
                 deactivate_sddm
             fi
             ;;
