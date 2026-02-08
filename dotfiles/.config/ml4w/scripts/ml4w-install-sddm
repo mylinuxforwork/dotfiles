@@ -14,15 +14,15 @@ CONFLICTING_DMS="gdm lightdm lxdm xdm mdm slim wdm"
 
 if command -v pacman &> /dev/null; then
     DISTRO="Arch Linux"
-    INSTALL_CMD="sudo pacman -S --noconfirm sddm"
+    INSTALL_CMD="sudo pacman -S --noconfirm sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg"
     CHECK_PKG_CMD="pacman -Qi sddm"
 elif command -v dnf &> /dev/null; then
     DISTRO="Fedora"
-    INSTALL_CMD="sudo dnf install -y sddm"
+    INSTALL_CMD="sudo dnf install -y sddm qt6-qtsvg qt6-qtvirtualkeyboard qt6-qtmultimedia"
     CHECK_PKG_CMD="rpm -q sddm"
 elif command -v zypper &> /dev/null; then
     DISTRO="openSUSE Tumbleweed"
-    INSTALL_CMD="sudo zypper install -y sddm"
+    INSTALL_CMD="sudo zypper install -y sddm-qt6 libQt6Svg6 qt6-virtualkeyboard qt6-virtualkeyboard-imports qt6-multimedia qt6-multimedia-imports"
     CHECK_PKG_CMD="rpm -q sddm"
 else
     echo "ERROR: Unsupported package manager"
