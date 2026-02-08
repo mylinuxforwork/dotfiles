@@ -31,7 +31,7 @@ alias ml4w-options='ml4w-hyprland-setup -m options'
 alias ml4w-diagnosis='~/.config/hypr/scripts/diagnosis.sh'
 alias ml4w-hyprland-diagnosis='~/.config/hypr/scripts/diagnosis.sh'
 alias ml4w-qtile-diagnosis='~/.config/ml4w/qtile/scripts/diagnosis.sh'
-alias ml4w-update='~/.config/ml4w/scripts/installupdates.sh'
+alias ml4w-update='~/.config/ml4w/scripts/ml4w-install-system-updates'
 
 # -----------------------------------------------------
 # Window Managers

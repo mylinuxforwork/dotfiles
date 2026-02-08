@@ -15,9 +15,9 @@
         "format": "   {}",
         "escape": true,
         "return-type": "json",
-        "exec": "~/.config/ml4w/scripts/updates.sh",
+        "exec": "~/.config/ml4w/scripts/ml4w-check-system-updates",
         "restart-interval": 60,
-        "on-click": "$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e ~/.config/ml4w/scripts/installupdates.sh",
+        "on-click": "$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e ~/.config/ml4w/scripts/ml4w-install-system-updates",
         "on-click-right": "~/.config/ml4w/settings/software.sh"
     },
     // Pulseaudio

@@ -5,6 +5,7 @@
 # -----------------------------------------------------
 # General
 # -----------------------------------------------------
+alias ..='cd ..'
 alias c='clear'
 alias nf='fastfetch'
 alias pf='fastfetch'
@@ -19,7 +20,7 @@ alias wifi='nmtui'
 alias arch-cleanup='~/.config/ml4w/scripts/arch/cleanup.sh'
 alias apps='~/.config/ml4w/bin/ml4w-apps.sh'
 alias screenshot='~/.config/ml4w/bin/ml4w-screenshot.sh'
-alias updates='~/.config/ml4w/scripts/installupdates.sh'
+alias updates='~/.config/ml4w/scripts/ml4w-install-system-updates'
 alias filemanager='~/.config/ml4w/settings/filemanager'
 alias lock='hyprlock'
 alias clock='tty-clock'
@@ -53,7 +54,7 @@ alias gcredential="git config credential.helper store"
 # -----------------------------------------------------
 # Scripts
 # -----------------------------------------------------
-alias ascii='~/.config/ml4w/scripts/figlet.sh'
+alias ascii='~/.config/ml4w/scripts/ml4w-ascii-header'
 
 # -----------------------------------------------------
 # System

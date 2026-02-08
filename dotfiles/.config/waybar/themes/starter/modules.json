@@ -83,9 +83,9 @@
         "tooltip-format": "{}",
         "escape": true,
         "return-type": "json",
-        "exec": "~/.config/ml4w/scripts/updates.sh",
+        "exec": "~/.config/ml4w/scripts/ml4w-check-system-updates",
         "restart-interval": 60,
-        "on-click": "alacritty -e ~/.config/ml4w/scripts/installupdates.sh",
+        "on-click": "~/.config/ml4w/settings/ml4w-install-system-updates",
         "tooltip": false
     },
 
