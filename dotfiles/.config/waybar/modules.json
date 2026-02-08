@@ -105,7 +105,7 @@
     "interval": 1800,
     "signal": 1,
     "hide-empty-text": true,
-    "on-click": "~/.config/ml4w/settings/ml4w-install-system-updates"
+    "on-click": "~/.config/ml4w/settings/installupdates.sh"
   },
   // Wallpaper
   "custom/wallpaper": {

@@ -85,7 +85,7 @@
         "return-type": "json",
         "exec": "~/.config/ml4w/scripts/ml4w-check-system-updates",
         "restart-interval": 60,
-        "on-click": "~/.config/ml4w/settings/ml4w-install-system-updates",
+        "on-click": "~/.config/ml4w/settings/installupdates.sh",
         "tooltip": false
     },
 
