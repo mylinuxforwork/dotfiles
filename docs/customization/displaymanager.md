@@ -3,67 +3,21 @@
 This tutorial will guide you through installing a display manager like SDDM and switching between different display managers like SDDM and GDM on a Linux system. Display managers provide a graphical login screen and manage user sessions.
 
 > [!NOTE]
-> The ML4W OS does not include a Display Manager configuration because of the prevention to manipulate a sensitive system resource like display managers directly.
-
-First update your package list before installing the display manager.
-
-::: code-group
-
-```sh [Arch]
-sudo pacman -Syu
-```
-
-```sh [Fedora]
-sudo dnf update
-```
-
-```sh [openSuze]
-sudo zypper update
-```
-:::
+> The ML4W OS will not change your Display Manager configuration directly because of the prevention to manipulate a sensitive system resource like display managers directly. In the Live ISO, SDDM is already installed with the SDDM Theme.
 
 ## SDDM 
 
-### Install SDDM for your distribution:
+### Install SDDM and the ML4W Theme from the Welcome App
 
-::: code-group
+Open the Welcome App, click on Settings and select Display Manager. Then script will offer to install the Display Manager SDDM and the ML4W SDDM Theme based on SilentSDDM (https://github.com/uiriansan/SilentSDDM).
 
-```sh [Arch]
-sudo pacman -S sddm
-```
+The script will download, install and activate the theme automatically. 
 
-```sh [Fedora]
-sudo dnf install sddm
-```
-
-```sh [openSuze]
-sudo zypper install sddm
-```
-:::
-
-
-### Enable SDDM (if not automatically enabled)
-
-During installation, some distributions might prompt you to choose the default display manager. If not, or if you want to explicitly enable it, you can do so.
-
-For systems using systemd (most modern distributions):
-
-```sh 
-sudo systemctl enable sddm
-```
-
-If you were previously using another display manager (like GDM) and it was enabled, enabling SDDM will usually disable the old one automatically. However, if you want to be sure, you can explicitly disable the old one (e.g., GDM):
-Bash
-
-```sh 
-sudo systemctl disable gdm # Only if GDM was previously enabled
-```
-### Install SDDM Themes
+### Install other SDDM Themes
 
 The installation of an SDDM Theme depends on the theme developer. There are many great SDDM themes available on Gnome Look: https://www.gnome-look.org/browse?cat=101&ord=top
 
 Installing a custom SDDM theme generally involves downloading the theme, extracting it, placing it in the correct directory, and then configuring SDDM to use it.
-
 
 #### Step 1: Download the Theme
 
