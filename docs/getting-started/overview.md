@@ -1,22 +1,11 @@
 # Overview
 
-<div class="tip custom-block" style="padding-top: 8px">
-
-**An advanced configuration of Hyprland for Arch Linux and openSuse Tumbleweed (Fedora with limitations). This package includes an installation script to install and setup the required components.**
-
-</div>
+The ML4W OS - Dotfiles for Hyprland - An advanced and full-featured configuration for the dynamic tiling window manager Hyprland. Ready to install from a Live ISO or with the Dotfiles Installer app with setup scripts for Arch Linux, Fedora and openSuse.
 
 ![image](/dotfiles2100.jpg)
 
-> [!IMPORTANT]
-> Hyprland Wiki: We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro (not based on Arch/Nix) you might have varying amounts of success. However, since Hyprland is extremely bleeding-edge, point release distros like Pop!_OS, Fedora, Ubuntu, etc. will have major issues running Hyprland. Rolling release distros like openSUSE, Solus ,etc. will likely be fine.
-
 > [!NOTE]
 > This Wiki is covering the latest features of the ML4W OS. Please make sure that the latest version of the ML4W OS is installed on your system. Follow the installation and update instructions.
-
-The ML4W OS can be installed with the Dotfiles Installer.
-
-<a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
 
 ## Latest features
 
@@ -24,9 +13,7 @@ You can find the latest features in the [CHANGELOG](https://github.com/mylinuxfo
 
 ## Supported platforms
 
-The installation should work on all Arch Linux and Fedora based distributions.
-
-The ML4W OS Hyprland are tested with the following distributions:
+The ML4W OS Hyprland (with Dotfiles Installer) are tested with the following distributions:
 
 - Arch Linux
 - EndeavourOS
@@ -36,10 +23,6 @@ The ML4W OS Hyprland are tested with the following distributions:
 - CachyOS
 - openSuse Tumbleweed
 - Fedora Workstation 43
-
-> **For Manjaro users:** Hyprland and required packages are under ongoing development. That's why it could be possible that some packages are not immediately available on Manjaro. But usually, the packages will be published later. Maybe you can install required packages manually.
-
-> **For Arco Linux users**: Please install hyprutils first with `yay -S extra/hyprutils`
 
 ## Main packages
 

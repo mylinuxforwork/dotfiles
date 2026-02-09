@@ -17,7 +17,7 @@ figlet -f smslant "Printers"
 # ------------------------------------------------------
 
 # Notifications
-source "$HOME/.config/ml4w/scripts/notification-handler.sh"
+source "$HOME/.config/ml4w/scripts/ml4w-notification-handler"
 
 if gum confirm "DO YOU WANT TO START TO INSTALL PRINTER SYSTEM NOW?"; then
     echo

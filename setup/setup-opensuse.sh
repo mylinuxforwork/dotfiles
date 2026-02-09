@@ -36,6 +36,13 @@ packages=(
     "SwayNotificationCenter"
     # Fonts
     "fontawesome-fonts"
+    # Display Manager
+    "sddm-qt6"
+    "libQt6Svg6"
+    "qt6-virtualkeyboard"
+    "qt6-virtualkeyboard-imports"
+    "qt6-multimedia"
+    "qt6-multimedia-imports"
 )
 
 _isInstalled() {

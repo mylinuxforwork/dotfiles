@@ -41,6 +41,11 @@ packages=(
     # Fonts
     "fontawesome-fonts"
     "nerd-fonts-JetBrainsMono"
+    # Display Manager
+    "swww"
+    "qt6-qtsvg"
+    "qt6-qtvirtualkeyboard"
+    "qt6-qtmultimedia"
 )
 
 _isInstalled() {

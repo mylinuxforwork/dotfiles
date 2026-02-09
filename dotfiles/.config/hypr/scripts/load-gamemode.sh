@@ -7,7 +7,7 @@
 # 
 
 # Notifications
-source "$HOME/.config/ml4w/scripts/notification-handler.sh"
+source "$HOME/.config/ml4w/scripts/ml4w-notification-handler"
 
 _loadGameMode() {
     hyprctl --batch "\

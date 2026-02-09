@@ -74,7 +74,7 @@
 
   // Now Playing
   "custom/nowplaying": {
-    "exec": "~/.config/ml4w/scripts/now-playing.sh",
+    "exec": "~/.config/ml4w/scripts/ml4w-now-playing",
     "format": "  {text}",
     "return-type": "json",
     "interval": 1,
@@ -89,9 +89,9 @@
   // Cliphist
   "custom/cliphist": {
     "format": "",
-    "on-click": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh",
-    "on-click-right": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh d",
-    "on-click-middle": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh w",
+    "on-click": "sleep 0.1 && ~/.config/ml4w/scripts/ml4w-cliphist",
+    "on-click-right": "sleep 0.1 && ~/.config/ml4w/scripts/ml4w-cliphist d",
+    "on-click-middle": "sleep 0.1 && ~/.config/ml4w/scripts/ml4w-cliphist w",
     "tooltip-format": "Left: Open clipboard Manager\nRight: Delete an entry\nMiddle: Clear list",
     "on-scroll-up": "true",
     "on-scroll-down": "true"

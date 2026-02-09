@@ -76,6 +76,6 @@ Options:
 
 You can script the sidepad functionality by creating an own dispatcher script and connect it to your key bindings.
 
-The sidepad dispatcher for the ML4W OS is available here: https://github.com/mylinuxforwork/dotfiles/blob/main/dotfiles/.config/ml4w/scripts/sidepad.sh
+The sidepad dispatcher for the ML4W OS is available here: https://github.com/mylinuxforwork/dotfiles/blob/main/dotfiles/.config/ml4w/scripts/ml4w-sidepad
 
 

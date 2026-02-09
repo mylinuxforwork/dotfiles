@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Notifications
-source "$HOME/.config/ml4w/scripts/notification-handler.sh"
+source "$HOME/.config/ml4w/scripts/ml4w-notification-handler"
 APP_NAME="System"
 NOTIFICATION_ICON="battery-low-symbolic"
 

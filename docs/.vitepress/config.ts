@@ -1,7 +1,7 @@
 // .vitepress/config.ts
 export default {
-  title: 'ML4W OS - Dotfiles for Hyprland Wiki',
-  description: 'An advanced and full-featured configuration for the dynamic tiling window manager Hyprland',
+  title: 'ML4W OS - Dotfiles for Hyprland',
+  description: 'An advanced and full-featured Configuration and Live ISO for the dynamic tiling window manager Hyprland',
   base: "/dotfiles/",
   lastUpdated: true,
   cleanUrls: true,
@@ -28,7 +28,7 @@ export default {
         activeMatch: "/showcases/",
       },
      {
-        text: "2.10.0",
+        text: "2.10.1",
         items: [
           {
             text: 'Changelog',

@@ -9,7 +9,7 @@
 ml4w_cache_folder="$HOME/.cache/ml4w/hyprland-dotfiles"
 
 # Notifications
-source "$HOME/.config/ml4w/scripts/notification-handler.sh"
+source "$HOME/.config/ml4w/scripts/ml4w-notification-handler"
 APP_NAME="Waypaper"
 NOTIFICATION_ICON="preferences-desktop-wallpaper-symbolic"
 

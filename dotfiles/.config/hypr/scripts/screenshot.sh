@@ -23,7 +23,7 @@ eval screenshot_folder="$SAVE_DIR"
 eval NAME="$SAVE_FILENAME"
 
 # Notifications
-source "$HOME/.config/ml4w/scripts/notification-handler.sh"
+source "$HOME/.config/ml4w/scripts/ml4w-notification-handler"
 APP_NAME="Screen Capture"
 NOTIFICATION_ICON="camera-photo-symbolic"
 

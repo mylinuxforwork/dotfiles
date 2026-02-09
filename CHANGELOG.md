@@ -3,7 +3,7 @@ Version 2.10.1
 - ML4W Logo added to fastfetch
 - Hide fastfetch by adding a file to ~/.config/ml4w/settings/hide-fastfetch
 - Add script to install sddm and the ml4w theme based on SilentSDDM ~/.config/ml4w/scripts/ml4w-install-sddm or from the Welcome App/Settings/Display Manager
-- Started to cleanup and renaming scripts in ~/.config/ml4w/scripts/ Please make sure that all your customizations target to the new file names.
+- IMPORTANT: Started to cleanup and renaming scripts in ~/.config/ml4w/scripts/ Please make sure that all your customization target to the new file names.
 
 Version 2.10.0
 --------------------------------------------------------
