@@ -6,7 +6,7 @@ An advanced configuration of Hyprland for Arch Linux based distributions. Full f
 
 ## Installation and Documentation
 
-You can find all installation options in the documentation of the ML4W OS for Hyprland here:<br><b>https://mylinuxforwork.github.io/dotfiles/</b>
+You can find all installation options in the documentation of the ML4W OS for Hyprland here:<br><b>https://ml4w.com/os/</b>
 
 ### Test and install with the ML4W OS Live ISO
 
@@ -20,7 +20,7 @@ You can install the ML4W OS on your hard drive with the command `sudo install-ml
 
 Install the ML4W OS on top of your current distro with the Dotfiles Installer (Available on Flathub).<br>Click on the badge below to install the app.
 
-<a href="https://mylinuxforwork.github.io/dotfiles-installer/" target="_blank"><img src="https://mylinuxforwork.github.io/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
+<a href="https://ml4w.com/dotfiles-installer/" target="_blank"><img src="https://ml4w.com/dotfiles-installer/dotfiles-installer-badge.png" style="border:0;margin-bottom:10px"></a>
 
 Copy the following url into the Dotfiles Installer and start the installation.
 
@@ -36,7 +36,7 @@ https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/hyprland-dotfiles
 ```
 
 Setup scripts to install the required dependencies are included for <i class="devicon-archlinux-plain"></i> **Arch, <i class="devicon-fedora-plain"></i> Fedora and <i class="devicon-opensuse-plain"></i> openSuse Tumbleweed**.<br>
-For other distros, please install <a href="https://mylinuxforwork.github.io/dotfiles/getting-started/dependencies" target="_blank">the dependencies</a> first.
+For other distros, please install <a href="https://ml4w.com/os/getting-started/dependencies" target="_blank">the dependencies</a> first.
 
 ## Special Thanks
 
@@ -45,7 +45,7 @@ I want to say thank you to all contributors of the ML4W OS and all other Develop
 Special Thanks do to...
 
 https://github.com/Affanmm for the great and professional ML4W Logo Design and much more.
-https://github.com/harilvfs for supporting me in creating the new Wiki https://mylinuxforwork.github.io/dotfiles/
+https://github.com/harilvfs for supporting me in creating the new Wiki https://ml4w.com/os/
 https://github.com/dwilliam62 for all your support and testings since the start of the Project
 and so many more...
 

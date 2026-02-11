@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        // currentPath will be something like "/dotfiles-installer/docs/install"
+        var currentPath = window.location.pathname;
+        
+        // Build the new URL by swapping the domain
+        // Since the slug /dotfiles-installer/ remains the same, we just prepend the domain
+        var newURL = "https://ml4w.com" + currentPath + window.location.search + window.location.hash;
+        
+        // Execute the redirect
+        window.location.replace(newURL);
+    </script>
+</head>
+<body>
+    <p>Redirecting to new documentation site...</p>
+    <p>If you are not redirected, <a id="manual-link" href="https://ml4w.com/dotfiles-installer/">click here</a>.</p>
+    <script>
+        document.getElementById('manual-link').href = "https://ml4w.com" + window.location.pathname;
+    </script>
+</body>
+</html>
