@@ -1,3 +1,7 @@
+Version 2.10.2
+--------------------------------------------------------
+- The SDDM script can copy the current wallpaper to SDDM and use it as a background image. Start the script with ~/.config/ml4w/scripts/ml4w-install-sddm or from the Welcome App/Settings/Display Manager
+
 Version 2.10.1
 --------------------------------------------------------
 - ML4W Logo added to fastfetch

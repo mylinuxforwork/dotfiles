@@ -45,7 +45,7 @@ check_sddm_active() {
 
 install_sddm() {
     sudo -v
-    gum spin --spinner dot --title "Installing SDDM on $DISTRO..." -- bash -c "$INSTALL_CMD"
+    echo ":: Installing SDDM on $DISTRO..." && bash -c "$INSTALL_CMD"
 }
 
 disable_other_dms() {
@@ -53,7 +53,7 @@ disable_other_dms() {
         # Only disable the service, DO NOT stop it.
         # Stopping it would kill the current GUI session immediately.
         if systemctl is-enabled --quiet "$dm" 2>/dev/null; then
-             gum spin --spinner dot --title "Disabling conflicting DM: $dm..." -- sudo systemctl disable "$dm"
+             echo ":: Disabling conflicting DM: $dm..." && sudo systemctl disable "$dm"
         fi
     done
 }
@@ -66,7 +66,7 @@ activate_sddm() {
 
     disable_other_dms
     
-    if gum spin --spinner dot --title "Enabling SDDM Service..." -- sudo systemctl enable sddm; then
+    echo ":: Enabling SDDM Service..." && if sudo systemctl enable sddm; then
         echo ":: SDDM Service Enabled."
         echo ":: Please reboot your system to apply changes."
     else
@@ -77,7 +77,7 @@ activate_sddm() {
 
 deactivate_sddm() {
     if ! sudo -v; then exit 1; fi
-    gum spin --spinner dot --title "Deactivating SDDM..." -- sudo systemctl disable sddm
+    echo ":: Deactivating SDDM..." && sudo systemctl disable sddm
     echo ":: SDDM has been deactivated. You are currently without an active Display Manager."
 }
 
@@ -130,6 +130,61 @@ apply_theme () {
     fi
 }
 
+copy_wallpaper_to_sddm() {
+    echo ":: Copying current wallpaper to SDDM theme background..."
+
+    if ! command -v convert &> /dev/null; then
+        echo "ERROR: 'imagemagick' (convert command) is not installed. Please install it to use this feature."
+        return 1
+    fi
+
+    # Read the actual wallpaper path from the file
+    WALLPAPER_PATH_FILE="$HOME/.cache/ml4w/hyprland-dotfiles/current_wallpaper"
+    if [ ! -f "$WALLPAPER_PATH_FILE" ]; then
+        echo "ERROR: Wallpaper path file not found at '$WALLPAPER_PATH_FILE'."
+        return 1
+    fi
+    SOURCE_WALLPAPER=$(cat "$WALLPAPER_PATH_FILE")
+
+    if [ ! -f "$SOURCE_WALLPAPER" ]; then
+        echo "ERROR: Actual wallpaper file not found at '$SOURCE_WALLPAPER' (read from '$WALLPAPER_PATH_FILE')."
+        return 1
+    fi
+
+    DEST_WALLPAPER="/usr/share/sddm/themes/ml4w/backgrounds/ml4w.jpg"
+
+    # Determine file type and convert if necessary
+    MIME_TYPE=$(file --mime-type -b "$SOURCE_WALLPAPER")
+    TEMP_JPG="/tmp/current_wallpaper_sddm.jpg" # Changed temp file name to avoid conflict
+
+    if [[ "$MIME_TYPE" == "image/jpeg" ]]; then
+        cp "$SOURCE_WALLPAPER" "$TEMP_JPG"
+        echo ":: Wallpaper is already JPEG. Copying directly."
+    elif [[ "$MIME_TYPE" == "image/png" ]]; then
+        echo ":: Converting PNG wallpaper to JPEG..." && convert "$SOURCE_WALLPAPER" "$TEMP_JPG"
+        if [ $? -ne 0 ]; then
+            echo "ERROR: Failed to convert wallpaper to JPEG."
+            rm -f "$TEMP_JPG"
+            return 1
+        fi
+        echo ":: Wallpaper converted to JPEG."
+    else
+        echo "ERROR: Unsupported wallpaper format ($MIME_TYPE). Only JPEG and PNG are supported."
+        return 1
+    fi
+
+    # Copy to SDDM theme directory
+    echo ":: Copying wallpaper to SDDM theme..." && sudo cp "$TEMP_JPG" "$DEST_WALLPAPER"
+    if [ $? -ne 0 ]; then
+        echo "ERROR: Failed to copy wallpaper to SDDM theme background."
+        rm -f "$TEMP_JPG"
+        return 1
+    fi
+    echo ":: Wallpaper successfully copied to SDDM theme background."
+    rm -f "$TEMP_JPG"
+    return 0
+}
+
 # --- 4. MAIN LOGIC ---
 
 clear
@@ -180,11 +235,14 @@ else
     echo ":: SDDM is installed and active."
     echo
     # Using gum choose for multiple options in this state
-    ACTION=$(gum choose --selected.background=$primarycolor --selected.foreground=$onprimarycolor "Install ML4W Theme" "Deactivate SDDM" "Exit")
+    ACTION=$(gum choose --selected.background=$primarycolor --selected.foreground=$onprimarycolor "Install ML4W Theme" "Copy Wallpaper to SDDM" "Deactivate SDDM" "Exit")
     
     case $ACTION in
         "Install ML4W Theme")
             install_theme
+            ;;
+        "Copy Wallpaper to SDDM")
+            copy_wallpaper_to_sddm
             ;;
         "Deactivate SDDM")
             if gum confirm --selected.background=$primarycolor --selected.foreground=$onprimarycolor --prompt.foreground=$onsurfacecolor "Are you sure you want to deactivate SDDM?"; then
