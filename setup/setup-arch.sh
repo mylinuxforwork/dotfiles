@@ -57,6 +57,8 @@ packages=(
     "qt6-svg"
     "qt6-virtualkeyboard"
     "qt6-multimedia-ffmpeg"
+    # System
+    "gvfs-mtp"
 )
 
 _isInstalled() {

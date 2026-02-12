@@ -11,6 +11,9 @@ general=(
     "vim"
     "inotify-tools"
     "gnome-themes-extra"
+    "udisks2"
+    "gvfs"
+    "udiskie"
 )
 
 hyprland=(

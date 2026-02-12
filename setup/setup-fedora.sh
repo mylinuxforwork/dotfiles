@@ -46,6 +46,8 @@ packages=(
     "qt6-qtsvg"
     "qt6-qtvirtualkeyboard"
     "qt6-qtmultimedia"
+    # System
+    "gvfs-mtp"
 )
 
 _isInstalled() {

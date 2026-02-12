@@ -43,6 +43,8 @@ packages=(
     "qt6-virtualkeyboard-imports"
     "qt6-multimedia"
     "qt6-multimedia-imports"
+    # System
+    "gvfs-backend"
 )
 
 _isInstalled() {
