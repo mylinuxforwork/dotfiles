@@ -23,4 +23,14 @@
       </metadata>
     </info>
   </bookmark>
+  <bookmark href="smb://nas.lan/multimedia/" added="2026-01-28T19:48:18.823705Z" modified="2026-01-28T19:48:18.823721Z" visited="2026-01-28T19:48:18.823713Z">
+    <title>multimedia on nas.lan</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2026-01-28T19:48:18.823717Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
 </xbel>
