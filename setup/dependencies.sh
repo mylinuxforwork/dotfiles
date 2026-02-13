@@ -26,5 +26,5 @@ echo
 echo "But you can install the dependencies manually and continue the installation with the Dotfiles Installer."
 echo 
 echo "You can find the list of dependencies here:"
-echo "https://mylinuxforwork.github.io/dotfiles/getting-started/dependencies"
+echo "https://ml4w.com/os/getting-started/dependencies"
 echo
