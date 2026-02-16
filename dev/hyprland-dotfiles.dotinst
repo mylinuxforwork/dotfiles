@@ -6,7 +6,7 @@
 	"author": "Stephan Raabe",
 	"homepage": "https://ml4w.com/os/",
 	"dependencies": "https://ml4w.com/os/getting-started/dependencies",
-	"source": "Projects/dotfiles",
+	"source": "$HOME/Projects/dotfiles",
 	"subfolder": "dotfiles",
 	"setupscript":"setup/setup.sh",
 	"restore":[
