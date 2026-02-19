@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
-dotfiles_id=$(jq -r '.active' ~/.var/app/com.ml4w.dotfilesinstaller/config/dotfiles.json)
+dotfiles_id=""
+ACTIVE_JSON="$HOME/.config/ml4w-dotfiles-installer/active.json"
+if [ -f $ACTIVE_JSON ]; then
+    dotfiles_id=$(jq -r '.active' $ACTIVE_JSON)
+fi
 echo $dotfiles_id
