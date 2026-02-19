@@ -4,7 +4,7 @@
     "logo": {
         "source": "~/.config/ml4w/assets/ml4w.png", // Path to your logo file
         "type": "auto",                    // 'auto' detects the best protocol for your terminal
-        "width": 16,                       // Adjust width (in characters)
+        "width": 12,                       // Adjust width (in characters)
         "padding": {
             "top": 1,
             "right": 4,
@@ -30,10 +30,10 @@
             "format": "{host-name}"
         },
         {
-          "type": "command",
-          "key": "│ {#33}󱦟 os age  {#keys}│",
-          "keyColor": "magenta",
-          "text": "printf \"\\e[0m%s days\\e[0m\" \"$(( ($(date +%s) - $(stat -c %W /)) / 86400 ))\""
+            "type": "command",
+            "key": "│ {#33}󱦟 os age  {#keys}│",
+            "keyColor": "magenta",
+            "text": "printf \"\\e[0m%s days\\e[0m\" \"$(( ($(date +%s) - $(stat -c %W /)) / 86400 ))\""
         },
         {
             "key": "│ {#34}󰅐 uptime  {#keys}│",

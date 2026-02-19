@@ -27,6 +27,11 @@
 			"value":true
 		},
 		{
+			"title":"NWG-Displays",
+			"source":".config/hypr/monitors.conf",
+			"value":true
+		},
+		{
 			"title":"Waypaper",
 			"source":".config/waypaper",
 			"value":true
