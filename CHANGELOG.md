@@ -1,6 +1,8 @@
-Version 2.10.2
+Version 2.11.0
 --------------------------------------------------------
 - The SDDM script can copy the current wallpaper to SDDM and use it as a background image. Start the script with ~/.config/ml4w/scripts/ml4w-install-sddm or from the Welcome App/Settings/Display Manager
+- New installation script based on the script based ML4W Dotfiles Installer
+- New Default Wallpaper
 
 Version 2.10.1
 --------------------------------------------------------
