@@ -1,22 +1,16 @@
-/*
-* GTK Colors
-* Generated with Matugen
-*/
-
-@define-color accent_color #ffb59d;
-@define-color accent_fg_color #390c00;
-@define-color accent_bg_color #ffb59d;
-@define-color window_bg_color #1a110f;
-@define-color window_fg_color #f1dfda;
-@define-color headerbar_bg_color #1a110f;
-@define-color headerbar_fg_color #f1dfda;
-@define-color popover_bg_color #1a110f;
-@define-color popover_fg_color #f1dfda;
-@define-color view_bg_color #1a110f;
-@define-color view_fg_color #f1dfda;
-@define-color card_bg_color #1a110f;
-@define-color card_fg_color #f1dfda;
-@define-color sidebar_bg_color @window_bg_color;
-@define-color sidebar_fg_color @window_fg_color;
-@define-color sidebar_border_color @window_bg_color;
-@define-color sidebar_backdrop_color @window_bg_color;
+@define-color color0  #0f1417;
+@define-color color1  #c1c7ce;
+@define-color color2  #b6c9d8;
+@define-color color3  #b6c9d8;
+@define-color color4  #91cef5;
+@define-color color5  #91cef5;
+@define-color color6  #91cef5;
+@define-color color7  #dfe3e7;
+@define-color color8  #0f1417;
+@define-color color9  #0f1417;
+@define-color color10 #00344b;
+@define-color color11 #21333e;
+@define-color color12 #91cef5;
+@define-color color13 #91cef5;
+@define-color color14 #c1c7ce;
+@define-color color15 #c1c7ce;
