@@ -13,13 +13,11 @@ You can find all installation options in the documentation of the ML4W OS for Hy
 Copy one of the following commands into your terminal:
 
 ```sh
-# Stable Release
-bash <(curl -s https://ml4w.com/os/stable)
+bash <(curl -s https://ml4w.com/os/stable) # Stable Release
 ```
 
 ```sh
-# Rolling Release
-bash <(curl -s https://ml4w.com/os/rolling)
+bash <(curl -s https://ml4w.com/os/rolling) # Rolling Release
 ```
 Arch, Fedora and openSuse Tumblweed are directly supported.
 
