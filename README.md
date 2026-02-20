@@ -8,6 +8,21 @@ An advanced configuration of Hyprland for Arch Linux based distributions. Full f
 
 You can find all installation options in the documentation of the ML4W OS for Hyprland here:<br><b>https://ml4w.com/os/</b>
 
+### Quick Installation
+
+Copy one of the following commands into your terminal:
+
+```sh
+# Stable Release
+bash <(curl -s https://ml4w.com/os/stable)
+```
+
+```sh
+# Rolling Release
+bash <(curl -s https://ml4w.com/os/rolling)
+```
+Arch, Fedora and openSuse Tumblweed are directly supported.
+
 ### Test and install with the ML4W OS Live ISO
 
 Test the ML4W OS without risk on your computer or in a Virtual Machine with the ML4W Live ISO.
