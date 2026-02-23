@@ -113,3 +113,8 @@ docs/.vitepress/cache
 
 # devicon
 docs/.vitepress/devicon
+
+# Matugen created files
+colors.*
+colors-*.*
+colors/
