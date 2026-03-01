@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+BACKUP_DIR="$HOME/.backups/ml4w-nvim/$TIMESTAMP"
+NVIM_DIR="$HOME/.config/nvim"
+
+# --- UI ---
+info() { echo -e "${BLUE}[BOOTSTRAP]${NC} $1"; }
+success() { echo -e "${GREEN}[SUCCESS]${NC} $1"; }
+warn() { echo -e "${YELLOW}[WARN]${NC} $1"; }
+error() { echo -e "${RED}[ERROR]${NC} $1"; exit 1; }
+
+info "Starting ML4W vim configuration setup..."
+if [ -L $NVIM_DIR ]; then
+    info "Existing nvim symlink detected in $NVIM_DIR"
+    info "Backup will be created in $BACKUP_DIR"
+fi
+if [ -d $NVIM_DIR ] && [ ! -L $NVIM_DIR ]; then
+    info "Existing nvim folder detected in $NVIM_DIR"
+    info "Backup will be created in $BACKUP_DIR"
+fi
+
+if gum confirm "Do you really want to proceed?"; then
+
+    # Create backup
+    if [ -L $NVIM_DIR ]; then
+        local current_link_target=$(realpath -m "$NVIM_DIR")
+        cp -rf $current_link_target $BACKUP_DIR/
+        rm $NVIM_DIR
+        info "Backup created in folder $BACKUP_DIR"
+    fi
+
+    if [ -d $NVIM_DIR ] && [ ! -L $NVIM_DIR ]; then
+        mkdir -p $BACKUP_DIR
+        cp -rf $NVIM_DIR $BACKUP_DIR/
+        info "Backup created in folder $BACKUP_DIR"
+    fi
+
+    # Prepare Temporary Folder
+    TEMP_DIR=$(mktemp -d -t ml4w-nvim-XXXXXX)
+    info "Cloning ML4W nvim configuration into $TEMP_DIR..."
+    git clone --depth=1 https://github.com/mylinuxforwork/ml4w-nvim.git "$TEMP_DIR"
+    cd "$TEMP_DIR"
+    
+    info "Installing ML4W nvim configuration to ~/.config..."
+    make install    
+
+    # Cleanup
+    rm -rf "$TEMP_DIR"
+    success "Setup process finished!"
+fi
+
