@@ -3,10 +3,6 @@
 # Cursors
 # --------------------------------------------------------------
 
-# --------------------------------------------------------------
-# Bibata Cursors
-# --------------------------------------------------------------
-
 download_folder="$HOME/Downloads/bibata-cursors"
 bibata_url="https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/"
 
