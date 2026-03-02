@@ -1,8 +1,10 @@
 Version 2.11.1
 --------------------------------------------------------
 - Compatible with Hyprland 0.54.x
-- Neovim configuration moved to an own repository https://github.com/mylinuxforwork/ml4w-nvim 
+- Neovim configuration moved to own repository https://github.com/mylinuxforwork/ml4w-nvim 
 - Install the ML4W nvim configuration from the Welcome App in Settings/Options or with ~/.config/ml4w/scripts/ml4w-install-nvim
+- New default icon theme kora-pgrey
+- Switched back to Bibata Cursor Theme
 
 Version 2.11.0
 --------------------------------------------------------
