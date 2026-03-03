@@ -23,7 +23,6 @@ sudo cp $SCRIPT_DIR/packages/eza /usr/bin
 # --------------------------------------------------------------
 
 echo ":: Installing packages with pip"
-sudo pip install hyprshade
 sudo pip install pywalfox
 sudo pip install screeninfo
 sudo pip install waypaper

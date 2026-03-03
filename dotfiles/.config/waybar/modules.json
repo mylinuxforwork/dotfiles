@@ -182,7 +182,7 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true
   },
-  // Hyprshade
+  // Hyprsunset
   "custom/hyprshade": {
     "format": "",
     "tooltip-format": "Toggle Screen Shader",
