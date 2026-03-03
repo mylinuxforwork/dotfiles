@@ -5,6 +5,7 @@ Version 2.11.1
 - Install the ML4W nvim configuration from the Welcome App in Settings/Options or with ~/.config/ml4w/scripts/ml4w-install-nvim
 - New default icon theme kora-pgrey
 - Switched back to Bibata Cursor Theme
+- New keybinding: SUPER+SHIFT+M to toggle between dark and light mode
 
 Version 2.11.0
 --------------------------------------------------------
