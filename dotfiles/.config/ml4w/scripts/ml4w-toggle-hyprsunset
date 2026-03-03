@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# 1. Check if hyprsunset is installed
+if ! command -v hyprsunset &> /dev/null; then
+    echo "Error: hyprsunset is not installed."
+    exit 1
+fi
+
+# 2. Toggle Logic
+# Check if hyprsunset is already running
+if pgrep -x "hyprsunset" > /dev/null; then
+    # If running, kill it
+    pkill -x "hyprsunset"
+    echo "Hyprsunset disabled."
+else
+    # If not running, start it in the background
+    # Adjust the -t (temperature) value to your preference
+    hyprsunset &
+    echo "Hyprsunset enabled."
+fi

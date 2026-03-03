@@ -32,6 +32,7 @@ packages=(
     "NetworkManager-connection-editor"
     "NetworkManager-tui"
     "tesseract-ocr-traineddata-eng"
+    "hyprsunset"
     # Apps
     "SwayNotificationCenter"
     # Fonts
@@ -172,7 +173,6 @@ sudo zypper install gcc pkg-config cairo-devel gobject-introspection-devel libgi
 
 echo ":: Installing packages with pip"
 sudo zypper -n install python313-screeninfo
-pipx install hyprshade
 pipx install pywalfox
 pipx install waypaper
 

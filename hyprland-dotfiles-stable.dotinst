@@ -32,6 +32,11 @@
 			"value":true
 		},
 		{
+			"title":"Hyprsunset",
+			"source":".config/hypr/hyprsunset.conf",
+			"value":true
+		},
+		{
 			"title":"Waypaper",
 			"source":".config/waypaper",
 			"value":true

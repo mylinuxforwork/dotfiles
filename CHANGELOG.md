@@ -6,6 +6,7 @@ Version 2.11.1
 - New default icon theme kora-pgrey
 - Switched back to Bibata Cursor Theme
 - New keybinding: SUPER+SHIFT+M to toggle between dark and light mode
+- Hyprshade replaced with Hyprsunset. Configuration in ~./config/hypr/hyprsunset.conf (can be restored for updates)
 
 Version 2.11.0
 --------------------------------------------------------
