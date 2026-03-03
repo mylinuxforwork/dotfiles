@@ -40,20 +40,8 @@ check_sddm_installed() {
 }
 
 check_sddm_active() {
-    # 1. Check if the unit is active (either sddm or the display-manager alias)
-    if systemctl is-active --quiet sddm || systemctl is-active --quiet display-manager; then
-        # 2. Double check if sddm is actually the process running
-        if pgrep -x "sddm" > /dev/null; then
-            echo "SDDM is installed and active."
-            return 0
-        else
-            echo "A display manager is active, but it doesn't appear to be SDDM."
-            return 1
-        fi
-    else
-        echo "SDDM service is not active."
-        return 1
-    fi
+    # Checks if a display manager is active
+    systemctl is-active --quiet display-manager
 }
 
 install_sddm() {
