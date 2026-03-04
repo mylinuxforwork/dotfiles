@@ -21,4 +21,5 @@ if [ ! -f $HOME/.config/ml4w/settings/dock-disabled ]; then
     fi
 else
     echo ":: Dock disabled"
+    echo "It is recommended to use the aerolaunch.txt and rename it to launch.sh, with launch.sh renamed to anything else, when using the Aero theme."
 fi

@@ -1,3 +1,10 @@
+Version 2.12.0
+--------------------------------------------------------
+- Tweaked ml4w-glass waybar theme
+- Added a dock theme
+- Added a custom launch.sh for new aero theme (dock)
+
+
 Version 2.11.1
 --------------------------------------------------------
 - Compatible with Hyprland 0.54.x
@@ -7,6 +14,7 @@ Version 2.11.1
 - Switched back to Bibata Cursor Theme
 - New keybinding: SUPER+SHIFT+M to toggle between dark and light mode
 - Hyprshade replaced with Hyprsunset. Configuration in ~./config/hypr/hyprsunset.conf (can be restored for updates)
+
 
 Version 2.11.0
 --------------------------------------------------------
