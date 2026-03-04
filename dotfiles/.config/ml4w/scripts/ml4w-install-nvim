@@ -47,6 +47,7 @@ if gum confirm "Do you really want to proceed?"; then
 
     # Cleanup
     rm -rf "$TEMP_DIR"
-    success "Setup process finished!"
+    success "Setup process finished! Press [ENTER] to close."
+    read    
 fi
 
