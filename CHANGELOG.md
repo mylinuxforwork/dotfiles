@@ -1,3 +1,9 @@
+Version 2.11.2
+--------------------------------------------------------
+- New snapshot script for timeshift and grub-btrfs ~/.config/ml4w/scripts/ml4w-snapshot supporting Arch, Fedora based distros and openSuse Tumbleweed
+- New pacman update script for Arch to enable colors, parallel downloads and ILoveCandy ~/.config/ml4w/scripts/ml4w-pacman
+
+
 Version 2.11.1
 --------------------------------------------------------
 - Compatible with Hyprland 0.54.x
