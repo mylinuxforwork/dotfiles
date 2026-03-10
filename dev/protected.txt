@@ -2,3 +2,5 @@ keyboard.conf
 custom.conf
 monitors.conf
 waypaper
+shared
+Theme.qml
