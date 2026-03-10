@@ -5,7 +5,7 @@
 # Use 'realpath' to ensure the path is fully resolved and absolute
 
 # Defaults
-SEARCH_PATH="$HOME/Pictures/Wallpapers"
+SEARCH_PATH="$HOME/Pictures/wallpapers"
 
 # Load Settings
 if [ -f ~/.config/ml4w/settings/wallpaper-folder ]; then

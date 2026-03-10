@@ -85,6 +85,35 @@ if [ ! -f ~/.config/waybar/themes${arrThemes[1]}/style.css ]; then
 fi
 
 # -----------------------------------------------------
+# Toggle Waybar modules
+# -----------------------------------------------------
+
+_toggle_module() {
+    local module_name=$1
+    local settings_file=$2
+    local value=$(cat "$settings_file")
+    local file="$HOME/.config/waybar/themes${arrThemes[0]}/config"
+    if [ "$value" == "True" ]; then
+        search_string=" \"$module_name\""
+        if ! grep -qF "$search_string" "$file"; then
+            sed -i "s| //\"$module_name\"| \"$module_name\"|g" "$file"
+        fi    
+    else
+        search_string=" //\"$module_name\""
+        if ! grep -qF "$search_string" "$file"; then
+            sed -i "s| \"$module_name\"| //\"$module_name\"|g" "$file"
+        fi    
+    fi
+}
+
+# _toggle_module "custom/appmenu" "$HOME/.config/ml4w/settings/waybar_appmenu.sh"
+# _toggle_module "wlr/taskbar" "$HOME/.config/ml4w/settings/waybar_taskbar.sh"
+# _toggle_module "group/quicklinks" "$HOME/.config/ml4w/settings/waybar_quicklinks.sh"
+# _toggle_module "hyprland/window" "$HOME/.config/ml4w/settings/waybar_window.sh"
+# _toggle_module "network" "$HOME/.config/ml4w/settings/waybar_network.sh"
+# _toggle_module "tray" "$HOME/.config/ml4w/settings/waybar_systray.sh"
+
+# -----------------------------------------------------
 # Loading the configuration
 # -----------------------------------------------------
 

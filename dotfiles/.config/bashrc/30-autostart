@@ -5,7 +5,7 @@
 # The 'finder' command (Fuzzy Finder)
 finder() {
     # Run the script and capture the result
-    local result=$($HOME/.config/ml4w/bin/ml4w-finder.sh)
+    local result=$($HOME/.config/ml4w/bin/ml4w-finder)
 
     # Check if the script told us to CD
     if [[ "$result" == TYPE_DIR:* ]]; then
