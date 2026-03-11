@@ -9,8 +9,8 @@ FloatingWindow {
     id: root
     visible: true
     title: "ML4W Welcome"
-    width: 850
-    height: 550
+    implicitWidth: 850
+    implicitHeight: 550
 
     IpcHandler {
         target: "welcome"
@@ -21,6 +21,11 @@ FloatingWindow {
 
     Theme {
         id: theme
+    }
+
+    Process {
+        id: appLauncher
+        running: false
     }
 
     color: theme.background
@@ -47,15 +52,62 @@ FloatingWindow {
                 title: qsTr("Settings")
                 font.family: theme.fontFamily
                 font.pixelSize: 14
-                MenuItem { text: qsTr("Keyboard"); onClicked: console.log("Keyboard clicked") }
-                MenuItem { text: qsTr("Monitors"); onClicked: console.log("Monitors clicked") }
-                MenuItem { text: qsTr("Network"); onClicked: console.log("Network clicked") }
-                MenuItem { text: qsTr("Bluetooth"); onClicked: console.log("Bluetooth clicked") }
+                MenuItem { 
+                    text: qsTr("Keyboard"); 
+                    onClicked: { 
+                        console.log("Keyboard clicked") 
+                        appLauncher.command = ["gnome-text-editor", Quickshell.env("HOME") + "/.config/hypr/conf/keyboard.conf"]
+                        appLauncher.running = true                        
+                    }
+                }
+                MenuItem { 
+                    text: qsTr("Monitors"); 
+                    onClicked: { 
+                        console.log("Monitors clicked") 
+                        appLauncher.command = ["nwg-displays"]
+                        appLauncher.running = true                        
+                    }
+                }
+                MenuItem { 
+                    text: qsTr("Network"); 
+                    onClicked: { 
+                        console.log("Network clicked") 
+                        appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", "~/.config/ml4w/scripts/ml4w-network"]
+                        appLauncher.running = true                        
+                    }
+                }    
+                MenuItem { 
+                    text: qsTr("Bluetooth"); 
+                    onClicked: {
+                        console.log("Bluetooth clicked")
+                        appLauncher.command = ["blueman-manager"]
+                        appLauncher.running = true                        
+                    }
+                }
                 MenuSeparator { }
-                MenuItem { text: qsTr("ML4W Dotfiles Settings") }
-                MenuItem { text: qsTr("ML4W Hyprland Settings") }
+                MenuItem { 
+                    text: qsTr("ML4W Dotfiles Settings") 
+                    onClicked: {
+                        console.log("ML4W Dotfiles Settings")
+                    }
+                }
+                MenuItem { 
+                    text: qsTr("ML4W Hyprland Settings")
+                    onClicked: {
+                        console.log("ML4W Hyprland Settings")
+                        appLauncher.command = ["flatpak", "run", "com.ml4w.hyprlandsettings"]
+                        appLauncher.running = true                        
+                    }
+                }
                 MenuSeparator { }
-                MenuItem { text: qsTr("Exit Hyprland") }
+                MenuItem { 
+                    text: qsTr("Exit Hyprland") 
+                    onClicked: {
+                        console.log("Exit Hyprland")
+                        appLauncher.command = ["bash", Quickshell.env("HOME") + "/.config/hypr/scripts/power.sh exit"]
+                        appLauncher.running = true                        
+                    }
+                }
 
                 // Styling the dropdown menu background
                 background: Rectangle {
@@ -118,27 +170,25 @@ FloatingWindow {
                 anchors.margins: 30
                 spacing: 20
 
-                // --- MAIN HERO SECTION ---
+                // --- MAIN HERO SECTION --- 
                 ColumnLayout {
                     Layout.alignment: Qt.AlignHCenter
                     spacing: 10
                     Layout.topMargin: 20
 
                     // Mock Logo
-                    Rectangle {
+                    Image {
                         Layout.alignment: Qt.AlignHCenter
-                        width: 80
-                        height: 80
-                        radius: 16
-                        color: "#00d2ff" // Cyan brand color
+                        source: "../shared/ml4w.svg"
                         
-                        Text {
-                            anchors.centerIn: parent
-                            text: "ml."
-                            font.pixelSize: 32
-                            font.bold: true
-                            color: "#11111b"
-                        }
+                        // Extremely important for SVGs in QML to render crisply!
+                        sourceSize.width: 100 
+                        sourceSize.height: 100
+                        
+                        // Set the actual display size
+                        width: 100
+                        height: 100
+                        fillMode: Image.PreserveAspectFit
                     }
 
                     Text {
@@ -212,33 +262,36 @@ FloatingWindow {
                     Layout.alignment: Qt.AlignHCenter
                     spacing: 8
 
-                    Component {
-                        id: shortcutRow
-                        RowLayout {
+                    Repeater {
+                        model: ListModel {
+                            ListElement { keys: "Super + Enter"; desc: "to open the terminal" }
+                            ListElement { keys: "Super + B"; desc: "to open the browser" }
+                            ListElement { keys: "Super + Space"; desc: "to open the application launcher" }
+                        }
+                        
+                        delegate: RowLayout {
                             spacing: 15
-                            property string keys: ""
-                            property string desc: ""
                             
                             Text {
-                                text: keys
+                                text: model.keys
                                 color: theme.primary
+                                font.family: theme.fontFamily
                                 font.bold: true
                                 font.pixelSize: 13
                                 Layout.preferredWidth: 120
                                 horizontalAlignment: Text.AlignRight
                             }
+                            
                             Text {
-                                text: desc
-                                color: theme.primary
+                                text: model.desc
+                                color: theme.on_background
+                                font.family: theme.fontFamily
                                 font.pixelSize: 13
-                                Layout.fillWidth: true
+                                // Layout.fillWidth: true
+                                Layout.preferredWidth: 240
                             }
                         }
                     }
-
-                    Loader { sourceComponent: shortcutRow; property string keys: "Super + Enter"; property string desc: "to open the terminal" }
-                    Loader { sourceComponent: shortcutRow; property string keys: "Super + B"; property string desc: "to open the browser" }
-                    Loader { sourceComponent: shortcutRow; property string keys: "Super + Space"; property string desc: "to open the application launcher" }
 
                     Button {
                         Layout.alignment: Qt.AlignHCenter
