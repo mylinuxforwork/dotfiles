@@ -28,6 +28,38 @@ FloatingWindow {
         running: false
     }
 
+    // Define a custom reusable styled MenuItem
+    component ML4WMenuItem: MenuItem {
+        id: control
+        
+        contentItem: Text {
+            text: control.text
+            font.family: theme.fontFamily
+            font.pixelSize: 14
+            // Invert colors on hover
+            color: control.highlighted ? theme.background : theme.primary 
+            verticalAlignment: Text.AlignVCenter
+        }
+        
+        background: Rectangle {
+            implicitWidth: 220
+            implicitHeight: 36
+            // Apply theme color on hover
+            color: control.highlighted ? theme.primary : "transparent"
+            radius: 4
+        }
+    }
+
+    component ML4WMenuSeparator: MenuSeparator {
+        contentItem: Rectangle {
+            implicitWidth: 200
+            implicitHeight: 1
+            color: theme.primary
+            opacity: 0.3 // Dim the line so it doesn't distract from text
+        }
+    }
+
+
     color: theme.background
 
     ColumnLayout {
@@ -39,12 +71,11 @@ FloatingWindow {
         // ==========================================
         MenuBar {
             Layout.fillWidth: true
-            
-            // Background of the entire menu bar
+            Layout.margins: 10
             background: Rectangle {
                 color: theme.primary
                 border.color: theme.primary
-                border.width: 1
+                radius: 8
             }
 
             // --- SETTINGS MENU ---
@@ -52,7 +83,9 @@ FloatingWindow {
                 title: qsTr("Settings")
                 font.family: theme.fontFamily
                 font.pixelSize: 14
-                MenuItem { 
+                padding:8
+
+                ML4WMenuItem { 
                     text: qsTr("Keyboard"); 
                     onClicked: { 
                         console.log("Keyboard clicked") 
@@ -60,7 +93,7 @@ FloatingWindow {
                         appLauncher.running = true                        
                     }
                 }
-                MenuItem { 
+                ML4WMenuItem { 
                     text: qsTr("Monitors"); 
                     onClicked: { 
                         console.log("Monitors clicked") 
@@ -68,15 +101,15 @@ FloatingWindow {
                         appLauncher.running = true                        
                     }
                 }
-                MenuItem { 
+                ML4WMenuItem { 
                     text: qsTr("Network"); 
                     onClicked: { 
                         console.log("Network clicked") 
-                        appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", "~/.config/ml4w/scripts/ml4w-network"]
+                        appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", "~/.config/ml4w/scripts/ml4w-install-sddm"]
                         appLauncher.running = true                        
                     }
                 }    
-                MenuItem { 
+                ML4WMenuItem { 
                     text: qsTr("Bluetooth"); 
                     onClicked: {
                         console.log("Bluetooth clicked")
@@ -84,23 +117,32 @@ FloatingWindow {
                         appLauncher.running = true                        
                     }
                 }
-                MenuSeparator { }
-                MenuItem { 
-                    text: qsTr("ML4W Dotfiles Settings") 
+                ML4WMenuItem { 
+                    text: qsTr("Display Manager"); 
                     onClicked: {
-                        console.log("ML4W Dotfiles Settings")
-                    }
-                }
-                MenuItem { 
-                    text: qsTr("ML4W Hyprland Settings")
-                    onClicked: {
-                        console.log("ML4W Hyprland Settings")
-                        appLauncher.command = ["flatpak", "run", "com.ml4w.hyprlandsettings"]
+                        console.log("Display Manager clicked")
+                        appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", "~/.config/ml4w/scripts/ml4w-network"]
                         appLauncher.running = true                        
                     }
                 }
-                MenuSeparator { }
-                MenuItem { 
+                ML4WMenuItem { 
+                    text: qsTr("Network Manager Applet"); 
+                    onClicked: {
+                        console.log("Network Manager Applet clicked")
+                        appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", "~/.config/ml4w/scripts/ml4w-network"]
+                        appLauncher.running = true                        
+                    }
+                }
+                ML4WMenuItem { 
+                    text: qsTr("Change Shell"); 
+                    onClicked: {
+                        console.log("Change Shell clicked")
+                        appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", "~/.config/ml4w/scripts/ml4w-change-shell"]
+                        appLauncher.running = true                        
+                    }
+                }
+                ML4WMenuSeparator {}
+                ML4WMenuItem { 
                     text: qsTr("Exit Hyprland") 
                     onClicked: {
                         console.log("Exit Hyprland")
@@ -114,7 +156,8 @@ FloatingWindow {
                     implicitWidth: 220
                     color: theme.background
                     border.color: theme.primary
-                    radius: 0
+                    border.width: 1
+                    radius: 8
                 }
             }
 
@@ -123,17 +166,18 @@ FloatingWindow {
                 title: qsTr("Help")
                 font.family: theme.fontFamily
                 font.pixelSize: 14
+                padding:8
 
-                MenuItem { text: qsTr("Documentation") }
-                MenuItem { text: qsTr("Keybindings List") }
-                MenuSeparator { }
-                MenuItem { text: qsTr("About ML4W") }
+                ML4WMenuItem { text: qsTr("Documentation") }
+                ML4WMenuItem { text: qsTr("Keybindings List") }
+                ML4WMenuSeparator {}
+                ML4WMenuItem { text: qsTr("About ML4W") }
 
                 background: Rectangle {
                     implicitWidth: 180
                     color: theme.background
                     border.color: theme.primary
-                    radius: 0
+                    radius: 8
                 }
             }
 
