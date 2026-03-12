@@ -59,7 +59,6 @@ FloatingWindow {
         }
     }
 
-
     color: theme.background
 
     ColumnLayout {
@@ -105,7 +104,7 @@ FloatingWindow {
                     text: qsTr("Network"); 
                     onClicked: { 
                         console.log("Network clicked") 
-                        appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", "~/.config/ml4w/scripts/ml4w-install-sddm"]
+                        appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-network"]
                         appLauncher.running = true                        
                     }
                 }    
@@ -121,7 +120,7 @@ FloatingWindow {
                     text: qsTr("Display Manager"); 
                     onClicked: {
                         console.log("Display Manager clicked")
-                        appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", "~/.config/ml4w/scripts/ml4w-network"]
+                        appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-install-sddm"]
                         appLauncher.running = true                        
                     }
                 }
@@ -129,7 +128,7 @@ FloatingWindow {
                     text: qsTr("Network Manager Applet"); 
                     onClicked: {
                         console.log("Network Manager Applet clicked")
-                        appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", "~/.config/ml4w/scripts/ml4w-network"]
+                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-toggle-nmapplet"]
                         appLauncher.running = true                        
                     }
                 }
@@ -137,7 +136,7 @@ FloatingWindow {
                     text: qsTr("Change Shell"); 
                     onClicked: {
                         console.log("Change Shell clicked")
-                        appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", "~/.config/ml4w/scripts/ml4w-change-shell"]
+                        appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-change-shell"]
                         appLauncher.running = true                        
                     }
                 }
@@ -168,10 +167,48 @@ FloatingWindow {
                 font.pixelSize: 14
                 padding:8
 
-                ML4WMenuItem { text: qsTr("Documentation") }
-                ML4WMenuItem { text: qsTr("Keybindings List") }
+                ML4WMenuItem { 
+                    text: qsTr("ML4W OS Homepage") 
+                    onClicked: {
+                        console.log("ML4W Homepage")
+                        appLauncher.command = ["xdg-open", "https://ml4w.com/os/"]
+                        appLauncher.running = true                        
+                    }
+                }
+                ML4WMenuItem { 
+                    text: qsTr("ML4W OS GitHub") 
+                    onClicked: {
+                        console.log("ML4W OS GitHub")
+                        appLauncher.command = ["xdg-open", "https://github.com/mylinuxforwork/dotfiles"]
+                        appLauncher.running = true                        
+                    }
+                }
+                ML4WMenuItem { 
+                    text: qsTr("ML4W OS Changelog") 
+                    onClicked: {
+                        console.log("ML4W OS Changelog")
+                        appLauncher.command = ["xdg-open", "https://github.com/mylinuxforwork/dotfiles/blob/main/CHANGELOG.md"]
+                        appLauncher.running = true                        
+                    }
+                }
+                ML4WMenuItem { 
+                    text: qsTr("ML4W YouTube Channel") 
+                    onClicked: {
+                        console.log("ML4W YouTube Channel")
+                        appLauncher.command = ["xdg-open", "https://www.youtube.com/channel/UC0sUzmZ0CHvVCVrpRfGKZfw"]
+                        appLauncher.running = true                        
+                    }
+                }
+                ML4WMenuItem { 
+                    text: qsTr("Get more Wallpapers") 
+                    onClicked: {
+                        console.log("Get more Wallpapers")
+                        appLauncher.command = ["xdg-open", "https://github.com/mylinuxforwork/wallpaper"]
+                        appLauncher.running = true                        
+                    }
+                }
                 ML4WMenuSeparator {}
-                ML4WMenuItem { text: qsTr("About ML4W") }
+                ML4WMenuItem { text: qsTr("Keybindings List") }
 
                 background: Rectangle {
                     implicitWidth: 180
@@ -311,6 +348,7 @@ FloatingWindow {
                             ListElement { keys: "Super + Enter"; desc: "to open the terminal" }
                             ListElement { keys: "Super + B"; desc: "to open the browser" }
                             ListElement { keys: "Super + Space"; desc: "to open the application launcher" }
+                            ListElement { keys: "Super + Q"; desc: "to close the active window" }
                         }
                         
                         delegate: RowLayout {
