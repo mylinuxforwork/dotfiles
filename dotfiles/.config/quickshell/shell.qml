@@ -3,6 +3,6 @@ import "SettingsApp"
 import "WelcomeApp"
 
 ShellRoot {
-    // SettingsWindow {}
-    WelcomeWindow {}
+    SettingsWindow {}
+    //WelcomeWindow {}
 }

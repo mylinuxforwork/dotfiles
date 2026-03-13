@@ -7,8 +7,8 @@ import "../shared" // Pulls in Theme.qml from the shared folder
 
 FloatingWindow {
     id: root
-    visible: false
-    title: "ML4W Settings"
+    visible: true
+    title: "ML4W Dotfiles Settings"
     width: 900
     height: 600
 
@@ -24,7 +24,7 @@ FloatingWindow {
         id: theme
     }
 
-    color: theme.bgMain 
+    color: theme.background 
 
     property string profile: "com.ml4w.dotfiles" 
     // Absolute path to your script to prevent system PATH issues
@@ -65,7 +65,7 @@ FloatingWindow {
         Rectangle {
             Layout.preferredWidth: 260
             Layout.fillHeight: true
-            color: theme.bgSidebar 
+            color: theme.background
 
             ListView {
                 anchors.fill: parent
@@ -76,8 +76,8 @@ FloatingWindow {
                 delegate: Rectangle {
                     width: parent.width
                     height: 50
-                    radius: theme.radiusLarge
-                    color: index === root.selectedGroupIndex ? theme.bgCard : "transparent"
+                    radius: 10
+                    color: index === root.selectedGroupIndex ? theme.primary : "transparent"
                     
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
@@ -85,8 +85,8 @@ FloatingWindow {
                         anchors.leftMargin: 15
                         text: modelData.group
                         font.pixelSize: 16
-                        font.bold: index === root.selectedGroupIndex
-                        color: index === root.selectedGroupIndex ? theme.accent : theme.textMain
+                        font.family: theme.fontFamily
+                        color: index === root.selectedGroupIndex ? theme.on_primary : theme.primary
                     }
                     
                     MouseArea {
@@ -103,8 +103,7 @@ FloatingWindow {
         Rectangle {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            color: theme.bgMain
-
+            color: theme.background
             ColumnLayout {
                 anchors.fill: parent
                 anchors.margins: 40
@@ -114,14 +113,16 @@ FloatingWindow {
                     text: root.settingsData[root.selectedGroupIndex] ? root.settingsData[root.selectedGroupIndex].group : "Loading..."
                     font.pixelSize: 28
                     font.bold: true
-                    color: theme.accent
+                    color: theme.on_background
+                    font.family: theme.fontFamily
                 }
 
                 Text {
                     text: root.settingsData[root.selectedGroupIndex] ? root.settingsData[root.selectedGroupIndex].description : ""
                     font.pixelSize: 14
-                    color: theme.textSub
+                    color: theme.on_background
                     Layout.bottomMargin: 20
+                    font.family: theme.fontFamily
                 }
 
                 // Settings Fields
@@ -135,8 +136,9 @@ FloatingWindow {
                     delegate: Rectangle {
                         width: ListView.view.width
                         height: 90
-                        color: theme.bgCard 
-                        radius: theme.radiusLarge
+                        color: theme.background
+                        radius: 10
+                        border.color: theme.primary
 
                         RowLayout {
                             anchors.fill: parent
@@ -149,14 +151,16 @@ FloatingWindow {
                                     text: modelData.name
                                     font.pixelSize: 16
                                     font.bold: true
-                                    color: theme.textMain
+                                    color: theme.primary
+                                    font.family: theme.fontFamily
                                 }
                                 Text {
                                     text: modelData.instructions
                                     font.pixelSize: 12
-                                    color: theme.textSub
+                                    color: theme.primary
                                     wrapMode: Text.WordWrap
                                     Layout.fillWidth: true
+                                    font.family: theme.fontFamily
                                 }
                             }
 
@@ -217,7 +221,7 @@ FloatingWindow {
                                     visible: modelData.type === "textfield"
                                     color: theme.bgInput
                                     radius: theme.radiusSmall
-                                    border.color: theme.border
+                                    border.color: theme.primary
                                     border.width: 1
 
                                     TextInput {
@@ -225,7 +229,7 @@ FloatingWindow {
                                         anchors.fill: parent
                                         anchors.margins: 10
                                         verticalAlignment: Text.AlignVCenter
-                                        color: theme.textMain
+                                        color: theme.on_background
                                         font.pixelSize: 14
                                         text: fieldItem.exactVal
 
@@ -233,7 +237,7 @@ FloatingWindow {
                                             anchors.fill: parent
                                             verticalAlignment: Text.AlignVCenter
                                             text: "Enter value..."
-                                            color: theme.placeholder
+                                            color: theme.on_primary
                                             visible: valInput.text === ""
                                         }
 
@@ -261,8 +265,8 @@ FloatingWindow {
                                         implicitWidth: 48
                                         implicitHeight: 26
                                         radius: 13
-                                        color: parent.checked ? theme.success : theme.bgInput
-                                        border.color: parent.checked ? theme.success : theme.border
+                                        color: parent.checked ? theme.primary : theme.background
+                                        border.color: parent.checked ? theme.primary : theme.primary
                                         border.width: 1
 
                                         Rectangle {
@@ -271,7 +275,7 @@ FloatingWindow {
                                             width: 22
                                             height: 22
                                             radius: 11
-                                            color: parent.parent.checked ? theme.bgSidebar : theme.textMain
+                                            color: parent.parent.checked ? theme.background : theme.on_primary
                                             Behavior on x { NumberAnimation { duration: 150 } }
                                         }
                                     }
@@ -314,24 +318,25 @@ FloatingWindow {
 
                                     // Custom styling for the dropdown button
                                     background: Rectangle {
-                                        color: theme.bgInput
-                                        border.color: theme.border
-                                        radius: theme.radiusSmall
+                                        color: theme.background
+                                        border.color: theme.primary
+                                        radius: 10
                                     }
                                     contentItem: Text {
                                         text: combo.displayText
                                         font.pixelSize: 14
-                                        color: theme.textMain
+                                        color: theme.primary
                                         verticalAlignment: Text.AlignVCenter
                                         leftPadding: 10
+                                        font.family: theme.fontFamily
                                     }
 
                                     // Custom styling for the popup menu
                                     popup: Popup {
                                         y: combo.height - 1
-                                        width: combo.width
+                                        implicitWidth: 220
                                         implicitHeight: contentItem.implicitHeight
-                                        padding: 1
+                                        padding: 8
                                         contentItem: ListView {
                                             clip: true
                                             implicitHeight: contentHeight
@@ -340,21 +345,22 @@ FloatingWindow {
                                             ScrollIndicator.vertical: ScrollIndicator { }
                                         }
                                         background: Rectangle {
-                                            color: theme.bgMain
-                                            border.color: theme.border
-                                            radius: theme.radiusSmall
+                                            color: theme.background
+                                            border.color: theme.primary
+                                            radius: 10
                                         }
                                     }
                                     delegate: ItemDelegate {
-                                        width: combo.width
+                                        implicitWidth: 202
                                         contentItem: Text {
                                             text: modelData
-                                            color: highlighted ? theme.success : theme.textMain
+                                            color: highlighted ? theme.on_primary : theme.primary
                                             font.pixelSize: 14
                                             verticalAlignment: Text.AlignVCenter
                                         }
                                         background: Rectangle {
-                                            color: highlighted ? theme.bgCard : "transparent"
+                                            color: highlighted ? theme.primary : "transparent"
+                                            radius:4
                                         }
                                         highlighted: combo.highlightedIndex === index
                                     }

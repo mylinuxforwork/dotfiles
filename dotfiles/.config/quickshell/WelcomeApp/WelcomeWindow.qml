@@ -84,10 +84,32 @@ FloatingWindow {
                 font.pixelSize: 14
                 padding:8
 
+                // SMOOTH SHOW ANIMATION
+                enter: Transition {
+                    // NumberAnimation smoothly changes a number value over time
+                    NumberAnimation { 
+                        property: "opacity" 
+                        from: 0.0 
+                        to: 1.0 
+                        duration: 200 
+                        easing.type: Easing.OutQuad // Makes the end of the animation slightly softer
+                    }
+                }
+
+                // SMOOTH HIDE ANIMATION
+                exit: Transition {
+                    NumberAnimation { 
+                        property: "opacity" 
+                        from: 1.0 
+                        to: 0.0 
+                        duration: 150 // Slightly faster when closing feels more responsive
+                        easing.type: Easing.InQuad 
+                    }
+                }
+
                 ML4WMenuItem { 
                     text: qsTr("Keyboard"); 
                     onClicked: { 
-                        console.log("Keyboard clicked") 
                         appLauncher.command = ["gnome-text-editor", Quickshell.env("HOME") + "/.config/hypr/conf/keyboard.conf"]
                         appLauncher.running = true                        
                     }
@@ -95,7 +117,6 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("Monitors"); 
                     onClicked: { 
-                        console.log("Monitors clicked") 
                         appLauncher.command = ["nwg-displays"]
                         appLauncher.running = true                        
                     }
@@ -103,7 +124,6 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("Network"); 
                     onClicked: { 
-                        console.log("Network clicked") 
                         appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-network"]
                         appLauncher.running = true                        
                     }
@@ -111,15 +131,81 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("Bluetooth"); 
                     onClicked: {
-                        console.log("Bluetooth clicked")
                         appLauncher.command = ["blueman-manager"]
                         appLauncher.running = true                        
                     }
                 }
                 ML4WMenuItem { 
+                    text: qsTr("Wallpaper"); 
+                    onClicked: {
+                        appLauncher.command = ["waypaper"]
+                        appLauncher.running = true                        
+                    }
+                }
+                ML4WMenuItem { 
+                    text: qsTr("Theme"); 
+                    onClicked: {
+                        appLauncher.command = ["nwg-look"]
+                        appLauncher.running = true                        
+                    }
+                }
+                ML4WMenuSeparator {}
+                ML4WMenuItem { 
+                    text: qsTr("Dotfiles Settings"); 
+                    onClicked: {
+                        appLauncher.command = ["nwg-look"]
+                        appLauncher.running = true                        
+                    }
+                }
+                ML4WMenuItem { 
+                    text: qsTr("Hyprland Settings"); 
+                    onClicked: {
+                        appLauncher.command = ["nwg-look"]
+                        appLauncher.running = true                        
+                    }
+                }
+                // Styling the dropdown menu background
+                background: Rectangle {
+                    implicitWidth: 220
+                    color: theme.background
+                    border.color: theme.primary
+                    border.width: 1
+                    radius: 8
+                }
+            }
+
+            // --- System MENU ---
+            Menu {
+                title: qsTr("System")
+                font.family: theme.fontFamily
+                font.pixelSize: 14
+                padding:8
+                // SMOOTH SHOW ANIMATION
+                enter: Transition {
+                    // NumberAnimation smoothly changes a number value over time
+                    NumberAnimation { 
+                        property: "opacity" 
+                        from: 0.0 
+                        to: 1.0 
+                        duration: 200 
+                        easing.type: Easing.OutQuad // Makes the end of the animation slightly softer
+                    }
+                }
+
+                // SMOOTH HIDE ANIMATION
+                exit: Transition {
+                    NumberAnimation { 
+                        property: "opacity" 
+                        from: 1.0 
+                        to: 0.0 
+                        duration: 150 // Slightly faster when closing feels more responsive
+                        easing.type: Easing.InQuad 
+                    }
+                }
+
+                ML4WMenuItem { 
                     text: qsTr("Display Manager"); 
                     onClicked: {
-                        console.log("Display Manager clicked")
                         appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-install-sddm"]
                         appLauncher.running = true                        
                     }
@@ -127,7 +213,6 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("Network Manager Applet"); 
                     onClicked: {
-                        console.log("Network Manager Applet clicked")
                         appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-toggle-nmapplet"]
                         appLauncher.running = true                        
                     }
@@ -135,8 +220,14 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("Change Shell"); 
                     onClicked: {
-                        console.log("Change Shell clicked")
                         appLauncher.command = ["kitty", "--class", "dotfiles-floating", "-e", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-change-shell"]
+                        appLauncher.running = true                        
+                    }
+                }
+                ML4WMenuItem { 
+                    text: qsTr("System Info") 
+                    onClicked: {
+                        appLauncher.command = ["xdg-open", "https://github.com/mylinuxforwork/wallpaper"]
                         appLauncher.running = true                        
                     }
                 }
@@ -144,8 +235,7 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("Exit Hyprland") 
                     onClicked: {
-                        console.log("Exit Hyprland")
-                        appLauncher.command = ["bash", Quickshell.env("HOME") + "/.config/hypr/scripts/power.sh exit"]
+                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/power.sh exit"]
                         appLauncher.running = true                        
                     }
                 }
@@ -166,11 +256,32 @@ FloatingWindow {
                 font.family: theme.fontFamily
                 font.pixelSize: 14
                 padding:8
+                // SMOOTH SHOW ANIMATION
+                enter: Transition {
+                    // NumberAnimation smoothly changes a number value over time
+                    NumberAnimation { 
+                        property: "opacity" 
+                        from: 0.0 
+                        to: 1.0 
+                        duration: 200 
+                        easing.type: Easing.OutQuad // Makes the end of the animation slightly softer
+                    }
+                }
+
+                // SMOOTH HIDE ANIMATION
+                exit: Transition {
+                    NumberAnimation { 
+                        property: "opacity" 
+                        from: 1.0 
+                        to: 0.0 
+                        duration: 150 // Slightly faster when closing feels more responsive
+                        easing.type: Easing.InQuad 
+                    }
+                }
 
                 ML4WMenuItem { 
                     text: qsTr("ML4W OS Homepage") 
                     onClicked: {
-                        console.log("ML4W Homepage")
                         appLauncher.command = ["xdg-open", "https://ml4w.com/os/"]
                         appLauncher.running = true                        
                     }
@@ -178,7 +289,6 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("ML4W OS GitHub") 
                     onClicked: {
-                        console.log("ML4W OS GitHub")
                         appLauncher.command = ["xdg-open", "https://github.com/mylinuxforwork/dotfiles"]
                         appLauncher.running = true                        
                     }
@@ -186,7 +296,6 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("ML4W OS Changelog") 
                     onClicked: {
-                        console.log("ML4W OS Changelog")
                         appLauncher.command = ["xdg-open", "https://github.com/mylinuxforwork/dotfiles/blob/main/CHANGELOG.md"]
                         appLauncher.running = true                        
                     }
@@ -194,7 +303,6 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("ML4W YouTube Channel") 
                     onClicked: {
-                        console.log("ML4W YouTube Channel")
                         appLauncher.command = ["xdg-open", "https://www.youtube.com/channel/UC0sUzmZ0CHvVCVrpRfGKZfw"]
                         appLauncher.running = true                        
                     }
@@ -202,13 +310,32 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("Get more Wallpapers") 
                     onClicked: {
-                        console.log("Get more Wallpapers")
                         appLauncher.command = ["xdg-open", "https://github.com/mylinuxforwork/wallpaper"]
                         appLauncher.running = true                        
                     }
                 }
                 ML4WMenuSeparator {}
-                ML4WMenuItem { text: qsTr("Keybindings List") }
+                ML4WMenuItem { 
+                    text: qsTr("Hyprland Homepage") 
+                    onClicked: {
+                        appLauncher.command = ["xdg-open", "https://github.com/mylinuxforwork/wallpaper"]
+                        appLauncher.running = true                        
+                    }
+                }
+                ML4WMenuItem { 
+                    text: qsTr("Hyprland Wiki") 
+                    onClicked: {
+                        appLauncher.command = ["xdg-open", "https://github.com/mylinuxforwork/wallpaper"]
+                        appLauncher.running = true                        
+                    }
+                }
+                ML4WMenuItem { 
+                    text: qsTr("Update ML4W OS") 
+                    onClicked: {
+                        appLauncher.command = ["xdg-open", "https://github.com/mylinuxforwork/wallpaper"]
+                        appLauncher.running = true                        
+                    }
+                }
 
                 background: Rectangle {
                     implicitWidth: 180
