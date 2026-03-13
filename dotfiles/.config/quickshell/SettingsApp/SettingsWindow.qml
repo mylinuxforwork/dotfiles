@@ -171,7 +171,6 @@ FloatingWindow {
                                 id: fieldItem 
                                 Layout.preferredWidth: 220
                                 Layout.preferredHeight: 40
-
                                 property string exactVal: ""
                                 property var dropdownOptions: modelData.type === "choose" ? modelData.options : []
 
@@ -219,8 +218,8 @@ FloatingWindow {
                                 Rectangle {
                                     anchors.fill: parent
                                     visible: modelData.type === "textfield"
-                                    color: theme.bgInput
-                                    radius: theme.radiusSmall
+                                    color: theme.background
+                                    radius: 10
                                     border.color: theme.primary
                                     border.width: 1
 
@@ -232,13 +231,16 @@ FloatingWindow {
                                         color: theme.on_background
                                         font.pixelSize: 14
                                         text: fieldItem.exactVal
+                                        clip: true
 
+    
                                         Text {
                                             anchors.fill: parent
                                             verticalAlignment: Text.AlignVCenter
                                             text: "Enter value..."
-                                            color: theme.on_primary
+                                            color: theme.primary
                                             visible: valInput.text === ""
+                                            font.family: theme.fontFamily
                                         }
 
                                         onAccepted: {
@@ -268,6 +270,10 @@ FloatingWindow {
                                         color: parent.checked ? theme.primary : theme.background
                                         border.color: parent.checked ? theme.primary : theme.primary
                                         border.width: 1
+
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        anchors.right: parent.right
+                                        anchors.rightMargin: 20
 
                                         Rectangle {
                                             x: parent.parent.checked ? parent.width - width - 2 : 2
@@ -335,7 +341,7 @@ FloatingWindow {
                                     popup: Popup {
                                         y: combo.height - 1
                                         implicitWidth: 220
-                                        implicitHeight: contentItem.implicitHeight
+                                        implicitHeight: contentItem.implicitHeight + 16
                                         padding: 8
                                         contentItem: ListView {
                                             clip: true
@@ -351,7 +357,7 @@ FloatingWindow {
                                         }
                                     }
                                     delegate: ItemDelegate {
-                                        implicitWidth: 202
+                                        implicitWidth: 204
                                         contentItem: Text {
                                             text: modelData
                                             color: highlighted ? theme.on_primary : theme.primary
