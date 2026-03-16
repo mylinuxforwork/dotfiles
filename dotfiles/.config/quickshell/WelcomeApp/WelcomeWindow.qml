@@ -7,7 +7,7 @@ import qs.shared
 
 FloatingWindow {
     id: root
-    visible: true
+    visible: false
     title: "ML4W Welcome"
     implicitWidth: 850
     implicitHeight: 550
@@ -259,7 +259,7 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("Exit Hyprland") 
                     onClicked: {
-                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/power.sh exit"]
+                        appLauncher.command = ["bash", "-c", "qs ipc call power toggle"]
                         appLauncher.running = true                        
                     }
                 }
