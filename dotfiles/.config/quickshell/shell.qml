@@ -1,8 +1,8 @@
 import Quickshell
-import "SettingsApp"
 import "WelcomeApp"
+import "PowerApp"
 
 ShellRoot {
-    SettingsWindow {}
-    //WelcomeWindow {}
+    WelcomeWindow {}
+    PowerWindow {}
 }

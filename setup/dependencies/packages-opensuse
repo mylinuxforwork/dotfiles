@@ -11,6 +11,7 @@ NetworkManager-tui
 tesseract-ocr-traineddata-eng
 SwayNotificationCenter
 fontawesome-fonts
+swww
 sddm-qt6
 libQt6Svg6
 qt6-virtualkeyboard
@@ -19,3 +20,5 @@ qt6-multimedia
 qt6-multimedia-imports
 gvfs-backend
 hyprsunset
+quickshell
+jetbrainsmono-nerd-fonts

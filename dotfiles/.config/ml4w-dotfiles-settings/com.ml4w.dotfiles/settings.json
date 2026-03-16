@@ -1,0 +1,293 @@
+[
+  {
+    "group":"Status Bar",
+    "description":"Configuration of the Waybar status bar.",
+    "settings":[{
+      "name": "Show App Menu",
+      "id": "toggle_appmenu",
+      "instructions": "Do you want to show the app menu?",
+      "file": "~/.config/ml4w/settings/waybar_appmenu.sh",
+      "type": "toggle",
+      "mode": "overwrite",
+      "default": "False",
+      "true_value": "True",
+      "false_value": "False",
+      "post_command": "~/.config/waybar/launch.sh > /dev/null 2>&1"
+    },{
+      "name": "Show Taskbar",
+      "id": "toggle_taskbar",
+      "instructions": "Do you want to show the task bar?",
+      "file": "~/.config/ml4w/settings/waybar_taskbar.sh",
+      "type": "toggle",
+      "mode": "overwrite",
+      "default": "False",
+      "true_value": "True",
+      "false_value": "False"
+    },{
+      "name": "Show Quicklinks Menu",
+      "id": "toggle_quicklinks",
+      "instructions": "Do you want to show the quicklinks?",
+      "file": "~/.config/ml4w/settings/waybar_quicklinks.sh",
+      "type": "toggle",
+      "mode": "overwrite",
+      "default": "False",
+      "true_value": "True",
+      "false_value": "False"
+    },{
+      "name": "Show Window Module",
+      "id": "toggle_window",
+      "instructions": "Do you want to show the window module?",
+      "file": "~/.config/ml4w/settings/waybar_window.sh",
+      "type": "toggle",
+      "mode": "overwrite",
+      "default": "False",
+      "true_value": "True",
+      "false_value": "False"
+    },{
+      "name": "Show Network Module",
+      "id": "toggle_network",
+      "instructions": "Do you want to show the network module?",
+      "file": "~/.config/ml4w/settings/waybar_network.sh",
+      "type": "toggle",
+      "mode": "overwrite",
+      "default": "True",
+      "true_value": "True",
+      "false_value": "False"
+    },{
+      "name": "Show Systray Module",
+      "id": "toggle_systray",
+      "instructions": "Do you want to show the systray module?",
+      "file": "~/.config/ml4w/settings/waybar_systray.sh",
+      "type": "toggle",
+      "mode": "overwrite",
+      "default": "True",
+      "true_value": "True",
+      "false_value": "False"
+    }]
+  },{
+    "group":"Appearance",
+    "description":"Description",
+    "settings":[{
+      "name": "Rofi Border Size",
+      "id": "rofi_bordersize",
+      "instructions": "Enter the border size for rofi",
+      "file": "~/.config/ml4w/settings/rofi-border.rasi",
+      "type": "choose",
+      "mode": "replace",
+      "match": "border-width: .*px",
+      "default": "2",
+      "options": ["0", "1", "2","3","4","5"]
+    },{
+      "name": "Rofi Font",
+      "id": "rofi_font",
+      "instructions": "Enter the font type for rofi",
+      "file": "~/.config/ml4w/settings/rofi-font.rasi",
+      "type": "textfield",
+      "mode": "replace",
+      "match": "configuration { font: \".*\"; }",
+      "default": "Fira Sans 11"
+    },{
+      "name": "Blur Effect",
+      "id": "blur_effect",
+      "instructions": "Enter the value for the blur effect",
+      "file": "~/.config/ml4w/settings/blur.sh",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": "50x30"
+    },{
+        "name": "Select Animation",
+        "id": "variant_animation",
+        "instructions": "Choose your preferred animation variant:",
+        "file": "~/.config/hypr/conf/animation.conf",
+        "type": "files",
+        "folder": "~/.config/hypr/conf/animations",
+        "mode": "replace",
+        "match": "source = ~/.config/hypr/conf/animations/.*",
+        "default": "default.conf"
+    },{
+        "name": "Decoration Variants",
+        "id": "variant_decoration",
+        "instructions": "Choose your preferred decoration variant:",
+        "file": "~/.config/hypr/conf/decoration.conf",
+        "type": "files",
+        "folder": "~/.config/hypr/conf/decorations",
+        "mode": "replace",
+        "match": "source = ~/.config/hypr/conf/decorations/.*",
+        "default": "default.conf"
+    },{
+        "name": "Window Variants",
+        "id": "variant_window",
+        "instructions": "Choose your preferred window variant:",
+        "file": "~/.config/hypr/conf/window.conf",
+        "type": "files",
+        "folder": "~/.config/hypr/conf/windows",
+        "mode": "replace",
+        "match": "source = ~/.config/hypr/conf/window/.*",
+        "default": "default.conf"
+    },{
+        "name": "Workspace Variants",
+        "id": "variant_workspace",
+        "instructions": "Choose your preferred workspace variant:",
+        "file": "~/.config/hypr/conf/workspace.conf",
+        "type": "files",
+        "folder": "~/.config/hypr/conf/workspaces",
+        "mode": "replace",
+        "match": "source = ~/.config/hypr/conf/workspace/.*",
+        "default": "default.conf"
+    },{
+        "name": "Select Waybar Theme",
+        "id": "theme_folder",
+        "instructions": "Choose your theme folder:",
+        "file": "~/.config/ml4w/settings/waybar_theme",
+        "type": "folders",
+        "folder": "~/.config/waybar/themes",
+        "mode": "overwrite",
+        "default": "glass-theme"
+    },{
+      "name": "Kitty Cursor Trail",
+      "id": "toggle_kittycursortrail",
+      "instructions": "Do you want to enable the Kitty cursor trail?",
+      "file": "~/.config/ml4w/settings/kitty-cursor-trail.conf",
+      "type": "toggle",
+      "mode": "overwrite",
+      "default": "cursor_trail 1",
+      "true_value": "cursor_trail 1",
+      "false_value": "cursor_trail 0"
+    }]
+  },{
+    "group":"Default Apps",
+    "description":"Please setup your default apps.",
+    "settings":[{
+      "name": "Default Terminal",
+      "id": "default_terminal",
+      "instructions": "Enter the command to execute the terminal",
+      "file": "~/.config/ml4w/settings/terminal",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": "kitty"
+    },{
+      "name": "Default Browser",
+      "id": "default_browser",
+      "instructions": "Enter the command to execute the browser",
+      "file": "~/.config/ml4w/settings/browser.sh",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": "firefox"
+    },{
+      "name": "Default Email Client",
+      "id": "default_email",
+      "instructions": "Enter the command to execute the email client",
+      "file": "~/.config/ml4w/settings/email.sh",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": "evolution"
+    },{
+      "name": "Default Filemanager",
+      "id": "default_filemanager",
+      "instructions": "Enter the command to execute the filemanager",
+      "file": "~/.config/ml4w/settings/filemanager",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": "yazi"
+    },{
+      "name": "Default Network Manager",
+      "id": "default_networkmanager",
+      "instructions": "Enter the command to execute the network manager",
+      "file": "~/.config/ml4w/settings/networkmanager.sh",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": "nmtui"
+    },{
+      "name": "Default Bluetooth Manager",
+      "id": "default_bluetooth",
+      "instructions": "Enter the command to execute the bluetooth manager",
+      "file": "~/.config/ml4w/settings/bluetooth.sh",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": "blueman-manager"
+    },{
+      "name": "Default Software Manager",
+      "id": "default_software",
+      "instructions": "Enter the command to execute the software manager",
+      "file": "~/.config/ml4w/settings/software.sh",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": ""
+    },{
+      "name": "Default Calculator",
+      "id": "default_calculator",
+      "instructions": "Enter the command to execute the calculator",
+      "file": "~/.config/ml4w/settings/calculator.sh",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": "flatpak run org.gnome.Calculator"
+    },{
+      "name": "Default Screenshot Editor",
+      "id": "default_screenshoteditor",
+      "instructions": "Enter the command to execute the screenshot editor",
+      "file": "~/.config/ml4w/settings/screenshot-editor",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": "pinta"
+    },{
+      "name": "Default Systemmonitor",
+      "id": "default_systemmonitor",
+      "instructions": "Enter the command to execute the system monitor",
+      "file": "~/.config/ml4w/settings/system-monitor",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": "btop"
+    },{
+      "name": "Default AUR Helper",
+      "id": "default_aur",
+      "instructions": "Enter the command to execute the AUR helper",
+      "file": "~/.config/ml4w/settings/aur.sh",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": "yay"
+    }]
+  },{
+    "group":"System Settings",
+    "description":"Overview of core key system settings",
+    "settings":[{
+        "name": "Keybinding Variants",
+        "id": "variant_keybinding",
+        "instructions": "Choose your preferred keybinding variant:",
+        "file": "~/.config/hypr/conf/keybinding.conf",
+        "type": "files",
+        "folder": "~/.config/hypr/conf/keybindings",
+        "mode": "replace",
+        "match": "source = ~/.config/hypr/conf/keybindings/.*",
+        "default": "default.conf"
+    },{
+        "name": "Environment Variants",
+        "id": "variant_environment",
+        "instructions": "Choose your preferred environmant variant:",
+        "file": "~/.config/hypr/conf/environment.conf",
+        "type": "files",
+        "folder": "~/.config/hypr/conf/environments",
+        "mode": "replace",
+        "match": "source = ~/.config/hypr/conf/environments/.*",
+        "default": "default.conf"
+    },{
+        "name": "Windowrule Variants",
+        "id": "variant_windowrule",
+        "instructions": "Choose your preferred windowrule variant:",
+        "file": "~/.config/hypr/conf/windowrule.conf",
+        "type": "files",
+        "folder": "~/.config/hypr/conf/windowrules",
+        "mode": "replace",
+        "match": "source = ~/.config/hypr/conf/windowrules/.*",
+        "default": "default.conf"
+    },{
+      "name": "Launcher",
+      "id": "system_launcher",
+      "instructions": "PLease select the launcher. Walker needs to be installed separately.",
+      "file": "~/.config/ml4w/settings/launcher",
+      "type": "choose",
+      "mode": "overwrite",
+      "default": "rofi",
+      "options": ["rofi", "walker"]
+    }]
+  }
+]

@@ -13,9 +13,6 @@ $HOME/.config/nwg-dock-hyprland/launch.sh &
 echo '@import "themes/glass/style.css";' > $HOME/.config/swaync/style.css
 swaync-client -rs
 
-# Set wlogout
-echo '@import "themes/glass/style.css";' > $HOME/.config/wlogout/style.css
-
 # Set launcher
 echo 'rofi' > $HOME/.config/ml4w/settings/launcher
 

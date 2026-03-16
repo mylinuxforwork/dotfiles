@@ -157,9 +157,8 @@
   // Power Menu
   "custom/exit": {
     "format": "",
-    "on-click": "~/.config/ml4w/scripts/ml4w-wlogout",
-    "on-click-right": "hyprlock",
-    "tooltip-format": "Left: Power menu\nRight: Lock screen"
+    "on-click": "qs ipc call power toggle",
+    "tooltip-format": "Open Power Menu"
   },
   // SwayNC
   "custom/notification": {

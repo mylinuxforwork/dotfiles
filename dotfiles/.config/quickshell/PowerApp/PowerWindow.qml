@@ -1,0 +1,120 @@
+import Quickshell
+import Quickshell.Wayland
+import Quickshell.Io
+import QtQuick
+import QtQuick.Layouts
+import qs.shared
+
+PanelWindow {
+    id: root
+    
+    // --- 1. OVERLAY & WAYLAND FIXES ---
+    WlrLayershell.layer: WlrLayer.Overlay
+    exclusionMode: WlrExclusionMode.Ignore 
+    
+    width: panelBg.width
+    height: panelBg.height
+    color: "transparent"
+
+    anchors {
+        right: true
+    }
+
+    // --- 2. ANIMATION LOGIC (FIXED) ---
+    property bool isOpen: false
+    
+    // Keep the window mapped to the screen while the animation is playing
+    visible: isOpen || slideAnim.running
+    
+    margins {
+        right: root.currentMargin
+    }
+
+    // Ternary operator: If open, set to 20. If closed, set to -150.
+    property real currentMargin: isOpen ? 20 : -150 
+
+    // This automatically animates currentMargin whenever it changes!
+    Behavior on currentMargin {
+        NumberAnimation {
+            id: slideAnim
+            duration: 350
+            easing.type: Easing.OutQuint 
+        }
+    }
+
+    IpcHandler {
+        target: "power"
+        function toggle(): void {
+            root.isOpen = !root.isOpen
+        }
+    }
+
+    Theme { id: theme }
+
+    Process {
+        id: powerProcess
+        running: false
+    }
+
+    // ==========================================
+    // MAIN PANEL BACKGROUND (The Pill Shape)
+    // ==========================================
+    Rectangle {
+        id: panelBg
+        width: 80 
+        height: buttonLayout.implicitHeight + 40 
+        radius: 40 
+        
+        color: theme ? theme.background : "#1e1e2e"
+        border.color: theme ? theme.primary : "#89b4fa"
+        border.width: 2
+
+        // ==========================================
+        // BUTTON LAYOUT
+        // ==========================================
+        ColumnLayout {
+            id: buttonLayout
+            anchors.centerIn: parent
+            spacing: 20 
+
+            component PowerButton: Rectangle {
+                id: btn
+                property string iconTxt: ""
+                property string cmd: ""
+                
+                implicitWidth: 50
+                implicitHeight: 50
+                radius: 25 
+                
+                color: mouseArea.containsMouse ? (theme ? theme.primary : "#89b4fa") : "transparent"
+                border.color: theme ? theme.primary : "#89b4fa"
+                border.width: 1
+
+                Text {
+                    anchors.centerIn: parent
+                    text: btn.iconTxt
+                    font.family: "monospace" 
+                    font.pixelSize: 20
+                    color: mouseArea.containsMouse ? (theme ? theme.background : "#1e1e2e") : (theme ? theme.primary : "#89b4fa")
+                }
+
+                MouseArea {
+                    id: mouseArea
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: {
+                        powerProcess.command = ["bash", "-c", btn.cmd]
+                        powerProcess.running = true
+                        root.isOpen = false // Trigger the slide-out animation!
+                    }
+                }
+            }
+
+            PowerButton { iconTxt: ""; cmd: "pidof hyprlock || hyprlock" }
+            PowerButton { iconTxt: ""; cmd: "systemctl suspend" }
+            PowerButton { iconTxt: ""; cmd: "hyprctl dispatch exit" }
+            PowerButton { iconTxt: ""; cmd: "systemctl reboot" }
+            PowerButton { iconTxt: ""; cmd: "systemctl poweroff" }
+        }
+    }
+}
