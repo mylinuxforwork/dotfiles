@@ -20,6 +20,18 @@ PanelWindow {
         right: true
     }
 
+    // --- HANDLE ESCAPE SHORTCUT ---
+    WlrLayershell.keyboardFocus: isOpen ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
+
+    Shortcut {
+        sequence: "Escape"
+        onActivated: {
+            if (root.isOpen) {
+                root.isOpen = false
+            }
+        }
+    }
+
     // --- 2. ANIMATION LOGIC (FIXED) ---
     property bool isOpen: false
     

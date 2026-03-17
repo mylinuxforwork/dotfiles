@@ -14,8 +14,10 @@ PanelWindow {
     exclusionMode: WlrLayershell.Ignore
     
     implicitWidth: 380
-    implicitHeight: 750 
+    implicitHeight: 600 
     color: "transparent"
+
+    property bool isHyprlandSettingsInstalled: false
 
     anchors {
         right: true
@@ -23,7 +25,19 @@ PanelWindow {
     }
 
     margins { 
-        top: 87        // Your requested 63px gap from the top of the screen
+        top: 87
+    }
+
+    // --- HANDLE ESCAPE SHORTCUT ---
+    WlrLayershell.keyboardFocus: isOpen ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
+
+    Shortcut {
+        sequence: "Escape"
+        onActivated: {
+            if (root.isOpen) {
+                root.isOpen = false
+            }
+        }
     }
 
     // --- ANIMATION LOGIC ---
@@ -56,6 +70,20 @@ PanelWindow {
         running: false
     }
 
+    // --- Check if flatpak is installed when window opens ---
+    Process {
+        command: ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-flatpak-installed com.ml4w.hyprlandsettings"]
+        running: root.visible
+        
+        stdout: StdioCollector {
+            onStreamFinished: {
+                console.log(this.text.trim())
+                // The script echoes "0" if the app exists/is installed
+                root.isHyprlandSettingsInstalled = (this.text.trim() === "0")
+            }
+        }
+    }
+
     // --- REUSABLE COMPONENTS ---
     component ML4WMenuItem: MenuItem {
         id: control
@@ -85,7 +113,7 @@ PanelWindow {
         contentItem: Text {
             text: parent.text
             font.family: theme.fontFamily
-            font.pixelSize: 13
+            font.pixelSize: 16
             color: theme.primary
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
@@ -156,7 +184,7 @@ PanelWindow {
             anchors.margins: 20
             spacing: 20
 
-            // --- 1. TOP BAR (Light/Dark & Color Picker only) ---
+            // --- TOP BAR (Light/Dark & Color Picker only) ---
             RowLayout {
                 Layout.fillWidth: true
                 spacing: 10
@@ -185,7 +213,7 @@ PanelWindow {
 
             Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: theme.primary; opacity: 0.3 }
 
-            // --- 3. THREE BUTTONS ROW ---
+            // --- THREE BUTTONS ROW ---
             RowLayout {
                 Layout.fillWidth: true
                 spacing: 10
@@ -210,6 +238,7 @@ PanelWindow {
                 }
                 ML4WButton { 
                     text: "Hyprland"
+                    visible: root.isHyprlandSettingsInstalled 
                     onClicked: {
                         root.isOpen = false
                         appLauncher.running = false
@@ -239,10 +268,10 @@ PanelWindow {
                 }
 
                 ColumnLayout {
-                    implicitWidth: scrollView.availableWidth - 16
+                    width: scrollView.availableWidth - 16
                     spacing: 20
 
-                    // --- 4. WAYBAR ---
+                    // --- WAYBAR ---
                     RowLayout {
                         Layout.fillWidth: true
                         Text { text: "Waybar"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }
@@ -267,9 +296,7 @@ PanelWindow {
                                 ? "rm -f ~/.config/ml4w/settings/waybar-disabled"
                                 : "touch ~/.config/ml4w/settings/waybar-disabled"       
                                 console.log("Waybar cmd: " + fileCmd)
-                                appLauncher.running = false
-                                appLauncher.command = ["bash", "-c", fileCmd + ";sleep 1;" + Quickshell.env("HOME") + "/.config/waybar/launch.sh"]
-                                appLauncher.running = true
+                                Quickshell.execDetached(["bash", "-c", fileCmd + ";" + Quickshell.env("HOME") + "/.config/waybar/launch.sh"])
                             }
                         }
 
@@ -306,7 +333,7 @@ PanelWindow {
                         }
                     }
 
-                    // --- 5. DOCK ---
+                    // --- DOCK ---
                     RowLayout {
                         Layout.fillWidth: true
                         Text { text: "Dock"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }
@@ -331,15 +358,13 @@ PanelWindow {
                                 ? "rm -f ~/.config/ml4w/settings/dock-disabled"
                                 : "touch ~/.config/ml4w/settings/dock-disabled"
                                 console.log("Dock cmd: " + fileCmd)
-                                appLauncher.running = false
-                                appLauncher.command = ["bash", "-c", fileCmd + ";sleep 1;" + Quickshell.env("HOME") + "/.config/nwg-dock-hyprland/launch.sh"]
-                                appLauncher.running = true
+                                Quickshell.execDetached(["bash", "-c", fileCmd + "; " + Quickshell.env("HOME") + "/.config/nwg-dock-hyprland/launch.sh"])
                             }
                         }
                         Item { implicitWidth: 28 } 
                     }
 
-                    // --- 6. GAMEMODE ---
+                    // --- GAMEMODE ---
                     RowLayout {
                         Layout.fillWidth: true
                         Text { text: "Gamemode"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }
@@ -348,31 +373,27 @@ PanelWindow {
                             id: gamemodeSwitch
                             property bool ready: false
                             Process {
-                                command: ["bash", "-c", "test -f ~/.config/ml4w/settings/gamemode-enabled && echo 1 || echo 0"]
+                                command: ["bash", "-c", "test -f ~/.config/ml4w/settings/gamemode-enabled && echo 0 || echo 1"]
                                 running: root.isOpen 
                                 stdout: StdioCollector {
                                     onStreamFinished: {
                                         console.log("Test for Gamemode: " + this.text.trim())
-                                        gamemodeSwitch.checked = (this.text.trim() === "1")
+                                        gamemodeSwitch.checked = (this.text.trim() === "0")
                                         gamemodeSwitch.ready = true
                                     }
                                 }
                             }
                             onClicked: {
                                 if (!ready) return;
-                                let fileCmd = checked 
-                                    ? "touch ~/.config/ml4w/settings/gamemode-enabled" 
-                                    : "rm -f ~/.config/ml4w/settings/gamemode-enabled"
-                                console.log("Test " + fileCmd)
                                 appLauncher.running = false
-                                appLauncher.command = ["bash", "-c", fileCmd + ";sleep 1;" + Quickshell.env("HOME") + "/.config/hypr/scripts/gamemode.sh"]
+                                appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/gamemode.sh"]
                                 appLauncher.running = true
                             }
                         }
                         Item { implicitWidth: 28 } 
                     }
 
-                    // --- 7. SIDEPAD ---
+                    // --- SIDEPAD ---
                     RowLayout {
                         Layout.fillWidth: true
                         Text { text: "Sidepad"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }
@@ -419,7 +440,7 @@ PanelWindow {
 
                     Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: theme.primary; opacity: 0.3; Layout.topMargin: 5; Layout.bottomMargin: 5 }
 
-                    // --- 8. WALLPAPER ---
+                    // --- WALLPAPER ---
                     RowLayout {
                         Layout.fillWidth: true
                         Text { text: "Wallpaper"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }
@@ -461,7 +482,7 @@ PanelWindow {
                         }
                     }
 
-                    // --- 9. THEME ---
+                    // --- THEME ---
                     RowLayout {
                         Layout.fillWidth: true
                         Text { text: "Theme"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }
@@ -510,7 +531,7 @@ PanelWindow {
                         }
                     }
 
-                    // --- 10. SCREENSHOT ---
+                    // --- SCREENSHOT ---
                     RowLayout {
                         Layout.fillWidth: true
                         Text { text: "Screenshot"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }

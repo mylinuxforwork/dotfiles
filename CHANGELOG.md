@@ -1,8 +1,8 @@
 Version 2.12.0
 --------------------------------------------------------
-- Flatpaks ML4W Welcome App, Settings App and Sidebar App replaced with Quickshell
-- wlogout replaced with a Quickshell module
-- ML4W Hyprland Settings app can be installed optionally as described here: https://github.com/mylinuxforwork/hyprland-settings
+- Flatpaks ML4W Welcome App, Settings App, Sidebar App and Calendar App replaced with Quickshell
+- wlogout replaced with a Quickshell widget
+- ML4W Hyprland Settings app can be installed optionally from the Welcome app or as described here: https://github.com/mylinuxforwork/hyprland-settings
 - New snapshot script for timeshift and grub-btrfs ~/.config/ml4w/scripts/ml4w-snapshot supporting Arch, Fedora based distros and openSuse Tumbleweed
 - New pacman update script for Arch to enable colors, parallel downloads and ILoveCandy ~/.config/ml4w/scripts/ml4w-pacman
 
