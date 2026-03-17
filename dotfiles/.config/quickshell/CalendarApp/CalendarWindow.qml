@@ -1,5 +1,6 @@
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Hyprland
 import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
@@ -17,10 +18,31 @@ PanelWindow {
     implicitHeight: 340 
     color: "transparent"
 
-    // Anchored to the Upper Left
+    // Anchored to the Upper Side
     anchors {
         left: true
         top: true
+    }
+
+    // --- CLICK OUTSIDE TO CLOSE (Native Hyprland) ---
+    HyprlandFocusGrab {
+        windows: [root]
+        active: root.isOpen && root.showWindow // <-- Updated this line
+        onCleared: {
+            if (root.isOpen) {
+                root.isOpen = false
+            }
+        }
+    }
+
+    // --- ESCAPE KEY LISTENER ---
+    Shortcut {
+        sequence: "Escape"
+        onActivated: {
+            if (root.isOpen) {
+                root.isOpen = false
+            }
+        }
     }
 
     // --- ANIMATION LOGIC (Vertical Slide + Wayland Fix) ---
@@ -74,21 +96,9 @@ PanelWindow {
 
     IpcHandler {
         target: "calendar"
-        function toggle(): void {
-            root.isOpen = !root.isOpen
-        }
-    }
-
-    // --- HANDLE ESCAPE SHORTCUT ---
-    WlrLayershell.keyboardFocus: isOpen ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
-
-    Shortcut {
-        sequence: "Escape"
-        onActivated: {
-            if (root.isOpen) {
-                root.isOpen = false
-            }
-        }
+        function toggle(): void { root.isOpen = !root.isOpen }
+        function open(): void { root.isOpen = true }   
+        function close(): void { root.isOpen = false } 
     }
 
     Theme { id: theme }
@@ -175,7 +185,6 @@ PanelWindow {
         let daysInMonth = new Date(year, month + 1, 0).getDate()
         let daysInPrevMonth = new Date(year, month, 0).getDate()
 
-        // 1. Calculate Week Numbers
         for (let row = 0; row < 6; row++) {
             let dateInRow = new Date(year, month, 1 + (row * 7) - startCell)
             let d = new Date(Date.UTC(dateInRow.getFullYear(), dateInRow.getMonth(), dateInRow.getDate()));
@@ -186,7 +195,6 @@ PanelWindow {
             weekModel.append({ weekNumber: weekNo })
         }
 
-        // 2. Populate Day Cells
         for (let i = 0; i < 42; i++) {
             if (i < startCell) {
                 dayModel.append({ day: daysInPrevMonth - startCell + i + 1, isCurrentMonth: false, isToday: false })
@@ -220,10 +228,9 @@ PanelWindow {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 30
 
-                // Centered Month & Arrows
                 RowLayout {
                     anchors.centerIn: parent
-                    spacing: 5
+                    spacing: 10
                     
                     ActionIcon { 
                         iconTxt: "" 
@@ -231,8 +238,7 @@ PanelWindow {
                     }
                     
                     Text {
-                        // Fixed width so arrows don't jump around
-                        Layout.preferredWidth: 120 
+                        Layout.preferredWidth: 130 
                         text: monthNames[currentMonth] + " " + currentYear
                         color: theme.primary
                         font.family: theme.fontFamily
@@ -247,17 +253,14 @@ PanelWindow {
                     }
                 }
 
-                // Smart "Today" Button (Anchored to the right)
                 ML4WButton {
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     text: "Today"
                     
-                    // Only visible if NOT viewing the current month
                     opacity: (currentMonth !== todayMonth || currentYear !== todayYear) ? 1.0 : 0.0
                     enabled: opacity > 0
                     
-                    // Smooth fade
                     Behavior on opacity { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad } }
 
                     onClicked: {
@@ -276,7 +279,6 @@ PanelWindow {
                 Layout.fillHeight: true
                 spacing: 15
 
-                // 1. LEFT COLUMN: Week Numbers
                 ColumnLayout {
                     Layout.fillHeight: true
                     spacing: 5
@@ -311,7 +313,6 @@ PanelWindow {
 
                 Rectangle { Layout.fillHeight: true; implicitWidth: 1; color: theme.primary; opacity: 0.3 }
 
-                // 2. RIGHT GRID: Days of the Month
                 ColumnLayout {
                     Layout.fillWidth: true
                     Layout.fillHeight: true

@@ -1,5 +1,6 @@
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Hyprland // <-- Added native Hyprland integration
 import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
@@ -20,9 +21,18 @@ PanelWindow {
         right: true
     }
 
-    // --- HANDLE ESCAPE SHORTCUT ---
-    WlrLayershell.keyboardFocus: isOpen ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
+    // --- CLICK OUTSIDE TO CLOSE (Native Hyprland) ---
+    HyprlandFocusGrab {
+        windows: [root]
+        active: root.isOpen
+        onCleared: {
+            if (root.isOpen) {
+                root.isOpen = false
+            }
+        }
+    }
 
+    // --- HANDLE ESCAPE SHORTCUT ---
     Shortcut {
         sequence: "Escape"
         onActivated: {
@@ -56,9 +66,9 @@ PanelWindow {
 
     IpcHandler {
         target: "power"
-        function toggle(): void {
-            root.isOpen = !root.isOpen
-        }
+        function toggle(): void { root.isOpen = !root.isOpen }
+        function open(): void { root.isOpen = true }   // <-- Added for Waybar safety
+        function close(): void { root.isOpen = false } // <-- Added for Waybar safety
     }
 
     Theme { id: theme }

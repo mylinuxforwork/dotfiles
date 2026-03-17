@@ -1,5 +1,6 @@
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Hyprland // <-- Added native Hyprland integration
 import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
@@ -28,9 +29,18 @@ PanelWindow {
         top: 87
     }
 
-    // --- HANDLE ESCAPE SHORTCUT ---
-    WlrLayershell.keyboardFocus: isOpen ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
+    // --- CLICK OUTSIDE TO CLOSE (Native Hyprland) ---
+    HyprlandFocusGrab {
+        windows: [root]
+        active: root.isOpen
+        onCleared: {
+            if (root.isOpen) {
+                root.isOpen = false
+            }
+        }
+    }
 
+    // --- ESCAPE KEY LISTENER ---
     Shortcut {
         sequence: "Escape"
         onActivated: {
@@ -57,9 +67,9 @@ PanelWindow {
 
     IpcHandler {
         target: "sidebar"
-        function toggle(): void {
-            root.isOpen = !root.isOpen
-        }
+        function toggle(): void { root.isOpen = !root.isOpen }
+        function open(): void { root.isOpen = true }   // <-- Added for Waybar safety
+        function close(): void { root.isOpen = false } // <-- Added for Waybar safety
     }
 
     Theme { id: theme }
@@ -314,7 +324,6 @@ PanelWindow {
                                         appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/waybar/themeswitcher.sh"]
                                         appLauncher.running = true
                                     }
-                                
                                 }
                                 ML4WMenuItem { text: "Edit Quicklinks"; onClicked: {
                                         root.isOpen = false
