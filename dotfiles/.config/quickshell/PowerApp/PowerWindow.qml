@@ -10,10 +10,10 @@ PanelWindow {
     
     // --- 1. OVERLAY & WAYLAND FIXES ---
     WlrLayershell.layer: WlrLayer.Overlay
-    exclusionMode: WlrExclusionMode.Ignore 
+    exclusionMode: WlrLayershell.Ignore 
     
-    width: panelBg.width
-    height: panelBg.height
+    implicitWidth: panelBg.width
+    implicitHeight: panelBg.height
     color: "transparent"
 
     anchors {
@@ -61,8 +61,8 @@ PanelWindow {
     // ==========================================
     Rectangle {
         id: panelBg
-        width: 80 
-        height: buttonLayout.implicitHeight + 40 
+        implicitWidth: 80 
+        implicitHeight: buttonLayout.implicitHeight + 40 
         radius: 40 
         
         color: theme ? theme.background : "#1e1e2e"
