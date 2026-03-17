@@ -106,12 +106,12 @@ _toggle_module() {
     fi
 }
 
-# _toggle_module "custom/appmenu" "$HOME/.config/ml4w/settings/waybar_appmenu.sh"
-# _toggle_module "wlr/taskbar" "$HOME/.config/ml4w/settings/waybar_taskbar.sh"
-# _toggle_module "group/quicklinks" "$HOME/.config/ml4w/settings/waybar_quicklinks.sh"
-# _toggle_module "hyprland/window" "$HOME/.config/ml4w/settings/waybar_window.sh"
-# _toggle_module "network" "$HOME/.config/ml4w/settings/waybar_network.sh"
-# _toggle_module "tray" "$HOME/.config/ml4w/settings/waybar_systray.sh"
+_toggle_module "custom/appmenu" "$HOME/.config/ml4w/settings/waybar_appmenu.sh"
+_toggle_module "wlr/taskbar" "$HOME/.config/ml4w/settings/waybar_taskbar.sh"
+_toggle_module "group/quicklinks" "$HOME/.config/ml4w/settings/waybar_quicklinks.sh"
+_toggle_module "hyprland/window" "$HOME/.config/ml4w/settings/waybar_window.sh"
+_toggle_module "network" "$HOME/.config/ml4w/settings/waybar_network.sh"
+_toggle_module "tray" "$HOME/.config/ml4w/settings/waybar_systray.sh"
 
 # -----------------------------------------------------
 # Loading the configuration
