@@ -5,6 +5,8 @@ Version 2.12.0
 - ML4W Hyprland Settings app can be installed optionally from the Welcome app or as described here: https://github.com/mylinuxforwork/hyprland-settings
 - New snapshot script for timeshift and grub-btrfs ~/.config/ml4w/scripts/ml4w-snapshot supporting Arch, Fedora based distros and openSuse Tumbleweed
 - New pacman update script for Arch to enable colors, parallel downloads and ILoveCandy ~/.config/ml4w/scripts/ml4w-pacman
+- New keybinding to toggle the active window to floating and pin: SUPER+ALT+T
+- New keybinding to toggle the calendar widget: SUPER+CTRL+C
 
 Version 2.11.1
 --------------------------------------------------------

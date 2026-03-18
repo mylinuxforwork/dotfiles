@@ -38,7 +38,6 @@
   "widgets": [
     "dnd",
     "buttons-grid",
-    "mpris",
     "title",
     "notifications"
   ],

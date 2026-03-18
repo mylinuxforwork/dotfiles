@@ -32,7 +32,7 @@ alias wallpaper='~/.config/ml4w/bin/ml4w-wallpaper'
 # ML4W Apps
 # -----------------------------------------------------
 alias ml4w='qs ipc call welcome toggle'
-alias ml4w-settings='qs ipc call settings toggle'
+alias ml4w-settings='qs -p ~/.local/share/ml4w-dotfiles-settings/quickshell ipc call settings toggle'
 alias ml4w-calendar='qs ipc call calendar toggle'
 alias ml4w-hyprland='flatpak run com.ml4w.hyprlandsettings'
 alias ml4w-sidebar='qs ipc call sidebar toggle'
