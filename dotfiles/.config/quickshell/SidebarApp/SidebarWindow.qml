@@ -15,7 +15,7 @@ PanelWindow {
     exclusionMode: WlrLayershell.Ignore
     
     implicitWidth: 380
-    implicitHeight: 600 
+    implicitHeight: 660 
     color: "transparent"
 
     property bool isHyprlandSettingsInstalled: false
@@ -280,6 +280,156 @@ PanelWindow {
                 ColumnLayout {
                     width: scrollView.availableWidth - 16
                     spacing: 20
+
+                    // --- SLIDERS (Loudness & Brightness) ---
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: 20
+
+                        // LOUDNESS SLIDER
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: 15
+
+                            Text {
+                                text: "" // Speaker icon
+                                color: theme.primary
+                                font.family: "monospace"
+                                font.pixelSize: 18
+                                Layout.alignment: Qt.AlignVCenter
+                            }
+
+                            Slider {
+                                id: volumeSlider
+                                Layout.fillWidth: true
+                                from: 0
+                                to: 100
+                                value: 50 // Default
+
+                                // Fetch actual volume when panel opens
+                                Process {
+                                    command: ["bash", "-c", "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}'"]
+                                    running: root.isOpen
+                                    stdout: StdioCollector {
+                                        onStreamFinished: {
+                                            let val = parseInt(this.text.trim())
+                                            if (!isNaN(val)) volumeSlider.value = val;
+                                        }
+                                    }
+                                }
+
+                                // Update system volume in real-time as you drag
+                                onMoved: {
+                                    Quickshell.execDetached(["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ " + Math.round(value) + "%"])
+                                }
+
+                                // Matching Theme Styling
+                                background: Rectangle {
+                                    x: volumeSlider.leftPadding
+                                    y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
+                                    implicitWidth: 200
+                                    implicitHeight: 6
+                                    width: volumeSlider.availableWidth
+                                    height: implicitHeight
+                                    radius: 3
+                                    color: theme.background
+                                    border.color: theme.primary
+                                    border.width: 1
+
+                                    Rectangle {
+                                        width: volumeSlider.visualPosition * parent.width
+                                        height: parent.height
+                                        color: theme.primary
+                                        radius: 3
+                                    }
+                                }
+
+                                handle: Rectangle {
+                                    x: volumeSlider.leftPadding + volumeSlider.visualPosition * (volumeSlider.availableWidth - width)
+                                    y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
+                                    implicitWidth: 16
+                                    implicitHeight: 16
+                                    radius: 8
+                                    color: volumeSlider.pressed ? theme.background : theme.primary
+                                    border.color: theme.primary
+                                    border.width: 1
+                                }
+                            }
+                        }
+
+                        // BRIGHTNESS SLIDER
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: 15
+
+                            Text {
+                                text: "" // Sun/Brightness icon
+                                color: theme.primary
+                                font.family: "monospace"
+                                font.pixelSize: 18
+                                Layout.alignment: Qt.AlignVCenter
+                            }
+
+                            Slider {
+                                id: brightnessSlider
+                                Layout.fillWidth: true
+                                from: 10 // Guaranteed Minimum 10%
+                                to: 100
+                                value: 100
+
+                                // Fetch actual brightness when panel opens
+                                Process {
+                                    command: ["bash", "-c", "brightnessctl -m | awk -F, '{gsub(\"%\",\"\",$4); print $4}'"]
+                                    running: root.isOpen
+                                    stdout: StdioCollector {
+                                        onStreamFinished: {
+                                            let val = parseInt(this.text.trim())
+                                            if (!isNaN(val)) brightnessSlider.value = Math.max(10, val);
+                                        }
+                                    }
+                                }
+
+                                // Update system brightness in real-time as you drag
+                                onMoved: {
+                                    Quickshell.execDetached(["bash", "-c", "brightnessctl set " + Math.round(value) + "%"])
+                                }
+
+                                // Matching Theme Styling
+                                background: Rectangle {
+                                    x: brightnessSlider.leftPadding
+                                    y: brightnessSlider.topPadding + brightnessSlider.availableHeight / 2 - height / 2
+                                    implicitWidth: 200
+                                    implicitHeight: 6
+                                    width: brightnessSlider.availableWidth
+                                    height: implicitHeight
+                                    radius: 3
+                                    color: theme.background
+                                    border.color: theme.primary
+                                    border.width: 1
+
+                                    Rectangle {
+                                        width: brightnessSlider.visualPosition * parent.width
+                                        height: parent.height
+                                        color: theme.primary
+                                        radius: 3
+                                    }
+                                }
+
+                                handle: Rectangle {
+                                    x: brightnessSlider.leftPadding + brightnessSlider.visualPosition * (brightnessSlider.availableWidth - width)
+                                    y: brightnessSlider.topPadding + brightnessSlider.availableHeight / 2 - height / 2
+                                    implicitWidth: 16
+                                    implicitHeight: 16
+                                    radius: 8
+                                    color: brightnessSlider.pressed ? theme.background : theme.primary
+                                    border.color: theme.primary
+                                    border.width: 1
+                                }
+                            }
+                        }
+                    }
+
+                    Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: theme.primary; opacity: 0.3; Layout.topMargin: 5; Layout.bottomMargin: 5 }
 
                     // --- WAYBAR ---
                     RowLayout {

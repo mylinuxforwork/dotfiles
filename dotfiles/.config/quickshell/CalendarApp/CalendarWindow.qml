@@ -230,7 +230,7 @@ PanelWindow {
 
                 RowLayout {
                     anchors.centerIn: parent
-                    spacing: 10
+                    spacing: 5
                     
                     ActionIcon { 
                         iconTxt: "" 
@@ -238,7 +238,7 @@ PanelWindow {
                     }
                     
                     Text {
-                        Layout.preferredWidth: 130 
+                        Layout.preferredWidth: 120 
                         text: monthNames[currentMonth] + " " + currentYear
                         color: theme.primary
                         font.family: theme.fontFamily
