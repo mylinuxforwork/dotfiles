@@ -7,6 +7,7 @@ Version 2.12.0
 - New pacman update script for Arch to enable colors, parallel downloads and ILoveCandy ~/.config/ml4w/scripts/ml4w-pacman
 - New keybinding to toggle the active window to floating and pin: SUPER+ALT+T
 - New keybinding to toggle the calendar widget: SUPER+CTRL+C
+- Quickshell Overview added. Can be toggled with CTRL+TAB
 
 Version 2.11.1
 --------------------------------------------------------
