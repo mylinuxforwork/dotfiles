@@ -209,22 +209,22 @@ PanelWindow {
                     }
                 }
 
-                ActionIcon { 
-                    iconTxt: ""
-                    onClicked: {
-                        root.isOpen = false
-                        appLauncher.running = false
-                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/screenshot.sh"]
-                        appLauncher.running = true
-                    }
-                }
-
                 ActionIcon {
                     iconTxt: "" 
                     onClicked: {
                         root.isOpen = false
                         appLauncher.running = false
                         appLauncher.command = ["hyprpicker"]
+                        appLauncher.running = true
+                    }
+                }
+
+                ActionIcon { 
+                    iconTxt: ""
+                    onClicked: {
+                        root.isOpen = false
+                        appLauncher.running = false
+                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/screenshot.sh"]
                         appLauncher.running = true
                     }
                 }

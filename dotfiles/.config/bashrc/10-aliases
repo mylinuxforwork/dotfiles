@@ -31,11 +31,11 @@ alias wallpaper='~/.config/ml4w/bin/ml4w-wallpaper'
 # -----------------------------------------------------
 # ML4W Apps
 # -----------------------------------------------------
-alias ml4w='flatpak run com.ml4w.welcome'
-alias ml4w-settings='flatpak run com.ml4w.settings'
-alias ml4w-calendar='flatpak run com.ml4w.calendar'
+alias ml4w='qs ipc call welcome toggle'
+alias ml4w-settings='qs ipc call settings toggle'
+alias ml4w-calendar='qs ipc call calendar toggle'
 alias ml4w-hyprland='flatpak run com.ml4w.hyprlandsettings'
-alias ml4w-sidebar='flatpak run com.ml4w.sidebar'
+alias ml4w-sidebar='qs ipc call sidebar toggle'
 
 # -----------------------------------------------------
 # Git
