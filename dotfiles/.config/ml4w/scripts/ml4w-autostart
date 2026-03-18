@@ -16,3 +16,6 @@ fi
 
 # Start ML4W Settings App
 PROFILE="com.ml4w.dotfiles" qs -p $HOME/.local/share/ml4w-dotfiles-settings/quickshell &
+
+# Start Quickshell Overview
+qs -p $HOME/.config/quickshell/overview &
