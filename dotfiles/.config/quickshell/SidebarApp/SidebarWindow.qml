@@ -1,7 +1,8 @@
 import Quickshell
 import Quickshell.Wayland
-import Quickshell.Hyprland // <-- Added native Hyprland integration
+import Quickshell.Hyprland 
 import Quickshell.Io
+import Quickshell.Services.Mpris 
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
@@ -15,7 +16,6 @@ PanelWindow {
     exclusionMode: WlrLayershell.Ignore
     
     implicitWidth: 380
-    implicitHeight: 660 
     color: "transparent"
 
     property bool isHyprlandSettingsInstalled: false
@@ -23,10 +23,12 @@ PanelWindow {
     anchors {
         right: true
         top: true
+        bottom: true
     }
 
     margins { 
         top: 87
+        bottom: 20
     }
 
     // --- CLICK OUTSIDE TO CLOSE (Native Hyprland) ---
@@ -68,8 +70,8 @@ PanelWindow {
     IpcHandler {
         target: "sidebar"
         function toggle(): void { root.isOpen = !root.isOpen }
-        function open(): void { root.isOpen = true }   // <-- Added for Waybar safety
-        function close(): void { root.isOpen = false } // <-- Added for Waybar safety
+        function open(): void { root.isOpen = true }   
+        function close(): void { root.isOpen = false } 
     }
 
     Theme { id: theme }
@@ -88,7 +90,6 @@ PanelWindow {
         stdout: StdioCollector {
             onStreamFinished: {
                 console.log(this.text.trim())
-                // The script echoes "0" if the app exists/is installed
                 root.isHyprlandSettingsInstalled = (this.text.trim() === "0")
             }
         }
@@ -194,7 +195,7 @@ PanelWindow {
             anchors.margins: 20
             spacing: 20
 
-            // --- TOP BAR (Light/Dark & Color Picker only) ---
+            // --- TOP BAR (Light/Dark, Screenshot & Color Picker) ---
             RowLayout {
                 Layout.fillWidth: true
                 spacing: 10
@@ -204,6 +205,16 @@ PanelWindow {
                     onClicked: {
                         appLauncher.running = false
                         appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-toggle-theme"]
+                        appLauncher.running = true
+                    }
+                }
+
+                ActionIcon { 
+                    iconTxt: ""
+                    onClicked: {
+                        root.isOpen = false
+                        appLauncher.running = false
+                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/screenshot.sh"]
                         appLauncher.running = true
                     }
                 }
@@ -265,7 +276,7 @@ PanelWindow {
                 id: scrollView 
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                contentWidth: availableWidth 
+                contentHeight: mainContentColumn.implicitHeight // Tells ScrollView how tall the inner content truly is
                 clip: true
 
                 ScrollBar.vertical: ScrollBar {
@@ -278,7 +289,8 @@ PanelWindow {
                 }
 
                 ColumnLayout {
-                    width: scrollView.availableWidth - 16
+                    id: mainContentColumn
+                    width: scrollView.width
                     spacing: 20
 
                     // --- SLIDERS (Loudness & Brightness) ---
@@ -306,7 +318,6 @@ PanelWindow {
                                 to: 100
                                 value: 50 // Default
 
-                                // Fetch actual volume when panel opens
                                 Process {
                                     command: ["bash", "-c", "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}'"]
                                     running: root.isOpen
@@ -318,12 +329,10 @@ PanelWindow {
                                     }
                                 }
 
-                                // Update system volume in real-time as you drag
                                 onMoved: {
                                     Quickshell.execDetached(["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ " + Math.round(value) + "%"])
                                 }
 
-                                // Matching Theme Styling
                                 background: Rectangle {
                                     x: volumeSlider.leftPadding
                                     y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
@@ -377,7 +386,6 @@ PanelWindow {
                                 to: 100
                                 value: 100
 
-                                // Fetch actual brightness when panel opens
                                 Process {
                                     command: ["bash", "-c", "brightnessctl -m | awk -F, '{gsub(\"%\",\"\",$4); print $4}'"]
                                     running: root.isOpen
@@ -389,12 +397,10 @@ PanelWindow {
                                     }
                                 }
 
-                                // Update system brightness in real-time as you drag
                                 onMoved: {
                                     Quickshell.execDetached(["bash", "-c", "brightnessctl set " + Math.round(value) + "%"])
                                 }
 
-                                // Matching Theme Styling
                                 background: Rectangle {
                                     x: brightnessSlider.leftPadding
                                     y: brightnessSlider.topPadding + brightnessSlider.availableHeight / 2 - height / 2
@@ -430,6 +436,154 @@ PanelWindow {
                     }
 
                     Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: theme.primary; opacity: 0.3; Layout.topMargin: 5; Layout.bottomMargin: 5 }
+
+                    // --- MPRIS PLAYERS (Scrollable ListView) ---
+                    ListView {
+                        id: mprisListView
+                        Layout.fillWidth: true
+                        
+                        // Dynamically scale based on players, up to 210px (max 2 players)
+                        Layout.preferredHeight: contentHeight
+                        Layout.maximumHeight: 210
+                        
+                        spacing: 10
+                        clip: true
+                        
+                        model: Mpris.players.values
+                        visible: Mpris.players.values.length > 0
+
+                        // Force disable scrolling entirely unless there are 3+ players
+                        interactive: mprisListView.count > 2
+
+                        ScrollBar.vertical: ScrollBar {
+                            // Explicitly hide the scrollbar unless there are 3+ players
+                            policy: mprisListView.count > 2 ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
+                            interactive: true
+                            contentItem: Rectangle {
+                                implicitWidth: 6; radius: 3; color: theme.primary
+                                opacity: parent.pressed ? 1.0 : (parent.active ? 0.8 : 0.4)
+                            }
+                        }
+
+                        delegate: Rectangle {
+                            id: playerCard
+                            property var player: modelData
+
+                            width: mprisListView.width - 16
+                            implicitHeight: 100
+                            
+                            radius: 10
+                            color: theme.background
+                            border.color: theme.primary
+                            border.width: 1
+                            clip: true
+
+                            RowLayout {
+                                anchors.fill: parent
+                                anchors.margins: 10
+                                spacing: 15
+
+                                // Cover Art Block
+                                Rectangle {
+                                    implicitWidth: 80
+                                    implicitHeight: 80
+                                    radius: 8
+                                    color: "transparent"
+                                    border.color: theme.primary
+                                    border.width: 1
+                                    clip: true
+                                    
+                                    Image {
+                                        anchors.fill: parent
+                                        source: player.trackArtUrl ? player.trackArtUrl : ""
+                                        fillMode: Image.PreserveAspectCrop
+                                        visible: player.trackArtUrl !== ""
+                                    }
+                                    Text {
+                                        anchors.centerIn: parent
+                                        text: "󰝚" // Music note icon (fallback)
+                                        font.family: "monospace"
+                                        font.pixelSize: 32
+                                        color: theme.primary
+                                        visible: !player.trackArtUrl || player.trackArtUrl === ""
+                                    }
+                                }
+
+                                // Track Info & Controls
+                                ColumnLayout {
+                                    Layout.fillWidth: true
+                                    Layout.fillHeight: true
+                                    spacing: 5
+
+                                    Text {
+                                        Layout.fillWidth: true
+                                        text: player.trackTitle ? player.trackTitle : (player.identity ? player.identity : "No Media Playing")
+                                        color: theme.primary
+                                        font.family: theme.fontFamily
+                                        font.pixelSize: 16
+                                        font.bold: true
+                                        elide: Text.ElideRight
+                                    }
+
+                                    Text {
+                                        Layout.fillWidth: true
+                                        text: {
+                                            if (player.trackArtist) return player.trackArtist;
+                                            if (player.trackArtists && player.trackArtists.length > 0) return player.trackArtists[0];
+                                            return "Unknown Artist";
+                                        }
+                                        color: theme.on_background
+                                        font.family: theme.fontFamily
+                                        font.pixelSize: 13
+                                        elide: Text.ElideRight
+                                        opacity: 0.8
+                                    }
+
+                                    Item { Layout.fillHeight: true } 
+
+                                    RowLayout {
+                                        Layout.fillWidth: true
+                                        spacing: 15
+                                        
+                                        Item { Layout.fillWidth: true } 
+
+                                        ActionIcon {
+                                            iconTxt: "󰒮" 
+                                            implicitWidth: 32
+                                            implicitHeight: 32
+                                            onClicked: player.previous()
+                                        }
+
+                                        ActionIcon {
+                                            iconTxt: player.isPlaying ? "󰏤" : "󰐊" 
+                                            implicitWidth: 32
+                                            implicitHeight: 32
+                                            onClicked: player.isPlaying = !player.isPlaying 
+                                        }
+
+                                        ActionIcon {
+                                            iconTxt: "󰒭" 
+                                            implicitWidth: 32
+                                            implicitHeight: 32
+                                            onClicked: player.next()
+                                        }
+                                        
+                                        Item { Layout.fillWidth: true }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    Rectangle { 
+                        Layout.fillWidth: true; 
+                        implicitHeight: 1; 
+                        color: theme.primary; 
+                        opacity: 0.3; 
+                        Layout.topMargin: 5; 
+                        Layout.bottomMargin: 5;
+                        visible: Mpris.players.values.length > 0 
+                    }
 
                     // --- WAYBAR ---
                     RowLayout {
@@ -688,23 +842,6 @@ PanelWindow {
                                 }
                             }
                         }
-                    }
-
-                    // --- SCREENSHOT ---
-                    RowLayout {
-                        Layout.fillWidth: true
-                        Text { text: "Screenshot"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }
-                        Item { Layout.fillWidth: true } 
-                        ActionIcon { 
-                            iconTxt: ""
-                            onClicked: {
-                                root.isOpen = false
-                                appLauncher.running = false
-                                appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/screenshot.sh"]
-                                appLauncher.running = true
-                            }
-                        }
-                        Item { implicitWidth: 28 } 
                     }
                 }
             }
