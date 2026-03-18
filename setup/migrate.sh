@@ -18,3 +18,17 @@ if [ -L $NVIM_DIR ]; then
         fi
     fi
 fi
+
+# Remove legacy ML4W Apps
+FLATPAK_ID="com.ml4w.welcome"
+if flatpak info "$FLATPAK_ID" > /dev/null 2>&1; then
+    flatpak remove -y $FLATPAK_ID
+fi
+FLATPAK_ID="com.ml4w.settings"
+if flatpak info "$FLATPAK_ID" > /dev/null 2>&1; then
+    flatpak remove -y $FLATPAK_ID
+fi
+FLATPAK_ID="com.ml4w.sidebar"
+if flatpak info "$FLATPAK_ID" > /dev/null 2>&1; then
+    flatpak remove -y $FLATPAK_ID
+fi

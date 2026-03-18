@@ -56,9 +56,9 @@
   },
   // ML4W Welcome App
   "custom/ml4w-welcome": {
-    "on-click": "flatpak run com.ml4w.sidebar",
+    "on-click": "qs ipc call sidebar toggle",
     "format": " ",
-    "tooltip-format": "Open ML4W Sidebar App"
+    "tooltip-format": "Open ML4W Sidebar"
   },
   // Empty
   "custom/empty": {
@@ -157,9 +157,8 @@
   // Power Menu
   "custom/exit": {
     "format": "",
-    "on-click": "~/.config/ml4w/scripts/ml4w-wlogout",
-    "on-click-right": "hyprlock",
-    "tooltip-format": "Left: Power menu\nRight: Lock screen"
+    "on-click": "qs ipc call power toggle",
+    "tooltip-format": "Open Power Menu"
   },
   // SwayNC
   "custom/notification": {
@@ -222,7 +221,7 @@
   // Clock
   "clock": {
     "format": "{:%H:%M %a}",
-    "on-click": "flatpak run com.ml4w.calendar",
+    "on-click": "qs ipc call calendar toggle",
     "timezone": "",
     "tooltip": false
   },

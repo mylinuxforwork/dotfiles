@@ -9,6 +9,14 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 
 # --------------------------------------------------------------
+# ML4W Settings App
+# --------------------------------------------------------------
+
+bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-settings/main/setup.sh)
+rm $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml  
+ln -sf $HOME/.config/quickshell/shared/Theme.qml $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
+
+# --------------------------------------------------------------
 # Prebuild Packages
 # --------------------------------------------------------------
 
@@ -50,18 +58,6 @@ echo ":: Installing packages with pip"
 sudo zypper -n install python313-screeninfo
 pipx install pywalfox
 pipx install waypaper
-
-# --------------------------------------------------------------
-# ML4W Apps
-# --------------------------------------------------------------
-
-source $SCRIPT_DIR/_ml4w-apps.sh
-
-# --------------------------------------------------------------
-# Flatpaks
-# --------------------------------------------------------------
-
-source $SCRIPT_DIR/_flatpaks.sh
 
 # --------------------------------------------------------------
 # Grimblast

@@ -1,0 +1,66 @@
+{
+  "appearance": {
+    "colorSource": "matugen",
+    "caelestia": {
+      "autoRefresh": true,
+      "refreshInterval": 2000,
+      "accentProfile": "vibrant"
+    },
+    "rounding": {
+      "unsharpen": 2,
+      "verysmall": 8,
+      "small": 12,
+      "normal": 17,
+      "large": 23,
+      "full": 9999,
+      "screenRounding": 23,
+      "windowRounding": 18
+    },
+    "font": {
+      "family": {
+        "main": "Fira Sans Semibold",
+        "title": "Fira Sans Semibold",
+        "expressive": "Fira Sans Semibold"
+      },
+      "pixelSize": {
+        "smaller": 12,
+        "small": 15,
+        "normal": 16,
+        "larger": 19,
+        "huge": 22
+      }
+    },
+    "animation": {
+      "duration": {
+        "elementMove": 500,
+        "elementMoveEnter": 400,
+        "elementMoveFast": 200
+      }
+    },
+    "sizes": {
+      "elevationMargin": 10
+    }
+  },
+  "overview": {
+    "rows": 2,
+    "columns": 5,
+    "scale": 0.16,
+    "enable": true,
+    "hideEmptyRows": true,
+    "workspaceSpacing": 5,
+    "backgroundPadding": 10,
+    "workspaceNumberBaseSize": 250
+  },
+  "position": {
+    "topMargin": 100
+  },
+  "windowPreview": {
+    "iconToWindowRatio": 0.25,
+    "iconToWindowRatioCompact": 0.45,
+    "xwaylandIndicatorToIconRatio": 0.35,
+    "inactiveMonitorOpacity": 0.4
+  },
+  "hacks": {
+    "arbitraryRaceConditionDelay": 150
+  }
+}

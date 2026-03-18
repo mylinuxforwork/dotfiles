@@ -20,5 +20,6 @@ if [ ! -f $HOME/.config/ml4w/settings/dock-disabled ]; then
         nwg-dock-hyprland -i 32 -w 5 -mb 10 -x -s themes/$DOCK_THEME/style.css -c "$HOME/.config/hypr/scripts/launcher.sh"
     fi
 else
+    killall nwg-dock-hyprland
     echo ":: Dock disabled"
 fi

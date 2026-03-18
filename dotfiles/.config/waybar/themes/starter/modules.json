@@ -164,7 +164,7 @@
     // Power Menu
     "custom/exit": {
         "format": "",
-        "on-click": "wlogout",
+        "on-click": "qs ipc call power toggle",
         "tooltip": false
     },
 
