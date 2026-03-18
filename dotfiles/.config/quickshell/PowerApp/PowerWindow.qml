@@ -81,15 +81,19 @@ PanelWindow {
     // ==========================================
     // MAIN PANEL BACKGROUND (The Pill Shape)
     // ==========================================
-    Rectangle {
+    Item {
         id: panelBg
         implicitWidth: 80 
         implicitHeight: buttonLayout.implicitHeight + 40 
-        radius: 40 
-        
-        color: theme ? theme.background : "#1e1e2e"
-        border.color: theme ? theme.primary : "#89b4fa"
-        border.width: 2
+
+        Rectangle {
+            anchors.fill: parent
+            color: theme ? theme.background : "#1e1e2e"
+            border.color: theme ? theme.primary : "#89b4fa"
+            border.width: 2
+            radius: 40
+            opacity: 0.9 // Only the background is transparent
+        }
 
         // ==========================================
         // BUTTON LAYOUT

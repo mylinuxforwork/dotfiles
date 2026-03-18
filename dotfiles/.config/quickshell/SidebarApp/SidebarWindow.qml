@@ -183,12 +183,17 @@ PanelWindow {
     // ==========================================
     // MAIN PANEL BACKGROUND
     // ==========================================
-    Rectangle {
+    Item {
         anchors.fill: parent
-        color: theme ? theme.background : "#1e1e2e"
-        border.color: theme ? theme.primary : "#89b4fa"
-        border.width: 2
-        radius: 10
+
+        Rectangle {
+            anchors.fill: parent
+            color: theme ? theme.background : "#1e1e2e"
+            border.color: theme ? theme.primary : "#89b4fa"
+            border.width: 2
+            radius: 10
+            opacity: 0.9 // Only the background is transparent
+        }
 
         ColumnLayout {
             anchors.fill: parent
