@@ -11,7 +11,7 @@ You can reload waybar with SUPER + SHIFT + B
     },
     "custom/quicklink_filemanager": {
         "format": "",
-        "on-click": "~/.config/ml4w/settings/filemanager.sh",
+        "on-click": "~/.config/ml4w/settings/filemanager",
         "tooltip-format": "Open Filemanager"
     },
     "custom/quicklink_email": {
