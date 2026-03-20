@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Sleep 3 seconds and wait for matugen
+sleep 3
+
 # Start Quickshell
 killall qs
 sleep 1
