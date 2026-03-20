@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
 # -----------------------------------------------------
+# Write autostart file to cache
+# -----------------------------------------------------
+if [ ! -f ~/.cache/ml4w-process-autostart-running ]; then
+    mkdir -p ~/.cache
+    touch ~/.cache/ml4w-process-autostart-running
+    echo ":: ~/.cache/ml4w-process-autostart-running created"
+fi
+
+# -----------------------------------------------------
 # Set defaults
 # -----------------------------------------------------
 
@@ -46,18 +55,6 @@ sleep 1
 qs &
 
 # -----------------------------------------------------
-# Start ML4W Welcome App
-# -----------------------------------------------------
-
-if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then
-    echo ":: Starting ML4W Welcome App ..."
-    sleep 1
-    qs ipc call welcome toggle
-else
-    echo ":: Autostart of ML4W Welcome App disabled."
-fi
-
-# -----------------------------------------------------
 # Start ML4W Settings App
 # -----------------------------------------------------
 
@@ -68,3 +65,24 @@ PROFILE="com.ml4w.dotfiles" qs -p $HOME/.local/share/ml4w-dotfiles-settings/quic
 # -----------------------------------------------------
 
 qs -p $HOME/.config/quickshell/overview &
+
+# -----------------------------------------------------
+# Wait patiently as long as the autostart lock file exists
+# -----------------------------------------------------
+
+echo ":: Waiting for matugen to complete task... "
+while [ -f ~/.cache/ml4w-process-autostart-running ]; do
+    sleep 0.2
+done
+
+# -----------------------------------------------------
+# Start ML4W Welcome App
+# -----------------------------------------------------
+
+if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then
+    echo ":: Starting ML4W Welcome App..."
+    sleep 0.2
+    qs ipc call welcome toggle
+else
+    echo ":: Autostart of ML4W Welcome App disabled."
+fi

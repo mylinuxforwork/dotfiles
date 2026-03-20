@@ -5,10 +5,16 @@
 # |__/|__/\_,_/_/_/ .__/\_,_/ .__/\__/_/   
 #                /_/       /_/             
 
+# -----------------------------------------------------
 # Source library.sh
+# -----------------------------------------------------
+
 source $HOME/.config/ml4w/library.sh
 
+# -----------------------------------------------------
 # Notifications
+# -----------------------------------------------------
+
 source "$HOME/.config/ml4w/scripts/ml4w-notification-handler"
 APP_NAME="Waypaper"
 NOTIFICATION_ICON="preferences-desktop-wallpaper-symbolic"
@@ -178,6 +184,15 @@ fi
 
 sleep 0.1
 swaync-client -rs
+
+# -----------------------------------------------------
+# Remove autostart file from cache
+# -----------------------------------------------------
+
+if [ -f ~/.cache/ml4w-process-autostart-running ]; then
+    rm ~/.cache/ml4w-process-autostart-running
+    echo ":: ~/.cache/ml4w-process-autostart-running removed"
+fi
 
 # -----------------------------------------------------
 # Created blurred wallpaper
