@@ -1,14 +1,54 @@
 #!/usr/bin/env bash
 
-# Sleep 3 seconds and wait for matugen
-sleep 3
+# -----------------------------------------------------
+# Set defaults
+# -----------------------------------------------------
 
+ml4w_cache_folder="$HOME/.cache/ml4w/hyprland-dotfiles"
+defaultwallpaper="$HOME/.config/ml4w/wallpapers/default.jpg"
+cachefile="$ml4w_cache_folder/current_wallpaper"
+
+# -----------------------------------------------------
+# Get current wallpaper
+# -----------------------------------------------------
+
+if [ -f "$cachefile" ]; then
+    sed -i "s|~|$HOME|g" "$cachefile"
+    wallpaper=$(cat $cachefile)
+    if [ -f $wallpaper ]; then
+        echo ":: Wallpaper $wallpaper exists"
+    else
+        echo ":: Wallpaper $wallpaper does not exist. Using default."
+        wallpaper=$defaultwallpaper
+    fi
+else
+    echo ":: $cachefile does not exist. Using default wallpaper."
+    wallpaper=$defaultwallpaper
+fi
+
+# -----------------------------------------------------
+# Set wallpaper
+# -----------------------------------------------------
+
+echo ":: Setting wallpaper with source image $wallpaper"
+if [ -f ~/.local/bin/waypaper ]; then
+    export PATH=$PATH:~/.local/bin/
+fi
+waypaper --wallpaper "$wallpaper" &
+
+# -----------------------------------------------------
 # Start Quickshell
+# -----------------------------------------------------
+
+sleep 3
 killall qs
 sleep 1
 qs &
 
+# -----------------------------------------------------
 # Start ML4W Welcome App
+# -----------------------------------------------------
+
 if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then
     echo ":: Starting ML4W Welcome App ..."
     sleep 1
@@ -17,8 +57,14 @@ else
     echo ":: Autostart of ML4W Welcome App disabled."
 fi
 
+# -----------------------------------------------------
 # Start ML4W Settings App
+# -----------------------------------------------------
+
 PROFILE="com.ml4w.dotfiles" qs -p $HOME/.local/share/ml4w-dotfiles-settings/quickshell &
 
+# -----------------------------------------------------
 # Start Quickshell Overview
+# -----------------------------------------------------
+
 qs -p $HOME/.config/quickshell/overview &
