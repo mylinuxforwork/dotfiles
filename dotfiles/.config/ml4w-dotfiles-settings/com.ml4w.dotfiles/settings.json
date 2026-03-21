@@ -142,12 +142,13 @@
     },{
         "name": "Select Waybar Theme",
         "id": "theme_folder",
-        "instructions": "Choose your theme folder:",
-        "file": "~/.config/ml4w/settings/waybar_theme",
+        "instructions": "Choose your theme:",
+        "file": "~/.config/ml4w/settings/waybar-theme.sh",
         "type": "folders",
         "folder": "~/.config/waybar/themes",
         "mode": "overwrite",
-        "default": "glass-theme"
+        "default": "ml4w-glass-center",
+        "post_command": "~/.config/waybar/waybar-quickshell.sh"
     },{
       "name": "Kitty Cursor Trail",
       "id": "toggle_kittycursortrail",
