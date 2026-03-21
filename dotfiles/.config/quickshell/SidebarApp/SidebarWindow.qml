@@ -208,9 +208,7 @@ PanelWindow {
                 ActionIcon {
                     iconTxt: "󰔎"
                     onClicked: {
-                        appLauncher.running = false
-                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-toggle-theme"]
-                        appLauncher.running = true
+                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-toggle-theme"])
                     }
                 }
 
@@ -218,9 +216,7 @@ PanelWindow {
                     iconTxt: "" 
                     onClicked: {
                         root.isOpen = false
-                        appLauncher.running = false
-                        appLauncher.command = ["hyprpicker"]
-                        appLauncher.running = true
+                        Quickshell.execDetached(["hyprpicker"])
                     }
                 }
 
@@ -228,9 +224,7 @@ PanelWindow {
                     iconTxt: ""
                     onClicked: {
                         root.isOpen = false
-                        appLauncher.running = false
-                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/screenshot.sh"]
-                        appLauncher.running = true
+                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/screenshot.sh"])
                     }
                 }
 
@@ -248,18 +242,14 @@ PanelWindow {
                     text: "Welcome"
                     onClicked: {
                         root.isOpen = false
-                        appLauncher.running = false
-                        appLauncher.command = ["bash", "-c", "qs ipc call welcome toggle"]
-                        appLauncher.running = true
+                        Quickshell.execDetached(["bash", "-c", "qs ipc call welcome toggle"])
                     }
                 }
                 ML4WButton { 
                     text: "Settings"
                     onClicked: {
                         root.isOpen = false
-                        appLauncher.running = false
-                        appLauncher.command = ["bash", "-c", "qs -p " + Quickshell.env("HOME") + "/.local/share/ml4w-dotfiles-settings/quickshell ipc call settings toggle"]
-                        appLauncher.running = true
+                        Quickshell.execDetached(["bash", "-c", "qs -p " + Quickshell.env("HOME") + "/.local/share/ml4w-dotfiles-settings/quickshell ipc call settings toggle"])
                     }
                 }
                 ML4WButton { 
@@ -267,9 +257,7 @@ PanelWindow {
                     visible: root.isHyprlandSettingsInstalled 
                     onClicked: {
                         root.isOpen = false
-                        appLauncher.running = false
-                        appLauncher.command = ["bash", "-c", "flatpak run com.ml4w.hyprlandsettings"]
-                        appLauncher.running = true
+                        Quickshell.execDetached(["bash", "-c", "flatpak run com.ml4w.hyprlandsettings"])
                     }
                 }
             }
@@ -629,22 +617,16 @@ PanelWindow {
                                 
                                 background: Rectangle { color: theme.background; border.color: theme.primary; border.width: 1; radius: 8 }
                                 ML4WMenuItem { text: "Select Waybar Theme"; onClicked: {
-                                        appLauncher.running = false
-                                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/waybar/themeswitcher.sh"]
-                                        appLauncher.running = true
+                                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/waybar/themeswitcher.sh"])
                                     }
                                 }
                                 ML4WMenuItem { text: "Edit Quicklinks"; onClicked: {
                                         root.isOpen = false
-                                        appLauncher.running = false
-                                        appLauncher.command = ["gnome-text-editor", Quickshell.env("HOME") + "/.config/ml4w/settings/waybar-quicklinks.json"]
-                                        appLauncher.running = true
+                                        Quickshell.execDetached(["gnome-text-editor", Quickshell.env("HOME") + "/.config/ml4w/settings/waybar-quicklinks.json"])
                                     }
                                 }
                                 ML4WMenuItem { text: "Reload Waybar"; onClicked: {
-                                        appLauncher.running = false
-                                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/waybar/launch.sh"]
-                                        appLauncher.running = true
+                                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/waybar/launch.sh"])
                                     } 
                                 }
                             }
@@ -703,9 +685,7 @@ PanelWindow {
                             }
                             onClicked: {
                                 if (!ready) return;
-                                appLauncher.running = false
-                                appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/gamemode.sh"]
-                                appLauncher.running = true
+                                Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/gamemode.sh"])
                             }
                         }
                         Item { implicitWidth: 28 } 
@@ -719,15 +699,13 @@ PanelWindow {
                         ML4WSwitch { 
                             id: sidepadSwitch
                             onClicked: {
-                                appLauncher.running = false
                                 if (checked) {
-                                    console.log("Launchung sidebar...")
-                                    appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-sidepad --init"]
+                                    console.log("Launching sidebar...")
+                                    Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-sidepad --init"])
                                 } else {
                                     console.log("Stopping sidebar...")
-                                    appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-sidepad --kill"]
+                                    Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-sidepad --kill"])
                                 }
-                                appLauncher.running = true
                             }
                         }
                         SettingsWheel {
@@ -741,15 +719,11 @@ PanelWindow {
                                 
                                 background: Rectangle { color: theme.background; border.color: theme.primary; border.width: 1; radius: 8 }
                                 ML4WMenuItem { text: "Select Sidepad"; onClicked: {
-                                        appLauncher.running = false
-                                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-sidepad --select"]
-                                        appLauncher.running = true
+                                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-sidepad --select"])
                                     } 
                                 }
                                 ML4WMenuItem { text: "Open Sidepad Folder"; onClicked: {
-                                        appLauncher.running = false
-                                        appLauncher.command = ["nautilus", Quickshell.env("HOME") + "/.config/sidepad/pads"]
-                                        appLauncher.running = true
+                                        Quickshell.execDetached(["nautilus", Quickshell.env("HOME") + "/.config/sidepad/pads"])
                                     } 
                                 }
                             }
@@ -784,16 +758,12 @@ PanelWindow {
                                 background: Rectangle { color: theme.background; border.color: theme.primary; border.width: 1; radius: 8 }
                                 ML4WMenuItem { text: "Random Wallpaper"; onClicked: {
                                         root.isOpen = false
-                                        appLauncher.running = false
-                                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/waypaper.sh --random"]
-                                        appLauncher.running = true
+                                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/waypaper.sh --random"])
                                     } 
                                 }
                                 ML4WMenuItem { text: "Wallpaper Effects"; onClicked: {
                                         root.isOpen = false
-                                        appLauncher.running = false
-                                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/wallpaper-effects.sh"]
-                                        appLauncher.running = true
+                                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/wallpaper-effects.sh"])
                                     } 
                                 }
                             }
@@ -809,9 +779,7 @@ PanelWindow {
                             iconTxt: ""
                             onClicked: {
                                 root.isOpen = false
-                                appLauncher.running = false
-                                appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/themes/themes.sh"]
-                                appLauncher.running = true
+                                Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/themes/themes.sh"])
                             }
                         }
                         SettingsWheel {
@@ -826,23 +794,17 @@ PanelWindow {
                                 background: Rectangle { color: theme.background; border.color: theme.primary; border.width: 1; radius: 8 }
                                 ML4WMenuItem { text: "Set GTK Theme"; onClicked: {
                                         root.isOpen = false
-                                        appLauncher.running = false
-                                        appLauncher.command = ["nwg-look"]
-                                        appLauncher.running = true
+                                        Quickshell.execDetached(["nwg-look"])
                                     } 
                                 }
                                 ML4WMenuItem { text: "Set QT Theme"; onClicked: {
                                         root.isOpen = false
-                                        appLauncher.running = false
-                                        appLauncher.command = ["qt6ct"]
-                                        appLauncher.running = true
+                                        Quickshell.execDetached(["qt6ct"])
                                     }
                                 }
                                 ML4WMenuItem { text: "Refresh GTK Theme"; onClicked: {
                                         root.isOpen = false
-                                        appLauncher.running = false
-                                        appLauncher.command = ["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/gtk.sh"]
-                                        appLauncher.running = true
+                                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/gtk.sh"])
                                     } 
                                 }
                             }
