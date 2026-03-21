@@ -195,7 +195,7 @@ window#waybar.empty #window {
 
 #custom-chatgpt {
     margin-right: 10px;
-    background-image: url("../assets/ai-icon-20.png");
+    background-image: url("../../assets/ai-icon-20.png");
     background-repeat: no-repeat;
     background-position: center;
     padding-right: 23px;
@@ -208,7 +208,7 @@ window#waybar.empty #window {
 
 #custom-ml4w-welcome {
     margin-right: 12px;
-    background-image: url("../assets/ml4w-icon.svg");
+    background-image: url("../../assets/ml4w-icon.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -217,7 +217,7 @@ window#waybar.empty #window {
 
 #custom-ml4w-hyprland-settings {
     margin-right: 12px;
-    background-image: url("../assets/hyprland-icon-20.png");
+    background-image: url("../../assets/hyprland-icon-20.png");
     background-repeat: no-repeat;
     background-position: center;
     padding-right: 16px;

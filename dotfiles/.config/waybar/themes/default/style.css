@@ -37,7 +37,7 @@ window#waybar.chromium {
 
 #custom-ml4w-welcome {
     margin-right: 15px;
-    background-image: url("../assets/ml4w-icon-20.png");
+    background-image: url("../../assets/ml4w-icon-20.png");
     background-repeat: no-repeat;
     background-position: center;
     padding-right: 20px;

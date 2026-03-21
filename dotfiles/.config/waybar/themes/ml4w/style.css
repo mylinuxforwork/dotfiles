@@ -242,7 +242,7 @@ window#waybar.empty #window {
 
 #custom-ml4w-welcome {
     margin-right: 12px;
-    background-image: url("../assets/ml4w-icon.svg");
+    background-image: url("../../assets/ml4w-icon.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -251,7 +251,7 @@ window#waybar.empty #window {
 
 #custom-chatgpt {
     margin-right: 16px;
-    background-image: url("../assets/openai.svg");
+    background-image: url("../../assets/openai.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
