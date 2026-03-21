@@ -127,7 +127,7 @@
         "type": "files",
         "folder": "~/.config/hypr/conf/windows",
         "mode": "replace",
-        "match": "source = ~/.config/hypr/conf/window/.*",
+        "match": "source = ~/.config/hypr/conf/windows/.*",
         "default": "default.conf"
     },{
         "name": "Workspace Variants",
@@ -137,7 +137,7 @@
         "type": "files",
         "folder": "~/.config/hypr/conf/workspaces",
         "mode": "replace",
-        "match": "source = ~/.config/hypr/conf/workspace/.*",
+        "match": "source = ~/.config/hypr/conf/workspaces/.*",
         "default": "default.conf"
     },{
         "name": "Select Waybar Theme",
