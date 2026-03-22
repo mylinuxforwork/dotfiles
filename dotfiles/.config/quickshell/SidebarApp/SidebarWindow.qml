@@ -76,12 +76,6 @@ PanelWindow {
 
     Theme { id: theme }
 
-    // --- PROCESS RUNNERS ---
-    Process {
-        id: appLauncher
-        running: false
-    }
-
     // --- Check if flatpak is installed when window opens ---
     Process {
         command: ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-flatpak-installed com.ml4w.hyprlandsettings"]
@@ -741,9 +735,7 @@ PanelWindow {
                             iconTxt: ""
                             onClicked: {
                                 root.isOpen = false
-                                appLauncher.running = false
-                                appLauncher.command = ["waypaper"]
-                                appLauncher.running = true
+                                Quickshell.execDetached(["waypaper"])
                             }
                         }
                         SettingsWheel {
