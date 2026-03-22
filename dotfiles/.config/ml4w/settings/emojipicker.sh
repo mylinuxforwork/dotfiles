@@ -1,1 +1,1 @@
-flatpak run com.ml4w.sidebar
+flatpak run com.tomjwatson.Emote

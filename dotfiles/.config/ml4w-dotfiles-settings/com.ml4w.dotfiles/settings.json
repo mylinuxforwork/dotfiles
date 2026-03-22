@@ -167,7 +167,7 @@
       "name": "Default Terminal",
       "id": "default_terminal",
       "instructions": "Enter the command to execute the terminal",
-      "file": "~/.config/ml4w/settings/terminal",
+      "file": "~/.config/ml4w/settings/terminal.sh",
       "type": "textfield",
       "mode": "overwrite",
       "default": "kitty"
@@ -183,7 +183,7 @@
       "name": "Default Email Client",
       "id": "default_email",
       "instructions": "Enter the command to execute the email client",
-      "file": "~/.config/ml4w/settings/email.sh",
+      "file": "~/.config/ml4w/settings/email",
       "type": "textfield",
       "mode": "overwrite",
       "default": "evolution"
