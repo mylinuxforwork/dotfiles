@@ -419,6 +419,37 @@ FloatingWindow {
                     Layout.fillWidth: true
                     Layout.margins: 10
 
+                    // --- NEW TOGGLE BUTTON (Left Side) ---
+                    Button {
+                        text: "Toggle Tiling/Floating"
+                        
+                        // Styled to be slightly smaller and compact
+                        background: Rectangle {
+                            color: "transparent"
+                            border.color: theme.primary
+                            border.width: 1
+                            radius: 6
+                        }
+                        
+                        contentItem: Text {
+                            text: parent.text
+                            font.family: theme.fontFamily
+                            font.pixelSize: 12 // Smaller text size
+                            color: theme.primary
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                            padding: 4
+                            leftPadding: 10
+                            rightPadding: 10
+                        }
+                        
+                        onClicked: {
+                            appLauncher.running = false
+                            appLauncher.command = ["hyprctl", "dispatch", "togglefloating"]
+                            appLauncher.running = true
+                        }
+                    }
+
                     Item { Layout.fillWidth: true }
 
                     Text {
