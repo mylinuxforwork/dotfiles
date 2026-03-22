@@ -81,7 +81,7 @@
     }]
   },{
     "group":"Appearance",
-    "description":"Description",
+    "description":"Change some settings to customize the look and feel.",
     "settings":[{
       "name": "Rofi Border Size",
       "id": "rofi_bordersize",
