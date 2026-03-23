@@ -448,7 +448,7 @@ FloatingWindow {
                 Item { Layout.fillHeight: true } 
 
                 // ==========================================
-                // BOTTOM BAR: SHOW ON STARTUP
+                // BOTTOM BAR
                 // ==========================================
                 RowLayout {
                     Layout.fillWidth: true
