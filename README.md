@@ -25,7 +25,7 @@ Arch, Fedora and openSuse Tumblweed are directly supported.
 
 Test the ML4W OS without risk on your computer or in a Virtual Machine with the ML4W Live ISO.
 
-<a href="https://ml4w.com/iso/ml4w-os/ml4w-os-2.11.1-x86_64.iso">Download the ML4W ISO</a>
+<a href="https://ml4w.com/iso/ml4w-os/ml4w-os-2.12.0-x86_64.iso">Download the ML4W ISO</a>
 
 You can install the ML4W OS on your hard drive with the command `sudo install-ml4w-os` (BETA).
 
