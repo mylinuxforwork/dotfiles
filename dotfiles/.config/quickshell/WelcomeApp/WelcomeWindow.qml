@@ -252,7 +252,7 @@ FloatingWindow {
                     } 
                 }
                 ML4WMenuItem { text: qsTr("Update ML4W OS"); onClicked: { 
-                    Quickshell.execDetached(["xdg-open", "https://github.com/mylinuxforwork/wallpaper"]) 
+                    Quickshell.execDetached(["xdg-open", "https://ml4w.com/os/getting-started/update"]) 
                     } 
                 }
 
