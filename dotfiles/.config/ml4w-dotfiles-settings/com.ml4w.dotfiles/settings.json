@@ -266,6 +266,16 @@
         "match": "source = ~/.config/hypr/conf/keybindings/.*",
         "default": "default.conf"
     },{
+        "name": "Monitor Variants",
+        "id": "variant_monitor",
+        "instructions": "Choose your preferred monitor variant:",
+        "file": "~/.config/hypr/conf/monitor.conf",
+        "type": "files",
+        "folder": "~/.config/hypr/conf/monitors",
+        "mode": "replace",
+        "match": "source = ~/.config/hypr/conf/monitors/.*",
+        "default": "nwg-displays.conf"
+    },{
         "name": "Environment Variants",
         "id": "variant_environment",
         "instructions": "Choose your preferred environmant variant:",
