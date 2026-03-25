@@ -9,3 +9,4 @@ sudo dnf copr enable --assumeyes tofik/nwg-shell
 sudo dnf copr enable --assumeyes che/nerd-fonts
 sudo dnf copr enable --assumeyes erikreider/SwayNotificationCenter
 sudo dnf copr enable --assumeyes errornointernet/quickshell
+sudo dnf copr enable --assumeyes mineiro/hyprland 

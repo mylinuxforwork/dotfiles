@@ -50,3 +50,10 @@ source $SCRIPT_DIR/migrate.sh
 # --------------------------------------------------------------
 
 xdg-user-dirs-update
+
+# --------------------------------------------------------------
+# Temporary Installation of waypaper-git
+# --------------------------------------------------------------
+
+yay --noconfirm -Rns waypaper
+yay --noconfirm -S waypaper-git
