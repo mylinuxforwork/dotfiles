@@ -76,4 +76,6 @@ echo "==> Cleaning up temporary files..."
 cd ~
 rm -rf "$BUILD_DIR"
 
-echo "==> Success! swww v0.11.2 has been restored."
+echo "==> Success! swww v0.11.2 has been restored." 
+echo "==> Please execute waypaper (or SUPER+CTRL+Return and select waypaper) and select swww as wallpaper engine again."
+echo "==> Skip the replacement of swww with awww for now during system updates."
