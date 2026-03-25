@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup/tmp/arch-install-swww.sh)
+
 # Exit immediately if a command exits with a non-zero status
 set -e
 
