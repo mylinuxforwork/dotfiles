@@ -35,7 +35,7 @@ fi
 
 # openSuse: Set wallpaper engine to hyprpaper
 if command -v zypper &> /dev/null; then 
-    if [ -f $HOME/.mydotfiles/com.ml4w.dotfiles]; then
+    if [ -f $HOME/.mydotfiles/com.ml4w.dotfiles ]; then
         WAYPAPER_CONFIG="$HOME/.mydotfiles/com.ml4w.dotfiles/.config/waypaper/config.ini"
         if [ -f "$WAYPAPER_CONFIG" ]; then
             echo ":: Updating waypaper config..."
@@ -45,7 +45,7 @@ if command -v zypper &> /dev/null; then
             echo ":: Warning: waypaper config not found at $WAYPAPER_CONFIG. Skipping..."
         fi
     fi
-    if [ -f $HOME/.mydotfiles/com.ml4w.dotfiles.stable]; then
+    if [ -f $HOME/.mydotfiles/com.ml4w.dotfiles.stable ]; then
         WAYPAPER_CONFIG="$HOME/.mydotfiles/com.ml4w.dotfiles.stable/.config/waypaper/config.ini"
         if [ -f "$WAYPAPER_CONFIG" ]; then
             echo ":: Updating waypaper config..."
