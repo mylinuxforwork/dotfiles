@@ -16,6 +16,13 @@ rm $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 ln -sf $HOME/.config/quickshell/shared/Theme.qml $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 
 # --------------------------------------------------------------
+# Temporary Installation of waypaper-git
+# --------------------------------------------------------------
+
+yay --noconfirm -Rns waypaper
+yay --noconfirm -S waypaper-git
+
+# --------------------------------------------------------------
 # Prebuilt Packages
 # --------------------------------------------------------------
 
@@ -51,9 +58,3 @@ source $SCRIPT_DIR/migrate.sh
 
 xdg-user-dirs-update
 
-# --------------------------------------------------------------
-# Temporary Installation of waypaper-git
-# --------------------------------------------------------------
-
-yay --noconfirm -Rns waypaper
-yay --noconfirm -S waypaper-git

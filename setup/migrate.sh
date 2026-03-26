@@ -32,3 +32,15 @@ FLATPAK_ID="com.ml4w.sidebar"
 if flatpak info "$FLATPAK_ID" > /dev/null 2>&1; then
     flatpak remove -y $FLATPAK_ID
 fi
+
+# openSuse: Set wallpaper engine to hyprpaper
+if command -v zypper &> /dev/null; then 
+    WAYPAPER_CONFIG="$HOME/.config/waypaper/config.ini"
+    if [ -f "$WAYPAPER_CONFIG" ]; then
+        echo ":: Updating waypaper config..."
+        sed -i 's/awww/hyprpaper/g' "$WAYPAPER_CONFIG"
+        echo ":: Successfully switched from awww to hyprpaper."
+    else
+        echo ":: Warning: waypaper config not found at $WAYPAPER_CONFIG. Skipping..."
+    fi
+fi
