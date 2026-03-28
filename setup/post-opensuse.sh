@@ -61,7 +61,7 @@ sudo zypper install -n -t pattern devel_basis
 sudo zypper install -n python3-devel
 sudo zypper install -n python313-pycairo-devel 
 sudo zypper install -n python313-gobject-devel
-pipx install git+https://github.com/anufrievroman/waypaper
+pipx install --force git+https://github.com/anufrievroman/waypaper
 
 # --------------------------------------------------------------
 # Grimblast
