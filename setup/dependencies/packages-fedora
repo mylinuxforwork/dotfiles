@@ -5,6 +5,7 @@ qt6-qtwayland
 uwsm
 python3-pip
 python3-gobject
+pipx
 nm-connection-editor
 network-manager-applet
 fuse

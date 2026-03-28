@@ -30,21 +30,17 @@ sudo cp $SCRIPT_DIR/packages/eza /usr/bin
 # Pip
 # --------------------------------------------------------------
 
+# Installing Fedora development tools
+sudo dnf group install -y development-tools
+sudo dnf install -y python3-devel cairo-devel cairo-gobject-devel gobject-introspection-devel
+
 echo ":: Installing packages with pip"
 sudo pip install pywalfox
 sudo pip install screeninfo
-sudo pip install waypaper
 
-# --------------------------------------------------------------
-# TTY Clock
-# --------------------------------------------------------------
-
-# git clone https://github.com/xorg62/tty-clock
-# cd tty-clock
-# sudo dnf install ncurses ncurses-devel -y
-# make
-# chmod +x tty-clock
-# sudo mv tty-clock /usr/local/bin/tty-clock
+# Installing Waypaper from Git
+sudo dnf remove -y waypaper
+pipx install --force git+https://github.com/anufrievroman/waypaper
 
 # --------------------------------------------------------------
 # Grimblast

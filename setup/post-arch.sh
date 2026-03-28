@@ -3,6 +3,20 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # --------------------------------------------------------------
+# Test for AUR helper
+# --------------------------------------------------------------
+
+if command -v yay &> /dev/null; then
+    AUR_HELPER="yay"
+elif command -v paru &> /dev/null; then
+    AUR_HELPER="paru"
+else
+    echo "Error: Neither 'yay' nor 'paru' is installed. Please install one and try again."
+    exit 1
+fi
+echo ":: Using AUR helper: $AUR_HELPER"
+
+# --------------------------------------------------------------
 # Oh My Posh
 # --------------------------------------------------------------
 curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
@@ -16,11 +30,22 @@ rm $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 ln -sf $HOME/.config/quickshell/shared/Theme.qml $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 
 # --------------------------------------------------------------
-# Temporary Installation of waypaper-git
+# Installation of waypaper-git
 # --------------------------------------------------------------
 
-yay --noconfirm -Rns waypaper
-yay --noconfirm -S waypaper-git
+if pacman -Qq waypaper-git &> /dev/null; then
+    echo ":: waypaper-git is already installed. Doing nothing."
+    exit 0
+else
+    if pacman -Qq waypaper &> /dev/null; then
+        echo ":: Standard 'waypaper' is currently installed. Uninstalling..."
+        $AUR_HELPER -Rns --noconfirm waypaper
+    else
+        echo ":: Standard 'waypaper' is not installed."
+    fi
+    echo ":: Installing 'waypaper-git'..."
+    $AUR_HELPER -S --noconfirm waypaper-git
+fi
 
 # --------------------------------------------------------------
 # Prebuilt Packages
