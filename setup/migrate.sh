@@ -39,6 +39,7 @@ if command -v zypper &> /dev/null; then
         WAYPAPER_CONFIG="$HOME/.mydotfiles/com.ml4w.dotfiles/.config/waypaper/config.ini"
         sed -i 's/awww/hyprpaper/g' "$WAYPAPER_CONFIG"
         echo ":: Successfully switched from awww to hyprpaper."
+    fi
     if [ -d $HOME/.mydotfiles/com.ml4w.dotfiles.stable ]; then
         WAYPAPER_CONFIG="$HOME/.mydotfiles/com.ml4w.dotfiles.stable/.config/waypaper/config.ini"
         sed -i 's/awww/hyprpaper/g' "$WAYPAPER_CONFIG"
@@ -52,6 +53,7 @@ if command -v dnf &> /dev/null; then
         WAYPAPER_CONFIG="$HOME/.mydotfiles/com.ml4w.dotfiles/.config/waypaper/config.ini"
         sed -i 's/swww/awww/g' "$WAYPAPER_CONFIG"
         echo ":: Successfully switched from swww to awww."
+    fi
     if [ -d $HOME/.mydotfiles/com.ml4w.dotfiles.stable ]; then
         WAYPAPER_CONFIG="$HOME/.mydotfiles/com.ml4w.dotfiles.stable/.config/waypaper/config.ini"
         sed -i 's/swww/awww/g' "$WAYPAPER_CONFIG"
