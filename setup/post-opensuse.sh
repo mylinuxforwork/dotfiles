@@ -56,6 +56,11 @@ echo ":: Installing packages with pip"
 pipx install pywalfox
 
 # Installing Waypaper from Git
+echo ":: Installing Waypaper from Git"
+sudo zypper install -n -t pattern devel_basis
+sudo zypper install -n python3-devel
+sudo zypper install -n python313-pycairo-devel 
+sudo zypper install -n python313-gobject-devel
 pipx install git+https://github.com/anufrievroman/waypaper
 
 # --------------------------------------------------------------
