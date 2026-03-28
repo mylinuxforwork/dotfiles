@@ -1,3 +1,10 @@
+Version 2.12.1
+--------------------------------------------------------
+- Replaced swww with awww
+- Installation of waypaper-git to support awww and latest hyprpaper
+- Compatible with Hyprland 0.54.3
+- Welcome App url fixes
+
 Version 2.12.0
 --------------------------------------------------------
 - Flatpaks ML4W Welcome App, Settings App, Sidebar App and Calendar App replaced with Quickshell
