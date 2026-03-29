@@ -10,7 +10,7 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 # Prebuild Packages
 # --------------------------------------------------------------
 
-source $SCRIPT_DIR/_prebuilt.sh
+source $repo_path/setup/_prebuilt.sh
 
 # --------------------------------------------------------------
 # Repositories
