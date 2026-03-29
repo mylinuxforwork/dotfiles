@@ -331,7 +331,7 @@ FloatingWindow {
 
                     Text {
                         Layout.alignment: Qt.AlignHCenter
-                        text: "Version 2.12.1"
+                        text: "Version 2.12.2"
                         font.family: theme.fontFamily
                         font.pixelSize: 16
                         color: theme.on_background
