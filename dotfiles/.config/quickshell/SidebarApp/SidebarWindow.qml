@@ -750,7 +750,7 @@ PanelWindow {
                                 background: Rectangle { color: theme.background; border.color: theme.primary; border.width: 1; radius: 8 }
                                 ML4WMenuItem { text: "Random Wallpaper"; onClicked: {
                                         root.isOpen = false
-                                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/waypaper.sh --random"])
+                                        Quickshell.execDetached(["bash", "-c", "waypaper", "--random"])
                                     } 
                                 }
                                 ML4WMenuItem { text: "Wallpaper Effects"; onClicked: {
