@@ -220,7 +220,7 @@ PanelWindow {
             border.color: theme ? theme.primary : "#89b4fa"
             border.width: 2
             radius: 10
-            opacity: 0.9 // Only the background is transparent
+            opacity: 0.95 // Only the background is transparent
         }
 
         ColumnLayout {

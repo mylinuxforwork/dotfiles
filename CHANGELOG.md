@@ -1,3 +1,7 @@
+Version 2.12.2
+--------------------------------------------------------
+- Update matugen to the latest version
+
 Version 2.12.1
 --------------------------------------------------------
 - Replaced swww with awww

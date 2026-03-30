@@ -1,6 +1,5 @@
 hyprland-devel
 hyprland-qtutils
-eza
 libnotify-tools
 libqt5-qtwayland
 qt6-wayland
@@ -20,3 +19,4 @@ qt6-multimedia-imports
 gvfs-backend
 hyprsunset
 jetbrainsmono-nerd-fonts
+gcc

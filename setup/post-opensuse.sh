@@ -3,6 +3,7 @@
 # --------------------------------------------------------------
 # Quickshell
 # --------------------------------------------------------------
+
 sudo zypper install quickshell
 
 # --------------------------------------------------------------
@@ -20,10 +21,10 @@ rm $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 ln -sf $HOME/.config/quickshell/shared/Theme.qml $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 
 # --------------------------------------------------------------
-# Prebuild Packages
+# Cargo
 # --------------------------------------------------------------
 
-source $repo_path/setup/_prebuilt.sh
+cargo install cargo-update matugen
 
 # --------------------------------------------------------------
 # Install eza

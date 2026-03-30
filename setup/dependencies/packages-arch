@@ -17,7 +17,6 @@ loupe
 power-profiles-daemon
 waypaper
 swaync
-eza
 python-pywalfox
 tesseract-data-eng
 otf-font-awesome
@@ -29,3 +28,4 @@ qt6-multimedia-ffmpeg
 gvfs-mtp
 quickshell
 awww
+matugen

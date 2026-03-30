@@ -23,3 +23,5 @@ qt6-qtmultimedia
 gvfs-mtp
 hyprsunset
 quickshell
+openssl-devel
+pkg-config

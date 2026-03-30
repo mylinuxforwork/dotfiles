@@ -46,3 +46,15 @@ if [ -f $WAYPAPER_CONFIG ]; then
         info "Successfully switched from swww to awww."    
     fi
 fi
+
+# Remove matugen from .local/bin
+if [ -f $HOME/.local/bin/matugen ]; then
+    rm "$HOME/.local/bin/matugen"
+    info "matugen removed from ~/.local/bin"
+fi
+
+# Remove default52.conf windowrule
+if [ -f $HOME/.config/hypr/conf/windowrules/default52.conf ]; then
+    rm "$HOME/.config/hypr/conf/windowrules/default52.conf"
+    info "default52.conf windowrule removed."
+fi

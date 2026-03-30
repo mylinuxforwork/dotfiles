@@ -15,14 +15,10 @@ rm $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 ln -sf $HOME/.config/quickshell/shared/Theme.qml $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 
 # --------------------------------------------------------------
-# Prebuild Packages
+# Cargo
 # --------------------------------------------------------------
 
-source $repo_path/setup/_prebuilt.sh
-
-echo "Installing eza v0.23.0"
-# https://github.com/eza-community/eza/releases
-sudo cp $repo_path/setup/packages/eza /usr/bin
+cargo install cargo-update matugen
 
 # --------------------------------------------------------------
 # Pip
