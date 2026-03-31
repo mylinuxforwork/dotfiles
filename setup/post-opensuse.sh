@@ -42,25 +42,11 @@ sudo zypper addrepo https://download.opensuse.org/repositories/X11:fonts/openSUS
 sudo zypper -n install jetbrainsmono-nerd-fonts
 
 # --------------------------------------------------------------
-# Install waypaper dependencies before using pip
-# --------------------------------------------------------------
-
-sudo zypper -n install gcc pkg-config cairo-devel gobject-introspection-devel libgirepository-1_0-1-devel python3-devel libgtk-4-devel typelib-1_0-Gtk-4_0 python313-screeninfo
-
-# --------------------------------------------------------------
 # Pip
 # --------------------------------------------------------------
 
 echo ":: Installing packages with pip"
 pipx install pywalfox
-
-# Installing Waypaper from Git
-echo ":: Installing Waypaper from Git"
-sudo zypper install -n -t pattern devel_basis
-sudo zypper install -n python3-devel
-sudo zypper install -n python313-pycairo-devel 
-sudo zypper install -n python313-gobject-devel
-pipx install --force git+https://github.com/anufrievroman/waypaper
 
 # --------------------------------------------------------------
 # Grimblast

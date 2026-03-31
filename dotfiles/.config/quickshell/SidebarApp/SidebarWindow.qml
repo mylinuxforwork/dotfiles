@@ -735,29 +735,7 @@ PanelWindow {
                             iconTxt: ""
                             onClicked: {
                                 root.isOpen = false
-                                Quickshell.execDetached(["waypaper"])
-                            }
-                        }
-                        SettingsWheel {
-                            onClicked: wallpaperMenu.open()
-                            Menu {
-                                id: wallpaperMenu
-                                y: parent.height
-                                
-                                implicitWidth: 220
-                                padding: 8
-                                
-                                background: Rectangle { color: theme.background; border.color: theme.primary; border.width: 1; radius: 8 }
-                                ML4WMenuItem { text: "Random Wallpaper"; onClicked: {
-                                        root.isOpen = false
-                                        Quickshell.execDetached(["waypaper", "--random"])
-                                    } 
-                                }
-                                ML4WMenuItem { text: "Wallpaper Effects"; onClicked: {
-                                        root.isOpen = false
-                                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/wallpaper-effects.sh"])
-                                    } 
-                                }
+                                Quickshell.execDetached(["bash", "-c", "qs ipc call wallpaper toggle"])
                             }
                         }
                     }

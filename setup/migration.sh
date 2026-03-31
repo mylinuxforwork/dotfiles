@@ -35,18 +35,6 @@ if flatpak info "$FLATPAK_ID" > /dev/null 2>&1; then
     flatpak remove -y $FLATPAK_ID
 fi
 
-# Update Wallpaper Engine in waypaper
-WAYPAPER_CONFIG="$HOME/.config/waypaper/config.ini"
-if [ -f $WAYPAPER_CONFIG ]; then
-    if command -v zypper &> /dev/null; then 
-        sed -i 's/awww/hyprpaper/g' "$WAYPAPER_CONFIG"
-        info "Successfully switched from awww to hyprpaper."
-    else
-        sed -i 's/swww/awww/g' "$WAYPAPER_CONFIG"
-        info "Successfully switched from swww to awww."    
-    fi
-fi
-
 # Remove matugen from .local/bin
 if [ -f $HOME/.local/bin/matugen ]; then
     rm "$HOME/.local/bin/matugen"
@@ -57,4 +45,12 @@ fi
 if [ -f $HOME/.config/hypr/conf/windowrules/default52.conf ]; then
     rm "$HOME/.config/hypr/conf/windowrules/default52.conf"
     info "default52.conf windowrule removed."
+fi
+
+if [ -f $HOME/.config/ml4w/settings/wallpaper-effect.sh ]; then
+    mv $HOME/.config/ml4w/settings/wallpaper-effect.sh $HOME/.config/ml4w/settings/wallpaper-effect
+fi
+
+if [ -f $HOME/.config/ml4w/settings/wallpaper-automation.sh ]; then
+    mv $HOME/.config/ml4w/settings/wallpaper-automation.sh $HOME/.config/ml4w/settings/wallpaper-automation
 fi

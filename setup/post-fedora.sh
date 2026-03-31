@@ -32,10 +32,6 @@ echo ":: Installing packages with pip"
 sudo pip install pywalfox
 sudo pip install screeninfo
 
-# Installing Waypaper from Git
-sudo dnf remove -y waypaper
-pipx install --force git+https://github.com/anufrievroman/waypaper
-
 # --------------------------------------------------------------
 # Grimblast
 # --------------------------------------------------------------

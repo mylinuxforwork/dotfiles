@@ -1,0 +1,253 @@
+#!/usr/bin/env bash
+
+# Default variables
+IMAGE_PATH=""
+EFFECT=""
+NOTIFICATIONS=true
+CACHE_FOLDER="$HOME/.cache/ml4w/hyprland-dotfiles"
+CACHE_FILE="$CACHE_FOLDER/current_wallpaper"
+DEFAULT_WALLPAPER="$HOME/.config/ml4w/wallpapers/default.jpg"
+BLURRED_WALLPAPER="$CACHE_FOLDER/blurred_wallpaper.png"
+SQUARE_WALLPAPER="$CACHE_FOLDER/square_wallpaper.png"
+RASI_FILE="$CACHE_FOLDER/current_wallpaper.rasi"
+
+# Settings
+SETTINGS_BLUR="$HOME/.config/ml4w/settings/blur.sh"
+SETTINGS_WALLPAPER_FOLDER="$HOME/.config/ml4w/settings/wallpaper-folder"
+SETTINGS_WALLPAPER_EFFECT="$HOME/.config/ml4w/settings/wallpaper-effect"
+
+# Blur
+BLUR="50x30"
+BLUR=$(cat $SETTINGS_BLUR)
+
+# Colors for UI
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+# --- UI Functions (Redirected to stderr) ---
+info() { echo -e "${GREEN}[INFO]${NC} $1" >&2; }
+warn() { echo -e "${YELLOW}[WARN]${NC} $1" >&2; }
+error() { echo -e "${RED}[ERROR]${NC} $1" >&2; }
+
+# ==========================================
+# Functions
+# ==========================================
+
+show_help() {
+    echo "Usage: ml4w-wallpaper PATH_TO_IMAGE [OPTIONS]"
+    echo "  DEFAULT:               $DEFAULT_WALLPAPER"
+    echo ""
+    echo "Core Parameters:"
+    echo "  PATH_TO_IMAGE          Path to the image file to set as wallpaper."
+    echo ""
+    echo "Optional Parameters:"
+    echo "  --effect NAME          Apply a specific wallpaper effect."
+    echo "  --random FOLDER        Select a random image from FOLDER."
+    echo "  --notifications false  Disable desktop notifications."
+    echo "  --help                 Show this help message and exit."
+    echo ""
+}
+
+send_notification() {
+    local title="$1"
+    local message="$2"
+    if [ "$NOTIFICATIONS" = true ]; then
+        # You can adjust the icon or app name here
+        notify-send -a "ml4w-wallpaper" -i "preferences-desktop-wallpaper-symbolic" "$title" "$message"
+    fi
+}
+
+# ==========================================
+# Parameter Parsing
+# ==========================================
+
+# If no arguments are passed, show help
+if [[ $# -eq 0 ]]; then
+    show_help
+    exit 1
+fi
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --effect)
+            EFFECT="$2"
+            shift 2
+            ;;
+        --random)
+            if [[ -n "$2" && "$2" != -* ]]; then
+                RANDOM_FOLDER="$2"
+                shift 2
+            else
+                # Default folder if none is provided
+                RAW_FOLDER=$(cat "$SETTINGS_WALLPAPER_FOLDER")
+                # Safely expand $HOME and ~
+                RANDOM_FOLDER="${RAW_FOLDER//\$HOME/$HOME}"
+                RANDOM_FOLDER="${RANDOM_FOLDER//\~/$HOME}"                
+                shift 1
+            fi
+
+            if [[ -d "$RANDOM_FOLDER" ]]; then
+                # Select a random image from the resolved folder
+                IMAGE_PATH=$(find "$RANDOM_FOLDER" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | shuf -n 1)
+                
+                if [[ -z "$IMAGE_PATH" ]]; then
+                    error "No valid images (jpg, jpeg, png) found in -> $RANDOM_FOLDER"
+                    exit 1
+                fi
+                info "Random wallpaper selected: $IMAGE_PATH"
+            else
+                error "Directory does not exist -> $RANDOM_FOLDER"
+                exit 1
+            fi
+            ;;
+        --notifications)
+            if [[ "$2" == "false" ]]; then
+                NOTIFICATIONS=false
+            fi
+            shift 2
+            ;;
+        --help)
+            show_help
+            exit 0
+            ;;
+        -*)
+            echo "Error: Unknown option $1"
+            show_help
+            exit 1
+            ;;
+        *)
+            # If it's not a flag, we assume it's the image path
+            if [[ -z "$IMAGE_PATH" ]]; then
+                IMAGE_PATH="$1"
+            else
+                echo "Error: Multiple image paths provided or unknown argument -> $1"
+                exit 1
+            fi
+            shift
+            ;;
+    esac
+done
+
+# ==========================================
+# Validation
+# ==========================================
+
+if [[ -z "$IMAGE_PATH" ]]; then
+    info "Setting wallpaper with default image -> $DEFAULT_WALLPAPER"
+    IMAGE_PATH="$DEFAULT_WALLPAPER"
+fi
+
+if [[ ! -f "$IMAGE_PATH" ]]; then
+    error "Image file does not exist at -> $IMAGE_PATH"
+    exit 1
+fi
+
+# ==========================================
+# Core Logic
+# ==========================================
+
+# Create cache folder
+if [ ! -d $CACHE_FOLDER ]; then
+    mkdir -p $CACHE_FOLDER
+fi
+
+# Ensure awww-daemon is running
+if ! pgrep -x "awww-daemon" > /dev/null; then
+    info "Starting awww-daemon..."
+    awww-daemon &
+    
+    # Give the daemon a brief moment to initialize before sending commands
+    sleep 0.5 
+fi
+
+# Write image path to cache file
+if [ ! -f $CACHE_FILE ]; then
+    touch $CACHE_FILE
+fi
+echo "$IMAGE_PATH" > "$CACHE_FILE"
+info "Cache file written with $IMAGE_PATH"
+
+# Process image with wallpaper effect
+if [ -f "$SETTINGS_WALLPAPER_EFFECT" ]; then
+    EFFECT=$(cat "$SETTINGS_WALLPAPER_EFFECT")
+    if [ ! "$EFFECT" == "off" ]; then
+        info "Applying Wallpaper Effect $EFFECT"
+        # Check if processed image already exists
+        if [ -f "$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")" ]; then
+            IMAGE_PATH="$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")"
+        else
+            cp "$IMAGE_PATH" "$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")"
+            IMAGE_PATH="$CACHE_FOLDER/$EFFECT-$(basename "$IMAGE_PATH")"
+        fi
+        source "$HOME/.config/hypr/effects/wallpaper/$EFFECT"
+    fi
+fi
+
+# Set the Wallpaper
+info "Setting wallpaper: $IMAGE_PATH"
+awww img "$IMAGE_PATH"
+
+# Detect Theme
+SETTINGS_FILE="$HOME/.config/gtk-3.0/settings.ini"
+THEME_PREF=$(grep -E '^gtk-application-prefer-dark-theme=' "$SETTINGS_FILE" | awk -F'=' '{print $2}')
+
+# Execute matugen
+if [ "$THEME_PREF" -eq 1 ]; then
+    matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
+else
+    matugen image "$IMAGE_PATH" --source-color-index 0 -m "light"
+fi
+info "Matugen updated"
+
+# Reload Waybar
+nohup bash -c "$HOME/.config/waybar/launch.sh" > /dev/null 2>&1 &
+disown
+info "Waybar reloaded"
+
+# Reload nwg-dock-hyprland
+nohup bash -c "$HOME/.config/nwg-dock-hyprland/launch.sh" > /dev/null 2>&1 &
+disown
+info "nwg-dock-hyprland reloaded"
+
+# Update Pywalfox
+if type pywalfox >/dev/null 2>&1; then
+    pywalfox update
+    info "pywalfox updated"
+fi
+
+# Update SwayNC
+sleep 0.1
+swaync-client -rs
+info "SwayNC refreshed"
+
+# Create blurred image
+magick "$IMAGE_PATH" -resize 75% "$BLURRED_WALLPAPER"
+info "$(basename "$IMAGE_PATH") resized to 75% -> $(basename "$BLURRED_WALLPAPER")"
+if [ ! "$BLUR" == "0x0" ]; then
+    magick "$BLURRED_WALLPAPER" -blur $BLUR "$BLURRED_WALLPAPER"
+    info "$(basename "$BLURRED_WALLPAPER") blurred with $BLUR"
+fi
+
+# Create square image
+magick "$IMAGE_PATH" -gravity Center -extent 1:1 "$SQUARE_WALLPAPER"
+info "$(basename "$SQUARE_WALLPAPER") created"
+
+# Create rasi file
+if [ ! -f $RASI_FILE ]; then
+    touch $RASI_FILE
+fi
+echo "* { current-image: url(\"$BLURRED_WALLPAPER\", height); }" > "$RASI_FILE"
+info "$(basename "$RASI_FILE") written with $(basename "$BLURRED_WALLPAPER")"
+
+# Apply Effects (Placeholder for your specific effect logic)
+# if [[ -n "$EFFECT" ]]; then
+#     info "Applying effect: $EFFECT"
+#     send_notification "Wallpaper Effect" "Applying $EFFECT to $(basename "$IMAGE_PATH")"
+# fi
+
+# Notification
+send_notification "Wallpaper Update Completed" "Successfully set and processed $(basename "$IMAGE_PATH")"
+info "Wallpaper Updated: Successfully set $(basename "$IMAGE_PATH")"
+exit 0

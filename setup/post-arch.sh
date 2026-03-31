@@ -14,23 +14,6 @@ rm $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 ln -sf $HOME/.config/quickshell/shared/Theme.qml $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 
 # --------------------------------------------------------------
-# Installation of waypaper-git
-# --------------------------------------------------------------
-
-if pacman -Qq waypaper-git &> /dev/null; then
-    info "waypaper-git is already installed. Doing nothing."
-else
-    if pacman -Qq waypaper &> /dev/null; then
-        info "Standard 'waypaper' is currently installed. Uninstalling..."
-        $aur_helper -Rns --noconfirm waypaper
-    else
-        info "Standard 'waypaper' is not installed."
-    fi
-    info "Installing 'waypaper-git'..."
-    $aur_helper -S --noconfirm waypaper-git
-fi
-
-# --------------------------------------------------------------
 # Cargo
 # --------------------------------------------------------------
 

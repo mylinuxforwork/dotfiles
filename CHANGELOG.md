@@ -1,6 +1,7 @@
 Version 2.12.2
 --------------------------------------------------------
 - Update matugen to the latest version
+- Waypaper replaced with quickshell wallpaper selector SUPER+CTRL+W
 
 Version 2.12.1
 --------------------------------------------------------

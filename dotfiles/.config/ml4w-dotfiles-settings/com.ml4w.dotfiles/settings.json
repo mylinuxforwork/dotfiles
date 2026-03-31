@@ -256,6 +256,14 @@
     "group":"System Settings",
     "description":"Overview of core key system settings",
     "settings":[{
+      "name": "Wallpaper Folder",
+      "id": "wallpaper_folder",
+      "instructions": "Enter the full path to your wallpaper folder",
+      "file": "~/.config/ml4w/settings/wallpaper-folder",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": "$HOME/.config/ml4w/wallpapers"
+    },{
         "name": "Keybinding Variants",
         "id": "variant_keybinding",
         "instructions": "Choose your preferred keybinding variant:",

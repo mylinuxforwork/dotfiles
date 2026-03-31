@@ -23,7 +23,7 @@ if [ -f $HOME/.config/ml4w/settings/gamemode-enabled ]; then
   fi
   if [ -f $ml4w_cache_folder/restart-wpauto ]; then
     rm $ml4w_cache_folder/restart-wpauto
-    $HOME/.config/hypr/scripts/wallpaper-automation.sh &
+    $HOME/.config/ml4w/scripts/ml4w-wallpaper-automation &
   fi
   hyprctl reload
   rm $HOME/.config/ml4w/settings/gamemode-enabled
@@ -38,7 +38,7 @@ else
   fi
   if [ -f $ml4w_cache_folder/wallpaper-automation ]; then
     touch $ml4w_cache_folder/restart-wpauto
-    $HOME/.config/hypr/scripts/wallpaper-automation.sh
+    $HOME/.config/ml4w/scripts/ml4w-wallpaper-automation
   fi
   hyprctl --batch "\
     keyword animations:enabled 0;\

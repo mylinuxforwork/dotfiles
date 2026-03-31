@@ -13,10 +13,10 @@ source "$HOME/.config/ml4w/scripts/ml4w-notification-handler"
 APP_NAME="Waypaper"
 NOTIFICATION_ICON="preferences-desktop-wallpaper-symbolic"
 
-sec=$(cat ~/.config/ml4w/settings/wallpaper-automation.sh)
+sec=$(cat ~/.config/ml4w/settings/wallpaper-automation)
 _setWallpaperRandomly() {
-    waypaper --random
-    echo ":: Next wallpaper in 60 seconds..."
+    $HOME/.config/ml4w/scripts/ml4w-wallpaper --random
+    echo ":: Next wallpaper in $sec seconds..."
     sleep $sec
     _setWallpaperRandomly
 }
@@ -36,6 +36,6 @@ else
         --i "${NOTIFICATION_ICON}" \
         --m "Wallpaper automation process stopped."
     echo ":: Wallpaper automation script process $wp stopped"
-    wp=$(pgrep -f wallpaper-automation.sh)
+    wp=$(pgrep -f ml4w-wallpaper-automation)
     kill -KILL $wp
 fi
