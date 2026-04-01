@@ -4,8 +4,7 @@
 # | |_) / _ \| |_| | 
 # |  _ < (_) |  _| | 
 # |_| \_\___/|_| |_| 
-#                    
-# by Stephan Raabe (2023) 
+#                     
 # ----------------------------------------------------- 
 */
 
@@ -18,34 +17,25 @@ configuration {
     display-run:                 " ";
     display-filebrowser:         "";
     display-window:              "";
-	drun-display-format:        "{name}";
+    drun-display-format:        "{name}";
     hover-select:               false;
     scroll-method:              1;
     me-select-entry:            "";
     me-accept-entry:            "MousePrimary";
     window-format:              "{w} · {c} · {t}";
-    
+
 }
 
-/* ---- Load font ---- */
+/* ---- Load fonts, colors, and settings ---- */
 @import "~/.config/ml4w/settings/rofi-font.rasi"
-
-/* ---- Load colors ---- */
 @theme "~/.config/rofi/colors.rasi"
-
-/* ---- Load wallpaper ---- */
-@import "~/.cache/ml4w/hyprland-dotfiles/current_wallpaper.rasi"
-
-/* ---- Load border width ---- */
 @import "~/.config/ml4w/settings/rofi-border.rasi"
-
-/* ---- Load border radius ---- */
 @import "~/.config/ml4w/settings/rofi-border-radius.rasi"
 
-// Main //
+// Main Window //
 window {
-    height:                      35em;
-    width:                       56em;
+    width:                       30em;
+    height:                      30em;
     transparency:                "real";
     fullscreen:                  false;
     enabled:                     true;
@@ -55,62 +45,25 @@ window {
     border:                      @border-width;
     border-color:                @primary;
     border-radius:               @border-radius;
-    background-color:            @background;
+    background-color:            rgba(100,100,100,0.1);
 }
 
 mainbox {
     enabled:                     true;
-    spacing:                     0em;
-    padding:                     0em;
-    orientation:                 horizontal;
-    children:                    [ "imagebox" , "listbox" ];
-    background-color:            transparent;
-    background-image:            @current-image;
-}
-
-imagebox {
-    padding:                     20px;
-    background-color:            transparent;
+    spacing:                     1em;
+    padding:                     2em;
     orientation:                 vertical;
-    children:                    [ "inputbar", "dummy", "mode-switcher" ];
-}
-
-dummy {
+    children:                    [ "inputbar", "mode-switcher", "listview" ];
     background-color:            transparent;
 }
 
-// Modes //
-mode-switcher {
-    orientation:                 horizontal;
-    width:                       6.6em;
-    enabled:                     true;
-    padding:                     1.5em;
-    spacing:                     1.5em;
-    background-color:            transparent;
-}
-
-button {
-    padding:                     15px;
-    border-radius:               2em;
-    border:                      0;    
-    cursor:                      pointer;
-    background-color:            @background;
-    text-color:                  @on-surface;
-}
-
-button selected {
-    padding:                     15px;
-    border-radius:               2em;    
-    background-color:            @surface;
-    text-color:                  @on-surface;
-}
 
 // Inputs //
 inputbar {
     enabled:                     true;
-    margin: 1em;
+    margin: 0em;
     children:                    [ "textbox-prompt-colon", "entry" ];
-    border-radius:               2em;
+    border-radius:               1em;
     background-color:            @surface;
 }
 
@@ -134,101 +87,83 @@ entry {
     placeholder-color:           inherit;
 }
 
-// Lists //
-listbox {
-    padding:                     0em;
-    spacing:                     0em;
+// Modes //
+mode-switcher {
     orientation:                 horizontal;
-    children:                    [ "listview" ];
-    background-color:            @background;
+    enabled:                     true;
+    spacing:                     1em;
+    background-color:            transparent;
+    border-radius:               0em;
 }
 
-listview {
-    padding:                     1.5em;
-    spacing:                     0.5em;
-    enabled:                     true;
-    columns:                     1;
-    lines:                       1;
-    cycle:                       true;
-    dynamic:                     true;
-    scrollbar:                   false;
-    layout:                      vertical;
-    reverse:                     false;
-    fixed-height:                true;
-    fixed-columns:               true;
-    cursor:                      "default";
-    background-color:            transparent;
+button {
+    padding:                     1em 1em;
+    border-radius:               1em;
+    border:                      0;
+    cursor:                      pointer;
+    background-color:            @surface;
     text-color:                  @on-surface;
 }
 
+button selected {
+    background-color:            @primary;
+    text-color:                  @background;
+}
+
+// Lists //
+listview {
+    padding:                     0.5em 0em 0em 0em;
+    spacing:                     0.5em;
+    enabled:                     true;
+    columns:                     2;
+    lines:                       5;
+    cycle:                       true;
+    dynamic:                     true;
+    fixed-height:                true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    cursor:                      "default";
+    background-color:            @surface;
+    text-color:                  @on-surface;
+    border-radius:               1em;
+}
 
 // Elements //
 element {
     enabled:                     true;
-    spacing:                     10px;
-    padding:                     0.5em;
+    spacing:                     20px;
+    padding:                     0.5em 1.7em;
     cursor:                      pointer;
     background-color:            transparent;
     text-color:                  @on-surface;
+    border-radius:               @border-radius;
 }
 
 element selected.normal {
     background-color:            @surface;
-    text-color:                  @on-surface;
-    border-radius:               1.5em;
+    text-color:                  @primary;
 }
 
-element normal.normal {
-    background-color:            inherit;
-    text-color:                  @on-surface;
-}
-
-element normal.urgent {
-    background-color:            inherit;
-    text-color:                  @on-surface;
-}
-
-element normal.active {
-    background-color:            inherit;
-    text-color:                  @on-surface;
-}
-
-element selected.urgent {
-    background-color:            inherit;
-    text-color:                  @on-surface;
-}
-
-element selected.active {
-    background-color:            inherit;
-    text-color:                  @on-surface;
-}
-
-element alternate.normal {
-    background-color:            inherit;
-    text-color:                  @on-surface;
-}
-
-element alternate.urgent {
-    background-color:            inherit;
-    text-color:                  @on-surface;
-}
-
-element alternate.active {
-    background-color:            inherit;
+element normal.normal, element normal.urgent, element normal.active,
+element alternate.normal, element alternate.urgent, element alternate.active {
+    background-color:            transparent;
     text-color:                  @on-surface;
 }
 
 element-icon {
-    size:                        3em;
+    size:                        50px;
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;
     border-radius:               0em;
 }
 
+
+
 element-text {
     vertical-align:              0.5;
-    horizontal-align:            0.0;
+    horizontal-align:            0;
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;
