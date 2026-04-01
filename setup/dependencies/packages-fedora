@@ -16,6 +16,8 @@ SwayNotificationCenter
 fontawesome-fonts
 nerd-fonts-JetBrainsMono
 awww
+qt5-qtgraphicaleffects
+qt6-qt5compat
 qt6-qtsvg
 qt6-qtvirtualkeyboard
 qt6-qtmultimedia

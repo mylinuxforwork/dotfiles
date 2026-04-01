@@ -3,6 +3,7 @@
 # Default variables
 CACHE_FOLDER="$HOME/.cache/ml4w/hyprland-dotfiles"
 CACHE_FILE="$CACHE_FOLDER/current_wallpaper"
+DEFAULT_WALLPAPER="$HOME/.config/ml4w/wallpapers/default.jpg"
 
 # Colors for UI
 RED='\033[0;31m'
@@ -16,6 +17,12 @@ warn() { echo -e "${YELLOW}[WARN]${NC} $1" >&2; }
 error() { echo -e "${RED}[ERROR]${NC} $1" >&2; }
 
 # Set Wallpaper
+if [ ! -f $CACHE_FILE ]; then
+    touch $CACHE_FILE
+    echo "$DEFAULT_WALLPAPER" > "$CACHE_FILE"
+    info "Cache file created"
+fi
+
 ~/.config/ml4w/scripts/ml4w-wallpaper $(cat $CACHE_FILE) &
 
 # Start Quickshell
