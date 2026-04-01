@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+#  ____  _   _  _____        __  _   _ ____  ____    _  _____ _____ ____
+# / ___|| | | |/ _ \ \      / / | | | |  _ \|  _ \  / \|_   _| ____/ ___|
+# \___ \| |_| | | | \ \ /\ / /  | | | | |_) | | | |/ _ \ | | |  _| \___ \
+#  ___) |  _  | |_| |\ V  V /   | |_| |  __/| |_| / ___ \| | | |___ ___) |
+# |____/|_| |_|\___/  \_/\_/     \___/|_|   |____/_/   \_\_| |_____|____/
+
+# Check if command exists
+_checkCommandExists() {
+  cmd="$1"
+  if ! command -v "$cmd" >/dev/null; then
+    echo 1
+    return
+  fi
+  echo 0
+  return
+}
+
+# ------------------------------------------------------
+# Header
+# ------------------------------------------------------
+
+sleep 1
+clear
+figlet -f smslant "Updates"
+echo
+primarycolor=$(cat ~/.config/ml4w/colors/primary)
+onsurfacecolor=$(cat ~/.config/ml4w/colors/onsurface)
+onprimarycolor=$(cat ~/.config/ml4w/colors/onprimary)
+
+# ------------------------------------------------------
+# Check for available updates
+# ------------------------------------------------------
+
+# Arch
+if [[ $(_checkCommandExists "pacman") == 0 ]]; then
+  echo ":: Checking for Arch package updates..."
+  if [[ $(_checkCommandExists "checkupdates") == 0 ]]; then
+    checkupdates
+  else
+    echo ":: checkupdates not found (install pacman-contrib)"
+  fi
+  echo
+  # AUR
+  if [[ $(_checkCommandExists "yay") == 0 ]]; then
+    echo ":: Checking for AUR package updates..."
+    aur_updates=$(yay --aur -Qu 2>/dev/null)
+    if [[ -n "$aur_updates" ]]; then
+      echo "$aur_updates"
+    else
+      echo ":: No AUR updates available."
+    fi
+  else
+    echo ":: yay not found, skipping AUR check."
+  fi
+
+# Fedora
+elif [[ $(_checkCommandExists "dnf") == 0 ]]; then
+  echo ":: Checking for Fedora package updates..."
+  dnf check-update
+
+else
+  echo ":: ERROR - Platform not supported"
+fi
+echo
+
+# Flatpak
+if [[ $(_checkCommandExists "flatpak") == 0 ]]; then
+  echo ":: Checking for Flatpak updates..."
+  flatpak remote-ls --updates
+  echo
+fi
+
+# Finishing
+echo ":: Check complete! Press [ENTER] to close."
+read
