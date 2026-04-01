@@ -18,19 +18,33 @@ ln -sf $HOME/.config/quickshell/shared/Theme.qml $HOME/.local/share/ml4w-dotfile
 # Cargo
 # --------------------------------------------------------------
 
-cargo install cargo-update matugen
+TARGET_VERSION="4.0.0"
+
+force_install_matugen() {
+    info "Running: cargo install matugen --force"
+    cargo install matugen --force
+}
+
+if ! command -v matugen &> /dev/null; then
+    echo "'matugen' is not currently installed."
+    force_install_matugen
+else
+    CURRENT_VERSION=$(matugen --version | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+' | head -n 1)
+    LOWEST_VERSION=$(printf "%s\n%s" "$TARGET_VERSION" "$CURRENT_VERSION" | sort -V | head -n1)
+    if [ "$LOWEST_VERSION" = "$CURRENT_VERSION" ] && [ "$CURRENT_VERSION" != "$TARGET_VERSION" ]; then
+        info "Current version ($CURRENT_VERSION) is lower than $TARGET_VERSION. Updating..."
+        force_install_matugen
+    else
+        info "matugen is already up to date! (Current version: $CURRENT_VERSION)"
+    fi
+fi
 
 # --------------------------------------------------------------
 # Pip
 # --------------------------------------------------------------
 
-# Installing Fedora development tools
-sudo dnf group install -y development-tools
-sudo dnf install -y python3-devel cairo-devel cairo-gobject-devel gobject-introspection-devel
-
 echo ":: Installing packages with pip"
 sudo pip install pywalfox
-sudo pip install screeninfo
 
 # --------------------------------------------------------------
 # Grimblast

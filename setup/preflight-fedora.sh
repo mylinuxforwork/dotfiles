@@ -11,8 +11,6 @@ sudo dnf copr enable --assumeyes erikreider/SwayNotificationCenter
 sudo dnf copr enable --assumeyes mineiro/hyprland
 # Quickshell
 sudo dnf copr enable --assumeyes errornointernet/quickshell
-# Matugen 
-sudo dnf copr enable --assumeyes heus-sueh/packages
 
 # --------------------------------------------------------------
 # Uninstall swww if exists. To be replaced with awww in the next steps
