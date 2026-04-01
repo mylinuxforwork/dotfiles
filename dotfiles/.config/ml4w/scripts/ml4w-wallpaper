@@ -3,7 +3,8 @@
 # Default variables
 IMAGE_PATH=""
 EFFECT=""
-NOTIFICATIONS=true
+NOTIFICATIONS=false
+SKIP=false
 CACHE_FOLDER="$HOME/.cache/ml4w/hyprland-dotfiles"
 CACHE_FILE="$CACHE_FOLDER/current_wallpaper"
 DEFAULT_WALLPAPER="$HOME/.config/ml4w/wallpapers/default.jpg"
@@ -15,7 +16,7 @@ RASI_FILE="$CACHE_FOLDER/current_wallpaper.rasi"
 SETTINGS_BLUR="$HOME/.config/ml4w/settings/blur.sh"
 SETTINGS_WALLPAPER_FOLDER="$HOME/.config/ml4w/settings/wallpaper-folder"
 SETTINGS_WALLPAPER_EFFECT="$HOME/.config/ml4w/settings/wallpaper-effect"
-
+SETTINGS_TRANSITION_EFFECT=$(cat $HOME/.config/ml4w/settings/wallpaper-transition-effect)
 # Blur
 BLUR="50x30"
 BLUR=$(cat $SETTINGS_BLUR)
@@ -47,6 +48,7 @@ show_help() {
     echo "  --random FOLDER        Select a random image from FOLDER."
     echo "  --notifications false  Disable desktop notifications."
     echo "  --help                 Show this help message and exit."
+    echo "  --skip                 Will skip setting the wallpaper with awww."
     echo ""
 }
 
@@ -71,6 +73,10 @@ fi
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
+        --skip)
+            SKIP=true
+            shift 1
+            ;;
         --effect)
             EFFECT="$2"
             shift 2
@@ -186,8 +192,12 @@ if [ -f "$SETTINGS_WALLPAPER_EFFECT" ]; then
 fi
 
 # Set the Wallpaper
-info "Setting wallpaper: $IMAGE_PATH"
-awww img "$IMAGE_PATH"
+if [ "$SKIP" = true ]; then
+    info "Setting wallpaper skipped"
+else
+    info "Setting wallpaper: $IMAGE_PATH"
+    awww img "$IMAGE_PATH" --transition-type $SETTINGS_TRANSITION_EFFECT
+fi
 
 # Detect Theme
 SETTINGS_FILE="$HOME/.config/gtk-3.0/settings.ini"

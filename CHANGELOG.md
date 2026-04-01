@@ -1,7 +1,10 @@
 Version 2.12.2
 --------------------------------------------------------
 - Update matugen to the latest version
-- Waypaper replaced with quickshell wallpaper selector SUPER+CTRL+W
+- Using awww as default wallpaper engine
+- Transition effects can be set in the Settings App and Appearance
+- New Quickshell based wallpaper selector. Toggle with SUPER+CTRL+W
+- Waypaper can be selected optionally in the Settings App and Default Apps but must be installed separately.
 
 Version 2.12.1
 --------------------------------------------------------

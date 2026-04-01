@@ -210,7 +210,7 @@ PanelWindow {
                     iconTxt: "" 
                     onClicked: {
                         root.isOpen = false
-                        Quickshell.execDetached(["hyprpicker"])
+                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/settings/hyprpicker.sh"])
                     }
                 }
 
@@ -735,7 +735,7 @@ PanelWindow {
                             iconTxt: ""
                             onClicked: {
                                 root.isOpen = false
-                                Quickshell.execDetached(["bash", "-c", "qs ipc call wallpaper toggle"])
+                                Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-wallpaper-app"])
                             }
                         }
                     }

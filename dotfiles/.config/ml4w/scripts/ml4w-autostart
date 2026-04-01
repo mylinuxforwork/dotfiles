@@ -16,7 +16,7 @@ warn() { echo -e "${YELLOW}[WARN]${NC} $1" >&2; }
 error() { echo -e "${RED}[ERROR]${NC} $1" >&2; }
 
 # Set Wallpaper
-~/.config/ml4w/scripts/ml4w-wallpaper $(cat $CACHE_FILE)
+~/.config/ml4w/scripts/ml4w-wallpaper $(cat $CACHE_FILE) &
 
 # Start Quickshell
 killall qs
