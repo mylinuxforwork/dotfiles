@@ -103,5 +103,3 @@ _checkAURHelper
 # --------------------------------------------------------------
 
 sudo pacman -Rns --noconfirm swww
-yay --noconfirm -Rns waypaper-git
-yay --noconfirm -Rns waypaper
