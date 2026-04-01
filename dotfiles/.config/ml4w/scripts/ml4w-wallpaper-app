@@ -21,7 +21,7 @@ fi
 if [ -f $HOME/.config/ml4w/settings/wallpaper-folder ]; then
     RAW_FOLDER=$(cat $HOME/.config/ml4w/settings/wallpaper-folder)
     WALLPAPER_FOLDER="${RAW_FOLDER//\$HOME/$HOME}"
-    WALLPAPER_FOLDER="${RANDOM_FOLDER//\~/$HOME}"    
+    WALLPAPER_FOLDER="${WALLPAPER_FOLDER//\~/$HOME}"    
 fi
 
 # Check parameters
