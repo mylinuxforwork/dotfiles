@@ -11,8 +11,6 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 # --------------------------------------------------------------
 
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-settings/main/setup.sh)
-rm $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml  
-ln -sf $HOME/.config/quickshell/shared/Theme.qml $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 
 # --------------------------------------------------------------
 # Cargo

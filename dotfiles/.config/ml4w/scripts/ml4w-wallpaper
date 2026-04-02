@@ -211,9 +211,24 @@ else
 fi
 info "Matugen updated"
 
+# Update Quickshell theme
+qs ipc call theme-manager reload
+info "Quickshell Theme updated"
+
+# Update ML4W Dotfiles Settings theme
+qs -p $HOME/.local/share/ml4w-dotfiles-settings/quickshell ipc call theme-manager reload
+info "ML4W Dotfiles Settings Theme updated"
+
 # Reload Waybar
-nohup bash -c "$HOME/.config/waybar/launch.sh" > /dev/null 2>&1 &
-disown
+if pgrep -x "waybar" > /dev/null
+then
+    info "Waybar is currently running."
+    pkill -SIGUSR2 waybar
+else
+    info "Waybar is not running."
+    nohup bash -c "$HOME/.config/waybar/launch.sh" > /dev/null 2>&1 &
+    disown
+fi
 info "Waybar reloaded"
 
 # Reload nwg-dock-hyprland

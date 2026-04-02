@@ -3,7 +3,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Io
-import qs.shared
+import qs.CustomTheme
 
 FloatingWindow {
     id: root
@@ -20,10 +20,6 @@ FloatingWindow {
         function toggle(): void {
             root.visible = !root.visible
         }
-    }
-
-    Theme {
-        id: theme
     }
 
     // --- Check if flatpak is installed when window opens ---
@@ -46,10 +42,10 @@ FloatingWindow {
         
         contentItem: Text {
             text: control.text
-            font.family: theme.fontFamily
+            font.family: Theme.fontFamily
             font.pixelSize: 14
             // Invert colors on hover
-            color: control.highlighted ? theme.background : theme.primary 
+            color: control.highlighted ? Theme.background : Theme.primary 
             verticalAlignment: Text.AlignVCenter
         }
         
@@ -57,7 +53,7 @@ FloatingWindow {
             implicitWidth: 220
             implicitHeight: 36
             // Apply theme color on hover
-            color: control.highlighted ? theme.primary : "transparent"
+            color: control.highlighted ? Theme.primary : "transparent"
             radius: 4
         }
     }
@@ -66,12 +62,12 @@ FloatingWindow {
         contentItem: Rectangle {
             implicitWidth: 200
             implicitHeight: 1
-            color: theme.primary
+            color: Theme.primary
             opacity: 0.3 // Dim the line so it doesn't distract from text
         }
     }
 
-    color: theme.background
+    color: Theme.background
 
     ColumnLayout {
         anchors.fill: parent
@@ -84,15 +80,15 @@ FloatingWindow {
             Layout.fillWidth: true
             Layout.margins: 10
             background: Rectangle {
-                color: theme.primary
-                border.color: theme.primary
+                color: Theme.primary
+                border.color: Theme.primary
                 radius: 8
             }
 
             // --- SETTINGS MENU ---
             Menu {
                 title: qsTr("Settings")
-                font.family: theme.fontFamily
+                font.family: Theme.fontFamily
                 font.pixelSize: 14
                 padding:8
 
@@ -154,8 +150,8 @@ FloatingWindow {
                 }
                 background: Rectangle {
                     implicitWidth: 220
-                    color: theme.background
-                    border.color: theme.primary
+                    color: Theme.background
+                    border.color: Theme.primary
                     border.width: 1
                     radius: 8
                 }
@@ -164,7 +160,7 @@ FloatingWindow {
             // --- System MENU ---
             Menu {
                 title: qsTr("System")
-                font.family: theme.fontFamily
+                font.family: Theme.fontFamily
                 font.pixelSize: 14
                 padding:8
                 
@@ -205,8 +201,8 @@ FloatingWindow {
 
                 background: Rectangle {
                     implicitWidth: 220
-                    color: theme.background
-                    border.color: theme.primary
+                    color: Theme.background
+                    border.color: Theme.primary
                     border.width: 1
                     radius: 8
                 }
@@ -215,7 +211,7 @@ FloatingWindow {
             // --- HELP MENU ---
             Menu {
                 title: qsTr("Help")
-                font.family: theme.fontFamily
+                font.family: Theme.fontFamily
                 font.pixelSize: 14
                 padding:8
                 
@@ -258,8 +254,8 @@ FloatingWindow {
 
                 background: Rectangle {
                     implicitWidth: 180
-                    color: theme.background
-                    border.color: theme.primary
+                    color: Theme.background
+                    border.color: Theme.primary
                     radius: 8
                 }
             }
@@ -270,14 +266,14 @@ FloatingWindow {
                 contentItem: Text {
                     text: menuBarItem.text
                     font.pixelSize: 14
-                    font.family: theme.fontFamily
-                    color: theme.on_primary
+                    font.family: Theme.fontFamily
+                    color: Theme.on_primary
                     horizontalAlignment: Text.AlignLeft
                     verticalAlignment: Text.AlignVCenter
                 }
                 background: Rectangle {
                     color: "transparent"
-                    radius: theme.on_primary
+                    radius: Theme.on_primary
                 }
             }
         }
@@ -314,27 +310,27 @@ FloatingWindow {
                     Text {
                         Layout.alignment: Qt.AlignHCenter
                         text: "Welcome to ML4W OS"
-                        font.family: theme.fontFamily
+                        font.family: Theme.fontFamily
                         font.pixelSize: 28
                         font.bold: true
-                        color: theme.on_background
+                        color: Theme.on_background
                     }
 
                     Text {
                         Layout.alignment: Qt.AlignHCenter
-                        font.family: theme.fontFamily
+                        font.family: Theme.fontFamily
                         text: "Dotfiles for Hyprland"
                         font.pixelSize: 20
                         font.bold: true
-                        color: theme.on_background
+                        color: Theme.on_background
                     }
 
                     Text {
                         Layout.alignment: Qt.AlignHCenter
                         text: "Version 2.12.2"
-                        font.family: theme.fontFamily
+                        font.family: Theme.fontFamily
                         font.pixelSize: 16
-                        color: theme.on_background
+                        color: Theme.on_background
                         Layout.bottomMargin: 10
                     }
 
@@ -351,12 +347,12 @@ FloatingWindow {
                             background: Rectangle {
                                 color: "transparent"
                                 radius: 10
-                                border.color: theme.primary
+                                border.color: Theme.primary
                             }
                             contentItem: Text {
                                 text: parent.text
-                                font.family: theme.fontFamily
-                                color: theme.primary
+                                font.family: Theme.fontFamily
+                                color: Theme.primary
                                 padding: 8
                             }
                         }
@@ -372,12 +368,12 @@ FloatingWindow {
                             background: Rectangle {
                                 color: "transparent"
                                 radius: 10
-                                border.color: theme.primary
+                                border.color: Theme.primary
                             }
                             contentItem: Text {
                                 text: parent.text
-                                font.family: theme.fontFamily
-                                color: theme.primary
+                                font.family: Theme.fontFamily
+                                color: Theme.primary
                                 padding: 8
                             }
                         }
@@ -404,8 +400,8 @@ FloatingWindow {
                             
                             Text {
                                 text: model.keys
-                                color: theme.primary
-                                font.family: theme.fontFamily
+                                color: Theme.primary
+                                font.family: Theme.fontFamily
                                 font.bold: true
                                 font.pixelSize: 13
                                 Layout.preferredWidth: 120
@@ -414,8 +410,8 @@ FloatingWindow {
                             
                             Text {
                                 text: model.desc
-                                color: theme.on_background
-                                font.family: theme.fontFamily
+                                color: Theme.on_background
+                                font.family: Theme.fontFamily
                                 font.pixelSize: 13
                                 Layout.preferredWidth: 240
                             }
@@ -433,13 +429,13 @@ FloatingWindow {
 
                         background: Rectangle {
                             color: "transparent"
-                            border.color: theme.primary
+                            border.color: Theme.primary
                             radius: 10
                         }
                         contentItem: Text {
                             text: parent.text
-                            font.family: theme.fontFamily
-                            color: theme.primary
+                            font.family: Theme.fontFamily
+                            color: Theme.primary
                             padding: 8
                         }
                     }
@@ -461,16 +457,16 @@ FloatingWindow {
                         // Styled to be slightly smaller and compact
                         background: Rectangle {
                             color: "transparent"
-                            border.color: theme.primary
+                            border.color: Theme.primary
                             border.width: 1
                             radius: 6
                         }
                         
                         contentItem: Text {
                             text: parent.text
-                            font.family: theme.fontFamily
+                            font.family: Theme.fontFamily
                             font.pixelSize: 12 // Smaller text size
-                            color: theme.primary
+                            color: Theme.primary
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                             padding: 4
@@ -487,8 +483,8 @@ FloatingWindow {
 
                     Text {
                         text: qsTr("Show on Startup")
-                        color: theme.primary
-                        font.family: theme.fontFamily
+                        color: Theme.primary
+                        font.family: Theme.fontFamily
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignVCenter
                     }
@@ -523,8 +519,8 @@ FloatingWindow {
                             implicitHeight: 26
                             radius: 13
                             
-                            color: autostartSwitch.checked ? theme.primary : theme.background
-                            border.color: theme.primary
+                            color: autostartSwitch.checked ? Theme.primary : Theme.background
+                            border.color: Theme.primary
                             border.width: 1
 
                             Rectangle {
@@ -533,7 +529,7 @@ FloatingWindow {
                                 width: 22
                                 height: 22 
                                 radius: 11
-                                color: autostartSwitch.checked ? theme.background : theme.on_primary
+                                color: autostartSwitch.checked ? Theme.background : Theme.on_primary
                                 Behavior on x { NumberAnimation { duration: 150 } }
                             }
                         }

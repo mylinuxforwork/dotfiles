@@ -6,7 +6,7 @@ import Quickshell.Services.Mpris
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
-import qs.shared
+import qs.CustomTheme
 
 PanelWindow {
     id: root
@@ -74,8 +74,6 @@ PanelWindow {
         function close(): void { root.isOpen = false } 
     }
 
-    Theme { id: theme }
-
     // --- Check if flatpak is installed when window opens ---
     Process {
         command: ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-flatpak-installed com.ml4w.hyprlandsettings"]
@@ -94,15 +92,15 @@ PanelWindow {
         id: control
         contentItem: Text {
             text: control.text
-            font.family: theme.fontFamily
+            font.family: Theme.fontFamily
             font.pixelSize: 14
-            color: control.highlighted ? theme.background : theme.primary 
+            color: control.highlighted ? Theme.background : Theme.primary 
             verticalAlignment: Text.AlignVCenter
         }
         background: Rectangle {
             implicitWidth: 200
             implicitHeight: 36
-            color: control.highlighted ? theme.primary : "transparent"
+            color: control.highlighted ? Theme.primary : "transparent"
             radius: 4
         }
     }
@@ -111,15 +109,15 @@ PanelWindow {
         Layout.fillWidth: true
         background: Rectangle {
             color: "transparent"
-            border.color: theme.primary
+            border.color: Theme.primary
             border.width: 1
             radius: 10
         }
         contentItem: Text {
             text: parent.text
-            font.family: theme.fontFamily
+            font.family: Theme.fontFamily
             font.pixelSize: 16
-            color: theme.primary
+            color: Theme.primary
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             padding: 8
@@ -134,8 +132,8 @@ PanelWindow {
             implicitWidth: 48
             implicitHeight: 26
             radius: 13
-            color: parent.checked ? theme.primary : theme.background
-            border.color: theme.primary
+            color: parent.checked ? Theme.primary : Theme.background
+            border.color: Theme.primary
             border.width: 1
             Rectangle {
                 x: parent.parent.checked ? parent.width - width - 2 : 2
@@ -143,7 +141,7 @@ PanelWindow {
                 implicitWidth: 22
                 implicitHeight: 22
                 radius: 11
-                color: parent.parent.checked ? theme.background : theme.on_primary
+                color: parent.parent.checked ? Theme.background : Theme.on_primary
                 Behavior on x { NumberAnimation { duration: 150 } }
             }
         }
@@ -156,7 +154,7 @@ PanelWindow {
         font.family: "monospace"
         background: Rectangle { color: "transparent" }
         contentItem: Text { 
-            text: parent.text; color: theme.primary; font.pixelSize: 18; 
+            text: parent.text; color: Theme.primary; font.pixelSize: 18; 
             verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
         }
     }
@@ -169,7 +167,7 @@ PanelWindow {
         font.family: "monospace"
         background: Rectangle { color: "transparent" }
         contentItem: Text { 
-            text: parent.text; color: theme.primary; font.pixelSize: 18; 
+            text: parent.text; color: Theme.primary; font.pixelSize: 18; 
             verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
         }
     }
@@ -182,8 +180,8 @@ PanelWindow {
 
         Rectangle {
             anchors.fill: parent
-            color: theme ? theme.background : "#1e1e2e"
-            border.color: theme ? theme.primary : "#89b4fa"
+            color: Theme.background
+            border.color: Theme.primary
             border.width: 2
             radius: 10
             opacity: 0.95 // Only the background is transparent
@@ -225,7 +223,7 @@ PanelWindow {
                 Item { Layout.fillWidth: true } 
             }
 
-            Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: theme.primary; opacity: 0.3 }
+            Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: Theme.primary; opacity: 0.3 }
 
             // --- THREE BUTTONS ROW ---
             RowLayout {
@@ -256,7 +254,7 @@ PanelWindow {
                 }
             }
 
-            Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: theme.primary; opacity: 0.3 }
+            Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: Theme.primary; opacity: 0.3 }
 
             // --- SCROLLABLE CONTENT ---
             ScrollView {
@@ -270,7 +268,7 @@ PanelWindow {
                     policy: ScrollBar.AsNeeded
                     interactive: true
                     contentItem: Rectangle {
-                        implicitWidth: 6; radius: 3; color: theme.primary
+                        implicitWidth: 6; radius: 3; color: Theme.primary
                         opacity: parent.pressed ? 1.0 : (parent.active ? 0.8 : 0.4)
                     }
                 }
@@ -292,7 +290,7 @@ PanelWindow {
 
                             Text {
                                 text: "" // Speaker icon
-                                color: theme.primary
+                                color: Theme.primary
                                 font.family: "monospace"
                                 font.pixelSize: 18
                                 Layout.alignment: Qt.AlignVCenter
@@ -328,14 +326,14 @@ PanelWindow {
                                     width: volumeSlider.availableWidth
                                     height: implicitHeight
                                     radius: 3
-                                    color: theme.background
-                                    border.color: theme.primary
+                                    color: Theme.background
+                                    border.color: Theme.primary
                                     border.width: 1
 
                                     Rectangle {
                                         width: volumeSlider.visualPosition * parent.width
                                         height: parent.height
-                                        color: theme.primary
+                                        color: Theme.primary
                                         radius: 3
                                     }
                                 }
@@ -346,8 +344,8 @@ PanelWindow {
                                     implicitWidth: 16
                                     implicitHeight: 16
                                     radius: 8
-                                    color: volumeSlider.pressed ? theme.background : theme.primary
-                                    border.color: theme.primary
+                                    color: volumeSlider.pressed ? Theme.background : Theme.primary
+                                    border.color: Theme.primary
                                     border.width: 1
                                 }
                             }
@@ -360,7 +358,7 @@ PanelWindow {
 
                             Text {
                                 text: "" // Sun/Brightness icon
-                                color: theme.primary
+                                color: Theme.primary
                                 font.family: "monospace"
                                 font.pixelSize: 18
                                 Layout.alignment: Qt.AlignVCenter
@@ -396,14 +394,14 @@ PanelWindow {
                                     width: brightnessSlider.availableWidth
                                     height: implicitHeight
                                     radius: 3
-                                    color: theme.background
-                                    border.color: theme.primary
+                                    color: Theme.background
+                                    border.color: Theme.primary
                                     border.width: 1
 
                                     Rectangle {
                                         width: brightnessSlider.visualPosition * parent.width
                                         height: parent.height
-                                        color: theme.primary
+                                        color: Theme.primary
                                         radius: 3
                                     }
                                 }
@@ -414,15 +412,15 @@ PanelWindow {
                                     implicitWidth: 16
                                     implicitHeight: 16
                                     radius: 8
-                                    color: brightnessSlider.pressed ? theme.background : theme.primary
-                                    border.color: theme.primary
+                                    color: brightnessSlider.pressed ? Theme.background : Theme.primary
+                                    border.color: Theme.primary
                                     border.width: 1
                                 }
                             }
                         }
                     }
 
-                    Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: theme.primary; opacity: 0.3; Layout.topMargin: 5; Layout.bottomMargin: 5 }
+                    Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: Theme.primary; opacity: 0.3; Layout.topMargin: 5; Layout.bottomMargin: 5 }
 
                     // --- MPRIS PLAYERS (Scrollable ListView) ---
                     ListView {
@@ -447,7 +445,7 @@ PanelWindow {
                             policy: mprisListView.count > 2 ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
                             interactive: true
                             contentItem: Rectangle {
-                                implicitWidth: 6; radius: 3; color: theme.primary
+                                implicitWidth: 6; radius: 3; color: Theme.primary
                                 opacity: parent.pressed ? 1.0 : (parent.active ? 0.8 : 0.4)
                             }
                         }
@@ -460,8 +458,8 @@ PanelWindow {
                             implicitHeight: 100
                             
                             radius: 10
-                            color: theme.background
-                            border.color: theme.primary
+                            color: Theme.background
+                            border.color: Theme.primary
                             border.width: 1
                             clip: true
 
@@ -476,7 +474,7 @@ PanelWindow {
                                     implicitHeight: 80
                                     radius: 8
                                     color: "transparent"
-                                    border.color: theme.primary
+                                    border.color: Theme.primary
                                     border.width: 1
                                     clip: true
                                     
@@ -491,7 +489,7 @@ PanelWindow {
                                         text: "󰝚" // Music note icon (fallback)
                                         font.family: "monospace"
                                         font.pixelSize: 32
-                                        color: theme.primary
+                                        color: Theme.primary
                                         visible: !player.trackArtUrl || player.trackArtUrl === ""
                                     }
                                 }
@@ -505,8 +503,8 @@ PanelWindow {
                                     Text {
                                         Layout.fillWidth: true
                                         text: player.trackTitle ? player.trackTitle : (player.identity ? player.identity : "No Media Playing")
-                                        color: theme.primary
-                                        font.family: theme.fontFamily
+                                        color: Theme.primary
+                                        font.family: Theme.fontFamily
                                         font.pixelSize: 16
                                         font.bold: true
                                         elide: Text.ElideRight
@@ -519,8 +517,8 @@ PanelWindow {
                                             if (player.trackArtists && player.trackArtists.length > 0) return player.trackArtists[0];
                                             return "Unknown Artist";
                                         }
-                                        color: theme.on_background
-                                        font.family: theme.fontFamily
+                                        color: Theme.on_background
+                                        font.family: Theme.fontFamily
                                         font.pixelSize: 13
                                         elide: Text.ElideRight
                                         opacity: 0.8
@@ -565,7 +563,7 @@ PanelWindow {
                     Rectangle { 
                         Layout.fillWidth: true; 
                         implicitHeight: 1; 
-                        color: theme.primary; 
+                        color: Theme.primary; 
                         opacity: 0.3; 
                         Layout.topMargin: 5; 
                         Layout.bottomMargin: 5;
@@ -575,7 +573,7 @@ PanelWindow {
                     // --- WAYBAR ---
                     RowLayout {
                         Layout.fillWidth: true
-                        Text { text: "Waybar"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }
+                        Text { text: "Waybar"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true } 
                         ML4WSwitch { 
                             id: waybarSwitch
@@ -609,7 +607,7 @@ PanelWindow {
                                 implicitWidth: 220
                                 padding: 8
                                 
-                                background: Rectangle { color: theme.background; border.color: theme.primary; border.width: 1; radius: 8 }
+                                background: Rectangle { color: Theme.background; border.color: Theme.primary; border.width: 1; radius: 8 }
                                 ML4WMenuItem { text: "Select Waybar Theme"; onClicked: {
                                         Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/waybar/themeswitcher.sh"])
                                     }
@@ -630,7 +628,7 @@ PanelWindow {
                     // --- DOCK ---
                     RowLayout {
                         Layout.fillWidth: true
-                        Text { text: "Dock"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }
+                        Text { text: "Dock"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
                         ML4WSwitch { 
                             id: dockSwitch
@@ -661,7 +659,7 @@ PanelWindow {
                     // --- GAMEMODE ---
                     RowLayout {
                         Layout.fillWidth: true
-                        Text { text: "Gamemode"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }
+                        Text { text: "Gamemode"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
                         ML4WSwitch { 
                             id: gamemodeSwitch
@@ -688,7 +686,7 @@ PanelWindow {
                     // --- SIDEPAD ---
                     RowLayout {
                         Layout.fillWidth: true
-                        Text { text: "Sidepad"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }
+                        Text { text: "Sidepad"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
                         ML4WSwitch { 
                             id: sidepadSwitch
@@ -711,7 +709,7 @@ PanelWindow {
                                 implicitWidth: 220
                                 padding: 8
                                 
-                                background: Rectangle { color: theme.background; border.color: theme.primary; border.width: 1; radius: 8 }
+                                background: Rectangle { color: Theme.background; border.color: Theme.primary; border.width: 1; radius: 8 }
                                 ML4WMenuItem { text: "Select Sidepad"; onClicked: {
                                         Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-sidepad --select"])
                                     } 
@@ -724,12 +722,12 @@ PanelWindow {
                         }
                     }
 
-                    Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: theme.primary; opacity: 0.3; Layout.topMargin: 5; Layout.bottomMargin: 5 }
+                    Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: Theme.primary; opacity: 0.3; Layout.topMargin: 5; Layout.bottomMargin: 5 }
 
                     // --- WALLPAPER ---
                     RowLayout {
                         Layout.fillWidth: true
-                        Text { text: "Wallpaper"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }
+                        Text { text: "Wallpaper"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
                         ActionIcon { 
                             iconTxt: ""
@@ -743,7 +741,7 @@ PanelWindow {
                     // --- THEME ---
                     RowLayout {
                         Layout.fillWidth: true
-                        Text { text: "Theme"; color: theme.on_background; font.family: theme.fontFamily; font.pixelSize: 16 }
+                        Text { text: "Theme"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
                         ActionIcon { 
                             iconTxt: ""
@@ -761,7 +759,7 @@ PanelWindow {
                                 implicitWidth: 220
                                 padding: 8
                                 
-                                background: Rectangle { color: theme.background; border.color: theme.primary; border.width: 1; radius: 8 }
+                                background: Rectangle { color: Theme.background; border.color: Theme.primary; border.width: 1; radius: 8 }
                                 ML4WMenuItem { text: "Set GTK Theme"; onClicked: {
                                         root.isOpen = false
                                         Quickshell.execDetached(["nwg-look"])
