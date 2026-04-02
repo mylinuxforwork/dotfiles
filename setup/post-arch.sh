@@ -14,12 +14,6 @@ rm $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 ln -sf $HOME/.config/quickshell/shared/Theme.qml $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 
 # --------------------------------------------------------------
-# Cargo
-# --------------------------------------------------------------
-
-cargo install cargo-update
-
-# --------------------------------------------------------------
 # Cursors
 # --------------------------------------------------------------
 

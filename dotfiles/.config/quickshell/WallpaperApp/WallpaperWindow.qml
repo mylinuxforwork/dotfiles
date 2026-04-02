@@ -98,7 +98,7 @@ PanelWindow {
                     if (root.wallpaperFolder === newPath) {
                         root.wallpaperFolder = "";
                     }
-                    root.wallpaperFolder = newPath + "123";
+                    root.wallpaperFolder = newPath;
                 }
             }
         }

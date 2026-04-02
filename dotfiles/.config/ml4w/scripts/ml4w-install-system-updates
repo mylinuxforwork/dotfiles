@@ -97,11 +97,6 @@ echo ":: Searching for Flatpak updates..."
 flatpak update
 echo
 
-# Cargo
-echo ":: Searching for Cargo updates..."
-cargo install-update -a
-echo
-
 # Reload Waybar
 pkill -RTMIN+1 waybar
 
