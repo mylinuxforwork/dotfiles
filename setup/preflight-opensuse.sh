@@ -19,7 +19,7 @@ source $repo_path/setup/_prebuilt.sh
 sudo zypper addrepo https://download.opensuse.org/tumbleweed/repo/oss/ factory-oss
 sudo zypper addrepo https://download.opensuse.org/repositories/X11:Wayland/openSUSE_Tumbleweed/X11:Wayland.repo
 sudo zypper addrepo https://download.opensuse.org/repositories/X11:fonts/openSUSE_Factory/X11:fonts.repo
-sudo zypper addrepo https://download.opensuse.org/repositories/openSUSE:Factory/standard/openSUSE:Factory.repo
+sudo zypper addrepo https://download.opensuse.org/repositories/home:/Alxhr0/openSUSE_Tumbleweed/ home_Alxhr0
 sudo zypper refresh
 
 # --------------------------------------------------------------
