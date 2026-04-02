@@ -40,7 +40,7 @@ apply_theme() {
     if [[ "$THEME_PREF" == "1" || "$THEME_PREF" == "true" ]]; then
         echo "Detected dark theme preference (gtk-application-prefer-dark-theme=1/true). Applying dark matugen theme..."
         if [ -f $HOME/.cargo/bin/matugen ]; then
-            $HOME/.cargo/bin/matugen $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) --source-color-index 0 -m "dark"
+            $HOME/.cargo/bin/matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) --source-color-index 0 -m "dark"
         else
             matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) --source-color-index 0 -m "dark"
         fi
