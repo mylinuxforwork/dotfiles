@@ -4,6 +4,9 @@
 # Quickshell
 # --------------------------------------------------------------
 
+# Add DankLinux repository
+sudo zypper addrepo https://download.opensuse.org/repositories/home:AvengeMedia:danklinux/openSUSE_Tumbleweed/home:AvengeMedia:danklinux.repo
+sudo zypper refresh
 sudo zypper install quickshell
 
 # --------------------------------------------------------------
