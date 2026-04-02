@@ -205,9 +205,17 @@ THEME_PREF=$(grep -E '^gtk-application-prefer-dark-theme=' "$SETTINGS_FILE" | aw
 
 # Execute matugen
 if [ "$THEME_PREF" -eq 1 ]; then
-    matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
+    if [ -f $HOME/.cargo/bin/matugen ]; then
+        $HOME/.cargo/bin/matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
+    else
+        matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
+    fi
 else
-    matugen image "$IMAGE_PATH" --source-color-index 0 -m "light"
+    if [ -f $HOME/.cargo/bin/matugen ]; then
+        $HOME/.cargo/bin/matugen image "$IMAGE_PATH" --source-color-index 0 -m "light"
+    else
+        matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
+    fi
 fi
 info "Matugen updated"
 
