@@ -391,7 +391,7 @@ FloatingWindow {
                         model: ListModel {
                             ListElement { keys: "Super + Enter"; desc: "to open the terminal" }
                             ListElement { keys: "Super + B"; desc: "to open the browser" }
-                            ListElement { keys: "Super + Space"; desc: "to open the application launcher" }
+                            ListElement { keys: "Super + CTRL + Enter"; desc: "to open the application launcher" }
                             ListElement { keys: "Super + Q"; desc: "to close the active window" }
                         }
                         

@@ -13,7 +13,7 @@ sudo zypper --non-interactive --gpg-auto-import-keys install awww
 # Add DankLinux repository
 sudo zypper addrepo https://download.opensuse.org/repositories/home:AvengeMedia:danklinux/openSUSE_Tumbleweed/home:AvengeMedia:danklinux.repo
 sudo zypper refresh
-sudo zypper install quickshell
+sudo zypper --non-interactive --gpg-auto-import-keys install quickshell
 
 # --------------------------------------------------------------
 # Oh My Posh
@@ -51,14 +51,6 @@ else
         info "matugen is already up to date! (Current version: $CURRENT_VERSION)"
     fi
 fi
-
-# --------------------------------------------------------------
-# Install eza
-# --------------------------------------------------------------
-
-echo "Installing eza"
-sudo zypper ar https://download.opensuse.org/tumbleweed/repo/oss/ factory-oss
-sudo zypper -n install eza
 
 # --------------------------------------------------------------
 # JetBrains Mono Nerd Font
