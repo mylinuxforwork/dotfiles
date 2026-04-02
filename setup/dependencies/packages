@@ -8,7 +8,6 @@ jq
 flatpak
 vim
 inotify-tools
-gnome-themes-extra
 udisks2
 gvfs
 udiskie

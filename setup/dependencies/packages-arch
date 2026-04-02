@@ -2,6 +2,7 @@ hyprland
 libnotify
 qt5-wayland
 qt6-wayland
+gnome-themes-extra
 uwsm
 python-pip
 python-gobject
