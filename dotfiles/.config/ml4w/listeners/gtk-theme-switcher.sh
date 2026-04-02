@@ -47,11 +47,11 @@ apply_theme() {
 
         # Update Quickshell theme
         qs ipc call theme-manager reload
-        info "Quickshell Theme updated"
+        echo "Quickshell Theme updated"
 
         # Update ML4W Dotfiles Settings theme
         qs -p $HOME/.local/share/ml4w-dotfiles-settings/quickshell ipc call theme-manager reload
-        info "ML4W Dotfiles Settings Theme updated"
+        echo "ML4W Dotfiles Settings Theme updated"
 
         # Reload Waybar
         nohup bash -c "$HOME/.config/waybar/launch.sh" > /dev/null 2>&1 &
@@ -62,6 +62,7 @@ apply_theme() {
         disown
 
         $HOME/.config/hypr/scripts/gtk.sh &
+
         swaync-client -rs
     elif [[ "$THEME_PREF" == "0" || "$THEME_PREF" == "false" ]]; then
         echo "Detected light theme preference (gtk-application-prefer-dark-theme=0/false). Applying light matugen theme..."
@@ -74,7 +75,7 @@ apply_theme() {
 
         # Update Quickshell theme
         qs ipc call theme-manager reload
-        info "Quickshell Theme updated"
+        echo "Quickshell Theme updated"
 
         # Reload nwg-dock-hyprland
         nohup bash -c "$HOME/.config/waybar/launch.sh" > /dev/null 2>&1 &
@@ -83,6 +84,8 @@ apply_theme() {
         # Reload nwg-dock-hyprland
         nohup bash -c "$HOME/.config/nwg-dock-hyprland/launch.sh" > /dev/null 2>&1 &
         disown
+
+        $HOME/.config/hypr/scripts/gtk.sh &
 
         swaync-client -rs
     else

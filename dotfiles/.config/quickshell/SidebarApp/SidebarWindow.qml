@@ -213,7 +213,7 @@ PanelWindow {
                 }
 
                 ActionIcon { 
-                    iconTxt: ""
+                    iconTxt: ""
                     onClicked: {
                         root.isOpen = false
                         Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/screenshot.sh"])
