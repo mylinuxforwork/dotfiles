@@ -80,15 +80,26 @@ PanelWindow {
     // Default fallback folder just in case the file doesn't exist
     property string wallpaperFolder: "file://" + Quickshell.env("HOME") + "/.config/ml4w/wallpapers"
 
-    // This runs automatically when Quickshell starts
     Process {
-        command: ["bash", "-c", "cat", Quickshell.env("HOME") + "/.config/ml4w/settings/wallpaper-folder"]
+        id: folderLoader
+        // Call cat directly and pass the path as the second array item
+        command: ["cat", Quickshell.env("HOME") + "/.config/ml4w/settings/wallpaper-folder"]
         running: true
         
         stdout: StdioCollector {
             onStreamFinished: {
-                console.log(this.text.trim())
-                root.wallpaperFolder = this.text.trim()
+                let rawPath = this.text.trim();
+                
+                if (rawPath !== "") {
+                    rawPath = rawPath.replace("$HOME", Quickshell.env("HOME"));
+                    rawPath = rawPath.replace("~", Quickshell.env("HOME"));
+                    // Ensure the path starts with file:// for the FolderListModel
+                    let newPath = rawPath.startsWith("file://") ? rawPath : "file://" + rawPath;
+                    if (root.wallpaperFolder === newPath) {
+                        root.wallpaperFolder = "";
+                    }
+                    root.wallpaperFolder = newPath + "123";
+                }
             }
         }
     }
@@ -110,6 +121,7 @@ PanelWindow {
             radius: 4
         }
     }
+
 
     component SettingsWheel: Button {
         implicitWidth: 28  
@@ -206,6 +218,13 @@ PanelWindow {
                             onClicked: {
                                 root.isOpen = false
                                 Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-clear-wallpaper-cache"])
+                            } 
+                        }
+
+                        ML4WMenuItem { 
+                            text: "Reload Images"
+                            onClicked: {
+                                folderLoader.running = true;
                             } 
                         }
 

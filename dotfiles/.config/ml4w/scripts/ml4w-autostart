@@ -17,6 +17,7 @@ warn() { echo -e "${YELLOW}[WARN]${NC} $1" >&2; }
 error() { echo -e "${RED}[ERROR]${NC} $1" >&2; }
 
 # Set Wallpaper
+mkdir -p $CACHE_FOLDER
 if [ ! -f $CACHE_FILE ]; then
     touch $CACHE_FILE
     echo "$DEFAULT_WALLPAPER" > "$CACHE_FILE"
