@@ -90,7 +90,7 @@
       "type": "choose",
       "mode": "overwrite",
       "default": "simple",
-      "options": ["simple", "left", "right", "top", "bottom", "center", "any", "random"]
+      "options": ["simple", "left", "right", "top", "bottom", "center", "any", "random", "none"]
     },{
       "name": "Rofi Border Size",
       "id": "rofi_bordersize",

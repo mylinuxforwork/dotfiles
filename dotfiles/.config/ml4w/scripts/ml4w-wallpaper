@@ -196,6 +196,7 @@ if [ "$SKIP" = true ]; then
     info "Setting wallpaper skipped"
 else
     info "Setting wallpaper: $IMAGE_PATH"
+    info "Using wallpaper effect $SETTINGS_TRANSITION_EFFECT"
     awww img "$IMAGE_PATH" --transition-type $SETTINGS_TRANSITION_EFFECT
 fi
 
