@@ -122,7 +122,7 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("Wallpaper");
                     onClicked: { 
-                        Quickshell.execDetached(["waypaper"])
+                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-wallpaper-app"])
                     }
                 }
                 ML4WMenuItem { 
@@ -132,6 +132,12 @@ FloatingWindow {
                     }
                 }
                 ML4WMenuSeparator {}
+                ML4WMenuItem { 
+                    text: qsTr("Sidebar");
+                    onClicked: {
+                        Quickshell.execDetached(["qs", "ipc", "call", "sidebar", "toggle"])
+                    }
+                }
                 ML4WMenuItem { 
                     text: qsTr("Dotfiles Settings");
                     onClicked: {
@@ -294,7 +300,7 @@ FloatingWindow {
                 // --- MAIN HERO SECTION --- 
                 ColumnLayout {
                     Layout.alignment: Qt.AlignHCenter
-                    spacing: 10
+                    spacing: 5
                     Layout.topMargin: 20
 
                     Image {
@@ -314,15 +320,7 @@ FloatingWindow {
                         font.pixelSize: 28
                         font.bold: true
                         color: Theme.on_background
-                    }
-
-                    Text {
-                        Layout.alignment: Qt.AlignHCenter
-                        font.family: Theme.fontFamily
-                        text: "Dotfiles for Hyprland"
-                        font.pixelSize: 20
-                        font.bold: true
-                        color: Theme.on_background
+                        Layout.bottomMargin: 0
                     }
 
                     Text {
@@ -391,8 +389,10 @@ FloatingWindow {
                         model: ListModel {
                             ListElement { keys: "Super + Enter"; desc: "to open the terminal" }
                             ListElement { keys: "Super + B"; desc: "to open the browser" }
-                            ListElement { keys: "Super + CTRL + Enter"; desc: "to open the application launcher" }
                             ListElement { keys: "Super + Q"; desc: "to close the active window" }
+                            ListElement { keys: "Super + CTRL + Enter"; desc: "to open the application launcher" }
+                            ListElement { keys: "Super + CTRL + S"; desc: "to open the sidebar" }
+                            ListElement { keys: "Super + CTRL + W"; desc: "to set a wallpaper" }
                         }
                         
                         delegate: RowLayout {
