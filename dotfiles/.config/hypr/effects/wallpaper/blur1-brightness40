@@ -1,2 +1,2 @@
-magick $wallpaper -blur "50x30" $used_wallpaper
-magick $used_wallpaper -brightness-contrast -60% $used_wallpaper
+magick $IMAGE_PATH -blur "50x30" $IMAGE_PATH
+magick $IMAGE_PATH -brightness-contrast -60% $IMAGE_PATH

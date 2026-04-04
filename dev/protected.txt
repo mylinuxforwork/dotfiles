@@ -1,5 +1,0 @@
-keyboard.conf
-custom.conf
-monitors.conf
-waypaper
-Theme.qml

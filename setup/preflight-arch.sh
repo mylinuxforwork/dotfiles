@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 yay_installed="false"
 paru_installed="false"
 aur_helper=""
@@ -36,12 +35,8 @@ _installYay() {
     if [ -d $HOME/Downloads/yay-bin ]; then
         rm -rf $HOME/Downloads/yay-bin
     fi
-    SCRIPT=$(realpath "$0")
-    temp_path=$(dirname "$SCRIPT")
     git clone https://aur.archlinux.org/yay-bin.git $HOME/Downloads/yay-bin
-    cd $HOME/Downloads/yay-bin
-    makepkg -si
-    cd $temp_path
+    (cd "$HOME/Downloads/yay-bin" && makepkg -si --noconfirm) 
     echo ":: yay has been installed successfully."
 }
 
@@ -55,12 +50,8 @@ _installParu() {
     if [ -d $HOME/Downloads/paru ]; then
         rm -rf $HOME/Downloads/paru
     fi
-    SCRIPT=$(realpath "$0")
-    temp_path=$(dirname "$SCRIPT")
     git clone https://aur.archlinux.org/paru.git $HOME/Downloads/paru
-    cd $HOME/Downloads/paru
-    makepkg -si
-    cd $temp_path
+    (cd "$HOME/Downloads/paru" && makepkg -si --noconfirm)
     echo ":: paru has been installed successfully."
 }
 
@@ -111,6 +102,4 @@ _checkAURHelper
 # Uninstall swww if exists. To be replaced with awww in the next steps
 # --------------------------------------------------------------
 
-if command -v swww &> /dev/null || pacman -Qq swww &> /dev/null; then
-    sudo pacman -Rns --noconfirm swww
-fi
+sudo pacman -Rns --noconfirm swww

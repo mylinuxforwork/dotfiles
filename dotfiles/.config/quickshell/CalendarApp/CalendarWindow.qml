@@ -5,7 +5,7 @@ import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
-import qs.shared
+import qs.CustomTheme
 
 PanelWindow {
     id: root
@@ -101,8 +101,6 @@ PanelWindow {
         function close(): void { root.isOpen = false } 
     }
 
-    Theme { id: theme }
-
     // --- REUSABLE COMPONENTS ---
     component ActionIcon: Button {
         property string iconTxt: ""
@@ -112,7 +110,7 @@ PanelWindow {
         font.family: "monospace"
         background: Rectangle { color: "transparent" }
         contentItem: Text { 
-            text: parent.text; color: theme.primary; font.pixelSize: 18; 
+            text: parent.text; color: Theme.primary; font.pixelSize: 18; 
             verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
         }
     }
@@ -121,15 +119,15 @@ PanelWindow {
     component ML4WButton: Button {
         background: Rectangle {
             color: "transparent"
-            border.color: theme.primary
+            border.color: Theme.primary
             border.width: 1
             radius: 8
         }
         contentItem: Text {
             text: parent.text
-            font.family: theme.fontFamily
+            font.family: Theme.fontFamily
             font.pixelSize: 12
-            color: theme.primary
+            color: Theme.primary
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             padding: 4
@@ -216,11 +214,11 @@ PanelWindow {
 
         Rectangle {
             anchors.fill: parent
-            color: theme ? theme.background : "#1e1e2e"
-            border.color: theme ? theme.primary : "#89b4fa"
+            color: Theme.background
+            border.color: Theme.primary
             border.width: 2
             radius: 10
-            opacity: 0.9 // Only the background is transparent
+            opacity: 0.95 // Only the background is transparent
         }
 
         ColumnLayout {
@@ -245,8 +243,8 @@ PanelWindow {
                     Text {
                         Layout.preferredWidth: 120 
                         text: monthNames[currentMonth] + " " + currentYear
-                        color: theme.primary
-                        font.family: theme.fontFamily
+                        color: Theme.primary
+                        font.family: Theme.fontFamily
                         font.pixelSize: 18
                         font.bold: true
                         horizontalAlignment: Text.AlignHCenter
@@ -276,7 +274,7 @@ PanelWindow {
                 }
             }
 
-            Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: theme.primary; opacity: 0.3 }
+            Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: Theme.primary; opacity: 0.3 }
 
             // --- CALENDAR BODY ---
             RowLayout {
@@ -291,9 +289,9 @@ PanelWindow {
                     Text {
                         Layout.fillWidth: true
                         text: "Wk"
-                        color: theme.on_background
+                        color: Theme.on_background
                         opacity: 0.5
-                        font.family: theme.fontFamily
+                        font.family: Theme.fontFamily
                         font.pixelSize: 13
                         font.bold: true
                         horizontalAlignment: Text.AlignHCenter
@@ -306,9 +304,9 @@ PanelWindow {
                             Layout.fillWidth: true
                             Layout.fillHeight: true
                             text: model.weekNumber
-                            color: theme.primary
+                            color: Theme.primary
                             opacity: 0.7
-                            font.family: theme.fontFamily
+                            font.family: Theme.fontFamily
                             font.pixelSize: 13
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
@@ -316,7 +314,7 @@ PanelWindow {
                     }
                 }
 
-                Rectangle { Layout.fillHeight: true; implicitWidth: 1; color: theme.primary; opacity: 0.3 }
+                Rectangle { Layout.fillHeight: true; implicitWidth: 1; color: Theme.primary; opacity: 0.3 }
 
                 ColumnLayout {
                     Layout.fillWidth: true
@@ -330,8 +328,8 @@ PanelWindow {
                             Text {
                                 Layout.fillWidth: true
                                 text: modelData
-                                color: theme.primary
-                                font.family: theme.fontFamily
+                                color: Theme.primary
+                                font.family: Theme.fontFamily
                                 font.pixelSize: 14
                                 font.bold: true
                                 horizontalAlignment: Text.AlignHCenter
@@ -353,15 +351,15 @@ PanelWindow {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
                                 radius: width / 2 
-                                color: model.isToday ? theme.primary : "transparent"
+                                color: model.isToday ? Theme.primary : "transparent"
                                 
                                 Text {
                                     anchors.centerIn: parent
                                     text: model.day
-                                    font.family: theme.fontFamily
+                                    font.family: Theme.fontFamily
                                     font.pixelSize: 14
                                     font.bold: model.isToday
-                                    color: model.isToday ? theme.background : theme.on_background
+                                    color: model.isToday ? Theme.background : Theme.on_background
                                     opacity: (model.isCurrentMonth || model.isToday) ? 1.0 : 0.3
                                 }
                             }

@@ -1,1 +1,1 @@
-magick $wallpaper -set colorspace Gray -separate -average $used_wallpaper
+magick $IMAGE_PATH -set colorspace Gray -separate -average $IMAGE_PATH

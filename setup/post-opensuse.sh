@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+# --------------------------------------------------------------
+# awww
+# --------------------------------------------------------------
+
+sudo zypper --non-interactive --gpg-auto-import-keys install awww
 
 # --------------------------------------------------------------
 # Quickshell
 # --------------------------------------------------------------
-sudo zypper install quickshell
+
+# Add DankLinux repository
+sudo zypper addrepo https://download.opensuse.org/repositories/home:AvengeMedia:danklinux/openSUSE_Tumbleweed/home:AvengeMedia:danklinux.repo
+sudo zypper refresh
+sudo zypper --non-interactive --gpg-auto-import-keys install quickshell
 
 # --------------------------------------------------------------
 # Oh My Posh
@@ -18,22 +26,31 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 # --------------------------------------------------------------
 
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-settings/main/setup.sh)
-rm $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml  
-ln -sf $HOME/.config/quickshell/shared/Theme.qml $HOME/.local/share/ml4w-dotfiles-settings/quickshell/shared/Theme.qml
 
 # --------------------------------------------------------------
-# Prebuild Packages
+# Cargo
 # --------------------------------------------------------------
 
-source $SCRIPT_DIR/_prebuilt.sh
+TARGET_VERSION="4.0.0"
 
-# --------------------------------------------------------------
-# Install eza
-# --------------------------------------------------------------
+force_install_matugen() {
+    info "Running: cargo install matugen --force"
+    cargo install matugen --force
+}
 
-echo "Installing eza"
-sudo zypper ar https://download.opensuse.org/tumbleweed/repo/oss/ factory-oss
-sudo zypper -n install eza
+if ! command -v matugen &> /dev/null; then
+    echo "'matugen' is not currently installed."
+    force_install_matugen
+else
+    CURRENT_VERSION=$(matugen --version | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+' | head -n 1)
+    LOWEST_VERSION=$(printf "%s\n%s" "$TARGET_VERSION" "$CURRENT_VERSION" | sort -V | head -n1)
+    if [ "$LOWEST_VERSION" = "$CURRENT_VERSION" ] && [ "$CURRENT_VERSION" != "$TARGET_VERSION" ]; then
+        info "Current version ($CURRENT_VERSION) is lower than $TARGET_VERSION. Updating..."
+        force_install_matugen
+    else
+        info "matugen is already up to date! (Current version: $CURRENT_VERSION)"
+    fi
+fi
 
 # --------------------------------------------------------------
 # JetBrains Mono Nerd Font
@@ -43,50 +60,35 @@ sudo zypper addrepo https://download.opensuse.org/repositories/X11:fonts/openSUS
 sudo zypper -n install jetbrainsmono-nerd-fonts
 
 # --------------------------------------------------------------
-# Install waypaper dependencies before using pip
-# --------------------------------------------------------------
-
-sudo zypper -n install gcc pkg-config cairo-devel gobject-introspection-devel libgirepository-1_0-1-devel python3-devel libgtk-4-devel typelib-1_0-Gtk-4_0 python313-screeninfo
-
-# --------------------------------------------------------------
 # Pip
 # --------------------------------------------------------------
 
 echo ":: Installing packages with pip"
 pipx install pywalfox
 
-# Installing Waypaper from Git
-pipx install git+https://github.com/anufrievroman/waypaper
-
 # --------------------------------------------------------------
 # Grimblast
 # --------------------------------------------------------------
 
-sudo cp $SCRIPT_DIR/scripts/grimblast /usr/bin
+sudo cp $repo_path/setup/scripts/grimblast /usr/bin
 
 # --------------------------------------------------------------
 # Cursors
 # --------------------------------------------------------------
 
-source $SCRIPT_DIR/_cursors.sh
+source $repo_path/setup/_cursors.sh
 
 # --------------------------------------------------------------
 # Fonts
 # --------------------------------------------------------------
 
-source $SCRIPT_DIR/_fonts.sh
+source $repo_path/setup/_fonts.sh
 
 # --------------------------------------------------------------
 # Icons
 # --------------------------------------------------------------
 
-source $SCRIPT_DIR/_icons.sh
-
-# --------------------------------------------------------------
-# Migrate
-# --------------------------------------------------------------
-
-source $SCRIPT_DIR/migrate.sh
+source $repo_path/setup/_icons.sh
 
 # --------------------------------------------------------------
 # Create XDG Directories

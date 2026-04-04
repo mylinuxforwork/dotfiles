@@ -4,7 +4,7 @@ import Quickshell.Hyprland // <-- Added native Hyprland integration
 import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
-import qs.shared
+import qs.CustomTheme
 
 PanelWindow {
     id: root
@@ -71,8 +71,6 @@ PanelWindow {
         function close(): void { root.isOpen = false } // <-- Added for Waybar safety
     }
 
-    Theme { id: theme }
-
     Process {
         id: powerProcess
         running: false
@@ -88,8 +86,8 @@ PanelWindow {
 
         Rectangle {
             anchors.fill: parent
-            color: theme ? theme.background : "#1e1e2e"
-            border.color: theme ? theme.primary : "#89b4fa"
+            color: Theme.background
+            border.color: Theme.primary
             border.width: 2
             radius: 40
             opacity: 0.9 // Only the background is transparent
@@ -112,8 +110,8 @@ PanelWindow {
                 implicitHeight: 50
                 radius: 25 
                 
-                color: mouseArea.containsMouse ? (theme ? theme.primary : "#89b4fa") : "transparent"
-                border.color: theme ? theme.primary : "#89b4fa"
+                color: mouseArea.containsMouse ? Theme.primary : "transparent"
+                border.color: Theme.primary
                 border.width: 1
 
                 Text {
@@ -121,7 +119,7 @@ PanelWindow {
                     text: btn.iconTxt
                     font.family: "monospace" 
                     font.pixelSize: 20
-                    color: mouseArea.containsMouse ? (theme ? theme.background : "#1e1e2e") : (theme ? theme.primary : "#89b4fa")
+                    color: mouseArea.containsMouse ? Theme.background : Theme.primary
                 }
 
                 MouseArea {

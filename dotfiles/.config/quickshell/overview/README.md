@@ -337,7 +337,7 @@ output_path = "~/.config/quickshell/overview/common/Appearance.colors.qml"
 
 **5. Run matugen** with your wallpaper to generate colors:
 ```bash
-matugen image /path/to/your/wallpaper.jpg
+matugen image /path/to/your/wallpaper.jpg --source-color-index 0
 ```
 
 This generates `Appearance.colors.qml` which the overview loads automatically. Re-run step 5 whenever you change your wallpaper.

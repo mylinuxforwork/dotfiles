@@ -2,6 +2,7 @@ hyprland
 libnotify
 qt5-wayland
 qt6-wayland
+gnome-themes-extra
 uwsm
 python-pip
 python-gobject
@@ -15,18 +16,16 @@ grimblast-git
 pacman-contrib
 loupe
 power-profiles-daemon
-waypaper
 swaync
-eza
 python-pywalfox
 tesseract-data-eng
 otf-font-awesome
 ttf-firacode-nerd
 ttf-jetbrains-mono-nerd
-tty-clock
 qt6-svg
 qt6-virtualkeyboard
 qt6-multimedia-ffmpeg
 gvfs-mtp
 quickshell
 awww
+matugen

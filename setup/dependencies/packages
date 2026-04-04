@@ -8,7 +8,6 @@ jq
 flatpak
 vim
 inotify-tools
-gnome-themes-extra
 udisks2
 gvfs
 udiskie
@@ -49,3 +48,5 @@ breeze
 tesseract
 wl-clipboard
 btop
+cargo
+eza

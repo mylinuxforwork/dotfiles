@@ -1,1 +1,1 @@
-magick $wallpaper -negate $used_wallpaper
+magick $IMAGE_PATH -negate $IMAGE_PATH

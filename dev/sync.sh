@@ -39,7 +39,7 @@ else
 fi
 TARGET_DIR="$HOME/.mydotfiles/$project_id"
 EVENTS="modify,create,delete,move"
-EXCLUDE_FILE="$SCRIPT_DIR/protected.txt"
+EXCLUDE_FILE="$SCRIPT_DIR/protected"
 
 echo ":: Source: $SOURCE_DIR"
 echo ":: Target: $TARGET_DIR"

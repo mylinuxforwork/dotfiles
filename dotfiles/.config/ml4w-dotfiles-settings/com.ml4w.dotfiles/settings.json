@@ -83,6 +83,15 @@
     "group":"Appearance",
     "description":"Change some settings to customize the look and feel.",
     "settings":[{
+      "name": "Wallpaper Transition Effect",
+      "id": "wallpaper_transition",
+      "instructions": "Select your preferred wallpaper transition effect",
+      "file": "~/.config/ml4w/settings/wallpaper-transition-effect",
+      "type": "choose",
+      "mode": "overwrite",
+      "default": "simple",
+      "options": ["simple", "left", "right", "top", "bottom", "center", "any", "random", "none"]
+    },{
       "name": "Rofi Border Size",
       "id": "rofi_bordersize",
       "instructions": "Enter the border size for rofi",
@@ -164,6 +173,15 @@
     "group":"Default Apps",
     "description":"Please setup your default apps.",
     "settings":[{
+      "name": "Wallpaper App",
+      "id": "wallpaper_app",
+      "instructions": "Select your preferred wallpaper app",
+      "file": "~/.config/ml4w/settings/wallpaper-app",
+      "type": "choose",
+      "mode": "overwrite",
+      "default": "quickshell",
+      "options": ["quickshell", "waypaper"]
+    },{
       "name": "Default Terminal",
       "id": "default_terminal",
       "instructions": "Enter the command to execute the terminal",
@@ -256,6 +274,14 @@
     "group":"System Settings",
     "description":"Overview of core key system settings",
     "settings":[{
+      "name": "Wallpaper Folder",
+      "id": "wallpaper_folder",
+      "instructions": "Enter the full path to your wallpaper folder",
+      "file": "~/.config/ml4w/settings/wallpaper-folder",
+      "type": "textfield",
+      "mode": "overwrite",
+      "default": "$HOME/.config/ml4w/wallpapers"
+    },{
         "name": "Keybinding Variants",
         "id": "variant_keybinding",
         "instructions": "Choose your preferred keybinding variant:",
