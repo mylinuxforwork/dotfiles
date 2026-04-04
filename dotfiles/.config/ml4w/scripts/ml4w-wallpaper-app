@@ -31,7 +31,7 @@ fi
 if [ "$1" == "--restore" ]; then
     if [ "$WALLPAPER_APP" == "quickshell" ]; then
         info "Using awww"
-        awww-daemon &
+        # awww-daemon &
     elif [ "$WALLPAPER_APP" == "waypaper" ]; then
         waypaper --restore
     else
