@@ -161,11 +161,12 @@ fi
 
 # Ensure awww-daemon is running
 if ! pgrep -x "awww-daemon" > /dev/null; then
+    mkdir -p "$HOME/.cache/awww"
     info "Starting awww-daemon..."
     awww-daemon &
     
     # Give the daemon a brief moment to initialize before sending commands
-    sleep 0.5 
+    sleep 1 
 fi
 
 # Write image path to cache file
