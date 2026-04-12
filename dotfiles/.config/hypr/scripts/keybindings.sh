@@ -10,7 +10,7 @@
 # Get keybindings location based on variation
 # -----------------------------------------------------
 config_file=$(<~/.config/hypr/conf/keybinding.conf)
-config_file=${config_file//source = ~/$HOME}
+config_file=${config_file//source = ~/$([ -d "/home/$USER" ] && echo "/home/$USER" || echo "$HOME")}
 
 # -----------------------------------------------------
 # Load Launcher
