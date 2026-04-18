@@ -94,7 +94,7 @@ button {
     border-radius:               2em;
     border:                      0;    
     cursor:                      pointer;
-    background-color:            @surface;
+    background-color:            @background;
     text-color:                  @on-surface;
 }
 

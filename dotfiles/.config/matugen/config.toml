@@ -1,9 +1,17 @@
 [config]
 
+[templates.colorsjson]
+input_path = '~/.config/matugen/templates/colors.json'
+output_path = '~/.config/ml4w/colors/colors.json'
+
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
 output_path = '~/.config/kitty/colors-matugen.conf'
 post_hook = 'pkill -SIGUSR1 kitty'
+
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
 
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
@@ -38,13 +46,13 @@ output_path = '~/.themes/Material-Gnome/gtk-4.0/colors.css'
 input_path = '~/.config/matugen/templates/pywalfox-colors.json'
 output_path = '~/.cache/wal/colors.json'
 
-[templates.wlogout]
-input_path = '~/.config/matugen/templates/colors.css'
-output_path = '~/.config/wlogout/colors.css'
-
 [templates.swaync]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/swaync/colors.css'
+
+[templates.walker]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/walker/colors.css'
 
 [templates.nwgdock]
 input_path = '~/.config/matugen/templates/colors.css'
@@ -54,7 +62,32 @@ output_path = '~/.config/nwg-dock-hyprland/colors.css'
 input_path = '~/.config/matugen/templates/sequences'
 output_path = '~/.cache/wal/sequences'
 
+[templates.primary]
+input_path = '~/.config/matugen/templates/primary'
+output_path = '~/.config/ml4w/colors/primary'
+
+[templates.secondary]
+input_path = '~/.config/matugen/templates/secondary'
+output_path = '~/.config/ml4w/colors/secondary'
+
+[templates.on_surface]
+input_path = '~/.config/matugen/templates/onsurface'
+output_path = '~/.config/ml4w/colors/onsurface'
+
+[templates.on_primary]
+input_path = '~/.config/matugen/templates/onprimary'
+output_path = '~/.config/ml4w/colors/onprimary'
+
+[templates.ml4w_dotfiles_settings]
+input_path  = "./templates/colors.json"
+output_path = "~/.local/share/ml4w-dotfiles-settings/colors/colors.json"
+
+[templates.quickshell_overview]
+input_path  = "./templates/quickshell-overview.qml"
+output_path = "~/.config/quickshell/overview/common/Appearance.colors.qml"
+
 [templates.ohmyposh]
 input_path = '~/.config/matugen/templates/ohmyposh-colors.json'
 output_path = '~/.config/ohmyposh/colors.json'
 post_hook = "jq --slurpfile palette ~/.config/ohmyposh/colors.json '. + $palette[0]' ~/.config/ohmyposh/EDM115-newline.omp.json > /tmp/new_theme.json && mv /tmp/new_theme.json ~/.config/ohmyposh/EDM115-newline.omp.json"
+

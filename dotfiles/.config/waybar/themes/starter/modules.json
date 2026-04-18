@@ -59,9 +59,9 @@
     // Cliphist
     "custom/cliphist": {
         "format": "",
-        "on-click": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh",
-        "on-click-right": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh d",
-        "on-click-middle": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh w",
+        "on-click": "sleep 0.1 && ~/.config/ml4w/scripts/ml4w-cliphist",
+        "on-click-right": "sleep 0.1 && ~/.config/ml4w/scripts/ml4w-cliphist d",
+        "on-click-middle": "sleep 0.1 && ~/.config/ml4w/scripts/ml4w-cliphist w",
         "tooltip": false
     },
 
@@ -83,9 +83,9 @@
         "tooltip-format": "{}",
         "escape": true,
         "return-type": "json",
-        "exec": "~/.config/ml4w/scripts/updates.sh",
+        "exec": "~/.config/ml4w/scripts/ml4w-check-system-updates",
         "restart-interval": 60,
-        "on-click": "alacritty -e ~/.config/ml4w/scripts/installupdates.sh",
+        "on-click": "~/.config/ml4w/settings/installupdates.sh",
         "tooltip": false
     },
 
@@ -164,7 +164,7 @@
     // Power Menu
     "custom/exit": {
         "format": "",
-        "on-click": "wlogout",
+        "on-click": "qs ipc call power toggle",
         "tooltip": false
     },
 

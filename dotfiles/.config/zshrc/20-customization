@@ -9,7 +9,7 @@ POSH=agnoster
 # ZSH_THEME=robbyrussell
 
 # -----------------------------------------------------
-# oh-myzsh plugins
+# oh-my-zsh plugins
 # -----------------------------------------------------
 plugins=(
     git

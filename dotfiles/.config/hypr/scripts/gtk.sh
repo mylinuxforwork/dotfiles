@@ -25,7 +25,7 @@ echo "GTK-Theme:" $gtk_theme
 echo "Icon Theme:" $icon_theme
 echo "Cursor Theme:" $cursor_theme
 echo "Cursor Size:" $cursor_size
-if [ $prefer_dark_theme == "0" ]; then
+if [[ $prefer_dark_theme == "0" || $prefer_dark_theme == "false" ]]; then
     prefer_dark_theme_value="prefer-light"
 else
     prefer_dark_theme_value="prefer-dark"
@@ -46,8 +46,3 @@ if [ -f ~/.config/hypr/conf/cursor.conf ]; then
     echo "exec-once = hyprctl setcursor $cursor_theme $cursor_size" >~/.config/hypr/conf/cursor.conf
     hyprctl setcursor $cursor_theme $cursor_size
 fi
-
-# Update gsettings for open any terminal
-gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal "$terminal"
-gsettings set com.github.stunkymonkey.nautilus-open-any-terminal use-generic-terminal-name "true"
-gsettings set com.github.stunkymonkey.nautilus-open-any-terminal keybindings "<Ctrl><Alt>t"

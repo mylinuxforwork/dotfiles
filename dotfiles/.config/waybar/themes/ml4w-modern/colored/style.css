@@ -3,9 +3,9 @@
  * ----------------------------------------------------- */
 @import '../../../../../.config/waybar/colors.css';
 
-@define-color primary @on_secondary;
+@define-color on_surface @on_secondary;
 @define-color icon_color @secondary;
 @define-color border_color @secondary;
-@define-color background @primary;
+@define-color background @secondary;
 
 @import '../style.css';

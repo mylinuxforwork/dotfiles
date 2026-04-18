@@ -1,16 +1,14 @@
 {
-	"name": "ML4W Dotfiles for Hyprland DEV",
+	"name": "ML4W OS - Dotfiles for Hyprland (DEV)",
 	"id": "com.ml4w.dotfiles.dev",
 	"description": "Advanced configuration for the dynamic tiling window manager Hyprland",
-	"version":"2.9.9.1",
+	"version":"2.12.2",
 	"author": "Stephan Raabe",
-	"homepage": "https://mylinuxforwork.github.io/dotfiles/",
-	"dependencies": "https://mylinuxforwork.github.io/dotfiles/getting-started/dependencies",
-	"source": "Projects/dotfiles",
+	"homepage": "https://ml4w.com/os/",
+	"dependencies": "https://ml4w.com/os/getting-started/dependencies",
+	"source": "$HOME/Projects/dotfiles",
 	"subfolder": "dotfiles",
-	"dev":{
-		"ignore":"keyboard.conf,monitor.conf,waypaper,sidepad-active"
-	},
+	"setupscript":"setup/setup.sh",
 	"restore":[
 		{
 			"title":"ML4W Settings",
@@ -28,8 +26,18 @@
 			"value":true
 		},
 		{
+			"title":"NWG-Displays",
+			"source":".config/hypr/monitors.conf",
+			"value":true
+		},
+		{
 			"title":"Waypaper",
 			"source":".config/waypaper",
+			"value":true
+		},
+		{
+			"title":"Hyprsunset",
+			"source":".config/hypr/hyprsunset.conf",
 			"value":true
 		},
 		{
@@ -91,58 +99,6 @@
 			"title":"GTK 2",
 			"source":".gtkrc-2.0",
 			"value":true
-		}
-	],
-	"settings":[
-		{
-			"type":"text",
-			"mode":"replacesingleline",
-			"title":"Keyboard Layout",
-			"file":".config/hypr/conf/keyboard.conf",
-			"checkpoint":"Check",
-			"search":"kb_layout",
-			"value":"us",
-			"template":"    kb_layout = [VALUE]"
-		},
-		{
-			"type":"text",
-			"mode":"replacesingleline",
-			"title":"Keyboard Variant",
-			"file":".config/hypr/conf/keyboard.conf",
-			"checkpoint":"Check",
-			"search":"kb_variant",
-			"value":"",
-			"template":"    kb_variant = [VALUE]"
-		},
-		{
-			"type":"text",
-			"mode":"replacesingleline",
-			"title":"Screen Resolution",
-			"file":".config/hypr/conf/monitors/default.conf",
-			"checkpoint":"Check",
-			"search":"monitor=,preferred,",
-			"value":"preferred",
-			"template":"monitor=,[VALUE],auto,1"
-		},
-		{
-			"type":"text",
-			"mode":"overwritefile",
-			"title":"Default Terminal",
-			"file":".config/ml4w/settings/terminal.sh",
-			"checkpoint":"Check",
-			"search":"",
-			"value":"kitty",
-			"template":""
-		},
-		{
-			"type":"text",
-			"mode":"overwritefile",
-			"title":"Default Browser",
-			"file":".config/ml4w/settings/browser.sh",
-			"checkpoint":"Check",
-			"search":"",
-			"value":"firefox",
-			"template":""
 		}
 	]
 }

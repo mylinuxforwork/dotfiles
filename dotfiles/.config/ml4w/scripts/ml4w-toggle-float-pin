@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Toggle floating and pinning (sticky) for the active window
+hyprctl dispatch togglefloating
+hyprctl dispatch pin

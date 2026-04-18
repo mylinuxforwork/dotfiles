@@ -1,0 +1,182 @@
+@define-color window_bg_color #1f1f28;
+@define-color accent_bg_color #54546d;
+@define-color theme_fg_color #f2ecbc;
+@define-color error_bg_color #C34043;
+@define-color error_fg_color #DCD7BA;
+
+@import "../../colors.css";
+
+* {
+  all: unset;
+}
+
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.box-wrapper {
+  box-shadow:
+    0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  background: @surface;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid @primary;
+}
+
+.preview-box,
+.elephant-hint,
+.placeholder {
+  color: @theme_fg_color;
+}
+
+.box {
+}
+
+.search-container {
+  border-radius: 10px;
+  border: 2px solid @primary;
+}
+
+.input placeholder {
+  opacity: 0.5;
+}
+
+.input {
+  background: transparent;
+  padding: 10px;
+  color: @on_surface;
+}
+
+.input:focus,
+.input:active {
+}
+
+.content-container {
+}
+
+.placeholder {
+}
+
+.scroll {
+}
+
+.list {
+  color: @theme_fg_color;
+}
+
+child {
+}
+
+.item-box {
+  border-radius: 10px;
+  padding: 10px;
+  color:@on_surface;
+}
+
+.item-quick-activation {
+  margin-left: 10px;
+  background: alpha(@accent_bg_color, 0.25);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+child:hover .item-box,
+child:selected .item-box {
+  background: @primary;
+  color:@on_primary;
+}
+
+.item-text-box {
+}
+
+.item-text {
+}
+
+.item-subtext {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.item-image,
+.item-image-text {
+  margin-right: 10px;
+}
+
+.item-image-text {
+  font-size: 28px;
+}
+
+.preview {
+  border: 1px solid alpha(@accent_bg_color, 0.25);
+  padding: 10px;
+  border-radius: 10px;
+  color: @theme_fg_color;
+}
+
+.calc .item-text {
+  font-size: 24px;
+}
+
+.calc .item-subtext {
+}
+
+.symbols .item-image {
+  font-size: 24px;
+}
+
+.todo.done .item-text-box {
+  opacity: 0.25;
+}
+
+.todo.urgent {
+  font-size: 24px;
+}
+
+.todo.active {
+  font-weight: bold;
+}
+
+.bluetooth.disconnected {
+  opacity: 0.5;
+}
+
+.preview .large-icons {
+  -gtk-icon-size: 64px;
+}
+
+.keybinds-wrapper {
+  border-top: 0px solid lighter(@primary);
+  font-size: 12px;
+  opacity: 0.5;
+  color: @on_surface;
+}
+
+.keybinds {
+}
+
+.keybind {
+}
+
+.keybind-bind {
+  color: @on_surface;
+  font-weight: bold;
+}
+
+.keybind-label {
+  color: @on_surface;
+}
+
+.error {
+  padding: 10px;
+  background: @error_bg_color;
+  color: @error_fg_color;
+}

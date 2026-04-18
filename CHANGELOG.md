@@ -1,3 +1,110 @@
+Version 2.12.2
+--------------------------------------------------------
+- Update matugen to the latest version
+- Using awww as default wallpaper engine
+- Transition effects can be set in the Settings App and Appearance
+- New Quickshell based wallpaper selector. Toggle with SUPER+CTRL+W
+- Waypaper can be selected optionally in the Settings App and Default Apps but must be installed separately.
+
+Version 2.12.1
+--------------------------------------------------------
+- Replaced swww with awww
+- Installation of waypaper-git to support awww and latest hyprpaper
+- Compatible with Hyprland 0.54.3
+- Welcome App url fixes
+
+Version 2.12.0
+--------------------------------------------------------
+- Flatpaks ML4W Welcome App, Settings App, Sidebar App and Calendar App replaced with Quickshell
+- wlogout replaced with a Quickshell widget
+- ML4W Hyprland Settings app can be installed optionally from the Welcome app or as described here: https://github.com/mylinuxforwork/hyprland-settings
+- New snapshot script for timeshift and grub-btrfs ~/.config/ml4w/scripts/ml4w-snapshot supporting Arch, Fedora based distros and openSuse Tumbleweed
+- New pacman update script for Arch to enable colors, parallel downloads and ILoveCandy ~/.config/ml4w/scripts/ml4w-pacman
+- New keybinding to toggle the active window to floating and pin: SUPER+ALT+T
+- New keybinding to toggle the calendar widget: SUPER+CTRL+C
+- Quickshell Overview added. Can be toggled with CTRL+TAB
+
+Version 2.11.1
+--------------------------------------------------------
+- Compatible with Hyprland 0.54.x
+- Neovim configuration moved to own repository https://github.com/mylinuxforwork/ml4w-nvim 
+- Install the ML4W nvim configuration from the Welcome App in Settings/Options or with ~/.config/ml4w/scripts/ml4w-install-nvim
+- New default icon theme kora-pgrey
+- Switched back to Bibata Cursor Theme
+- New keybinding: SUPER+SHIFT+M to toggle between dark and light mode
+- Hyprshade replaced with Hyprsunset. Configuration in ~./config/hypr/hyprsunset.conf (can be restored for updates)
+
+Version 2.11.0
+--------------------------------------------------------
+- The SDDM script can copy the current wallpaper to SDDM and use it as a background image. Start the script with ~/.config/ml4w/scripts/ml4w-install-sddm or from the Welcome App/Settings/Display Manager
+- New installation script based on the script based ML4W Dotfiles Installer
+- New Default Wallpaper
+
+Version 2.10.1
+--------------------------------------------------------
+- ML4W Logo added to fastfetch
+- Hide fastfetch by adding a file to ~/.config/ml4w/settings/hide-fastfetch
+- Add script to install sddm and the ml4w theme based on SilentSDDM ~/.config/ml4w/scripts/ml4w-install-sddm or from the Welcome App/Settings/Display Manager
+- IMPORTANT: Started to cleanup and renaming scripts in ~/.config/ml4w/scripts/ Please make sure that all your customization target to the new file names.
+
+Version 2.10.0
+--------------------------------------------------------
+- Project renamed to ML4W OS
+- Live ISO and installation script available (BETA)
+- btop is now using the matugen generated color theme
+- New Calendar App with the possibility to add events. CREDITS TO https://github.com/defaltastra
+- Cleaned up Welcome and Settings App
+
+Version 2.9.9.6
+--------------------------------------------------------
+- Glass and Transparent theme updated for Blur decoration. Can be set in the settings app.
+- Several fixes for Fedora 43 setup script
+- Global font set in nwg-look
+- Fix Quicklinks module in glass and transparent waybar theme
+
+Version 2.9.9.5
+--------------------------------------------------------
+- New windowrule syntax required for Hyprland 0.53.x
+- swww is the new default wallpaper engine. Please switch from hyprpaper to swww in waypaper in case of an Dotfiles update.
+- New Global Theme "transparent"
+- copr for Hyprland on Fedora replaced. Please run the setup script again with the Dotfiles Installer.
+- New Glass Center Waybar Theme with workspace selector in the center.
+
+Version 2.9.9.4
+--------------------------------------------------------
+- Global Theme support: CTRL+ALT+T to open the theme selector
+- New global glass theme
+- New Animation Smooth: You can select it in the Settings app.
+- Dock Auto-hide can be activated by adding a file dock-autohide into .config/ml4w/settings (BETA)
+- New Default Cursor Theme ArcAurora with two additional variants
+- Terminal CLI: Enter 'apps' to launch the launcher script
+- Terminal CLI: Enter 'screenshot' to launch the screenshot script
+- Terminal CLI: Enter 'finder' to launch a fuzzy finder script
+- Terminal CLI: Enter 'updates' to launch the update script
+- Terminal CLI: Enter 'filemanager' to launch yazi (to be installed separately)
+- Terminal CLI: Enter 'system' to launch btop
+- Terminal CLI: Enter 'lock' to lock the screen with hyprlock
+- Terminal CLI: Enter 'quick' to start the quicklinks script
+- Terminal CLI: Enter 'wallpaper' to start the wallpaper selector CLI
+- New screenshot configuration file names (without .sh) in ~/.config/ml4w/settings
+
+Version 2.9.9.3
+--------------------------------------------------------
+- New Default icons Colloid
+- Improved Waybar modern theme and new minimal version
+- Reduced border size to 2px
+- Border size of NWG Dock Hyprland can be modified in ~/.config/ml4w/settings/dock-border.css
+- Walker can be optionally activated as system-wide launcher (except screenshot). https://mylinuxforwork.github.io/dotfiles/configuration/walker
+- New default wallpaper
+- Arch setup script checks for installed AUR helper (yay or paru)
+
+Version 2.9.9.2
+--------------------------------------------------------
+- New ML4W Logo
+- Compatible with Hyprland 0.51.x
+- New default wallpaper
+- New swaync layout with dark or light theme support
+
 Version 2.9.9.1
 --------------------------------------------------------
 - Full dark and light theme support. Change preferred theme in nw-look. A listener script will reload waybar and nwg-dock-hyprland when the file ~/.config/gtk-4.0/settings.ini will be changed.

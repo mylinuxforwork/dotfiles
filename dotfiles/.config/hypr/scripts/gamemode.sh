@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
-#   ____                                          _
-#  / ___| __ _ _ __ ___   ___ _ __ ___   ___   __| | ___
-# | |  _ / _` | '_ ` _ \ / _ \ '_ ` _ \ / _ \ / _` |/ _ \
-# | |_| | (_| | | | | | |  __/ | | | | | (_) | (_| |  __/
-#  \____|\__,_|_| |_| |_|\___|_| |_| |_|\___/ \__,_|\___|
-#
-#
+#                                      __   
+#   ___ ____ ___ _  ___ __ _  ___  ___/ /__ 
+#  / _ `/ _ `/  ' \/ -_)  ' \/ _ \/ _  / -_)
+#  \_, /\_,_/_/_/_/\__/_/_/_/\___/\_,_/\__/ 
+# /___/                                     
+# 
+
 
 ml4w_cache_folder="$HOME/.cache/ml4w/hyprland-dotfiles"
 gamemode_monitor="$HOME/.config/hypr/conf/monitors/gamemode.conf"
+
+# Notifications
+source "$HOME/.config/ml4w/scripts/ml4w-notification-handler"
+APP_NAME="System"
+NOTIFICATION_ICON="joystick"
+
 
 if [ -f $HOME/.config/ml4w/settings/gamemode-enabled ]; then
   if [ -f $ml4w_cache_folder/last_monitor.conf ]; then
@@ -17,11 +23,14 @@ if [ -f $HOME/.config/ml4w/settings/gamemode-enabled ]; then
   fi
   if [ -f $ml4w_cache_folder/restart-wpauto ]; then
     rm $ml4w_cache_folder/restart-wpauto
-    $HOME/.config/hypr/scripts/wallpaper-automation.sh &
+    $HOME/.config/ml4w/scripts/ml4w-wallpaper-automation &
   fi
   hyprctl reload
   rm $HOME/.config/ml4w/settings/gamemode-enabled
-  notify-send "Gamemode deactivated" "Animations and blur enabled"
+  notify_user --a "${APP_NAME}" \
+            --i "${NOTIFICATION_ICON}" \
+            --s "Gamemode deactivated" \
+            --m "Animations and blur are now enabled."
 else
   if [ -f $gamemode_monitor ]; then
     cat $HOME/.config/hypr/conf/monitor.conf > $ml4w_cache_folder/last_monitor.conf
@@ -29,7 +38,7 @@ else
   fi
   if [ -f $ml4w_cache_folder/wallpaper-automation ]; then
     touch $ml4w_cache_folder/restart-wpauto
-    $HOME/.config/hypr/scripts/wallpaper-automation.sh
+    $HOME/.config/ml4w/scripts/ml4w-wallpaper-automation
   fi
   hyprctl --batch "\
     keyword animations:enabled 0;\
@@ -38,7 +47,13 @@ else
     keyword general:gaps_in 0;\
     keyword general:gaps_out 0;\
     keyword general:border_size 1;\
+    keyword decoration:active_opacity 1;\
+    keyword decoration:inactive_opacity 1;\
+    keyword decoration:fullscreen_opacity 1;\
     keyword decoration:rounding 0"
   touch $HOME/.config/ml4w/settings/gamemode-enabled
-  notify-send "Gamemode activated" "Animations and blur disabled"
+  notify_user --a "${APP_NAME}" \
+          --i "${NOTIFICATION_ICON}" \
+          --s "Gamemode activated" \
+          --m "Animations and blur are now disabled."
 fi

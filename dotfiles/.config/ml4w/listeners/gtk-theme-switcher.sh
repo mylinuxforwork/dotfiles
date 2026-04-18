@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script monitors changes to the GTK settings.ini file
 # and automatically switches the 'matugen' theme between light and dark
@@ -37,20 +37,59 @@ apply_theme() {
         return 0
     fi
 
-    if [ "$THEME_PREF" -eq 1 ]; then
-        echo "Detected dark theme preference (gtk-application-prefer-dark-theme=1). Applying dark matugen theme..."
-        $HOME/.local/bin/matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper)
-        $HOME/.config/nwg-dock-hyprland/launch.sh &
-        $HOME/.config/waybar/launch.sh &
+    if [[ "$THEME_PREF" == "1" || "$THEME_PREF" == "true" ]]; then
+        echo "Detected dark theme preference (gtk-application-prefer-dark-theme=1/true). Applying dark matugen theme..."
+        if [ -f $HOME/.cargo/bin/matugen ]; then
+            $HOME/.cargo/bin/matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) --source-color-index 0 -m "dark"
+        else
+            matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) --source-color-index 0 -m "dark"
+        fi
+
+        # Update Quickshell theme
+        qs ipc call theme-manager reload
+        echo "Quickshell Theme updated"
+
+        # Update ML4W Dotfiles Settings theme
+        qs -p $HOME/.local/share/ml4w-dotfiles-settings/quickshell ipc call theme-manager reload
+        echo "ML4W Dotfiles Settings Theme updated"
+
+        # Reload Waybar
+        nohup bash -c "$HOME/.config/waybar/launch.sh" > /dev/null 2>&1 &
+        disown
+
+        # Reload nwg-dock-hyprland
+        nohup bash -c "$HOME/.config/nwg-dock-hyprland/launch.sh" > /dev/null 2>&1 &
+        disown
+
         $HOME/.config/hypr/scripts/gtk.sh &
-    elif [ "$THEME_PREF" -eq 0 ]; then
-        echo "Detected light theme preference (gtk-application-prefer-dark-theme=0). Applying light matugen theme..."
-        $HOME/.local/bin/matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) -m "light"
-        $HOME/.config/nwg-dock-hyprland/launch.sh &
-        $HOME/.config/waybar/launch.sh &
+
+        swaync-client -rs
+    elif [[ "$THEME_PREF" == "0" || "$THEME_PREF" == "false" ]]; then
+        echo "Detected light theme preference (gtk-application-prefer-dark-theme=0/false). Applying light matugen theme..."
+        
+        if [ -f $HOME/.cargo/bin/matugen ]; then
+            $HOME/.cargo/bin/matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) --source-color-index 0 -m "light"
+        else
+            matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) --source-color-index 0 -m "light"
+        fi
+
+        # Update Quickshell theme
+        qs ipc call theme-manager reload
+        echo "Quickshell Theme updated"
+
+        # Reload nwg-dock-hyprland
+        nohup bash -c "$HOME/.config/waybar/launch.sh" > /dev/null 2>&1 &
+        disown
+
+        # Reload nwg-dock-hyprland
+        nohup bash -c "$HOME/.config/nwg-dock-hyprland/launch.sh" > /dev/null 2>&1 &
+        disown
+
         $HOME/.config/hypr/scripts/gtk.sh &
+
+        swaync-client -rs
     else
-        echo "Warning: Unexpected value for gtk-application-prefer-dark-theme: $THEME_PREF. Expected 0 or 1. Skipping theme application."
+        echo "Warning: Unexpected value for gtk-application-prefer-dark-theme: $THEME_PREF. Expected 0/1/true/false. Skipping theme application."
     fi
 }
 

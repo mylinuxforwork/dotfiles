@@ -1,2 +1,2 @@
-magick $wallpaper -set colorspace Gray -separate -average $used_wallpaper
-magick $used_wallpaper -blur "50x30" $used_wallpaper
+magick $IMAGE_PATH -set colorspace Gray -separate -average $IMAGE_PATH
+magick $IMAGE_PATH -blur "50x30" $IMAGE_PATH
