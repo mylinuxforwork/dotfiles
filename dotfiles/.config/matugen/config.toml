@@ -37,7 +37,6 @@ output_path = '~/.themes/Material-Gnome/gtk-3.0/colors.css'
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
-post_hook = '~/.config/matugen/post-hook-scripts/merge-gtk.py'
 
 [templates.gtk4-theme]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
