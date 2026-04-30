@@ -1,0 +1,106 @@
+# Debian forky package list (complete — the cross-distro packages file
+# is intentionally skipped on Debian by the installer).
+#
+# Packages installed outside this list:
+#   - hyprsunset, swaync, nwg-dock-hyprland: built as .deb by the myml4w
+#     orchestrator and installed before this profile is run.
+#   - matugen, awww: cargo install (see post-debian.sh)
+#   - pywalfox: pipx install (see post-debian.sh)
+#   - Nerd Fonts (FiraCode, JetBrainsMono): downloaded from upstream
+#     releases (see post-debian.sh)
+#   - grimblast: vendored script copied to /usr/bin (see post-debian.sh)
+
+# Core CLI / system
+wget
+curl
+git
+rsync
+unzip
+tar
+jq
+vim
+neovim
+htop
+btop
+xclip
+zsh
+fzf
+flatpak
+inotify-tools
+udisks2
+udiskie
+gvfs
+gvfs-backends
+xdg-user-dirs
+figlet
+fastfetch
+brightnessctl
+eza
+cargo
+pipx
+python3-pip
+python3-gi
+python3-screeninfo
+
+# Wayland / Hyprland
+hyprland
+hyprpaper
+hyprlock
+hypridle
+hyprpicker
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+uwsm
+waybar
+rofi
+nwg-displays
+nwg-look
+quickshell
+grim
+slurp
+wl-clipboard
+cliphist
+tumbler
+libnotify-bin
+
+# Qt / theming
+qt6ct
+qtwayland5
+qt6-wayland
+libqt6svg6
+qt6-virtualkeyboard-plugin
+libqt6virtualkeyboard6
+libqt6multimedia6
+qml6-module-qtmultimedia
+gnome-themes-extra
+breeze-cursor-theme
+
+# Apps
+kitty
+vlc
+nautilus
+gnome-text-editor
+loupe
+firefox-esr
+pavucontrol
+blueman
+
+# Network / power / polkit
+network-manager-applet
+nm-connection-editor
+power-profiles-daemon
+lxqt-policykit
+
+# OCR
+tesseract-ocr
+tesseract-ocr-eng
+
+# Imaging
+imagemagick
+
+# Fonts (Nerd variants are downloaded in post-debian.sh)
+fonts-font-awesome
+fonts-firacode
+
+# Secrets
+libsecret-1-0
