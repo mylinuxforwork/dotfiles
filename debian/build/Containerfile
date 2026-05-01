@@ -1,0 +1,15 @@
+# Reproducible build environment for myml4w .deb packages.
+# Used only for opt-in podman test builds (`make build-debs-podman`).
+# The default install path builds on the host — see Makefile.
+FROM docker.io/library/debian:forky
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+COPY build-deps.txt /tmp/build-deps.txt
+RUN apt-get update \
+    && grep -vE '^\s*(#|$)' /tmp/build-deps.txt | xargs apt-get install -y --no-install-recommends \
+    && gem install --no-document fpm \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/build-deps.txt
+
+WORKDIR /work
