@@ -6,15 +6,15 @@
 
 set -euo pipefail
 
-: "${MYML4W_ROOT:?must be set by caller}"
+: "${ML4W_DEBIAN_ROOT:?must be set by caller}"
 : "${PKG_NAME:?must be set by caller}"
 : "${PKG_VERSION:?must be set by caller}"
 : "${PKG_REPO:?must be set by caller}"
 
-WORK_DIR="${WORK_DIR:-${MYML4W_ROOT}/build/work/${PKG_NAME}}"
+WORK_DIR="${WORK_DIR:-${ML4W_DEBIAN_ROOT}/build/work/${PKG_NAME}}"
 SRC_DIR="${WORK_DIR}/src"
 DESTDIR="${WORK_DIR}/install"
-DIST_DIR="${MYML4W_ROOT}/dist"
+DIST_DIR="${ML4W_DEBIAN_ROOT}/dist"
 
 mkdir -p "$WORK_DIR" "$DIST_DIR"
 rm -rf "$SRC_DIR" "$DESTDIR"
@@ -42,7 +42,7 @@ fpm_pack() {
         -v "$ver" \
         --license "see upstream" \
         --maintainer "thywyn <thywyn@hotmail.com>" \
-        --vendor "myml4w" \
+        --vendor "ml4w-debian" \
         --description "$PKG_NAME built from $PKG_REPO @ $PKG_VERSION" \
         --url "$PKG_REPO" \
         --deb-no-default-config-files \

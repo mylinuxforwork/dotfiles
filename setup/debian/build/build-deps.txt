@@ -1,4 +1,4 @@
-# apt build deps for myml4w packages (hyprsunset, swaync, nwg-dock-hyprland).
+# apt build deps for setup/debian packages (hyprsunset, swaync, nwg-dock-hyprland).
 # Used by `make build-deps` on the host and by build/Containerfile for the
 # podman test image. Keep one package per line; comments and blanks ignored.
 build-essential

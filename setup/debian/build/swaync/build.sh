@@ -10,7 +10,7 @@ export PKG_NAME=swaync
 export PKG_VERSION="${SWAYNC_VERSION:?versions.env not sourced}"
 export PKG_REPO="${SWAYNC_REPO:?versions.env not sourced}"
 
-source "${MYML4W_ROOT}/build/common.sh"
+source "${ML4W_DEBIAN_ROOT}/build/common.sh"
 
 clone_src
 

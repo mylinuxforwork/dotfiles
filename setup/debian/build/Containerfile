@@ -1,4 +1,4 @@
-# Reproducible build environment for myml4w .deb packages.
+# Reproducible build environment for setup/debian .deb packages.
 # Used only for opt-in podman test builds (`make build-debs-podman`).
 # The default install path builds on the host — see Makefile.
 FROM docker.io/library/debian:forky

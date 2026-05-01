@@ -113,9 +113,9 @@ docs/.vitepress/cache
 
 # devicon
 docs/.vitepress/devicon
-# debian/ bootstrap build artifacts
-debian/dist/
-debian/build/work/
+# setup/debian build artifacts
+setup/debian/dist/
+setup/debian/build/work/
 *.deb
 *.buildinfo
 *.changes

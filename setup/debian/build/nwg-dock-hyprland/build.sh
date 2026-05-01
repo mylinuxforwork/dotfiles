@@ -9,7 +9,7 @@ export PKG_NAME=nwg-dock-hyprland
 export PKG_VERSION="${NWG_DOCK_HYPRLAND_VERSION:?versions.env not sourced}"
 export PKG_REPO="${NWG_DOCK_HYPRLAND_REPO:?versions.env not sourced}"
 
-source "${MYML4W_ROOT}/build/common.sh"
+source "${ML4W_DEBIAN_ROOT}/build/common.sh"
 
 clone_src
 

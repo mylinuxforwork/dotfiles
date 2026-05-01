@@ -6,7 +6,7 @@
 	"author": "Stephan Raabe",
 	"homepage": "https://ml4w.com/os/",
 	"dependencies": "https://ml4w.com/os/getting-started/dependencies",
-	"source": "https://github.com/mylinuxforwork/dotfiles.git",
+	"source": "https://github.com/thywyn/ml4wdotfiles.git",
 	"subfolder": "dotfiles",
 	"restore":[
 		{

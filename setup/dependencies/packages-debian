@@ -2,8 +2,9 @@
 # is intentionally skipped on Debian by the installer).
 #
 # Packages installed outside this list:
-#   - hyprsunset, swaync, nwg-dock-hyprland: built as .deb by the myml4w
-#     orchestrator and installed before this profile is run.
+#   - hyprsunset, swaync, nwg-dock-hyprland: built as .deb by
+#     setup/preflight-debian.sh (driven by setup/debian/) before this
+#     package list is processed.
 #   - matugen, awww: cargo install (see post-debian.sh)
 #   - pywalfox: pipx install (see post-debian.sh)
 #   - Nerd Fonts (FiraCode, JetBrainsMono): downloaded from upstream

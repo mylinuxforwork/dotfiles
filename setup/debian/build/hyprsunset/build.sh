@@ -8,7 +8,7 @@ export PKG_NAME=hyprsunset
 export PKG_VERSION="${HYPRSUNSET_VERSION:?versions.env not sourced}"
 export PKG_REPO="${HYPRSUNSET_REPO:?versions.env not sourced}"
 
-source "${MYML4W_ROOT}/build/common.sh"
+source "${ML4W_DEBIAN_ROOT}/build/common.sh"
 
 clone_src
 
