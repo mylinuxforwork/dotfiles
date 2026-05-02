@@ -4,7 +4,7 @@ ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 DIST := $(ROOT)/dist
 IMAGE := localhost/ml4w-debian-builder:forky
 
-PACKAGES := hyprsunset swaync nwg-dock-hyprland
+PACKAGES := hyprsunset nwg-dock-hyprland
 
 # This Makefile is a *dev convenience* for iterating on the .deb build
 # recipes. The install path is the standard ml4w flow:

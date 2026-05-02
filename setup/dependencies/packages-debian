@@ -2,7 +2,7 @@
 # is intentionally skipped on Debian by the installer).
 #
 # Packages installed outside this list:
-#   - hyprsunset, swaync, nwg-dock-hyprland: built as .deb by
+#   - hyprsunset, nwg-dock-hyprland: built as .deb by
 #     setup/preflight-debian.sh (driven by setup/debian/) before this
 #     package list is processed.
 #   - matugen, awww: cargo install (see post-debian.sh)
@@ -34,6 +34,7 @@ gvfs
 gvfs-backends
 xdg-user-dirs
 figlet
+info
 fastfetch
 brightnessctl
 eza
@@ -57,6 +58,7 @@ rofi
 nwg-displays
 nwg-look
 quickshell
+sway-notification-center
 grim
 slurp
 wl-clipboard

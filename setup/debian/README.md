@@ -4,12 +4,14 @@ This folder is the **Debian-specific data** for the standard ml4w
 install flow. It is invoked by `setup/preflight-debian.sh` (which is
 called by `ml4w-dotfiles-installer` during install).
 
-It builds, on the host, the three pieces ML4W needs that aren't yet
+It builds, on the host, the pieces ML4W needs that aren't yet
 in Debian forky:
 
 - `hyprsunset`
-- `swaync` (SwayNotificationCenter)
 - `nwg-dock-hyprland`
+
+(Forky now ships `sway-notification-center`, so swaync is installed
+via apt by `setup/dependencies/packages-debian`, not built here.)
 
 The resulting `.deb` files are installed via `apt install`, then the
 regular `setup/dependencies/packages-debian` step (still part of the
@@ -32,7 +34,7 @@ make -C ml4w-dotfiles-installer install
 ```
 
 The installer clones this repo, runs `setup/preflight-debian.sh`
-(which builds and installs the three `.deb`s above), then installs
+(which builds and installs the `.deb`s above), then installs
 `setup/dependencies/packages-debian`, then runs
 `setup/post-debian.sh`, then symlinks the dotfiles.
 
@@ -48,7 +50,7 @@ install path doesn't need them directly — preflight-debian.sh calls
 | ------------------- | -------------------------------------------------- |
 | `make build-deps`   | `apt install` build deps + `gem install fpm`       |
 | `make build-debs`   | Build all `.deb` packages on the host into `dist/` |
-| `make deb-<pkg>`    | Build a single `.deb` (`hyprsunset`, `swaync`, …)  |
+| `make deb-<pkg>`    | Build a single `.deb` (`hyprsunset`, `nwg-dock-hyprland`) |
 | `make install-debs` | `apt install ./dist/*.deb`                         |
 | `make clean`        | Remove `dist/` and build work dirs                 |
 
@@ -71,7 +73,6 @@ setup/debian/
 │   ├── Containerfile     # debian:forky build env (podman, opt-in)
 │   ├── common.sh         # shared build helpers (clone, fpm wrapper)
 │   ├── hyprsunset/build.sh
-│   ├── swaync/build.sh
 │   └── nwg-dock-hyprland/build.sh
 └── dist/                 # built .deb files (gitignored)
 ```

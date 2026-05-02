@@ -38,8 +38,8 @@ else
 fi
 
 if ! command -v awww &> /dev/null; then
-    info "Installing awww via cargo..."
-    cargo install awww
+    info "Installing awww via cargo (codeberg source)..."
+    cargo install --git https://codeberg.org/LGFae/awww
 else
     info "awww already installed."
 fi
