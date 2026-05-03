@@ -8,9 +8,26 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 
 # --------------------------------------------------------------
 # ML4W Settings App
+#
+# Upstream setup.sh has no Debian branch (pacman/dnf/zypper only),
+# so we replicate it here: install deps via apt, clone, make install.
 # --------------------------------------------------------------
 
-bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-settings/main/setup.sh)
+info "Installing ML4W Dotfiles Settings dependencies (Debian)..."
+sudo apt install -y git make jq gawk gum
+
+ML4W_SETTINGS_TMP=$(mktemp -d -t ml4w-dotfiles-settings-XXXXXX)
+info "Cloning ML4W Dotfiles Settings into $ML4W_SETTINGS_TMP..."
+git clone --depth=1 https://github.com/mylinuxforwork/ml4w-dotfiles-settings.git "$ML4W_SETTINGS_TMP"
+make -C "$ML4W_SETTINGS_TMP" install
+rm -rf "$ML4W_SETTINGS_TMP"
+
+if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+    export PATH="$HOME/.local/bin:$PATH"
+    if [[ -f "$HOME/.bashrc" ]] && ! grep -q ".local/bin" "$HOME/.bashrc"; then
+        echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
+    fi
+fi
 
 # --------------------------------------------------------------
 # Cargo (matugen, awww)
@@ -38,8 +55,8 @@ else
 fi
 
 if ! command -v awww &> /dev/null; then
-    info "Installing awww via cargo (codeberg source)..."
-    cargo install --git https://codeberg.org/LGFae/awww
+    info "Installing awww + awww-daemon via cargo (codeberg source)..."
+    cargo install --git https://codeberg.org/LGFae/awww awww awww-daemon
 else
     info "awww already installed."
 fi
