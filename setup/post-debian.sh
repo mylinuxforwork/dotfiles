@@ -102,6 +102,48 @@ sudo fc-cache -f
 rm -rf "$NERD_TMP"
 
 # --------------------------------------------------------------
+# Fontconfig fallback: prefer JetBrainsMono Nerd Font for Font
+# Awesome aliases. Debian's `fonts-font-awesome` is FA 4.7 and
+# claims (but doesn't render) many codepoints used by waybar
+# themes (e.g. U+F5FD toolbox, U+E4DC/E473 in the Nerd MDI range).
+# Without this snippet, fontconfig picks FA 4.7 first and renders
+# tofu instead of falling through to the installed Nerd Fonts.
+# --------------------------------------------------------------
+
+info "Installing fontconfig Nerd Font fallback for waybar icons..."
+sudo tee /etc/fonts/conf.d/99-ml4w-nerd-fallback.conf >/dev/null <<'EOF'
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+  <alias binding="strong">
+    <family>Font Awesome 7 Free</family>
+    <prefer><family>JetBrainsMono Nerd Font</family></prefer>
+  </alias>
+  <alias binding="strong">
+    <family>Font Awesome 7 Brands</family>
+    <prefer><family>JetBrainsMono Nerd Font</family></prefer>
+  </alias>
+  <alias binding="strong">
+    <family>Font Awesome 6 Free</family>
+    <prefer><family>JetBrainsMono Nerd Font</family></prefer>
+  </alias>
+  <alias binding="strong">
+    <family>Font Awesome 6 Brands</family>
+    <prefer><family>JetBrainsMono Nerd Font</family></prefer>
+  </alias>
+  <alias binding="strong">
+    <family>FontAwesome</family>
+    <prefer><family>JetBrainsMono Nerd Font</family></prefer>
+  </alias>
+  <alias binding="strong">
+    <family>Material Icons</family>
+    <prefer><family>JetBrainsMono Nerd Font</family></prefer>
+  </alias>
+</fontconfig>
+EOF
+sudo fc-cache -f
+
+# --------------------------------------------------------------
 # Grimblast (vendored script in the dotfiles repo)
 # --------------------------------------------------------------
 
