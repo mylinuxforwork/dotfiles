@@ -102,46 +102,34 @@ sudo fc-cache -f
 rm -rf "$NERD_TMP"
 
 # --------------------------------------------------------------
-# Fontconfig fallback: prefer JetBrainsMono Nerd Font for Font
-# Awesome aliases. Debian's `fonts-font-awesome` is FA 4.7 and
-# claims (but doesn't render) many codepoints used by waybar
-# themes (e.g. U+F5FD toolbox, U+E4DC/E473 in the Nerd MDI range).
-# Without this snippet, fontconfig picks FA 4.7 first and renders
-# tofu instead of falling through to the installed Nerd Fonts.
+# Font Awesome 7 Free
+#
+# Debian's `fonts-font-awesome` package is actually FA 4.7 (the
+# `5.0.10+really4.7.0` version string is misleading). ML4W's waybar
+# modules.json uses codepoints introduced in FA 6/7 — e.g. U+F5FD
+# (screwdriver-wrench/Tools), U+E4DC, U+E473 — that exist in
+# `Font Awesome 7 Free Solid` and nowhere else in the Nerd Font
+# patches we install. Pull FA 7 from upstream so those glyphs render.
 # --------------------------------------------------------------
 
-info "Installing fontconfig Nerd Font fallback for waybar icons..."
-sudo tee /etc/fonts/conf.d/99-ml4w-nerd-fallback.conf >/dev/null <<'EOF'
-<?xml version="1.0"?>
-<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-<fontconfig>
-  <alias binding="strong">
-    <family>Font Awesome 7 Free</family>
-    <prefer><family>JetBrainsMono Nerd Font</family></prefer>
-  </alias>
-  <alias binding="strong">
-    <family>Font Awesome 7 Brands</family>
-    <prefer><family>JetBrainsMono Nerd Font</family></prefer>
-  </alias>
-  <alias binding="strong">
-    <family>Font Awesome 6 Free</family>
-    <prefer><family>JetBrainsMono Nerd Font</family></prefer>
-  </alias>
-  <alias binding="strong">
-    <family>Font Awesome 6 Brands</family>
-    <prefer><family>JetBrainsMono Nerd Font</family></prefer>
-  </alias>
-  <alias binding="strong">
-    <family>FontAwesome</family>
-    <prefer><family>JetBrainsMono Nerd Font</family></prefer>
-  </alias>
-  <alias binding="strong">
-    <family>Material Icons</family>
-    <prefer><family>JetBrainsMono Nerd Font</family></prefer>
-  </alias>
-</fontconfig>
-EOF
-sudo fc-cache -f
+FA_VER="${FONT_AWESOME_VERSION:-7.1.0}"
+FA_DEST="/usr/share/fonts/font-awesome-7"
+if [ ! -d "$FA_DEST" ]; then
+    info "Installing Font Awesome ${FA_VER} Free..."
+    FA_TMP=$(mktemp -d)
+    if curl -fsSL -o "$FA_TMP/fa.zip" \
+        "https://github.com/FortAwesome/Font-Awesome/releases/download/${FA_VER}/fontawesome-free-${FA_VER}-desktop.zip"; then
+        (cd "$FA_TMP" && unzip -q fa.zip)
+        sudo mkdir -p "$FA_DEST"
+        sudo cp "$FA_TMP/fontawesome-free-${FA_VER}-desktop/otfs/"*.otf "$FA_DEST/"
+        sudo fc-cache -f
+    else
+        warn "  - Failed to download Font Awesome ${FA_VER}; waybar icons may not render"
+    fi
+    rm -rf "$FA_TMP"
+else
+    info "Font Awesome 7 already installed."
+fi
 
 # --------------------------------------------------------------
 # Grimblast (vendored script in the dotfiles repo)
