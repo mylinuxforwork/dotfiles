@@ -55,10 +55,17 @@ test_sidepad() {
 init_sidepad() {
     # Check if the window already exists, if not launch it
     if ! hyprctl clients -j | jq -e --arg class "$WINDOW_CLASS" '.[] | select(.class == $class)' > /dev/null; then
+        local app_cmd=()
+        read -r -a app_cmd <<< "$1"
+        if [[ ${#app_cmd[@]} -eq 0 ]]; then
+            echo "Error: No valid app command provided to --init." >&2
+            return 1
+        fi
+
         if [[ "$WINDOW_CLASS" == "dotfiles-sidepad" ]]; then
-            eval "$1 --class $WINDOW_CLASS" &
+            "${app_cmd[@]}" --class "$WINDOW_CLASS" &
         else
-            eval "$1" &
+            "${app_cmd[@]}" &
         fi
         # Wait for the window to appear, with a timeout
         for i in {1..50}; do # ~2 seconds timeout
@@ -164,13 +171,12 @@ done
 
 # --- Get Window and Monitor Info ---
 WINDOW_INFO=$(hyprctl clients -j | jq --arg class "$WINDOW_CLASS" '.[] | select(.class == $class)')
+MONITOR_INFO=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true)')
 
 if [ -z "$WINDOW_INFO" ]; then
     echo "Error: Window with class '$WINDOW_CLASS' not found. Is the window open?"
     exit 1
 fi
-
-MONITOR_INFO=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true)')
 
 WINDOW_ADDRESS=$(echo "$WINDOW_INFO" | jq -r '.address')
 WINDOW_WIDTH=$(echo "$WINDOW_INFO" | jq -r '.size[0]')
@@ -182,11 +188,17 @@ MONITOR_WIDTH=$(echo "$MONITOR_INFO" | jq -r '.width')
 MONITOR_X=$(echo "$MONITOR_INFO" | jq -r '.x')
 MONITOR_Y=$(echo "$MONITOR_INFO" | jq -r '.y')
 
+# --- Detect current position based on window location ---
+CURRENT_POSITION="left"
+if (( WINDOW_X > MONITOR_X + MONITOR_WIDTH / 2 )); then
+    CURRENT_POSITION="right"
+fi
+
 # --- Main Logic ---
 
 # Determine if window is hidden
 IS_HIDDEN=0
-if [[ "$POSITION" == "right" ]]; then
+if [[ "$CURRENT_POSITION" == "right" ]]; then
     if (( WINDOW_X > MONITOR_X + MONITOR_WIDTH - TARGET_WIDTH || WINDOW_X < MONITOR_X )); then
         IS_HIDDEN=1
     fi
@@ -194,6 +206,54 @@ else
     if (( WINDOW_X < MONITOR_X || WINDOW_X > MONITOR_X + MONITOR_WIDTH )); then
         IS_HIDDEN=1
     fi
+fi
+
+# Check if we're switching sides (position mismatch)
+SWITCHING_SIDES=0
+if [[ "$CURRENT_POSITION" != "$POSITION" ]]; then
+    SWITCHING_SIDES=1
+    echo "--- Switching sides from $CURRENT_POSITION to $POSITION ---"
+fi
+
+# Case 0: Switching sides - move window to opposite side while keeping visibility
+if [[ "$SWITCHING_SIDES" -eq 1 && "$IS_HIDDEN" -eq 0 ]]; then
+    echo "--- Moving visible window to $POSITION side ---"
+
+    if [[ "$POSITION" == "right" ]]; then
+        TARGET_X=$(( MONITOR_X + MONITOR_WIDTH - WINDOW_WIDTH - VISIBLE_GAP ))
+    else
+        TARGET_X=$(( MONITOR_X + VISIBLE_GAP ))
+    fi
+
+    PIXELS_TO_MOVE_X=$(( TARGET_X - WINDOW_X ))
+    PIXELS_TO_MOVE_Y=$(( MONITOR_Y + TOP_GAP - WINDOW_Y ))
+    TARGET_HEIGHT=$(( MONITOR_HEIGHT - TOP_GAP - BOTTOM_GAP ))
+    HEIGHT_CHANGE=$(( TARGET_HEIGHT - WINDOW_HEIGHT ))
+
+    hyprctl --batch "dispatch resizewindowpixel 0 $HEIGHT_CHANGE,address:$WINDOW_ADDRESS; dispatch movewindowpixel $PIXELS_TO_MOVE_X $PIXELS_TO_MOVE_Y,address:$WINDOW_ADDRESS"
+    echo "Operation completed."
+    exit 0
+fi
+
+# If switching sides while hidden, just update the hidden position
+if [[ "$SWITCHING_SIDES" -eq 1 && "$IS_HIDDEN" -eq 1 ]]; then
+    echo "--- Repositioning hidden window to $POSITION side ---"
+
+    if [[ "$POSITION" == "right" ]]; then
+        TARGET_X=$(( MONITOR_X + MONITOR_WIDTH - HIDDEN_GAP ))
+    else
+        TARGET_X=$(( MONITOR_X - TARGET_WIDTH + HIDDEN_GAP ))
+    fi
+
+    PIXELS_TO_MOVE_X=$(( TARGET_X - WINDOW_X ))
+    WIDTH_CHANGE=$(( TARGET_WIDTH - WINDOW_WIDTH ))
+    PIXELS_TO_MOVE_Y=$(( MONITOR_Y + TOP_GAP - WINDOW_Y ))
+    TARGET_HEIGHT=$(( MONITOR_HEIGHT - TOP_GAP - BOTTOM_GAP ))
+    HEIGHT_CHANGE=$(( TARGET_HEIGHT - WINDOW_HEIGHT ))
+
+    hyprctl --batch "dispatch resizewindowpixel $WIDTH_CHANGE $HEIGHT_CHANGE,address:$WINDOW_ADDRESS; dispatch movewindowpixel $PIXELS_TO_MOVE_X $PIXELS_TO_MOVE_Y,address:$WINDOW_ADDRESS"
+    echo "Operation completed."
+    exit 0
 fi
 
 # Case 1: --hide flag is used, unconditionally hide the window.
@@ -218,8 +278,9 @@ if [[ "$HIDE_REQUESTED" -eq 1 ]]; then
         if [ -f "$PREV_FOCUS_FILE" ]; then
             PREV_FOCUS=$(cat "$PREV_FOCUS_FILE")
             if [[ -n "$PREV_FOCUS" ]]; then
-                # Suppress errors in case the previous window no longer exists or the address is invalid
-                hyprctl dispatch focuswindow address:"$PREV_FOCUS" 2>/dev/null || true
+                if hyprctl clients -j | jq -e --arg addr "$PREV_FOCUS" '.[] | select(.address == $addr)' > /dev/null 2>&1; then
+                    hyprctl dispatch focuswindow address:"$PREV_FOCUS" 2>/dev/null
+                fi
             fi
             rm "$PREV_FOCUS_FILE"
         fi
@@ -237,7 +298,7 @@ if [[ "$IS_HIDDEN" -eq 1 ]]; then
     
     # Save current focus
     CURRENT_FOCUS=$(hyprctl activewindow -j | jq -r '.address')
-    if [[ "$CURRENT_FOCUS" != "$WINDOW_ADDRESS" ]]; then
+    if [[ -n "$CURRENT_FOCUS" && "$CURRENT_FOCUS" != "null" && "$CURRENT_FOCUS" != "$WINDOW_ADDRESS" ]]; then
         echo "$CURRENT_FOCUS" > "$PREV_FOCUS_FILE"
     fi
 
