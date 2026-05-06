@@ -170,8 +170,8 @@ if ! pgrep -x "awww-daemon" > /dev/null; then
 fi
 
 # Write image path to cache file
-if [ ! -f $CACHE_FILE ]; then
-    touch $CACHE_FILE
+if [ ! -f "$CACHE_FILE" ]; then
+    touch "$CACHE_FILE"
 fi
 echo "$IMAGE_PATH" > "$CACHE_FILE"
 info "Cache file written with $IMAGE_PATH"

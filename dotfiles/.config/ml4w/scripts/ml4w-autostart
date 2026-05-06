@@ -27,7 +27,7 @@ if [ ! -f $CACHE_FILE ]; then
     info "Cache file created"
 fi
 
-~/.config/ml4w/scripts/ml4w-wallpaper $(cat $CACHE_FILE) &
+~/.config/ml4w/scripts/ml4w-wallpaper "$(cat $CACHE_FILE)" &
 
 # Start Quickshell
 killall qs
