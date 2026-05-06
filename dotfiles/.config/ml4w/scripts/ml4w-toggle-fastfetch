@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+if [ -f $HOME/.config/ml4w/settings/hide-fastfetch ]; then
+    echo ":: Show fastfetch"
+    rm $HOME/.config/ml4w/settings/hide-fastfetch
+else
+    echo ":: Hide fastfetch"
+    touch $HOME/.config/ml4w/settings/hide-fastfetch
+fi

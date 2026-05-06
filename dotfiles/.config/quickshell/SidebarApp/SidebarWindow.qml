@@ -683,6 +683,33 @@ PanelWindow {
                         Item { implicitWidth: 28 } 
                     }
 
+                    // --- FASTFETCH ---
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text { text: "Fastfetch"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Item { Layout.fillWidth: true }
+                        ML4WSwitch { 
+                            id: fastfetchSwitch
+                            property bool ready: false
+                            Process {
+                                command: ["bash", "-c", "test -f ~/.config/ml4w/settings/hide-fastfetch && echo 1 || echo 0"]
+                                running: root.isOpen 
+                                stdout: StdioCollector {
+                                    onStreamFinished: {
+                                        console.log("Test for Fastfetch: " + this.text.trim())
+                                        fastfetchSwitch.checked = (this.text.trim() === "0")
+                                        fastfetchSwitch.ready = true
+                                    }
+                                }
+                            }
+                            onClicked: {
+                                if (!ready) return;
+                                Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-toggle-fastfetch"])
+                            }
+                        }
+                        Item { implicitWidth: 28 } 
+                    }
+
                     // --- SIDEPAD ---
                     RowLayout {
                         Layout.fillWidth: true

@@ -1,3 +1,7 @@
+Version 2.13.0
+--------------------------------------------------------
+- Fastfetch can be deactivated and activated from the sidebar
+
 Version 2.12.2
 --------------------------------------------------------
 - Update matugen to the latest version
