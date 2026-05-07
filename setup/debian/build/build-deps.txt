@@ -18,6 +18,8 @@ libgirepository1.0-dev
 libglib2.0-dev
 libgtk-3-dev
 libgtk4-layer-shell-dev
+libgtk-layer-shell-dev
+libgtk-layer-shell0
 libhyprlang-dev
 libhyprutils-dev
 libjson-glib-dev
