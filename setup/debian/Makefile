@@ -33,7 +33,7 @@ help:
 
 build-deps:
 	sudo DEBIAN_FRONTEND=noninteractive apt-get update
-	sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+	sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 		$$(grep -vE '^\s*(#|$$)' $(ROOT)/build/build-deps.txt)
 	@if ! command -v fpm >/dev/null 2>&1; then \
 		echo ":: installing fpm via gem"; \
@@ -67,7 +67,7 @@ install-debs:
 	@if ! ls $(DIST)/*.deb >/dev/null 2>&1; then \
 		echo "no .debs in $(DIST) — run 'make build-debs' first"; exit 1; \
 	fi
-	sudo DEBIAN_FRONTEND=noninteractive apt-get install -y $(DIST)/*.deb
+	sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends $(DIST)/*.deb
 
 clean:
 	rm -rf $(DIST) $(ROOT)/build/work
