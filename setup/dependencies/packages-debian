@@ -108,6 +108,6 @@ fonts-firacode
 # Secrets
 libsecret-1-0
 
+# lz4 dev libraries
 liblz4-1
-
-
+liblz4-dev
