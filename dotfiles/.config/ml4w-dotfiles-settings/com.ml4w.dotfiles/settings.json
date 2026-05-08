@@ -324,7 +324,7 @@
     },{
       "name": "Launcher",
       "id": "system_launcher",
-      "instructions": "PLease select the launcher. Walker needs to be installed separately.",
+      "instructions": "Please select the launcher. Walker needs to be installed separately.",
       "file": "~/.config/ml4w/settings/launcher",
       "type": "choose",
       "mode": "overwrite",
