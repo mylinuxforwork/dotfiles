@@ -1,4 +1,4 @@
-Version 2.13.0
+Version 2.12.3
 --------------------------------------------------------
 - Fastfetch can be deactivated and activated from the sidebar
 
