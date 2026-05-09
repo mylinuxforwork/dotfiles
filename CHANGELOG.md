@@ -1,5 +1,6 @@
 Version 2.12.3
 --------------------------------------------------------
+- Compatible with Hyprland 0.55.x
 - Fastfetch can be deactivated and activated from the sidebar
 
 Version 2.12.2
