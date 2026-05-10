@@ -14,7 +14,7 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 # --------------------------------------------------------------
 
 info "Installing ML4W Dotfiles Settings dependencies (Debian)..."
-sudo apt install -y git make jq gawk gum
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends git make jq gawk gum
 
 ML4W_SETTINGS_TMP=$(mktemp -d -t ml4w-dotfiles-settings-XXXXXX)
 info "Cloning ML4W Dotfiles Settings into $ML4W_SETTINGS_TMP..."
