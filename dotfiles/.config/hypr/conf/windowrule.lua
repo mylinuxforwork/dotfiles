@@ -1,0 +1,1 @@
+require("conf.windowrules.default")
