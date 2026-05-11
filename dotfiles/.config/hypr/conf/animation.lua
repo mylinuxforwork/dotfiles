@@ -1,1 +1,1 @@
-require("conf.animations.default")
+require("conf.animations.standard")
