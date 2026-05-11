@@ -136,7 +136,7 @@ PanelWindow {
 
             PowerButton { iconTxt: ""; cmd: "pidof hyprlock || hyprlock" }
             PowerButton { iconTxt: ""; cmd: "systemctl suspend" }
-            PowerButton { iconTxt: ""; cmd: "hyprctl dispatch exit" }
+            PowerButton { iconTxt: ""; cmd: "hyprctl dispatch 'hl.dsp.exit()'" }
             PowerButton { iconTxt: ""; cmd: "systemctl reboot" }
             PowerButton { iconTxt: ""; cmd: "systemctl poweroff" }
         }

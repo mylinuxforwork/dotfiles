@@ -230,7 +230,7 @@ require("conf.misc")
 require("conf.keybinding")
 require("conf.windowrule")
 require("conf.animation")
--- require("conf.ml4w")
+require("conf.ml4w")
 
 -- CUSTOM
 require("conf.custom")
