@@ -85,6 +85,11 @@ if [[ $(_checkCommandExists "pacman") == 0 ]]; then
 # Fedora
 elif [[ $(_checkCommandExists "dnf") == 0 ]]; then
     sudo dnf upgrade
+
+# Debian / Ubuntu
+elif [[ $(_checkCommandExists "apt-get") == 0 ]]; then
+    sudo DEBIAN_FRONTEND=noninteractive apt-get update
+    sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 else
     echo ":: ERROR - Platform not supported"
     echo "Press [ENTER] to close."

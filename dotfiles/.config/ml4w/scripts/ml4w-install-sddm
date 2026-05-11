@@ -24,6 +24,12 @@ elif command -v zypper &> /dev/null; then
     DISTRO="openSUSE Tumbleweed"
     INSTALL_CMD="sudo zypper install -y sddm-qt6 libQt6Svg6 qt6-virtualkeyboard qt6-virtualkeyboard-imports qt6-multimedia qt6-multimedia-imports"
     CHECK_PKG_CMD="rpm -q sddm"
+elif command -v apt-get &> /dev/null; then
+    DISTRO="Debian"
+    # --no-install-recommends keeps apt from pulling a full desktop via
+    # Recommends chains on the Qt6/SDDM deps.
+    INSTALL_CMD="sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends sddm libqt6svg6 qml6-module-qtquick-virtualkeyboard qml6-module-qtmultimedia"
+    CHECK_PKG_CMD="dpkg -s sddm"
 else
     echo "ERROR: Unsupported package manager"
     exit 1
