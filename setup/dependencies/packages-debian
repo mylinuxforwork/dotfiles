@@ -90,10 +90,18 @@ pavucontrol
 blueman
 
 # Network / power / polkit
+# lxpolkit must be listed BEFORE network-manager-applet and
+# nm-connection-editor: those have a virtual Depends on polkit-1-auth-agent
+# and if no provider is installed yet, apt's solver picks `cinnamon` from
+# the alternatives list, dragging in the whole desktop. lxpolkit declares
+# `Provides: polkit-1-auth-agent` and is the lightest GTK3 agent in Debian.
+# (hyprpolkitagent would be the natural choice for Hyprland, but its
+# Debian package is missing both `Provides: polkit-1-auth-agent` and
+# `Depends: polkitd` — file upstream and revisit when fixed.)
+lxpolkit
 network-manager-applet
 nm-connection-editor
 power-profiles-daemon
-lxqt-policykit
 
 # OCR
 tesseract-ocr
