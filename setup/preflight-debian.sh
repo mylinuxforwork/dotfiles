@@ -5,7 +5,7 @@
 # Three things upstream installers don't need to do, but Debian does:
 #   1. Refresh apt index.
 #   2. Build .deb packages for the pieces that aren't in Debian
-#      (hyprsunset, nwg-dock-hyprland) — see setup/debian/.
+#      (nwg-dock-hyprland) — see setup/debian/.
 #   3. Install those .debs so the regular packages-debian step that
 #      follows can resolve their runtime deps cleanly.
 
@@ -23,7 +23,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get update
 # Skip the build entirely if every package is already built. Lets
 # repeat runs of the installer be cheap.
 need_build=false
-for pkg in hyprsunset nwg-dock-hyprland; do
+for pkg in nwg-dock-hyprland; do
     if ! ls "${DIST}/${pkg}_"*.deb >/dev/null 2>&1; then
         need_build=true
         break

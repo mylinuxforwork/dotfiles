@@ -1,32 +1,17 @@
-# apt build deps for setup/debian packages (hyprsunset, nwg-dock-hyprland).
+# apt build deps for setup/debian packages (nwg-dock-hyprland).
 # Used by `make build-deps` on the host and by build/Containerfile for the
 # podman test image. Keep one package per line; comments and blanks ignored.
 build-essential
 ca-certificates
-cmake
 curl
 file
 git
 gnupg
 golang
-hyprland-protocols
-hyprwayland-scanner
-libcairo2-dev
-libdrm-dev
-libgbm-dev
-libgirepository1.0-dev
-libglib2.0-dev
 libgtk-3-dev
-libgtk4-layer-shell-dev
 libgtk-layer-shell-dev
 libgtk-layer-shell0
-libhyprlang-dev
-libhyprutils-dev
-libjson-glib-dev
-libwayland-dev
-ninja-build
 pkg-config
 ruby
 ruby-dev
-wayland-protocols
 xz-utils

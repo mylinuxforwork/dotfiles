@@ -7,11 +7,11 @@ called by `ml4w-dotfiles-installer` during install).
 It builds, on the host, the pieces ML4W needs that aren't yet
 in Debian forky:
 
-- `hyprsunset`
 - `nwg-dock-hyprland`
 
-(Forky now ships `sway-notification-center`, so swaync is installed
-via apt by `setup/dependencies/packages-debian`, not built here.)
+(Forky now ships `sway-notification-center` and `hyprsunset`, so they
+are installed via apt by `setup/dependencies/packages-debian`, not
+built here.)
 
 The resulting `.deb` files are installed via `apt install`, then the
 regular `setup/dependencies/packages-debian` step (still part of the
@@ -50,7 +50,7 @@ install path doesn't need them directly — preflight-debian.sh calls
 | ------------------- | -------------------------------------------------- |
 | `make build-deps`   | `apt install` build deps + `gem install fpm`       |
 | `make build-debs`   | Build all `.deb` packages on the host into `dist/` |
-| `make deb-<pkg>`    | Build a single `.deb` (`hyprsunset`, `nwg-dock-hyprland`) |
+| `make deb-<pkg>`    | Build a single `.deb` (`nwg-dock-hyprland`)        |
 | `make install-debs` | `apt install ./dist/*.deb`                         |
 | `make clean`        | Remove `dist/` and build work dirs                 |
 
@@ -72,7 +72,6 @@ setup/debian/
 │   ├── build-deps.txt    # apt build deps (host + container share this)
 │   ├── Containerfile     # debian:forky build env (podman, opt-in)
 │   ├── common.sh         # shared build helpers (clone, fpm wrapper)
-│   ├── hyprsunset/build.sh
 │   └── nwg-dock-hyprland/build.sh
 └── dist/                 # built .deb files (gitignored)
 ```

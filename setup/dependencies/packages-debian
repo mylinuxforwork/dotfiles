@@ -2,9 +2,8 @@
 # is intentionally skipped on Debian by the installer).
 #
 # Packages installed outside this list:
-#   - hyprsunset, nwg-dock-hyprland: built as .deb by
-#     setup/preflight-debian.sh (driven by setup/debian/) before this
-#     package list is processed.
+#   - nwg-dock-hyprland: built as .deb by setup/preflight-debian.sh
+#     (driven by setup/debian/) before this package list is processed.
 #   - matugen, awww: cargo install (see post-debian.sh)
 #   - pywalfox: pipx install (see post-debian.sh)
 #   - Nerd Fonts (FiraCode, JetBrainsMono): downloaded from upstream
@@ -50,6 +49,7 @@ hyprpaper
 hyprlock
 hypridle
 hyprpicker
+hyprsunset
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
 uwsm
@@ -76,6 +76,7 @@ qt6-virtualkeyboard-plugin
 libqt6virtualkeyboard6
 libqt6multimedia6
 qml6-module-qtmultimedia
+qml6-module-qt5compat-graphicaleffects
 gnome-themes-extra
 breeze-cursor-theme
 
@@ -99,6 +100,8 @@ blueman
 # Debian package is missing both `Provides: polkit-1-auth-agent` and
 # `Depends: polkitd` — file upstream and revisit when fixed.)
 lxpolkit
+network-manager
+network-manager-tui
 network-manager-applet
 nm-connection-editor
 power-profiles-daemon
