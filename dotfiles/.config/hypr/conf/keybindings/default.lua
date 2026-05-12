@@ -1,7 +1,5 @@
 -- Configuration
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
-local HYPRSCRIPTS = "~/.config/hypr/scripts"
-local SCRIPTS = "~/.config/ml4w/scripts"
 
 -- Applications
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("~/.config/ml4w/settings/terminal.sh")) -- Open the terminal
@@ -36,6 +34,33 @@ hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" })) -- Move fo
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" })) -- Move focus up
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" })) -- Move focus down
 
+-- Actions
+hl.bind(mainMod .. " + CTRL + R", hl.dsp.exec_cmd("hyprctl reload")) -- Reload Hyprland configuration
+hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-animations.sh")) -- Toggle animations
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh")) -- Take a screenshot
+hl.bind(mainMod .. " + ALT + F", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh")) -- Take an instant full-screen screenshot
+hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh")) -- Take an instant area screenshot
+hl.bind(mainMod .. " + ALT + A", hl.dsp.exec_cmd("~/.config/hypr/scripts/text-extractor.sh")) -- Extract text from an area
+hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("qs ipc call power toggle")) -- Start Power Menu
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-app --random")) -- Change the wallpaper
+hl.bind(mainMod .. " + CTRL + W", hl.dsp.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-app")) -- Open wallpaper selector
+hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-automation")) -- Start random wallpaper script
+hl.bind(mainMod .. " + CTRL + RETURN", hl.dsp.exec_cmd("~/.config/hypr/scripts/launcher.sh")) -- Open application launcher
+hl.bind(mainMod .. " + CTRL + K", hl.dsp.exec_cmd("~/.config/hypr/scripts/keybindings.sh")) -- Show keybindings
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("~/.config/waybar/launch.sh")) -- Reload waybar
+hl.bind(mainMod .. " + CTRL + B", hl.dsp.exec_cmd("~/.config/waybar/toggle.sh")) -- Toggle waybar
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/loadconfig.sh")) -- Reload hyprland config
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("~/.config/ml4w/scripts/ml4w-cliphist")) -- Open clipboard manager
+hl.bind(mainMod .. " + CTRL + T", hl.dsp.exec_cmd("~/.config/waybar/themeswitcher.sh")) -- Open waybar theme switcher
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("~/.config/ml4w/scripts/ml4w-toggle-theme")) -- Toggle between light and dark mode
+hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("qs ipc call sidebar toggle")) -- Open ML4W Sidebar widget
+hl.bind(mainMod .. " + CTRL + C", hl.dsp.exec_cmd("qs ipc call calendar toggle")) -- Open ML4W Calendar widget
+hl.bind(mainMod .. " + ALT + G", hl.dsp.exec_cmd("~/.config/hypr/scripts/gamemode.sh")) -- Toggle game mode
+hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd("pidof hyprlock || hyprlock")) -- Lock Screen
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.exec_cmd("~/.config/ml4w/scripts/ml4w-toggle-hyprsunset")) -- Toggle Hyprsunset
+hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd("qs -p ~/.config/quickshell/overview ipc call overview toggle")) -- Open Select Window Menu
+hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd("~/.config/ml4w/themes/themes.sh")) -- Open Select Window Menu
+
 --[[
 bindm = $mainMod, mouse:272, movewindow                                                     # Move window with the mouse
 bindm = $mainMod, mouse:273, resizewindow                                                   # Resize window with the mouse
@@ -52,7 +77,6 @@ bind = $mainMod ALT, down, swapwindow, d                                        
 binde = ALT,Tab,cyclenext                                                                   # Cycle between windows
 binde = ALT,Tab,bringactivetotop                                                            # Bring active window to the top
 ]]--
-
 
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
