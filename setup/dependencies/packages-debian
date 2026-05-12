@@ -77,6 +77,7 @@ libqt6virtualkeyboard6
 libqt6multimedia6
 qml6-module-qtmultimedia
 qml6-module-qt5compat-graphicaleffects
+qml6-module-qtquick-effects
 gnome-themes-extra
 breeze-cursor-theme
 
@@ -87,8 +88,13 @@ nautilus
 gnome-text-editor
 loupe
 firefox-esr
-pavucontrol
 blueman
+upower
+
+# Audio
+pavucontrol
+pipewire-audio
+rtkit
 
 # Network / power / polkit
 # lxpolkit must be listed BEFORE network-manager-applet and

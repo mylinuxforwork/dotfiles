@@ -152,3 +152,13 @@ source "$repo_path/setup/_icons.sh"
 # --------------------------------------------------------------
 
 xdg-user-dirs-update
+
+# --------------------------------------------------------------
+# System services
+#
+# Debian doesn't enable upower on install; without it wireplumber
+# logs "Failed to get percentage from UPower: NameHasNoOwner" at
+# every session start.
+# --------------------------------------------------------------
+
+sudo systemctl enable --now upower.service
