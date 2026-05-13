@@ -1,3 +1,8 @@
+Version 2.12.3
+--------------------------------------------------------
+- Compatible with Hyprland 0.55.x (legacy conf). Change to Lua will follow soon with 2.13.
+- Fastfetch can be deactivated and activated from the sidebar
+
 Version 2.12.2
 --------------------------------------------------------
 - Update matugen to the latest version

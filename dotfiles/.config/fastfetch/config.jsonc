@@ -20,18 +20,18 @@
             "type": "custom"
         },
         {
-            "key": "│ {#31} user    {#keys}│",
+            "key": "│ {#34} user    {#keys}│",
             "type": "title",
             "format": "{user-name}"
         },
         {
-            "key": "│ {#32}󰇅 hname   {#keys}│",
+            "key": "│ {#34}󰇅 hname   {#keys}│",
             "type": "title",
             "format": "{host-name}"
         },
         {
             "type": "command",
-            "key": "│ {#33}󱦟 os age  {#keys}│",
+            "key": "│ {#34}󱦟 os age  {#keys}│",
             "keyColor": "magenta",
             "text": "printf \"\\e[0m%s days\\e[0m\" \"$(( ($(date +%s) - $(stat -c %W /)) / 86400 ))\""
         },
@@ -44,27 +44,27 @@
             "type": "os"
         },
         {
-            "key": "│ {#35} kernel  {#keys}│",
+            "key": "│ {#34} kernel  {#keys}│",
             "type": "kernel"
         },
         {
-            "key": "│ {#36} wm      {#keys}│",
+            "key": "│ {#34} wm      {#keys}│",
             "type": "wm"
         },
         {
-            "key": "│ {#36}󰇄 desktop {#keys}│",
+            "key": "│ {#34}󰇄 desktop {#keys}│",
             "type": "de"
         },
         {
-            "key": "│ {#31} term    {#keys}│",
+            "key": "│ {#34} term    {#keys}│",
             "type": "terminal"
         },
         {
-            "key": "│ {#32} shell   {#keys}│",
+            "key": "│ {#34} shell   {#keys}│",
             "type": "shell"
         },
         {
-            "key": "│ {#33}󰍛 cpu     {#keys}│",
+            "key": "│ {#34}󰍛 cpu     {#keys}│",
             "type": "cpu",
             "showPeCoreCount": true
         },
@@ -74,7 +74,7 @@
             "folders": "/"
         },
         {
-            "key": "│ {#36} memory  {#keys}│",
+            "key": "│ {#34} memory  {#keys}│",
             "type": "memory"
         },
         {
@@ -82,7 +82,7 @@
             "type": "custom"
         },
         {
-            "key": "│ {#39} colors  {#keys}│",
+            "key": "│ {#34} colors  {#keys}│",
             "type": "colors",
             "symbol": "circle"
         },
