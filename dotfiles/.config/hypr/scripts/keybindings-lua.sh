@@ -16,11 +16,11 @@ keybinds=$(hyprctl binds -j | jq -r --arg SEPARATOR "$separator" '
     .[] 
     | (
         [
-            (if (.modmask / 64 % 2 >= 1) then "SUPER" else empty end),
-            (if (.modmask / 1 % 2 >= 1) then "SHIFT" else empty end),
-            (if (.modmask / 4 % 2 >= 1) then "CTRL" else empty end),
-            (if (.modmask / 8 % 2 >= 1) then "ALT" else empty end),
-            (if (.modmask / 2 % 2 >= 1) then "CAPS" else empty end),
+            (if (.modmask / 64 % 2 == 1) then "SUPER" else empty end),
+            (if (.modmask / 1 % 2 == 1) then "SHIFT" else empty end),
+            (if (.modmask / 4 % 2 == 1) then "CTRL" else empty end),
+            (if (.modmask / 8 % 2 == 1) then "ALT" else empty end),
+            (if (.modmask / 2 % 2 == 1) then "CAPS" else empty end),
             .key
         ]
         | join(" + ") | ascii_upcase
