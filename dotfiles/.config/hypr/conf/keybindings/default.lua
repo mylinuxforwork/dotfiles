@@ -23,7 +23,7 @@ end
 -- Windows
 hl.bind(mainMod .. " + Q", hl.dsp.window.close()) -- Kill active window
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("hyprctl activewindow | grep pid | tr -d 'pid:' | xargs kill")) -- Quit active window and all open instances
--- bind = $mainMod, F, fullscreen, 0                                                           # Set active window to fullscreen
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" })) -- Toogle Fullscreen
 -- bind = $mainMod, M, fullscreen, 1                                                           # Maximize Window
 hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" })) -- Toggle Floating
 -- bindd = $mainMod SHIFT, T, Float all windows, exec, ~/.config/ml4w/scripts/ml4w-toggle-allfloat # Toggle floating for all windows of workspace

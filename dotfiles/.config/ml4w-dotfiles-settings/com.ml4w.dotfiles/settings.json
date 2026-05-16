@@ -132,12 +132,12 @@
         "name": "Decoration Variants",
         "id": "variant_decoration",
         "instructions": "Choose your preferred decoration variant:",
-        "file": "~/.config/hypr/conf/decoration.conf",
+        "file": "~/.config/hypr/conf/decoration.lua",
         "type": "files",
         "folder": "~/.config/hypr/conf/decorations",
         "mode": "replace",
-        "match": "source = ~/.config/hypr/conf/decorations/.*",
-        "default": "default.conf"
+        "match": "name = \".*\"",
+        "default": "default.lua"
     },{
         "name": "Window Variants",
         "id": "variant_window",
