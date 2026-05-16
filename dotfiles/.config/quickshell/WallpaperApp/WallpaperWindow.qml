@@ -75,31 +75,42 @@ PanelWindow {
         function close(): void { root.isOpen = false } 
     }
 
-    // Default fallback folder just in case the file doesn't exist
-    property string wallpaperFolder: "file://" + Quickshell.env("HOME") + "/.config/ml4w/wallpapers"
+    property string defaultWallpaperFolder: Quickshell.env("HOME") + "/.config/ml4w/wallpapers"
+    property string wallpaperSettingFile: Quickshell.env("HOME") + "/.config/ml4w/settings/wallpaper-folder"
 
-    Process {
-        id: folderLoader
-        // Call cat directly and pass the path as the second array item
-        command: ["cat", Quickshell.env("HOME") + "/.config/ml4w/settings/wallpaper-folder"]
-        running: true
-        
-        stdout: StdioCollector {
-            onStreamFinished: {
-                let rawPath = this.text.trim();
-                
-                if (rawPath !== "") {
-                    rawPath = rawPath.replace("$HOME", Quickshell.env("HOME"));
-                    rawPath = rawPath.replace("~", Quickshell.env("HOME"));
-                    // Ensure the path starts with file:// for the FolderListModel
-                    let newPath = rawPath.startsWith("file://") ? rawPath : "file://" + rawPath;
-                    if (root.wallpaperFolder === newPath) {
-                        root.wallpaperFolder = "";
-                    }
-                    root.wallpaperFolder = newPath;
-                }
-            }
+    // Start as default in case file does not exist
+    property string wallpaperFolder: defaultWallpaperFolder
+
+    FileView {
+        id: wallpaperDirSettingFileHandler
+        path: Qt.url(root.wallpaperSettingFile)
+        blockLoading: true
+        watchChanges: true
+        onFileChanged: {
+            this.reload();
+            const settingValue = this.text().trim()
+            console.log("Wallpaper directory setting changed on disk; attempting to load directory \"" + settingValue + "\"")
+            updateWallpaperFolder(settingValue)
         }
+        onLoaded: {
+            const settingValue = this.text().trim()
+            console.log("Loading wallpaper directory \"" + settingValue + "\"")
+            updateWallpaperFolder(settingValue)
+        }
+        onSaved: {
+            const settingValue = this.text().trim()
+            console.log("Wallpaper directory setting saved successfully; reloading from directory \"" + settingValue + "\"")
+            updateWallpaperFolder(this.text().trim())
+        }
+    }
+
+    function advancedSettingsLabel(): string {
+        const actionText = advancedOptions.visible ? "Hide" : "Show"
+        return actionText + " Advanced Options"
+    }
+
+    function updateWallpaperFolder(dirString): void {
+        root.wallpaperFolder = dirString.replace(/~|\$HOME/g, Quickshell.env("HOME"))
     }
 
     // --- REUSABLE COMPONENTS ---
@@ -226,6 +237,65 @@ PanelWindow {
                             } 
                         }
 
+                        ML4WMenuItem {
+                            text: advancedSettingsLabel()
+                            onClicked: {
+                                advancedOptions.visible = !advancedOptions.visible
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            // --- ADVANCED OPTIONS ---
+            RowLayout {
+                id: advancedOptions
+                Layout.fillWidth: true
+                Layout.topMargin: 5
+                spacing: 10
+                visible: false
+
+                // --- WALLPAPER DIRECTORY SETTING ---
+                ColumnLayout {
+                    Label {
+                        id: wallpaperDirInputLabel
+                        color: Theme.primary
+                        font.family: Theme.fontFamily
+
+                        text: "Wallpaper Folder"
+
+                        Accessible.name: text
+                        Accessible.role: Accessible.StaticText
+                    }
+
+                    TextField {
+                        id: wallpaperDirInput
+                        color: Theme.primary
+                        font.pixelSize: 14
+                        padding: 8
+                        Layout.fillWidth: true
+                        horizontalAlignment: TextInput.AlignHCenter
+
+                        Accessible.name: wallpaperDirInputLabel.text
+                        Accessible.description: qsTr("Enter the full path to your wallpaper folder")
+                        Accessible.role: Accessible.EditableText
+
+                        placeholderText: "Specify wallpaper directory"
+                        text: wallpaperDirSettingFileHandler.text().trim()
+
+                        onAccepted: {
+                            console.log("Updating wallpaper directory to \"" + this.text + "\"")
+                            wallpaperDirSettingFileHandler.setText(this.text)
+                        }
+
+                        background: Rectangle {
+                            anchors.fill: parent
+                            color: Theme.background
+                            radius: 10
+                            border.color: Theme.primary
+                            border.width: 1
+                        }
                     }
                 }
             }
@@ -237,6 +307,20 @@ PanelWindow {
                 opacity: 0.3 
             }
 
+            // --- ERROR MSG FOR EMPTY OR INVALID DIRECTORY ---
+            Text {
+                id: emptyWallpaperDirectoryMsg
+                visible: true
+
+                Layout.fillWidth: true
+                color: Theme.primary
+                font.family: Theme.fontFamily
+                wrapMode: Text.WordWrap
+                Layout.alignment: Qt.AlignHCenter
+                horizontalAlignment: Text.AlignHCenter
+
+                text: "Wallpaper folder is either empty or invalid."
+            }
             // --- IMAGE GRID ---
             GridView {
                 id: grid
@@ -256,7 +340,7 @@ PanelWindow {
                 }
 
                 model: FolderListModel {
-                    folder: root.wallpaperFolder
+                    folder: "file://" + root.wallpaperFolder
                     showDirs: false
                     caseSensitive: false
                     
@@ -268,6 +352,10 @@ PanelWindow {
                             return ["*.jpg", "*.jpeg", "*.png"];
                         }
                         return ["*" + s + "*.jpg", "*" + s + "*.jpeg", "*" + s + "*.png"];
+                    }
+
+                    onCountChanged: {
+                        emptyWallpaperDirectoryMsg.visible = (count === 0 && this.status === FolderListModel.Ready)
                     }
                 }
 
