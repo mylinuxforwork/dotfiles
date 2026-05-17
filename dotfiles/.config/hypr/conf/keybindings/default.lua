@@ -46,7 +46,7 @@ hl.bind(mainMod .. " + SHIFT + W",     hl.dsp.exec_cmd("~/.config/ml4w/scripts/m
 hl.bind(mainMod .. " + CTRL + W",      hl.dsp.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-app"),                    { description = "Open wallpaper selector" })
 hl.bind(mainMod .. " + ALT + W",       hl.dsp.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-automation"),             { description = "Start random wallpaper script" })
 hl.bind(mainMod .. " + CTRL + RETURN", hl.dsp.exec_cmd("~/.config/hypr/scripts/launcher.sh"),                           { description = "Open application launcher" })
-hl.bind(mainMod .. " + CTRL + K",      hl.dsp.exec_cmd("~/.config/hypr/scripts/keybindings-lua.sh"),                    { description = "Show keybindings" })
+hl.bind(mainMod .. " + CTRL + K",      hl.dsp.exec_cmd("~/.config/hypr/scripts/keybindings.sh"),                    { description = "Show keybindings" })
 hl.bind(mainMod .. " + SHIFT + B",     hl.dsp.exec_cmd("~/.config/waybar/launch.sh"),                                   { description = "Reload waybar" })
 hl.bind(mainMod .. " + CTRL + B",      hl.dsp.exec_cmd("~/.config/waybar/toggle.sh"),                                   { description = "Toggle waybar" })
 hl.bind(mainMod .. " + SHIFT + R",     hl.dsp.exec_cmd("~/.config/hypr/scripts/loadconfig.sh"),                         { description = "Reload hyprland config" })
