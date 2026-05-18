@@ -1,3 +1,8 @@
+-- -----------------------------------------------------
+-- General window decoration
+-- name: "Blur"
+-- -----------------------------------------------------
+
 hl.config({
     decoration = {
         rounding = 10,
@@ -23,4 +28,5 @@ hl.config({
         },
     },
 })
--- layerrule = blur on, match:namespace waybar
+
+hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
