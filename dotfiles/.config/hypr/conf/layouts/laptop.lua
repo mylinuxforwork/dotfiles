@@ -1,13 +1,13 @@
 -- -----------------------------------------------------
--- Layouts & System Settings
+-- Laptop Layouts & Swipe Gestures
 -- -----------------------------------------------------
 
 hl.config({
     dwindle = {
+        pseudotile = true,
         preserve_split = true,
     },
     
-    -- Master layout is handled here if needed
     master = {
         -- new_status = "master" -- Commented out due to compatibility reasons
     },
@@ -18,3 +18,6 @@ hl.config({
         pass_mouse_when_bound = false,
     },
 })
+
+-- Handle multi-finger touchpad actions explicitly outside the main block
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
