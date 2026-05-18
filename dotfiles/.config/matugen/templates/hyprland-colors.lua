@@ -1,4 +1,4 @@
 <* for name, value in colors *>
-${{name}} = "rgba({{value.default.hex_stripped}}ff)"
+{{name}} = "rgba({{value.default.hex_stripped}}ff)"
 <* endfor *>
 
