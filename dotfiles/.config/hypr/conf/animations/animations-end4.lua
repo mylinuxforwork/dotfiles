@@ -1,6 +1,7 @@
 -- -----------------------------------------------------
 -- Animations
--- name "Default"
+-- name "End-4"
+-- credit https://github.com/end-4/dots-hyprland
 -- -----------------------------------------------------
 
 --------------------------------------------------------------------------------
@@ -28,7 +29,7 @@ hl.curve("easeInOutCirc", { type = "bezier", points = { {0.85, 0}, {0.15, 1} } }
 hl.curve("easeOutCirc", { type = "bezier", points = { {0, 0.55}, {0.45, 1} } })
 hl.curve("easeOutExpo", { type = "bezier", points = { {0.16, 1}, {0.3, 1} } })
 hl.curve("softAcDecel", { type = "bezier", points = { {0.26, 0.26}, {0.15, 1} } })
-hl.curve("md2", { type = "bezier", points = { {0.4, 0}, {0.2, 1} } }) -- use with .2s duration
+hl.curve("md2", { type = "bezier", points = { {0.4, 0}, {0.2, 1} } })
 
 --------------------------------------------------------------------------------
 -- Animation Rules
@@ -38,19 +39,9 @@ hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, bezier = "md3_dece
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, bezier = "md3_accel", style = "popin 60%" })
 hl.animation({ leaf = "border", enabled = true, speed = 10, bezier = "default" })
 hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "md3_decel" })
-
--- Commmented out alternatives from your legacy configuration:
--- hl.animation({ leaf = "layers", enabled = true, speed = 2, bezier = "md3_decel", style = "slide" })
-
 hl.animation({ leaf = "layersIn", enabled = true, speed = 3, bezier = "menu_decel", style = "slide" })
 hl.animation({ leaf = "layersOut", enabled = true, speed = 1.6, bezier = "menu_accel" })
 hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 2, bezier = "menu_decel" })
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 4.5, bezier = "menu_accel" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 7, bezier = "menu_decel", style = "slide" })
-
--- Commmented out alternatives from your legacy configuration:
--- hl.animation({ leaf = "workspaces", enabled = true, speed = 2.5, bezier = "softAcDecel", style = "slide" })
--- hl.animation({ leaf = "workspaces", enabled = true, speed = 7, bezier = "menu_decel", style = "slidefade 15%" })
--- hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 3, bezier = "md3_decel", style = "slidefadevert 15%" })
-
 hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 3, bezier = "md3_decel", style = "slidevert" })
