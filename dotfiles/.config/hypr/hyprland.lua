@@ -6,7 +6,7 @@
 -- Advanced configuration for Hyprland                                      
 
 -- MONITORS
-require("monitors")
+require("conf.monitor")
 
 -- INPUT
 require("input")

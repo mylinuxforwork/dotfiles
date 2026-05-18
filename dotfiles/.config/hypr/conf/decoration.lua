@@ -1,3 +1,4 @@
-name = "default.lua"
+local name = "default.lua"
+local variant = "decorations"
 name = name:gsub(".lua", "")
-require("conf.decorations." .. name)
+require("conf." .. variant .. "." .. name)

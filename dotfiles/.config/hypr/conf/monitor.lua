@@ -1,4 +1,4 @@
 local name = "default.lua"
-local variant = "layouts"
+local variant = "monitors"
 name = name:gsub(".lua", "")
 require("conf." .. variant .. "." .. name)
