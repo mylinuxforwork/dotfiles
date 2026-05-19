@@ -32,5 +32,8 @@ require("conf.windowrule")
 require("conf.animation")
 require("conf.ml4w")
 
+-- FUNCTIONS
+require("functions")
+
 -- CUSTOM
 require("conf.custom")
