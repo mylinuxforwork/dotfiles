@@ -10,12 +10,13 @@ require("functions")
 
 -- MONITORS
 require("conf.monitor")
+require("monitors")
 
 -- INPUT
 require("input")
 
 -- GESTURE
-require("conf.gesture")
+require("gesture")
 
 -- AUTOSTART
 require("conf.autostart")
@@ -36,4 +37,4 @@ require("conf.animation")
 require("conf.ml4w")
 
 -- CUSTOM
-require("conf.custom")
+require("custom")
