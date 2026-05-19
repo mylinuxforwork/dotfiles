@@ -96,15 +96,22 @@ FloatingWindow {
                 exit: Transition { NumberAnimation { property: "opacity"; from: 1.0; to: 0.0; duration: 150; easing.type: Easing.InQuad } }
 
                 ML4WMenuItem { 
-                    text: qsTr("Keyboard");
+                    text: qsTr("Input");
                     onClicked: {
-                        Quickshell.execDetached(["gnome-text-editor", Quickshell.env("HOME") + "/.config/hypr/conf/keyboard.conf"])
+                        Quickshell.execDetached(["gnome-text-editor", Quickshell.env("HOME") + "/.config/hypr/input.lua"])
+                    }
+                }
+                ML4WMenuItem { 
+                    text: qsTr("Gestures");
+                    onClicked: {
+                        Quickshell.execDetached(["gnome-text-editor", Quickshell.env("HOME") + "/.config/hypr/gestures.lua"])
                     }
                 }
                 ML4WMenuItem { 
                     text: qsTr("Monitors");
                     onClicked: { 
-                        Quickshell.execDetached(["nwg-displays"])
+                        Quickshell.execDetached(["gnome-text-editor", Quickshell.env("HOME") + "/.config/hypr/monitors.lua"])
+                        // Quickshell.execDetached(["nwg-displays"])
                     }
                 }
                 ML4WMenuItem { 

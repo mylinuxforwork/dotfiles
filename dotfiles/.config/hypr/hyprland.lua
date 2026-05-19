@@ -16,7 +16,7 @@ require("monitors")
 require("input")
 
 -- GESTURE
-require("gesture")
+require("gestures")
 
 -- AUTOSTART
 require("conf.autostart")

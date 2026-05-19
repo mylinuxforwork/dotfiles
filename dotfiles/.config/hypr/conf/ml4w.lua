@@ -11,6 +11,9 @@
 -- layerrule2 = ignorealpha 0.5, swaync-control-center
 -- layerrule2 = ignorealpha 0.5, swaync-notification-window
 
+-- HOME directory
+local HOME = os.getenv("HOME")
+
 -- Pavucontrol
 hl.window_rule({
     name  = "pavucontrol",
@@ -155,22 +158,25 @@ hl.window_rule({
     size = "1000 700"
 })
 
---[[
+-- Wayland variables
+hl.env("OZONE_PLATFORM", "wayland")
+hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
+hl.env("DESKTOP_SESSION", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+
+-- Qt related environment variables
+hl.env("QT_QPA_PLATFORM", "wayland")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
+
 -- PATHS
-hl.env("PATH", "$PATH:$HOME/.cargo/bin")
-hl.env("PATH", "$PATH:$HOME/.local/bin")
+-- hl.env("PATH", "$PATH:$HOME/.cargo/bin")
+-- hl.env("PATH", "$PATH:$HOME/.local/bin")
 
 -- XDG Desktop Portal
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
-
--- QT
-hl.env("QT_QPA_PLATFORM", "wayland;xcb")
-hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
--- hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
-hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
-hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 
 -- GDK
 hl.env("GDK_SCALE", "1")
@@ -186,13 +192,28 @@ hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
--- Ozone
-hl.env("OZONE_PLATFORM", "wayland")
-hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
-
 -- SDL version
 hl.env("SDL_VIDEODRIVER", "wayland")
 
 -- Quickshell debug
 hl.env("QS_NO_RELOAD_POPUP", "1")
+
+--[[
+
+-- Vulkan and nvidia related things
+hl.env("VKD3D_FILTER_DEVICE_NAME", "NVIDIA") -- Force nvidia for VKD3D
+hl.env("VK_ICD_FILENAMES", "/usr/share/vulkan/icd.d/nvidia_icd.json") -- Vulkan was unable to find my nvidia card, this one fixed it
+
+-- User queue suppor for amd mesa dirvers.
+-- https://www.phoronix.com/news/Mesa-25.0-AMDGPU-User-Queue
+hl.env("AMD_USERQ", "1")
+
+-- GTK4 apps use discrete gpu, this fixes it
+hl.env("GSK_RENDERER", "opengl")
+
+-- Nvidia cache related variables
+hl.env("__GL_SHADER_DISK_CACHE", "1")                        -- Force caching. It might not cache shaders sometimes
+hl.env("__GL_SHADER_DISK_CACHE_PATH", HOME .. "/.cache/nv")  -- Store shaders cache here
+hl.env("__GL_SHADER_DISK_CACHE_SKIP_CLEANUP", "1")           -- Do not cleanup nvidia shaders cache
+
 ]]--
