@@ -4,13 +4,6 @@
 -- /_/  /_/____//_/ |__/|__/  \___/\___/_//_/_/
 --
 
--- layerrule2 = blur, swaync-control-center
--- layerrule2 = blur, swaync-notification-window
--- layerrule2 = ignorezero, swaync-control-center
--- layerrule2 = ignorezero, swaync-notification-window
--- layerrule2 = ignorealpha 0.5, swaync-control-center
--- layerrule2 = ignorealpha 0.5, swaync-notification-window
-
 -- HOME directory
 local HOME = os.getenv("HOME")
 
@@ -128,17 +121,6 @@ hl.window_rule({
     size = "800 700"
 })
 
--- Picture-in-Picture
---[[
-hl.window_rule({
-    name = "Picture-in-Picture",
-    match = {title = "^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"},
-    float = true,
-    pin = true,
-    center = true
-})
-]]--
-
 -- ML4W Floating
 hl.window_rule({
     name = "dotfiles-floating",
@@ -197,23 +179,3 @@ hl.env("SDL_VIDEODRIVER", "wayland")
 
 -- Quickshell debug
 hl.env("QS_NO_RELOAD_POPUP", "1")
-
---[[
-
--- Vulkan and nvidia related things
-hl.env("VKD3D_FILTER_DEVICE_NAME", "NVIDIA") -- Force nvidia for VKD3D
-hl.env("VK_ICD_FILENAMES", "/usr/share/vulkan/icd.d/nvidia_icd.json") -- Vulkan was unable to find my nvidia card, this one fixed it
-
--- User queue suppor for amd mesa dirvers.
--- https://www.phoronix.com/news/Mesa-25.0-AMDGPU-User-Queue
-hl.env("AMD_USERQ", "1")
-
--- GTK4 apps use discrete gpu, this fixes it
-hl.env("GSK_RENDERER", "opengl")
-
--- Nvidia cache related variables
-hl.env("__GL_SHADER_DISK_CACHE", "1")                        -- Force caching. It might not cache shaders sometimes
-hl.env("__GL_SHADER_DISK_CACHE_PATH", HOME .. "/.cache/nv")  -- Store shaders cache here
-hl.env("__GL_SHADER_DISK_CACHE_SKIP_CLEANUP", "1")           -- Do not cleanup nvidia shaders cache
-
-]]--
