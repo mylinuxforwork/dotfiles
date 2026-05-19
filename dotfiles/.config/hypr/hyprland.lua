@@ -5,6 +5,9 @@
 --   
 -- Advanced configuration for Hyprland                                      
 
+-- FUNCTIONS
+require("functions")
+
 -- MONITORS
 require("conf.monitor")
 
@@ -31,9 +34,6 @@ require("conf.keybinding")
 require("conf.windowrule")
 require("conf.animation")
 require("conf.ml4w")
-
--- FUNCTIONS
-require("functions")
 
 -- CUSTOM
 require("conf.custom")
