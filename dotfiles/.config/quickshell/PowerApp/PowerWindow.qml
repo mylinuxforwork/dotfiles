@@ -106,6 +106,9 @@ PanelWindow {
                 property string iconTxt: ""
                 property string cmd: ""
                 
+                // Add a custom signal to the component
+                signal clicked()
+
                 implicitWidth: 50
                 implicitHeight: 50
                 radius: 25 
@@ -127,18 +130,34 @@ PanelWindow {
                     anchors.fill: parent
                     hoverEnabled: true
                     onClicked: {
-                        powerProcess.command = ["bash", "-c", btn.cmd]
-                        powerProcess.running = true
-                        root.isOpen = false // Trigger the slide-out animation!
+                        // 1. Emit our custom clicked signal
+                        btn.clicked()
+                        // 2. Trigger the slide-out animation!
+                        root.isOpen = false 
                     }
                 }
             }
 
-            PowerButton { iconTxt: ""; cmd: "pidof hyprlock || hyprlock" }
-            PowerButton { iconTxt: ""; cmd: "systemctl suspend" }
-            PowerButton { iconTxt: ""; cmd: "hyprctl dispatch exit" }
-            PowerButton { iconTxt: ""; cmd: "systemctl reboot" }
-            PowerButton { iconTxt: ""; cmd: "systemctl poweroff" }
+            PowerButton { 
+                iconTxt: ""; 
+                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -l"]) } 
+            }
+            PowerButton { 
+                iconTxt: ""; 
+                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -s"]) } 
+            }
+            PowerButton { 
+                iconTxt: ""; 
+                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -e"]) } 
+            }
+            PowerButton { 
+                iconTxt: ""; 
+                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -r"]) } 
+            }
+            PowerButton { 
+                iconTxt: ""; 
+                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -p"]) } 
+            }
         }
     }
 }

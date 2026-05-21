@@ -1,0 +1,1 @@
+hl.env("WLR_RENDERER_ALLOW_SOFTWARE", "1")

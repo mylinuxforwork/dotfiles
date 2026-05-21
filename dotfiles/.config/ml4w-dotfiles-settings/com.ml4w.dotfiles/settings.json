@@ -122,42 +122,42 @@
         "name": "Select Animation",
         "id": "variant_animation",
         "instructions": "Choose your preferred animation variant:",
-        "file": "~/.config/hypr/conf/animation.conf",
+        "file": "~/.config/hypr/conf/animation.lua",
         "type": "files",
         "folder": "~/.config/hypr/conf/animations",
         "mode": "replace",
-        "match": "source = ~/.config/hypr/conf/animations/.*",
-        "default": "default.conf"
+        "match": "local name = \".*\"",
+        "default": "default.lua"
     },{
         "name": "Decoration Variants",
         "id": "variant_decoration",
         "instructions": "Choose your preferred decoration variant:",
-        "file": "~/.config/hypr/conf/decoration.conf",
+        "file": "~/.config/hypr/conf/decoration.lua",
         "type": "files",
         "folder": "~/.config/hypr/conf/decorations",
         "mode": "replace",
-        "match": "source = ~/.config/hypr/conf/decorations/.*",
-        "default": "default.conf"
+        "match": "local name = \".*\"",
+        "default": "default.lua"
     },{
         "name": "Window Variants",
         "id": "variant_window",
         "instructions": "Choose your preferred window variant:",
-        "file": "~/.config/hypr/conf/window.conf",
+        "file": "~/.config/hypr/conf/window.lua",
         "type": "files",
         "folder": "~/.config/hypr/conf/windows",
         "mode": "replace",
-        "match": "source = ~/.config/hypr/conf/windows/.*",
-        "default": "default.conf"
+        "match": "local name = \".*\"",
+        "default": "default.lua"
     },{
         "name": "Workspace Variants",
         "id": "variant_workspace",
         "instructions": "Choose your preferred workspace variant:",
-        "file": "~/.config/hypr/conf/workspace.conf",
+        "file": "~/.config/hypr/conf/workspace.lua",
         "type": "files",
         "folder": "~/.config/hypr/conf/workspaces",
         "mode": "replace",
-        "match": "source = ~/.config/hypr/conf/workspaces/.*",
-        "default": "default.conf"
+        "match": "local name = \".*\"",
+        "default": "default.lua"
     },{
       "name": "Kitty Cursor Trail",
       "id": "toggle_kittycursortrail",
@@ -295,32 +295,32 @@
         "name": "Monitor Variants",
         "id": "variant_monitor",
         "instructions": "Choose your preferred monitor variant:",
-        "file": "~/.config/hypr/conf/monitor.conf",
+        "file": "~/.config/hypr/conf/monitor.lua",
         "type": "files",
         "folder": "~/.config/hypr/conf/monitors",
         "mode": "replace",
-        "match": "source = ~/.config/hypr/conf/monitors/.*",
-        "default": "nwg-displays.conf"
+        "match": "local name = \".*\"",
+        "default": "default.lua"
     },{
         "name": "Environment Variants",
         "id": "variant_environment",
         "instructions": "Choose your preferred environmant variant:",
-        "file": "~/.config/hypr/conf/environment.conf",
+        "file": "~/.config/hypr/conf/environment.lua",
         "type": "files",
         "folder": "~/.config/hypr/conf/environments",
         "mode": "replace",
-        "match": "source = ~/.config/hypr/conf/environments/.*",
-        "default": "default.conf"
+        "match": "local name = \".*\"",
+        "default": "default.lua"
     },{
         "name": "Windowrule Variants",
         "id": "variant_windowrule",
         "instructions": "Choose your preferred windowrule variant:",
-        "file": "~/.config/hypr/conf/windowrule.conf",
+        "file": "~/.config/hypr/conf/windowrule.lua",
         "type": "files",
         "folder": "~/.config/hypr/conf/windowrules",
         "mode": "replace",
-        "match": "source = ~/.config/hypr/conf/windowrules/.*",
-        "default": "default.conf"
+        "match": "local name = \".*\"",
+        "default": "default.lua"
     },{
       "name": "Launcher",
       "id": "system_launcher",

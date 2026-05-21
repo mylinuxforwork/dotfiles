@@ -17,7 +17,7 @@ bash <(curl -s https://ml4w.com/os/stable) # Stable Release
 ```
 
 ```sh
-bash <(curl -s https://ml4w.com/os/rolling) # Rolling Release
+bash <(curl -s https://ml4w.com/os/rolling) # Rolling Release (only Hyprland 0.55.x)
 ```
 Arch, Fedora and openSuse Tumblweed are directly supported.
 
