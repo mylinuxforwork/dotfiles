@@ -1,3 +1,7 @@
+Version 2.13.0
+--------------------------------------------------------
+- Hyprland Configuration converted into new lua format
+
 Version 2.12.3
 --------------------------------------------------------
 - Compatible with Hyprland 0.55.x (legacy conf). Change to Lua will follow soon with 2.13.
