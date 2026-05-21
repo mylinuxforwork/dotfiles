@@ -201,7 +201,7 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("System Info") 
                     onClicked: { 
-                        Quickshell.execDetached(["kitty", "--class", "dotfiles-floating", "-e", Quickshell.env("HOME") + "/.config/hypr/scripts/systeminfo.sh"])
+                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-hyprsysteminfo"])
                     }
                 }
                 ML4WMenuSeparator {}

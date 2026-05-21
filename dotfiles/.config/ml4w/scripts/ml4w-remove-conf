@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# 1. Define the target folders here (use absolute or relative paths)
+HYPR_CONFIG_FOLDER="~/.config/hypr/conf"
+TARGET_FOLDERS=(
+    "$HYPR_CONFIG_FOLDER/animations"
+    "$HYPR_CONFIG_FOLDER/decorations"
+    "$HYPR_CONFIG_FOLDER/environments"
+    "$HYPR_CONFIG_FOLDER/keybindings"
+    "$HYPR_CONFIG_FOLDER/layouts"
+    "$HYPR_CONFIG_FOLDER/monitors"
+    "$HYPR_CONFIG_FOLDER/windowrules"
+    "$HYPR_CONFIG_FOLDER/windows"
+    "$HYPR_CONFIG_FOLDER/workspaces"
+)
+
+echo "Starting cleanup of .conf files..."
+echo "-----------------------------------"
+
+# 2. Loop through each folder in the array
+for folder in "${TARGET_FOLDERS[@]}"; do
+    
+    # 3. Verify the directory actually exists before trying to modify it
+    if [[ -d "$folder" ]]; then
+        echo "Cleaning: $folder"
+        
+        # 4. Find and delete the files
+        # Note: -maxdepth 1 ensures it only deletes in the target folder, not sub-folders.
+        find "$folder" -maxdepth 1 -type f -name "*.conf" -exec rm -v {} +
+        
+    else
+        echo "Warning: Directory '$folder' not found. Skipping."
+    fi
+done
+
+echo "-----------------------------------"
+echo "Cleanup complete."

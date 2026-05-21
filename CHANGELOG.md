@@ -1,6 +1,8 @@
 Version 2.13.0
 --------------------------------------------------------
 - Hyprland Configuration converted into new lua format
+- hyprsysteminfo added to Welcome App
+- hyprshutdown added to Power App
 
 Version 2.12.3
 --------------------------------------------------------
