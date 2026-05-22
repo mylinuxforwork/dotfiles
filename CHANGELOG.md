@@ -4,6 +4,7 @@ Version 2.13.0
 - hyprsysteminfo added to Welcome App
 - hyprshutdown added to Power App
 - Add .conf cleanup script ~/.config/ml4w/scripts/ml4w-remove-conf to remove all .conf files from ~/.config/hypr that has been replaced with .lua
+- Wallpaper folder can be set directly in the wallpaper widget
 
 Version 2.12.3
 --------------------------------------------------------
