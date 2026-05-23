@@ -10,8 +10,7 @@ fi
 info "Building and deploying latest nwg-displays..."
 NWG_DISPLAYS_BUILD_DIR=$(mktemp -d)
 git clone https://github.com/nwg-piotr/nwg-displays.git "$NWG_DISPLAYS_BUILD_DIR"
-python3 $NWG_DISPLAYS_BUILD_DIR/setup.py build
-python3 $NWG_DISPLAYS_BUILD_DIR/setup.py install --user --optimize=1
+python3 -m pip install --user --break-system-packages "$NWG_DISPLAYS_BUILD_DIR"
 info "nwg-displays installed to ~/.local/bin/"
 rm -rf $NWG_DISPLAYS_BUILD_DIR
 

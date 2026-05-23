@@ -35,6 +35,11 @@
 			"value":true
 		},
 		{
+			"title":"Monitors",
+			"source":".config/hypr/workspaces.lua",
+			"value":true
+		},
+		{
 			"title":"Waypaper",
 			"source":".config/waypaper",
 			"value":true

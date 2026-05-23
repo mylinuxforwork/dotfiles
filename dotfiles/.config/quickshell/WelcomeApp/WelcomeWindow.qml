@@ -111,7 +111,7 @@ FloatingWindow {
                     text: qsTr("Monitors");
                     onClicked: { 
                         // Quickshell.execDetached(["gnome-text-editor", Quickshell.env("HOME") + "/.config/hypr/monitors.lua"])
-                        Quickshell.execDetached(["nwg-displays"])
+                        Quickshell.execDetached(["nwg-displays"]) 
                     }
                 }
                 ML4WMenuItem { 
