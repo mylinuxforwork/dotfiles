@@ -3,10 +3,10 @@
 	"id": "com.ml4w.dotfiles",
 	"description": "Advanced configuration for the dynamic tiling window manager Hyprland (0.55.x)",
 	"version":"2.13.0",
-	"author": "Stephan Raabe",
+	"author": "Corazon008",
 	"homepage": "https://ml4w.com/os/",
 	"dependencies": "https://ml4w.com/os/getting-started/dependencies",
-	"source": "https://github.com/mylinuxforwork/dotfiles.git",
+	"source": "https://github.com/corazon008/dotfiles.git",
 	"subfolder": "dotfiles",
 	"restore":[
 		{
