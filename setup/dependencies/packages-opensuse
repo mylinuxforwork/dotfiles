@@ -4,6 +4,12 @@ libnotify-tools
 libqt5-qtwayland
 qt6-wayland
 python313-pipx
+python3-devel
+python3-setuptools
+python3-gobject
+gtk3
+gtk-layer-shell
+python3-i3ipc
 ImageMagick
 NetworkManager-connection-editor
 NetworkManager-tui

@@ -1,6 +1,22 @@
 #!/usr/bin/env bash
 
 # --------------------------------------------------------------
+# nwg-displays
+# --------------------------------------------------------------
+
+if rpm -q nwg-displays &>/dev/null; then
+    info "Old nwg-displays system package detected. Removing to prevent conflicts..."
+    sudo dnf remove -y nwg-displays
+fi
+info "Building and deploying latest nwg-displays..."
+NWG_DISPLAYS_BUILD_DIR=$(mktemp -d)
+git clone https://github.com/nwg-piotr/nwg-displays.git "$NWG_DISPLAYS_BUILD_DIR"
+python3 $NWG_DISPLAYS_BUILD_DIR/setup.py build
+python3 $NWG_DISPLAYS_BUILD_DIR/setup.py install --user --optimize=1
+info "nwg-displays installed to ~/.local/bin/"
+rm -rf $NWG_DISPLAYS_BUILD_DIR
+
+# --------------------------------------------------------------
 # Oh My Posh
 # --------------------------------------------------------------
 
