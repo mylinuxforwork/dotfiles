@@ -36,8 +36,6 @@ detect_pm() {
     echo dnf
   elif command -v zypper >/dev/null 2>&1; then
     echo zypper
-  elif command -v apt-get >/dev/null 2>&1; then
-    echo apt
   else
     echo unknown
   fi
@@ -48,7 +46,6 @@ case "$PM" in
   pacman) distro_packages="$DEPS_DIR/packages-arch" ;;
   dnf) distro_packages="$DEPS_DIR/packages-fedora" ;;
   zypper) distro_packages="$DEPS_DIR/packages-opensuse" ;;
-  apt) distro_packages="$DEPS_DIR/packages" ;;
   *) echo "Unsupported package manager: $PM"; exit 1 ;;
 esac
 
@@ -64,35 +61,82 @@ if [[ ${#all_pkgs[@]} -eq 0 ]]; then
   echo "No packages found to install; check $DEPS_DIR"; exit 0
 fi
 
-case "$PM" in
-  pacman)
-    cmd=(sudo pacman -S --needed --noconfirm "${all_pkgs[@]}")
-    ;;
-  dnf)
-    cmd=(sudo dnf install -y "${all_pkgs[@]}")
-    ;;
-  zypper)
-    cmd=(sudo zypper install -y "${all_pkgs[@]}")
-    ;;
-  apt)
-    # For apt we will run update then install; store only the install command here
-    cmd=(sudo apt install -y "${all_pkgs[@]}")
-    ;;
-esac
+if [[ "$PM" == pacman ]]; then
+  # Ensure base build tools for AUR helpers
+  if [[ "$DRY_RUN" == true ]]; then
+    echo "[DRY-RUN] Would ensure base-devel and git are installed via pacman"
+  else
+    sudo pacman -S --needed --noconfirm base-devel git || true
+  fi
 
-if [[ "$DRY_RUN" == true ]]; then
-  echo "[DRY-RUN] Would run: ${cmd[*]}"
-  exit 0
-fi
+  # Detect or install an AUR helper (prefer paru)
+  AUR_HELPER=""
+  if command -v paru >/dev/null 2>&1; then
+    AUR_HELPER=paru
+  elif command -v yay >/dev/null 2>&1; then
+    AUR_HELPER=yay
+  else
+    # Try to install paru non-interactively
+    if [[ "$DRY_RUN" == true ]]; then
+      echo "[DRY-RUN] Would install paru from repo"
+    else
+      pacman -S --needed --noconfirm paru
+    fi
+  fi
 
-echo "Installing ${#all_pkgs[@]} packages using $PM"
-# run command array; special-case apt with chained commands
-if [[ "$PM" == apt ]]; then
-  sudo apt-get update
-  sudo apt-get install -y "${all_pkgs[@]}"
+  # Partition packages into repo packages and AUR packages
+  repo_pkgs=()
+  aur_pkgs=()
+  for pkg in "${all_pkgs[@]}"; do
+    if pacman -Si "$pkg" >/dev/null 2>&1; then
+      repo_pkgs+=("$pkg")
+    else
+      aur_pkgs+=("$pkg")
+    fi
+  done
+
+  if [[ "$DRY_RUN" == true ]]; then
+    if [[ ${#repo_pkgs[@]} -gt 0 ]]; then
+      echo "[DRY-RUN] Would install repo packages with pacman: ${repo_pkgs[*]}"
+    fi
+    if [[ ${#aur_pkgs[@]} -gt 0 ]]; then
+      if [[ -n "$AUR_HELPER" ]]; then
+        echo "[DRY-RUN] Would install AUR packages with $AUR_HELPER: ${aur_pkgs[*]}"
+      else
+        echo "[DRY-RUN] Would install AUR helper (paru) then AUR packages: ${aur_pkgs[*]}"
+      fi
+    fi
+  else
+    if [[ ${#repo_pkgs[@]} -gt 0 ]]; then
+      sudo pacman -S --needed --noconfirm "${repo_pkgs[@]}"
+    fi
+    if [[ ${#aur_pkgs[@]} -gt 0 ]]; then
+      if [[ -n "$AUR_HELPER" ]]; then
+        $AUR_HELPER -S --needed --noconfirm "${aur_pkgs[@]}"
+      else
+        echo "No AUR helper available to install: ${aur_pkgs[*]}"
+        echo "Install paru or yay and re-run"
+        exit 1
+      fi
+    fi
+  fi
+
+elif [[ "$PM" == dnf ]]; then
+  if [[ "$DRY_RUN" == true ]]; then
+    echo "[DRY-RUN] Would run: sudo dnf install -y ${all_pkgs[*]}"
+  else
+    sudo dnf install -y "${all_pkgs[@]}"
+  fi
+
+elif [[ "$PM" == zypper ]]; then
+  if [[ "$DRY_RUN" == true ]]; then
+    echo "[DRY-RUN] Would run: sudo zypper install -y ${all_pkgs[*]}"
+  else
+    sudo zypper install -y "${all_pkgs[@]}"
+  fi
+
 else
-  "${cmd[@]}"
+  echo "Unsupported package manager: $PM"; exit 1
 fi
 
 echo "Dependency install complete."
-
