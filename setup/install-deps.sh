@@ -75,7 +75,8 @@ case "$PM" in
     cmd=(sudo zypper install -y "${all_pkgs[@]}")
     ;;
   apt)
-    cmd=(sudo apt-get update && sudo apt-get install -y "${all_pkgs[@]}")
+    # For apt we will run update then install; store only the install command here
+    cmd=(sudo apt install -y "${all_pkgs[@]}")
     ;;
 esac
 
