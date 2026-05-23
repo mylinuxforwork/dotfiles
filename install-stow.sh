@@ -34,6 +34,8 @@ Options:
   --dry-run           Show what stow would do without changing files
   --overwrite         If files exist in $HOME, back them up and overwrite
   --skip-binaries     Do not copy bundled binaries from setup/packages/
+  --run-preflight    Run setup/run-preflight.sh before stow (if exists)
+  --run-postflight   Run setup/run-postflight.sh after stow (if exists)
   -h, --help          Show this help
 
 Examples:
