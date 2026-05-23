@@ -13,6 +13,17 @@ Known Issues:
 
 You can find all installation options in the documentation of the ML4W OS for Hyprland here:<br><b>https://ml4w.com/os/</b>
 
+### Local Stow-Based Workflow (No ml4w-dotfiles-installer)
+
+If you prefer to manage these dotfiles with GNU Stow in your own fork:
+
+```sh
+bash install-stow.sh --install-deps
+bash install-stow.sh
+```
+
+Use `STOW_WORKFLOW.md` for the full customization + upstream update workflow.
+
 ### Quick Installation
 
 Copy one of the following commands into your terminal:
