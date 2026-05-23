@@ -17,6 +17,12 @@ If you already have files in `$HOME` and want Stow to take ownership:
 bash install-stow.sh --adopt
 ```
 
+If you prefer to overwrite existing files (safer: backed up automatically) instead of using `--adopt`, use:
+```bash
+# Back up existing files into ~/.local/share/dotfiles-backup-<timestamp> and overwrite
+bash install-stow.sh --overwrite
+```
+
 Preview only:
 ```bash
 bash install-stow.sh --dry-run

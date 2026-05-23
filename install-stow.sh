@@ -8,6 +8,7 @@ TARGET_HOME="$HOME"
 INSTALL_DEPS=false
 ADOPT=false
 DRY_RUN=false
+OVERWRITE=false
 INSTALL_BINARIES=true
 RUN_PREFLIGHT=false
 RUN_POSTFLIGHT=false
@@ -31,6 +32,7 @@ Options:
   --install-deps      Install required tools (stow + basic helpers)
   --adopt             Let stow adopt existing files into the package tree
   --dry-run           Show what stow would do without changing files
+  --overwrite         If files exist in $HOME, back them up and overwrite
   --skip-binaries     Do not copy bundled binaries from setup/packages/
   -h, --help          Show this help
 
@@ -44,9 +46,10 @@ EOF
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --install-deps) INSTALL_DEPS=true ;;
-    --adopt) ADOPT=true ;;
-    --dry-run) DRY_RUN=true ;;
-    --skip-binaries) INSTALL_BINARIES=false ;;
+        --adopt) ADOPT=true ;;
+        --dry-run) DRY_RUN=true ;;
+        --overwrite) OVERWRITE=true ;;
+        --skip-binaries) INSTALL_BINARIES=false ;;
         --run-preflight) RUN_PREFLIGHT=true ;;
         --run-postflight) RUN_POSTFLIGHT=true ;;
     -h|--help) usage; exit 0 ;;
@@ -96,6 +99,33 @@ install_bundled_binaries() {
   done
 }
 
+backup_and_remove_conflicts() {
+  local pkg_dir="$REPO_ROOT/$PACKAGE_NAME"
+  local backup_root="$HOME/.local/share/${PACKAGE_NAME}-backup-$(date +%s)"
+
+  [[ -d "$pkg_dir" ]] || return 0
+  info "Preparing to overwrite existing files — backing up to: $backup_root"
+
+  # Iterate all files and directories in the package tree
+  while IFS= read -r -d '' src; do
+    rel_path="${src#$pkg_dir/}"
+    target="$TARGET_HOME/$rel_path"
+    if [[ -e "$target" || -L "$target" ]]; then
+      if [[ "$DRY_RUN" == true ]]; then
+        info "[DRY-RUN] Would move existing: $target -> $backup_root/$rel_path"
+      else
+        mkdir -p "$(dirname "$backup_root/$rel_path")"
+        mv -f "$target" "$backup_root/$rel_path"
+        info "Moved existing: $target -> $backup_root/$rel_path"
+      fi
+    fi
+  done < <(find "$pkg_dir" -mindepth 1 -print0)
+
+  if [[ "$DRY_RUN" != true ]]; then
+    info "Backup complete. Proceeding will allow stow to create new symlinks."
+  fi
+}
+
 if [[ "$INSTALL_DEPS" == true ]]; then
   install_deps
 fi
@@ -117,6 +147,10 @@ if [[ "$ADOPT" == true ]]; then
 fi
 if [[ "$DRY_RUN" == true ]]; then
   STOW_ARGS=(-n -v "${STOW_ARGS[@]}")
+fi
+
+if [[ "$OVERWRITE" == true ]]; then
+  backup_and_remove_conflicts
 fi
 
 info "Applying stow package '$PACKAGE_NAME' to $TARGET_HOME"
