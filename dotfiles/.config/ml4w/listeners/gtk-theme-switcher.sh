@@ -28,6 +28,15 @@ apply_theme() {
         return 1
     fi
 
+    # Determine matugen binary path
+    if [ -f $HOME/.cargo/bin/matugen ]; then
+        MATUGEN_BIN="$HOME/.cargo/bin/matugen"
+    elif [ -f $HOME/.local/bin/matugen ]; then
+        MATUGEN_BIN="$HOME/.local/bin/matugen"
+    else
+        MATUGEN_BIN="matugen"
+    fi
+
     # Extract the value of gtk-application-prefer-dark-theme
     # We use grep to find the line and awk to get the value after the '='
     THEME_PREF=$(grep -E '^gtk-application-prefer-dark-theme=' "$SETTINGS_FILE" | awk -F'=' '{print $2}')
@@ -39,11 +48,7 @@ apply_theme() {
 
     if [[ "$THEME_PREF" == "1" || "$THEME_PREF" == "true" ]]; then
         echo "Detected dark theme preference (gtk-application-prefer-dark-theme=1/true). Applying dark matugen theme..."
-        if [ -f $HOME/.cargo/bin/matugen ]; then
-            $HOME/.cargo/bin/matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) --source-color-index 0 -m "dark"
-        else
-            matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) --source-color-index 0 -m "dark"
-        fi
+        $MATUGEN_BIN image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) -m "dark"
 
         # Update Quickshell theme
         qs ipc call theme-manager reload
@@ -66,12 +71,7 @@ apply_theme() {
         swaync-client -rs
     elif [[ "$THEME_PREF" == "0" || "$THEME_PREF" == "false" ]]; then
         echo "Detected light theme preference (gtk-application-prefer-dark-theme=0/false). Applying light matugen theme..."
-        
-        if [ -f $HOME/.cargo/bin/matugen ]; then
-            $HOME/.cargo/bin/matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) --source-color-index 0 -m "light"
-        else
-            matugen image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) --source-color-index 0 -m "light"
-        fi
+        $MATUGEN_BIN image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) -m "light"
 
         # Update Quickshell theme
         qs ipc call theme-manager reload

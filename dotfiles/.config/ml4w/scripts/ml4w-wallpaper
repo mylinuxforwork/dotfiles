@@ -205,19 +205,20 @@ fi
 SETTINGS_FILE="$HOME/.config/gtk-3.0/settings.ini"
 THEME_PREF=$(grep -E '^gtk-application-prefer-dark-theme=' "$SETTINGS_FILE" | awk -F'=' '{print $2}')
 
+# Determine matugen binary path
+if [ -f $HOME/.cargo/bin/matugen ]; then
+    MATUGEN_BIN="$HOME/.cargo/bin/matugen"
+elif [ -f $HOME/.local/bin/matugen ]; then
+    MATUGEN_BIN="$HOME/.local/bin/matugen"
+else
+    MATUGEN_BIN="matugen"
+fi
+
 # Execute matugen
 if [ "$THEME_PREF" -eq 1 ]; then
-    if [ -f $HOME/.cargo/bin/matugen ]; then
-        $HOME/.cargo/bin/matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
-    else
-        matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
-    fi
+    $MATUGEN_BIN image "$IMAGE_PATH" -m "dark"
 else
-    if [ -f $HOME/.cargo/bin/matugen ]; then
-        $HOME/.cargo/bin/matugen image "$IMAGE_PATH" --source-color-index 0 -m "light"
-    else
-        matugen image "$IMAGE_PATH" --source-color-index 0 -m "dark"
-    fi
+    $MATUGEN_BIN image "$IMAGE_PATH" -m "light"
 fi
 info "Matugen updated"
 
