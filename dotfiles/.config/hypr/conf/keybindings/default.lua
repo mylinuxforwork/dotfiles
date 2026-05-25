@@ -8,7 +8,7 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("~/.config/ml4w/settings/filemanager"
 hl.bind(mainMod .. " + CTRL + E", hl.dsp.exec_cmd("~/.config/ml4w/settings/emojipicker.sh"), { description = "Open the emoji picker" })
 hl.bind(mainMod .. " + CTRL + C", hl.dsp.exec_cmd("~/.config/ml4w/settings/calculator.sh"), { description = "Open the calculator" })
 
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
+-- fr keyboard layout setup
 local is_fr = false
 local f = io.open(os.getenv("HOME") .. "/.config/hypr/input.lua", "r")
 if f then
@@ -24,6 +24,7 @@ local fr_keys = {
     "minus", "egrave", "underscore", "ccedilla", "agrave"
 }
 
+-- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     if is_fr then

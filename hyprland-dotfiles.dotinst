@@ -25,13 +25,13 @@
 			"value":true
 		},
 		{
-			"title":"Monitor",
-			"source":".config/hypr/conf/monitor.lua",
+			"title":"Monitor Setup",
+			"source":".config/hypr/monitors.lua",
 			"value":true
 		},
 		{
-			"title":"Monitors",
-			"source":".config/hypr/monitors.lua",
+			"title":"Monitor Variant",
+			"source":".config/hypr/conf/monitor.lua",
 			"value":true
 		},
 		{

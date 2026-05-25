@@ -151,10 +151,6 @@ hl.env("QT_QPA_PLATFORM", "wayland")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 
--- PATHS
--- hl.env("PATH", "$PATH:$HOME/.cargo/bin")
--- hl.env("PATH", "$PATH:$HOME/.local/bin")
-
 -- XDG Desktop Portal
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
