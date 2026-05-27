@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Check if command exists
+_checkCommandExists() {
+    cmd="$1"
+    if ! command -v "$cmd" >/dev/null; then
+        echo 1
+        return
+    fi
+    echo 0
+    return
+}
+
+echo ":: The script will install HyprMod."
+if gum confirm "Do you want to proceed?"; then
+
+    # Arch
+    if [[ $(_checkCommandExists "pacman") == 0 ]]; then
+
+        yay_installed="false"
+        paru_installed="false"
+        if [[ $(_checkCommandExists "yay") == 0 ]]; then
+            yay_installed="true"
+        fi
+        if [[ $(_checkCommandExists "paru") == 0 ]]; then
+            paru_installed="true"
+        fi
+        if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
+            aur_helper="yay"
+        elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]]; then
+            aur_helper="paru"
+        else
+            aur_helper="yay"
+        fi
+        $aur_helper -S --noconfirm "hyprmod"
+    # Fedora
+    elif [[ $(_checkCommandExists "dnf") == 0 ]]; then
+        curl -LsSf https://raw.githubusercontent.com/BlueManCZ/hyprmod/main/install.sh | sh
+    # Others
+    else
+        curl -LsSf https://raw.githubusercontent.com/BlueManCZ/hyprmod/main/install.sh | sh
+    fi
+
+fi

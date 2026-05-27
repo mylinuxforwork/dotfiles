@@ -76,7 +76,7 @@ PanelWindow {
 
     // --- Check if flatpak is installed when window opens ---
     Process {
-        command: ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-flatpak-installed com.ml4w.hyprlandsettings"]
+        command: ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-command-exists hyprmod"]
         running: root.visible
         
         stdout: StdioCollector {
@@ -246,11 +246,11 @@ PanelWindow {
                     }
                 }
                 ML4WButton { 
-                    text: "Hyprland"
+                    text: "HyprMod"
                     visible: root.isHyprlandSettingsInstalled 
                     onClicked: {
                         root.isOpen = false
-                        Quickshell.execDetached(["bash", "-c", "flatpak run com.ml4w.hyprlandsettings"])
+                        Quickshell.execDetached(["hyprmod"])
                     }
                 }
             }

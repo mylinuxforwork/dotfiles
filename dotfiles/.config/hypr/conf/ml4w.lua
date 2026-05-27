@@ -121,6 +121,15 @@ hl.window_rule({
     size = "800 700"
 })
 
+-- Hyprmod
+hl.window_rule({
+    name = "io.github.bluemancz.hyprmod",
+    match = {class = "io.github.bluemancz.hyprmod"},
+    float = true,
+    center = true,
+    size = "1000 700"
+})
+
 -- ML4W Floating
 hl.window_rule({
     name = "dotfiles-floating",
