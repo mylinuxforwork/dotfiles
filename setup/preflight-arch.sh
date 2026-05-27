@@ -102,4 +102,6 @@ _checkAURHelper
 # Uninstall swww if exists. To be replaced with awww in the next steps
 # --------------------------------------------------------------
 
-sudo pacman -Rns --noconfirm swww
+if command -v swww &> /dev/null; then
+    sudo pacman -Rns --noconfirm swww
+fi
