@@ -216,9 +216,9 @@ fi
 
 # Execute matugen
 if [ "$THEME_PREF" -eq 1 ]; then
-    $MATUGEN_BIN image "$IMAGE_PATH" -m "dark"
+    $MATUGEN_BIN image "$IMAGE_PATH" --source-color-index 0 -m "dark"
 else
-    $MATUGEN_BIN image "$IMAGE_PATH" -m "light"
+    $MATUGEN_BIN image "$IMAGE_PATH" --source-color-index 0 -m "light"
 fi
 info "Matugen updated"
 

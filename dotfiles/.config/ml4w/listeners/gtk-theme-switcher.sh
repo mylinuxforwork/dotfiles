@@ -48,7 +48,7 @@ apply_theme() {
 
     if [[ "$THEME_PREF" == "1" || "$THEME_PREF" == "true" ]]; then
         echo "Detected dark theme preference (gtk-application-prefer-dark-theme=1/true). Applying dark matugen theme..."
-        $MATUGEN_BIN image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) -m "dark"
+        $MATUGEN_BIN image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) --source-color-index 0 -m "dark"
 
         # Update Quickshell theme
         qs ipc call theme-manager reload
@@ -71,7 +71,7 @@ apply_theme() {
         swaync-client -rs
     elif [[ "$THEME_PREF" == "0" || "$THEME_PREF" == "false" ]]; then
         echo "Detected light theme preference (gtk-application-prefer-dark-theme=0/false). Applying light matugen theme..."
-        $MATUGEN_BIN image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) -m "light"
+        $MATUGEN_BIN image $(cat ~/.cache/ml4w/hyprland-dotfiles/current_wallpaper) --source-color-index 0 -m "light"
 
         # Update Quickshell theme
         qs ipc call theme-manager reload
