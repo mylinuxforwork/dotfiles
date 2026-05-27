@@ -74,7 +74,6 @@ PanelWindow {
         function close(): void { root.isOpen = false } 
     }
 
-    // --- Check if flatpak is installed when window opens ---
     Process {
         command: ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-command-exists hyprmod"]
         running: root.visible
