@@ -127,7 +127,8 @@
         "folder": "~/.config/hypr/conf/animations",
         "mode": "replace",
         "match": "local name = \".*\"",
-        "default": "default.lua"
+        "default": "default.lua",
+        "filetypes": ".lua"
     },{
         "name": "Decoration Variants",
         "id": "variant_decoration",
@@ -137,7 +138,8 @@
         "folder": "~/.config/hypr/conf/decorations",
         "mode": "replace",
         "match": "local name = \".*\"",
-        "default": "default.lua"
+        "default": "default.lua",
+        "filetypes": ".lua"
     },{
         "name": "Window Variants",
         "id": "variant_window",
@@ -147,7 +149,8 @@
         "folder": "~/.config/hypr/conf/windows",
         "mode": "replace",
         "match": "local name = \".*\"",
-        "default": "default.lua"
+        "default": "default.lua",
+        "filetypes": ".lua"
     },{
         "name": "Workspace Variants",
         "id": "variant_workspace",
@@ -157,7 +160,8 @@
         "folder": "~/.config/hypr/conf/workspaces",
         "mode": "replace",
         "match": "local name = \".*\"",
-        "default": "default.lua"
+        "default": "default.lua",
+        "filetypes": ".lua"
     },{
       "name": "Kitty Cursor Trail",
       "id": "toggle_kittycursortrail",
@@ -282,7 +286,8 @@
         "folder": "~/.config/hypr/conf/keybindings",
         "mode": "replace",
         "match": "source = ~/.config/hypr/conf/keybindings/.*",
-        "default": "default.conf"
+        "default": "default.conf",
+        "filetypes": ".lua"
     },{
         "name": "Monitor Variants",
         "id": "variant_monitor",
@@ -292,7 +297,8 @@
         "folder": "~/.config/hypr/conf/monitors",
         "mode": "replace",
         "match": "local name = \".*\"",
-        "default": "default.lua"
+        "default": "default.lua",
+        "filetypes": ".lua"
     },{
         "name": "Environment Variants",
         "id": "variant_environment",
@@ -302,7 +308,8 @@
         "folder": "~/.config/hypr/conf/environments",
         "mode": "replace",
         "match": "local name = \".*\"",
-        "default": "default.lua"
+        "default": "default.lua",
+        "filetypes": ".lua"
     },{
         "name": "Windowrule Variants",
         "id": "variant_windowrule",
@@ -312,7 +319,8 @@
         "folder": "~/.config/hypr/conf/windowrules",
         "mode": "replace",
         "match": "local name = \".*\"",
-        "default": "default.lua"
+        "default": "default.lua",
+        "filetypes": ".lua"
     },{
       "name": "Launcher",
       "id": "system_launcher",
