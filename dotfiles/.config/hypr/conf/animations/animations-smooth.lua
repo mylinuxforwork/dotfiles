@@ -25,7 +25,7 @@ hl.curve("easeInOutBack", { type = "bezier", points = { {0.68, -0.6}, {0.32, 1.6
 -- Animation Rules
 --------------------------------------------------------------------------------
 hl.animation({ leaf = "windows", enabled = true, speed = 3, bezier = "overshot", style = "slide" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 2011, bezier = "easeOutExpo" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 100, bezier = "easeOutExpo" })
 hl.animation({ leaf = "windowsIn", enabled = true, speed = 7, bezier = "easeOutBack" })
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 6, bezier = "easeInOutBack", style = "slide" })
 hl.animation({ leaf = "border", enabled = true, speed = 5, bezier = "default" })
