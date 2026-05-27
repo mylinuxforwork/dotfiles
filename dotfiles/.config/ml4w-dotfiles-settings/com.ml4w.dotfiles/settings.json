@@ -3,16 +3,6 @@
     "group":"Status Bar",
     "description":"Configuration of the Waybar status bar.",
     "settings":[{
-        "name": "Select Waybar Theme",
-        "id": "theme_folder",
-        "instructions": "Choose your theme:",
-        "file": "~/.config/ml4w/settings/waybar-theme.sh",
-        "type": "folders",
-        "folder": "~/.config/waybar/themes",
-        "mode": "overwrite",
-        "default": "ml4w-glass-center",
-        "post_command": "~/.config/waybar/waybar-quickshell.sh"
-    },{
       "name": "Show App Menu",
       "id": "toggle_appmenu",
       "instructions": "Do you want to show the app menu?",
