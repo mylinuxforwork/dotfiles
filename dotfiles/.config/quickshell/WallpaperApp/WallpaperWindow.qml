@@ -104,6 +104,34 @@ PanelWindow {
         }
     }
 
+    property string defaultTransitionEffect: "simple"
+    property string transitionEffectSettingFile: Quickshell.env("HOME") + "/.config/ml4w/settings/wallpaper-transition-effect"
+    property var transitionEffects: ["simple", "left", "right", "top", "bottom", "center", "any", "random", "none"]
+    property string transitionEffect: defaultTransitionEffect
+
+    FileView {
+        id: transitionEffectSettingFileHandler
+        path: Qt.url(root.transitionEffectSettingFile)
+        blockLoading: true
+        watchChanges: true
+        onFileChanged: {
+            this.reload();
+            const settingValue = this.text().trim()
+            console.log("Transition effect setting changed on disk; attempting to update to \"" + settingValue + "\"")
+            updateTransitionEffect(settingValue)
+        }
+        onLoaded: {
+            const settingValue = this.text().trim()
+            console.log("Loading transition effect \"" + settingValue + "\"")
+            updateTransitionEffect(settingValue)
+        }
+        onSaved: {
+            const settingValue = this.text().trim()
+            console.log("Transition effect setting saved successfully; updating to \"" + settingValue + "\"")
+            updateTransitionEffect(this.text().trim())
+        }
+    }
+
     function advancedSettingsLabel(): string {
         const actionText = advancedOptions.visible ? "Hide" : "Show"
         return actionText + " Advanced Options"
@@ -111,6 +139,15 @@ PanelWindow {
 
     function updateWallpaperFolder(dirString): void {
         root.wallpaperFolder = dirString.replace(/~|\$HOME/g, Quickshell.env("HOME"))
+    }
+
+    function updateTransitionEffect(effectString): void {
+        const cleaned = effectString.trim();
+        if (root.transitionEffects.indexOf(cleaned) !== -1) {
+            root.transitionEffect = cleaned;
+        } else {
+            root.transitionEffect = "simple";
+        }
     }
 
     // --- REUSABLE COMPONENTS ---
@@ -249,7 +286,7 @@ PanelWindow {
             }
 
             // --- ADVANCED OPTIONS ---
-            RowLayout {
+            ColumnLayout {
                 id: advancedOptions
                 Layout.fillWidth: true
                 Layout.topMargin: 5
@@ -258,6 +295,7 @@ PanelWindow {
 
                 // --- WALLPAPER DIRECTORY SETTING ---
                 ColumnLayout {
+                    Layout.fillWidth: true
                     Label {
                         id: wallpaperDirInputLabel
                         color: Theme.primary
@@ -295,6 +333,120 @@ PanelWindow {
                             radius: 10
                             border.color: Theme.primary
                             border.width: 1
+                        }
+                    }
+                }
+
+                // --- WALLPAPER TRANSITION EFFECT SETTING ---
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    Label {
+                        id: transitionEffectInputLabel
+                        color: Theme.primary
+                        font.family: Theme.fontFamily
+
+                        text: "Transition Effect"
+
+                        Accessible.name: text
+                        Accessible.role: Accessible.StaticText
+                    }
+
+                    ComboBox {
+                        id: transitionEffectComboBox
+                        model: root.transitionEffects
+                        currentIndex: root.transitionEffects.indexOf(root.transitionEffect)
+                        Layout.fillWidth: true
+
+                        onActivated: {
+                            const selectedEffect = root.transitionEffects[index];
+                            console.log("Updating wallpaper transition effect to \"" + selectedEffect + "\"")
+                            transitionEffectSettingFileHandler.setText(selectedEffect)
+                        }
+
+                        delegate: ItemDelegate {
+                            id: itemDelegate
+                            width: transitionEffectComboBox.width
+                            contentItem: Text {
+                                text: modelData
+                                color: itemDelegate.highlighted ? Theme.background : Theme.primary
+                                font.family: Theme.fontFamily
+                                font.pixelSize: 14
+                                elide: Text.ElideRight
+                                verticalAlignment: Text.AlignVCenter
+                                horizontalAlignment: Text.AlignHCenter
+                            }
+                            background: Rectangle {
+                                color: itemDelegate.highlighted ? Theme.primary : "transparent"
+                                radius: 4
+                            }
+                            highlighted: transitionEffectComboBox.highlightedIndex === index
+                        }
+
+                        indicator: Canvas {
+                            id: canvas
+                            x: transitionEffectComboBox.width - width - 12
+                            y: (transitionEffectComboBox.height - height) / 2
+                            width: 12
+                            height: 8
+                            contextType: "2d"
+
+                            onPaint: {
+                                context.reset();
+                                context.moveTo(0, 0);
+                                context.lineTo(width, 0);
+                                context.lineTo(width / 2, height);
+                                context.closePath();
+                                context.fillStyle = Theme.primary;
+                                context.fill();
+                            }
+
+                            Connections {
+                                target: transitionEffectComboBox
+                                function onPressedChanged() { canvas.requestPaint(); }
+                            }
+                        }
+
+                        contentItem: Text {
+                            leftPadding: 12
+                            rightPadding: transitionEffectComboBox.indicator.width + 12
+                            text: transitionEffectComboBox.displayText
+                            font.family: Theme.fontFamily
+                            font.pixelSize: 14
+                            color: Theme.primary
+                            verticalAlignment: Text.AlignVCenter
+                            horizontalAlignment: Text.AlignHCenter
+                            elide: Text.ElideRight
+                        }
+
+                        background: Rectangle {
+                            implicitHeight: 36
+                            color: Theme.background
+                            border.color: Theme.primary
+                            border.width: 1
+                            radius: 10
+                        }
+
+                        popup: Popup {
+                            y: transitionEffectComboBox.height + 2
+                            width: transitionEffectComboBox.width
+                            implicitHeight: contentItem.contentHeight > 250 ? 250 : contentItem.contentHeight
+                            padding: 4
+
+                            contentItem: ListView {
+                                clip: true
+                                implicitHeight: contentHeight
+                                model: transitionEffectComboBox.popup.visible ? transitionEffectComboBox.delegateModel : null
+                                currentIndex: transitionEffectComboBox.highlightedIndex
+
+                                ScrollIndicator.vertical: ScrollIndicator { }
+                            }
+
+                            background: Rectangle {
+                                color: Theme.background
+                                border.color: Theme.primary
+                                border.width: 1
+                                radius: 8
+                            }
                         }
                     }
                 }

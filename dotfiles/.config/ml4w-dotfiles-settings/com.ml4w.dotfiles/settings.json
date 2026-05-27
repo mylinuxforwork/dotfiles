@@ -83,15 +83,6 @@
     "group":"Appearance",
     "description":"Change some settings to customize the look and feel.",
     "settings":[{
-      "name": "Wallpaper Transition Effect",
-      "id": "wallpaper_transition",
-      "instructions": "Select your preferred wallpaper transition effect",
-      "file": "~/.config/ml4w/settings/wallpaper-transition-effect",
-      "type": "choose",
-      "mode": "overwrite",
-      "default": "simple",
-      "options": ["simple", "left", "right", "top", "bottom", "center", "any", "random", "none"]
-    },{
       "name": "Rofi Border Size",
       "id": "rofi_bordersize",
       "instructions": "Enter the border size for rofi",
