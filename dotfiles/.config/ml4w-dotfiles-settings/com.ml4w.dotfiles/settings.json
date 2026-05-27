@@ -281,12 +281,12 @@
         "name": "Keybinding Variants",
         "id": "variant_keybinding",
         "instructions": "Choose your preferred keybinding variant:",
-        "file": "~/.config/hypr/conf/keybinding.conf",
+        "file": "~/.config/hypr/conf/keybinding.lua",
         "type": "files",
         "folder": "~/.config/hypr/conf/keybindings",
         "mode": "replace",
-        "match": "source = ~/.config/hypr/conf/keybindings/.*",
-        "default": "default.conf",
+        "match": "local name = \".*\"",
+        "default": "default.lua",
         "filetypes": ".lua"
     },{
         "name": "Monitor Variants",
