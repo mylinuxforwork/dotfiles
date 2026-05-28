@@ -11,7 +11,12 @@
 	"setupscript":"setup/setup.sh",
 	"restore":[
 		{
-			"title":"ML4W Settings",
+			"title":"Your Custom Configuration",
+			"source":".config/hypr/conf/custom.lua",
+			"value":true
+		},
+		{
+			"title":"ML4W OS Settings",
 			"source":".config/ml4w/settings",
 			"value":true
 		},
@@ -21,23 +26,23 @@
 			"value":true
 		},
 		{
-			"title":"Gesture",
+			"title":"Gestures",
 			"source":".config/hypr/gesture.lua",
 			"value":true
 		},
 		{
-			"title":"Monitor Setup",
+			"title":"Monitor Setup (NWG Displays)",
 			"source":".config/hypr/monitors.lua",
+			"value":true
+		},
+		{
+			"title":"Hyprland GUI (HyprMod)",
+			"source":".config/hypr/hyprland-gui.lua",
 			"value":true
 		},
 		{
 			"title":"Monitor Variant",
 			"source":".config/hypr/conf/monitor.lua",
-			"value":true
-		},
-		{
-			"title":"Monitors",
-			"source":".config/hypr/workspaces.lua",
 			"value":true
 		},
 		{
@@ -91,8 +96,8 @@
 			"value":true
 		},
 		{
-			"title":"Your custom configuration",
-			"source":".config/hypr/conf/custom.lua",
+			"title":"Workspaces",
+			"source":".config/hypr/workspaces.lua",
 			"value":true
 		},
 		{

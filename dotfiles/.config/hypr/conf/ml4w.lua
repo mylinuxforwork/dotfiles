@@ -112,6 +112,15 @@ hl.window_rule({
     size = "600 400"
 })
 
+-- GTK File and Folder Picker
+hl.window_rule({
+    name = "xdg-desktop-portal-gtk",
+    match = {class = "xdg-desktop-portal-gtk"},
+    float = true,
+    center = false,
+    size = "800 600"
+})
+
 -- nm-connection-editor
 hl.window_rule({
     name = "nm-connection-editor",
