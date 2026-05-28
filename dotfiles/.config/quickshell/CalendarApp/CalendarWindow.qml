@@ -5,6 +5,7 @@ import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import QtQuick.Effects
 import qs.CustomTheme
 
 PanelWindow {
@@ -14,8 +15,8 @@ PanelWindow {
     WlrLayershell.layer: WlrLayer.Overlay
     exclusionMode: WlrLayershell.Ignore
     
-    implicitWidth: 340
-    implicitHeight: 340 
+    implicitWidth: 380
+    implicitHeight: 380 
     color: "transparent"
 
     // Anchored to the Upper Side
@@ -72,11 +73,11 @@ PanelWindow {
     }
     
     // Animate between your specific 87px top margin and off-screen (-800)
-    property real currentTopMargin: isOpen ? 87 : -800 
+    property real currentTopMargin: isOpen ? 67 : -820 
 
     margins { 
         top: root.currentTopMargin
-        left: 20
+        left: 0
     }
 
     Behavior on currentTopMargin {
@@ -211,8 +212,18 @@ PanelWindow {
     // ==========================================
     Item {
         anchors.fill: parent
+        anchors.margins: 20
+
+        RectangularShadow {
+            id: shadow
+            anchors.fill: mainBgRect
+            radius: mainBgRect.radius
+            blur: 15
+            color: Qt.rgba(Theme.shadow.r, Theme.shadow.g, Theme.shadow.b, 0.4)
+        }
 
         Rectangle {
+            id: mainBgRect
             anchors.fill: parent
             color: Theme.background
             border.color: Theme.primary

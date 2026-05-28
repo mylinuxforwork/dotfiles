@@ -6,6 +6,7 @@ import Quickshell.Services.Mpris
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import QtQuick.Effects
 import qs.CustomTheme
 
 PanelWindow {
@@ -15,7 +16,7 @@ PanelWindow {
     WlrLayershell.layer: WlrLayer.Overlay
     exclusionMode: WlrLayershell.Ignore
     
-    implicitWidth: 380
+    implicitWidth: 420 // 380 + 40
     color: "transparent"
 
     property bool isHyprlandSettingsInstalled: false
@@ -27,8 +28,8 @@ PanelWindow {
     }
 
     margins { 
-        top: 87
-        bottom: 20
+        top: 67 // 87 - 20
+        bottom: 0 // 20 - 20
     }
 
     // --- CLICK OUTSIDE TO CLOSE (Native Hyprland) ---
@@ -57,7 +58,7 @@ PanelWindow {
     visible: isOpen || slideAnim.running
     
     margins { right: root.currentMargin }
-    property real currentMargin: isOpen ? 20 : -450 
+    property real currentMargin: isOpen ? 0 : -470 
 
     Behavior on currentMargin {
         NumberAnimation {
@@ -176,8 +177,18 @@ PanelWindow {
     // ==========================================
     Item {
         anchors.fill: parent
+        anchors.margins: 20
+
+        RectangularShadow {
+            id: shadow
+            anchors.fill: mainBgRect
+            radius: mainBgRect.radius
+            blur: 15
+            color: Qt.rgba(Theme.shadow.r, Theme.shadow.g, Theme.shadow.b, 0.4)
+        }
 
         Rectangle {
+            id: mainBgRect
             anchors.fill: parent
             color: Theme.background
             border.color: Theme.primary

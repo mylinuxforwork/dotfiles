@@ -6,6 +6,7 @@ Version 2.13.0
 - Add .conf cleanup script ~/.config/ml4w/scripts/ml4w-remove-conf to remove all .conf files from ~/.config/hypr that has been replaced with .lua
 - Wallpaper folder can be set directly in the wallpaper widget
 - Prepared for HyprMod. Can be installed from the Welcome App. Shows additional launch buttons on Welcome App and Sidebar if installed.
+- Drop Shadows added to Quickshell PanelWindows for UI consistance.
 
 Version 2.12.3
 --------------------------------------------------------

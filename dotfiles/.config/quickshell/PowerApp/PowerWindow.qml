@@ -4,6 +4,7 @@ import Quickshell.Hyprland // <-- Added native Hyprland integration
 import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Effects
 import qs.CustomTheme
 
 PanelWindow {
@@ -13,8 +14,8 @@ PanelWindow {
     WlrLayershell.layer: WlrLayer.Overlay
     exclusionMode: WlrLayershell.Ignore 
     
-    implicitWidth: panelBg.width
-    implicitHeight: panelBg.height
+    implicitWidth: panelBg.implicitWidth + 40
+    implicitHeight: panelBg.implicitHeight + 40
     color: "transparent"
 
     anchors {
@@ -53,7 +54,7 @@ PanelWindow {
     }
 
     // Ternary operator: If open, set to 20. If closed, set to -150.
-    property real currentMargin: isOpen ? 20 : -150 
+    property real currentMargin: isOpen ? 0 : -170 
 
     // This automatically animates currentMargin whenever it changes!
     Behavior on currentMargin {
@@ -83,8 +84,18 @@ PanelWindow {
         id: panelBg
         implicitWidth: 80 
         implicitHeight: buttonLayout.implicitHeight + 40 
+        anchors.centerIn: parent
+
+        RectangularShadow {
+            id: shadow
+            anchors.fill: mainBgRect
+            radius: mainBgRect.radius
+            blur: 15
+            color: Qt.rgba(Theme.shadow.r, Theme.shadow.g, Theme.shadow.b, 0.4)
+        }
 
         Rectangle {
+            id: mainBgRect
             anchors.fill: parent
             color: Theme.background
             border.color: Theme.primary
