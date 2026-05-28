@@ -40,28 +40,17 @@ else
 fi
 
 _isInstalled() {
-    package="$1"
-    if [[ "$OS" == "Arch" ]]; then
-        if $CHECK_CMD "$package" > /dev/null 2>&1; then echo 0; else echo 1; fi
-    elif [[ "$OS" == "Fedora" ]]; then
-        if $CHECK_CMD "$package" > /dev/null 2>&1; then echo 0; else echo 1; fi
-    elif [[ "$OS" == "openSUSE" ]]; then
-        # zypper se -i returns 0 if found
-        if $CHECK_CMD "$package" > /dev/null 2>&1; then echo 0; else echo 1; fi
-    fi
+    $CHECK_CMD "$1" &> /dev/null
 }
 
-timeshift_installed=$(_isInstalled "timeshift")
-grubbtrfs_installed=$(_isInstalled "grub-btrfs")
-
 # --- Main Logic ---
-if [[ $timeshift_installed == "0" ]]; then
+if _isInstalled "timeshift"; then
     c=$(gum input --placeholder "Enter a comment for the snapshot...")
     sudo timeshift --create --comments "$c"
     sudo timeshift --list
     
     if [[ -f $GRUB_CFG ]]; then
-        if [[ $grubbtrfs_installed == "1" ]]; then
+        if ! _isInstalled "grub-btrfs"; then
             if gum confirm "grub-btrfs not found. DO YOU WANT TO INSTALL IT NOW?"; then
                 $PKG_INST grub-btrfs
             else
@@ -78,7 +67,7 @@ else
         $PKG_INST timeshift
         echo ":: Timeshift has been installed. Please restart this script."
         
-        if [[ $grubbtrfs_installed == "1" ]]; then
+        if ! _isInstalled "grub-btrfs"; then
             echo ":: grub-btrfs is recommended to select snapshots at boot."
             if gum confirm "DO YOU WANT TO INSTALL grub-btrfs now?"; then
                 $PKG_INST grub-btrfs

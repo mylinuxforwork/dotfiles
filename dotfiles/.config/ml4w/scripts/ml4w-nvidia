@@ -30,7 +30,7 @@ fi
 
 echo
 warn "The script will install the NVIDIA graphics drivers on your system."
-if gum confirm "Do you want to proceed?"
+if gum confirm "Do you want to proceed?"; then
     bash -c "$INSTALL_CMD"
     echo 'source = ~/.config/hypr/conf/environments/nvidia.conf' > $HOME/.config/hypr/conf/environment.conf
     success "Done!"

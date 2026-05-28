@@ -8,13 +8,7 @@
 
 # Check if command exists
 _checkCommandExists() {
-    cmd="$1"
-    if ! command -v "$cmd" >/dev/null; then
-        echo 1
-        return
-    fi
-    echo 0
-    return
+    command -v "$1" &> /dev/null
 }
 
 _isInstalled() {
@@ -64,14 +58,14 @@ fi
 # ----------------------------------------------------- 
 
 # Arch
-if [[ $(_checkCommandExists "pacman") == 0 ]]; then
+if _checkCommandExists "pacman"; then
 
     yay_installed="false"
     paru_installed="false"
-    if [[ $(_checkCommandExists "yay") == 0 ]]; then
+    if _checkCommandExists "yay"; then
         yay_installed="true"
     fi
-    if [[ $(_checkCommandExists "paru") == 0 ]]; then
+    if _checkCommandExists "paru"; then
         paru_installed="true"
     fi
     if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
@@ -83,7 +77,7 @@ if [[ $(_checkCommandExists "pacman") == 0 ]]; then
     fi
 
 # Fedora
-elif [[ $(_checkCommandExists "dnf") == 0 ]]; then
+elif _checkCommandExists "dnf"; then
     sudo dnf upgrade
 else
     echo ":: ERROR - Platform not supported"

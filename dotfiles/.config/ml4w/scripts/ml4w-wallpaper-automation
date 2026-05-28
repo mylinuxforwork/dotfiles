@@ -15,10 +15,11 @@ NOTIFICATION_ICON="preferences-desktop-wallpaper-symbolic"
 
 sec=$(cat ~/.config/ml4w/settings/wallpaper-automation)
 _setWallpaperRandomly() {
-    $HOME/.config/ml4w/scripts/ml4w-wallpaper --random
-    echo ":: Next wallpaper in $sec seconds..."
-    sleep $sec
-    _setWallpaperRandomly
+    while true; do
+        $HOME/.config/ml4w/scripts/ml4w-wallpaper --random
+        echo ":: Next wallpaper in $sec seconds..."
+        sleep $sec
+    done
 }
 
 if [ ! -f $ml4w_cache_folder/wallpaper-automation ]; then
