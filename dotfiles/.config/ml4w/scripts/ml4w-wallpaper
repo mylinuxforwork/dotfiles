@@ -6,7 +6,10 @@
 IMAGE_PATH=""
 EFFECT=""
 NOTIFICATIONS=false
-SKIP=false
+SKIP_WALLPAPER=false
+SKIP_THEMING=false
+MONITOR_OUTPUT=""
+AWWW_CROP_GRAVITY="center"
 CACHE_FOLDER="$HOME/.cache/ml4w/hyprland-dotfiles"
 CACHE_FILE="$CACHE_FOLDER/current_wallpaper"
 DEFAULT_WALLPAPER="$HOME/.config/ml4w/wallpapers/default.jpg"
@@ -45,7 +48,11 @@ show_help() {
     echo "  --effect NAME          Apply a specific wallpaper effect."
     echo "  --random [FOLDER]      Select a random image from FOLDER."
     echo "  --notifications        Enable desktop notifications."
-    echo "  --skip                 Skip setting the wallpaper with awww."
+    echo "  --skip-wallpaper       Will skip setting the wallpaper with awww."
+    echo "  --skip-theming         Will skip updating OS themes based on new wallpaper."
+    echo "  --skip                 Alias for \"--skip-wallpaper\"."
+    echo "  --monitor              Specify which input to apply wallpaper change (default applies to all outputs)"
+    echo "  --crop-gravity         Specify where to anchor wallpaper image in case cropping is needed (values from 'awww img --crop-gravity; default is center)"
     echo "  --help                 Show this help message and exit."
 }
 
@@ -78,13 +85,18 @@ wait_for_awww() {
 }
 
 set_wallpaper() {
-    if [ "$SKIP" = true ]; then
+    local awww_crop_gravity_args
+    if [ "$SKIP_WALLPAPER" = true ]; then
         info "Wallpaper set skipped"
         return
     fi
-    info "Setting wallpaper: $IMAGE_PATH"
+    read AWWW_MINOR AWWW_PATCH <<< $(awww --version | awk -F. '{print $2 " " $3}')
+    (( $AWWW_MINOR > 12 || $AWWW_MINOR == 12 && $AWWW_PATCH > 0 )) \
+        && awww_crop_gravity_args="--resize crop --crop-gravity $AWWW_CROP_GRAVITY" \
+        || awww_crop_gravity_args=""
+    info "Setting wallpaper: $IMAGE_PATH${MONITOR_OUTPUT:+ on monitor $MONITOR_OUTPUT}"
     local max=30 count=0
-    until awww img "$IMAGE_PATH" --transition-type "$SETTINGS_TRANSITION_EFFECT" 2>/dev/null; do
+    until awww img "$IMAGE_PATH" ${MONITOR_OUTPUT:+-o $MONITOR_OUTPUT} $awww_crop_gravity_args --transition-type "$SETTINGS_TRANSITION_EFFECT" 2>/dev/null; do
         (( count++ ))
         if (( count >= max )); then
             error "Failed to set wallpaper after ${max}s (no valid outputs)"
@@ -167,8 +179,10 @@ generate_image_variants() {
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
-        --skip)
-            SKIP=true; shift ;;
+        --skip|--skip-wallpaper)
+            SKIP_WALLPAPER=true; shift ;;
+        --skip-theming)
+            SKIP_THEMING=true; shift ;;
         --effect)
             EFFECT="$2"; shift 2 ;;
         --random)
@@ -189,6 +203,10 @@ while [[ $# -gt 0 ]]; do
             info "Random wallpaper selected: $IMAGE_PATH" ;;
         --notifications)
             NOTIFICATIONS=true; shift ;;
+        --monitor)
+            MONITOR_OUTPUT="$2"; shift 2 ;;
+        --crop-gravity)
+            AWWW_CROP_GRAVITY="$2"; shift 2 ;;
         --help)
             show_help; exit 0 ;;
         -*)
@@ -225,12 +243,16 @@ info "Cache updated: $IMAGE_PATH"
 apply_effect
 wait_for_awww
 set_wallpaper
-run_matugen
-reload_waybar
-reload_nwg_dock
-reload_quickshell
-reload_pywalfox
-reload_swaync
-generate_image_variants
-send_notification "Wallpaper Updated" "$(basename "$IMAGE_PATH")"
+if "$SKIP_THEMING"; then
+    info "Updating theming skipped"
+else
+    run_matugen
+    reload_waybar
+    reload_nwg_dock
+    reload_quickshell
+    reload_pywalfox
+    reload_swaync
+    generate_image_variants
+fi
+send_notification "Wallpaper Updated" "$(basename "$IMAGE_PATH")${MONITOR_OUTPUT:+ on output $MONITOR_OUTPUT}"
 info "Done"
