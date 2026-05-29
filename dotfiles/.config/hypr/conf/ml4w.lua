@@ -7,6 +7,14 @@
 -- HOME directory
 local HOME = os.getenv("HOME")
 
+-- Add .local/bin to PATH
+local current_path = os.getenv("PATH")
+hl.env("PATH", HOME .. "/.local/bin:" .. current_path)
+
+-- Add .cargo/bin to PATH
+local current_path = os.getenv("PATH")
+hl.env("PATH", HOME .. "/.cargo/bin:" .. current_path)
+
 -- Pavucontrol
 hl.window_rule({
     name  = "pavucontrol",
