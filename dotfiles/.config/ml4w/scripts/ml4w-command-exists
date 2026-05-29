@@ -11,5 +11,9 @@ COMMAND="$1"
 if command -v "$COMMAND" &> /dev/null; then
     echo 0
 else
-    echo 1
+    if [ -f "$HOME/.local/bin/$COMMAND" ]; then
+        echo 0
+    else
+        echo 1
+    fi
 fi
