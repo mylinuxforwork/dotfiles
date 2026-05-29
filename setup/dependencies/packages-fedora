@@ -35,3 +35,10 @@ quickshell
 openssl-devel
 pkg-config
 gnome-themes-extra
+gcc
+gobject-introspection-devel
+cairo-gobject-devel
+pkg-config
+python3-devel
+gtk4
+libadwaita-devel
