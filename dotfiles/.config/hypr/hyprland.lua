@@ -3,7 +3,7 @@
 --  / /|_/ / /_/_  _/ |/ |/ / / /_/ /\ \  
 -- /_/  /_/____//_/ |__/|__/  \____/___/
 --   
--- Advanced configuration for Hyprland                                       
+-- Advanced configuration for Hyprland
 
 -- FUNCTIONS
 require("functions")
@@ -36,9 +36,9 @@ require("conf.windowrule")
 require("conf.animation")
 require("conf.ml4w")
 
--- HYPRMOD
-require("hyprland-gui")
-
 -- CUSTOM
 require("custom")
+
+-- HYPRMOD
+require("hyprland-gui")
 
