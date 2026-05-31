@@ -3,10 +3,13 @@
 --  / /|_/ / /_/_  _/ |/ |/ / / /_/ /\ \  
 -- /_/  /_/____//_/ |__/|__/  \____/___/
 --   
--- Advanced configuration for Hyprland                                       
+-- Advanced configuration for Hyprland
 
 -- FUNCTIONS
 require("functions")
+
+-- PLUGINS
+require("plugins")
 
 -- MONITORS
 require("conf.monitor")
