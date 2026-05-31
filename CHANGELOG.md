@@ -1,3 +1,7 @@
+Version 2.13.1
+--------------------------------------------------------
+- Add Dock autohide switch to sidebar.
+
 Version 2.13.0
 --------------------------------------------------------
 - Hyprland Configuration converted into new lua format.
