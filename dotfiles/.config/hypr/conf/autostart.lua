@@ -1,6 +1,6 @@
 hl.on("hyprland.start", function () 
     -- Load cursor
-    hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 2")
+    hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 24")
     -- Start listeners
     hl.exec_cmd("~/.config/ml4w/listeners.sh --startall")
     -- Start polkit daemon
