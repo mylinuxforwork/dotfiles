@@ -17,8 +17,8 @@ hl.env("PATH", HOME .. "/.cargo/bin:" .. current_path)
 
 -- Pavucontrol
 hl.window_rule({
-    name  = "pavucontrol",
-    match = { class = "*org.pulseaudio.pavucontrol*" },
+    name = "pavucontrol",
+    match = {class = "*org.pulseaudio.pavucontrol*"},
     float = true,
     center = true,
     size = "700 600"
@@ -26,8 +26,8 @@ hl.window_rule({
 
 -- ML4W Welcome App
 hl.window_rule({
-    name  = "ml4w-welcome-app",
-    match = { title = "ML4W Welcome" },
+    name = "ml4w-welcome-app",
+    match = {title = "ML4W Welcome"},
     float = true,
     center = true,
     pin = true,
@@ -173,7 +173,7 @@ hl.env("DESKTOP_SESSION", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 
 -- Qt related environment variables
-hl.env("QT_QPA_PLATFORM", "wayland")
+hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 
