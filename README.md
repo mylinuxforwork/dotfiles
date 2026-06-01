@@ -18,11 +18,10 @@ You can find all installation options in the documentation of the ML4W OS for Hy
 If you prefer to manage these dotfiles with GNU Stow in your own fork:
 
 ```sh
-bash install-stow.sh --install-deps
-bash install-stow.sh
+bash install.sh --overwrite
 ```
 
-Use `STOW_WORKFLOW.md` for the full customization + upstream update workflow.
+For detailed customization and upstream update workflows, see `STOW_WORKFLOW.md`.
 
 ### Quick Installation
 
