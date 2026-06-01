@@ -68,4 +68,3 @@ Two practical workflows to keep overrides separate from upstream
 Notes & cautions
 - The repo's `.dotinst` restore-safe list includes `input.lua`, `monitors.lua`, and `custom.lua` — these are intentionally preserved during installer restores; prefer these files for machine-specific data.
 - Avoid editing loader stubs like `dotfiles/.bashrc` and `dotfiles/.zshrc`; use the `custom/*` directories instead.
-- If you adopt files into the stow tree (`--adopt`) be aware this moves files into the repo and will change git status.

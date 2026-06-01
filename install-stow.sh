@@ -6,7 +6,6 @@ REPO_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 PACKAGE_NAME="dotfiles"
 TARGET_HOME="$HOME"
 INSTALL_DEPS=false
-ADOPT=false
 DRY_RUN=false
 OVERWRITE=false
 INSTALL_BINARIES=true
@@ -30,7 +29,6 @@ Usage: bash install-stow.sh [options]
 
 Options:
   --install-deps      Install required tools (stow + basic helpers)
-  --adopt             Let stow adopt existing files into the package tree
   --dry-run           Show what stow would do without changing files
   --overwrite         If files exist in $HOME, back them up and overwrite
   --skip-binaries     Do not copy bundled binaries from setup/packages/
@@ -40,7 +38,6 @@ Options:
 
 Examples:
   bash install-stow.sh --install-deps
-  bash install-stow.sh --adopt
   bash install-stow.sh --dry-run
 EOF
 }
@@ -48,12 +45,11 @@ EOF
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --install-deps) INSTALL_DEPS=true ;;
-        --adopt) ADOPT=true ;;
-        --dry-run) DRY_RUN=true ;;
-        --overwrite) OVERWRITE=true ;;
-        --skip-binaries) INSTALL_BINARIES=false ;;
-        --run-preflight) RUN_PREFLIGHT=true ;;
-        --run-postflight) RUN_POSTFLIGHT=true ;;
+    --dry-run) DRY_RUN=true ;;
+    --overwrite) OVERWRITE=true ;;
+    --skip-binaries) INSTALL_BINARIES=false ;;
+    --run-preflight) RUN_PREFLIGHT=true ;;
+    --run-postflight) RUN_POSTFLIGHT=true ;;
     -h|--help) usage; exit 0 ;;
     *) error "Unknown option: $1" ;;
   esac
@@ -108,6 +104,18 @@ backup_and_remove_conflicts() {
   [[ -d "$pkg_dir" ]] || return 0
   info "Preparing to overwrite existing files — backing up to: $backup_root"
 
+  # When .config already exists as a symlink (common with previous stow runs),
+  # remove only the symlink itself so stow can re-create the directory tree
+  # without moving the whole project or flattening .config.
+  if [[ -L "$TARGET_HOME/.config" ]]; then
+    if [[ "$DRY_RUN" == true ]]; then
+      info "[DRY-RUN] Would remove existing symlink: $TARGET_HOME/.config"
+    else
+      rm -f "$TARGET_HOME/.config"
+      info "Removed existing symlink: $TARGET_HOME/.config"
+    fi
+  fi
+
   # Iterate all files and directories in the package tree
   while IFS= read -r -d '' src; do
     rel_path="${src#$pkg_dir/}"
@@ -143,10 +151,7 @@ fi
 
 command -v stow >/dev/null 2>&1 || error "stow is not installed. Run with --install-deps."
 
-STOW_ARGS=(--dir "$REPO_ROOT" --target "$TARGET_HOME" --restow "$PACKAGE_NAME")
-if [[ "$ADOPT" == true ]]; then
-  STOW_ARGS=(--adopt "${STOW_ARGS[@]}")
-fi
+STOW_ARGS=(--dir "$REPO_ROOT" --target "$TARGET_HOME" --no-folding --restow "$PACKAGE_NAME")
 if [[ "$DRY_RUN" == true ]]; then
   STOW_ARGS=(-n -v "${STOW_ARGS[@]}")
 fi
@@ -172,6 +177,3 @@ if [[ "$RUN_POSTFLIGHT" == true ]]; then
 fi
 
 success "Done. Dotfiles are now managed by GNU Stow."
-if [[ "$ADOPT" == true ]]; then
-  warn "You used --adopt; check git status for files moved into $REPO_ROOT/$PACKAGE_NAME."
-fi

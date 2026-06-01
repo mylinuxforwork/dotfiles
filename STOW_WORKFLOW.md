@@ -12,16 +12,14 @@ bash install-stow.sh --install-deps
 bash install-stow.sh
 ```
 
-If you already have files in `$HOME` and want Stow to take ownership:
-```bash
-bash install-stow.sh --adopt
-```
-
-If you prefer to overwrite existing files (safer: backed up automatically) instead of using `--adopt`, use:
+If you prefer to overwrite existing files (safer: backed up automatically), use:
 ```bash
 # Back up existing files into ~/.local/share/dotfiles-backup-<timestamp> and overwrite
 bash install-stow.sh --overwrite
 ```
+
+`install-stow.sh` runs Stow with `--no-folding`, so directories like `dotfiles/.config/*` are linked as individual entries instead of collapsing the whole `.config` tree into one symlink.
+If an old `~/.config` symlink exists from a previous run, `--overwrite` removes only that symlink first, then lets Stow rebuild the expected per-entry links.
 
 Preview only:
 ```bash
@@ -59,5 +57,6 @@ If you keep local commits, rebase your custom branch onto updated `main`, resolv
 ## 5) Notes specific to this repo
 - `dotfiles/.bashrc` and `dotfiles/.zshrc` are loaders; avoid editing them directly.
 - Current ML4W `.dotinst` restore-safe files include `input.lua`, `monitors.lua`, and `custom.lua`; these are good places for personal edits.
+- Stow is invoked with `--no-folding` to keep `.config` children separate; if you ever see a top-level `.config` symlink, rerun `bash install-stow.sh --overwrite`.
 - This repo has no unit test suite; validate changes with `bash install-stow.sh --dry-run` and by checking your Hyprland module paths.
 
