@@ -62,31 +62,47 @@ backup_and_remove_conflicts() {
   [[ -d "$pkg_dir" ]] || return 0
   info "Preparing to overwrite existing files — backing up to: $backup_root"
 
-  # When .config already exists as a symlink (common with previous stow runs),
-  # remove only the symlink itself so stow can re-create the directory tree
-  if [[ -L "$TARGET_HOME/.config" ]]; then
-    if [[ "$DRY_RUN" == true ]]; then
-      info "[DRY-RUN] Would remove existing symlink: $TARGET_HOME/.config"
-    else
-      rm -f "$TARGET_HOME/.config"
-      info "Removed existing symlink: $TARGET_HOME/.config"
-    fi
-  fi
+  # Ensure every directory from the package tree exists as a real directory in
+  # $HOME so stow links the children individually instead of folding the whole
+  # tree into a single symlink (for example ~/.config).
+  while IFS= read -r -d '' src; do
+    rel_path="${src#$pkg_dir/}"
+    target="$TARGET_HOME/$rel_path"
 
-  # Iterate all files and directories in the package tree
+    if [[ -L "$target" || -f "$target" ]]; then
+      if [[ "$DRY_RUN" == true ]]; then
+        info "[DRY-RUN] Would move conflicting path: $target -> $backup_root/$rel_path"
+      else
+        mkdir -p "$(dirname "$backup_root/$rel_path")"
+        mv -f "$target" "$backup_root/$rel_path"
+        info "Moved conflicting path: $target -> $backup_root/$rel_path"
+      fi
+    fi
+
+    if [[ "$DRY_RUN" == true ]]; then
+      if [[ ! -d "$target" ]]; then
+        info "[DRY-RUN] Would ensure directory exists: $target"
+      fi
+    else
+      mkdir -p "$target"
+    fi
+  done < <(find "$pkg_dir" -mindepth 1 -type d -print0)
+
+  # Move only conflicting files/symlinks; keep directories in place so stow
+  # can populate their contents without replacing the directory itself.
   while IFS= read -r -d '' src; do
     rel_path="${src#$pkg_dir/}"
     target="$TARGET_HOME/$rel_path"
     if [[ -e "$target" || -L "$target" ]]; then
       if [[ "$DRY_RUN" == true ]]; then
-        info "[DRY-RUN] Would move existing: $target -> $backup_root/$rel_path"
+        info "[DRY-RUN] Would move existing file: $target -> $backup_root/$rel_path"
       else
         mkdir -p "$(dirname "$backup_root/$rel_path")"
         mv -f "$target" "$backup_root/$rel_path"
-        info "Moved existing: $target -> $backup_root/$rel_path"
+        info "Moved existing file: $target -> $backup_root/$rel_path"
       fi
     fi
-  done < <(find "$pkg_dir" -mindepth 1 -print0)
+  done < <(find "$pkg_dir" -mindepth 1 \( -type f -o -type l \) -print0)
 
   if [[ "$DRY_RUN" != true ]]; then
     info "Backup complete. Proceeding will allow stow to create new symlinks."
@@ -112,12 +128,13 @@ if [[ "$OVERWRITE" == true ]]; then
   backup_and_remove_conflicts
 fi
 
-STOW_ARGS=(--dir "$REPO_ROOT" --target "$TARGET_HOME" --no-folding --restow "$PACKAGE_NAME")
+STOW_ARGS=(--dir "$REPO_ROOT" --target "$TARGET_HOME" --restow "$PACKAGE_NAME")
 if [[ "$DRY_RUN" == true ]]; then
   STOW_ARGS=(-n -v "${STOW_ARGS[@]}")
 fi
 
 info "Applying stow package '$PACKAGE_NAME' to $TARGET_HOME"
+echo "stow ${STOW_ARGS[*]}"
 stow "${STOW_ARGS[@]}"
 
 if [[ "$SKIP_BINARIES" != true ]]; then

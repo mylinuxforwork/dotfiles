@@ -28,6 +28,8 @@ bash install.sh --dry-run --overwrite
 
 Stow is invoked with `--no-folding`, so directories like `dotfiles/.config/*` are linked as individual entries instead of collapsing the whole `.config` tree into one symlink.
 
+When using `--overwrite`, the script backs up conflicting files but keeps package directories such as `~/.config` as real directories. This is what prevents Stow from re-linking the whole `.config` tree as a single symlink.
+
 ## 4) Skip specific steps (advanced)
 ```bash
 # Skip preflight/postflight, just install deps and stow
