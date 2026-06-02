@@ -62,34 +62,8 @@ backup_and_remove_conflicts() {
   [[ -d "$pkg_dir" ]] || return 0
   info "Preparing to overwrite existing files — backing up to: $backup_root"
 
-  # Ensure every directory from the package tree exists as a real directory in
-  # $HOME so stow links the children individually instead of folding the whole
-  # tree into a single symlink (for example ~/.config).
-  while IFS= read -r -d '' src; do
-    rel_path="${src#$pkg_dir/}"
-    target="$TARGET_HOME/$rel_path"
-
-    if [[ -L "$target" || -f "$target" ]]; then
-      if [[ "$DRY_RUN" == true ]]; then
-        info "[DRY-RUN] Would move conflicting path: $target -> $backup_root/$rel_path"
-      else
-        mkdir -p "$(dirname "$backup_root/$rel_path")"
-        mv -f "$target" "$backup_root/$rel_path"
-        info "Moved conflicting path: $target -> $backup_root/$rel_path"
-      fi
-    fi
-
-    if [[ "$DRY_RUN" == true ]]; then
-      if [[ ! -d "$target" ]]; then
-        info "[DRY-RUN] Would ensure directory exists: $target"
-      fi
-    else
-      mkdir -p "$target"
-    fi
-  done < <(find "$pkg_dir" -mindepth 1 -type d -print0)
-
-  # Move only conflicting files/symlinks; keep directories in place so stow
-  # can populate their contents without replacing the directory itself.
+  # Move only conflicting files/symlinks. Do NOT pre-create directories.
+  # This allows stow to create directory symlinks instead of individual file symlinks.
   while IFS= read -r -d '' src; do
     rel_path="${src#$pkg_dir/}"
     target="$TARGET_HOME/$rel_path"
