@@ -1,119 +1,231 @@
 #!/usr/bin/env bash
-
 set -euo pipefail
 
-REPO_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." >/dev/null 2>&1 && pwd)"
-PACKAGE_NAME="dotfiles"
-TARGET_HOME="$HOME"
+# =========================
+# CONFIG
+# =========================
+
+REPO_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+PACKAGE="dotfiles"
+TARGET="$HOME"
+
+STATE_DIR="$HOME/.local/state/stow-orchestrator"
+TIMESTAMP="$(date +%s)"
+BACKUP_DIR="$STATE_DIR/backup-$TIMESTAMP"
+
+mkdir -p "$STATE_DIR"
+
+# =========================
+# FLAGS
+# =========================
+
 DRY_RUN=false
 OVERWRITE=false
-SKIP_BINARIES=false
+ROLLBACK=false
 
-BLUE='\033[0;34m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-RED='\033[0;31m'
-NC='\033[0m'
+# =========================
+# LOGGING
+# =========================
 
-info() { echo -e "${BLUE}[STOW]${NC} $1"; }
-success() { echo -e "${GREEN}[OK]${NC} $1"; }
-warn() { echo -e "${YELLOW}[WARN]${NC} $1"; }
-error() { echo -e "${RED}[ERROR]${NC} $1"; exit 1; }
+log()  { echo "[stow] $*"; }
+warn() { echo "[warn] $*"; }
+err()  { echo "[err] $*"; }
 
-usage() {
-  cat <<'EOF'
-Usage: bash setup/stow.sh [options]
+# =========================
+# ARGS
+# =========================
 
-Links dotfiles into $HOME using GNU Stow.
-
-Options:
-  --dry-run       Show what stow would do without changing files
-  --overwrite     If files exist in $HOME, back them up then overwrite
-  --skip-binaries Do not copy bundled binaries from setup/packages/
-  -h, --help      Show this help
-
-Examples:
-  bash setup/stow.sh --dry-run
-  bash setup/stow.sh --overwrite
-EOF
-}
-
-while [[ $# -gt 0 ]]; do
-  case "$1" in
+for arg in "$@"; do
+  case "$arg" in
     --dry-run) DRY_RUN=true ;;
     --overwrite) OVERWRITE=true ;;
-    --skip-binaries) SKIP_BINARIES=true ;;
-    -h|--help) usage; exit 0 ;;
-    *) error "Unknown option: $1" ;;
+    --rollback) ROLLBACK=true ;;
+    -h|--help)
+      echo "Usage: $0 [--dry-run] [--overwrite] [--rollback]"
+      exit 0
+      ;;
+    *) err "Unknown option: $arg"; exit 1 ;;
   esac
-  shift
 done
 
-if [[ ! -d "$REPO_ROOT/$PACKAGE_NAME" ]]; then
-  error "Missing package directory: $REPO_ROOT/$PACKAGE_NAME"
-fi
+# =========================
+# PATHS (stow truth set)
+# =========================
 
-command -v stow >/dev/null 2>&1 || error "stow is not installed. Run setup/install-deps.sh first."
+get_repo_paths() {
+    {
+      find "$REPO_ROOT/$PACKAGE" -maxdepth 1 -type f -printf "%P\n"
+      find "$REPO_ROOT/$PACKAGE" -mindepth 2 -maxdepth 2 -printf "%P\n"
+    } | grep -v '^$'
+}
 
-backup_and_remove_conflicts() {
-  local pkg_dir="$REPO_ROOT/$PACKAGE_NAME"
-  local backup_root="$HOME/.local/share/${PACKAGE_NAME}-backup-$(date +%s)"
+# =========================
+# COLLISION DETECTION
+# =========================
 
-  [[ -d "$pkg_dir" ]] || return 0
-  info "Preparing to overwrite existing files — backing up to: $backup_root"
+detect_collisions() {
+  local count=0
 
-  # Move only conflicting files/symlinks. Do NOT pre-create directories.
-  # This allows stow to create directory symlinks instead of individual file symlinks.
-  while IFS= read -r -d '' src; do
-    rel_path="${src#$pkg_dir/}"
-    target="$TARGET_HOME/$rel_path"
+  while IFS= read -r rel; do
+    local target="$TARGET/$rel"
+
     if [[ -e "$target" || -L "$target" ]]; then
-      if [[ "$DRY_RUN" == true ]]; then
-        info "[DRY-RUN] Would move existing file: $target -> $backup_root/$rel_path"
+      echo "[collision] $target"
+      count=$((count+1))
+    fi
+  done < <(get_repo_paths)
+
+  return $count
+}
+
+# =========================
+# DRY RUN DIFF
+# =========================
+
+show_diff() {
+  log "Dry-run diff (repo → $TARGET)"
+
+  while IFS= read -r rel; do
+    local src="$REPO_ROOT/$PACKAGE/$rel"
+    local dst="$TARGET/$rel"
+
+    if [[ ! -e "$dst" && ! -L "$dst" ]]; then
+      echo "[NEW]   $rel"
+      continue
+    fi
+
+    if [[ -L "$dst" ]]; then
+      echo "[LINK]  $rel -> $(readlink "$dst")"
+      continue
+    fi
+
+    if [[ -f "$dst" && -f "$src" ]]; then
+      if cmp -s "$src" "$dst"; then
+        echo "[OK]    $rel"
       else
-        mkdir -p "$(dirname "$backup_root/$rel_path")"
-        mv -f "$target" "$backup_root/$rel_path"
-        info "Moved existing file: $target -> $backup_root/$rel_path"
+        echo "[DIFF]  $rel"
+      fi
+    else
+      echo "[CONFLICT] $rel"
+    fi
+
+  done < <(get_repo_paths)
+}
+
+# =========================
+# BACKUP (transactional snapshot)
+# =========================
+
+backup_dirs() {
+  log "Backup directory takeover set"
+
+  while IFS= read -r rel; do
+    local target="$TARGET/$rel"
+
+    [[ -e "$target" || -L "$target" ]] || continue
+
+    if [[ "$DRY_RUN" == true ]]; then
+      echo "[dry-run backup] $target"
+    else
+      mkdir -p "$BACKUP_DIR"
+      mkdir -p "$(dirname "$BACKUP_DIR/$rel")"
+      cp -a "$target" "$BACKUP_DIR/$rel"
+    fi
+
+  done < <(get_repo_paths)
+}
+
+purge_conflict_dirs() {
+  log "Directory takeover purge"
+
+  while IFS= read -r rel; do
+    local target="$TARGET/$rel"
+
+    if [[ -e "$target" || -L "$target" ]]; then
+
+      if [[ "$DRY_RUN" == true ]]; then
+        echo "[dry-run remove] $target"
+      else
+        rm -rf "$target"
+        log "removed $target"
       fi
     fi
-  done < <(find "$pkg_dir" -mindepth 1 \( -type f -o -type l \) -print0)
 
-  if [[ "$DRY_RUN" != true ]]; then
-    info "Backup complete. Proceeding will allow stow to create new symlinks."
+  done < <(get_repo_paths)
+}
+
+# =========================
+# ROLLBACK
+# =========================
+
+rollback() {
+  log "Searching latest backup..."
+
+  local latest
+  latest=$(ls -1dt "$STATE_DIR"/backup-* 2>/dev/null | head -n 1 || true)
+
+  [[ -d "$latest" ]] || {
+    err "No backup found"
+    exit 1
+  }
+
+  log "Rollback from $latest"
+
+  rsync -a "$latest/" "$TARGET/"
+
+  log "Rollback complete"
+}
+
+# =========================
+# STOW EXECUTION
+# =========================
+
+run_stow() {
+  log "Running stow..."
+
+  local args=(-d "$REPO_ROOT" -t "$TARGET" "$PACKAGE")
+
+  if [[ "$DRY_RUN" == true ]]; then
+    args=(-n -v "${args[@]}")
   fi
+
+  stow "${args[@]}"
 }
 
-install_bundled_binaries() {
-  local bin_dir="$REPO_ROOT/setup/packages"
-  local target_bin="$HOME/.local/bin"
+# =========================
+# MAIN PIPELINE
+# =========================
 
-  [[ -d "$bin_dir" ]] || return 0
-  mkdir -p "$target_bin"
+main() {
 
-  for bin in "$bin_dir"/*; do
-    if [[ -f "$bin" && -x "$bin" ]]; then
-      cp -f "$bin" "$target_bin/"
-      info "Installed bundled binary: $(basename "$bin") -> $target_bin"
+  if [[ "$ROLLBACK" == true ]]; then
+    rollback
+    exit 0
+  fi
+
+  log "Scanning repository..."
+
+  if detect_collisions; then
+    warn "Collisions detected"
+
+    if [[ "$OVERWRITE" != true ]]; then
+      err "Use --overwrite to backup + replace"
+      exit 1
     fi
-  done
+
+    backup_dirs
+  fi
+
+  if [[ "$DRY_RUN" == true ]]; then
+    show_diff
+    exit 0
+  fi
+
+  backup_dirs
+  purge_conflict_dirs
+  run_stow
+
+  log "Done."
 }
 
-if [[ "$OVERWRITE" == true ]]; then
-  backup_and_remove_conflicts
-fi
-
-STOW_ARGS=(--dir "$REPO_ROOT" --target "$TARGET_HOME" --restow "$PACKAGE_NAME")
-if [[ "$DRY_RUN" == true ]]; then
-  STOW_ARGS=(-n -v "${STOW_ARGS[@]}")
-fi
-
-info "Applying stow package '$PACKAGE_NAME' to $TARGET_HOME"
-echo "stow ${STOW_ARGS[*]}"
-stow "${STOW_ARGS[@]}"
-
-if [[ "$SKIP_BINARIES" != true ]]; then
-  install_bundled_binaries
-fi
-
-success "Stow complete."
-
+main
