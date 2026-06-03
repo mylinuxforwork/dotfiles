@@ -52,6 +52,7 @@ esac
 all_pkgs=( )
 if [[ -f "$DEPS_DIR/packages" ]]; then
   while IFS= read -r p; do [[ -n "$p" ]] && all_pkgs+=("$p"); done < "$DEPS_DIR/packages"
+  while IFS= read -r p; do [[ -n "$p" ]] && all_pkgs+=("$p"); done < "$DEPS_DIR/my-packages"
 fi
 if [[ -f "$distro_packages" ]]; then
   while IFS= read -r p; do [[ -n "$p" ]] && all_pkgs+=("$p"); done < "$distro_packages"

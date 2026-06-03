@@ -1,0 +1,57 @@
+##### Web Browsers #####
+brave-bin
+zen-browser-bin
+
+##### Communication & Social #####
+discord
+localsend
+kdeconnect
+
+##### Remote Access & Streaming #####
+moonlight-qt
+remmina
+scrcpy
+
+##### Cloud & Sync #####
+nextcloud-client
+vorta
+
+##### Office & Productivity #####
+libreoffice-fresh
+onlyoffice-bin
+obsidian
+gnome-calendar
+
+##### Development #####
+docker
+docker-compose
+github-desktop
+jetbrains-toolbox
+uv
+zed
+
+##### Networking & Security #####
+nmap
+wireguard-tools
+
+##### GNOME / Desktop Integration #####
+gnome-keyring
+gnome-online-accounts
+gvfs-smb
+nautilus-open-any-terminal
+
+##### System Administration #####
+appimagelauncher
+gparted
+ncdu
+
+##### OCR & Language Data #####
+tesseract-data-fra
+
+##### Gaming #####
+cachyos-gaming-applications
+cachyos-gaming-meta
+
+##### Kernel #####
+linux-cachyos-bmq
+linux-cachyos-bore
