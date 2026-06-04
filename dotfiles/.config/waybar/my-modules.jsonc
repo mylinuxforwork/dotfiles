@@ -1,0 +1,58 @@
+//  __  __           _       _
+// |  \/  | ___   __| |_   _| | ___  ___
+// | |\/| |/ _ \ / _` | | | | |/ _ \/ __|
+// | |  | | (_) | (_| | |_| | |  __/\__ \
+// |_|  |_|\___/ \__,_|\__,_|_|\___||___/
+//
+//
+{
+    // Hyprland Window
+    "hyprland/window": {
+        "max-length": 50,
+        "rewrite": {
+            "(.*) - Brave": "$1",
+            "(.*) - Chromium": "$1",
+            "(.*) — Mozilla Firefox": "$1",
+            "(.*) — Zen Browser": "$1",
+        },
+        "separate-outputs": true,
+    },
+
+    // Clock
+    "clock": {
+        "format": "{:%H:%M - %a %Od}",
+        "on-click": "gnome-calendar",
+        "timezone": "",
+        "tooltip": false,
+    },
+
+    "custom/wg": {
+        "format": "󰒍   {}",
+        "return-type": "json",
+        "on-click": "~/.config/custom/wg.sh switch_state",
+        "tooltip": true,
+        "interval": 1,
+        "exec": "~/.config/custom/wg.sh status",
+        "exec-on-event": true,
+    },
+
+    // Temp CPU
+    "temperature": {
+        "thermal-zone": 0,
+        // "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C ",
+        "format": "/   {temperatureC}°C",
+    },
+
+    // Group Hardware
+    "group/hardware": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "not-memory",
+            "transition-left-to-right": false,
+        },
+        "modules": ["custom/system", "disk", "cpu", "temperature", "memory"],
+    },
+}
