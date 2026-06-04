@@ -33,12 +33,16 @@
   padding: 0px;
 }
 
-.floating-notifications.background .notification-row .notification-background .notification.critical {
-  background: @base;       /* translucent blur */
+.floating-notifications.background .notification-row .notification-background .notification {
+  background: rgba(84, 84, 84, 0.65); //@base;
   border-radius: 10px;
   border: 2px solid @primary;
   margin: 5px 10px;
+  padding: 14px;
 }
+
+.floating-notifications.background .notification-row .notification-background .notification.critical {
+  border: 2px solid @error;
 
 .floating-notifications.background
   .notification-row
