@@ -9,7 +9,6 @@ SKIP_STOW=false
 SKIP_POSTFLIGHT=false
 DRY_RUN=false
 OVERWRITE=false
-SKIP_BINARIES=false
 
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
@@ -35,7 +34,6 @@ Options:
   --skip-postflight Do not run postflight setup
   --dry-run         Show what would be done without changing files
   --overwrite       Backup and overwrite existing files in $HOME
-  --skip-binaries   Do not copy bundled binaries
   -h, --help        Show this help
 
 Examples:
@@ -53,7 +51,6 @@ while [[ $# -gt 0 ]]; do
     --skip-postflight) SKIP_POSTFLIGHT=true ;;
     --dry-run) DRY_RUN=true ;;
     --overwrite) OVERWRITE=true ;;
-    --skip-binaries) SKIP_BINARIES=true ;;
     -h|--help) usage; exit 0 ;;
     *) error "Unknown option: $1" ;;
   esac
@@ -99,7 +96,6 @@ if [[ "$SKIP_STOW" != true ]]; then
     stow_args=()
     [[ "$DRY_RUN" == true ]] && stow_args+=(--dry-run)
     [[ "$OVERWRITE" == true ]] && stow_args+=(--overwrite)
-    [[ "$SKIP_BINARIES" == true ]] && stow_args+=(--skip-binaries)
     bash "$REPO_ROOT/setup/stow.sh" "${stow_args[@]}"
     success "Stow complete"
   else
@@ -123,4 +119,3 @@ else
 fi
 
 success "Installation complete."
-
