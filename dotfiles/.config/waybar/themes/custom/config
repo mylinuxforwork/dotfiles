@@ -16,7 +16,7 @@
     "modules-left": [
         "custom/appmenu",
         "hyprland/workspaces",
-        "group/links",
+        //"group/links",
         //"wlr/taskbar",
         "pulseaudio",
         "backlight",
