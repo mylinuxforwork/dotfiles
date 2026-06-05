@@ -34,7 +34,7 @@ zed
 nmap
 wireguard-tools
 
-##### GNOME / Desktop Integration #####
+##### GNOME  #####
 gnome-keyring
 gnome-online-accounts
 gvfs-smb
