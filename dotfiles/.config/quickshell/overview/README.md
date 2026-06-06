@@ -18,7 +18,7 @@ A standalone workspace overview module for Hyprland using Quickshell - shows all
 
 ![Overview Screenshot](assets/image.png)
 
-https://github.com/user-attachments/assets/9c3d2488-1c24-4cdd-84cd-87c4397d02a8
+https://github.com/user-attachments/assets/e8f392d7-d831-4dec-9cd3-fb93d1ccc21c
 
 > *Workspace overview showing live window previews with drag-and-drop support*
 
@@ -33,6 +33,7 @@ https://github.com/user-attachments/assets/9c3d2488-1c24-4cdd-84cd-87c4397d02a8
 - 🖱️ Middle-click windows to close them  
 - 🔄 Drag and drop windows between workspaces
 - ⌨️ Keyboard navigation (Arrow keys, vim keys, number shortcuts)
+- 🖱️ Auto-close on focus loss / outside click
 - 💡 Hover tooltips showing window information
 - 🎨 Material Design 3 theming
 - ⚡ Smooth animations and transitions
@@ -80,17 +81,31 @@ Then add the keybind and auto-start to your Hyprland config (see Setup steps 2-4
    ```
    - **AUR package:** use the command above (`yay -S quickshell-overview-git` or `paru -S ...`)
 
-2. **Add keybind** to your Hyprland config (`~/.config/hypr/hyprland.conf`):
+2. **Add keybind** to your Hyprland config:
+
+   *For Hyprland 0.55+ (`~/.config/hypr/hyprland.lua`):*
+   ```lua
+   hl.bind("SUPER + TAB", hl.dsp.exec_cmd("qs ipc -c overview call overview toggle"))
+   ```
+   *For Hyprland 0.54 and older (`~/.config/hypr/hyprland.conf`):*
    ```conf
    bind = Super, TAB, exec, qs ipc -c overview call overview toggle
    ```
 
-3. **Auto-start** the overview (add to Hyprland config):
+4. **Auto-start** the overview (add to Hyprland config):
+
+   *For Hyprland 0.55+ (`~/.config/hypr/hyprland.lua`):*
+   ```lua
+   hl.on("hyprland.start", function () 
+       hl.exec_cmd("qs -c overview")
+   end)
+   ```
+   *For Hyprland 0.54 and older (`~/.config/hypr/hyprland.conf`):*
    ```conf
    exec-once = qs -c overview
    ```
 
-4. **Reload Hyprland**:
+6. **Reload Hyprland**:
    ```bash
    hyprctl reload
    ```
@@ -130,7 +145,9 @@ home.packages = with pkgs; [
 | **Arrow Keys / h/l** | Navigate left/right within current row* |
 | **Up/Down / j/k** | Navigate between workspace rows |
 | **1-9, 0** | Jump to Nth workspace in current group (0 = 10th) |
+| **Mouse wheel on grid** | Move across all normal workspaces, wrapping from last to first |
 | **Escape / Enter** | Close the overview |
+| **Click outside overview** | Close the overview when `overview.closeOnFocusLoss` is enabled (default) |
 | **Click workspace** | Switch to that workspace |
 | **Click window** | Focus that window |
 | **Middle-click window** | Close that window |
@@ -178,6 +195,33 @@ Edit `~/.config/quickshell/overview/config.json`:
     "scale": 0.16,
     "enable": true,
     "hideEmptyRows": true,
+    "closeOnFocusLoss": true,
+    "useWorkspaceMap": false,
+    "workspaceMap": [0, 10],
+    "orderRightLeft": false,
+    "orderBottomUp": false,
+    "previewsEnabled": true,
+    "previewMode": "live",
+    "includeInactiveMonitorPreviews": true,
+    "previewRecaptureDelayMs": 60,
+    "showSpecialWorkspaces": true,
+    "specialWorkspaces": [],
+    "specialWorkspaceColumns": 5,
+    "emptyWorkspaceWallpaper": "",
+    "specialEmptyWorkspaceWallpaper": "",
+    "effects": {
+      "enableBackdrop": false,
+      "backdropOpacity": 0.28,
+      "panelOpacity": 0.92,
+      "workspaceOpacity": 0.86,
+      "emptyWorkspaceWallpaperOverlayOpacity": 0.18,
+      "windowOverlayOpacity": 0.22,
+      "enableBlur": false,
+      "glassMode": false,
+      "glassTintStrength": 0.35,
+      "glassBorderOpacity": 0.72,
+      "glassShineOpacity": 0.14
+    },
     "workspaceSpacing": 5,
     "backgroundPadding": 10,
     "workspaceNumberBaseSize": 250
@@ -189,6 +233,12 @@ Edit `~/.config/quickshell/overview/config.json`:
 - **Too small?** Increase `scale` (try 0.20 or 0.25)
 - **Too big?** Decrease `scale` (try 0.12 or 0.14)
 - **More workspaces?** Change `rows` and `columns` (e.g., 3 rows × 4 columns = 12 workspaces)
+- **Reverse order?** Set `orderRightLeft` and/or `orderBottomUp` to `true`
+- **Prefer the overview to stay open after outside clicks/focus changes?** Set `closeOnFocusLoss` to `false`
+- **Per-monitor workspace groups?** Enable `useWorkspaceMap` and set `workspaceMap` (e.g. `[0,10]`)
+- **Show special workspaces below grid?** Keep `showSpecialWorkspaces: true` and optionally prefill `specialWorkspaces`
+- **Lower memory use?** Set `previewMode` to `event` and `includeInactiveMonitorPreviews` to `false`
+- **Transparency / blur?** Tune `overview.effects.*` (details below)
 
 **Hide empty workspace rows:**
 - Set `hideEmptyRows: true` to automatically hide rows that have no windows
@@ -196,6 +246,12 @@ Edit `~/.config/quickshell/overview/config.json`:
 - The current workspace row is always visible, even if empty
 - Arrow key navigation (left/right) stays within the current row when enabled
 - Great for 2-row setups where you rarely use workspaces 6-10
+
+**Close on focus loss / outside click:**
+- `closeOnFocusLoss` defaults to `true`
+- When enabled, clicking outside the overview closes it, similar to menus, dropdowns, and launchers
+- The overview also closes when its Hyprland focus grab is cleared
+- Set `closeOnFocusLoss: false` if you want the previous behavior where the overview can remain open after focus changes
 
 ### Position
 
@@ -216,10 +272,173 @@ Increase `topMargin` to move the overview down. Decrease it to move up.
 ```json
 {
   "windowPreview": {
+    "showIcons": true,
     "iconToWindowRatio": 0.25,
     "iconToWindowRatioCompact": 0.45,
     "xwaylandIndicatorToIconRatio": 0.35,
-    "inactiveMonitorOpacity": 0.4
+    "inactiveMonitorOpacity": 0.4,
+    "cropToFill": false
+  }
+}
+```
+
+- `cropToFill`: crop full-screen windows to fill the workspace preview when `true`; keep the full window in preview with possible horizontal/vertical "padding" bars when `false`
+
+### Performance Tuning
+
+```json
+{
+  "overview": {
+    "previewsEnabled": true,
+    "previewMode": "live",
+    "includeInactiveMonitorPreviews": true,
+    "previewRecaptureDelayMs": 60
+  },
+  "hacks": {
+    "hyprlandEventDebounceMs": 40
+  }
+}
+```
+
+- `overview.previewsEnabled`: turn all window screencopy previews on/off
+- `overview.previewMode`: `live` (best visuals, more RAM) or `event` (lower RAM, refreshes on window events)
+- `overview.includeInactiveMonitorPreviews`: when `false`, only current monitor windows get preview capture
+- `overview.previewRecaptureDelayMs`: delay used for event-mode snapshot refresh (lower = faster updates)
+- `hacks.hyprlandEventDebounceMs`: coalesces Hyprland event refreshes to reduce command churn
+
+### Special Workspaces
+
+```json
+{
+  "overview": {
+    "showSpecialWorkspaces": true,
+    "specialWorkspaces": ["stash", "music", "scratch"],
+    "specialWorkspaceColumns": 5
+  }
+}
+```
+
+- `showSpecialWorkspaces`: renders special workspaces in a strip under the normal grid
+- `specialWorkspaces`: optional preconfigured special workspace names (without the `special:` prefix)
+- `specialWorkspaceColumns`: how many special tiles per row before wrapping
+- `emptyWorkspaceWallpaper`: optional image path used as the background for normal workspace tiles
+- `specialEmptyWorkspaceWallpaper`: optional image path used as the background for special workspace tiles
+
+Interaction behavior:
+- Preconfigured special workspaces appear in the overview even when they are empty
+- The special strip shows active special workspaces plus any names you preconfigure
+- This is useful for fixed workflows like `stash`, `music`, or `scratch`
+- Click a special tile to run `togglespecialworkspace <name>`
+- Click the `+` tile to create and open a new special workspace
+- Drag a window onto a special tile to move it with `movetoworkspacesilent special:<name>`
+- Drag a window onto the `+` tile to auto-create a new special workspace (`stash`, `stash-2`, ...), even when no special workspace is currently open or preconfigured
+- Special windows are visible directly in those tiles
+- Restart Quickshell after changing `config.json`, otherwise the special workspace list will not refresh immediately
+
+Normal workspace scrolling:
+- Scroll on the normal workspace grid to move the active workspace/highlighter across all normal workspaces
+- Scrolling wraps from the last workspace back to `1`, and from `1` back to the last
+
+### Workspace Wallpaper
+
+```json
+{
+  "overview": {
+    "emptyWorkspaceWallpaper": "/home/your-user/Pictures/wallpaper.png",
+    "specialEmptyWorkspaceWallpaper": "/home/your-user/Pictures/special-wallpaper.png",
+    "effects": {
+      "emptyWorkspaceWallpaperOverlayOpacity": 0.12
+    }
+  }
+}
+```
+
+- Normal workspaces can use a wallpaper as their background
+- Special workspaces can use a different wallpaper as their background
+- The wallpaper remains visible behind floating or partially covered windows
+- If no special workspaces exist yet, that special wallpaper is also used for the `+` create tile
+- `emptyWorkspaceWallpaperOverlayOpacity` controls how much tint is applied over that wallpaper
+- Use an absolute path for the image for the most reliable behavior
+- Restart Quickshell after changing `config.json`, otherwise the wallpaper path will not refresh immediately
+
+Demo:
+
+![Workspace wallpaper demo](assets/Workspace_Wallpaper.png)
+
+### Transparency & Blur
+
+```json
+{
+  "overview": {
+    "effects": {
+      "enableBackdrop": false,
+      "backdropOpacity": 0.28,
+      "panelOpacity": 0.92,
+      "workspaceOpacity": 0.86,
+      "emptyWorkspaceWallpaperOverlayOpacity": 0.18,
+      "windowOverlayOpacity": 0.22,
+      "enableBlur": false,
+      "glassMode": false,
+      "glassTintStrength": 0.35,
+      "glassBorderOpacity": 0.72,
+      "glassShineOpacity": 0.14
+    }
+  }
+}
+```
+
+- `enableBackdrop`: show/hide full-screen dim backdrop behind overview
+- `backdropOpacity`: opacity of backdrop dim layer (`0` to `1`)
+- `panelOpacity`: opacity of overview panel container (`0` to `1`)
+- `workspaceOpacity`: opacity of each workspace tile (`0` to `1`)
+- `emptyWorkspaceWallpaperOverlayOpacity`: tint strength over empty-workspace wallpaper (`0` to `1`)
+- `windowOverlayOpacity`: opacity of the color tint over window previews (`0` to `1`)
+- `enableBlur`: switches layer namespace to `quickshell:overview-blur`
+- `glassMode`: enables a glass-like tint + softer transparency preset for panel/workspaces/windows
+- `glassTintStrength`: tint mixing strength for glass mode (`0` to `1`)
+- `glassBorderOpacity`: border alpha used by glass mode (`0` to `1`)
+- `glassShineOpacity`: top highlight strength for glass reflections (`0` to `1`)
+
+Stronger glass preset:
+
+```json
+{
+  "overview": {
+    "effects": {
+      "enableBackdrop": true,
+      "enableBlur": true,
+      "panelOpacity": 0.55,
+      "workspaceOpacity": 0.48,
+      "emptyWorkspaceWallpaperOverlayOpacity": 0.10,
+      "windowOverlayOpacity": 0.08,
+      "glassMode": true,
+      "glassTintStrength": 0.55,
+      "glassBorderOpacity": 0.85,
+      "glassShineOpacity": 0.32
+    }
+  }
+}
+```
+
+For Hyprland blur, add layer rules (example):
+
+```ini
+layerrule = blur true, match:namespace quickshell:overview-blur
+layerrule = ignore_alpha 0.2, match:namespace quickshell:overview-blur
+```
+
+If `enableBlur` is `false`, namespace remains `quickshell:overview`.
+
+Low-memory preset:
+
+```json
+{
+  "overview": {
+    "previewMode": "event",
+    "includeInactiveMonitorPreviews": false
+  },
+  "hacks": {
+    "hyprlandEventDebounceMs": 80
   }
 }
 ```
@@ -276,6 +495,33 @@ Increase `topMargin` to move the overview down. Decrease it to move up.
     "scale": 0.16,
     "enable": true,
     "hideEmptyRows": true,
+    "closeOnFocusLoss": true,
+    "useWorkspaceMap": false,
+    "workspaceMap": [0, 10],
+    "orderRightLeft": false,
+    "orderBottomUp": false,
+    "previewsEnabled": true,
+    "previewMode": "live",
+    "includeInactiveMonitorPreviews": true,
+    "previewRecaptureDelayMs": 60,
+    "showSpecialWorkspaces": true,
+    "specialWorkspaces": [],
+    "specialWorkspaceColumns": 5,
+    "emptyWorkspaceWallpaper": "",
+    "specialEmptyWorkspaceWallpaper": "",
+    "effects": {
+      "enableBackdrop": false,
+      "backdropOpacity": 0.28,
+      "panelOpacity": 0.92,
+      "workspaceOpacity": 0.86,
+      "emptyWorkspaceWallpaperOverlayOpacity": 0.18,
+      "windowOverlayOpacity": 0.22,
+      "enableBlur": false,
+      "glassMode": false,
+      "glassTintStrength": 0.35,
+      "glassBorderOpacity": 0.72,
+      "glassShineOpacity": 0.14
+    },
     "workspaceSpacing": 5,
     "backgroundPadding": 10,
     "workspaceNumberBaseSize": 250
@@ -284,13 +530,16 @@ Increase `topMargin` to move the overview down. Decrease it to move up.
     "topMargin": 100
   },
   "windowPreview": {
+    "showIcons": true,
     "iconToWindowRatio": 0.25,
     "iconToWindowRatioCompact": 0.45,
     "xwaylandIndicatorToIconRatio": 0.35,
-    "inactiveMonitorOpacity": 0.4
+    "inactiveMonitorOpacity": 0.4,
+    "cropToFill": false
   },
   "hacks": {
-    "arbitraryRaceConditionDelay": 150
+    "arbitraryRaceConditionDelay": 150,
+    "hyprlandEventDebounceMs": 40
   }
 }
 ```
@@ -337,7 +586,7 @@ output_path = "~/.config/quickshell/overview/common/Appearance.colors.qml"
 
 **5. Run matugen** with your wallpaper to generate colors:
 ```bash
-matugen image /path/to/your/wallpaper.jpg --source-color-index 0
+matugen image /path/to/your/wallpaper.jpg
 ```
 
 This generates `Appearance.colors.qml` which the overview loads automatically. Re-run step 5 whenever you change your wallpaper.
@@ -429,6 +678,12 @@ qs ipc -c overview call overview close
 
 - Window icons may fallback to generic icon if app class name doesn't match icon theme
 - Potential crashes during rapid window state changes due to Wayland screencopy buffer management
+
+## 💖 Support
+
+If this project helps your setup and you want to support continued maintenance, you can sponsor here:
+
+https://github.com/sponsors/Shanu-Kumawat
 
 ##  Credits
 

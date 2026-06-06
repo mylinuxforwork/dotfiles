@@ -109,9 +109,36 @@ Singleton {
             property real scale: root.readReal("overview.scale", 0.16)
             property bool enable: root.readBool("overview.enable", true)
             property bool hideEmptyRows: root.readBool("overview.hideEmptyRows", true)
+            property bool closeOnFocusLoss: root.readBool("overview.closeOnFocusLoss", true)
+            property bool useWorkspaceMap: root.readBool("overview.useWorkspaceMap", false)
+            property var workspaceMap: root.read("overview.workspaceMap", [])
+            property bool orderRightLeft: root.readBool("overview.orderRightLeft", false)
+            property bool orderBottomUp: root.readBool("overview.orderBottomUp", false)
+            property bool previewsEnabled: root.readBool("overview.previewsEnabled", true)
+            property string previewMode: root.readString("overview.previewMode", "live")
+            property bool includeInactiveMonitorPreviews: root.readBool("overview.includeInactiveMonitorPreviews", true)
+            property int previewRecaptureDelayMs: root.readInt("overview.previewRecaptureDelayMs", 60)
+            property bool showSpecialWorkspaces: root.readBool("overview.showSpecialWorkspaces", true)
+            property var specialWorkspaces: root.read("overview.specialWorkspaces", [])
+            property int specialWorkspaceColumns: root.readInt("overview.specialWorkspaceColumns", columns)
+            property string emptyWorkspaceWallpaper: root.readString("overview.emptyWorkspaceWallpaper", "")
+            property string specialEmptyWorkspaceWallpaper: root.readString("overview.specialEmptyWorkspaceWallpaper", "")
             property real workspaceSpacing: root.readReal("overview.workspaceSpacing", 5)
             property real backgroundPadding: root.readReal("overview.backgroundPadding", 10)
             property real workspaceNumberBaseSize: root.readReal("overview.workspaceNumberBaseSize", 250)
+            property QtObject effects: QtObject {
+                property bool enableBackdrop: root.readBool("overview.effects.enableBackdrop", false)
+                property real backdropOpacity: root.readReal("overview.effects.backdropOpacity", 0.28)
+                property real panelOpacity: root.readReal("overview.effects.panelOpacity", 0.92)
+                property real workspaceOpacity: root.readReal("overview.effects.workspaceOpacity", 0.86)
+                property real emptyWorkspaceWallpaperOverlayOpacity: root.readReal("overview.effects.emptyWorkspaceWallpaperOverlayOpacity", 0.18)
+                property real windowOverlayOpacity: root.readReal("overview.effects.windowOverlayOpacity", 0.22)
+                property bool enableBlur: root.readBool("overview.effects.enableBlur", false)
+                property bool glassMode: root.readBool("overview.effects.glassMode", false)
+                property real glassTintStrength: root.readReal("overview.effects.glassTintStrength", 0.35)
+                property real glassBorderOpacity: root.readReal("overview.effects.glassBorderOpacity", 0.72)
+                property real glassShineOpacity: root.readReal("overview.effects.glassShineOpacity", 0.14)
+            }
         }
 
         property QtObject position: QtObject {
@@ -119,14 +146,17 @@ Singleton {
         }
 
         property QtObject windowPreview: QtObject {
+            property bool showIcons: root.readBool("windowPreview.showIcons", true)
             property real iconToWindowRatio: root.readReal("windowPreview.iconToWindowRatio", 0.25)
             property real iconToWindowRatioCompact: root.readReal("windowPreview.iconToWindowRatioCompact", 0.45)
             property real xwaylandIndicatorToIconRatio: root.readReal("windowPreview.xwaylandIndicatorToIconRatio", 0.35)
             property real inactiveMonitorOpacity: root.readReal("windowPreview.inactiveMonitorOpacity", 0.4)
+            property bool cropToFill: root.readBool("windowPreview.cropToFill", false)
         }
 
         property QtObject hacks: QtObject {
             property int arbitraryRaceConditionDelay: root.readInt("hacks.arbitraryRaceConditionDelay", 150)
+            property int hyprlandEventDebounceMs: root.readInt("hacks.hyprlandEventDebounceMs", 40)
         }
     }
 
