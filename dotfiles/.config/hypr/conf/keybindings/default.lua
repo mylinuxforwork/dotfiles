@@ -13,7 +13,7 @@ local is_fr = false
 local f = io.open(os.getenv("HOME") .. "/.config/hypr/input.lua", "r")
 if f then
     local content = f:read("*all")
-    if content:match('kb_layout%s*=%s*"fr"') then
+    if content:match('kb_layout%s*=%s*"fr"') and not content:match('kb_variant%s*=%s*"us"') then
         is_fr = true
     end
     f:close()
