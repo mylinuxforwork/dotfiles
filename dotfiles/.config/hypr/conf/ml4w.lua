@@ -202,3 +202,10 @@ hl.env("SDL_VIDEODRIVER", "wayland")
 
 -- Quickshell debug
 hl.env("QS_NO_RELOAD_POPUP", "1")
+
+-- Force zero scaling for XWayland
+hl.config({
+  xwayland = {
+    force_zero_scaling = true
+  }
+})
