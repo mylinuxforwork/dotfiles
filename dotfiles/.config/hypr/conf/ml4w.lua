@@ -166,6 +166,19 @@ hl.window_rule({
     size = "1000 700"
 })
 
+-- Picture-in-Picture
+hl.window_rule({
+    name = "Picture-in-Picture",
+    match = {
+        title = [[^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$]]
+    },
+    float = true,
+    pin = true,
+    focus_on_activate = false,
+    no_initial_focus = true,
+    suppress_event = "activate"
+})
+
 -- Wayland variables
 hl.env("OZONE_PLATFORM", "wayland")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
