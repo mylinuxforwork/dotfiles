@@ -11,7 +11,8 @@
 # invocation proceeds; all others exit immediately.
 # -----------------------------------------------------
 
-exec 200>/tmp/waybar-launch.lock
+lock_file="$XDG_RUNTIME_DIR/waybar-launch.lock"
+exec 200>$lock_file
 flock -n 200 || exit 0
 
 # -----------------------------------------------------
@@ -97,12 +98,12 @@ _toggle_module() {
         search_string=" \"$module_name\""
         if ! grep -qF "$search_string" "$file"; then
             sed -i "s| //\"$module_name\"| \"$module_name\"|g" "$file"
-        fi    
+        fi
     else
         search_string=" //\"$module_name\""
         if ! grep -qF "$search_string" "$file"; then
             sed -i "s| \"$module_name\"| //\"$module_name\"|g" "$file"
-        fi    
+        fi
     fi
 }
 
