@@ -1,7 +1,7 @@
 Version 2.13.1
 --------------------------------------------------------
 - Add Dock autohide switch to sidebar.
-- Switch keyboard layout with SUPER + Space if defined in input.lua e.g., kb_layout  = "de,us",
+- Switch keyboard layout with SUPER + Space if defined in input.lua e.g., kb_layout  = "de,us"
 - Toggle special workspace with SUPER + Shift + S
 
 Version 2.13.0
