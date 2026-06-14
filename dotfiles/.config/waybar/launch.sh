@@ -11,7 +11,7 @@
 # invocation proceeds; all others exit immediately.
 # -----------------------------------------------------
 
-lock_file="/tmp/waybar-launch-$USER.lock"
+lock_file="$XDG_RUNTIME_DIR/waybar-launch.lock"
 exec 200>$lock_file
 flock -n 200 || exit 0
 
