@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+active_workspace=$(hyprctl activewindow -j | jq -r '.workspace.name')
+
+if [[ "$active_workspace" == "special:magic" ]]; then
+    current_ws=$(hyprctl monitors -j | jq -r '.[] | select(.focused==true) | .activeWorkspace.id')
+    hyprctl dispatch "hl.dsp.window.move({ workspace = $current_ws })"
+else
+    hyprctl dispatch 'hl.dsp.window.move({ workspace = "special:magic" })'
+fi
