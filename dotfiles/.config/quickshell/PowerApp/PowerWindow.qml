@@ -9,11 +9,11 @@ import qs.CustomTheme
 
 PanelWindow {
     id: root
-    
+
     // --- 1. OVERLAY & WAYLAND FIXES ---
     WlrLayershell.layer: WlrLayer.Overlay
-    exclusionMode: WlrLayershell.Ignore 
-    
+    exclusionMode: WlrLayershell.Ignore
+
     implicitWidth: panelBg.implicitWidth + 40
     implicitHeight: panelBg.implicitHeight + 40
     color: "transparent"
@@ -45,23 +45,46 @@ PanelWindow {
 
     // --- 2. ANIMATION LOGIC (FIXED) ---
     property bool isOpen: false
-    
+    property int selectedIndex: -1
+    property int buttonCount: 5
+
+    onIsOpenChanged: {
+        if (isOpen) {
+            selectedIndex = -1
+            panelBg.forceActiveFocus()
+        }
+    }
+
+    function activateSelected() {
+        var commands = [
+            Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -l",
+            Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -s",
+            Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -e",
+            Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -r",
+            Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -p"
+        ]
+        if (selectedIndex >= 0 && selectedIndex < commands.length) {
+            Quickshell.execDetached(["bash", "-c", commands[selectedIndex]])
+            isOpen = false
+        }
+    }
+
     // Keep the window mapped to the screen while the animation is playing
     visible: isOpen || slideAnim.running
-    
+
     margins {
         right: root.currentMargin
     }
 
     // Ternary operator: If open, set to 20. If closed, set to -150.
-    property real currentMargin: isOpen ? 0 : -170 
+    property real currentMargin: isOpen ? 0 : -170
 
     // This automatically animates currentMargin whenever it changes!
     Behavior on currentMargin {
         NumberAnimation {
             id: slideAnim
             duration: 350
-            easing.type: Easing.OutQuint 
+            easing.type: Easing.OutQuint
         }
     }
 
@@ -82,9 +105,26 @@ PanelWindow {
     // ==========================================
     Item {
         id: panelBg
-        implicitWidth: 80 
-        implicitHeight: buttonLayout.implicitHeight + 40 
+        implicitWidth: 80
+        implicitHeight: buttonLayout.implicitHeight + 40
         anchors.centerIn: parent
+
+        focus: true
+
+        Keys.onUpPressed: {
+            if (root.selectedIndex <= 0)
+                root.selectedIndex = root.buttonCount - 1
+            else
+                root.selectedIndex--
+        }
+        Keys.onDownPressed: {
+            if (root.selectedIndex >= root.buttonCount - 1)
+                root.selectedIndex = 0
+            else
+                root.selectedIndex++
+        }
+        Keys.onReturnPressed: root.activateSelected()
+        Keys.onEnterPressed: root.activateSelected()
 
         RectangularShadow {
             id: shadow
@@ -110,30 +150,31 @@ PanelWindow {
         ColumnLayout {
             id: buttonLayout
             anchors.centerIn: parent
-            spacing: 20 
+            spacing: 20
 
             component PowerButton: Rectangle {
                 id: btn
                 property string iconTxt: ""
                 property string cmd: ""
-                
+                property bool selected: false
+
                 // Add a custom signal to the component
                 signal clicked()
 
                 implicitWidth: 50
                 implicitHeight: 50
-                radius: 25 
-                
-                color: mouseArea.containsMouse ? Theme.primary : "transparent"
+                radius: 25
+
+                color: (mouseArea.containsMouse || selected) ? Theme.primary : "transparent"
                 border.color: Theme.primary
                 border.width: 1
 
                 Text {
                     anchors.centerIn: parent
                     text: btn.iconTxt
-                    font.family: "monospace" 
+                    font.family: "monospace"
                     font.pixelSize: 20
-                    color: mouseArea.containsMouse ? Theme.background : Theme.primary
+                    color: (mouseArea.containsMouse || selected) ? Theme.background : Theme.primary
                 }
 
                 MouseArea {
@@ -144,30 +185,35 @@ PanelWindow {
                         // 1. Emit our custom clicked signal
                         btn.clicked()
                         // 2. Trigger the slide-out animation!
-                        root.isOpen = false 
+                        root.isOpen = false
                     }
                 }
             }
 
-            PowerButton { 
-                iconTxt: ""; 
-                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -l"]) } 
+            PowerButton {
+                iconTxt: "";
+                selected: root.selectedIndex === 0
+                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -l"]) }
             }
-            PowerButton { 
-                iconTxt: ""; 
-                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -s"]) } 
+            PowerButton {
+                iconTxt: "";
+                selected: root.selectedIndex === 1
+                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -s"]) }
             }
-            PowerButton { 
-                iconTxt: ""; 
-                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -e"]) } 
+            PowerButton {
+                iconTxt: "";
+                selected: root.selectedIndex === 2
+                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -e"]) }
             }
-            PowerButton { 
-                iconTxt: ""; 
-                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -r"]) } 
+            PowerButton {
+                iconTxt: "";
+                selected: root.selectedIndex === 3
+                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -r"]) }
             }
-            PowerButton { 
-                iconTxt: ""; 
-                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -p"]) } 
+            PowerButton {
+                iconTxt: "";
+                selected: root.selectedIndex === 4
+                onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -p"]) }
             }
         }
     }
