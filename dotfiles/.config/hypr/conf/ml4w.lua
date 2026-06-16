@@ -156,16 +156,6 @@ hl.window_rule({
     size = "1000 700"
 })
 
--- ML4W Sidepad
-hl.window_rule({
-    name = "dotfiles-sidepad",
-    match = {class = "dotfiles-sidepad"},
-    float = true,
-    pin = true,
-    center = true,
-    size = "1000 700"
-})
-
 -- Picture-in-Picture
 hl.window_rule({
     name = "Picture-in-Picture",

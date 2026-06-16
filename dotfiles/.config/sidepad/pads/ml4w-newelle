@@ -1,4 +1,0 @@
-# Sidepad configuration for Newelle
-# Installation with flatpak install io.github.qwersyk.Newelle
-SIDEPAD_APP="flatpak run io.github.qwersyk.Newelle"
-SIDEPAD_CLASS="io.github.qwersyk.Newelle"

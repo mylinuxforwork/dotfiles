@@ -752,45 +752,6 @@ PanelWindow {
                         Item { implicitWidth: 28 } 
                     }
 
-                    // --- SIDEPAD ---
-                    RowLayout {
-                        Layout.fillWidth: true
-                        Text { text: "Sidepad"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
-                        Item { Layout.fillWidth: true }
-                        ML4WSwitch { 
-                            id: sidepadSwitch
-                            onClicked: {
-                                if (checked) {
-                                    console.log("Launching sidebar...")
-                                    Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-sidepad --init"])
-                                } else {
-                                    console.log("Stopping sidebar...")
-                                    Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-sidepad --kill"])
-                                }
-                            }
-                        }
-                        SettingsWheel {
-                            onClicked: sidepadMenu.open()
-                            Menu {
-                                id: sidepadMenu
-                                y: parent.height
-                                
-                                implicitWidth: 220
-                                padding: 8
-                                
-                                background: Rectangle { color: Theme.background; border.color: Theme.primary; border.width: 1; radius: 8 }
-                                ML4WMenuItem { text: "Select Sidepad"; onClicked: {
-                                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-sidepad --select"])
-                                    } 
-                                }
-                                ML4WMenuItem { text: "Open Sidepad Folder"; onClicked: {
-                                        Quickshell.execDetached(["nautilus", Quickshell.env("HOME") + "/.config/sidepad/pads"])
-                                    } 
-                                }
-                            }
-                        }
-                    }
-
                     Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: Theme.primary; opacity: 0.3; Layout.topMargin: 5; Layout.bottomMargin: 5 }
 
                     // --- WALLPAPER ---

@@ -1,3 +1,0 @@
-# Sidepad configuration for Firefox
-SIDEPAD_APP="firefox --no-remote -P default --name dotfiles-sidepad"
-SIDEPAD_CLASS="dotfiles-sidepad"
