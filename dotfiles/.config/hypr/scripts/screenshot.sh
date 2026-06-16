@@ -11,16 +11,33 @@
 # Screenshots will be stored in $HOME by default.
 # The screenshot will be moved into the screenshot directory
 
-# Add this to ~/.config/user-dirs.dirs to save screenshots in a custom folder:
-# XDG_SCREENSHOTS_DIR="$HOME/Screenshots"
+# Defaults
+SAVE_DIR="$HOME/Pictures"
+SAVE_FILENAME="screenshot_$(date +%d%m%Y_%H%M%S).jpg"
 
-prompt='Screenshot'
-mesg="DIR: ~/Screenshots"
+# Load Settings
+if [ -f ~/.config/ml4w/settings/screenshot-folder ]; then
+    SAVE_DIR=$(cat ~/.config/ml4w/settings/screenshot-folder)
+fi
+if [ -f ~/.config/ml4w/settings/screenshot-filename ]; then
+    SAVE_FILENAME=$(cat ~/.config/ml4w/settings/screenshot-filename)
+fi
 
-SAVE_DIR=$(cat ~/.config/ml4w/settings/screenshot-folder)
-SAVE_FILENAME=$(cat ~/.config/ml4w/settings/screenshot-filename)
 eval screenshot_folder="$SAVE_DIR"
 eval NAME="$SAVE_FILENAME"
+
+# Get image format
+image_format="png"
+extension="${NAME##*.}"
+
+case $extension in
+    "jpg"|"jpeg")
+        image_format="jpeg"
+        ;;
+    "ppm")
+        image_format="ppm"
+        ;;
+esac
 
 # Notifications
 source "$HOME/.config/ml4w/scripts/ml4w-notification-handler"
@@ -30,15 +47,9 @@ NOTIFICATION_ICON="camera-photo-symbolic"
 # Screenshot Editor
 export GRIMBLAST_EDITOR="$(cat ~/.config/ml4w/settings/screenshot-editor)"
 
-# Example for keybindings
-# bind = SUPER, p, exec, grimblast save active
-# bind = SUPER SHIFT, p, exec, grimblast save area
-# bind = SUPER ALT, p, exec, grimblast save output
-# bind = SUPER CTRL, p, exec, grimblast save screen
-
 # Quick instant mode: full screen
 take_instant_full() {
-    grim "$NAME" && notify_user \
+    grim -t "$image_format" "$NAME" && notify_user \
         --a "${APP_NAME}" \
         --i "${NOTIFICATION_ICON}" \
         --s "Screenshot saved" \
@@ -67,7 +78,7 @@ take_instant_area() {
     trap - EXIT
 
     # capture and notify
-    grim -g "$region" "$NAME" && notify_user \
+    grim -g "$region" -t "$image_format" "$NAME" && notify_user \
         --a "${APP_NAME}" \
         --i "${NOTIFICATION_ICON}" \
         --s "Screenshot saved" \
@@ -197,16 +208,19 @@ copy_save_editor_exit() {
 }
 
 # Confirm and execute
+# Note: `grimblast` only supports png outpuut when copy is specified
 copy_save_editor_run() {
     selected_chosen="$(copy_save_editor_exit)"
     if [[ "$selected_chosen" == "$copy" ]]; then
         option_chosen=copy
+        image_format=png
         ${1}
     elif [[ "$selected_chosen" == "$save" ]]; then
         option_chosen=save
         ${1}
     elif [[ "$selected_chosen" == "$copy_save" ]]; then
         option_chosen=copysave
+        image_format=png
         ${1}
     elif [[ "$selected_chosen" == "$edit" ]]; then
         option_chosen=edit
@@ -244,7 +258,7 @@ timer() {
 # take shots
 takescreenshot() {
     sleep 1
-    grimblast --notify "$option_chosen" "$option_type_screenshot" $NAME
+    grimblast --notify "$option_chosen" --filetype "$image_format" "$option_type_screenshot" $NAME
     if [ -f $HOME/$NAME ]; then
         if [ -d $screenshot_folder ]; then
             mv $HOME/$NAME $screenshot_folder/
@@ -256,7 +270,7 @@ takescreenshot_timer() {
     sleep 1
     timer
     sleep 1
-    grimblast --notify "$option_chosen" "$option_type_screenshot" $NAME
+    grimblast --notify "$option_chosen" --filetype "$image_format" "$option_type_screenshot" $NAME
     if [ -f $HOME/$NAME ]; then
         if [ -d $screenshot_folder ]; then
             mv $HOME/$NAME $screenshot_folder/

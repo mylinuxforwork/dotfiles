@@ -23,6 +23,19 @@ eval screenshot_folder="$SAVE_DIR"
 eval filename="$SAVE_FILENAME"
 path="$screenshot_folder/$filename"
 
+# Get image format
+image_format="png"
+extension="${filename##*.}"
+
+case $extension in
+    "jpg"|"jpeg")
+        image_format="jpeg"
+        ;;
+    "ppm")
+        image_format="ppm"
+        ;;
+esac
+
 # Create Screenshot folder
 mkdir -p "$SAVE_DIR"
 
@@ -40,18 +53,18 @@ take_screenshot() {
 
     case $mode in
         "fullscreen")
-            grim "$path"
+            grim -t "$image_format" "$path"
             ;;
         "area")
             # slurp allows UI selection
             GEOM=$(slurp)
             [ -z "$GEOM" ] && exit 0 # Handle ESC/Cancel
-            grim -g "$GEOM" "$path"
+            grim -g "$GEOM" -t "$image_format" "$path"
             ;;
         "window")
             # Hyprland specific geometry
             GEOM=$(hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')
-            grim -g "$GEOM" "$path"
+            grim -g "$GEOM" -t "$image_format" "$path"
             ;;
     esac
 
