@@ -4,6 +4,7 @@ Version 2.13.1
 - Switch keyboard layout with SUPER + Space if defined in input.lua e.g., kb_layout  = "de,us"
 - Toggle special workspace with SUPER + Shift + S
 - Powermenu options can be selected with keyboard arrow keys and confirm with Return
+- New SVG Icons for Power Menu and Sidebar
 - Sidepad temporarly removed. Will be replaced soon by a new scratchpad feature.
 
 Version 2.13.0
