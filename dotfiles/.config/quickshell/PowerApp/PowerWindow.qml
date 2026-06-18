@@ -154,7 +154,7 @@ PanelWindow {
 
             component PowerButton: Rectangle {
                 id: btn
-                property string iconTxt: ""
+                property string iconSrc: ""
                 property string cmd: ""
                 property bool selected: false
 
@@ -169,12 +169,20 @@ PanelWindow {
                 border.color: Theme.primary
                 border.width: 1
 
-                Text {
+                Image {
+                    id: btnIcon
                     anchors.centerIn: parent
-                    text: btn.iconTxt
-                    font.family: "monospace"
-                    font.pixelSize: 20
-                    color: (mouseArea.containsMouse || selected) ? Theme.background : Theme.primary
+                    source: btn.iconSrc
+                    width: 22
+                    height: 22
+                    sourceSize.width: 22
+                    sourceSize.height: 22
+                    fillMode: Image.PreserveAspectFit
+                    layer.enabled: true
+                    layer.effect: MultiEffect {
+                        colorization: 1.0
+                        colorizationColor: (mouseArea.containsMouse || btn.selected) ? Theme.background : Theme.primary
+                    }
                 }
 
                 MouseArea {
@@ -191,27 +199,27 @@ PanelWindow {
             }
 
             PowerButton {
-                iconTxt: "";
+                iconSrc: "../shared/icons/lock.svg"
                 selected: root.selectedIndex === 0
                 onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -l"]) }
             }
             PowerButton {
-                iconTxt: "";
+                iconSrc: "../shared/icons/suspend.svg"
                 selected: root.selectedIndex === 1
                 onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -s"]) }
             }
             PowerButton {
-                iconTxt: "";
+                iconSrc: "../shared/icons/logout.svg"
                 selected: root.selectedIndex === 2
                 onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -e"]) }
             }
             PowerButton {
-                iconTxt: "";
+                iconSrc: "../shared/icons/reboot.svg"
                 selected: root.selectedIndex === 3
                 onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -r"]) }
             }
             PowerButton {
-                iconTxt: "";
+                iconSrc: "../shared/icons/power.svg"
                 selected: root.selectedIndex === 4
                 onClicked: { Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-power -p"]) }
             }

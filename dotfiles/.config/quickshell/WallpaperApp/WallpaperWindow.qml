@@ -171,14 +171,24 @@ PanelWindow {
 
 
     component SettingsWheel: Button {
-        implicitWidth: 28  
+        implicitWidth: 28
         implicitHeight: 28
-        text: "" 
-        font.family: "monospace"
         background: Rectangle { color: "transparent" }
-        contentItem: Text { 
-            text: parent.text; color: Theme.primary; font.pixelSize: 18; 
-            verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+        contentItem: Item {
+            Image {
+                anchors.centerIn: parent
+                source: "../shared/icons/settings.svg"
+                width: 18
+                height: 18
+                sourceSize.width: 18
+                sourceSize.height: 18
+                fillMode: Image.PreserveAspectFit
+                layer.enabled: true
+                layer.effect: MultiEffect {
+                    colorization: 1.0
+                    colorizationColor: Theme.primary
+                }
+            }
         }
     }
 

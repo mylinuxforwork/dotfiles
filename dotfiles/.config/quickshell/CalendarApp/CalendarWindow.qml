@@ -105,14 +105,36 @@ PanelWindow {
     // --- REUSABLE COMPONENTS ---
     component ActionIcon: Button {
         property string iconTxt: ""
-        implicitWidth: 28  
+        property string iconSrc: ""
+        implicitWidth: 28
         implicitHeight: 28
-        text: iconTxt
-        font.family: "monospace"
         background: Rectangle { color: "transparent" }
-        contentItem: Text { 
-            text: parent.text; color: Theme.primary; font.pixelSize: 18; 
-            verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+        contentItem: Item {
+            Text {
+                anchors.centerIn: parent
+                text: iconTxt
+                visible: iconSrc === ""
+                color: Theme.primary
+                font.family: "monospace"
+                font.pixelSize: 18
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+            Image {
+                anchors.centerIn: parent
+                source: iconSrc
+                width: 18
+                height: 18
+                sourceSize.width: 18
+                sourceSize.height: 18
+                visible: iconSrc !== ""
+                fillMode: Image.PreserveAspectFit
+                layer.enabled: iconSrc !== ""
+                layer.effect: MultiEffect {
+                    colorization: 1.0
+                    colorizationColor: Theme.primary
+                }
+            }
         }
     }
 
@@ -246,8 +268,8 @@ PanelWindow {
                     anchors.centerIn: parent
                     spacing: 5
                     
-                    ActionIcon { 
-                        iconTxt: "" 
+                    ActionIcon {
+                        iconSrc: "../shared/icons/chevron-left.svg"
                         onClicked: prevMonth()
                     }
                     
@@ -261,8 +283,8 @@ PanelWindow {
                         horizontalAlignment: Text.AlignHCenter
                     }
                     
-                    ActionIcon { 
-                        iconTxt: "" 
+                    ActionIcon {
+                        iconSrc: "../shared/icons/chevron-right.svg"
                         onClicked: nextMonth()
                     }
                 }
