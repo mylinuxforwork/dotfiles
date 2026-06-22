@@ -66,7 +66,7 @@ info "Quickshell Overview started"
 # Start ML4W Welcome App
 info "Starting ML4W Welcome App"
 if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then
-    sleep 2
+    sleep 15
     qs ipc call welcome toggle
     info "ML4W Welcome started"
 else
