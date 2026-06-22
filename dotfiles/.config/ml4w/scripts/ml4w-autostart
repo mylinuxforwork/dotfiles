@@ -27,23 +27,28 @@ if [ ! -f $CACHE_FILE ]; then
     info "Cache file created"
 fi
 
+info "Set wallpaper to cache file $(cat $CACHE_FILE)"
 ~/.config/ml4w/scripts/ml4w-wallpaper "$(cat $CACHE_FILE)" &
 
 # Start Quickshell
+info "Starting Quickshell"
 killall qs
 sleep 0.5
 qs &
 sleep 0.5
 
 # Start ML4W Settings App
+info "Starting ML4W Dotfiles Settings"
 PROFILE="com.ml4w.dotfiles" qs -p $HOME/.local/share/ml4w-dotfiles-settings/quickshell &
 info "ML4W Dotfiles Settings started"
 
 # Start Quickshell Overview
+info "Starting Quickshell Overview"
 qs -p $HOME/.config/quickshell/overview &
 info "Quickshell Overview started"
 
 # Start ML4W Welcome App
+info "Starting ML4W Welcome App"
 if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then
     sleep 3
     qs ipc call welcome toggle
