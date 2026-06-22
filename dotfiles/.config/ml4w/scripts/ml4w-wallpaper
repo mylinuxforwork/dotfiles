@@ -159,16 +159,6 @@ if [ ! -d $CACHE_FOLDER ]; then
     mkdir -p $CACHE_FOLDER
 fi
 
-# Ensure awww-daemon is running
-# if ! pgrep -x "awww-daemon" > /dev/null; then
-#    mkdir -p "$HOME/.cache/awww"
-#    info "Starting awww-daemon..."
-#    awww-daemon &
-#    
-#    # Give the daemon a brief moment to initialize before sending commands
-#    sleep 1 
-# fi
-
 # Write image path to cache file
 if [ ! -f "$CACHE_FILE" ]; then
     touch "$CACHE_FILE"
@@ -191,6 +181,18 @@ if [ -f "$SETTINGS_WALLPAPER_EFFECT" ]; then
         source "$HOME/.config/hypr/effects/wallpaper/$EFFECT"
     fi
 fi
+
+# Wait for the awww daemon to be ready, with a timeout
+timeout=30
+elapsed=0
+until awww query >/dev/null 2>&1; do
+    if (( $(echo "$elapsed >= $timeout" | bc -l) )); then
+        error "awww-daemon did not start within ${timeout}s" >&2
+        exit 1
+    fi
+    sleep 0.1
+    elapsed=$(echo "$elapsed + 0.1" | bc -l)
+done
 
 # Set the Wallpaper
 if [ "$SKIP" = true ]; then
