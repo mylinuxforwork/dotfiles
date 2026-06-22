@@ -66,8 +66,16 @@ info "Quickshell Overview started"
 # Start ML4W Welcome App
 info "Starting ML4W Welcome App"
 if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then
-    sleep 15
-    qs ipc call welcome toggle
+    timeout=30
+    count=0
+    until qs ipc call welcome toggle >/dev/null 2>&1; do
+        (( count++ ))
+        if (( count >= timeout )); then
+            warn "Welcome IPC not available after ${timeout}s"
+            break
+        fi
+        sleep 1
+    done
     info "ML4W Welcome started"
 else
     info "ML4W Welcome disabled"
