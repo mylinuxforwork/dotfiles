@@ -83,7 +83,15 @@ set_wallpaper() {
         return
     fi
     info "Setting wallpaper: $IMAGE_PATH"
-    awww img "$IMAGE_PATH" --transition-type "$SETTINGS_TRANSITION_EFFECT"
+    local max=30 count=0
+    until awww img "$IMAGE_PATH" --transition-type "$SETTINGS_TRANSITION_EFFECT" 2>/dev/null; do
+        (( count++ ))
+        if (( count >= max )); then
+            error "Failed to set wallpaper after ${max}s (no valid outputs)"
+            return 1
+        fi
+        sleep 1
+    done
 }
 
 run_matugen() {
