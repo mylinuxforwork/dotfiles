@@ -30,7 +30,7 @@ hl.on("hyprland.start", function ()
 
     -- Restore wallpaper (skip for quickshell — handled inside ml4w-autostart)
     if wallpaper_app ~= "quickshell" then
-        hl.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-app --restore > ~/.mydotfiles/ml4w-wallpaper-app.log 2>&1")
+        hl.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-app --restore")
     end
 
     -- Autostart scripts
