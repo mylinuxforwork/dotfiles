@@ -29,9 +29,7 @@ fi
 
 # Check parameters
 if [ "$1" == "--restore" ]; then
-    if [ "$WALLPAPER_APP" == "quickshell" ]; then
-        info "Using awww with Quickshell Wallpaper Selector."
-    elif [ "$WALLPAPER_APP" == "waypaper" ]; then
+    if [ "$WALLPAPER_APP" == "waypaper" ]; then
         waypaper --restore
     else
         error "Wallpaper App $WALLPAPER_APP not supported."

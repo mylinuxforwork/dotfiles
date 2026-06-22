@@ -1,4 +1,14 @@
-hl.on("hyprland.start", function () 
+hl.on("hyprland.start", function ()
+    local HOME = os.getenv("HOME")
+
+    -- Read wallpaper app setting
+    local wallpaper_app = "quickshell"
+    local f = io.open(HOME .. "/.config/ml4w/settings/wallpaper-app", "r")
+    if f then
+        wallpaper_app = f:read("*l"):match("^%s*(.-)%s*$")
+        f:close()
+    end
+
     -- Export variables to systemd
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 
@@ -18,11 +28,10 @@ hl.on("hyprland.start", function ()
     -- Start polkit daemon
     hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 
-    -- Restore wallpaper
-    hl.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-app --restore > ~/.mydotfiles/ml4w-wallpaper-app.log 2>&1")
-
-    -- Environment for xdg-desktop-portal-hyprland
-    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    -- Restore wallpaper (skip for quickshell — handled inside ml4w-autostart)
+    if wallpaper_app ~= "quickshell" then
+        hl.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-app --restore > ~/.mydotfiles/ml4w-wallpaper-app.log 2>&1")
+    end
 
     -- Autostart scripts
     hl.exec_cmd("~/.config/ml4w/scripts/ml4w-autostart > ~/.mydotfiles/ml4w-autostart.log 2>&1")
