@@ -192,6 +192,121 @@ PanelWindow {
         }
     }
 
+    component ML4WComboBox: ComboBox {
+        id: ml4wComboBox
+        delegate: ItemDelegate {
+            id: itemDelegate
+            width: ml4wComboBox.width
+            contentItem: Text {
+                text: ml4wComboBox.textRole ? (modelData[ml4wComboBox.textRole] ?? "") : modelData
+                color: itemDelegate.highlighted ? Theme.background : Theme.primary
+                font.family: Theme.fontFamily
+                font.pixelSize: 14
+                elide: Text.ElideRight
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+            background: Rectangle {
+                color: itemDelegate.highlighted ? Theme.primary : "transparent"
+                radius: 4
+            }
+            highlighted: ml4wComboBox.highlightedIndex === index
+        }
+        contentItem: Text {
+            leftPadding: 12
+            rightPadding: ml4wComboBox.indicator.width + 12
+            text: ml4wComboBox.displayText
+            font.family: Theme.fontFamily
+            font.pixelSize: 14
+            color: Theme.primary
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+            elide: Text.ElideRight
+        }
+        indicator: Canvas {
+            id: canvas
+            x: ml4wComboBox.width - width - 12
+            y: (ml4wComboBox.height - height) / 2
+            width: 12
+            height: 8
+            contextType: "2d"
+
+            onPaint: {
+                var ctx = getContext("2d")
+                ctx.reset();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(width, 0);
+                ctx.lineTo(width / 2, height);
+                ctx.closePath();
+                ctx.fillStyle = Theme.primary;
+                ctx.fill();
+            }
+
+            Connections {
+                target: Theme
+                function onPrimaryChanged() { canvas.requestPaint(); }
+            }
+        }
+        background: Rectangle {
+            implicitHeight: 36
+            color: Theme.background
+            border.color: Theme.primary
+            border.width: 1
+            radius: 10
+        }
+        popup: Popup {
+            y: ml4wComboBox.height + 2
+            width: ml4wComboBox.width
+            implicitHeight: contentItem.contentHeight > 250 ? 250 : contentItem.contentHeight
+            padding: 4
+
+            contentItem: ListView {
+                clip: true
+                implicitHeight: contentHeight
+                model: ml4wComboBox.popup.visible ? ml4wComboBox.delegateModel : null
+                currentIndex: ml4wComboBox.highlightedIndex
+
+                ScrollIndicator.vertical: ScrollIndicator { }
+            }
+            background: Rectangle {
+                color: Theme.background
+                border.color: Theme.primary
+                border.width: 1
+                radius: 8
+            }
+        }
+    }
+
+    component ML4WCheckBox : CheckBox {
+        id: ml4wCheckBox
+        spacing: 10
+        indicator: Rectangle {
+            implicitWidth: 18
+            implicitHeight: 18
+            x: ml4wCheckBox.leftPadding
+            y: (ml4wCheckBox.height - height) / 2
+            radius: 4
+            border.color: Theme.primary
+            border.width: 1
+            color: "transparent"
+            Rectangle {
+                width: 8
+                height: 8
+                anchors.centerIn: parent
+                color: Theme.primary
+                visible: ml4wCheckBox.checked
+            }
+        }
+        contentItem: Text {
+            text: ml4wCheckBox.text
+            font.family: Theme.fontFamily
+            color: Theme.primary
+            font.pixelSize: 14
+            verticalAlignment: Text.AlignVCenter
+            leftPadding: ml4wCheckBox.indicator.width + ml4wCheckBox.spacing
+        }
+    }
+
     Item {
         anchors.fill: parent
         anchors.margins: 20
@@ -299,9 +414,13 @@ PanelWindow {
                             text: advancedSettingsLabel()
                             onClicked: {
                                 advancedOptions.visible = !advancedOptions.visible
+                                if (!advancedOptions.visible) {
+                                    outputMonitorSelector.currentIndex = 0
+                                    wallpaperPositioningSelector.currentIndex = 0
+                                    shouldUpdateTheming.checked = true
+                                }
                             }
                         }
-
                     }
                 }
             }
@@ -365,111 +484,95 @@ PanelWindow {
                         id: transitionEffectInputLabel
                         color: Theme.primary
                         font.family: Theme.fontFamily
-
                         text: "Transition Effect"
-
                         Accessible.name: text
                         Accessible.role: Accessible.StaticText
                     }
 
-                    ComboBox {
+                    ML4WComboBox {
                         id: transitionEffectComboBox
                         model: root.transitionEffects
                         currentIndex: root.transitionEffects.indexOf(root.transitionEffect)
                         Layout.fillWidth: true
-
                         onActivated: {
                             const selectedEffect = root.transitionEffects[index];
                             console.log("Updating wallpaper transition effect to \"" + selectedEffect + "\"")
                             transitionEffectSettingFileHandler.setText(selectedEffect)
                         }
+                    }
+                }
 
-                        delegate: ItemDelegate {
-                            id: itemDelegate
-                            width: transitionEffectComboBox.width
-                            contentItem: Text {
-                                text: modelData
-                                color: itemDelegate.highlighted ? Theme.background : Theme.primary
-                                font.family: Theme.fontFamily
-                                font.pixelSize: 14
-                                elide: Text.ElideRight
-                                verticalAlignment: Text.AlignVCenter
-                                horizontalAlignment: Text.AlignHCenter
-                            }
-                            background: Rectangle {
-                                color: itemDelegate.highlighted ? Theme.primary : "transparent"
-                                radius: 4
-                            }
-                            highlighted: transitionEffectComboBox.highlightedIndex === index
-                        }
-
-                        indicator: Canvas {
-                            id: canvas
-                            x: transitionEffectComboBox.width - width - 12
-                            y: (transitionEffectComboBox.height - height) / 2
-                            width: 12
-                            height: 8
-                            contextType: "2d"
-
-                            onPaint: {
-                                context.reset();
-                                context.moveTo(0, 0);
-                                context.lineTo(width, 0);
-                                context.lineTo(width / 2, height);
-                                context.closePath();
-                                context.fillStyle = Theme.primary;
-                                context.fill();
-                            }
-
-                            Connections {
-                                target: transitionEffectComboBox
-                                function onPressedChanged() { canvas.requestPaint(); }
-                            }
-                        }
-
-                        contentItem: Text {
-                            leftPadding: 12
-                            rightPadding: transitionEffectComboBox.indicator.width + 12
-                            text: transitionEffectComboBox.displayText
-                            font.family: Theme.fontFamily
-                            font.pixelSize: 14
+                // --- OUTPUT SETTINGS ---
+                RowLayout {
+                    ColumnLayout {
+                        Label {
+                            id: outputSettingsLabel
                             color: Theme.primary
-                            verticalAlignment: Text.AlignVCenter
-                            horizontalAlignment: Text.AlignHCenter
-                            elide: Text.ElideRight
+                            font.family: Theme.fontFamily
+
+                            text: "Output Monitor"
+
+                            Accessible.name: text
+                            Accessible.role: Accessible.StaticText
                         }
 
-                        background: Rectangle {
-                            implicitHeight: 36
-                            color: Theme.background
-                            border.color: Theme.primary
-                            border.width: 1
-                            radius: 10
-                        }
+                        ML4WComboBox {
+                            id: outputMonitorSelector
+                            model: monitorModel
+                            textRole: "name"
+                            Layout.fillWidth: true
 
-                        popup: Popup {
-                            y: transitionEffectComboBox.height + 2
-                            width: transitionEffectComboBox.width
-                            implicitHeight: contentItem.contentHeight > 250 ? 250 : contentItem.contentHeight
-                            padding: 4
-
-                            contentItem: ListView {
-                                clip: true
-                                implicitHeight: contentHeight
-                                model: transitionEffectComboBox.popup.visible ? transitionEffectComboBox.delegateModel : null
-                                currentIndex: transitionEffectComboBox.highlightedIndex
-
-                                ScrollIndicator.vertical: ScrollIndicator { }
+                            property var monitorModel: {
+                                let list = [{"name": "All", "isSingleOutput": false}]
+                                for (let i = 0; i < Hyprland.monitors.values.length; i++) {
+                                    list.push({"name": Hyprland.monitors.values[i].name, "isSingleOutput": true})
+                                }
+                                return list
                             }
 
-                            background: Rectangle {
-                                color: Theme.background
-                                border.color: Theme.primary
-                                border.width: 1
-                                radius: 8
-                            }
+                            Accessible.name: wallpaperDirInputLabel.text
+                            Accessible.description: qsTr("Select which output to change the wallpaper (or change for all outputs)")
+                            Accessible.role: Accessible.ComboBox
+
                         }
                     }
+
+                    ColumnLayout {
+                        Label {
+                            id: wallpaperPositioningLabel
+                            color: Theme.primary
+                            font.family: Theme.fontFamily
+
+                            text: "Wallpaper Positioning"
+
+                            Accessible.name: text
+                            Accessible.role: Accessible.StaticText
+                        }
+
+                        ML4WComboBox {
+                            id: wallpaperPositioningSelector
+                            model: [
+                                "center",
+                                "top-left", "top", "top-right",
+                                "left", "right",
+                                "bottom-left", "bottom", "bottom-right",
+                            ]
+                            Layout.fillWidth: true
+                            Accessible.name: wallpaperPositioningLabel.text
+                            Accessible.description: qsTr("How to align wallpaper when setting (default is centered)")
+                            Accessible.role: Accessible.ComboBox
+                        }
+                    }
+                }
+
+                ML4WCheckBox {
+                    id: shouldUpdateTheming
+                    checked: true
+                    text: "Update theming from wallpaper"
+
+                    Accessible.name: text
+                    Accessible.description: qsTr("Choose whether to update theming based on the new wallpaper selector")
+                    Accessible.role: Accessible.CheckBox
                 }
             }
 
@@ -494,6 +597,7 @@ PanelWindow {
 
                 text: "Wallpaper folder is either empty or invalid."
             }
+
             // --- IMAGE GRID ---
             GridView {
                 id: grid
@@ -623,7 +727,23 @@ PanelWindow {
                             
                             onClicked: {
                                 let scriptPath = Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-wallpaper";
-                                Quickshell.execDetached(["bash", "-c", scriptPath + " '" + model.filePath + "'"]);
+                                let options = ""
+                                if (advancedOptions.visible) {
+                                    const outputSelection = outputMonitorSelector.currentValue
+                                    const outputParams = outputSelection.isSingleOutput
+                                        ? " --monitor " + outputSelection.name
+                                        : ""
+                                    const positioningParams = " --crop-gravity " + wallpaperPositioningSelector.currentText
+                                    const themingParams = shouldUpdateTheming.checked
+                                        ? ""
+                                        : " --skip-theming"
+                                    options = `${outputParams}${positioningParams}${themingParams}`
+                                }
+                                Quickshell.execDetached([
+                                    "bash",
+                                    "-c",
+                                    scriptPath + " '" + model.filePath + "'" + options
+                                ]);
                             }
                         }
                     }
