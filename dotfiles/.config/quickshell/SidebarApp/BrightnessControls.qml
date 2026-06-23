@@ -68,8 +68,18 @@ ColumnLayout {
                     }
                 }
 
+                Timer {
+                    id: brightnessTimer
+                    interval: 50 // play with the delay if you want to make it more or less responsive, keep in mind that DDC/CI commands can be slow and you don't want to spam them too much
+                    repeat: false
+
+                    onTriggered: {
+                        Quickshell.execDetached(["bash", "-c", "~/.config/hypr/scripts/brightness.sh set-display " + (index + 1) + " " + Math.round(brightnessSlider.value)]);
+                    }
+                }
+
                 onMoved: {
-                    Quickshell.execDetached(["bash", "-c", "~/.config/hypr/scripts/brightness.sh set-display " + (index + 1) + " " + Math.round(value)]);
+                    brightnessTimer.restart();
                 }
 
                 background: Rectangle {
