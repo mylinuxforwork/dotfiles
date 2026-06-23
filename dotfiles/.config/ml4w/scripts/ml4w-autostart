@@ -4,6 +4,7 @@
 CACHE_FOLDER="$HOME/.cache/ml4w/hyprland-dotfiles"
 CACHE_FILE="$CACHE_FOLDER/current_wallpaper"
 DEFAULT_WALLPAPER="$HOME/.config/ml4w/wallpapers/default.jpg"
+AWWW_CACHE_FOLDER="${XDG_CACHE_HOME:-"$HOME/.cache"}/awww"
 
 # Colors for UI
 RED='\033[0;31m'
@@ -49,9 +50,11 @@ done
 sleep 0.5
 info "Quickshell ready"
 
-# Set wallpaper — qs is guaranteed ready for IPC calls
-info "Set wallpaper to cache file $(cat $CACHE_FILE)"
-~/.config/ml4w/scripts/ml4w-wallpaper "$(cat $CACHE_FILE)" &
+# Set wallpaper only if awww cache is not setup — qs is guaranteed ready for IPC calls
+if [[ -z $(find "$AWWW_CACHE_FOLDER" -mindepth 1 -maxdepth 1 -type d -print -quit 2>/dev/null) ]]; then
+    info "Set wallpaper to cache file $(cat $CACHE_FILE)"
+    ~/.config/ml4w/scripts/ml4w-wallpaper "$(cat $CACHE_FILE)" &
+fi
 
 # Start ML4W Settings App
 info "Starting ML4W Dotfiles Settings"
