@@ -357,142 +357,14 @@ PanelWindow {
                         Layout.fillWidth: true
                         spacing: 20
 
-                        // LOUDNESS SLIDER
-                        RowLayout {
-                            Layout.fillWidth: true
-                            spacing: 15
-
-                            Text {
-                                text: "" // Speaker icon
-                                color: Theme.primary
-                                font.family: "monospace"
-                                font.pixelSize: 18
-                                Layout.alignment: Qt.AlignVCenter
-                            }
-
-                            Slider {
-                                id: volumeSlider
-                                Layout.fillWidth: true
-                                from: 0
-                                to: 100
-                                value: 50 // Default
-
-                                Process {
-                                    command: ["bash", "-c", "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}'"]
-                                    running: root.isOpen
-                                    stdout: StdioCollector {
-                                        onStreamFinished: {
-                                            let val = parseInt(this.text.trim());
-                                            if (!isNaN(val))
-                                                volumeSlider.value = val;
-                                        }
-                                    }
-                                }
-
-                                onMoved: {
-                                    Quickshell.execDetached(["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ " + Math.round(value) + "%"]);
-                                }
-
-                                background: Rectangle {
-                                    x: volumeSlider.leftPadding
-                                    y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
-                                    implicitWidth: 200
-                                    implicitHeight: 6
-                                    width: volumeSlider.availableWidth
-                                    height: implicitHeight
-                                    radius: 3
-                                    color: Theme.background
-                                    border.color: Theme.primary
-                                    border.width: 1
-
-                                    Rectangle {
-                                        width: volumeSlider.visualPosition * parent.width
-                                        height: parent.height
-                                        color: Theme.primary
-                                        radius: 3
-                                    }
-                                }
-
-                                handle: Rectangle {
-                                    x: volumeSlider.leftPadding + volumeSlider.visualPosition * (volumeSlider.availableWidth - width)
-                                    y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
-                                    implicitWidth: 16
-                                    implicitHeight: 16
-                                    radius: 8
-                                    color: volumeSlider.pressed ? Theme.background : Theme.primary
-                                    border.color: Theme.primary
-                                    border.width: 1
-                                }
-                            }
+                        SoundControls {
+                            id: soundControls
+                            isOpen: root.isOpen
                         }
 
-                        // BRIGHTNESS SLIDER
-                        RowLayout {
-                            Layout.fillWidth: true
-                            spacing: 15
-
-                            Text {
-                                text: "" // Sun/Brightness icon
-                                color: Theme.primary
-                                font.family: "monospace"
-                                font.pixelSize: 18
-                                Layout.alignment: Qt.AlignVCenter
-                            }
-
-                            Slider {
-                                id: brightnessSlider
-                                Layout.fillWidth: true
-                                from: 10 // Guaranteed Minimum 10%
-                                to: 100
-                                value: 100
-
-                                Process {
-                                    command: ["bash", "-c", "brightnessctl -m | awk -F, '{gsub(\"%\",\"\",$4); print $4}'"]
-                                    running: root.isOpen
-                                    stdout: StdioCollector {
-                                        onStreamFinished: {
-                                            let val = parseInt(this.text.trim());
-                                            if (!isNaN(val))
-                                                brightnessSlider.value = Math.max(10, val);
-                                        }
-                                    }
-                                }
-
-                                onMoved: {
-                                    Quickshell.execDetached(["bash", "-c", "brightnessctl set " + Math.round(value) + "%"]);
-                                }
-
-                                background: Rectangle {
-                                    x: brightnessSlider.leftPadding
-                                    y: brightnessSlider.topPadding + brightnessSlider.availableHeight / 2 - height / 2
-                                    implicitWidth: 200
-                                    implicitHeight: 6
-                                    width: brightnessSlider.availableWidth
-                                    height: implicitHeight
-                                    radius: 3
-                                    color: Theme.background
-                                    border.color: Theme.primary
-                                    border.width: 1
-
-                                    Rectangle {
-                                        width: brightnessSlider.visualPosition * parent.width
-                                        height: parent.height
-                                        color: Theme.primary
-                                        radius: 3
-                                    }
-                                }
-
-                                handle: Rectangle {
-                                    x: brightnessSlider.leftPadding + brightnessSlider.visualPosition * (brightnessSlider.availableWidth - width)
-                                    y: brightnessSlider.topPadding + brightnessSlider.availableHeight / 2 - height / 2
-                                    implicitWidth: 16
-                                    implicitHeight: 16
-                                    radius: 8
-                                    color: brightnessSlider.pressed ? Theme.background : Theme.primary
-                                    border.color: Theme.primary
-                                    border.width: 1
-                                }
-                            }
+                        BrightnessControls {
+                            id: brightnessControls
+                            isOpen: root.isOpen
                         }
                     }
 
