@@ -1,8 +1,8 @@
 import Quickshell
 import Quickshell.Io
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
 import qs.CustomTheme
 
 ColumnLayout {
@@ -42,7 +42,7 @@ ColumnLayout {
             spacing: 15
 
             Text {
-                text: "☀ " + (index + 1)
+                text: "☀ "
                 color: Theme.primary
                 font.family: "monospace"
                 font.pixelSize: 18
