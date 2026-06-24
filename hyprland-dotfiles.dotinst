@@ -10,11 +10,6 @@
 	"subfolder": "dotfiles",
 	"restore":[
 		{
-			"title":"Your Custom Configuration",
-			"source":".config/hypr/conf/custom.lua",
-			"value":true
-		},
-		{
 			"title":"ML4W OS Settings",
 			"source":".config/ml4w/settings",
 			"value":true

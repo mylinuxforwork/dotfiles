@@ -37,8 +37,11 @@ require("conf.animation")
 require("conf.ml4w")
 
 -- CUSTOM
-require("custom")
+local f = io.open(os.getenv("HOME") .. "/.config/hypr/custom.lua", "r")
+if f then
+    f:close()
+    require("custom")
+end
 
 -- HYPRMOD
 require("hyprland-gui")
-
