@@ -617,7 +617,7 @@ PanelWindow {
                     // --- WAYBAR ---
                     RowLayout {
                         Layout.fillWidth: true
-                        Text { text: "Waybar"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Text { text: "Waybar"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
                         ML4WSwitch {
                             id: waybarSwitch
@@ -672,7 +672,7 @@ PanelWindow {
                     // --- DOCK ---
                     RowLayout {
                         Layout.fillWidth: true
-                        Text { text: "Dock"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Text { text: "Dock"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
                         ML4WSwitch {
                             id: dockSwitch
@@ -703,7 +703,7 @@ PanelWindow {
                     // --- DOCK AUTOHIDE ---
                     RowLayout {
                         Layout.fillWidth: true
-                        Text { text: "Dock Autohide"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Text { text: "Dock Autohide"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
                         ML4WSwitch {
                             id: dockAutohideSwitch
@@ -734,7 +734,7 @@ PanelWindow {
                     // --- GAMEMODE ---
                     RowLayout {
                         Layout.fillWidth: true
-                        Text { text: "Gamemode"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Text { text: "Gamemode"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
                         ML4WSwitch {
                             id: gamemodeSwitch
@@ -761,7 +761,7 @@ PanelWindow {
                     // --- FASTFETCH ---
                     RowLayout {
                         Layout.fillWidth: true
-                        Text { text: "Fastfetch"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Text { text: "Fastfetch"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
                         ML4WSwitch {
                             id: fastfetchSwitch
@@ -790,7 +790,7 @@ PanelWindow {
                     // --- WALLPAPER ---
                     RowLayout {
                         Layout.fillWidth: true
-                        Text { text: "Wallpaper"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Text { text: "Wallpaper"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
                         ActionIcon {
                             iconSrc: "../shared/icons/wallpaper.svg"
@@ -804,7 +804,7 @@ PanelWindow {
                     // --- THEME ---
                     RowLayout {
                         Layout.fillWidth: true
-                        Text { text: "Theme"; color: Theme.on_background; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Text { text: "Theme"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
                         ActionIcon {
                             iconSrc: "../shared/icons/theme.svg"
