@@ -51,10 +51,15 @@ done
 sleep 0.5
 info "Quickshell ready"
 
-# Set wallpaper only if awww cache is not setup — qs is guaranteed ready for IPC calls
+# Apply wallpaper theming on every start — qs is guaranteed ready for IPC calls.
+# Theming (matugen colors, quickshell reload, nwg-dock launch) must always run.
+# Only the awww image set is skipped when already cached, to avoid a flicker.
 if [[ -z $(find "$AWWW_CACHE_FOLDER" -mindepth 1 -maxdepth 1 -type f -print -quit 2>/dev/null) ]]; then
     info "Set wallpaper to cache file $(cat $CACHE_FILE)"
     ~/.config/ml4w/scripts/ml4w-wallpaper "$(cat $CACHE_FILE)" &
+else
+    info "awww cache present, applying theming only for $(cat $CACHE_FILE)"
+    ~/.config/ml4w/scripts/ml4w-wallpaper "$(cat $CACHE_FILE)" --skip-wallpaper &
 fi
 
 # Start ML4W Settings App
