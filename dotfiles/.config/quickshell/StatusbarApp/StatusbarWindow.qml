@@ -179,6 +179,7 @@ PanelWindow {
             }
 
             SystemTrayModule {}
+            SwayncModule {}
             PowerModule {}
         }
     }
