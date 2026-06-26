@@ -119,7 +119,10 @@ PanelWindow {
             border.color: Theme.primary
             border.width: 2
             radius: height / 2
-            opacity: 0.9
+            opacity: pill.expanded ? 0.8 : 0.5
+            Behavior on opacity {
+                NumberAnimation { duration: 350; easing.type: Easing.OutQuint }
+            }
         }
 
         // ==========================================
