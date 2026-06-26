@@ -55,5 +55,6 @@ The following projects have inspired me:
 - https://github.com/prasanthrangan/hyprdots
 - https://github.com/sudo-harun/dotfiles
 - https://github.com/dianaw353/hyprland-configuration-rootfs
+- https://www.youtube.com/@saneAspect
 
 and many more...
