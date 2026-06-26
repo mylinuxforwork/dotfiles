@@ -112,16 +112,28 @@ PanelWindow {
             color: Qt.rgba(Theme.shadow.r, Theme.shadow.g, Theme.shadow.b, 0.4)
         }
 
+        // Gradient BORDER layer (outer)
         Rectangle {
             id: pillBg
             anchors.fill: parent
-            color: Theme.background
-            border.color: Theme.primary
-            border.width: 2
-            radius: height / 2
+            radius: 12
             opacity: pill.expanded ? 0.8 : 0.5
             Behavior on opacity {
                 NumberAnimation { duration: 350; easing.type: Easing.OutQuint }
+            }
+
+            gradient: Gradient {
+                orientation: Gradient.Vertical
+                GradientStop { position: 0.0; color: Theme.primary }
+                GradientStop { position: 1.0; color: Theme.on_primary }
+            }
+
+            // Actual background fill (inner), inset by the border thickness
+            Rectangle {
+                anchors.fill: parent
+                anchors.margins: 2          // = border width
+                radius: parent.radius - anchors.margins
+                color: Theme.background
             }
         }
 
