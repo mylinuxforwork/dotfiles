@@ -18,6 +18,17 @@ Item {
         precision: SystemClock.Minutes
     }
 
+    // Click toggles the Calendar app via IPC. Covers the time and the date
+    // (which hangs below the item's own bounds).
+    MouseArea {
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: dateText.bottom
+        cursorShape: Qt.PointingHandCursor
+        onClicked: Quickshell.execDetached(["qs", "ipc", "call", "calendar", "toggle"])
+    }
+
     Text {
         id: timeText
         anchors.horizontalCenter: parent.horizontalCenter

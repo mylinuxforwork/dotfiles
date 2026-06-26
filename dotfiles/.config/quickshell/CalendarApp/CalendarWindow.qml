@@ -19,9 +19,8 @@ PanelWindow {
     implicitHeight: 380 
     color: "transparent"
 
-    // Anchored to the Upper Side
+    // Anchored to the top, horizontally centered (no left/right anchor).
     anchors {
-        left: true
         top: true
     }
 
@@ -75,9 +74,8 @@ PanelWindow {
     // Animate between your specific 87px top margin and off-screen (-800)
     property real currentTopMargin: isOpen ? 67 : -820 
 
-    margins { 
+    margins {
         top: root.currentTopMargin
-        left: 0
     }
 
     Behavior on currentTopMargin {
