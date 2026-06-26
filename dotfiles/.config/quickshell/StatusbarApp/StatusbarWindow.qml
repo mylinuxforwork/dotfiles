@@ -1,8 +1,6 @@
 import Quickshell
 import Quickshell.Wayland
-import Quickshell.Hyprland
 import Quickshell.Io
-import Quickshell.Services.SystemTray
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Effects
@@ -70,12 +68,6 @@ PanelWindow {
 
     implicitHeight: barHeight + 40
 
-    // Live clock, only ticks once per minute
-    SystemClock {
-        id: clock
-        precision: SystemClock.Minutes
-    }
-
     // ==========================================
     // CENTERED PILL
     // ==========================================
@@ -87,7 +79,7 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: (root.reservedHeight / 2) - (root.implicitHeight / 2)
 
-        // Collapsed = sized to content, Expanded = 50% of the screen width
+        // Collapsed = sized to content, Expanded = fixed width.
         property bool expanded: hoverHandler.hovered
         property real collapsedWidth: centerArea.implicitWidth + 32
         property real expandedWidth: 680
@@ -130,43 +122,6 @@ PanelWindow {
             opacity: 0.9
         }
 
-        // --- Reusable icon button ---
-        component BarButton: Rectangle {
-            id: btn
-            property string iconSrc: ""
-            property bool colorize: true
-            signal clicked()
-
-            implicitWidth: 30
-            implicitHeight: 30
-            radius: 15
-
-            color: (mouseArea.containsMouse && btn.colorize) ? Theme.primary : "transparent"
-
-            Image {
-                anchors.centerIn: parent
-                source: btn.iconSrc
-                width: 18
-                height: 18
-                sourceSize.width: 18
-                sourceSize.height: 18
-                fillMode: Image.PreserveAspectFit
-                layer.enabled: btn.colorize
-                layer.effect: MultiEffect {
-                    colorization: 1.0
-                    colorizationColor: mouseArea.containsMouse ? Theme.background : Theme.primary
-                }
-            }
-
-            MouseArea {
-                id: mouseArea
-                anchors.fill: parent
-                hoverEnabled: true
-                cursorShape: Qt.PointingHandCursor
-                onClicked: btn.clicked()
-            }
-        }
-
         // ==========================================
         // LEFT AREA (only visible when expanded)
         // ==========================================
@@ -185,55 +140,8 @@ PanelWindow {
                 NumberAnimation { duration: 250; easing.type: Easing.OutQuint }
             }
 
-            // Terminal launcher
-            BarButton {
-                iconSrc: "../shared/icons/terminal.svg"
-                onClicked: {
-                    Quickshell.execDetached(["bash", "-c",
-                        Quickshell.env("HOME") + "/.config/ml4w/settings/terminal.sh"])
-                }
-            }
-
-            // Hyprland workspace switcher
-            RowLayout {
-                spacing: 6
-
-                Repeater {
-                    model: Hyprland.workspaces
-
-                    delegate: Rectangle {
-                        id: ws
-                        required property var modelData
-
-                        implicitWidth: 26
-                        implicitHeight: 26
-                        radius: 13
-
-                        color: modelData.focused
-                            ? Theme.primary
-                            : (wsMouse.containsMouse ? Theme.surface_container_high : "transparent")
-                        border.color: Theme.primary
-                        border.width: modelData.focused ? 0 : 1
-
-                        Text {
-                            anchors.centerIn: parent
-                            text: ws.modelData.id
-                            color: ws.modelData.focused ? Theme.background : Theme.on_background
-                            font.family: Theme.fontFamily
-                            font.pixelSize: 13
-                            font.bold: true
-                        }
-
-                        MouseArea {
-                            id: wsMouse
-                            anchors.fill: parent
-                            hoverEnabled: true
-                            cursorShape: Qt.PointingHandCursor
-                            onClicked: ws.modelData.activate()
-                        }
-                    }
-                }
-            }
+            TerminalModule {}
+            WorkspacesModule {}
         }
 
         // ==========================================
@@ -244,62 +152,12 @@ PanelWindow {
             anchors.centerIn: parent
             spacing: 14
 
-            // App launcher
-            BarButton {
-                iconSrc: "../shared/icons/launcher.svg"
-                onClicked: {
-                    Quickshell.execDetached(["bash", "-c",
-                        Quickshell.env("HOME") + "/.config/hypr/scripts/launcher.sh"])
-                }
-            }
-
-            // Clock (time, with date hanging below when expanded)
-            Item {
+            LauncherModule {}
+            ClockModule {
                 Layout.alignment: Qt.AlignVCenter
-                implicitWidth: Math.max(timeText.implicitWidth, dateText.implicitWidth)
-                implicitHeight: timeText.implicitHeight
-
-                Text {
-                    id: timeText
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    // Shift up when expanded so the date below has more room
-                    anchors.verticalCenterOffset: pill.expanded ? -6 : 0
-                    Behavior on anchors.verticalCenterOffset {
-                        NumberAnimation { duration: 250; easing.type: Easing.OutQuint }
-                    }
-                    text: Qt.formatDateTime(clock.date, "HH:mm")
-                    color: Theme.primary
-                    font.family: Theme.fontFamily
-                    font.pixelSize: 16
-                    font.bold: true
-                }
-
-                Text {
-                    id: dateText
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.top: timeText.bottom
-                    anchors.topMargin: 1
-                    text: Qt.formatDateTime(clock.date, "ddd, dd MMM")
-                    color: Theme.primary
-                    font.family: Theme.fontFamily
-                    font.pixelSize: 11
-
-                    opacity: pill.expanded ? 1 : 0
-                    Behavior on opacity {
-                        NumberAnimation { duration: 250; easing.type: Easing.OutQuint }
-                    }
-                }
+                expanded: pill.expanded
             }
-
-            // ML4W logo -> toggle the Sidebar app via IPC
-            BarButton {
-                iconSrc: Quickshell.env("HOME") + "/.config/ml4w/assets/ml4w.svg"
-                colorize: false
-                onClicked: {
-                    Quickshell.execDetached(["qs", "ipc", "call", "sidebar", "toggle"])
-                }
-            }
+            Ml4wLogoModule {}
         }
 
         // ==========================================
@@ -320,60 +178,8 @@ PanelWindow {
                 NumberAnimation { duration: 250; easing.type: Easing.OutQuint }
             }
 
-            // System tray
-            RowLayout {
-                spacing: 10
-
-                Repeater {
-                    model: SystemTray.items
-
-                    delegate: MouseArea {
-                        id: trayItem
-                        required property var modelData
-
-                        implicitWidth: 20
-                        implicitHeight: 20
-                        Layout.alignment: Qt.AlignVCenter
-                        hoverEnabled: true
-                        cursorShape: Qt.PointingHandCursor
-                        acceptedButtons: Qt.LeftButton | Qt.RightButton
-
-                        Image {
-                            anchors.centerIn: parent
-                            source: trayItem.modelData.icon
-                            width: 18
-                            height: 18
-                            sourceSize.width: 18
-                            sourceSize.height: 18
-                            fillMode: Image.PreserveAspectFit
-                        }
-
-                        onClicked: (mouse) => {
-                            if (mouse.button === Qt.LeftButton && !modelData.onlyMenu) {
-                                modelData.activate()
-                            } else if (modelData.hasMenu) {
-                                trayMenu.open()
-                            }
-                        }
-
-                        QsMenuAnchor {
-                            id: trayMenu
-                            menu: trayItem.modelData.menu
-                            anchor.item: trayItem
-                            anchor.edges: Edges.Bottom
-                            anchor.gravity: Edges.Bottom
-                        }
-                    }
-                }
-            }
-
-            // Power menu -> toggle the Power app via IPC
-            BarButton {
-                iconSrc: "../shared/icons/power.svg"
-                onClicked: {
-                    Quickshell.execDetached(["qs", "ipc", "call", "power", "toggle"])
-                }
-            }
+            SystemTrayModule {}
+            PowerModule {}
         }
     }
 }
