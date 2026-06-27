@@ -7,6 +7,12 @@ import QtQuick.Layouts
 RowLayout {
     spacing: 10
 
+    // Collapse the slot when there are no tray items, so the right Repeater
+    // hides this Loader and the RowLayout doesn't reserve spacing around an
+    // empty, zero-width module (which otherwise leaves a doubled gap next to
+    // its neighbours).
+    readonly property bool collapsed: SystemTray.items.values.length === 0
+
     Repeater {
         model: SystemTray.items
 

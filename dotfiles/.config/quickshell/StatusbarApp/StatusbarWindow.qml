@@ -125,15 +125,22 @@ PanelWindow {
         }
     }
     Component { id: cSwaync;     SwayncModule {} }
-    Component { id: cSystemTray; SystemTrayModule {} }
+    Component {
+        id: cSystemTray
+        SystemTrayModule {
+            // Rebuild keyboard navigation when the tray empties or repopulates
+            // (it collapses out of the layout when it has no items).
+            onCollapsedChanged: Qt.callLater(root.rebuildNavItems)
+        }
+    }
     Component { id: cLogo;       Ml4wLogoModule {} }
     Component { id: cPower;      PowerModule {} }
     Component {
         id: cUpdates
         UpdatesModule {
             // Rebuild the keyboard navigation list when the module hides or
-            // reappears (its visibility tracks the available update count).
-            onVisibleChanged: Qt.callLater(root.rebuildNavItems)
+            // reappears (its collapsed state tracks the available update count).
+            onCollapsedChanged: Qt.callLater(root.rebuildNavItems)
         }
     }
 
@@ -179,7 +186,7 @@ PanelWindow {
                 let m = loader ? loader.item : null
                 if (!m)
                     continue
-                if (m.visible === false)                 // hidden (e.g. updates)
+                if (m.collapsed === true)                // hidden (e.g. updates)
                     continue
                 if (m.navButtons !== undefined) {        // workspaces
                     ws = m
@@ -438,9 +445,13 @@ PanelWindow {
                 Loader {
                     Layout.alignment: Qt.AlignVCenter
                     sourceComponent: root.moduleComponents[modelData] || null
-                    // Collapse the layout slot when the module hides itself
-                    // (e.g. the updates module with no pending updates).
-                    visible: item ? item.visible : true
+                    // Collapse the layout slot when the module marks itself
+                    // collapsed (e.g. the updates module with no pending
+                    // updates). Reading the plain `collapsed` flag — rather than
+                    // the module's effective `visible` — avoids a binding latch
+                    // that would pin this Loader hidden once the right area
+                    // collapses in the pill's collapsed state.
+                    visible: (item && item.collapsed !== undefined) ? !item.collapsed : true
                     onLoaded: Qt.callLater(root.rebuildNavItems)
                 }
             }

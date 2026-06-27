@@ -14,6 +14,12 @@ Rectangle {
 
     // Number of available updates (0 = nothing pending, module hidden).
     property int count: 0
+    // True when there is nothing to show. The right Repeater reads this to
+    // collapse the layout slot, and rebuildNavItems skips collapsed modules.
+    // It is deliberately independent of the (effective) `visible` property:
+    // binding a Loader's visibility to a child's effective visibility latches
+    // off once the right area collapses while the pill is in collapsed mode.
+    readonly property bool collapsed: count <= 0
     // Set by the keyboard navigation in StatusbarWindow.
     property bool focused: false
 
@@ -23,14 +29,13 @@ Rectangle {
             Quickshell.env("HOME") + "/.config/ml4w/settings/installupdates.sh"])
     }
 
-    // Hidden (and collapsed to zero size) when there is nothing to update. The
-    // right Repeater binds its Loader's visibility to this so the layout slot
-    // disappears too, and rebuildNavItems skips invisible modules.
-    visible: count > 0
+    // Hidden (and collapsed to zero size) when there is nothing to update.
+    visible: !collapsed
 
     readonly property bool active: mouseArea.containsMouse || updates.focused
 
-    implicitWidth: visible ? row.implicitWidth + 16 : 0
+    // Tight 3px padding each side so the module sits close to its neighbours.
+    implicitWidth: collapsed ? 0 : row.implicitWidth + 6
     implicitHeight: 30
     radius: 15
 
@@ -40,7 +45,7 @@ Rectangle {
     RowLayout {
         id: row
         anchors.centerIn: parent
-        spacing: 6
+        spacing: 4
 
         Image {
             Layout.alignment: Qt.AlignVCenter
