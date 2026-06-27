@@ -19,9 +19,8 @@ PanelWindow {
     implicitHeight: 380 
     color: "transparent"
 
-    // Anchored to the Upper Side
+    // Anchored to the top, horizontally centered (no left/right anchor).
     anchors {
-        left: true
         top: true
     }
 
@@ -75,9 +74,8 @@ PanelWindow {
     // Animate between your specific 87px top margin and off-screen (-800)
     property real currentTopMargin: isOpen ? 67 : -820 
 
-    margins { 
+    margins {
         top: root.currentTopMargin
-        left: 0
     }
 
     Behavior on currentTopMargin {
@@ -247,11 +245,23 @@ PanelWindow {
         Rectangle {
             id: mainBgRect
             anchors.fill: parent
-            color: Theme.background
-            border.color: Theme.primary
-            border.width: 2
             radius: 10
             opacity: 0.95 // Only the background is transparent
+
+            // Gradient border (outer)
+            gradient: Gradient {
+                orientation: Gradient.Vertical
+                GradientStop { position: 0.0; color: Theme.primary }
+                GradientStop { position: 1.0; color: Theme.on_primary }
+            }
+
+            // Background fill (inner), inset by the border thickness
+            Rectangle {
+                anchors.fill: parent
+                anchors.margins: 2
+                radius: parent.radius - anchors.margins
+                color: Theme.background
+            }
         }
 
         ColumnLayout {

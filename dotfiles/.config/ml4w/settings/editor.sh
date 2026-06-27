@@ -1,1 +1,2 @@
-gnome-text-editor
+#!/bin/bash
+gnome-text-editor "$@"

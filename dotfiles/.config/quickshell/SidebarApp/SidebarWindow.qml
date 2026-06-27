@@ -223,11 +223,23 @@ PanelWindow {
         Rectangle {
             id: mainBgRect
             anchors.fill: parent
-            color: Theme.background
-            border.color: Theme.primary
-            border.width: 2
             radius: 10
             opacity: 0.95 // Only the background is transparent
+
+            // Gradient border (outer)
+            gradient: Gradient {
+                orientation: Gradient.Vertical
+                GradientStop { position: 0.0; color: Theme.primary }
+                GradientStop { position: 1.0; color: Theme.on_primary }
+            }
+
+            // Background fill (inner), inset by the border thickness
+            Rectangle {
+                anchors.fill: parent
+                anchors.margins: 2
+                radius: parent.radius - anchors.margins
+                color: Theme.background
+            }
         }
 
         ColumnLayout {
@@ -663,6 +675,57 @@ PanelWindow {
                                 }
                                 ML4WMenuItem { text: "Reload Waybar"; onClicked: {
                                         Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/waybar/launch.sh"])
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // --- STATUSBAR (Quickshell) ---
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text { text: "Statusbar"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Item { Layout.fillWidth: true }
+                        ML4WSwitch {
+                            id: statusbarSwitch
+                            property bool ready: false
+                            Process {
+                                command: ["bash", "-c", "test -f ~/.config/ml4w/settings/statusbar-disabled && echo 0 || echo 1"]
+                                running: root.isOpen
+                                stdout: StdioCollector {
+                                    onStreamFinished: {
+                                        console.log("Test for Statusbar: " + this.text.trim())
+                                        statusbarSwitch.checked = (this.text.trim() === "1")
+                                        statusbarSwitch.ready = true
+                                    }
+                                }
+                            }
+                            onClicked: {
+                                if (!ready) return;
+                                let fileCmd = checked
+                                ? "rm -f ~/.config/ml4w/settings/statusbar-disabled"
+                                : "touch ~/.config/ml4w/settings/statusbar-disabled"
+                                console.log("Statusbar cmd: " + fileCmd)
+                                Quickshell.execDetached(["bash", "-c", fileCmd + "; qs ipc call statusbar refresh"])
+                            }
+                        }
+
+                        SettingsWheel {
+                            onClicked: statusbarMenu.open()
+                            Menu {
+                                id: statusbarMenu
+                                y: parent.height
+                                implicitWidth: 220
+                                padding: 8
+
+                                background: Rectangle { color: Theme.background; border.color: Theme.primary; border.width: 1; radius: 8 }
+                                ML4WMenuItem { text: "Reload Statusbar"; onClicked: {
+                                        Quickshell.execDetached(["bash", "-c", "qs ipc call statusbar reload"])
+                                    }
+                                }
+                                ML4WMenuItem { text: "Edit Settings"; onClicked: {
+                                        root.isOpen = false
+                                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/settings/editor.sh " + Quickshell.env("HOME") + "/.config/ml4w/settings/statusbar.json"])
                                     }
                                 }
                             }

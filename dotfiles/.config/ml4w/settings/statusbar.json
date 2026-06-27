@@ -1,0 +1,54 @@
+/*
+  Status bar settings for the Quickshell pill.
+
+  Edit the values below and save — the bar reloads automatically.
+  Colors are hex strings (e.g. "#ffb4a5"). Leave a color empty ("")
+  to fall back to the current dynamic wallpaper theme.
+
+  Clock format uses Qt date/time tokens, e.g.
+    "HH:mm"      -> 14:05
+    "hh:mm AP"   -> 02:05 PM
+
+  Module groups define which modules appear, in order, in the left,
+  center and right sections of the pill. Only the center group is shown
+  while the pill is collapsed; left and right appear when it expands.
+  Available modules:
+    "terminal", "workspaces", "launcher", "clock",
+    "swaync", "systemtray", "logo", "power", "updates"
+  Remove a name to hide it, or reorder the lists to rearrange.
+  ("updates" shows the pending system update count and hides itself
+  when there is nothing to update.)
+
+  pill.collapsedWidth: width of the collapsed pill. Use 0 for automatic
+  sizing (the pill hugs its center content).
+*/
+{
+    "bar": {
+        "height": 40,
+        "reservedHeight": 72,
+        "enabled": true
+    },
+    "pill": {
+        "collapsedWidth": 0,
+        "expandedWidth": 680,
+        "radius": 12,
+        "animationDuration": 350
+    },
+    "modules": {
+        "left":   ["terminal", "workspaces"],
+        "center": ["launcher", "clock", "swaync"],
+        "right":  ["updates", "systemtray", "logo", "power"]
+    },
+    "border": {
+        "width": 2,
+        "colorTop": "",
+        "colorBottom": ""
+    },
+    "opacity": {
+        "collapsed": 0.5,
+        "expanded": 0.8
+    },
+    "clock": {
+        "format": "HH:mm"
+    }
+}
