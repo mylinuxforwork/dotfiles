@@ -14,8 +14,10 @@
   while the pill is collapsed; left and right appear when it expands.
   Available modules:
     "terminal", "workspaces", "launcher", "clock",
-    "swaync", "systemtray", "logo", "power"
+    "swaync", "systemtray", "logo", "power", "updates"
   Remove a name to hide it, or reorder the lists to rearrange.
+  ("updates" shows the pending system update count and hides itself
+  when there is nothing to update.)
 
   pill.collapsedWidth: width of the collapsed pill. Use 0 for automatic
   sizing (the pill hugs its center content).
@@ -35,7 +37,7 @@
     "modules": {
         "left":   ["terminal", "workspaces"],
         "center": ["launcher", "clock", "swaync"],
-        "right":  ["systemtray", "logo", "power"]
+        "right":  ["updates", "systemtray", "logo", "power"]
     },
     "border": {
         "width": 2,

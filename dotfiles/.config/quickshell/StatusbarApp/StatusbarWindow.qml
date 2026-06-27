@@ -30,7 +30,7 @@ PanelWindow {
         "pill":   { "collapsedWidth": 0, "expandedWidth": 680, "radius": 12, "animationDuration": 350 },
         "modules":{ "left": ["terminal", "workspaces"],
                     "center": ["launcher", "clock", "swaync"],
-                    "right": ["systemtray", "logo", "power"] },
+                    "right": ["updates", "systemtray", "logo", "power"] },
         "border": { "width": 2, "colorTop": "", "colorBottom": "" },
         "opacity":{ "collapsed": 0.5, "expanded": 0.8 },
         "clock":  { "format": "HH:mm" }
@@ -128,6 +128,14 @@ PanelWindow {
     Component { id: cSystemTray; SystemTrayModule {} }
     Component { id: cLogo;       Ml4wLogoModule {} }
     Component { id: cPower;      PowerModule {} }
+    Component {
+        id: cUpdates
+        UpdatesModule {
+            // Rebuild the keyboard navigation list when the module hides or
+            // reappears (its visibility tracks the available update count).
+            onVisibleChanged: Qt.callLater(root.rebuildNavItems)
+        }
+    }
 
     readonly property var moduleComponents: ({
         "terminal":   cTerminal,
@@ -137,7 +145,8 @@ PanelWindow {
         "swaync":     cSwaync,
         "systemtray": cSystemTray,
         "logo":       cLogo,
-        "power":      cPower
+        "power":      cPower,
+        "updates":    cUpdates
     })
 
     // --- KEYBOARD NAVIGATION ---
@@ -169,6 +178,8 @@ PanelWindow {
                 let loader = rep.itemAt(i)
                 let m = loader ? loader.item : null
                 if (!m)
+                    continue
+                if (m.visible === false)                 // hidden (e.g. updates)
                     continue
                 if (m.navButtons !== undefined) {        // workspaces
                     ws = m
@@ -427,6 +438,9 @@ PanelWindow {
                 Loader {
                     Layout.alignment: Qt.AlignVCenter
                     sourceComponent: root.moduleComponents[modelData] || null
+                    // Collapse the layout slot when the module hides itself
+                    // (e.g. the updates module with no pending updates).
+                    visible: item ? item.visible : true
                     onLoaded: Qt.callLater(root.rebuildNavItems)
                 }
             }
