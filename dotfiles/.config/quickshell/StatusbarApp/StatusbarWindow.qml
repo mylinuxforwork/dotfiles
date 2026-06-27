@@ -65,7 +65,7 @@ PanelWindow {
     // action (the system tray) are skipped.
     readonly property var navItems: [terminalModule]
         .concat(workspacesModule.navButtons)
-        .concat([launcherModule, clockModule, logoModule, swayncModule, powerModule])
+        .concat([launcherModule, clockModule, swayncModule, logoModule, powerModule])
     // Index of the keyboard-selected item, or -1 when none is selected.
     property int focusIndex: -1
 
@@ -259,8 +259,8 @@ PanelWindow {
                 Layout.alignment: Qt.AlignVCenter
                 expanded: pill.expanded
             }
-            Ml4wLogoModule {
-                id: logoModule
+            SwayncModule {
+                id: swayncModule
             }
         }
 
@@ -283,8 +283,8 @@ PanelWindow {
             }
 
             SystemTrayModule {}
-            SwayncModule {
-                id: swayncModule
+            Ml4wLogoModule {
+                id: logoModule
             }
             PowerModule {
                 id: powerModule

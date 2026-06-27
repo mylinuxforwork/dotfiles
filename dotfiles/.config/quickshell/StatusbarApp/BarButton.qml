@@ -22,9 +22,10 @@ Rectangle {
     implicitHeight: 30
     radius: 15
 
-    color: btn.colorize
-        ? (btn.active ? Theme.primary : "transparent")
-        : (btn.active ? Theme.surface_container_high : "transparent")
+    // Every button gets the same accent-filled circle on hover/selection.
+    // (colorize only controls whether the icon itself is recolored, so the
+    // ML4W logo keeps its own colors while still matching the others.)
+    color: btn.active ? Theme.primary : "transparent"
 
     Image {
         anchors.centerIn: parent

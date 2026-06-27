@@ -19,11 +19,21 @@ Item {
     implicitWidth: Math.max(timeText.implicitWidth, dateText.implicitWidth)
     implicitHeight: timeText.implicitHeight
 
-    // Highlight ring shown when selected via the keyboard.
+    // Nudge the whole module up slightly in expanded mode so the time+date
+    // block sits centered alongside the other icons.
+    transform: Translate { y: clockRoot.expanded ? -2 : 0 }
+
+    // Highlight ring shown when selected via the keyboard. Wraps tightly around
+    // the visible content (the time, plus the date when expanded).
     Rectangle {
-        anchors.fill: parent
-        anchors.margins: -8
-        anchors.bottomMargin: clockRoot.expanded ? -20 : -8
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.leftMargin: -8
+        anchors.rightMargin: -8
+        anchors.top: timeText.top
+        anchors.topMargin: -4
+        anchors.bottom: clockRoot.expanded ? dateText.bottom : timeText.bottom
+        anchors.bottomMargin: -4
         radius: 8
         color: "transparent"
         border.color: Theme.primary
