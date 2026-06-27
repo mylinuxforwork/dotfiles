@@ -8,9 +8,31 @@ Item {
 
     // Set by the parent: when true the date is revealed and the time shifts up.
     property bool expanded: false
+    // Set by the keyboard navigation in StatusbarWindow.
+    property bool focused: false
+
+    // Run the module's action (mouse click or keyboard Return).
+    function activate(): void {
+        Quickshell.execDetached(["qs", "ipc", "call", "calendar", "toggle"])
+    }
 
     implicitWidth: Math.max(timeText.implicitWidth, dateText.implicitWidth)
     implicitHeight: timeText.implicitHeight
+
+    // Highlight ring shown when selected via the keyboard.
+    Rectangle {
+        anchors.fill: parent
+        anchors.margins: -8
+        anchors.bottomMargin: clockRoot.expanded ? -20 : -8
+        radius: 8
+        color: "transparent"
+        border.color: Theme.primary
+        border.width: 1
+        opacity: clockRoot.focused ? 1 : 0
+        Behavior on opacity {
+            NumberAnimation { duration: 150 }
+        }
+    }
 
     // Live clock, only ticks once per minute.
     SystemClock {
