@@ -21,14 +21,65 @@ PanelWindow {
         ? WlrKeyboardFocus.Exclusive
         : WlrKeyboardFocus.None
 
-    property int barHeight: 40
-    // Constant vertical space reserved for the bar (windows tile below this).
-    property int reservedHeight: 72
+    // --- USER SETTINGS ---
+    // Loaded from ~/.config/ml4w/settings/statusbar.json. The object holds the
+    // built-in defaults and is overwritten (key by key) whenever the file is
+    // read, so a partial or missing file still leaves every value defined.
+    property var settings: ({
+        "bar":    { "height": 40, "reservedHeight": 72, "enabled": true },
+        "pill":   { "collapsedWidth": 0, "expandedWidth": 680, "radius": 12, "animationDuration": 350 },
+        "modules":{ "left": ["terminal", "workspaces"],
+                    "center": ["launcher", "clock", "swaync"],
+                    "right": ["systemtray", "logo", "power"] },
+        "border": { "width": 2, "colorTop": "", "colorBottom": "" },
+        "opacity":{ "collapsed": 0.5, "expanded": 0.8 },
+        "clock":  { "format": "HH:mm" }
+    })
 
-    // Whether the bar is shown. Persisted via a state file so the choice
-    // survives restarts and is honored on Hyprland startup. Toggled from the
-    // SidebarApp (and via "qs ipc call statusbar toggle").
-    property bool barEnabled: true
+    // Read the settings file synchronously at startup. Changes are not picked
+    // up automatically; trigger a re-read explicitly with
+    //   qs ipc call statusbar reload
+    FileView {
+        id: settingsFile
+        path: Quickshell.env("HOME") + "/.config/ml4w/settings/statusbar.json"
+        blockLoading: true
+        onLoaded: root.applySettings()
+    }
+
+    // Force a re-read of the settings file and re-apply it. reload() refreshes
+    // the FileView from disk; applySettings parses and merges the result.
+    function reloadSettings(): void {
+        settingsFile.reload()
+        applySettings()
+    }
+
+    // Merge the file contents over the defaults. The leading /* ... */ comment
+    // block is stripped so the body stays valid for JSON.parse.
+    function applySettings(): void {
+        try {
+            let raw = settingsFile.text().replace(/\/\*[\s\S]*?\*\//g, "")
+            let parsed = JSON.parse(raw)
+            let merged = JSON.parse(JSON.stringify(root.settings))
+            for (let group in parsed)
+                for (let key in parsed[group])
+                    if (merged[group] !== undefined)
+                        merged[group][key] = parsed[group][key]
+            root.settings = merged
+        } catch (e) {
+            console.warn("statusbar.json: could not parse settings,"
+                + " keeping previous values:", e)
+        }
+    }
+
+    property int barHeight: settings.bar.height
+    // Constant vertical space reserved for the bar (windows tile below this).
+    property int reservedHeight: settings.bar.reservedHeight
+
+    // Whether the bar is shown. The settings file provides the default; the
+    // statusbar-disabled marker file (toggled from the SidebarApp and via
+    // "qs ipc call statusbar toggle") overrides it at runtime and survives
+    // restarts.
+    property bool barEnabled: settings.bar.enabled
 
     // Hide completely and reserve no space when disabled.
     visible: barEnabled
@@ -42,7 +93,10 @@ PanelWindow {
         command: ["bash", "-c", "test -f ~/.config/ml4w/settings/statusbar-disabled && echo 0 || echo 1"]
         running: true
         stdout: StdioCollector {
-            onStreamFinished: root.barEnabled = (this.text.trim() === "1")
+            // "0" = marker present (force off); "1" = absent (use the
+            // settings.json default).
+            onStreamFinished: root.barEnabled =
+                (this.text.trim() === "1") && root.settings.bar.enabled
         }
     }
 
@@ -57,17 +111,79 @@ PanelWindow {
     // ("qs ipc call statusbar expand") and bound to SUPER + SPACE in Hyprland.
     property bool barExpanded: false
 
+    // --- MODULE PLACEMENT ---
+    // Each module name in the settings file maps to the component placed into
+    // the left/center/right groups. Unknown names load nothing.
+    Component { id: cTerminal;   TerminalModule {} }
+    Component { id: cWorkspaces; WorkspacesModule {} }
+    Component { id: cLauncher;   LauncherModule {} }
+    Component {
+        id: cClock
+        ClockModule {
+            expanded: pill.expanded
+            timeFormat: root.settings.clock.format
+        }
+    }
+    Component { id: cSwaync;     SwayncModule {} }
+    Component { id: cSystemTray; SystemTrayModule {} }
+    Component { id: cLogo;       Ml4wLogoModule {} }
+    Component { id: cPower;      PowerModule {} }
+
+    readonly property var moduleComponents: ({
+        "terminal":   cTerminal,
+        "workspaces": cWorkspaces,
+        "launcher":   cLauncher,
+        "clock":      cClock,
+        "swaync":     cSwaync,
+        "systemtray": cSystemTray,
+        "logo":       cLogo,
+        "power":      cPower
+    })
+
     // --- KEYBOARD NAVIGATION ---
-    // Ordered left-to-right list of the navigable items. The workspace buttons
-    // are spliced in after the terminal to match their on-screen position;
-    // their count is dynamic, so navItems is a binding that re-evaluates when
-    // workspaces are added or removed. Collection modules without a single
-    // action (the system tray) are skipped.
-    readonly property var navItems: [terminalModule]
-        .concat(workspacesModule.navButtons)
-        .concat([launcherModule, clockModule, swayncModule, logoModule, powerModule])
+    // Ordered left-to-right list of the navigable items, rebuilt from the
+    // placed modules whenever the layout or the (dynamic) workspace buttons
+    // change. The workspace buttons are spliced in at the workspaces module's
+    // position; collection modules without a single action (the system tray)
+    // are skipped.
+    property var navItems: []
     // Index of the keyboard-selected item, or -1 when none is selected.
     property int focusIndex: -1
+
+    // The placed workspaces module, tracked so navItems can be rebuilt when its
+    // button list changes (workspaces appear/disappear asynchronously).
+    property var workspacesRef: null
+    Connections {
+        target: root.workspacesRef
+        ignoreUnknownSignals: true
+        function onNavButtonsChanged(): void { root.rebuildNavItems() }
+    }
+
+    function rebuildNavItems(): void {
+        let items = []
+        let ws = null
+        let groups = [leftRepeater, centerRepeater, rightRepeater]
+        for (let g = 0; g < groups.length; g++) {
+            let rep = groups[g]
+            for (let i = 0; i < rep.count; i++) {
+                let loader = rep.itemAt(i)
+                let m = loader ? loader.item : null
+                if (!m)
+                    continue
+                if (m.navButtons !== undefined) {        // workspaces
+                    ws = m
+                    items = items.concat(m.navButtons)
+                } else if (typeof m.activate === "function") {
+                    items.push(m)
+                }
+            }
+        }
+        root.workspacesRef = ws
+        root.navItems = items
+    }
+
+    Component.onCompleted: Qt.callLater(rebuildNavItems)
+    onSettingsChanged: Qt.callLater(rebuildNavItems)
 
     // Highlight exactly the item at focusIndex and clear all others. Called
     // both when the selection moves and when navItems changes underneath it.
@@ -119,6 +235,8 @@ PanelWindow {
         // Toggle between collapsed and expanded mode.
         function expand(): void { root.barExpanded = !root.barExpanded }
         function collapse(): void { root.barExpanded = false }
+        // Re-read statusbar.json and apply the changes.
+        function reload(): void { root.reloadSettings() }
     }
 
     color: "transparent"
@@ -149,22 +267,25 @@ PanelWindow {
 
         // Collapsed = sized to content, Expanded = fixed width.
         property bool expanded: hoverHandler.hovered || root.barExpanded
-        property real collapsedWidth: centerArea.implicitWidth + 32
-        property real expandedWidth: 680
+        // 0 in the settings file means "hug the center content".
+        property real collapsedWidth: root.settings.pill.collapsedWidth > 0
+            ? root.settings.pill.collapsedWidth
+            : centerArea.implicitWidth + 32
+        property real expandedWidth: root.settings.pill.expandedWidth
 
         width: expanded ? expandedWidth : collapsedWidth
         height: expanded ? root.barHeight + 10 : root.barHeight
 
         Behavior on width {
             NumberAnimation {
-                duration: 350
+                duration: root.settings.pill.animationDuration
                 easing.type: Easing.OutQuint
             }
         }
 
         Behavior on height {
             NumberAnimation {
-                duration: 350
+                duration: root.settings.pill.animationDuration
                 easing.type: Easing.OutQuint
             }
         }
@@ -196,22 +317,39 @@ PanelWindow {
         Rectangle {
             id: pillBg
             anchors.fill: parent
-            radius: 12
-            opacity: pill.expanded ? 0.8 : 0.5
+            radius: root.settings.pill.radius
+            opacity: pill.expanded
+                ? root.settings.opacity.expanded
+                : root.settings.opacity.collapsed
             Behavior on opacity {
-                NumberAnimation { duration: 350; easing.type: Easing.OutQuint }
+                NumberAnimation {
+                    duration: root.settings.pill.animationDuration
+                    easing.type: Easing.OutQuint
+                }
             }
 
+            // Border colors come from the settings file; empty strings fall
+            // back to the dynamic wallpaper theme.
             gradient: Gradient {
                 orientation: Gradient.Vertical
-                GradientStop { position: 0.0; color: Theme.primary }
-                GradientStop { position: 1.0; color: Theme.on_primary }
+                GradientStop {
+                    position: 0.0
+                    color: root.settings.border.colorTop !== ""
+                        ? root.settings.border.colorTop
+                        : Theme.primary
+                }
+                GradientStop {
+                    position: 1.0
+                    color: root.settings.border.colorBottom !== ""
+                        ? root.settings.border.colorBottom
+                        : Theme.on_primary
+                }
             }
 
             // Actual background fill (inner), inset by the border thickness
             Rectangle {
                 anchors.fill: parent
-                anchors.margins: 2          // = border width
+                anchors.margins: root.settings.border.width
                 radius: parent.radius - anchors.margins
                 color: Theme.background
             }
@@ -235,11 +373,14 @@ PanelWindow {
                 NumberAnimation { duration: 250; easing.type: Easing.OutQuint }
             }
 
-            TerminalModule {
-                id: terminalModule
-            }
-            WorkspacesModule {
-                id: workspacesModule
+            Repeater {
+                id: leftRepeater
+                model: root.settings.modules.left
+                Loader {
+                    Layout.alignment: Qt.AlignVCenter
+                    sourceComponent: root.moduleComponents[modelData] || null
+                    onLoaded: Qt.callLater(root.rebuildNavItems)
+                }
             }
         }
 
@@ -251,16 +392,14 @@ PanelWindow {
             anchors.centerIn: parent
             spacing: 14
 
-            LauncherModule {
-                id: launcherModule
-            }
-            ClockModule {
-                id: clockModule
-                Layout.alignment: Qt.AlignVCenter
-                expanded: pill.expanded
-            }
-            SwayncModule {
-                id: swayncModule
+            Repeater {
+                id: centerRepeater
+                model: root.settings.modules.center
+                Loader {
+                    Layout.alignment: Qt.AlignVCenter
+                    sourceComponent: root.moduleComponents[modelData] || null
+                    onLoaded: Qt.callLater(root.rebuildNavItems)
+                }
             }
         }
 
@@ -282,12 +421,14 @@ PanelWindow {
                 NumberAnimation { duration: 250; easing.type: Easing.OutQuint }
             }
 
-            SystemTrayModule {}
-            Ml4wLogoModule {
-                id: logoModule
-            }
-            PowerModule {
-                id: powerModule
+            Repeater {
+                id: rightRepeater
+                model: root.settings.modules.right
+                Loader {
+                    Layout.alignment: Qt.AlignVCenter
+                    sourceComponent: root.moduleComponents[modelData] || null
+                    onLoaded: Qt.callLater(root.rebuildNavItems)
+                }
             }
         }
     }

@@ -8,6 +8,8 @@ Item {
 
     // Set by the parent: when true the date is revealed and the time shifts up.
     property bool expanded: false
+    // Qt date/time format for the time, supplied from statusbar.json.
+    property string timeFormat: "HH:mm"
     // Set by the keyboard navigation in StatusbarWindow.
     property bool focused: false
 
@@ -70,7 +72,7 @@ Item {
         Behavior on anchors.verticalCenterOffset {
             NumberAnimation { duration: 250; easing.type: Easing.OutQuint }
         }
-        text: Qt.formatDateTime(clock.date, "HH:mm")
+        text: Qt.formatDateTime(clock.date, clockRoot.timeFormat)
         color: Theme.primary
         font.family: Theme.fontFamily
         font.pixelSize: 16

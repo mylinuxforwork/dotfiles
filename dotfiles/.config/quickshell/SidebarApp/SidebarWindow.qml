@@ -709,6 +709,27 @@ PanelWindow {
                                 Quickshell.execDetached(["bash", "-c", fileCmd + "; qs ipc call statusbar refresh"])
                             }
                         }
+
+                        SettingsWheel {
+                            onClicked: statusbarMenu.open()
+                            Menu {
+                                id: statusbarMenu
+                                y: parent.height
+                                implicitWidth: 220
+                                padding: 8
+
+                                background: Rectangle { color: Theme.background; border.color: Theme.primary; border.width: 1; radius: 8 }
+                                ML4WMenuItem { text: "Reload Statusbar"; onClicked: {
+                                        Quickshell.execDetached(["bash", "-c", "qs ipc call statusbar reload"])
+                                    }
+                                }
+                                ML4WMenuItem { text: "Edit Settings"; onClicked: {
+                                        root.isOpen = false
+                                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/settings/editor.sh " + Quickshell.env("HOME") + "/.config/ml4w/settings/statusbar.json"])
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     // --- DOCK ---
