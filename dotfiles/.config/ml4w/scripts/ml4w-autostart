@@ -77,6 +77,7 @@ info "Starting ML4W Welcome App"
 if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then
     timeout=30
     count=0
+    sleep 1
     until qs ipc call welcome toggle >/dev/null 2>&1; do
         (( count++ ))
         if (( count >= timeout )); then
