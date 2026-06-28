@@ -54,10 +54,13 @@ PanelWindow {
     }
 
     // Merge the file contents over the defaults. The leading /* ... */ comment
-    // block is stripped so the body stays valid for JSON.parse.
-    function applySettings(): void {
+    // block is stripped so the body stays valid for JSON.parse. An explicit
+    // text can be passed (e.g. right after setEnabled writes the file) so the
+    // merge does not depend on the FileView buffer having refreshed yet.
+    function applySettings(text): void {
         try {
-            let raw = settingsFile.text().replace(/\/\*[\s\S]*?\*\//g, "")
+            let src = (text !== undefined) ? text : settingsFile.text()
+            let raw = src.replace(/\/\*[\s\S]*?\*\//g, "")
             let parsed = JSON.parse(raw)
             let merged = JSON.parse(JSON.stringify(root.settings))
             for (let group in parsed)
@@ -75,10 +78,10 @@ PanelWindow {
     // Constant vertical space reserved for the bar (windows tile below this).
     property int reservedHeight: settings.bar.reservedHeight
 
-    // Whether the bar is shown. The settings file provides the default; the
-    // statusbar-disabled marker file (toggled from the SidebarApp and via
-    // "qs ipc call statusbar toggle") overrides it at runtime and survives
-    // restarts.
+    // Whether the bar is shown. The "enabled" flag in statusbar.json is the
+    // single source of truth; it is toggled from the SidebarApp switch and via
+    // "qs ipc call statusbar toggle", persisted back to the file, and survives
+    // restarts. Kept as a binding so a settings reload updates it for free.
     property bool barEnabled: settings.bar.enabled
 
     // Hide completely and reserve no space when disabled.
@@ -87,24 +90,17 @@ PanelWindow {
     // than above (windows tile 20px higher).
     exclusiveZone: barEnabled ? reservedHeight - 20 : 0
 
-    // Read the persisted state on startup.
-    Process {
-        id: stateProc
-        command: ["bash", "-c", "test -f ~/.config/ml4w/settings/statusbar-disabled && echo 0 || echo 1"]
-        running: true
-        stdout: StdioCollector {
-            // "0" = marker present (force off); "1" = absent (use the
-            // settings.json default).
-            onStreamFinished: root.barEnabled =
-                (this.text.trim() === "1") && root.settings.bar.enabled
-        }
-    }
-
-    function persistState(): void {
-        let cmd = root.barEnabled
-            ? "rm -f ~/.config/ml4w/settings/statusbar-disabled"
-            : "touch ~/.config/ml4w/settings/statusbar-disabled"
-        Quickshell.execDetached(["bash", "-c", cmd])
+    // Persist the enabled state into statusbar.json and apply it. The flag is
+    // flipped with a regex on the raw text so the comment header and the rest
+    // of the file's formatting are preserved. applySettings re-parses the
+    // updated text, which updates settings.bar.enabled and therefore the
+    // barEnabled binding above.
+    function setEnabled(on: bool): void {
+        let updated = settingsFile.text().replace(
+            /("enabled"\s*:\s*)(true|false)/,
+            "$1" + (on ? "true" : "false"))
+        settingsFile.setText(updated)
+        applySettings(updated)
     }
 
     // Keep the pill expanded regardless of hover. Toggled via IPC
@@ -245,11 +241,13 @@ PanelWindow {
 
     IpcHandler {
         target: "statusbar"
-        function toggle(): void { root.barEnabled = !root.barEnabled; root.persistState() }
-        function show(): void { root.barEnabled = true; root.persistState() }
-        function hide(): void { root.barEnabled = false; root.persistState() }
-        // Re-read the state file (used by the SidebarApp switch).
-        function refresh(): void { stateProc.running = false; stateProc.running = true }
+        function toggle(): void { root.setEnabled(!root.settings.bar.enabled) }
+        // Named enable/disable rather than show/hide: "show" is a reserved
+        // subcommand of "qs ipc" and would never reach the function.
+        function enable(): void { root.setEnabled(true) }
+        function disable(): void { root.setEnabled(false) }
+        // Re-read statusbar.json from disk (used by the SidebarApp switch).
+        function refresh(): void { root.reloadSettings() }
         // Toggle between collapsed and expanded mode.
         function expand(): void { root.barExpanded = !root.barExpanded }
         function collapse(): void { root.barExpanded = false }

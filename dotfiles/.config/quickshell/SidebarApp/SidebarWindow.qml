@@ -689,8 +689,11 @@ PanelWindow {
                         ML4WSwitch {
                             id: statusbarSwitch
                             property bool ready: false
+                            // Read the current state from the "enabled" flag in
+                            // statusbar.json (the single source of truth). A
+                            // missing file or a missing/true flag counts as on.
                             Process {
-                                command: ["bash", "-c", "test -f ~/.config/ml4w/settings/statusbar-disabled && echo 0 || echo 1"]
+                                command: ["bash", "-c", "grep -q '\"enabled\"[[:space:]]*:[[:space:]]*false' ~/.config/ml4w/settings/statusbar.json && echo 0 || echo 1"]
                                 running: root.isOpen
                                 stdout: StdioCollector {
                                     onStreamFinished: {
@@ -702,11 +705,14 @@ PanelWindow {
                             }
                             onClicked: {
                                 if (!ready) return;
-                                let fileCmd = checked
-                                ? "rm -f ~/.config/ml4w/settings/statusbar-disabled"
-                                : "touch ~/.config/ml4w/settings/statusbar-disabled"
-                                console.log("Statusbar cmd: " + fileCmd)
-                                Quickshell.execDetached(["bash", "-c", fileCmd + "; qs ipc call statusbar refresh"])
+                                // The statusbar owns the file write; just tell it
+                                // the new state via IPC. `checked` already
+                                // reflects the post-click position.
+                                let ipcCmd = checked
+                                ? "qs ipc call statusbar enable"
+                                : "qs ipc call statusbar disable"
+                                console.log("Statusbar cmd: " + ipcCmd)
+                                Quickshell.execDetached(["bash", "-c", ipcCmd])
                             }
                         }
 

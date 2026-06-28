@@ -1,11 +1,12 @@
-Version 2.13.1
+Version 2.14.0
 --------------------------------------------------------
-- Add Dock autohide switch to sidebar.
-- Switch keyboard layout with SUPER + Space if defined in input.lua e.g., kb_layout  = "de,us"
-- Toggle special workspace with SUPER + Shift + S
-- Powermenu options can be selected with keyboard arrow keys and confirm with Return
-- New SVG Icons for Power Menu and Sidebar
-- Sidepad temporarly removed. Will be replaced soon by a new scratchpad feature.
+- New optional Quickshell-based statusbar — activate in Sidebar, expand with hover or SUPER + SPACE
+- Added Dock autohide toggle to Sidebar
+- Multi-layout keyboard switching via ALT + SHIFT (configure layouts in input.lua, e.g. kb_layout = "de,us")
+- Toggle special workspace with SUPER + SHIFT + S
+- Navigate Powermenu options with arrow keys, confirm with Return
+- New SVG icons for Powermenu and Sidebar
+- Sidepad temporarily removed — will be replaced by a new scratchpad feature
 
 Version 2.13.0
 --------------------------------------------------------
