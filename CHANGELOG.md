@@ -1,3 +1,8 @@
+Version 2.14.1
+--------------------------------------------------------
+- You can keep the status bar expanded with new setting "alwaysExpanded": true for the bar section
+- Flexible width for the statusbar if the width of "expandedWidth": 680 is not enough.
+
 Version 2.14.0
 --------------------------------------------------------
 - New optional Quickshell-based statusbar — activate in Sidebar, expand with hover or SUPER + SPACE

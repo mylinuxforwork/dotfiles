@@ -26,7 +26,7 @@ PanelWindow {
     // built-in defaults and is overwritten (key by key) whenever the file is
     // read, so a partial or missing file still leaves every value defined.
     property var settings: ({
-        "bar":    { "height": 40, "reservedHeight": 72, "enabled": true },
+        "bar":    { "height": 40, "reservedHeight": 72, "enabled": true, "alwaysExpanded": false },
         "pill":   { "collapsedWidth": 0, "expandedWidth": 680, "radius": 12, "animationDuration": 350 },
         "modules":{ "left": ["terminal", "workspaces"],
                     "center": ["launcher", "clock", "swaync"],
@@ -106,6 +106,12 @@ PanelWindow {
     // Keep the pill expanded regardless of hover. Toggled via IPC
     // ("qs ipc call statusbar expand") and bound to SUPER + SPACE in Hyprland.
     property bool barExpanded: false
+
+    // When set in statusbar.json the pill never collapses: it stays in its
+    // expanded (full-width) state independent of hover or the IPC toggle. This
+    // is purely visual — unlike barExpanded it does not grab the keyboard — so
+    // the left/right module areas remain permanently visible.
+    property bool alwaysExpanded: settings.bar.alwaysExpanded
 
     // --- MODULE PLACEMENT ---
     // Each module name in the settings file maps to the component placed into
@@ -283,11 +289,26 @@ PanelWindow {
 
         // Collapsed = sized to content, Expanded = fixed width.
         property bool expanded: hoverHandler.hovered || root.barExpanded
+            || root.alwaysExpanded
         // 0 in the settings file means "hug the center content".
         property real collapsedWidth: root.settings.pill.collapsedWidth > 0
             ? root.settings.pill.collapsedWidth
             : centerArea.implicitWidth + 32
-        property real expandedWidth: root.settings.pill.expandedWidth
+
+        // Minimum width the content needs so the centered center area never
+        // overlaps the left/right areas. The center stays centered, so each
+        // side must clear half of it: the bar has to be at least as wide as the
+        // center plus twice the wider of the two side areas (whichever side
+        // would collide first), plus the 16px edge margins and some breathing
+        // room. Computed live so adding workspaces (or any module growing)
+        // pushes the bar wider instead of clipping.
+        property real contentWidth: centerArea.implicitWidth
+            + 2 * Math.max(leftArea.implicitWidth, rightArea.implicitWidth)
+            + 64
+        // expandedWidth from the settings file is treated as a minimum: the
+        // pill grows past it when the content needs more room.
+        property real expandedWidth: Math.max(
+            root.settings.pill.expandedWidth, contentWidth)
 
         width: expanded ? expandedWidth : collapsedWidth
         height: expanded ? root.barHeight + 10 : root.barHeight
