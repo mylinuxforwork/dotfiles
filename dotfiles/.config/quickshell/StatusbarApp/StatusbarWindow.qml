@@ -139,12 +139,23 @@ PanelWindow {
         }
     }
     Component { id: cSwaync;     SwayncModule {} }
+    // True while a system-tray context menu is open. Kept at window scope so
+    // the pill can pin itself expanded while a menu is up (the tray lives in
+    // the right area, which only exists while expanded).
+    property bool trayMenuOpen: false
     Component {
         id: cSystemTray
         SystemTrayModule {
             // Rebuild keyboard navigation when the tray empties or repopulates
             // (it collapses out of the layout when it has no items).
             onCollapsedChanged: Qt.callLater(root.rebuildNavItems)
+            // Surface the open-menu state up to the window so the pill stays
+            // expanded for as long as a tray menu is showing.
+            Binding {
+                target: root
+                property: "trayMenuOpen"
+                value: menuOpen
+            }
         }
     }
     Component { id: cLogo;       Ml4wLogoModule {} }
@@ -322,7 +333,7 @@ PanelWindow {
 
         // Collapsed = sized to content, Expanded = fixed width.
         property bool expanded: hoverHandler.hovered || root.barExpanded
-            || root.alwaysExpanded
+            || root.alwaysExpanded || root.trayMenuOpen
         // 0 in the settings file means "hug the center content".
         property real collapsedWidth: root.settings.pill.collapsedWidth > 0
             ? root.settings.pill.collapsedWidth
