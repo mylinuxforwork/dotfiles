@@ -12,9 +12,9 @@
         "animationDuration": 350
     },
     "modules": {
-        "left":   ["terminal", "workspaces"],
+        "left":   ["workspaces", "terminal"],
         "center": ["launcher", "clock", "swaync"],
-        "right":  ["updates", "systemtray", "logo", "power"]
+        "right":  ["updates", "volume", "systemtray", "logo", "power"]
     },
     "border": {
         "width": 2,
