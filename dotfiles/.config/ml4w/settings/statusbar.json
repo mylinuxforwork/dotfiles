@@ -2,7 +2,7 @@
     "bar": {
         "height": 40,
         "reservedHeight": 72,
-        "enabled": true,
+        "enabled": false,
         "alwaysExpanded": false
     },
     "pill": {
