@@ -752,6 +752,42 @@ PanelWindow {
                         }
                     }
 
+                    // --- STATUSBAR ALWAYS EXPANDED (Quickshell) ---
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text { text: "Statusbar Expanded"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Item { Layout.fillWidth: true }
+                        ML4WSwitch {
+                            id: statusbarExpandedSwitch
+                            property bool ready: false
+                            // Read the current state from the "alwaysExpanded" flag
+                            // in statusbar.json. A missing file or flag counts as off.
+                            Process {
+                                command: ["bash", "-c", "grep -q '\"alwaysExpanded\"[[:space:]]*:[[:space:]]*true' ~/.config/ml4w/settings/statusbar.json && echo 1 || echo 0"]
+                                running: root.isOpen
+                                stdout: StdioCollector {
+                                    onStreamFinished: {
+                                        console.log("Test for Statusbar Expanded: " + this.text.trim())
+                                        statusbarExpandedSwitch.checked = (this.text.trim() === "1")
+                                        statusbarExpandedSwitch.ready = true
+                                    }
+                                }
+                            }
+                            onClicked: {
+                                if (!ready) return;
+                                // The statusbar owns the file write; just tell it
+                                // the new state via IPC. `checked` already
+                                // reflects the post-click position.
+                                let ipcCmd = checked
+                                ? "qs ipc call statusbar alwaysExpand"
+                                : "qs ipc call statusbar autoCollapse"
+                                console.log("Statusbar Expanded cmd: " + ipcCmd)
+                                Quickshell.execDetached(["bash", "-c", ipcCmd])
+                            }
+                        }
+                        Item { implicitWidth: 28 }
+                    }
+
                     // --- DOCK ---
                     RowLayout {
                         Layout.fillWidth: true

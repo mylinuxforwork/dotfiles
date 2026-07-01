@@ -1,6 +1,6 @@
 Version 2.14.1
 --------------------------------------------------------
-- You can keep the status bar expanded with new setting "alwaysExpanded": true for the bar section
+- You can keep the status bar expanded with new setting "alwaysExpanded": true for the bar section. Also available as a toggle switch in the sidebar.
 - Flexible width for the statusbar if the width of "expandedWidth": 680 is not enough.
 - New status bar module for volume control
 - New keybinding to reload the statusbar SUPER + ALT + B
