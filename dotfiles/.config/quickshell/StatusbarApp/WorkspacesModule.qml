@@ -46,6 +46,16 @@ RowLayout {
             border.color: Theme.primary
             border.width: modelData.focused ? 0 : 1
 
+            // Crossfade the fill between active / hover / inactive states so the
+            // background of the active circle fades in and the previous one out.
+            Behavior on color {
+                ColorAnimation { duration: 500; easing.type: Easing.OutQuint }
+            }
+            // Fade the outline in/out as the fill takes over on activation.
+            Behavior on border.width {
+                NumberAnimation { duration: 500; easing.type: Easing.OutQuint }
+            }
+
             // Keyboard-selection ring, distinct from the active-workspace fill.
             Rectangle {
                 anchors.fill: parent
@@ -67,6 +77,11 @@ RowLayout {
                 font.family: Theme.fontFamily
                 font.pixelSize: 13
                 font.bold: true
+
+                // Match the fill crossfade so the label recolors in step.
+                Behavior on color {
+                    ColorAnimation { duration: 500; easing.type: Easing.OutQuint }
+                }
             }
 
             MouseArea {

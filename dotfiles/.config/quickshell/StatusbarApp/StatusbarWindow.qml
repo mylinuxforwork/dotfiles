@@ -125,6 +125,18 @@ PanelWindow {
     // the left/right module areas remain permanently visible.
     property bool alwaysExpanded: settings.bar.alwaysExpanded
 
+    // Persist the alwaysExpanded state into statusbar.json and apply it. Mirrors
+    // setEnabled: the flag is flipped with a regex on the raw text so the rest of
+    // the file's formatting is preserved, then re-parsed so the binding above
+    // updates.
+    function setAlwaysExpanded(on: bool): void {
+        let updated = settingsFile.text().replace(
+            /("alwaysExpanded"\s*:\s*)(true|false)/,
+            "$1" + (on ? "true" : "false"))
+        settingsFile.setText(updated)
+        applySettings(updated)
+    }
+
     // --- MODULE PLACEMENT ---
     // Each module name in the settings file maps to the component placed into
     // the left/center/right groups. Unknown names load nothing.
@@ -288,6 +300,10 @@ PanelWindow {
         // subcommand of "qs ipc" and would never reach the function.
         function enable(): void { root.setEnabled(true) }
         function disable(): void { root.setEnabled(false) }
+        // Persist and apply the alwaysExpanded (permanently expanded) mode,
+        // toggled from the SidebarApp switch.
+        function alwaysExpand(): void { root.setAlwaysExpanded(true) }
+        function autoCollapse(): void { root.setAlwaysExpanded(false) }
         // Re-read statusbar.json from disk (used by the SidebarApp switch).
         function refresh(): void { root.reloadSettings() }
         // Expand the bar (if needed) and grab the keyboard for navigation.

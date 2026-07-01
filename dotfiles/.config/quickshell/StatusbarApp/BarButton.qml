@@ -27,6 +27,11 @@ Rectangle {
     // ML4W logo keeps its own colors while still matching the others.)
     color: btn.active ? Theme.primary : "transparent"
 
+    // Fade the accent circle in on hover/selection and out again on leave.
+    Behavior on color {
+        ColorAnimation { duration: 500; easing.type: Easing.OutQuint }
+    }
+
     Image {
         anchors.centerIn: parent
         source: btn.iconSrc
@@ -39,6 +44,11 @@ Rectangle {
         layer.effect: MultiEffect {
             colorization: 1.0
             colorizationColor: btn.active ? Theme.background : Theme.primary
+
+            // Recolor the icon in step with the circle fade.
+            Behavior on colorizationColor {
+                ColorAnimation { duration: 500; easing.type: Easing.OutQuint }
+            }
         }
     }
 
