@@ -1,5 +1,6 @@
 Version 2.14.1
 --------------------------------------------------------
+- The Quickshell statusbar can be configured in ~/.config/ml4w-statusbar/statusbar.json The file must be created individually. The full list of configuration options are available here: https://ml4w.com/os/ml4w-apps/statusbar
 - You can keep the status bar expanded with new setting "alwaysExpanded": true for the bar section. Also available as a toggle switch in the sidebar.
 - Flexible width for the statusbar if the width of "expandedWidth": 680 is not enough.
 - New status bar module for volume control

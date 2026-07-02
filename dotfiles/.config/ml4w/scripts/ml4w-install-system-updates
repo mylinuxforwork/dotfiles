@@ -94,6 +94,10 @@ echo
 # Reload Waybar
 pkill -RTMIN+1 waybar
 
+# Refresh Quickshell Statusbar
+qs ipc call updates refresh
+# qs ipc call updates reset
+
 # Finishing
 echo ":: Update complete! Press [ENTER] to close."
 read

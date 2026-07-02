@@ -1,31 +1,6 @@
 {
     "bar": {
-        "height": 40,
-        "reservedHeight": 72,
         "enabled": false,
         "alwaysExpanded": false
-    },
-    "pill": {
-        "collapsedWidth": 0,
-        "expandedWidth": 680,
-        "radius": 12,
-        "animationDuration": 350
-    },
-    "modules": {
-        "left":   ["workspaces", "terminal"],
-        "center": ["launcher", "clock", "swaync"],
-        "right":  ["updates", "volume", "systemtray", "logo", "power"]
-    },
-    "border": {
-        "width": 2,
-        "colorTop": "",
-        "colorBottom": ""
-    },
-    "opacity": {
-        "collapsed": 0.6,
-        "expanded": 0.8
-    },
-    "clock": {
-        "format": "HH:mm"
     }
 }

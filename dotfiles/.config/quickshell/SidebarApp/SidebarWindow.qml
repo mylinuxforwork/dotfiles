@@ -704,10 +704,11 @@ PanelWindow {
                             id: statusbarSwitch
                             property bool ready: false
                             // Read the current state from the "enabled" flag in
-                            // statusbar.json (the single source of truth). A
+                            // the master file: the ml4w-statusbar override when it
+                            // exists, otherwise the shipped statusbar.json. A
                             // missing file or a missing/true flag counts as on.
                             Process {
-                                command: ["bash", "-c", "grep -q '\"enabled\"[[:space:]]*:[[:space:]]*false' ~/.config/ml4w/settings/statusbar.json && echo 0 || echo 1"]
+                                command: ["bash", "-c", "f=~/.config/ml4w-statusbar/statusbar.json; [ -f \"$f\" ] || f=~/.config/ml4w/settings/statusbar.json; grep -q '\"enabled\"[[:space:]]*:[[:space:]]*false' \"$f\" && echo 0 || echo 1"]
                                 running: root.isOpen
                                 stdout: StdioCollector {
                                     onStreamFinished: {
@@ -745,7 +746,9 @@ PanelWindow {
                                 }
                                 ML4WMenuItem { text: "Edit Settings"; onClicked: {
                                         root.isOpen = false
-                                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/settings/editor.sh " + Quickshell.env("HOME") + "/.config/ml4w/settings/statusbar.json"])
+                                        // Edit the master file: the ml4w-statusbar override when it
+                                        // exists, otherwise the shipped statusbar.json.
+                                        Quickshell.execDetached(["bash", "-c", "f=~/.config/ml4w-statusbar/statusbar.json; [ -f \"$f\" ] || f=~/.config/ml4w/settings/statusbar.json; ~/.config/ml4w/settings/editor.sh \"$f\""])
                                     }
                                 }
                             }
@@ -761,9 +764,11 @@ PanelWindow {
                             id: statusbarExpandedSwitch
                             property bool ready: false
                             // Read the current state from the "alwaysExpanded" flag
-                            // in statusbar.json. A missing file or flag counts as off.
+                            // in the master file: the ml4w-statusbar override when it
+                            // exists, otherwise the shipped statusbar.json. A missing
+                            // file or flag counts as off.
                             Process {
-                                command: ["bash", "-c", "grep -q '\"alwaysExpanded\"[[:space:]]*:[[:space:]]*true' ~/.config/ml4w/settings/statusbar.json && echo 1 || echo 0"]
+                                command: ["bash", "-c", "f=~/.config/ml4w-statusbar/statusbar.json; [ -f \"$f\" ] || f=~/.config/ml4w/settings/statusbar.json; grep -q '\"alwaysExpanded\"[[:space:]]*:[[:space:]]*true' \"$f\" && echo 1 || echo 0"]
                                 running: root.isOpen
                                 stdout: StdioCollector {
                                     onStreamFinished: {
