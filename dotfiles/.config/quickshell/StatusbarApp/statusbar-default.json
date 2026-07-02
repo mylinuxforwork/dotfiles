@@ -17,7 +17,7 @@ Default configuration file for the Quickshell Statusbar.
     "modules": {
         "left":   ["workspaces", "terminal"],
         "center": ["launcher", "clock", "swaync"],
-        "right":  ["updates", "volume", "systemtray", "logo", "power"]
+        "right":  ["updates", "battery", "powerprofile", "volume", "systemtray", "logo", "power"]
     },
     "border": {
         "width": 2,
