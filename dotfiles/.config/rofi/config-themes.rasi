@@ -25,7 +25,9 @@ configuration {
     me-select-entry:            "";
     me-accept-entry:            "MousePrimary";
     window-format:              "{w} · {c} · {t}";
-    
+    click-to-exit: true;
+    close-on-delete: true;
+    kb-cancel: "Escape,MousePrimary";
 }
 
 /* ---- Load font ---- */
