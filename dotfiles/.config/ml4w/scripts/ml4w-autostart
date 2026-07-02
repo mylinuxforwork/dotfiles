@@ -29,6 +29,9 @@ if [ ! -f $CACHE_FILE ]; then
     info "Cache file created"
 fi
 
+# Start nmapplet
+nm-applet --indicator &
+
 # Kill any existing qs instances
 killall qs 2>/dev/null || true
 
