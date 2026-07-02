@@ -1,6 +1,6 @@
 [
   {
-    "group":"Status Bar",
+    "group":"Waybar",
     "description":"Configuration of the Waybar status bar.",
     "settings":[{
       "name": "Show App Menu",
