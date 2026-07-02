@@ -4,6 +4,7 @@ Version 2.14.1
 - Flexible width for the statusbar if the width of "expandedWidth": 680 is not enough.
 - New status bar module for volume control
 - New keybinding to reload the statusbar SUPER + ALT + B
+- Added Network Manager Applet (nm-applet) to ml4w-autostart
 
 Version 2.14.0
 --------------------------------------------------------
