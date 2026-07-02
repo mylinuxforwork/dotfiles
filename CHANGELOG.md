@@ -6,6 +6,7 @@ Version 2.14.1
 - New status bar module for volume control
 - New keybinding to reload the statusbar SUPER + ALT + B
 - Added Network Manager Applet (nm-applet) to ml4w-autostart
+- Rofi menues can be closed by clicking outside of Rofi.
 
 Version 2.14.0
 --------------------------------------------------------
