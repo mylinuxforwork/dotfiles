@@ -739,12 +739,30 @@ PanelWindow {
                                 implicitWidth: 220
                                 padding: 8
 
+                                // Only offer "Edit Settings" once the user has an
+                                // ml4w-statusbar override file to edit; the shipped
+                                // statusbar.json is not meant to be edited directly.
+                                property bool overrideExists: false
+                                Process {
+                                    command: ["bash", "-c", "[ -f ~/.config/ml4w-statusbar/statusbar.json ] && echo 1 || echo 0"]
+                                    running: root.isOpen
+                                    stdout: StdioCollector {
+                                        onStreamFinished: {
+                                            statusbarMenu.overrideExists = (this.text.trim() === "1")
+                                        }
+                                    }
+                                }
+
                                 background: Rectangle { color: Theme.background; border.color: Theme.primary; border.width: 1; radius: 8 }
                                 ML4WMenuItem { text: "Reload Statusbar"; onClicked: {
                                         Quickshell.execDetached(["bash", "-c", "qs ipc call statusbar reload"])
                                     }
                                 }
-                                ML4WMenuItem { text: "Edit Settings"; onClicked: {
+                                ML4WMenuItem {
+                                    text: "Edit Settings"
+                                    visible: statusbarMenu.overrideExists
+                                    height: visible ? implicitHeight : 0
+                                    onClicked: {
                                         root.isOpen = false
                                         // Edit the master file: the ml4w-statusbar override when it
                                         // exists, otherwise the shipped statusbar.json.
