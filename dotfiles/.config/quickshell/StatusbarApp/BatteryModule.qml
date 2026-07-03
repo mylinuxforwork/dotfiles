@@ -22,8 +22,9 @@ Rectangle {
     readonly property bool charging: device
         && (device.state === UPowerDeviceState.Charging
             || device.state === UPowerDeviceState.FullyCharged)
-    // Rounded charge percentage (0–100).
-    readonly property int percent: device ? Math.round(device.percentage) : 0
+    // Rounded charge percentage (0–100). UPower's percentage is a 0.0–1.0
+    // fraction, so scale it up before rounding.
+    readonly property int percent: device ? Math.round(device.percentage * 100) : 0
 
     // Preview switch: while true the module is shown with a demo charge so the
     // layout can be reviewed on a machine that never runs on battery (a desktop).
