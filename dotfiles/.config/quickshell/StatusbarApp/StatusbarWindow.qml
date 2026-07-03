@@ -52,7 +52,8 @@ PanelWindow {
                     "right": ["updates", "battery", "powerprofile", "volume", "systemtray", "logo", "power"] },
         "border": { "width": 2, "colorTop": "", "colorBottom": "" },
         "opacity":{ "collapsed": 0.6, "expanded": 0.8 },
-        "clock":  { "format": "HH:mm" }
+        "clock":  { "format": "HH:mm" },
+        "workspaces": { "count": 5 }
     })
 
     property var settings: defaultSettings
@@ -208,7 +209,12 @@ PanelWindow {
     // Each module name in the settings file maps to the component placed into
     // the left/center/right groups. Unknown names load nothing.
     Component { id: cTerminal;   TerminalModule {} }
-    Component { id: cWorkspaces; WorkspacesModule {} }
+    Component {
+        id: cWorkspaces
+        WorkspacesModule {
+            minWorkspaces: root.settings.workspaces.count
+        }
+    }
     Component { id: cLauncher;   LauncherModule {} }
     Component {
         id: cClock
