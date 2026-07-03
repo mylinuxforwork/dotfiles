@@ -5,36 +5,37 @@ import QtQuick.Effects
 import QtQuick.Layouts
 import qs.CustomTheme
 
-// Shows the battery charge percentage next to a battery icon. The module hides
-// itself completely whenever the machine is NOT running on battery — i.e. a
-// power adapter is connected — so on a desktop (or a plugged-in laptop) it never
-// appears. The icon reflects both the charge level and the charging state; the
-// data comes from the UPower service's display device.
+// Shows the battery charge percentage next to a battery icon. The module is
+// shown only on machines that actually have a laptop battery, so on a desktop
+// it never appears. While the module is visible it stays up whether running on
+// battery or plugged in: the icon shows the charge level on battery and switches
+// to a charging icon whenever a power adapter is connected. The data comes from
+// the UPower service's display device.
 Rectangle {
     id: battery
 
     // The aggregate battery UPower exposes for the whole machine.
     readonly property var device: UPower.displayDevice
-    // True only while the system is drawing from the battery (no adapter). This
-    // is the sole condition for showing the module.
-    readonly property bool onBattery: UPower.onBattery
-    // Charging (or topped up) while an adapter is connected.
-    readonly property bool charging: device
-        && (device.state === UPowerDeviceState.Charging
-            || device.state === UPowerDeviceState.FullyCharged)
+    // True when this machine has a real, present laptop battery. This is the
+    // sole condition for showing the module (a desktop reports none).
+    readonly property bool hasBattery: device !== null
+        && device.isLaptopBattery && device.isPresent
+    // True while a power adapter is connected (the system is NOT draining the
+    // battery). Drives the charging icon.
+    readonly property bool pluggedIn: !UPower.onBattery
     // Rounded charge percentage (0–100). UPower's percentage is a 0.0–1.0
     // fraction, so scale it up before rounding.
     readonly property int percent: device ? Math.round(device.percentage * 100) : 0
 
     // Preview switch: while true the module is shown with a demo charge so the
-    // layout can be reviewed on a machine that never runs on battery (a desktop).
+    // layout can be reviewed on a machine that has no battery (a desktop).
     // Set to false for the final implementation.
     property bool preview: false
 
-    // Shown only on battery power. In preview mode it is always shown.
-    readonly property bool collapsed: !preview && !onBattery
-    readonly property int shownPercent: preview && !onBattery ? 72 : percent
-    readonly property bool shownCharging: preview && !onBattery ? false : charging
+    // Shown whenever a laptop battery exists. In preview mode it is always shown.
+    readonly property bool collapsed: !preview && !hasBattery
+    readonly property int shownPercent: preview && !hasBattery ? 72 : percent
+    readonly property bool shownCharging: preview && !hasBattery ? false : pluggedIn
 
     // Read-only indicator: no click action, so it is not part of the keyboard
     // navigation (rebuildNavItems only picks up modules exposing activate()).
