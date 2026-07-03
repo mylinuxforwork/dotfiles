@@ -8,6 +8,11 @@ RowLayout {
     id: wsRoot
     spacing: 6
 
+    // Minimum number of workspaces to always display, even when empty. The list
+    // still grows beyond this to reveal any higher-numbered workspace that
+    // exists (e.g. switching to workspace 6 while this is 5 adds a 6th dot).
+    property int minWorkspaces: 5
+
     // The individual workspace buttons, exposed so StatusbarWindow can splice
     // them into its keyboard-navigation list. Rebuilt whenever workspaces are
     // added or removed.
@@ -20,31 +25,68 @@ RowLayout {
         wsRoot.navButtons = a
     }
 
+    // The workspace ids to render: 1..N, where N is at least minWorkspaces and
+    // extends to cover the highest-numbered workspace that currently exists.
+    readonly property var workspaceIds: {
+        let maxId = Math.max(1, wsRoot.minWorkspaces)
+        const list = Hyprland.workspaces.values
+        for (let i = 0; i < list.length; i++)
+            if (list[i].id > maxId)
+                maxId = list[i].id
+        let ids = []
+        for (let id = 1; id <= maxId; id++)
+            ids.push(id)
+        return ids
+    }
+
+    // The live Hyprland workspace for an id, or null when it is empty (Hyprland
+    // only tracks workspaces that hold windows or are focused).
+    function workspaceById(id: int): var {
+        const list = Hyprland.workspaces.values
+        for (let i = 0; i < list.length; i++)
+            if (list[i].id === id)
+                return list[i]
+        return null
+    }
+
     Repeater {
         id: rep
-        model: Hyprland.workspaces
+        model: wsRoot.workspaceIds
 
         onItemAdded: wsRoot.rebuildNavButtons()
         onItemRemoved: wsRoot.rebuildNavButtons()
 
         delegate: Rectangle {
             id: ws
-            required property var modelData
+            required property var modelData   // the workspace id (int)
             // Set by StatusbarWindow's keyboard navigation.
             property bool focused: false
 
+            // Whether this workspace is the currently focused one.
+            readonly property bool isActive: Hyprland.focusedWorkspace
+                && Hyprland.focusedWorkspace.id === ws.modelData
+            // Whether the workspace currently holds windows (exists in Hyprland).
+            readonly property bool occupied: wsRoot.workspaceById(ws.modelData) !== null
+
             // Run this workspace's action (mouse click or keyboard Return).
-            function activate(): void { ws.modelData.activate() }
+            function activate(): void { Hyprland.dispatch("workspace " + ws.modelData) }
 
             implicitWidth: 26
             implicitHeight: 26
             radius: 13
 
-            color: modelData.focused
+            // Empty, unfocused workspaces are dimmed to set them apart from the
+            // ones that hold windows.
+            opacity: (ws.isActive || ws.occupied || wsMouse.containsMouse) ? 1 : 0.45
+            Behavior on opacity {
+                NumberAnimation { duration: 300; easing.type: Easing.OutQuint }
+            }
+
+            color: ws.isActive
                 ? Theme.primary
                 : (wsMouse.containsMouse ? Theme.surface_container_high : "transparent")
             border.color: Theme.primary
-            border.width: modelData.focused ? 0 : 1
+            border.width: ws.isActive ? 0 : 1
 
             // Crossfade the fill between active / hover / inactive states so the
             // background of the active circle fades in and the previous one out.
@@ -72,8 +114,8 @@ RowLayout {
 
             Text {
                 anchors.centerIn: parent
-                text: ws.modelData.id
-                color: ws.modelData.focused ? Theme.background : Theme.on_background
+                text: ws.modelData
+                color: ws.isActive ? Theme.background : Theme.on_background
                 font.family: Theme.fontFamily
                 font.pixelSize: 13
                 font.bold: true
