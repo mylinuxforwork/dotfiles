@@ -69,7 +69,14 @@ RowLayout {
             readonly property bool occupied: wsRoot.workspaceById(ws.modelData) !== null
 
             // Run this workspace's action (mouse click or keyboard Return).
-            function activate(): void { Hyprland.dispatch("workspace " + ws.modelData) }
+            // Hyprland with Lua dispatchers ignores the plain "workspace N"
+            // string, so branch on usingLua the same way the overview does.
+            function activate(): void {
+                if (Hyprland.usingLua)
+                    Hyprland.dispatch("hl.dsp.focus({workspace = '" + ws.modelData + "'})")
+                else
+                    Hyprland.dispatch("workspace " + ws.modelData)
+            }
 
             implicitWidth: 26
             implicitHeight: 26
@@ -131,7 +138,7 @@ RowLayout {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onClicked: ws.modelData.activate()
+                onClicked: ws.activate()
             }
         }
     }
