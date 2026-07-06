@@ -73,7 +73,8 @@ PanelWindow {
         target: "wallpaper"
         function toggle(): void { root.isOpen = !root.isOpen }
         function open(): void { root.isOpen = true }   
-        function close(): void { root.isOpen = false } 
+        function close(): void { root.isOpen = false }
+        function isOpen(): bool { return root.isOpen }
     }
 
     property string defaultWallpaperFolder: Quickshell.env("HOME") + "/.config/ml4w/wallpapers"
