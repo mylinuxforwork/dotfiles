@@ -73,6 +73,7 @@ PanelWindow {
         function toggle(): void { root.isOpen = !root.isOpen }
         function open(): void { root.isOpen = true }
         function close(): void { root.isOpen = false }
+        function isOpen(): bool { return root.isOpen }
     }
 
     Process {
