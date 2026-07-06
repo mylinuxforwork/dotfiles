@@ -52,7 +52,7 @@ PanelWindow {
                     "right": ["updates", "battery", "powerprofile", "volume", "systemtray", "logo", "power"] },
         "border": { "width": 2, "colorTop": "", "colorBottom": "" },
         "opacity":{ "collapsed": 0.6, "expanded": 0.8 },
-        "clock":  { "format": "HH:mm" },
+        "clock":  { "format": "HH:mm", "dateFormat": "ddd, dd MMM" },
         "workspaces": { "count": 5 }
     })
 
@@ -221,6 +221,7 @@ PanelWindow {
         ClockModule {
             expanded: pill.expanded
             timeFormat: root.settings.clock.format
+            dateFormat: root.settings.clock.dateFormat
         }
     }
     Component { id: cSwaync;     SwayncModule {} }
