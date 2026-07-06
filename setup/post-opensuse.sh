@@ -84,7 +84,7 @@ pipx install pywalfox
 # Grimblast
 # --------------------------------------------------------------
 
-sudo cp $repo_path/setup/scripts/grimblast /usr/bin
+source $repo_path/setup/clean-install-grimblast.sh
 
 # --------------------------------------------------------------
 # Cursors
