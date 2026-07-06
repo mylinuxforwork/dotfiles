@@ -101,26 +101,41 @@ PanelWindow {
         applySettings()
     }
 
+    // Parse a settings JSON document that may contain a /* ... */ comment block
+    // and — being hand-edited — trailing commas before a closing } or ], which
+    // strict JSON.parse rejects. Returns the parsed object, or undefined when the
+    // text is empty or cannot be parsed even after that cleanup. Never throws.
+    function parseSettings(src) {
+        if (!src)
+            return undefined
+        let raw = src.replace(/\/\*[\s\S]*?\*\//g, "")
+        if (raw.trim() === "")
+            return undefined
+        try {
+            return JSON.parse(raw)
+        } catch (e) {
+            try {
+                // Tolerate trailing commas: ",}" / ",]" (optional whitespace).
+                return JSON.parse(raw.replace(/,(\s*[}\]])/g, "$1"))
+            } catch (e2) {
+                console.warn("statusbar settings: could not parse a file,"
+                    + " ignoring it:", e2)
+                return undefined
+            }
+        }
+    }
+
     // Merge one JSON document (given as text) over an already-built settings
-    // object, key by key. The leading /* ... */ comment block is stripped so the
-    // body stays valid for JSON.parse; empty or unparseable text is ignored so a
+    // object, key by key. Empty or unparseable text is ignored so a
     // missing/partial file never clears previously merged values.
     function mergeSettings(merged, src): void {
-        if (!src)
+        let parsed = parseSettings(src)
+        if (parsed === undefined)
             return
-        try {
-            let raw = src.replace(/\/\*[\s\S]*?\*\//g, "")
-            if (raw.trim() === "")
-                return
-            let parsed = JSON.parse(raw)
-            for (let group in parsed)
-                for (let key in parsed[group])
-                    if (merged[group] !== undefined)
-                        merged[group][key] = parsed[group][key]
-        } catch (e) {
-            console.warn("statusbar settings: could not parse a file,"
-                + " ignoring it:", e)
-        }
+        for (let group in parsed)
+            for (let key in parsed[group])
+                if (merged[group] !== undefined)
+                    merged[group][key] = parsed[group][key]
     }
 
     // Rebuild the settings object: the built-in defaults with the master file
@@ -137,7 +152,10 @@ PanelWindow {
     // Persist a bar.<key> boolean into the master file and return the updated
     // text. A regex replace is used when the key is already present (so the
     // file's formatting/comments are kept); when the key is missing (e.g. an
-    // override file that did not list it) it falls back to a JSON rewrite.
+    // override file that did not list it) it falls back to a JSON rewrite of the
+    // parsed document. If the file cannot be parsed at all the write is skipped
+    // rather than replaced with an empty object, so a malformed hand-edited
+    // override is never wiped — its current text is returned unchanged.
     function persistBarFlag(key, on): string {
         let file = root.masterFile()
         let src = file.text()
@@ -146,11 +164,12 @@ PanelWindow {
         if (re.test(src)) {
             updated = src.replace(re, "$1" + (on ? "true" : "false"))
         } else {
-            let obj
-            try {
-                obj = JSON.parse(src.replace(/\/\*[\s\S]*?\*\//g, ""))
-            } catch (e) {
-                obj = {}
+            let obj = root.parseSettings(src)
+            if (obj === undefined && src && src.trim() !== "") {
+                // Unparseable and non-empty: don't destroy the user's file.
+                console.warn("statusbar settings: master file is not valid"
+                    + " JSON; leaving it untouched instead of overwriting.")
+                return src
             }
             if (typeof obj !== "object" || obj === null)
                 obj = {}
