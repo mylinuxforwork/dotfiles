@@ -10,6 +10,8 @@ Item {
     property bool expanded: false
     // Qt date/time format for the time, supplied from statusbar.json.
     property string timeFormat: "HH:mm"
+    // Qt date/time format for the date shown below the time when expanded.
+    property string dateFormat: "ddd, dd MMM"
     // Set by the keyboard navigation in StatusbarWindow.
     property bool focused: false
 
@@ -84,7 +86,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: timeText.bottom
         anchors.topMargin: 1
-        text: Qt.formatDateTime(clock.date, "ddd, dd MMM")
+        text: Qt.formatDateTime(clock.date, clockRoot.dateFormat)
         color: Theme.primary
         font.family: Theme.fontFamily
         font.pixelSize: 11
