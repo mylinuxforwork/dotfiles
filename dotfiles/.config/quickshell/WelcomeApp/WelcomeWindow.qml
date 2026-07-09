@@ -1,4 +1,5 @@
 import Quickshell
+import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
@@ -482,7 +483,13 @@ FloatingWindow {
                         }
                         
                         onClicked: {
-                            Quickshell.execDetached(["hyprctl", "dispatch", "togglefloating"])
+                            // Hyprland with Lua dispatchers ignores the plain
+                            // "togglefloating" string, so branch on usingLua the
+                            // same way the overview and statusbar modules do.
+                            if (Hyprland.usingLua)
+                                Hyprland.dispatch("hl.dsp.window.float({ action = 'toggle' })")
+                            else
+                                Hyprland.dispatch("togglefloating")
                         }
                     }
 
