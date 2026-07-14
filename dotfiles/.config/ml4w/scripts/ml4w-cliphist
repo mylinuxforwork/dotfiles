@@ -6,7 +6,6 @@
 #  \____|_|_| .__/|_| |_|_|___/\__|
 #           |_|
 #
-
 # -----------------------------------------------------
 # Load Launcher
 # -----------------------------------------------------
@@ -16,13 +15,17 @@ if [ "$launcher" == "walker" ]; then
 else
     case $1 in
         d)
-            cliphist list | rofi -dmenu -replace -config ~/.config/rofi/config-cliphist.rasi | cliphist delete
+            selected=$(cliphist list | rofi -dmenu -replace -config ~/.config/rofi/config-cliphist.rasi)
+            [ -z "$selected" ] && exit 0
+            echo "$selected" | cliphist delete
         ;;
-        w)    
+        w)
             cliphist wipe
         ;;
         *)
-            cliphist list | rofi -dmenu -replace -config ~/.config/rofi/config-cliphist.rasi | cliphist decode | wl-copy
+            selected=$(cliphist list | rofi -dmenu -replace -config ~/.config/rofi/config-cliphist.rasi)
+            [ -z "$selected" ] && exit 0
+            echo "$selected" | cliphist decode | wl-copy
         ;;
     esac
 fi
