@@ -123,13 +123,15 @@ run_matugen() {
 
 reload_waybar() {
     if pgrep -x waybar >/dev/null; then
-        pkill -SIGUSR2 waybar
-        info "Waybar reloaded"
+        info "Waybar is currently running."
+        killall waybar || true
+        sleep 0.5
     else
-        nohup bash -c "$HOME/.config/waybar/launch.sh" >/dev/null 2>&1 &
-        disown
-        info "Waybar launched"
+        info "Waybar not running"
     fi
+    nohup bash -c "$HOME/.config/waybar/launch.sh" > /dev/null 2>&1 &
+    disown
+    info "Waybar restarted"
 }
 
 reload_nwg_dock() {
