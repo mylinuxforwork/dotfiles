@@ -1,5 +1,11 @@
 -------------------------------------------------------
 -- Monitor Setup
--- name: "Default"
--- Use nwg-displays to set your monitors
+-- name: "Preferred"
 -------------------------------------------------------
+
+hl.monitor({
+    output = "",
+    mode = "preferred",
+    position = "auto",
+    scale = 1
+})
