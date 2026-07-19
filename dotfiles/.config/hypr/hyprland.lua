@@ -9,8 +9,8 @@
 require("functions")
 
 -- MONITORS
-require("conf.monitor")
 require("monitors")
+require("conf.monitor")
 
 -- INPUT
 require("input")
