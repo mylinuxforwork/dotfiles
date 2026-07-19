@@ -1,3 +1,8 @@
+Version 2.14.2
+--------------------------------------------------------
+- Scratchpad feature updated: SUPER + SHIFT + S to move the current window into the scratchpad workspace.
+  SUPER + S to toggle the scatchpad workspace.
+
 Version 2.14.1
 --------------------------------------------------------
 - The Quickshell statusbar can be configured in ~/.config/ml4w-statusbar/statusbar.json The file must be created individually. The full list of configuration options are available here: https://ml4w.com/os/ml4w-apps/statusbar
