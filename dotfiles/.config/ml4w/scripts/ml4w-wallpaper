@@ -109,8 +109,14 @@ set_wallpaper() {
 run_matugen() {
     local theme_pref
     theme_pref=$(grep -E '^gtk-application-prefer-dark-theme=' "$HOME/.config/gtk-3.0/settings.ini" | awk -F'=' '{print $2}')
+    
     local mode="light"
-    [ "$theme_pref" -eq 1 ] && mode="dark"
+
+    case "$theme_pref" in
+        1|true)
+            mode="dark"
+            ;;
+    esac
 
     local bin="matugen"
     [ -f "$HOME/.cargo/bin/matugen" ] && bin="$HOME/.cargo/bin/matugen"
