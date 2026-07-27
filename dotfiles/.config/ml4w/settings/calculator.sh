@@ -1,1 +1,1 @@
-flatpak run org.gnome.Calculator
+gnome-calculator
