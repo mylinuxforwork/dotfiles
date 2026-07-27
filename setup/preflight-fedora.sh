@@ -4,7 +4,6 @@
 # Hyprland Packages
 sudo dnf copr enable --assumeyes lionheartp/Hyprland
 # sudo dnf copr enable --assumeyes mineiro/hyprland
-# sudo dnf copr remove --assumeyes solopasha/hyprland
 # sudo dnf copr enable --assumeyes sdegler/hyprland
 
 # Bibata Cursor Themes
