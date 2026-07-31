@@ -3,6 +3,7 @@
 
 GTK3_SETTINGS_FILE="$HOME/.config/gtk-3.0/settings.ini"
 GTK4_SETTINGS_FILE="$HOME/.config/gtk-4.0/settings.ini"
+KEY="gtk-application-prefer-dark-theme"
 
 # Check if GTK3 settings file exists
 if [ ! -f "$GTK3_SETTINGS_FILE" ]; then
@@ -10,19 +11,31 @@ if [ ! -f "$GTK3_SETTINGS_FILE" ]; then
     exit 1
 fi
 
-# Toggle theme based on current setting in GTK3 file
-if grep -q "gtk-application-prefer-dark-theme=1" "$GTK3_SETTINGS_FILE"; then
-    # Switch to light theme
-    sed -i 's/gtk-application-prefer-dark-theme=1/gtk-application-prefer-dark-theme=0/' "$GTK3_SETTINGS_FILE"
-    if [ -f "$GTK4_SETTINGS_FILE" ]; then
-        sed -i 's/gtk-application-prefer-dark-theme=true/gtk-application-prefer-dark-theme=false/' "$GTK4_SETTINGS_FILE"
-    fi
-    echo "Switched to light theme."
-else
-    # Switch to dark theme
-    sed -i 's/gtk-application-prefer-dark-theme=0/gtk-application-prefer-dark-theme=1/' "$GTK3_SETTINGS_FILE"
-    if [ -f "$GTK4_SETTINGS_FILE" ]; then
-        sed -i 's/gtk-application-prefer-dark-theme=false/gtk-application-prefer-dark-theme=true/' "$GTK4_SETTINGS_FILE"
-    fi
-    echo "Switched to dark theme."
+# Read the current preference. It is a GTK boolean, so it can legitimately be
+# stored as 1/0 or as true/false: third-party GTK settings tools write the
+# boolean spelling. Accept both, like gtk-theme-switcher.sh already does.
+current=$(grep -E "^$KEY=" "$GTK3_SETTINGS_FILE" | awk -F'=' '{print $2}')
+
+case "$current" in
+    1 | true)
+        # Currently dark -> switch to light
+        gtk3_value=0
+        gtk4_value=false
+        message="Switched to light theme."
+        ;;
+    *)
+        # Currently light, unset or unrecognised -> switch to dark
+        gtk3_value=1
+        gtk4_value=true
+        message="Switched to dark theme."
+        ;;
+esac
+
+# Assign the new value instead of rewriting one specific spelling, so the
+# toggle works regardless of how the current value happens to be written.
+sed -i "s/^$KEY=.*/$KEY=$gtk3_value/" "$GTK3_SETTINGS_FILE"
+if [ -f "$GTK4_SETTINGS_FILE" ]; then
+    sed -i "s/^$KEY=.*/$KEY=$gtk4_value/" "$GTK4_SETTINGS_FILE"
 fi
+
+echo "$message"
