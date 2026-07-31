@@ -895,7 +895,7 @@ PanelWindow {
                             onClicked: {
                                 if (!ready) return;
                                 let fileCmd = checked
-                                ? "mkdir -p ~/.config/ml4w/settings && touch ~/.config/ml4w/settings/dock-autohide"
+                                ? "touch ~/.config/ml4w/settings/dock-autohide"
                                 : "rm -f ~/.config/ml4w/settings/dock-autohide"
                                 console.log("Dock Autohide cmd: " + fileCmd)
                                 Quickshell.execDetached(["bash", "-c", fileCmd + "; " + Quickshell.env("HOME") + "/.config/nwg-dock-hyprland/launch.sh"])
