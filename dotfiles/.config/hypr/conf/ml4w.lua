@@ -18,7 +18,7 @@ hl.env("PATH", HOME .. "/.cargo/bin:" .. current_path)
 -- Pavucontrol
 hl.window_rule({
     name = "pavucontrol",
-    match = {class = "*org.pulseaudio.pavucontrol*"},
+    match = {class = ".*org.pulseaudio.pavucontrol.*"},
     float = true,
     center = true,
     size = "700 600"
@@ -47,7 +47,7 @@ hl.window_rule({
 -- Waypaper
 hl.window_rule({
     name = "waypaper",
-    match = {class = "*waypaper*"},
+    match = {class = ".*waypaper.*"},    
     float = true,
     center = true,
     pin = true,
