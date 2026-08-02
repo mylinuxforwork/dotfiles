@@ -41,7 +41,7 @@ if [[ "$1" == "exit" ]]; then
 	echo ":: Exit"
 	terminate_clients
 	sleep 0.5
-	hyprctl dispatch exit
+	hyprctl dispatch "hl.dsp.exit()"
 	sleep 2
 fi
 

@@ -4,5 +4,5 @@ mapfile -t addresses < <(
     hyprctl clients -j | jq -r --argjson ws "$ws_id" '.[] | select(.workspace.id == $ws) | .address'
 )
 for addr in "${addresses[@]}"; do
-    hyprctl dispatch togglefloating "address:$addr"
+    hyprctl dispatch "hl.dsp.window.float({ action = \"toggle\", window = \"address:$addr\" })"
 done
