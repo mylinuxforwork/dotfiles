@@ -45,7 +45,7 @@ PanelWindow {
     // The active master file is merged over the built-in defaults, so a partial
     // or entirely missing file still leaves every value defined.
     readonly property var defaultSettings: ({
-        "bar":    { "height": 40, "reservedHeight": 72, "enabled": true, "alwaysExpanded": false },
+        "bar":    { "height": 40, "reservedHeight": 72, "enabled": true, "alwaysExpanded": true },
         "pill":   { "collapsedWidth": 0, "expandedWidth": 680, "radius": 12, "animationDuration": 350 },
         "modules":{ "left": ["terminal", "workspaces"],
                     "center": ["launcher", "clock", "swaync"],
