@@ -3,7 +3,6 @@ Version 2.15
 - Scratchpad feature updated: SUPER + SHIFT + S to move the current window into the scratchpad workspace.
   SUPER + S to toggle the scatchpad workspace.
 - Fedora Copr updates
-- Set Quickshell Status bar as default (for fresh installation)
 
 Version 2.14.1
 --------------------------------------------------------
