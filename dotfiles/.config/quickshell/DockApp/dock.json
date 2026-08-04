@@ -16,7 +16,7 @@ leaves every value defined.
         "enabled": true,
         "autohide": false,
         "iconSize": 32,
-        "spacing": 12,
+        "spacing": 8,
         "marginBottom": 10,
         "reserveSpace": true
     },
@@ -31,7 +31,7 @@ leaves every value defined.
         "colorBottom": ""
     },
     "opacity": {
-        "normal": 0.8
+        "normal": 0.7
     },
     "apps": {
         "pinned": [
