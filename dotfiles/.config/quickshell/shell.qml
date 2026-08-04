@@ -8,6 +8,7 @@ import "SidebarApp"
 import "CalendarApp"
 import "WallpaperApp"
 import "StatusbarApp"
+import "DockApp"
 import "CustomTheme"
 
 ShellRoot {
@@ -26,4 +27,5 @@ ShellRoot {
     CalendarWindow {}
     WallpaperWindow {}
     StatusbarWindow {}
+    DockWindow {}
 }
