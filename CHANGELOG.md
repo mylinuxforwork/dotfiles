@@ -5,6 +5,7 @@ Version 2.15
   SUPER + S to toggle the scatchpad workspace.
 - Fedora Copr updates
 - Using Quickshell Status Bar as default (due to existing mouse click issue on Waybar stable). Waybar can be selected from the sidebar.
+- Global ML4W Themes have been temporarily removed. They will be back soon.
 
 Version 2.14.1
 --------------------------------------------------------

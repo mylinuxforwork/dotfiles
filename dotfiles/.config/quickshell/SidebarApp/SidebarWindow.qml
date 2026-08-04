@@ -956,13 +956,6 @@ PanelWindow {
                         Layout.fillWidth: true
                         Text { text: "Theme"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
-                        ActionIcon {
-                            iconSrc: "../shared/icons/theme.svg"
-                            onClicked: {
-                                root.isOpen = false
-                                Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/themes/themes.sh"])
-                            }
-                        }
                         SettingsWheel {
                             onClicked: themeMenu.open()
                             Menu {
