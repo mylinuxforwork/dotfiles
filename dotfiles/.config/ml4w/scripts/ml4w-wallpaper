@@ -140,12 +140,6 @@ reload_waybar() {
     info "Waybar restarted"
 }
 
-reload_nwg_dock() {
-    nohup bash -c "$HOME/.config/nwg-dock-hyprland/launch.sh" >/dev/null 2>&1 &
-    disown
-    info "nwg-dock-hyprland reloaded"
-}
-
 reload_quickshell() {
     if pgrep -x qs >/dev/null; then
         qs ipc call theme-manager reload
@@ -256,7 +250,6 @@ if "$SKIP_THEMING"; then
 else
     run_matugen
     reload_waybar
-    reload_nwg_dock
     reload_quickshell
     reload_pywalfox
     reload_swaync

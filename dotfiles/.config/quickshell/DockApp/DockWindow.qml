@@ -1,15 +1,14 @@
 import Quickshell
 import Quickshell.Wayland
 import Quickshell.Hyprland
-import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Effects
 import qs.CustomTheme
+import qs.DockApp
 
-// Application dock, modelled on nwg-dock-hyprland: the running Hyprland
-// applications plus a persistent list of pinned ones, on a single (primary)
-// screen at the bottom edge.
+// Application dock: the running Hyprland applications plus a persistent list of 
+// pinned ones, on a single (primary) screen at the bottom edge.
 PanelWindow {
     id: root
 
@@ -44,156 +43,10 @@ PanelWindow {
     }
 
     // --- USER SETTINGS ---
-    // Same two-file scheme as the status bar:
-    //
-    //   1. ~/.config/ml4w-dock/dock.json     — the user override. While this
-    //      file exists it is the master: every value is read from it and the
-    //      pin/unpin actions write their changes back into it.
-    //   2. ~/.config/ml4w/settings/dock.json — the shipped fallback, used only
-    //      when the override is absent. It carries the dynamic state (enabled,
-    //      autohide and the pinned app list).
-    //
-    // The master file is merged over the built-in defaults, so a partial or
-    // entirely missing file still leaves every value defined. DockApp/dock.json
-    // documents these defaults and must be kept in sync with them.
-    readonly property var defaultSettings: ({
-        "dock":   { "enabled": true, "autohide": false, "iconSize": 32,
-                    "spacing": 12, "marginBottom": 10, "reserveSpace": true },
-        "pill":   { "radius": 16, "padding": 12, "animationDuration": 350 },
-        "border": { "width": 2, "colorTop": "", "colorBottom": "" },
-        "opacity":{ "normal": 0.8 },
-        "apps":   { "pinned": [] }
-    })
-
-    property var settings: defaultSettings
-
-    // True while the user override file is present. Decides which file is the
-    // master for both reads (applySettings) and writes (persistPinned etc.).
-    property bool overrideExists: false
-
-    FileView {
-        id: overrideFile
-        path: Quickshell.env("HOME") + "/.config/ml4w-dock/dock.json"
-        blockLoading: true
-        printErrors: false
-        onLoaded: { root.overrideExists = true; root.applySettings() }
-        onLoadFailed: { root.overrideExists = false; root.applySettings() }
-    }
-
-    FileView {
-        id: settingsFile
-        path: Quickshell.env("HOME") + "/.config/ml4w/settings/dock.json"
-        blockLoading: true
-        onLoaded: root.applySettings()
-    }
-
-    function masterFile() {
-        return root.overrideExists ? overrideFile : settingsFile
-    }
-
-    function reloadSettings(): void {
-        overrideFile.reload()
-        settingsFile.reload()
-        applySettings()
-    }
-
-    // Parse a settings document that may carry a /* ... */ comment block and —
-    // being hand-edited — trailing commas, which strict JSON.parse rejects.
-    // Returns undefined when the text is empty or unparseable. Never throws.
-    function parseSettings(src) {
-        if (!src)
-            return undefined
-        let raw = src.replace(/\/\*[\s\S]*?\*\//g, "")
-        if (raw.trim() === "")
-            return undefined
-        try {
-            return JSON.parse(raw)
-        } catch (e) {
-            try {
-                return JSON.parse(raw.replace(/,(\s*[}\]])/g, "$1"))
-            } catch (e2) {
-                console.warn("dock settings: could not parse a file,"
-                    + " ignoring it:", e2)
-                return undefined
-            }
-        }
-    }
-
-    // Merge one settings document (as text) over an already-built settings
-    // object, key by key. Empty or unparseable text is ignored so a
-    // missing/partial file never clears previously merged values.
-    function mergeSettings(merged, src): void {
-        let parsed = parseSettings(src)
-        if (parsed === undefined)
-            return
-        for (let group in parsed)
-            for (let key in parsed[group])
-                if (merged[group] !== undefined)
-                    merged[group][key] = parsed[group][key]
-    }
-
-    // Rebuild the settings object: built-in defaults with the master file merged
-    // on top. An explicit masterText can be passed (e.g. right after a write) so
-    // the merge does not depend on the FileView buffer having refreshed yet.
-    function applySettings(masterText): void {
-        let merged = JSON.parse(JSON.stringify(root.defaultSettings))
-        let text = (masterText !== undefined) ? masterText : root.masterFile().text()
-        mergeSettings(merged, text)
-        root.settings = merged
-    }
-
-    // Persist a dock.<key> boolean into the master file and return the updated
-    // text. A regex replace keeps the file's formatting and comments intact when
-    // the key is already present; otherwise the parsed document is rewritten. An
-    // unparseable, non-empty file is left untouched rather than overwritten.
-    function persistDockFlag(key, on): string {
-        let file = root.masterFile()
-        let src = file.text()
-        let re = new RegExp('("' + key + '"\\s*:\\s*)(true|false)')
-        let updated
-        if (re.test(src)) {
-            updated = src.replace(re, "$1" + (on ? "true" : "false"))
-        } else {
-            let obj = root.parseSettings(src)
-            if (obj === undefined && src && src.trim() !== "") {
-                console.warn("dock settings: master file is not valid JSON;"
-                    + " leaving it untouched instead of overwriting.")
-                return src
-            }
-            if (typeof obj !== "object" || obj === null)
-                obj = {}
-            if (obj.dock === undefined)
-                obj.dock = {}
-            obj.dock[key] = on
-            updated = JSON.stringify(obj, null, 4) + "\n"
-        }
-        file.setText(updated)
-        return updated
-    }
-
-    // Persist the pinned app list into the master file. Unlike the boolean flags
-    // this always rewrites the JSON document (an array cannot be patched in
-    // place with a regex without mangling hand-formatted files), so a comment
-    // block in the master file is lost on the first pin/unpin. An unparseable,
-    // non-empty file is left untouched.
-    function persistPinned(list): void {
-        let file = root.masterFile()
-        let src = file.text()
-        let obj = root.parseSettings(src)
-        if (obj === undefined && src && src.trim() !== "") {
-            console.warn("dock settings: master file is not valid JSON;"
-                + " not writing the pinned list.")
-            return
-        }
-        if (typeof obj !== "object" || obj === null)
-            obj = {}
-        if (obj.apps === undefined)
-            obj.apps = {}
-        obj.apps.pinned = list
-        let updated = JSON.stringify(obj, null, 4) + "\n"
-        file.setText(updated)
-        applySettings(updated)
-    }
+    // Read and written by the DockSettings singleton, which owns the settings
+    // files. It lives outside this window because dock.enabled decides whether
+    // the window is created at all (see DockLoader).
+    readonly property var settings: DockSettings.settings
 
     // --- PINNING ---
     readonly property var pinnedApps: settings.apps.pinned
@@ -213,13 +66,14 @@ PanelWindow {
     function pinApp(key: string): void {
         if (!key || root.isPinned(key))
             return
-        persistPinned(root.pinnedApps.concat([key]))
+        DockSettings.persistPinned(root.pinnedApps.concat([key]))
     }
 
     function unpinApp(key: string): void {
         if (!key)
             return
-        persistPinned(root.pinnedApps.filter(id => root.entryKey(id) !== key))
+        DockSettings.persistPinned(
+            root.pinnedApps.filter(id => root.entryKey(id) !== key))
     }
 
     // --- APP MODEL ---
@@ -315,24 +169,15 @@ PanelWindow {
     }
 
     // --- VISIBILITY ---
-    property bool dockEnabled: settings.dock.enabled
+    // This window exists only while the dock is enabled — DockLoader creates and
+    // destroys it with the flag — so there is nothing to hide here.
     property bool autohide: settings.dock.autohide
 
-    visible: dockEnabled
     // Whether the dock holds a gap open at the bottom of the screen.
-    readonly property bool reservesSpace: dockEnabled
-        && settings.dock.reserveSpace && !autohide
+    readonly property bool reservesSpace: settings.dock.reserveSpace && !autohide
     // The pill plus its bottom margin — not the full window height, which also
     // covers the drop shadow and the slide-out distance.
     exclusiveZone: reservesSpace ? dockHeight + settings.dock.marginBottom : 0
-
-    function setEnabled(on: bool): void {
-        applySettings(persistDockFlag("enabled", on))
-    }
-
-    function setAutohide(on: bool): void {
-        applySettings(persistDockFlag("autohide", on))
-    }
 
     // --- CONTEXT MENU ---
     // One menu for the whole dock, drawn inside this window above the item it
@@ -365,19 +210,6 @@ PanelWindow {
     // in the hot zone at the screen edge), and while a context menu is open.
     readonly property bool revealed: !autohide || dockHover.hovered
         || root.menuOpen
-
-    IpcHandler {
-        target: "dock"
-        function toggle(): void { root.setEnabled(!root.settings.dock.enabled) }
-        // Named enable/disable rather than show/hide: "show" is a reserved
-        // subcommand of "qs ipc" and would never reach the function.
-        function enable(): void { root.setEnabled(true) }
-        function disable(): void { root.setEnabled(false) }
-        function autohideOn(): void { root.setAutohide(true) }
-        function autohideOff(): void { root.setAutohide(false) }
-        // Re-read dock.json from disk and apply the changes.
-        function reload(): void { root.reloadSettings() }
-    }
 
     color: "transparent"
 
