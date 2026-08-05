@@ -21,13 +21,13 @@ bash <(curl -s https://ml4w.com/os/stable) # Stable Release
 ```sh
 bash <(curl -s https://ml4w.com/os/rolling) # Rolling Release (only Hyprland 0.55.x)
 ```
-Arch, Fedora and openSuse Tumblweed are directly supported.
+Arch, Fedora and openSuse Tumbleweed are directly supported.
 
 ### Test and install with the ML4W OS Live ISO
 
 Test the ML4W OS without risk on your computer or in a Virtual Machine with the ML4W Live ISO.
 
-<a href="https://ml4w.com/iso/ml4w-os/ml4w-os-2.14.0-x86_64.iso">Download the ML4W ISO</a>
+<a href="https://ml4w.com/iso/ml4w-os/ml4w-os-2.15-x86_64.iso">Download the ML4W ISO</a>
 
 You can install the ML4W OS on your hard drive with the command `sudo install-ml4w-os` (BETA).
 
