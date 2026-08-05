@@ -32,6 +32,18 @@ fi
 # Start nmapplet
 nm-applet --indicator &
 
+# Quickshell reads its icon theme from QS_ICON_THEME, not from GTK. Hyprland
+# normally exports it (conf/environment.lua); fall back to reading the GTK
+# settings here so a manual run of this script still themes the dock icons.
+if [ -z "$QS_ICON_THEME" ]; then
+    GTK_SETTINGS="$HOME/.config/gtk-3.0/settings.ini"
+    if [ -f "$GTK_SETTINGS" ]; then
+        ICON_THEME="$(grep 'gtk-icon-theme-name' "$GTK_SETTINGS" | sed 's/.*\s*=\s*//')"
+        [ -n "$ICON_THEME" ] && export QS_ICON_THEME="$ICON_THEME"
+    fi
+fi
+info "Quickshell icon theme: ${QS_ICON_THEME:-<unset>}"
+
 # Kill any existing qs instances
 killall qs 2>/dev/null || true
 

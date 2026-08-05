@@ -62,10 +62,6 @@ apply_theme() {
         nohup bash -c "$HOME/.config/waybar/launch.sh" > /dev/null 2>&1 &
         disown
 
-        # Reload nwg-dock-hyprland
-        nohup bash -c "$HOME/.config/nwg-dock-hyprland/launch.sh" > /dev/null 2>&1 &
-        disown
-
         $HOME/.config/hypr/scripts/gtk.sh &
 
         swaync-client -rs
@@ -77,12 +73,8 @@ apply_theme() {
         qs ipc call theme-manager reload
         echo "Quickshell Theme updated"
 
-        # Reload nwg-dock-hyprland
+        # Reload Waybar
         nohup bash -c "$HOME/.config/waybar/launch.sh" > /dev/null 2>&1 &
-        disown
-
-        # Reload nwg-dock-hyprland
-        nohup bash -c "$HOME/.config/nwg-dock-hyprland/launch.sh" > /dev/null 2>&1 &
         disown
 
         $HOME/.config/hypr/scripts/gtk.sh &

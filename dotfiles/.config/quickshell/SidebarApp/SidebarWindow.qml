@@ -850,8 +850,13 @@ PanelWindow {
                         ML4WSwitch {
                             id: dockSwitch
                             property bool ready: false
+                            // Read the current state from the "enabled" flag in
+                            // the master file: the ml4w-dock override when it
+                            // exists, otherwise the shipped dock.json. A missing
+                            // file or flag counts as on, matching the dock's own
+                            // default.
                             Process {
-                                command: ["bash", "-c", "test -f ~/.config/ml4w/settings/dock-disabled && echo 0 || echo 1"]
+                                command: ["bash", "-c", "f=~/.config/ml4w-dock/dock.json; [ -f \"$f\" ] || f=~/.config/ml4w/settings/dock.json; grep -q '\"enabled\"[[:space:]]*:[[:space:]]*false' \"$f\" && echo 0 || echo 1"]
                                 running: root.isOpen
                                 stdout: StdioCollector {
                                     onStreamFinished: {
@@ -863,42 +868,14 @@ PanelWindow {
                             }
                             onClicked: {
                                 if (!ready) return;
-                                let fileCmd = checked
-                                ? "rm -f ~/.config/ml4w/settings/dock-disabled"
-                                : "touch ~/.config/ml4w/settings/dock-disabled"
-                                console.log("Dock cmd: " + fileCmd)
-                                Quickshell.execDetached(["bash", "-c", fileCmd + "; " + Quickshell.env("HOME") + "/.config/nwg-dock-hyprland/launch.sh"])
-                            }
-                        }
-                        Item { implicitWidth: 28 }
-                    }
-
-                    // --- DOCK AUTOHIDE ---
-                    RowLayout {
-                        Layout.fillWidth: true
-                        Text { text: "Dock Autohide"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
-                        Item { Layout.fillWidth: true }
-                        ML4WSwitch {
-                            id: dockAutohideSwitch
-                            property bool ready: false
-                            Process {
-                                command: ["bash", "-c", "test -f ~/.config/ml4w/settings/dock-autohide && echo 1 || echo 0"]
-                                running: root.isOpen
-                                stdout: StdioCollector {
-                                    onStreamFinished: {
-                                        console.log("Test for Dock Autohide: " + this.text.trim())
-                                        dockAutohideSwitch.checked = (this.text.trim() === "1")
-                                        dockAutohideSwitch.ready = true
-                                    }
-                                }
-                            }
-                            onClicked: {
-                                if (!ready) return;
-                                let fileCmd = checked
-                                ? "touch ~/.config/ml4w/settings/dock-autohide"
-                                : "rm -f ~/.config/ml4w/settings/dock-autohide"
-                                console.log("Dock Autohide cmd: " + fileCmd)
-                                Quickshell.execDetached(["bash", "-c", fileCmd + "; " + Quickshell.env("HOME") + "/.config/nwg-dock-hyprland/launch.sh"])
+                                // The dock owns the file write; just tell it the
+                                // new state via IPC. `checked` already reflects
+                                // the post-click position.
+                                let ipcCmd = checked
+                                ? "qs ipc call dock enable"
+                                : "qs ipc call dock disable"
+                                console.log("Dock cmd: " + ipcCmd)
+                                Quickshell.execDetached(["bash", "-c", ipcCmd])
                             }
                         }
                         Item { implicitWidth: 28 }
@@ -979,13 +956,6 @@ PanelWindow {
                         Layout.fillWidth: true
                         Text { text: "Theme"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
-                        ActionIcon {
-                            iconSrc: "../shared/icons/theme.svg"
-                            onClicked: {
-                                root.isOpen = false
-                                Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/themes/themes.sh"])
-                            }
-                        }
                         SettingsWheel {
                             onClicked: themeMenu.open()
                             Menu {

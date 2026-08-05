@@ -8,6 +8,7 @@ import "SidebarApp"
 import "CalendarApp"
 import "WallpaperApp"
 import "StatusbarApp"
+import "DockApp"
 import "CustomTheme"
 
 ShellRoot {
@@ -26,4 +27,6 @@ ShellRoot {
     CalendarWindow {}
     WallpaperWindow {}
     StatusbarWindow {}
+    // Creates the dock window only while the dock is enabled in dock.json.
+    DockLoader {}
 }

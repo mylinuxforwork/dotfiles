@@ -118,7 +118,7 @@ Rectangle {
             onCleared: profileRoot.menuOpen = false
         }
 
-        implicitWidth: 190
+        implicitWidth: 220
         implicitHeight: menuColumn.implicitHeight + 16
         color: "transparent"
 
@@ -137,21 +137,14 @@ Rectangle {
                 keyScope.forceActiveFocus()
         }
 
-        // Card background with the same gradient border as the pill.
+        // Card background, matching the sidebar's context menus: flat
+        // background with a thin accent border.
         Rectangle {
             anchors.fill: parent
-            radius: 12
-            gradient: Gradient {
-                orientation: Gradient.Vertical
-                GradientStop { position: 0.0; color: Theme.primary }
-                GradientStop { position: 1.0; color: Theme.on_primary }
-            }
-            Rectangle {
-                anchors.fill: parent
-                anchors.margins: 2
-                radius: parent.radius - anchors.margins
-                color: Theme.background
-            }
+            radius: 8
+            color: Theme.background
+            border.color: Theme.primary
+            border.width: 1
         }
 
         ColumnLayout {
@@ -166,8 +159,8 @@ Rectangle {
                     required property var modelData
                     readonly property bool selected: modelData.value === profileRoot.current
                     Layout.fillWidth: true
-                    implicitHeight: 34
-                    radius: 8
+                    implicitHeight: 36
+                    radius: 4
                     color: rowMouse.containsMouse || selected ? Theme.primary : "transparent"
                     Behavior on color {
                         ColorAnimation { duration: 200; easing.type: Easing.OutQuint }
@@ -200,7 +193,7 @@ Rectangle {
                             text: modelData.label
                             color: (rowMouse.containsMouse || selected) ? Theme.background : Theme.primary
                             font.family: Theme.fontFamily
-                            font.pixelSize: 13
+                            font.pixelSize: 14
                             font.bold: selected
                         }
                     }
