@@ -878,7 +878,24 @@ PanelWindow {
                                 Quickshell.execDetached(["bash", "-c", ipcCmd])
                             }
                         }
-                        Item { implicitWidth: 28 }
+
+                        SettingsWheel {
+                            onClicked: dockMenu.open()
+                            Menu {
+                                id: dockMenu
+                                y: parent.height
+                                implicitWidth: 220
+                                padding: 8
+
+                                background: Rectangle { color: Theme.background; border.color: Theme.primary; border.width: 1; radius: 8 }
+                                ML4WMenuItem { text: "Reload Dock"; onClicked: {
+                                        // Tells the running dock to re-read its
+                                        // settings files and apply them live.
+                                        Quickshell.execDetached(["bash", "-c", "~/.config/ml4w/scripts/ml4w-reload-dock"])
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     // --- GAMEMODE ---
