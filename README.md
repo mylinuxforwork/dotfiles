@@ -1,6 +1,8 @@
 # ML4W OS - Dotfiles for Hyprland
 
-An advanced configuration of Hyprland for Arch Linux based distributions. Full featured desktop environment based on the dynamic tiling window manager Hyprland with adaptive material color themes based on the selected wallpaper for all components. Including a comprehensive selection of apps with the ability to customize the configuration to your personal needs.
+An advanced configuration of Hyprland for Arch Linux based distributions, Fedora and openSuse Tumbleweed. 
+
+Full featured desktop environment based on the dynamic tiling window manager Hyprland with adaptive material color themes based on the selected wallpaper for all components. Including a comprehensive selection of apps with the ability to customize the configuration to your personal needs.
 
 <img width="2560" height="1440" alt="image" src="https://ml4w.com/os/screen-215.jpg" />
 
