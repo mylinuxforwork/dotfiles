@@ -856,8 +856,8 @@ PanelWindow {
                             // file or flag counts as on, matching the dock's own
                             // default.
                             Process {
+                                id: dockStateProc
                                 command: ["bash", "-c", "f=~/.config/ml4w-dock/dock.json; [ -f \"$f\" ] || f=~/.config/ml4w/settings/dock.json; grep -q '\"enabled\"[[:space:]]*:[[:space:]]*false' \"$f\" && echo 0 || echo 1"]
-                                running: root.isOpen
                                 stdout: StdioCollector {
                                     onStreamFinished: {
                                         console.log("Test for Dock: " + this.text.trim())
@@ -865,6 +865,17 @@ PanelWindow {
                                         dockSwitch.ready = true
                                     }
                                 }
+                            }
+                            // Re-read the state periodically while the sidebar is
+                            // open so the switch tracks external toggles (e.g. the
+                            // SUPER+CTRL+D keybinding) live, not just on reopen.
+                            // triggeredOnStart gives the initial read on open.
+                            Timer {
+                                interval: 1000
+                                repeat: true
+                                running: root.isOpen
+                                triggeredOnStart: true
+                                onTriggered: dockStateProc.running = true
                             }
                             onClicked: {
                                 if (!ready) return;
@@ -878,7 +889,24 @@ PanelWindow {
                                 Quickshell.execDetached(["bash", "-c", ipcCmd])
                             }
                         }
-                        Item { implicitWidth: 28 }
+
+                        SettingsWheel {
+                            onClicked: dockMenu.open()
+                            Menu {
+                                id: dockMenu
+                                y: parent.height
+                                implicitWidth: 220
+                                padding: 8
+
+                                background: Rectangle { color: Theme.background; border.color: Theme.primary; border.width: 1; radius: 8 }
+                                ML4WMenuItem { text: "Reload Dock"; onClicked: {
+                                        // Tells the running dock to re-read its
+                                        // settings files and apply them live.
+                                        Quickshell.execDetached(["bash", "-c", "~/.config/ml4w/scripts/ml4w-reload-dock"])
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     // --- GAMEMODE ---

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#  _____                 _        ____             _
+# |_   _|__   __ _  __ _| | ___  |  _ \  ___   ___| | __
+#   | |/ _ \ / _` |/ _` | |/ _ \ | | | |/ _ \ / __| |/ /
+#   | | (_) | (_| | (_| | |  __/ | |_| | (_) | (__|   <
+#   |_|\___/ \__, |\__, |_|\___| |____/ \___/ \___|_|\_\
+#            |___/ |___/
+#
+# Toggle the Quickshell dock of ML4W OS. The dock owns the file write, so this
+# only flips the "enabled" flag via IPC; the change is persisted into the master
+# settings file (~/.config/ml4w-dock/dock.json, falling back to
+# ~/.config/ml4w/settings/dock.json) by the dock itself.
+
+qs ipc call dock toggle
+

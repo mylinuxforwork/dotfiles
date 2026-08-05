@@ -65,6 +65,7 @@ Singleton {
     function reloadSettings(): void {
         overrideFile.reload()
         settingsFile.reload()
+        console.log("Dock reload: re-reading dock settings")
         applySettings()
     }
 

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#  ____      _                 _   ____             _
+# |  _ \ ___| | ___   __ _  __| | |  _ \  ___   ___| | __
+# | |_) / _ \ |/ _ \ / _` |/ _` | | | | |/ _ \ / __| |/ /
+# |  _ <  __/ | (_) | (_| | (_| | | |_| | (_) | (__|   <
+# |_| \_\___|_|\___/ \__,_|\__,_| |____/ \___/ \___|_|\_\
+#
+# Reload the Quickshell dock of ML4W OS: tells the running shell to re-read its
+# dock settings files (~/.config/ml4w-dock/dock.json, falling back to
+# ~/.config/ml4w/settings/dock.json) and apply them live.
+
+qs ipc call dock reload
