@@ -5,13 +5,31 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # --- Script Initialization and Argument Handling ---
 
-# Check if the first parameter is -n or --dry-run
-if [[ "$1" == "-n" || "$1" == "--dry-run" ]]; then
-    DRY_RUN_FLAG="-n"
-    echo ":: DRY RUN MODE ACTIVE"
-else
-    DRY_RUN_FLAG=""
-fi
+# Parse parameters
+DRY_RUN_FLAG=""
+RUN_ONCE=0
+for arg in "$@"; do
+    case "$arg" in
+        -n|--dry-run)
+            DRY_RUN_FLAG="-n"
+            echo ":: DRY RUN MODE ACTIVE"
+            ;;
+        -r|--run)
+            RUN_ONCE=1
+            echo ":: RUN ONCE MODE ACTIVE"
+            ;;
+        -h|--help)
+            echo "Usage: ${BASH_SOURCE[0]##*/} [-n|--dry-run] [-r|--run]"
+            echo "  -n, --dry-run  Show what would be synced without changing anything"
+            echo "  -r, --run      Run the sync once and exit (no listener)"
+            exit 0
+            ;;
+        *)
+            echo "Unknown parameter: $arg"
+            exit 1
+            ;;
+    esac
+done
 
 # Find the first file ending with .dotinst in the current directory
 FULL_PATH=$(find $SCRIPT_DIR -maxdepth 1 -type f -name "*.dotinst" -print -quit)
@@ -44,22 +62,10 @@ EXCLUDE_FILE="$SCRIPT_DIR/protected"
 echo ":: Source: $SOURCE_DIR"
 echo ":: Target: $TARGET_DIR"
 echo
-echo ":: Starting Folder Sync Daemon for $project_name"
 
-# --- Daemon Loop ---
+# --- Sync ---
 
-# Daemon will only run if NOT in dry-run mode, but the sync logic is tested
-while true; do
-    echo ":: Waiting for changes in $SOURCE_DIR..."
-    
-    # Wait for file system events
-    inotifywait -r -e "$EVENTS" --quiet "$SOURCE_DIR"
-    
-    # Debounce period
-    sleep 1 
-    
-    echo ":: Change detected! Running sync now..."
-    
+run_sync() {
     # Construct the base rsync command flags
     RSYNC_CMD="rsync -azv --delete --exclude=config.dotinst $DRY_RUN_FLAG"
 
@@ -80,6 +86,38 @@ while true; do
     if [ -n "$DRY_RUN_FLAG" ]; then
         echo
         echo ":: DRY RUN COMPLETE. No changes were made to $TARGET_DIR."
+    fi
+}
+
+# --- Single Run ---
+
+if [ "$RUN_ONCE" -eq 1 ]; then
+    echo ":: Running single sync for $project_name"
+    run_sync
+    echo
+    echo ":: Sync successful."
+    exit 0
+fi
+
+# --- Daemon Loop ---
+
+echo ":: Starting Folder Sync Daemon for $project_name"
+
+# Daemon will only run if NOT in dry-run mode, but the sync logic is tested
+while true; do
+    echo ":: Waiting for changes in $SOURCE_DIR..."
+
+    # Wait for file system events
+    inotifywait -r -e "$EVENTS" --quiet "$SOURCE_DIR"
+
+    # Debounce period
+    sleep 1
+
+    echo ":: Change detected! Running sync now..."
+
+    run_sync
+
+    if [ -n "$DRY_RUN_FLAG" ]; then
         echo ":: You can exit the script with CTRL+C"
     fi
     echo
