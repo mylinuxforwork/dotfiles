@@ -33,10 +33,12 @@ Item {
     Rectangle {
         id: menuBg
         anchors.fill: parent
-        radius: 12
-        color: Theme.surface_container
+        // Same card style as the sidebar's context menus: flat background with
+        // a thin accent border.
+        radius: 8
+        color: Theme.background
         border.width: 1
-        border.color: Theme.outline_variant
+        border.color: Theme.primary
 
         Column {
             id: menuColumn
@@ -52,8 +54,8 @@ Item {
                     required property var modelData
 
                     width: menuColumn.width
-                    height: 32
-                    radius: 8
+                    height: 36
+                    radius: 4
                     color: rowMouse.containsMouse ? Theme.primary : "transparent"
 
                     Behavior on color {
@@ -65,7 +67,7 @@ Item {
                         anchors.left: parent.left
                         anchors.leftMargin: 10
                         text: row.modelData.label
-                        color: rowMouse.containsMouse ? Theme.background : Theme.on_surface
+                        color: rowMouse.containsMouse ? Theme.background : Theme.primary
                         font.family: Theme.fontFamily
                         font.pixelSize: 14
                         elide: Text.ElideRight
