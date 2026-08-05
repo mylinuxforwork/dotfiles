@@ -69,7 +69,24 @@ if _checkCommandExists "pacman"; then
     
 # Fedora
 elif _checkCommandExists "dnf"; then
-    updates=$(dnf check-update -q | grep -c ^[a-z0-9])
+    lockfile="${XDG_RUNTIME_DIR:-/tmp}/ml4w-dnf-check.lock"
+
+    updates=$(
+        flock -n "$lockfile" bash -c '
+            output=$(dnf check-update -q 2>/dev/null)
+            rc=$?
+
+            # 0 = keine Updates, 100 = Updates vorhanden
+            if [ "$rc" -eq 0 ] || [ "$rc" -eq 100 ]; then
+                printf "%s\n" "$output" | awk "NF >= 3 { count++ } END { print count+0 }"
+            else
+                echo 0
+            fi
+        '
+    )
+
+    updates="${updates:-0}"
+
 # Others
 else
     updates=0
