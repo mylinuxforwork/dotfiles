@@ -936,6 +936,47 @@ PanelWindow {
                         Item { implicitWidth: 28 }
                     }
 
+                    // --- HYPRIDLE ---
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text { text: "Hypridle"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Item { Layout.fillWidth: true }
+                        ML4WSwitch {
+                            id: hypridleSwitch
+                            property bool ready: false
+                            // Purely a runtime toggle: hypridle is started by
+                            // Hyprland's autostart, so a reboot always brings it
+                            // back. Nothing is persisted here.
+                            Process {
+                                id: hypridleStateProc
+                                command: ["bash", "-c", "pgrep -x hypridle >/dev/null && echo 1 || echo 0"]
+                                stdout: StdioCollector {
+                                    onStreamFinished: {
+                                        console.log("Test for Hypridle: " + this.text.trim())
+                                        hypridleSwitch.checked = (this.text.trim() === "1")
+                                        hypridleSwitch.ready = true
+                                    }
+                                }
+                            }
+                            // Re-read while the sidebar is open so the switch
+                            // tracks external toggles (waybar hypridle module)
+                            // live. triggeredOnStart gives the initial read.
+                            Timer {
+                                interval: 1000
+                                repeat: true
+                                running: root.isOpen
+                                triggeredOnStart: true
+                                onTriggered: hypridleStateProc.running = true
+                            }
+                            onClicked: {
+                                if (!ready) return;
+                                // Same script waybar uses, so both stay in sync.
+                                Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/hypridle.sh toggle"])
+                            }
+                        }
+                        Item { implicitWidth: 28 }
+                    }
+
                     // --- FASTFETCH ---
                     RowLayout {
                         Layout.fillWidth: true

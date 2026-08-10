@@ -1,3 +1,7 @@
+Version 2.15.1
+--------------------------------------------------------
+- Add toggle switch to sidebar to temporarly disable hypridle (disable auto-lock)
+
 Version 2.15
 --------------------------------------------------------
 - nwg-dock-hyprland replaced with Quickshell based dock (nwg-dock-hyprland not supported on Fedora 44)
