@@ -79,6 +79,7 @@ sudo zypper -n install jetbrainsmono-nerd-fonts
 
 echo ":: Installing packages with pip"
 pipx install pywalfox
+pywalfox-install
 
 # --------------------------------------------------------------
 # Grimblast

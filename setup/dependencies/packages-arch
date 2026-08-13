@@ -6,6 +6,7 @@ qt6-wayland
 gnome-themes-extra
 uwsm
 python-pip
+python-pipx
 python-gobject
 python-screeninfo
 nm-connection-editor
