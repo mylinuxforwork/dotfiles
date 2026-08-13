@@ -2,6 +2,7 @@ Version 2.15.1
 --------------------------------------------------------
 - Add toggle switch to sidebar to temporarly disable hypridle (disable auto-lock)
 - Add new workspace-split monitor variation to split workspaces between multiple monitors. Can be selected in the Settings App/System Settings. Copy the file for individual setups
+- Removed all AUR packages from dependencies. AUR Helper must be installed separately if needed.
 
 Version 2.15
 --------------------------------------------------------
