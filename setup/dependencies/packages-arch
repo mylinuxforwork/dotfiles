@@ -14,7 +14,6 @@ network-manager-applet
 imagemagick
 polkit-gnome
 hyprsunset
-grimblast-git
 pacman-contrib
 loupe
 power-profiles-daemon
