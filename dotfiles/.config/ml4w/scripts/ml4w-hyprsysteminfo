@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
 # --- Check for hyprsysteminfo ---
-if command -v hyprsysteminfo &> /dev/null; then
-    hyprsysteminfo    
-else
-    kitty --class dotfiles-floating -e $HOME/.config/hypr/scripts/systeminfo.sh
-fi
+kitty --class dotfiles-floating -e $HOME/.config/hypr/scripts/systeminfo.sh
