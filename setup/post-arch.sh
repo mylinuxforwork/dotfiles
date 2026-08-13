@@ -12,6 +12,12 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-settings/main/setup.sh)
 
 # --------------------------------------------------------------
+# Grimblast
+# --------------------------------------------------------------
+
+source $repo_path/setup/clean-install-grimblast.sh
+
+# --------------------------------------------------------------
 # Cursors
 # --------------------------------------------------------------
 
