@@ -58,6 +58,7 @@ fi
 
 echo ":: Installing packages with pip"
 sudo pip install pywalfox
+pywalfox-install
 
 # --------------------------------------------------------------
 # Grimblast

@@ -50,6 +50,8 @@ if _checkCommandExists "pacman"; then
 
     yay_installed="false"
     paru_installed="false"
+    updates_aur=0
+
     if _checkCommandExists "yay"; then
         yay_installed="true"
     fi
@@ -60,12 +62,12 @@ if _checkCommandExists "pacman"; then
         aur_helper="yay"
     elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]]; then
         aur_helper="paru"
-    else
-        aur_helper="yay"
     fi
-    updates_aur=$($aur_helper -Qum | wc -l)
+    if [[ $yay_installed == "true" ]] || [[ $paru_installed == "true" ]]; then
+        updates_aur=$($aur_helper -Qum | wc -l)
+    fi
     updates_pacman=$(checkupdates | wc -l)
-    updates=$((updates_aur+updates_pacman))
+    updates=$((updates_pacman+updates_aur))
     
 # Fedora
 elif _checkCommandExists "dnf"; then
