@@ -1,5 +1,4 @@
 hyprland
-hyprsysteminfo
 hyprshutdown
 libnotify
 qt5-wayland
@@ -7,6 +6,7 @@ qt6-wayland
 gnome-themes-extra
 uwsm
 python-pip
+python-pipx
 python-gobject
 python-screeninfo
 nm-connection-editor
@@ -14,12 +14,10 @@ network-manager-applet
 imagemagick
 polkit-gnome
 hyprsunset
-grimblast-git
 pacman-contrib
 loupe
 power-profiles-daemon
 swaync
-python-pywalfox
 tesseract-data-eng
 otf-font-awesome
 ttf-firacode-nerd
