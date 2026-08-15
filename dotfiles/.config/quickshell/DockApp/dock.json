@@ -18,7 +18,8 @@ leaves every value defined.
         "iconSize": 32,
         "spacing": 8,
         "marginBottom": 10,
-        "reserveSpace": true
+        "reserveSpace": true,
+        "hideDelay": 400
     },
     "pill": {
         "radius": 16,
