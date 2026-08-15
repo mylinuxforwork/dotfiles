@@ -208,8 +208,20 @@ PanelWindow {
 
     // Slid into view when autohide is off, while the pointer is on the dock (or
     // in the hot zone at the screen edge), and while a context menu is open.
-    readonly property bool revealed: !autohide || dockHover.hovered
+    readonly property bool revealed: !autohide || root.pointerHeld
         || root.menuOpen
+
+    // The pointer's hover, held for dock.hideDelay ms after it leaves. Without
+    // the grace period the dock snaps shut on every momentary gap in the hover:
+    // crossing from the hot zone up to the still-sliding pill, slipping between
+    // the pill and the screen edge, or brushing past the edge of the pill.
+    property bool pointerHeld: false
+
+    Timer {
+        id: hideDelay
+        interval: root.settings.dock.hideDelay
+        onTriggered: root.pointerHeld = false
+    }
 
     color: "transparent"
 
@@ -236,17 +248,42 @@ PanelWindow {
 
     // Only the pill takes pointer input; the transparent rest of the window
     // stays click-through so it never swallows clicks meant for the windows
-    // behind it. While hidden, a 3px strip at the screen edge remains active as
-    // the hot zone that reveals the dock again. While a menu is open the whole
-    // window takes input, so the menu entries are clickable and a click on the
-    // dock's empty area dismisses the menu.
+    // behind it. While a menu is open the whole window takes input, so the menu
+    // entries are clickable and a click on the dock's empty area dismisses the
+    // menu.
+    //
+    // While autohiding, a full-width strip at the screen edge stays active on
+    // top of the pill: hidden it is the hot zone that reveals the dock, revealed
+    // it bridges the marginBottom gap below the pill. The strip has to keep
+    // taking input after the reveal, or the pointer that triggered it — still at
+    // the very bottom of the screen, and possibly nowhere near the pill
+    // horizontally — would land outside the input region and hide the dock right
+    // back again.
+    readonly property int hotZoneHeight: root.revealed
+        ? settings.dock.marginBottom + 3
+        : 3
+
     mask: Region {
-        x: root.menuOpen ? 0 : (root.revealed ? Math.round(pill.x) : 0)
-        y: root.menuOpen ? 0 : (root.revealed ? Math.round(pill.y) : root.height - 3)
-        width: root.menuOpen ? root.width
-            : (root.revealed ? Math.round(pill.width) : root.width)
-        height: root.menuOpen ? root.height
-            : (root.revealed ? Math.round(pill.height) : 3)
+        Region {
+            x: 0
+            y: 0
+            width: root.menuOpen ? root.width : 0
+            height: root.menuOpen ? root.height : 0
+        }
+        // The pill. While hidden it is a 3px sliver at the screen edge, which
+        // the hot zone covers anyway.
+        Region {
+            x: Math.round(pill.x)
+            y: Math.round(pill.y)
+            width: root.menuOpen ? 0 : Math.round(pill.width)
+            height: root.menuOpen ? 0 : Math.round(pill.height)
+        }
+        Region {
+            x: 0
+            y: root.height - root.hotZoneHeight
+            width: (root.autohide && !root.menuOpen) ? root.width : 0
+            height: (root.autohide && !root.menuOpen) ? root.hotZoneHeight : 0
+        }
     }
 
     // A click anywhere in the dock window that is not on the menu or an icon
@@ -260,6 +297,14 @@ PanelWindow {
 
     HoverHandler {
         id: dockHover
+        onHoveredChanged: {
+            if (dockHover.hovered) {
+                hideDelay.stop()
+                root.pointerHeld = true
+            } else {
+                hideDelay.restart()
+            }
+        }
     }
 
     // ==========================================

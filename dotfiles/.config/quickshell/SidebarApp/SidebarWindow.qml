@@ -909,6 +909,54 @@ PanelWindow {
                         }
                     }
 
+                    // --- DOCK AUTOHIDE ---
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text { text: "Dock Autohide"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Item { Layout.fillWidth: true }
+                        ML4WSwitch {
+                            id: dockAutohideSwitch
+                            property bool ready: false
+                            // Read the current state from the "autohide" flag in
+                            // the master file: the ml4w-dock override when it
+                            // exists, otherwise the shipped dock.json. A missing
+                            // file or flag counts as off, matching the dock's own
+                            // default.
+                            Process {
+                                id: dockAutohideProc
+                                command: ["bash", "-c", "f=~/.config/ml4w-dock/dock.json; [ -f \"$f\" ] || f=~/.config/ml4w/settings/dock.json; grep -q '\"autohide\"[[:space:]]*:[[:space:]]*true' \"$f\" && echo 1 || echo 0"]
+                                stdout: StdioCollector {
+                                    onStreamFinished: {
+                                        console.log("Test for Dock Autohide: " + this.text.trim())
+                                        dockAutohideSwitch.checked = (this.text.trim() === "1")
+                                        dockAutohideSwitch.ready = true
+                                    }
+                                }
+                            }
+                            // Polled like the Dock switch above, so the state
+                            // tracks changes made outside the sidebar.
+                            Timer {
+                                interval: 1000
+                                repeat: true
+                                running: root.isOpen
+                                triggeredOnStart: true
+                                onTriggered: dockAutohideProc.running = true
+                            }
+                            onClicked: {
+                                if (!ready) return;
+                                // The dock owns the file write; just tell it the
+                                // new state via IPC. `checked` already reflects
+                                // the post-click position.
+                                let ipcCmd = checked
+                                ? "qs ipc call dock autohideOn"
+                                : "qs ipc call dock autohideOff"
+                                console.log("Dock Autohide cmd: " + ipcCmd)
+                                Quickshell.execDetached(["bash", "-c", ipcCmd])
+                            }
+                        }
+                        Item { implicitWidth: 28 }
+                    }
+
                     // --- GAMEMODE ---
                     RowLayout {
                         Layout.fillWidth: true

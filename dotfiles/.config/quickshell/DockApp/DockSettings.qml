@@ -26,7 +26,8 @@ Singleton {
     // documents these defaults and must be kept in sync with them.
     readonly property var defaultSettings: ({
         "dock":   { "enabled": true, "autohide": false, "iconSize": 32,
-                    "spacing": 8, "marginBottom": 10, "reserveSpace": true },
+                    "spacing": 8, "marginBottom": 10, "reserveSpace": true,
+                    "hideDelay": 400 },
         "pill":   { "radius": 16, "padding": 12, "animationDuration": 350 },
         "border": { "width": 2, "colorTop": "", "colorBottom": "" },
         "opacity":{ "normal": 0.7 },
