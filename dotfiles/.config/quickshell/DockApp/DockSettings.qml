@@ -43,20 +43,44 @@ Singleton {
     // master for both reads (applySettings) and writes (persistPinned etc.).
     property bool overrideExists: false
 
+    // Both settings files have reported back (loaded or missing), so `settings`
+    // holds the values from disk rather than the built-in defaults.
+    //
+    // DockLoader waits for this before creating the dock. The files report
+    // asynchronously, so without the gate the window is built from the defaults
+    // — autohide off, space reserved — and only corrects itself a moment later.
+    // Hyprland does not reliably pick up the exclusive zone dropping back to 0
+    // that soon after the layer surface is created, which leaves an autohiding
+    // dock holding a 76px gap open at the bottom of the screen for the session.
+    readonly property bool ready: overrideResolved && settingsResolved
+    property bool overrideResolved: false
+    property bool settingsResolved: false
+
     FileView {
         id: overrideFile
         path: Quickshell.env("HOME") + "/.config/ml4w-dock/dock.json"
         blockLoading: true
         printErrors: false
-        onLoaded: { root.overrideExists = true; root.applySettings() }
-        onLoadFailed: { root.overrideExists = false; root.applySettings() }
+        // The resolved flags are set last, after the values are in place: they
+        // release DockLoader, and a binding fires the moment it is assigned.
+        onLoaded: {
+            root.overrideExists = true
+            root.applySettings()
+            root.overrideResolved = true
+        }
+        onLoadFailed: {
+            root.overrideExists = false
+            root.applySettings()
+            root.overrideResolved = true
+        }
     }
 
     FileView {
         id: settingsFile
         path: Quickshell.env("HOME") + "/.config/ml4w/settings/dock.json"
         blockLoading: true
-        onLoaded: root.applySettings()
+        onLoaded: { root.applySettings(); root.settingsResolved = true }
+        onLoadFailed: { root.applySettings(); root.settingsResolved = true }
     }
 
     function masterFile() {

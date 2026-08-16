@@ -30,8 +30,10 @@ Scope {
         function reload(): void { DockSettings.reloadSettings() }
     }
 
+    // Waits for the settings files before building the window, so the dock is
+    // created once with the values from disk. See DockSettings.ready.
     LazyLoader {
-        active: DockSettings.enabled
+        active: DockSettings.ready && DockSettings.enabled
         DockWindow {}
     }
 }
