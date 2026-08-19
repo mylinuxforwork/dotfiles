@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#  _____                 _        _         _        _     _     _
+# |_   _|__   __ _  __ _| | ___  / \  _   _| |_ ___ | |__ (_) __| | ___
+#   | |/ _ \ / _` |/ _` | |/ _ \/ _ \| | | | __/ _ \| '_ \| |/ _` |/ _ \
+#   | | (_) | (_| | (_| | |  __/ ___ \ |_| | || (_) | | | | | (_| |  __/
+#   |_|\___/ \__, |\__, |_|\___/_/   \_\__,_|\__\___/|_| |_|_|\__,_|\___|
+#            |___/ |___/
+#
+# Toggle the autohide of the Quickshell statusbar of ML4W OS. The statusbar owns
+# the file write, so this only flips the "autohide" flag via IPC; the change is
+# persisted into the master settings file (~/.config/ml4w-statusbar/statusbar.json,
+# falling back to ~/.config/ml4w/settings/statusbar.json) by the statusbar itself.
+
+qs ipc call statusbar autohideToggle

@@ -6,7 +6,9 @@ Default configuration file for the Quickshell Statusbar.
         "height": 40,
         "reservedHeight": 72,
         "enabled": false,
-        "alwaysExpanded": false
+        "alwaysExpanded": false,
+        "autohide": false,
+        "hideDelay": 400
     },
     "pill": {
         "collapsedWidth": 0,

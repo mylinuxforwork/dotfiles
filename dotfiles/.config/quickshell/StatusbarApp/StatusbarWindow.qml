@@ -45,7 +45,8 @@ PanelWindow {
     // The active master file is merged over the built-in defaults, so a partial
     // or entirely missing file still leaves every value defined.
     readonly property var defaultSettings: ({
-        "bar":    { "height": 40, "reservedHeight": 72, "enabled": true, "alwaysExpanded": true },
+        "bar":    { "height": 40, "reservedHeight": 72, "enabled": true,
+                    "alwaysExpanded": true, "autohide": false, "hideDelay": 400 },
         "pill":   { "collapsedWidth": 0, "expandedWidth": 680, "radius": 12, "animationDuration": 350 },
         "modules":{ "left": ["terminal", "workspaces"],
                     "center": ["launcher", "clock", "swaync"],
@@ -63,6 +64,20 @@ PanelWindow {
     // setAlwaysExpanded).
     property bool overrideExists: false
 
+    // Both settings files have reported back (loaded or missing), so `settings`
+    // holds the values from disk rather than the built-in defaults.
+    //
+    // The window stays invisible until then, so the layer surface is created
+    // once with the values from disk. The files report asynchronously, so
+    // without the gate the bar is mapped from the defaults — autohide off, space
+    // reserved — and only corrects itself a moment later. Hyprland does not
+    // reliably pick up the exclusive zone dropping back to 0 that soon after the
+    // layer surface is created, which would leave an autohiding bar holding a
+    // 52px gap open at the top of the screen for the session.
+    readonly property bool ready: overrideResolved && settingsResolved
+    property bool overrideResolved: false
+    property bool settingsResolved: false
+
     // User override / master file. When it loads it becomes the source of truth;
     // when it is absent (loadFailed) the shipped file takes over. printErrors is
     // off so a missing override does not log an error on every startup/reload.
@@ -71,8 +86,19 @@ PanelWindow {
         path: Quickshell.env("HOME") + "/.config/ml4w-statusbar/statusbar.json"
         blockLoading: true
         printErrors: false
-        onLoaded: { root.overrideExists = true; root.applySettings() }
-        onLoadFailed: { root.overrideExists = false; root.applySettings() }
+        // The resolved flags are set last, after the values are in place: they
+        // release the `ready` gate below, and a binding fires the moment it is
+        // assigned.
+        onLoaded: {
+            root.overrideExists = true
+            root.applySettings()
+            root.overrideResolved = true
+        }
+        onLoadFailed: {
+            root.overrideExists = false
+            root.applySettings()
+            root.overrideResolved = true
+        }
     }
 
     // Shipped fallback holding the dynamic state (enabled / alwaysExpanded), used
@@ -83,7 +109,8 @@ PanelWindow {
         id: settingsFile
         path: Quickshell.env("HOME") + "/.config/ml4w/settings/statusbar.json"
         blockLoading: true
-        onLoaded: root.applySettings()
+        onLoaded: { root.applySettings(); root.settingsResolved = true }
+        onLoadFailed: { root.applySettings(); root.settingsResolved = true }
     }
 
     // The active master file: the override when it exists, otherwise the shipped
@@ -192,11 +219,13 @@ PanelWindow {
     // restarts. Kept as a binding so a settings reload updates it for free.
     property bool barEnabled: settings.bar.enabled
 
-    // Hide completely and reserve no space when disabled.
-    visible: barEnabled
+    // Hide completely and reserve no space when disabled. `ready` holds the
+    // window back until the settings files have been read (see above).
+    visible: barEnabled && ready
     // Reserve 20px less than the band so the gap below the pill is smaller
-    // than above (windows tile 20px higher).
-    exclusiveZone: barEnabled ? reservedHeight - 20 : 0
+    // than above (windows tile 20px higher). An autohiding bar reserves nothing:
+    // it floats over the windows and slides in on demand.
+    exclusiveZone: (barEnabled && !autohide) ? reservedHeight - 20 : 0
 
     // Persist the enabled state into the master file (override when present,
     // otherwise the shipped file) and apply it. applySettings re-parses the
@@ -222,6 +251,51 @@ PanelWindow {
     // Mirrors setEnabled.
     function setAlwaysExpanded(on: bool): void {
         applySettings(persistBarFlag("alwaysExpanded", on))
+    }
+
+    // --- AUTOHIDE ---
+    // When "autohide" is set in statusbar.json the bar slides up out of the
+    // screen and comes back only while the pointer is on it (or in the hot zone
+    // at the very top of the screen), while it holds the keyboard for navigation
+    // (SUPER + SPACE), and while a tray menu is open. A hiding bar reserves no
+    // space, so windows tile up to the screen edge. Toggled from the SidebarApp
+    // switch and via "qs ipc call statusbar autohideToggle".
+    property bool autohide: settings.bar.autohide
+
+    // Persist the autohide state into the master file and apply it. Mirrors
+    // setEnabled.
+    function setAutohide(on: bool): void {
+        applySettings(persistBarFlag("autohide", on))
+    }
+
+    // Slid into view when autohide is off, while the pointer is held on the bar,
+    // while the bar is expanded for keyboard navigation, and while a tray menu is
+    // open (the tray lives in the right area, which the reveal keeps on screen).
+    readonly property bool revealed: !autohide || root.pointerHeld
+        || root.barExpanded || root.trayMenuOpen
+
+    // The pointer's hover, held for bar.hideDelay ms after it leaves. Without the
+    // grace period the bar snaps shut on every momentary gap in the hover:
+    // crossing from the hot zone down to the still-sliding pill, slipping between
+    // the pill and the screen edge, or brushing past the edge of the pill.
+    property bool pointerHeld: false
+
+    Timer {
+        id: hideDelay
+        interval: root.settings.bar.hideDelay
+        onTriggered: root.pointerHeld = false
+    }
+
+    HoverHandler {
+        id: barHover
+        onHoveredChanged: {
+            if (barHover.hovered) {
+                hideDelay.stop()
+                root.pointerHeld = true
+            } else {
+                hideDelay.restart()
+            }
+        }
     }
 
     // --- MODULE PLACEMENT ---
@@ -408,6 +482,13 @@ PanelWindow {
         // toggled from the SidebarApp switch.
         function alwaysExpand(): void { root.setAlwaysExpanded(true) }
         function autoCollapse(): void { root.setAlwaysExpanded(false) }
+        // Persist and apply the autohide mode, toggled from the SidebarApp
+        // switch and from the ml4w-toggle-statusbar-autohide script.
+        function autohideOn(): void { root.setAutohide(true) }
+        function autohideOff(): void { root.setAutohide(false) }
+        function autohideToggle(): void {
+            root.setAutohide(!root.settings.bar.autohide)
+        }
         // Re-read statusbar.json from disk (used by the SidebarApp switch).
         function refresh(): void { root.reloadSettings() }
         // Expand the bar (if needed) and grab the keyboard for navigation.
@@ -440,6 +521,48 @@ PanelWindow {
 
     implicitHeight: barHeight + 40
 
+    // With autohide off the whole window takes pointer input, exactly as before.
+    // While autohiding only the pill and a full-width strip at the top of the
+    // screen do, so the rest of the band stays click-through and never swallows
+    // clicks meant for the windows behind it: hidden the strip is the hot zone
+    // that reveals the bar, revealed it bridges the gap above the pill. The strip
+    // has to keep taking input after the reveal, or the pointer that triggered it
+    // — still at the very top of the screen, and possibly nowhere near the pill
+    // horizontally — would land outside the input region and hide the bar right
+    // back again.
+    readonly property int hotZoneHeight: root.revealed
+        ? Math.max(3, Math.round(pill.y))
+        : 3
+
+    // Top edge of the pill, clamped to the window: while it is slid out its y is
+    // negative, and a region may not start above the window.
+    readonly property int pillTop: Math.max(0, Math.round(pill.y))
+
+    mask: Region {
+        Region {
+            x: 0
+            y: 0
+            width: root.autohide ? 0 : root.width
+            height: root.autohide ? 0 : root.height
+        }
+        // The pill. While it is slid out this shrinks to nothing and the hot
+        // zone below covers the sliver left at the screen edge.
+        Region {
+            x: Math.round(pill.x)
+            y: root.pillTop
+            width: root.autohide ? Math.round(pill.width) : 0
+            height: root.autohide
+                ? Math.max(0, Math.round(pill.y + pill.height) - root.pillTop)
+                : 0
+        }
+        Region {
+            x: 0
+            y: 0
+            width: root.autohide ? root.width : 0
+            height: root.autohide ? root.hotZoneHeight : 0
+        }
+    }
+
     // ==========================================
     // CENTERED PILL
     // ==========================================
@@ -449,11 +572,39 @@ PanelWindow {
         // Center the pill within the reserved band. The window is taller than
         // the band (to fit the shadow / expanded pill), so offset accordingly.
         anchors.verticalCenter: parent.verticalCenter
-        anchors.verticalCenterOffset: (root.reservedHeight / 2) - (root.implicitHeight / 2)
+        anchors.verticalCenterOffset: revealedOffset + revealShift
+
+        // Offset that centers the pill within the reserved band; the window is
+        // taller than the band (to fit the shadow / expanded pill).
+        readonly property real revealedOffset:
+            (root.reservedHeight / 2) - (root.implicitHeight / 2)
+        // Offset that leaves only a 3px sliver of the pill at the top of the
+        // screen, i.e. slid fully out of view.
+        readonly property real hiddenOffset:
+            3 - height - (root.implicitHeight - height) / 2
+
+        // The slide itself is animated as an extra shift rather than the whole
+        // offset, so a change of the bar/pill height still repositions the pill
+        // instantly instead of sliding it.
+        property real revealShift: root.revealed
+            ? 0
+            : (hiddenOffset - revealedOffset)
+
+        Behavior on revealShift {
+            NumberAnimation {
+                duration: root.settings.pill.animationDuration
+                easing.type: Easing.OutQuint
+            }
+        }
 
         // Collapsed = sized to content, Expanded = fixed width.
+        // While autohiding, the hover that reveals the bar also expands it: the
+        // pointer that triggers the reveal sits in the hot zone at the screen
+        // edge, above the pill, so hoverHandler alone would leave the bar slid in
+        // but collapsed until the pointer reached the pill itself.
         property bool expanded: hoverHandler.hovered || root.barExpanded
             || root.alwaysExpanded || root.trayMenuOpen
+            || (root.autohide && root.pointerHeld)
         // 0 in the settings file means "hug the center content".
         property real collapsedWidth: root.settings.pill.collapsedWidth > 0
             ? root.settings.pill.collapsedWidth
