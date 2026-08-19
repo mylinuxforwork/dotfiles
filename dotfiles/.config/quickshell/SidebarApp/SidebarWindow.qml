@@ -842,6 +842,55 @@ PanelWindow {
                         Item { implicitWidth: 28 }
                     }
 
+                    // --- STATUSBAR AUTOHIDE (Quickshell) ---
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text { text: "Statusbar Autohide"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Item { Layout.fillWidth: true }
+                        ML4WSwitch {
+                            id: statusbarAutohideSwitch
+                            property bool ready: false
+                            // Read the current state from the "autohide" flag in
+                            // the master file: the ml4w-statusbar override when it
+                            // exists, otherwise the shipped statusbar.json. A
+                            // missing file or flag counts as off, matching the
+                            // statusbar's own default.
+                            Process {
+                                id: statusbarAutohideProc
+                                command: ["bash", "-c", "f=~/.config/ml4w-statusbar/statusbar.json; [ -f \"$f\" ] || f=~/.config/ml4w/settings/statusbar.json; grep -q '\"autohide\"[[:space:]]*:[[:space:]]*true' \"$f\" && echo 1 || echo 0"]
+                                stdout: StdioCollector {
+                                    onStreamFinished: {
+                                        console.log("Test for Statusbar Autohide: " + this.text.trim())
+                                        statusbarAutohideSwitch.checked = (this.text.trim() === "1")
+                                        statusbarAutohideSwitch.ready = true
+                                    }
+                                }
+                            }
+                            // Polled like the Dock Autohide switch below, so the
+                            // state tracks changes made outside the sidebar (the
+                            // SUPER + ALT + B keybinding).
+                            Timer {
+                                interval: 1000
+                                repeat: true
+                                running: root.isOpen
+                                triggeredOnStart: true
+                                onTriggered: statusbarAutohideProc.running = true
+                            }
+                            onClicked: {
+                                if (!ready) return;
+                                // The statusbar owns the file write; just tell it
+                                // the new state via IPC. `checked` already
+                                // reflects the post-click position.
+                                let ipcCmd = checked
+                                ? "qs ipc call statusbar autohideOn"
+                                : "qs ipc call statusbar autohideOff"
+                                console.log("Statusbar Autohide cmd: " + ipcCmd)
+                                Quickshell.execDetached(["bash", "-c", ipcCmd])
+                            }
+                        }
+                        Item { implicitWidth: 28 }
+                    }
+
                     // --- DOCK ---
                     RowLayout {
                         Layout.fillWidth: true

@@ -1,6 +1,7 @@
 Version 2.15.1
 --------------------------------------------------------
-- Add dock autohide switch to Sidebar. Can also be toggled with keybinding SUPER + CTRL + A
+- Add statusbar autohide switch to Sidebar. Can also be toggled with keybinding SUPER + ALT + B
+- Add dock autohide switch to Sidebar. Can also be toggled with keybinding SUPER + ALT + D. Reload Dock moved to SUPER + SHIFT + D
 - Add toggle switch to sidebar to temporarly disable hypridle (disable auto-lock)
 - Add new workspace-split monitor variation to split workspaces between multiple monitors. Can be selected in the Settings App/System Settings. Copy the file for individual setups
 - Removed all AUR packages from dependencies. AUR Helper must be installed separately if needed.
