@@ -23,7 +23,7 @@ pywalfox-install
 # Grimblast
 # --------------------------------------------------------------
 
-source $repo_path/setup/clean-install-grimblast.sh
+pacman -Qi grimblast-git &>/dev/null || source $repo_path/setup/clean-install-grimblast.sh
 
 # --------------------------------------------------------------
 # Cursors
