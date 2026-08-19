@@ -30,11 +30,16 @@
             "format": "{host-name}"
         },
         {
-            "type": "command",
-            "key": "│ {#34}󱦟 os age  {#keys}│",
-            "keyColor": "magenta",
-            "text": "printf \"\\e[0m%s days\\e[0m\" \"$(( ($(date +%s) - $(stat -c %W /)) / 86400 ))\""
-        },
+            "condition": {                                    // Conditional module: only show on non-macOS
+                "!system": "macOS"
+            },
+            "type": "disk",
+            "keyIcon": "",
+            "key": "│{#34} {icon} os age {#keys} │",
+            // "keyColor": "magenta",
+            "folders": "/",                                   // Check root filesystem
+            "format": "{create-time:10} [{days} days ({years} years)]"        // Show creation time and age in days
+        },        
         {
             "key": "│ {#34}󰅐 uptime  {#keys}│",
             "type": "uptime"
