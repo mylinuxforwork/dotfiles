@@ -8,24 +8,24 @@
 
 # Check if command exists
 _checkCommandExists() {
-    command -v "$1" &>/dev/null
+    command -v "$1" &> /dev/null
 }
 
 _isInstalled() {
     package="$1"
     case $install_platform in
-    arch)
-      check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "${package} ")"
-      ;;
-    fedora)
-      check="$(dnf repoquery --quiet --installed ""${package}*"")"
-      ;;
-    *) ;;
+    	arch)
+      		check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "${package} ")"
+      	;;
+    	fedora)
+      		check="$(dnf repoquery --quiet --installed ""${package}*"")"
+      	;;
+    	*) ;;
     esac
 
     if [ -n "${check}" ]; then
-      echo 0 #'0' means 'true' in Bash
-      return #true
+      	echo 0 #'0' means 'true' in Bash
+      	return #true
     fi
     echo 1 #'1' means 'false' in Bash
     return #false
@@ -63,17 +63,17 @@ if _checkCommandExists "pacman"; then
     yay_installed="false"
     paru_installed="false"
     if _checkCommandExists "yay"; then
-      yay_installed="true"
+      	yay_installed="true"
     fi
     if _checkCommandExists "paru"; then
-      paru_installed="true"
+      	paru_installed="true"
     fi
     if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
-      yay
+      	yay
     elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]]; then
-      paru -Syu --noconfirm
+      	paru -Syu --noconfirm
     else
-      sudo pacman -Syu --noconfirm
+      	sudo pacman -Syu --noconfirm
     fi
 
 # Fedora
