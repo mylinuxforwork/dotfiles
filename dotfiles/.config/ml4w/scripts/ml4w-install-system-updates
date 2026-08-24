@@ -113,6 +113,7 @@ if ! echo "$updates" | grep -q "No updates available"; then
 elif echo "$updates" | grep -e "WARNING" -e "error" -e "No such file or directory" -e "Blocked executable" -e "failed to write-firmware"; then
   echo "==> An error has occured and firmware updates could not be installed correctly."
   echo "      Please check the console log for relevant errors."
+  echo "Please use the fwupd github page (https://github.com/fwupd/fwupd/wiki) to check for solutions to this error, or report any issues."
 fi
 echo
 
