@@ -110,6 +110,9 @@ if ! echo "$updates" | grep -q "No updates available"; then
     echo "Skipping updates. Updates can be run manually with 'fwupdmgr update'"
     ;;
   esac
+elif echo "$updates" | grep -e "WARNING" -e "error" -e "No such file or directory" -e "Blocked executable" -e "failed to write-firmware"; then
+  echo "==> An error has occured and firmware updates could not be installed correctly."
+  echo "      Please check the console log for relevant errors."
 fi
 echo
 
