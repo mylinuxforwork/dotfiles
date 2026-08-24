@@ -8,27 +8,27 @@
 
 # Check if command exists
 _checkCommandExists() {
-    command -v "$1" &> /dev/null
+  command -v "$1" &>/dev/null
 }
 
 _isInstalled() {
-    package="$1"
-    case $install_platform in
-        arch)
-            check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "${package} ")"
-            ;;
-        fedora)
-            check="$(dnf repoquery --quiet --installed ""${package}*"")"
-            ;;
-        *) ;;
-    esac
+  package="$1"
+  case $install_platform in
+  arch)
+    check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "${package} ")"
+    ;;
+  fedora)
+    check="$(dnf repoquery --quiet --installed ""${package}*"")"
+    ;;
+  *) ;;
+  esac
 
-    if [ -n "${check}" ]; then
-        echo 0 #'0' means 'true' in Bash
-        return #true
-    fi
-    echo 1 #'1' means 'false' in Bash
-    return #false
+  if [ -n "${check}" ]; then
+    echo 0 #'0' means 'true' in Bash
+    return #true
+  fi
+  echo 1 #'1' means 'false' in Bash
+  return #false
 }
 
 # ------------------------------------------------------
@@ -43,52 +43,74 @@ primarycolor=$(cat ~/.config/ml4w/colors/primary)
 onsurfacecolor=$(cat ~/.config/ml4w/colors/onsurface)
 onprimarycolor=$(cat ~/.config/ml4w/colors/onprimary)
 if gum confirm --selected.background=$primarycolor --selected.foreground=$onprimarycolor --prompt.foreground=$onsurfacecolor "DO YOU WANT TO START THE UPDATE NOW?"; then
-    echo
-    echo ":: Update started..."
+  echo
+  echo ":: Update started..."
 elif [ $? -eq 130 ]; then
-    exit 130
+  exit 130
 else
-    echo
-    echo ":: Update canceled."
-    exit
+  echo
+  echo ":: Update canceled."
+  exit
 fi
 
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Install update
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 
 # Arch
 if _checkCommandExists "pacman"; then
 
-    yay_installed="false"
-    paru_installed="false"
-    if _checkCommandExists "yay"; then
-        yay_installed="true"
-    fi
-    if _checkCommandExists "paru"; then
-        paru_installed="true"
-    fi
-    if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
-        yay
-    elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]]; then
-        paru -Syu --noconfirm
-    else
-        sudo pacman -Syu --noconfirm
-    fi
+  yay_installed="false"
+  paru_installed="false"
+  if _checkCommandExists "yay"; then
+    yay_installed="true"
+  fi
+  if _checkCommandExists "paru"; then
+    paru_installed="true"
+  fi
+  if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
+    yay
+  elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]]; then
+    paru -Syu --noconfirm
+  else
+    sudo pacman -Syu --noconfirm
+  fi
 
 # Fedora
 elif _checkCommandExists "dnf"; then
-    sudo dnf upgrade
+  sudo dnf upgrade
 else
-    echo ":: ERROR - Platform not supported"
-    echo "Press [ENTER] to close."
-    read
+  echo ":: ERROR - Platform not supported"
+  echo "Press [ENTER] to close."
+  read
 fi
 echo
 
 # Flatpak
 echo ":: Searching for Flatpak updates..."
 flatpak update
+echo
+
+# fwupd Firmware
+echo ":: Searching for Firmware updates..."
+fwupdmgr refresh
+updates=$(fwupdmgr get-updates 2>&1)
+echo "$updates"
+if ! echo "$updates" | grep -q "No updates available"; then
+  echo "Firmware updates available!"
+  echo
+  read -p "Do you want to install the available updates? Some updates may require a restart. (y/N) " -r choice
+
+  case "$choice" in
+  [yY] | [yY][eE][sS])
+    echo ":: Applying firmware updates..."
+    fwupdmgr update
+    ;;
+  *)
+    echo "Skipping updates. Updates can be run manually with 'fwupdmgr update'"
+    ;;
+  esac
+fi
 echo
 
 # Reload Waybar
