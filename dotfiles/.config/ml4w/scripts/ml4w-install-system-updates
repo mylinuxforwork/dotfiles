@@ -92,28 +92,30 @@ flatpak update
 echo
 
 # fwupd Firmware
-echo ":: Searching for Firmware updates..."
+echo ":: Searching for firmware updates..."
 fwupdmgr refresh
+
 updates=$(fwupdmgr get-updates 2>&1)
 echo "$updates"
-if ! echo "$updates" | grep -q "No updates available"; then
-    echo "Firmware updates available!"
-    echo
-    read -p "Do you want to install the available updates? Some updates may require a restart. (y/N) " -r choice
+# First check for common error patterns
+if echo "$updates" | grep --silent -e "WARNING:" -e "error" -e "No such file or directory" -e "Blocked executable" -e "failed to write-firmware"; then
+	echo 
+    echo "==> An error has occured and firmware updates could not be grabbed correctly. Please check the console log for relevant errors."
+    echo "Use the fwupd github page (https://github.com/fwupd/fwupd/wiki) to check for solutions to this error, or report any issues."
+elif ! echo "$updates" | grep -q "No updates available"; then
+	echo "==>Firmware updates available!"
+	echo
+	read -p "Do you want to install the available firmware updates? Some updates may require a restart. (y/N) " -r choice
 
-    case "$choice" in
-    [yY] | [yY][eE][sS])
-      echo ":: Applying firmware updates..."
-      fwupdmgr update
-      ;;
-    *)
-      echo "Skipping updates. Updates can be run manually with 'fwupdmgr update'"
-      ;;
-    esac
-elif echo "$updates" | grep --silent -e "WARNING" -e "error" -e "No such file or directory" -e "Blocked executable" -e "failed to write-firmware"; then
-    echo "==> An error has occured and firmware updates could not be installed correctly."
-    echo "      Please check the console log for relevant errors."
-    echo "Please use the fwupd github page (https://github.com/fwupd/fwupd/wiki) to check for solutions to this error, or report any issues."
+	case "$choice" in
+	    [yY] | [yY][eE][sS])
+		    echo ":: Applying firmware updates..."
+		    fwupdmgr update
+		    ;;
+	    *)
+		    echo "Skipping updates. Updates can be run manually with 'fwupdmgr update'"
+		    ;;
+	esac
 fi
 echo
 
