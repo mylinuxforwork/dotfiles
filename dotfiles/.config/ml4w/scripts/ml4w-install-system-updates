@@ -14,18 +14,18 @@ _checkCommandExists() {
 _isInstalled() {
     package="$1"
     case $install_platform in
-        arch)
-            check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "${package} ")"
-            ;;
-        fedora)
-            check="$(dnf repoquery --quiet --installed ""${package}*"")"
-            ;;
-        *) ;;
+    	arch)
+      		check="$($aur_helper -Qs --color always "${package}" | grep "local" | grep "${package} ")"
+      	;;
+    	fedora)
+      		check="$(dnf repoquery --quiet --installed ""${package}*"")"
+      	;;
+    	*) ;;
     esac
 
     if [ -n "${check}" ]; then
-        echo 0 #'0' means 'true' in Bash
-        return #true
+      	echo 0 #'0' means 'true' in Bash
+      	return #true
     fi
     echo 1 #'1' means 'false' in Bash
     return #false
@@ -53,9 +53,9 @@ else
     exit
 fi
 
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 # Install update
-# ----------------------------------------------------- 
+# -----------------------------------------------------
 
 # Arch
 if _checkCommandExists "pacman"; then
@@ -63,17 +63,17 @@ if _checkCommandExists "pacman"; then
     yay_installed="false"
     paru_installed="false"
     if _checkCommandExists "yay"; then
-        yay_installed="true"
+      	yay_installed="true"
     fi
     if _checkCommandExists "paru"; then
-        paru_installed="true"
+      	paru_installed="true"
     fi
     if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
-        yay
+      	yay
     elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]]; then
-        paru -Syu --noconfirm
+      	paru -Syu --noconfirm
     else
-        sudo pacman -Syu --noconfirm
+      	sudo pacman -Syu --noconfirm
     fi
 
 # Fedora
@@ -89,6 +89,34 @@ echo
 # Flatpak
 echo ":: Searching for Flatpak updates..."
 flatpak update
+echo
+
+# fwupd Firmware
+echo ":: Searching for firmware updates..."
+fwupdmgr refresh
+
+updates=$(fwupdmgr get-updates 2>&1)
+echo "$updates"
+# First check for common error patterns
+if echo "$updates" | grep --silent -e "WARNING:" -e "error" -e "No such file or directory" -e "Blocked executable" -e "failed to write-firmware"; then
+	echo 
+    echo "==> An error has occured and firmware updates could not be grabbed correctly. Please check the console log for relevant errors."
+    echo "Use the fwupd github page (https://github.com/fwupd/fwupd/wiki) to check for solutions to this error, or report any issues."
+elif ! echo "$updates" | grep -q "No updates available"; then
+	echo "==>Firmware updates available!"
+	echo
+	read -p "Do you want to install the available firmware updates? Some updates may require a restart. (y/N) " -r choice
+
+	case "$choice" in
+	    [yY] | [yY][eE][sS])
+		    echo ":: Applying firmware updates..."
+		    fwupdmgr update
+		    ;;
+	    *)
+		    echo "Skipping updates. Updates can be run manually with 'fwupdmgr update'"
+		    ;;
+	esac
+fi
 echo
 
 # Reload Waybar
