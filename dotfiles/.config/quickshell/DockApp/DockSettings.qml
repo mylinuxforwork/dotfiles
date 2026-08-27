@@ -15,15 +15,17 @@ Singleton {
     // Same two-file scheme as the status bar:
     //
     //   1. ~/.config/ml4w-dock/dock.json     — the user override. While this
-    //      file exists it is the master: every value is read from it and the
+    //      file exists it is the master: the values it defines win, and the
     //      pin/unpin actions write their changes back into it.
-    //   2. ~/.config/ml4w/settings/dock.json — the shipped fallback, used only
-    //      when the override is absent. It carries the dynamic state (enabled,
-    //      autohide and the pinned app list).
+    //   2. ~/.config/ml4w/settings/dock.json — the shipped fallback. It carries
+    //      the dynamic state (enabled, autohide and the pinned app list) and is
+    //      always read: values it defines apply unless the override overrides
+    //      them.
     //
-    // The master file is merged over the built-in defaults, so a partial or
-    // entirely missing file still leaves every value defined. DockApp/dock.json
-    // documents these defaults and must be kept in sync with them.
+    // Both files are merged over the built-in defaults — fallback first, master
+    // on top — so a partial or entirely missing file still leaves every value
+    // defined. DockApp/dock.json documents these defaults and must be kept in
+    // sync with them.
     readonly property var defaultSettings: ({
         "dock":   { "enabled": true, "autohide": false, "iconSize": 32,
                     "spacing": 8, "marginBottom": 10, "reserveSpace": true,
@@ -129,11 +131,17 @@ Singleton {
                     merged[group][key] = parsed[group][key]
     }
 
-    // Rebuild the settings object: built-in defaults with the master file merged
-    // on top. An explicit masterText can be passed (e.g. right after a write) so
-    // the merge does not depend on the FileView buffer having refreshed yet.
+    // Rebuild the settings object: built-in defaults, then the shipped fallback,
+    // then the master file on top. Merging the fallback underneath the override
+    // is what lets a partial override file (one that only carries the dock flags
+    // it writes back) keep using the shipped values — the pinned app list above
+    // all — instead of dropping to the built-in defaults. An explicit masterText
+    // can be passed (e.g. right after a write) so the merge does not depend on
+    // the FileView buffer having refreshed yet.
     function applySettings(masterText): void {
         let merged = JSON.parse(JSON.stringify(root.defaultSettings))
+        if (root.overrideExists)
+            mergeSettings(merged, settingsFile.text())
         let text = (masterText !== undefined) ? masterText : root.masterFile().text()
         mergeSettings(merged, text)
         root.settings = merged

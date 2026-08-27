@@ -2,14 +2,16 @@
 Default configuration file for the Quickshell Dock.
 
 This file documents the built-in defaults (kept in sync with defaultSettings in
-DockWindow.qml). The dock actually reads, in this order:
+DockSettings.qml). The dock actually reads, in this order:
 
-  1. ~/.config/ml4w-dock/dock.json        — user override, master when present
-  2. ~/.config/ml4w/settings/dock.json    — shipped fallback, holds the dynamic
+  1. ~/.config/ml4w/settings/dock.json    — shipped fallback, holds the dynamic
                                             state (enabled / autohide / pinned)
+  2. ~/.config/ml4w-dock/dock.json        — user override, merged on top when
+                                            present
 
-The master file is merged over the built-in defaults, so a partial file still
-leaves every value defined.
+Both are merged over the built-in defaults, so a partial file still leaves every
+value defined. The built-in pinned list is empty; the entries below mirror the
+shipped ml4w/settings/dock.json.
 */
 {
     "dock": {
