@@ -8,28 +8,45 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("~/.config/ml4w/settings/filemanager"
 hl.bind(mainMod .. " + CTRL + E", hl.dsp.exec_cmd("~/.config/ml4w/settings/emojipicker.sh"), { description = "Open the emoji picker" })
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("~/.config/ml4w/settings/calculator.sh"), { description = "Open the calculator" })
 
--- fr keyboard layout setup
-local is_fr = false
-local f = io.open(os.getenv("HOME") .. "/.config/hypr/input.lua", "r")
-if f then
+-- AZERTY keyboard layout setup
+-- On AZERTY the number row needs Shift, so Hyprland sees the unshifted
+-- keysyms instead of the digits. Map workspace 1-10 to those keysyms.
+local azerty_keys = {
+    fr = { "ampersand", "eacute", "quotedbl", "apostrophe", "parenleft",
+           "minus", "egrave", "underscore", "ccedilla", "agrave" },
+    be = { "ampersand", "eacute", "quotedbl", "apostrophe", "parenleft",
+           "section", "egrave", "exclam", "ccedilla", "agrave" },
+}
+
+-- Variants of the layouts above that are not AZERTY
+local non_azerty_variants = {
+    fr = { us = true, bepo = true, bepo_afnor = true, dvorak = true },
+    be = { wang = true },
+}
+
+local function detect_azerty()
+    local f = io.open(os.getenv("HOME") .. "/.config/hypr/input.lua", "r")
+    if not f then return nil end
     local content = f:read("*all")
-    if content:match('kb_layout%s*=%s*"fr"') and not content:match('kb_variant%s*=%s*"us"') then
-        is_fr = true
-    end
     f:close()
+
+    -- kb_layout may be a list ("be,us"); the first entry is the primary one
+    local layout = content:match('kb_layout%s*=%s*"([^",]*)')
+    local variant = content:match('kb_variant%s*=%s*"([^",]*)') or ""
+    if not layout then return nil end
+    layout = layout:lower():gsub("%s", "")
+    variant = variant:lower():gsub("%s", "")
+
+    local excluded = non_azerty_variants[layout]
+    if excluded and excluded[variant] then return nil end
+    return azerty_keys[layout]
 end
 
-local fr_keys = {
-    "ampersand", "eacute", "quotedbl", "apostrophe", "parenleft",
-    "minus", "egrave", "underscore", "ccedilla", "agrave"
-}
+local ws_keys = detect_azerty()
 
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
-    if is_fr then
-        key = fr_keys[i]
-    end
+    local key = ws_keys and ws_keys[i] or (i % 10) -- 10 maps to key 0
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}), { description = "Focus workspace " .. i })
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }), { description = "Move window to workspace " .. i })
 end
