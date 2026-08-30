@@ -44,16 +44,6 @@ hl.window_rule({
     size = "900 600"
 })
 
--- Waypaper
-hl.window_rule({
-    name = "waypaper",
-    match = {class = ".*waypaper.*"},    
-    float = true,
-    center = true,
-    pin = true,
-    size = "900 700"
-})
-
 -- Newelle
 hl.window_rule({
     name = "newelle",
