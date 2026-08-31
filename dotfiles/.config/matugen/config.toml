@@ -74,7 +74,7 @@ output_path = "~/.local/share/ml4w-dotfiles-settings/colors/colors.json"
 
 [templates.quickshell_overview]
 input_path  = "./templates/quickshell-overview.qml"
-output_path = "~/.config/quickshell/overview/common/Appearance.colors.qml"
+output_path = "~/.local/share/quickshell-overview/common/Appearance.colors.qml"
 
 [templates.ohmyposh]
 input_path = '~/.config/matugen/templates/ohmyposh-colors.json'

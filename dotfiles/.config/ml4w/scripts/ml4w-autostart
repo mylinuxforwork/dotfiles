@@ -84,7 +84,7 @@ info "ML4W Dotfiles Settings started"
 
 # Start Quickshell Overview
 info "Starting Quickshell Overview"
-qs -p $HOME/.config/quickshell/overview &
+qs -p $HOME/.local/share/quickshell-overview &
 info "Quickshell Overview started"
 
 # Start ML4W Welcome App
