@@ -452,25 +452,69 @@ FloatingWindow {
                         }
                     }
 
-                    Button {
+                    RowLayout {
                         Layout.alignment: Qt.AlignHCenter
                         Layout.topMargin: 15
-                        text: "All keybindings"
+                        spacing: 8
 
-                        onClicked: {
-                            Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/keybindings.sh"])
+                        Button {
+                            text: "Input"
+
+                            onClicked: {
+                                Quickshell.execDetached(["gnome-text-editor", Quickshell.env("HOME") + "/.config/hypr/input.lua"])
+                            }
+
+                            background: Rectangle {
+                                color: "transparent"
+                                border.color: Theme.primary
+                                radius: 10
+                            }
+                            contentItem: Text {
+                                text: parent.text
+                                font.family: Theme.fontFamily
+                                color: Theme.primary
+                                padding: 8
+                            }
                         }
 
-                        background: Rectangle {
-                            color: "transparent"
-                            border.color: Theme.primary
-                            radius: 10
+                        Button {
+                            text: "Monitors"
+
+                            onClicked: {
+                                Quickshell.execDetached(["nwg-displays"])
+                            }
+
+                            background: Rectangle {
+                                color: "transparent"
+                                border.color: Theme.primary
+                                radius: 10
+                            }
+                            contentItem: Text {
+                                text: parent.text
+                                font.family: Theme.fontFamily
+                                color: Theme.primary
+                                padding: 8
+                            }
                         }
-                        contentItem: Text {
-                            text: parent.text
-                            font.family: Theme.fontFamily
-                            color: Theme.primary
-                            padding: 8
+
+                        Button {
+                            text: "All keybindings"
+
+                            onClicked: {
+                                Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/keybindings.sh"])
+                            }
+
+                            background: Rectangle {
+                                color: "transparent"
+                                border.color: Theme.primary
+                                radius: 10
+                            }
+                            contentItem: Text {
+                                text: parent.text
+                                font.family: Theme.fontFamily
+                                color: Theme.primary
+                                padding: 8
+                            }
                         }
                     }
                 }
