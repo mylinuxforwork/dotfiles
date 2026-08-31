@@ -9,7 +9,13 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 # ML4W Settings App
 # --------------------------------------------------------------
 
-bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-settings/main/setup.sh)
+curl -sSL https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-settings/main/setup.sh | bash
+
+# --------------------------------------------------------------
+# Quickshell Overview
+# --------------------------------------------------------------
+
+curl -sSL https://raw.githubusercontent.com/mylinuxforwork/ml4w-quickshell-overview/main/install.sh | bash
 
 # --------------------------------------------------------------
 # Pipx
