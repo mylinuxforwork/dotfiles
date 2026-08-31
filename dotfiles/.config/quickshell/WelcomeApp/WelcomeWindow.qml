@@ -34,6 +34,13 @@ FloatingWindow {
         onLoadFailed: root.version = ""
     }
 
+    // Re-read version.json every time the window is shown, so an update that
+    // happened while the window was hidden is picked up.
+    onVisibleChanged: {
+        if (root.visible)
+            versionFile.reload()
+    }
+
     IpcHandler {
         target: "welcome"
         function toggle(): void {
