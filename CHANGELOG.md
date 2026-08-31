@@ -1,3 +1,9 @@
+Version 2.16
+--------------------------------------------------------
+- Add Blue Light Filter toggle switch to sidebar in addition to SUPER + SHIFT + H
+- New quickshell windows installation script added. Using the latest version from GitHub
+- Welcome app is now using the version information from ~/.config/ml4w/version.json
+
 Version 2.15.1
 --------------------------------------------------------
 - Add statusbar autohide switch to Sidebar. Can also be toggled with keybinding SUPER + ALT + B
