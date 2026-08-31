@@ -16,6 +16,31 @@ FloatingWindow {
     // --- Guard property for the flatpak app ---
     property bool isHyprlandSettingsInstalled: false
 
+    // --- Version read from the shipped version.json ---
+    property string version: ""
+
+    FileView {
+        id: versionFile
+        path: Quickshell.env("HOME") + "/.config/ml4w/version.json"
+        blockLoading: true
+        printErrors: false
+        onLoaded: {
+            try {
+                root.version = JSON.parse(this.text()).Version || ""
+            } catch (e) {
+                root.version = ""
+            }
+        }
+        onLoadFailed: root.version = ""
+    }
+
+    // Re-read version.json every time the window is shown, so an update that
+    // happened while the window was hidden is picked up.
+    onVisibleChanged: {
+        if (root.visible)
+            versionFile.reload()
+    }
+
     IpcHandler {
         target: "welcome"
         function toggle(): void {
@@ -333,7 +358,8 @@ FloatingWindow {
 
                     Text {
                         Layout.alignment: Qt.AlignHCenter
-                        text: "Version 2.15.1"
+                        text: "Version " + root.version
+                        visible: root.version !== ""
                         font.family: Theme.fontFamily
                         font.pixelSize: 16
                         color: Theme.on_background
