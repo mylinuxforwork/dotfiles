@@ -20,6 +20,7 @@ PanelWindow {
     color: "transparent"
 
     property bool isHyprlandSettingsInstalled: false
+    property bool isHyprsunsetInstalled: false
 
     anchors {
         right: true
@@ -84,6 +85,17 @@ PanelWindow {
             onStreamFinished: {
                 console.log(this.text.trim())
                 root.isHyprlandSettingsInstalled = (this.text.trim() === "0")
+            }
+        }
+    }
+
+    Process {
+        command: ["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-command-exists hyprsunset"]
+        running: root.visible
+
+        stdout: StdioCollector {
+            onStreamFinished: {
+                root.isHyprsunsetInstalled = (this.text.trim() === "0")
             }
         }
     }
@@ -488,6 +500,58 @@ PanelWindow {
                                     border.width: 1
                                 }
                             }
+                        }
+
+                        // BLUE LIGHT FILTER (HYPRSUNSET) TOGGLE
+                        // Temporary status switch mirroring the SUPER+SHIFT+H
+                        // keybinding: it just starts/kills hyprsunset, nothing
+                        // is persisted, so the state is gone after a restart.
+                        RowLayout {
+                            Layout.fillWidth: true
+                            visible: root.isHyprsunsetInstalled
+
+                            Text {
+                                text: "Blue Light Filter"
+                                color: Theme.primary
+                                font.family: Theme.fontFamily
+                                font.pixelSize: 16
+                            }
+                            Item { Layout.fillWidth: true }
+                            ML4WSwitch {
+                                id: hyprsunsetSwitch
+                                property bool ready: false
+                                // The running process is the only state there is.
+                                Process {
+                                    id: hyprsunsetStateProc
+                                    command: ["bash", "-c", "pgrep -x hyprsunset > /dev/null && echo 1 || echo 0"]
+                                    stdout: StdioCollector {
+                                        onStreamFinished: {
+                                            hyprsunsetSwitch.checked = (this.text.trim() === "1")
+                                            hyprsunsetSwitch.ready = true
+                                        }
+                                    }
+                                }
+                                // Re-read while the sidebar is open so the switch
+                                // tracks external toggles (the keybinding) live.
+                                Timer {
+                                    interval: 1000
+                                    repeat: true
+                                    running: root.isOpen
+                                    triggeredOnStart: true
+                                    onTriggered: hyprsunsetStateProc.running = true
+                                }
+                                onClicked: {
+                                    if (!ready) return;
+                                    // Absolute command matching the switch's
+                                    // post-click position instead of a blind
+                                    // toggle, so it can't get out of sync.
+                                    let cmd = checked
+                                        ? "pgrep -x hyprsunset > /dev/null || setsid -f hyprsunset > /dev/null 2>&1"
+                                        : "pkill -x hyprsunset"
+                                    Quickshell.execDetached(["bash", "-c", cmd])
+                                }
+                            }
+                            Item { implicitWidth: 28 }
                         }
                     }
 
