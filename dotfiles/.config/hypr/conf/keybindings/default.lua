@@ -110,6 +110,9 @@ hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd("~/.config/ml4w/scripts/ml4w-p
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.exec_cmd("~/.config/ml4w/scripts/ml4w-toggle-hyprsunset"), { description = "Toggle Hyprsunset" })
 hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd("qs -p ~/.local/share/quickshell-overview ipc call overview toggle"), { description = "Open Select Window Menu" })
 hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd("~/.config/ml4w/themes/themes.sh"), { description = "Open Select Window Menu" })
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("~/.config/hypr/scripts/screen-filter.sh"), { description = "Cycle screen color filters" })
+hl.bind(mainMod .. " + CTRL + N", hl.dsp.exec_cmd("~/.config/hypr/scripts/screen-filter.sh --menu"), { description = "Open screen filter menu" })
+hl.bind(mainMod .. " + ALT + N", hl.dsp.exec_cmd("~/.config/hypr/scripts/screen-filter.sh off"), { description = "Disable screen color filters" })
 
 -- Special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("scratchpad"), { description = "Toggle special workspace scratchpad" })
