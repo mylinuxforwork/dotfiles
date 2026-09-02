@@ -53,4 +53,7 @@ hl.on("hyprland.start", function ()
 
     -- Start autostart cleanup
     hl.exec_cmd("~/.config/hypr/scripts/cleanup.sh")
+
+    -- Restore screen filter
+    hl.exec_cmd("~/.config/hypr/scripts/screen-filter.sh restore")
 end)
