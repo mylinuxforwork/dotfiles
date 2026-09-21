@@ -9,7 +9,7 @@ Rectangle {
     id: tray
 
     // Draws the chip (the rounded plate behind the icons). Supplied from
-    // statusbar.json.
+    // config.json.
     //
     // Tray icons are handed over by the applications themselves — either as a
     // themed icon name or as a raw pixmap over D-Bus — so the bar cannot

@@ -26,7 +26,7 @@ Scope {
         function autohideToggle(): void {
             DockSettings.setAutohide(!DockSettings.autohide)
         }
-        // Re-read dock.json from disk and apply the changes.
+        // Re-read config.json from disk and apply the changes.
         function reload(): void { DockSettings.reloadSettings() }
     }
 

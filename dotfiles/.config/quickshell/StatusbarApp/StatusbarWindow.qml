@@ -32,18 +32,22 @@ PanelWindow {
     }
 
     // --- USER SETTINGS ---
-    // One of two files is the "master" that feeds the settings object below:
+    // One settings file, the usual place for a Linux app's own config:
     //
-    //   1. ~/.config/ml4w-statusbar/statusbar.json — the user override. When this
-    //      file EXISTS it is the master: every value is read from it and the
-    //      Sidebar switches write their changes (enabled / alwaysExpanded) back
-    //      into it. The shipped file is ignored while it exists.
-    //   2. ~/.config/ml4w/settings/statusbar.json — the shipped fallback, used
-    //      only when the override file is absent. It carries the dynamic state
-    //      the SidebarApp writes (bar.enabled and bar.alwaysExpanded).
+    //   ~/.config/ml4w-statusbar/config.json
     //
-    // The active master file is merged over the built-in defaults, so a partial
-    // or entirely missing file still leaves every value defined.
+    // It is created (empty) on first start if it does not exist yet, and is
+    // seeded from one of its former locations —
+    // ~/.config/ml4w-statusbar/statusbar.json, then
+    // ~/.config/ml4w/settings/statusbar.json — when one is still around, so an
+    // existing setup keeps its flags.
+    //
+    // The file is merged over the built-in defaults, so a partial or entirely
+    // empty file still leaves every value defined — which is what lets the user
+    // edit it by hand and only write down what they want to change. Everything
+    // the bar writes itself (enabled, alwaysExpanded, autohide) goes into the
+    // same file. StatusbarApp/config.json documents these defaults and must be
+    // kept in sync with them.
     readonly property var defaultSettings: ({
         "bar":    { "height": 40, "reservedHeight": 72, "enabled": true,
                     "alwaysExpanded": true, "autohide": false, "hideDelay": 400 },
@@ -60,71 +64,73 @@ PanelWindow {
 
     property var settings: defaultSettings
 
-    // True while the user override file is present. Decides which file is the
-    // master for both reads (applySettings) and writes (setEnabled /
-    // setAlwaysExpanded).
-    property bool overrideExists: false
-
-    // Both settings files have reported back (loaded or missing), so `settings`
-    // holds the values from disk rather than the built-in defaults.
+    // The settings file has reported back (loaded, or missing and created), so
+    // `settings` holds the values from disk rather than the built-in defaults.
     //
     // The window stays invisible until then, so the layer surface is created
-    // once with the values from disk. The files report asynchronously, so
+    // once with the values from disk. The file reports asynchronously, so
     // without the gate the bar is mapped from the defaults — autohide off, space
     // reserved — and only corrects itself a moment later. Hyprland does not
     // reliably pick up the exclusive zone dropping back to 0 that soon after the
     // layer surface is created, which would leave an autohiding bar holding a
     // 52px gap open at the top of the screen for the session.
-    readonly property bool ready: overrideResolved && settingsResolved
-    property bool overrideResolved: false
-    property bool settingsResolved: false
+    property bool ready: false
 
-    // User override / master file. When it loads it becomes the source of truth;
-    // when it is absent (loadFailed) the shipped file takes over. printErrors is
-    // off so a missing override does not log an error on every startup/reload.
-    FileView {
-        id: overrideFile
-        path: Quickshell.env("HOME") + "/.config/ml4w-statusbar/statusbar.json"
-        blockLoading: true
-        printErrors: false
-        // The resolved flags are set last, after the values are in place: they
-        // release the `ready` gate below, and a binding fires the moment it is
-        // assigned.
-        onLoaded: {
-            root.overrideExists = true
-            root.applySettings()
-            root.overrideResolved = true
-        }
-        onLoadFailed: {
-            root.overrideExists = false
-            root.applySettings()
-            root.overrideResolved = true
-        }
-    }
+    // Guards the create/migrate pass below so a file that cannot be written
+    // (read-only home, no permissions) does not retry on every reload.
+    property bool seeded: false
 
-    // Shipped fallback holding the dynamic state (enabled / alwaysExpanded), used
-    // only when the override file is absent. Changes are not picked up
-    // automatically; trigger a re-read explicitly with
+    // The settings file. Changes made by hand are not picked up automatically;
+    // trigger a re-read explicitly with
     //   qs ipc call statusbar reload
+    // printErrors is off so a missing file does not log an error before it has
+    // been created.
     FileView {
         id: settingsFile
-        path: Quickshell.env("HOME") + "/.config/ml4w/settings/statusbar.json"
+        path: Quickshell.env("HOME") + "/.config/ml4w-statusbar/config.json"
         blockLoading: true
-        onLoaded: { root.applySettings(); root.settingsResolved = true }
-        onLoadFailed: { root.applySettings(); root.settingsResolved = true }
+        printErrors: false
+        // `ready` is set last, after the values are in place: it releases the
+        // gate below, and a binding fires the moment it is assigned.
+        onLoaded: { root.applySettings(); root.ready = true }
+        onLoadFailed: {
+            // First miss: create the file, then come back through reload().
+            // Qt.callLater because this can fire while the component is still
+            // being built, before seedProc exists.
+            if (!root.seeded) {
+                root.seeded = true
+                Qt.callLater(function() { seedProc.running = true })
+                return
+            }
+            root.applySettings()
+            root.ready = true
+        }
     }
 
-    // The active master file: the override when it exists, otherwise the shipped
-    // file. The Sidebar switches write here and applySettings reads from here.
-    function masterFile() {
-        return root.overrideExists ? overrideFile : settingsFile
+    // Creates ~/.config/ml4w-statusbar/config.json when it is missing — FileView
+    // only writes files, it does not create the directory holding them. The
+    // file's former locations are migrated when present, so an existing
+    // installation keeps its settings: the old name in the same directory is
+    // renamed, the shipped ml4w/settings file is copied (that directory is not
+    // ours to change). Failing both, an empty document is written for the user
+    // to fill in.
+    Process {
+        id: seedProc
+        command: ["bash", "-c",
+            'd="$HOME/.config/ml4w-statusbar"; f="$d/config.json";'
+            + ' mkdir -p "$d" || exit 1;'
+            + ' [ -f "$f" ] && exit 0;'
+            + ' [ -f "$d/statusbar.json" ] && exec mv "$d/statusbar.json" "$f";'
+            + ' o="$HOME/.config/ml4w/settings/statusbar.json";'
+            + ' if [ -f "$o" ]; then cp "$o" "$f";'
+            + ' else printf "{\\n}\\n" > "$f"; fi']
+        onExited: settingsFile.reload()
     }
 
-    // Force a re-read of both settings files and re-apply them. reload()
-    // refreshes each FileView from disk (re-firing onLoaded/onLoadFailed, which
-    // re-runs applySettings with an up-to-date overrideExists).
+    // Force a re-read of the settings file and re-apply it. reload() refreshes
+    // the FileView from disk (re-firing onLoaded/onLoadFailed, which re-runs
+    // applySettings).
     function reloadSettings(): void {
-        overrideFile.reload()
         settingsFile.reload()
         applySettings()
     }
@@ -146,7 +152,8 @@ PanelWindow {
                 // Tolerate trailing commas: ",}" / ",]" (optional whitespace).
                 return JSON.parse(raw.replace(/,(\s*[}\]])/g, "$1"))
             } catch (e2) {
-                console.warn("statusbar settings: could not parse a file,"
+                console.warn("statusbar settings: could not parse the settings"
+                    + " file,"
                     + " ignoring it:", e2)
                 return undefined
             }
@@ -166,27 +173,25 @@ PanelWindow {
                     merged[group][key] = parsed[group][key]
     }
 
-    // Rebuild the settings object: the built-in defaults with the master file
-    // merged on top. An explicit masterText can be passed (e.g. right after a
-    // switch writes the master file) so the merge does not depend on the FileView
-    // buffer having refreshed yet.
-    function applySettings(masterText): void {
+    // Rebuild the settings object: the built-in defaults with the settings file
+    // merged on top. An explicit text can be passed (e.g. right after a switch
+    // writes the file) so the merge does not depend on the FileView buffer having
+    // refreshed yet.
+    function applySettings(text): void {
         let merged = JSON.parse(JSON.stringify(root.defaultSettings))
-        let text = (masterText !== undefined) ? masterText : root.masterFile().text()
-        mergeSettings(merged, text)
+        mergeSettings(merged, (text !== undefined) ? text : settingsFile.text())
         root.settings = merged
     }
 
-    // Persist a bar.<key> boolean into the master file and return the updated
+    // Persist a bar.<key> boolean into the settings file and return the updated
     // text. A regex replace is used when the key is already present (so the
-    // file's formatting/comments are kept); when the key is missing (e.g. an
-    // override file that did not list it) it falls back to a JSON rewrite of the
-    // parsed document. If the file cannot be parsed at all the write is skipped
-    // rather than replaced with an empty object, so a malformed hand-edited
-    // override is never wiped — its current text is returned unchanged.
+    // file's formatting/comments are kept); when the key is missing (e.g. a file
+    // that did not list it) it falls back to a JSON rewrite of the parsed
+    // document. If the file cannot be parsed at all the write is skipped rather
+    // than replaced with an empty object, so a malformed hand-edited file is
+    // never wiped — its current text is returned unchanged.
     function persistBarFlag(key, on): string {
-        let file = root.masterFile()
-        let src = file.text()
+        let src = settingsFile.text()
         let re = new RegExp('("' + key + '"\\s*:\\s*)(true|false)')
         let updated
         if (re.test(src)) {
@@ -195,7 +200,8 @@ PanelWindow {
             let obj = root.parseSettings(src)
             if (obj === undefined && src && src.trim() !== "") {
                 // Unparseable and non-empty: don't destroy the user's file.
-                console.warn("statusbar settings: master file is not valid"
+                console.warn("statusbar settings: the settings file is not"
+                    + " valid"
                     + " JSON; leaving it untouched instead of overwriting.")
                 return src
             }
@@ -206,7 +212,7 @@ PanelWindow {
             obj.bar[key] = on
             updated = JSON.stringify(obj, null, 4) + "\n"
         }
-        file.setText(updated)
+        settingsFile.setText(updated)
         return updated
     }
 
@@ -214,7 +220,7 @@ PanelWindow {
     // Constant vertical space reserved for the bar (windows tile below this).
     property int reservedHeight: settings.bar.reservedHeight
 
-    // Whether the bar is shown. The "enabled" flag in statusbar.json is the
+    // Whether the bar is shown. The "enabled" flag in config.json is the
     // single source of truth; it is toggled from the SidebarApp switch and via
     // "qs ipc call statusbar toggle", persisted back to the file, and survives
     // restarts. Kept as a binding so a settings reload updates it for free.
@@ -230,8 +236,8 @@ PanelWindow {
     readonly property int windowGap: 16
     exclusiveZone: (barEnabled && !autohide) ? reservedHeight - windowGap : 0
 
-    // Persist the enabled state into the master file (override when present,
-    // otherwise the shipped file) and apply it. applySettings re-parses the
+    // Persist the enabled state into the settings file and apply it.
+    // applySettings re-parses the
     // updated text, which updates settings.bar.enabled and therefore the
     // barEnabled binding above.
     function setEnabled(on: bool): void {
@@ -244,20 +250,20 @@ PanelWindow {
     // focus grab is released because the user interacted with another window.
     property bool barExpanded: false
 
-    // When set in statusbar.json the pill never collapses: it stays in its
+    // When set in config.json the pill never collapses: it stays in its
     // expanded (full-width) state independent of hover or the IPC toggle. This
     // is purely visual — unlike barExpanded it does not grab the keyboard — so
     // the left/right module areas remain permanently visible.
     property bool alwaysExpanded: settings.bar.alwaysExpanded
 
-    // Persist the alwaysExpanded state into the master file and apply it.
+    // Persist the alwaysExpanded state into the settings file and apply it.
     // Mirrors setEnabled.
     function setAlwaysExpanded(on: bool): void {
         applySettings(persistBarFlag("alwaysExpanded", on))
     }
 
     // --- AUTOHIDE ---
-    // When "autohide" is set in statusbar.json the bar slides up out of the
+    // When "autohide" is set in config.json the bar slides up out of the
     // screen and comes back only while the pointer is on it (or in the hot zone
     // at the very top of the screen), while it holds the keyboard for navigation
     // (SUPER + SPACE), and while a tray menu is open. A hiding bar reserves no
@@ -265,7 +271,7 @@ PanelWindow {
     // switch and via "qs ipc call statusbar autohideToggle".
     property bool autohide: settings.bar.autohide
 
-    // Persist the autohide state into the master file and apply it. Mirrors
+    // Persist the autohide state into the settings file and apply it. Mirrors
     // setEnabled.
     function setAutohide(on: bool): void {
         applySettings(persistBarFlag("autohide", on))
@@ -493,7 +499,7 @@ PanelWindow {
         function autohideToggle(): void {
             root.setAutohide(!root.settings.bar.autohide)
         }
-        // Re-read statusbar.json from disk (used by the SidebarApp switch).
+        // Re-read config.json from disk (used by the SidebarApp switch).
         function refresh(): void { root.reloadSettings() }
         // Expand the bar (if needed) and grab the keyboard for navigation.
         // Bound to SUPER + SPACE. Idempotent: when the bar is already expanded
@@ -506,7 +512,7 @@ PanelWindow {
         // Toggle between collapsed and expanded mode.
         function expand(): void { root.barExpanded = !root.barExpanded }
         function collapse(): void { root.barExpanded = false }
-        // Re-read statusbar.json and apply the changes.
+        // Re-read config.json and apply the changes.
         function reload(): void { root.reloadSettings() }
     }
 

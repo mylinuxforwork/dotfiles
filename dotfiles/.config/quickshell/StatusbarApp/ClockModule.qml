@@ -8,7 +8,7 @@ Item {
 
     // Set by the parent: when true the date is revealed and the time shifts up.
     property bool expanded: false
-    // Qt date/time format for the time, supplied from statusbar.json.
+    // Qt date/time format for the time, supplied from config.json.
     property string timeFormat: "HH:mm"
     // Qt date/time format for the date shown below the time when expanded.
     property string dateFormat: "ddd, dd MMM"
