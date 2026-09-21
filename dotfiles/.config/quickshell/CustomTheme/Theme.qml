@@ -9,6 +9,11 @@ QtObject {
     // Static properties
     readonly property string fontFamily: "Fira Sans Semibold"
     
+    // True while the loaded palette is a light one. Derived from the palette
+    // itself rather than read from the GTK preference, so it updates atomically
+    // with reloadTheme() and stays correct for any hand-written colors.json.
+    readonly property bool isLight: background.hslLightness > 0.5
+
     // Dynamic color properties
     property color background: "#1a1110"
     property color error: "#ffb4ab"
