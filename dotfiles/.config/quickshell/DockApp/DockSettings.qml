@@ -14,17 +14,18 @@ Singleton {
 
     // One settings file, the usual place for a Linux app's own config:
     //
-    //   ~/.config/ml4w-dock/dock.json
+    //   ~/.config/ml4w-dock/config.json
     //
     // It is created (empty) on first start if it does not exist yet, and is
-    // seeded from the former ~/.config/ml4w/settings/dock.json when that file
-    // is still around, so an existing setup keeps its pins and flags.
+    // seeded from one of its former locations — ~/.config/ml4w-dock/dock.json,
+    // then ~/.config/ml4w/settings/dock.json — when one is still around, so an
+    // existing setup keeps its pins and flags.
     //
     // The file is merged over the built-in defaults, so a partial or entirely
     // empty file still leaves every value defined — which is what lets the user
     // edit it by hand and only write down what they want to change. Everything
     // the dock writes itself (enabled, autohide, the pinned app list) goes into
-    // the same file. DockApp/dock.json documents these defaults and must be
+    // the same file. DockApp/config.json documents these defaults and must be
     // kept in sync with them.
     readonly property var defaultSettings: ({
         "dock":   { "enabled": true, "autohide": false, "iconSize": 32,
@@ -58,7 +59,7 @@ Singleton {
 
     FileView {
         id: settingsFile
-        path: Quickshell.env("HOME") + "/.config/ml4w-dock/dock.json"
+        path: Quickshell.env("HOME") + "/.config/ml4w-dock/config.json"
         blockLoading: true
         printErrors: false
         // `ready` is set last, after the values are in place: it releases
@@ -78,17 +79,19 @@ Singleton {
         }
     }
 
-    // Creates ~/.config/ml4w-dock/dock.json when it is missing — FileView only
-    // writes files, it does not create the directory holding them. The former
-    // ~/.config/ml4w/settings/dock.json is copied over when present so an
-    // existing installation keeps its settings; otherwise an empty document is
-    // written for the user to fill in.
+    // Creates ~/.config/ml4w-dock/config.json when it is missing — FileView only
+    // writes files, it does not create the directory holding them. The file's
+    // former locations are migrated when present, so an existing installation
+    // keeps its settings: the old name in the same directory is renamed, the
+    // shipped ml4w/settings file is copied (that directory is not ours to
+    // change). Failing both, an empty document is written for the user to fill.
     Process {
         id: seedProc
         command: ["bash", "-c",
-            'd="$HOME/.config/ml4w-dock"; f="$d/dock.json";'
+            'd="$HOME/.config/ml4w-dock"; f="$d/config.json";'
             + ' mkdir -p "$d" || exit 1;'
             + ' [ -f "$f" ] && exit 0;'
+            + ' [ -f "$d/dock.json" ] && exec mv "$d/dock.json" "$f";'
             + ' o="$HOME/.config/ml4w/settings/dock.json";'
             + ' if [ -f "$o" ]; then cp "$o" "$f";'
             + ' else printf "{\\n}\\n" > "$f"; fi']

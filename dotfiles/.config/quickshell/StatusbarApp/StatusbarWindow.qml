@@ -34,18 +34,20 @@ PanelWindow {
     // --- USER SETTINGS ---
     // One settings file, the usual place for a Linux app's own config:
     //
-    //   ~/.config/ml4w-statusbar/statusbar.json
+    //   ~/.config/ml4w-statusbar/config.json
     //
     // It is created (empty) on first start if it does not exist yet, and is
-    // seeded from the former ~/.config/ml4w/settings/statusbar.json when that
-    // file is still around, so an existing setup keeps its flags.
+    // seeded from one of its former locations —
+    // ~/.config/ml4w-statusbar/statusbar.json, then
+    // ~/.config/ml4w/settings/statusbar.json — when one is still around, so an
+    // existing setup keeps its flags.
     //
     // The file is merged over the built-in defaults, so a partial or entirely
     // empty file still leaves every value defined — which is what lets the user
     // edit it by hand and only write down what they want to change. Everything
     // the bar writes itself (enabled, alwaysExpanded, autohide) goes into the
-    // same file. StatusbarApp/statusbar.json documents these defaults and must
-    // be kept in sync with them.
+    // same file. StatusbarApp/config.json documents these defaults and must be
+    // kept in sync with them.
     readonly property var defaultSettings: ({
         "bar":    { "height": 40, "reservedHeight": 72, "enabled": true,
                     "alwaysExpanded": true, "autohide": false, "hideDelay": 400 },
@@ -85,7 +87,7 @@ PanelWindow {
     // been created.
     FileView {
         id: settingsFile
-        path: Quickshell.env("HOME") + "/.config/ml4w-statusbar/statusbar.json"
+        path: Quickshell.env("HOME") + "/.config/ml4w-statusbar/config.json"
         blockLoading: true
         printErrors: false
         // `ready` is set last, after the values are in place: it releases the
@@ -105,17 +107,20 @@ PanelWindow {
         }
     }
 
-    // Creates ~/.config/ml4w-statusbar/statusbar.json when it is missing —
-    // FileView only writes files, it does not create the directory holding them.
-    // The former ~/.config/ml4w/settings/statusbar.json is copied over when
-    // present so an existing installation keeps its settings; otherwise an empty
-    // document is written for the user to fill in.
+    // Creates ~/.config/ml4w-statusbar/config.json when it is missing — FileView
+    // only writes files, it does not create the directory holding them. The
+    // file's former locations are migrated when present, so an existing
+    // installation keeps its settings: the old name in the same directory is
+    // renamed, the shipped ml4w/settings file is copied (that directory is not
+    // ours to change). Failing both, an empty document is written for the user
+    // to fill in.
     Process {
         id: seedProc
         command: ["bash", "-c",
-            'd="$HOME/.config/ml4w-statusbar"; f="$d/statusbar.json";'
+            'd="$HOME/.config/ml4w-statusbar"; f="$d/config.json";'
             + ' mkdir -p "$d" || exit 1;'
             + ' [ -f "$f" ] && exit 0;'
+            + ' [ -f "$d/statusbar.json" ] && exec mv "$d/statusbar.json" "$f";'
             + ' o="$HOME/.config/ml4w/settings/statusbar.json";'
             + ' if [ -f "$o" ]; then cp "$o" "$f";'
             + ' else printf "{\\n}\\n" > "$f"; fi']
@@ -215,7 +220,7 @@ PanelWindow {
     // Constant vertical space reserved for the bar (windows tile below this).
     property int reservedHeight: settings.bar.reservedHeight
 
-    // Whether the bar is shown. The "enabled" flag in statusbar.json is the
+    // Whether the bar is shown. The "enabled" flag in config.json is the
     // single source of truth; it is toggled from the SidebarApp switch and via
     // "qs ipc call statusbar toggle", persisted back to the file, and survives
     // restarts. Kept as a binding so a settings reload updates it for free.
@@ -245,7 +250,7 @@ PanelWindow {
     // focus grab is released because the user interacted with another window.
     property bool barExpanded: false
 
-    // When set in statusbar.json the pill never collapses: it stays in its
+    // When set in config.json the pill never collapses: it stays in its
     // expanded (full-width) state independent of hover or the IPC toggle. This
     // is purely visual — unlike barExpanded it does not grab the keyboard — so
     // the left/right module areas remain permanently visible.
@@ -258,7 +263,7 @@ PanelWindow {
     }
 
     // --- AUTOHIDE ---
-    // When "autohide" is set in statusbar.json the bar slides up out of the
+    // When "autohide" is set in config.json the bar slides up out of the
     // screen and comes back only while the pointer is on it (or in the hot zone
     // at the very top of the screen), while it holds the keyboard for navigation
     // (SUPER + SPACE), and while a tray menu is open. A hiding bar reserves no
@@ -494,7 +499,7 @@ PanelWindow {
         function autohideToggle(): void {
             root.setAutohide(!root.settings.bar.autohide)
         }
-        // Re-read statusbar.json from disk (used by the SidebarApp switch).
+        // Re-read config.json from disk (used by the SidebarApp switch).
         function refresh(): void { root.reloadSettings() }
         // Expand the bar (if needed) and grab the keyboard for navigation.
         // Bound to SUPER + SPACE. Idempotent: when the bar is already expanded
@@ -507,7 +512,7 @@ PanelWindow {
         // Toggle between collapsed and expanded mode.
         function expand(): void { root.barExpanded = !root.barExpanded }
         function collapse(): void { root.barExpanded = false }
-        // Re-read statusbar.json and apply the changes.
+        // Re-read config.json and apply the changes.
         function reload(): void { root.reloadSettings() }
     }
 

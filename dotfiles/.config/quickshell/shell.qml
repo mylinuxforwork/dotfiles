@@ -27,6 +27,6 @@ ShellRoot {
     CalendarWindow {}
     WallpaperWindow {}
     StatusbarWindow {}
-    // Creates the dock window only while the dock is enabled in dock.json.
+    // Creates the dock window only while the dock is enabled in its config.json.
     DockLoader {}
 }

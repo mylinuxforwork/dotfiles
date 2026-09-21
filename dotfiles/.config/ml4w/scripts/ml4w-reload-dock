@@ -6,6 +6,6 @@
 # |_| \_\___|_|\___/ \__,_|\__,_| |____/ \___/ \___|_|\_\
 #
 # Reload the Quickshell dock of ML4W OS: tells the running shell to re-read its
-# dock settings file (~/.config/ml4w-dock/dock.json) and apply it live.
+# dock settings file (~/.config/ml4w-dock/config.json) and apply it live.
 
 qs ipc call dock reload

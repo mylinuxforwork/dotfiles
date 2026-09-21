@@ -766,11 +766,11 @@ PanelWindow {
                             property string activeBar: "waybar"
                             // Read the active bar and its current on/off state in
                             // one shot ("<bar> <0|1>"): for quickshell the
-                            // "enabled" flag in statusbar.json, for
+                            // "enabled" flag in its config.json, for
                             // waybar the presence of the waybar-disabled marker.
                             Process {
                                 id: statusbarStateProc
-                                command: ["bash", "-c", "sb=$(tr -d '[:space:]' < ~/.config/ml4w/settings/statusbar 2>/dev/null); [ -n \"$sb\" ] || sb=waybar; if [ \"$sb\" = quickshell ]; then grep -q '\"enabled\"[[:space:]]*:[[:space:]]*false' ~/.config/ml4w-statusbar/statusbar.json 2>/dev/null && s=0 || s=1; else test -f ~/.config/ml4w/settings/waybar-disabled && s=0 || s=1; fi; echo \"$sb $s\""]
+                                command: ["bash", "-c", "sb=$(tr -d '[:space:]' < ~/.config/ml4w/settings/statusbar 2>/dev/null); [ -n \"$sb\" ] || sb=waybar; if [ \"$sb\" = quickshell ]; then grep -q '\"enabled\"[[:space:]]*:[[:space:]]*false' ~/.config/ml4w-statusbar/config.json 2>/dev/null && s=0 || s=1; else test -f ~/.config/ml4w/settings/waybar-disabled && s=0 || s=1; fi; echo \"$sb $s\""]
                                 stdout: StdioCollector {
                                     onStreamFinished: {
                                         let parts = this.text.trim().split(" ")
@@ -848,7 +848,7 @@ PanelWindow {
                                     height: visible ? implicitHeight : 0
                                     onClicked: {
                                         root.isOpen = false
-                                        Quickshell.execDetached(["bash", "-c", "~/.config/ml4w/settings/editor.sh ~/.config/ml4w-statusbar/statusbar.json"])
+                                        Quickshell.execDetached(["bash", "-c", "~/.config/ml4w/settings/editor.sh ~/.config/ml4w-statusbar/config.json"])
                                     }
                                 }
                             }
@@ -869,7 +869,7 @@ PanelWindow {
                             // on, matching the statusbar's own default — the file
                             // starts out empty and only carries what was changed.
                             Process {
-                                command: ["bash", "-c", "grep -q '\"alwaysExpanded\"[[:space:]]*:[[:space:]]*false' ~/.config/ml4w-statusbar/statusbar.json 2>/dev/null && echo 0 || echo 1"]
+                                command: ["bash", "-c", "grep -q '\"alwaysExpanded\"[[:space:]]*:[[:space:]]*false' ~/.config/ml4w-statusbar/config.json 2>/dev/null && echo 0 || echo 1"]
                                 running: root.isOpen
                                 stdout: StdioCollector {
                                     onStreamFinished: {
@@ -907,7 +907,7 @@ PanelWindow {
                             // counts as off, matching the statusbar's own default.
                             Process {
                                 id: statusbarAutohideProc
-                                command: ["bash", "-c", "grep -q '\"autohide\"[[:space:]]*:[[:space:]]*true' ~/.config/ml4w-statusbar/statusbar.json 2>/dev/null && echo 1 || echo 0"]
+                                command: ["bash", "-c", "grep -q '\"autohide\"[[:space:]]*:[[:space:]]*true' ~/.config/ml4w-statusbar/config.json 2>/dev/null && echo 1 || echo 0"]
                                 stdout: StdioCollector {
                                     onStreamFinished: {
                                         console.log("Test for Statusbar Autohide: " + this.text.trim())
@@ -954,7 +954,7 @@ PanelWindow {
                             // counts as on, matching the dock's own default.
                             Process {
                                 id: dockStateProc
-                                command: ["bash", "-c", "grep -q '\"enabled\"[[:space:]]*:[[:space:]]*false' ~/.config/ml4w-dock/dock.json 2>/dev/null && echo 0 || echo 1"]
+                                command: ["bash", "-c", "grep -q '\"enabled\"[[:space:]]*:[[:space:]]*false' ~/.config/ml4w-dock/config.json 2>/dev/null && echo 0 || echo 1"]
                                 stdout: StdioCollector {
                                     onStreamFinished: {
                                         console.log("Test for Dock: " + this.text.trim())
@@ -1019,7 +1019,7 @@ PanelWindow {
                             // counts as off, matching the dock's own default.
                             Process {
                                 id: dockAutohideProc
-                                command: ["bash", "-c", "grep -q '\"autohide\"[[:space:]]*:[[:space:]]*true' ~/.config/ml4w-dock/dock.json 2>/dev/null && echo 1 || echo 0"]
+                                command: ["bash", "-c", "grep -q '\"autohide\"[[:space:]]*:[[:space:]]*true' ~/.config/ml4w-dock/config.json 2>/dev/null && echo 1 || echo 0"]
                                 stdout: StdioCollector {
                                     onStreamFinished: {
                                         console.log("Test for Dock Autohide: " + this.text.trim())

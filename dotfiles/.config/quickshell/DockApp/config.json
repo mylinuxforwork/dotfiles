@@ -4,10 +4,11 @@ Default configuration file for the Quickshell Dock.
 This file documents the built-in defaults (kept in sync with defaultSettings in
 DockSettings.qml). The dock itself reads a single file:
 
-  ~/.config/ml4w-dock/dock.json
+  ~/.config/ml4w-dock/config.json
 
-It is created empty on first start (seeded from the former
-~/.config/ml4w/settings/dock.json when that still exists) and merged over the
+It is created empty on first start (seeded from its former locations,
+~/.config/ml4w-dock/dock.json or ~/.config/ml4w/settings/dock.json, when one of
+them still exists) and merged over the
 built-in defaults below, so it only needs to carry the values you want to
 change. The dock writes enabled / autohide / the pinned app list back into it.
 */
