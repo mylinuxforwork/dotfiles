@@ -1,104 +1,87 @@
 import Quickshell
-import Quickshell.Wayland
-import Quickshell.Hyprland
-import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Effects
 import qs.CustomTheme
 
-PanelWindow {
-    id: root
-    
-    // --- WAYLAND CONFIGURATION ---
-    WlrLayershell.layer: WlrLayer.Overlay
-    exclusionMode: WlrLayershell.Ignore
-    
-    implicitWidth: 380
-    implicitHeight: 380 
-    color: "transparent"
+// The month calendar that drops out of the clock module.
+//
+// This is a plain Item living inside the statusbar's own window, not a separate
+// PanelWindow or a PopupWindow: while the bar holds a Hyprland focus grab (which
+// is what closes the panel on an outside click), pointer input only reaches the
+// grabbed layer surface, so a separate surface renders but never receives the
+// clicks on its buttons. StatusbarWindow reserves room for it below the bar and
+// opens its input mask while it is showing.
+//
+// The panel is positioned by the parent (see StatusbarWindow): `openY` is where
+// it sits when open, and it slides up out of the window when closed.
+Item {
+    id: panel
 
-    // Anchored to the top, horizontally centered (no left/right anchor).
-    anchors {
-        top: true
-    }
-
-    // --- CLICK OUTSIDE TO CLOSE (Native Hyprland) ---
-    HyprlandFocusGrab {
-        windows: [root]
-        active: root.isOpen && root.showWindow // <-- Updated this line
-        onCleared: {
-            if (root.isOpen) {
-                root.isOpen = false
-            }
-        }
-    }
-
-    // --- ESCAPE KEY LISTENER ---
-    Shortcut {
-        sequence: "Escape"
-        onActivated: {
-            if (root.isOpen) {
-                root.isOpen = false
-            }
-        }
-    }
-
-    // --- ANIMATION LOGIC (Vertical Slide + Wayland Fix) ---
+    // Open/closed, driven by the clock module and the "calendar" IPC handler.
     property bool isOpen: false
-    
-    // Guard variable to prevent Wayland from unmapping the window too early
-    property bool showWindow: false
-    visible: showWindow
-    
-    // Map the window immediately when opened
-    onIsOpenChanged: {
-        if (isOpen) {
-            showWindow = true
-            
-            // Auto-refresh "Today" if the date changed while Quickshell was running
-            let now = new Date();
-            if (now.getDate() !== todayDate || now.getMonth() !== todayMonth) {
-                todayDate = now.getDate()
-                todayMonth = now.getMonth()
-                todayYear = now.getFullYear()
-                
-                currentMonth = todayMonth
-                currentYear = todayYear
-                updateCalendar(currentYear, currentMonth)
-            }
-        }
-    }
-    
-    // Animate between your specific 87px top margin and off-screen (-800)
-    property real currentTopMargin: isOpen ? 67 : -820 
 
-    margins {
-        top: root.currentTopMargin
-    }
+    // Where the panel sits when open, in window coordinates. Set by the parent
+    // so the panel hangs below the pill.
+    property real openY: 0
 
-    Behavior on currentTopMargin {
+    // Guard that keeps the item rendered until the closing slide has finished.
+    // Without it the panel would vanish the instant isOpen went false instead of
+    // sliding away.
+    property bool showPanel: false
+
+    // The card is inset inside the item so the drop shadow has room, which is
+    // why the panel is 2 * cardInset wider and taller than the card itself.
+    // The parent reads this to line the card up with the bar.
+    readonly property int cardInset: 20
+    implicitWidth: 380
+    implicitHeight: 380
+    width: implicitWidth
+    height: implicitHeight
+    visible: showPanel
+
+    // Parked above the window (and so off-screen) when closed.
+    readonly property real hiddenY: -height - 20
+    y: isOpen ? openY : hiddenY
+
+    Behavior on y {
         NumberAnimation {
-            id: slideAnim
             duration: 350
-            easing.type: Easing.OutQuint 
-            
-            // Unmap the window ONLY after the hide animation completely finishes
+            easing.type: Easing.OutQuint
+            // Stop rendering the panel only once the closing slide is done.
             onRunningChanged: {
-                if (!running && !root.isOpen) {
-                    root.showWindow = false
-                }
+                if (!running && !panel.isOpen)
+                    panel.showPanel = false
             }
         }
     }
 
-    IpcHandler {
-        target: "calendar"
-        function toggle(): void { root.isOpen = !root.isOpen }
-        function open(): void { root.isOpen = true }   
-        function close(): void { root.isOpen = false }
-        function isOpen(): bool { return root.isOpen }
+    onIsOpenChanged: {
+        if (!isOpen)
+            return
+        showPanel = true
+
+        // Auto-refresh "Today" if the date changed while Quickshell was running
+        let now = new Date()
+        if (now.getDate() !== todayDate || now.getMonth() !== todayMonth) {
+            todayDate = now.getDate()
+            todayMonth = now.getMonth()
+            todayYear = now.getFullYear()
+
+            currentMonth = todayMonth
+            currentYear = todayYear
+            updateCalendar(currentYear, currentMonth)
+        }
+    }
+
+    // Swallow clicks that land on the card but not on one of its buttons, so
+    // they do not fall through to the window-level MouseArea that closes the
+    // panel.
+    MouseArea {
+        anchors.fill: parent
+        anchors.margins: panel.cardInset
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
     }
 
     // --- REUSABLE COMPONENTS ---
@@ -164,7 +147,7 @@ PanelWindow {
 
     property int currentMonth: new Date().getMonth()
     property int currentYear: new Date().getFullYear()
-    
+
     property int todayDate: new Date().getDate()
     property int todayMonth: new Date().getMonth()
     property int todayYear: new Date().getFullYear()
@@ -199,7 +182,7 @@ PanelWindow {
         weekModel.clear()
 
         let firstDay = new Date(year, month, 1)
-        let startingDayOfWeek = firstDay.getDay() 
+        let startingDayOfWeek = firstDay.getDay()
         let startCell = startingDayOfWeek === 0 ? 6 : startingDayOfWeek - 1
 
         let daysInMonth = new Date(year, month + 1, 0).getDate()
@@ -211,7 +194,7 @@ PanelWindow {
             d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
             let yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
             let weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
-            
+
             weekModel.append({ weekNumber: weekNo })
         }
 
@@ -233,7 +216,7 @@ PanelWindow {
     // ==========================================
     Item {
         anchors.fill: parent
-        anchors.margins: 20
+        anchors.margins: panel.cardInset
 
         RectangularShadow {
             id: shadow
@@ -278,14 +261,14 @@ PanelWindow {
                 RowLayout {
                     anchors.centerIn: parent
                     spacing: 5
-                    
+
                     ActionIcon {
                         iconSrc: "../shared/icons/chevron-left.svg"
                         onClicked: prevMonth()
                     }
-                    
+
                     Text {
-                        Layout.preferredWidth: 120 
+                        Layout.preferredWidth: 120
                         text: monthNames[currentMonth] + " " + currentYear
                         color: Theme.primary
                         font.family: Theme.fontFamily
@@ -293,7 +276,7 @@ PanelWindow {
                         font.bold: true
                         horizontalAlignment: Text.AlignHCenter
                     }
-                    
+
                     ActionIcon {
                         iconSrc: "../shared/icons/chevron-right.svg"
                         onClicked: nextMonth()
@@ -304,10 +287,10 @@ PanelWindow {
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     text: "Today"
-                    
+
                     opacity: (currentMonth !== todayMonth || currentYear !== todayYear) ? 1.0 : 0.0
                     enabled: opacity > 0
-                    
+
                     Behavior on opacity { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad } }
 
                     onClicked: {
@@ -329,7 +312,7 @@ PanelWindow {
                 ColumnLayout {
                     Layout.fillHeight: true
                     spacing: 5
-                    
+
                     Text {
                         Layout.fillWidth: true
                         text: "Wk"
@@ -368,7 +351,7 @@ PanelWindow {
                     RowLayout {
                         Layout.fillWidth: true
                         Repeater {
-                            model: root.dayNames
+                            model: panel.dayNames
                             Text {
                                 Layout.fillWidth: true
                                 text: modelData
@@ -387,16 +370,16 @@ PanelWindow {
                         Layout.fillHeight: true
                         rowSpacing: 5
                         columnSpacing: 5
-                        
+
                         Repeater {
                             model: dayModel
-                            
+
                             Rectangle {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
-                                radius: width / 2 
+                                radius: width / 2
                                 color: model.isToday ? Theme.primary : "transparent"
-                                
+
                                 Text {
                                     anchors.centerIn: parent
                                     text: model.day

@@ -12,12 +12,29 @@ Item {
     property string timeFormat: "HH:mm"
     // Qt date/time format for the date shown below the time when expanded.
     property string dateFormat: "ddd, dd MMM"
+    // Optional shell command for an external calendar app (e.g. "gnome-calendar"),
+    // supplied from config.json. When set, a right click launches it; when empty
+    // the right click does nothing.
+    property string calendarCommand: ""
     // Set by the keyboard navigation in StatusbarWindow.
     property bool focused: false
 
+    // Asks the window to show/hide the calendar panel. A signal rather than a
+    // direct call so the module stays independent of where the panel lives;
+    // StatusbarWindow connects it when it places the module.
+    signal calendarToggleRequested()
+
     // Run the module's action (mouse click or keyboard Return).
     function activate(): void {
-        Quickshell.execDetached(["qs", "ipc", "call", "calendar", "toggle"])
+        clockRoot.calendarToggleRequested()
+    }
+
+    // Launch the external calendar app configured in config.json. Run through
+    // bash so the value can carry arguments, like the terminal module does.
+    function openExternalCalendar(): void {
+        if (clockRoot.calendarCommand === "")
+            return
+        Quickshell.execDetached(["bash", "-c", clockRoot.calendarCommand])
     }
 
     implicitWidth: Math.max(timeText.implicitWidth, dateText.implicitWidth)
@@ -54,15 +71,22 @@ Item {
         precision: SystemClock.Minutes
     }
 
-    // Click toggles the Calendar app via IPC. Covers the time and the date
-    // (which hangs below the item's own bounds).
+    // Left click toggles the Calendar app via IPC, right click opens the
+    // external calendar app when one is configured. Covers the time and the
+    // date (which hangs below the item's own bounds).
     MouseArea {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: dateText.bottom
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
         cursorShape: Qt.PointingHandCursor
-        onClicked: Quickshell.execDetached(["qs", "ipc", "call", "calendar", "toggle"])
+        onClicked: mouse => {
+            if (mouse.button === Qt.RightButton)
+                clockRoot.openExternalCalendar()
+            else
+                clockRoot.activate()
+        }
     }
 
     Text {
