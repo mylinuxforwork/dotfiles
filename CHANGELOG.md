@@ -3,6 +3,8 @@ Version 2.16
 - Add Blue Light Filter toggle switch to sidebar in addition to SUPER + SHIFT + H
 - New quickshell windows installation script added. Using the latest version from GitHub
 - Welcome app is now using the version information from ~/.config/ml4w/version.json
+- The statusbar is now configured in one place only: ~/.config/ml4w-statusbar/config.json. The file is created on first start (migrated from the former ~/.config/ml4w-statusbar/statusbar.json or ~/.config/ml4w/settings/statusbar.json, which has been removed) and can be edited directly
+- The dock is now configured in one place only: ~/.config/ml4w-dock/config.json. The file is created on first start (migrated from the former ~/.config/ml4w-dock/dock.json or ~/.config/ml4w/settings/dock.json, which has been removed) and can be edited directly
 
 Version 2.15.1
 --------------------------------------------------------

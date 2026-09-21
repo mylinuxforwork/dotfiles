@@ -2,16 +2,14 @@
 Default configuration file for the Quickshell Dock.
 
 This file documents the built-in defaults (kept in sync with defaultSettings in
-DockSettings.qml). The dock actually reads, in this order:
+DockSettings.qml). The dock itself reads a single file:
 
-  1. ~/.config/ml4w/settings/dock.json    — shipped fallback, holds the dynamic
-                                            state (enabled / autohide / pinned)
-  2. ~/.config/ml4w-dock/dock.json        — user override, merged on top when
-                                            present
+  ~/.config/ml4w-dock/dock.json
 
-Both are merged over the built-in defaults, so a partial file still leaves every
-value defined. The built-in pinned list is empty; the entries below mirror the
-shipped ml4w/settings/dock.json.
+It is created empty on first start (seeded from the former
+~/.config/ml4w/settings/dock.json when that still exists) and merged over the
+built-in defaults below, so it only needs to carry the values you want to
+change. The dock writes enabled / autohide / the pinned app list back into it.
 */
 {
     "dock": {
@@ -39,9 +37,7 @@ shipped ml4w/settings/dock.json.
     "apps": {
         "pinned": [
             "firefox",
-            "kitty",
-            "org.gnome.Nautilus",
-            "org.gnome.Calculator"
+            "kitty"
         ]
     }
 }
