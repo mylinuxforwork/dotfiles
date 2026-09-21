@@ -125,8 +125,10 @@ Item {
     Image {
         id: iconImage
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: parent.top
-        anchors.topMargin: 4
+        anchors.verticalCenter: parent.verticalCenter
+        // Like nwg-dock, the icon sits a touch above the true centre so the
+        // running indicator below it does not feel cramped.
+        anchors.verticalCenterOffset: -2
         source: item.iconSource
         width: item.iconSize
         height: item.iconSize
@@ -147,12 +149,13 @@ Item {
 
     // --- RUNNING INDICATOR ---
     // A dot below the icon for a running app; it widens into a short bar while
-    // one of its windows has focus.
+    // one of its windows has focus. The icon stays centred in the dock, so the
+    // indicator sits in the small gap left below it.
     Rectangle {
         id: indicator
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 3
+        anchors.bottomMargin: 0
         height: 4
         width: item.active ? 14 : 4
         radius: 2

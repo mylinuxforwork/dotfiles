@@ -223,10 +223,12 @@ PanelWindow {
     // Hide completely and reserve no space when disabled. `ready` holds the
     // window back until the settings files have been read (see above).
     visible: barEnabled && ready
-    // Reserve 20px less than the band so the gap below the pill is smaller
-    // than above (windows tile 20px higher). An autohiding bar reserves nothing:
-    // it floats over the windows and slides in on demand.
-    exclusiveZone: (barEnabled && !autohide) ? reservedHeight - 20 : 0
+    // Reserve one window gap less than the band: Hyprland adds its own gaps_out
+    // below the reserved zone, so windows end up level with the band's bottom
+    // edge and the gap below the pill matches the one above it. An autohiding
+    // bar reserves nothing: it floats over the windows and slides in on demand.
+    readonly property int windowGap: 16
+    exclusiveZone: (barEnabled && !autohide) ? reservedHeight - windowGap : 0
 
     // Persist the enabled state into the master file (override when present,
     // otherwise the shipped file) and apply it. applySettings re-parses the

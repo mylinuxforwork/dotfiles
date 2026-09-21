@@ -19,7 +19,7 @@ shipped ml4w/settings/dock.json.
         "autohide": false,
         "iconSize": 32,
         "spacing": 8,
-        "marginBottom": 10,
+        "marginBottom": 16,
         "reserveSpace": true,
         "hideDelay": 400
     },
