@@ -6,9 +6,7 @@ StatusbarWindow.qml). The statusbar itself reads a single file:
 
   ~/.config/ml4w-statusbar/config.json
 
-It is created empty on first start (seeded from its former locations,
-~/.config/ml4w-statusbar/statusbar.json or ~/.config/ml4w/settings/statusbar.json,
-when one of them still exists) and merged over
+It is created empty on first start and merged over
 the built-in defaults below, so it only needs to carry the values you want to
 change. The statusbar writes enabled / alwaysExpanded / autohide back into it.
 */
@@ -44,10 +42,6 @@ change. The statusbar writes enabled / alwaysExpanded / autohide back into it.
     "clock": {
         "format": "HH:mm",
         "dateFormat": "ddd, dd MMM",
-        /* Optional external calendar app, e.g. "gnome-calendar". When set, a
-           right click on the clock module launches it. Left empty, the right
-           click does nothing. The value is run through bash, so it can carry
-           arguments. */
         "calendarCommand": ""
     },
     "workspaces": {
