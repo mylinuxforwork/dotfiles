@@ -528,6 +528,32 @@ FloatingWindow {
                     Layout.fillWidth: true
                     Layout.margins: 10
 
+                    // --- CLOSE BUTTON (Left Side) ---
+                    Button {
+                        text: "Close"
+
+                        background: Rectangle {
+                            color: "transparent"
+                            border.color: Theme.primary
+                            border.width: 1
+                            radius: 6
+                        }
+
+                        contentItem: Text {
+                            text: parent.text
+                            font.family: Theme.fontFamily
+                            font.pixelSize: 12
+                            color: Theme.primary
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                            padding: 4
+                            leftPadding: 10
+                            rightPadding: 10
+                        }
+
+                        onClicked: root.visible = !root.visible
+                    }
+
                     // --- NEW TOGGLE BUTTON (Left Side) ---
                     Button {
                         text: "Toggle Tiling/Floating"
