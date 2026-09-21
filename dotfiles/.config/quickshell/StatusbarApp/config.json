@@ -43,7 +43,12 @@ change. The statusbar writes enabled / alwaysExpanded / autohide back into it.
     },
     "clock": {
         "format": "HH:mm",
-        "dateFormat": "ddd, dd MMM"
+        "dateFormat": "ddd, dd MMM",
+        /* Optional external calendar app, e.g. "gnome-calendar". When set, a
+           right click on the clock module launches it. Left empty, the right
+           click does nothing. The value is run through bash, so it can carry
+           arguments. */
+        "calendarCommand": ""
     },
     "workspaces": {
         "count": 5

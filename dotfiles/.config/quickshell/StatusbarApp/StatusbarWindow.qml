@@ -25,10 +25,27 @@ PanelWindow {
     // drive Left/Right/Return navigation, and releases it the moment the user
     // interacts with another window (clicking/entering an app) — which returns
     // the keyboard to that app and collapses the bar.
+    //
+    // The same grab also backs the calendar panel: it is held on this window (a
+    // layer surface), so clicks on the bar and on the panel itself still arrive
+    // normally, while a click in another window clears it and closes both.
     HyprlandFocusGrab {
         windows: [root]
-        active: root.barExpanded
-        onCleared: root.barExpanded = false
+        active: root.barExpanded || root.calendarOpen
+        onCleared: {
+            root.calendarOpen = false
+            root.barExpanded = false
+        }
+    }
+
+    // Escape closes the calendar. The pill's own Escape handler only runs while
+    // the bar holds keyboard focus for navigation, and the panel can be open
+    // without that, so it is handled at window scope as well. Closing the panel
+    // takes precedence over collapsing the bar (see keyHandler below).
+    Shortcut {
+        sequence: "Escape"
+        enabled: root.calendarOpen
+        onActivated: root.calendarOpen = false
     }
 
     // --- USER SETTINGS ---
@@ -57,7 +74,7 @@ PanelWindow {
                     "right": ["updates", "battery", "powerprofile", "volume", "systemtray", "logo", "power"] },
         "border": { "width": 2, "colorTop": "", "colorBottom": "" },
         "opacity":{ "collapsed": 0.6, "expanded": 0.8 },
-        "clock":  { "format": "HH:mm", "dateFormat": "ddd, dd MMM" },
+        "clock":  { "format": "HH:mm", "dateFormat": "ddd, dd MMM", "calendarCommand": "" },
         "workspaces": { "count": 5 },
         "systemtray": { "chip": true }
     })
@@ -228,7 +245,13 @@ PanelWindow {
 
     // Hide completely and reserve no space when disabled. `ready` holds the
     // window back until the settings files have been read (see above).
-    visible: barEnabled && ready
+    //
+    // The window also stays mapped while the calendar is open, so the panel
+    // remains reachable with the bar switched off — "qs ipc call calendar
+    // toggle" is bound to a key and used by the waybar clock, neither of which
+    // knows or cares whether this bar is the one on screen. The pill itself is
+    // hidden in that case (see below).
+    visible: (barEnabled || calendarPanel.showPanel) && ready
     // Reserve one window gap less than the band: Hyprland adds its own gaps_out
     // below the reserved zone, so windows end up level with the band's bottom
     // edge and the gap below the pill matches the one above it. An autohiding
@@ -281,7 +304,7 @@ PanelWindow {
     // while the bar is expanded for keyboard navigation, and while a tray menu is
     // open (the tray lives in the right area, which the reveal keeps on screen).
     readonly property bool revealed: !autohide || root.pointerHeld
-        || root.barExpanded || root.trayMenuOpen
+        || root.barExpanded || root.trayMenuOpen || root.calendarOpen
 
     // The pointer's hover, held for bar.hideDelay ms after it leaves. Without the
     // grace period the bar snaps shut on every momentary gap in the hover:
@@ -318,12 +341,28 @@ PanelWindow {
         }
     }
     Component { id: cLauncher;   LauncherModule {} }
+    // Whether the calendar panel is showing. The panel is an information layer
+    // of the clock module, drawn inside this window (see CalendarPanel.qml), so
+    // the bar carries it rather than depending on a separate calendar window.
+    property bool calendarOpen: false
+
+    // The placed clock module, tracked so the panel can be centered under it.
+    property var clockRef: null
+
     Component {
         id: cClock
         ClockModule {
+            id: clockModule
             expanded: pill.expanded
             timeFormat: root.settings.clock.format
             dateFormat: root.settings.clock.dateFormat
+            calendarCommand: root.settings.clock.calendarCommand
+            onCalendarToggleRequested: root.calendarOpen = !root.calendarOpen
+            Component.onCompleted: root.clockRef = clockModule
+            Component.onDestruction: {
+                if (root.clockRef === clockModule)
+                    root.clockRef = null
+            }
         }
     }
     Component { id: cSwaync;     SwayncModule {} }
@@ -474,11 +513,29 @@ PanelWindow {
     }
 
     function activateFocused(): void {
-        if (root.focusIndex >= 0 && root.focusIndex < root.navItems.length)
-            root.navItems[root.focusIndex].activate()
+        // Running any module other than the clock (which toggles the panel
+        // itself) dismisses the calendar.
+        let m = (root.focusIndex >= 0 && root.focusIndex < root.navItems.length)
+            ? root.navItems[root.focusIndex] : null
+        if (m && m !== root.clockRef)
+            root.calendarOpen = false
+        if (m)
+            m.activate()
         // Collapse so the keyboard is handed back to the (possibly newly
         // launched) application instead of staying captured by the bar.
         root.barExpanded = false
+    }
+
+    // The calendar panel's IPC, kept on the same target and with the same
+    // function names it had when the calendar was its own window, so the
+    // existing callers keep working: the SUPER + CTRL + C keybinding, the
+    // waybar clock's on-click and the ml4w-calendar shell alias.
+    IpcHandler {
+        target: "calendar"
+        function toggle(): void { root.calendarOpen = !root.calendarOpen }
+        function open(): void { root.calendarOpen = true }
+        function close(): void { root.calendarOpen = false }
+        function isOpen(): bool { return root.calendarOpen }
     }
 
     IpcHandler {
@@ -529,9 +586,20 @@ PanelWindow {
         top: 0
     }
 
-    implicitHeight: barHeight + 40
+    // The band the bar itself occupies — what the window used to be as a whole,
+    // before it grew to hold the calendar panel.
+    readonly property int bandHeight: barHeight + 40
 
-    // With autohide off the whole window takes pointer input, exactly as before.
+    // Room below the band for the calendar panel, which is drawn inside this
+    // window. Like the dock's context menu it is reserved permanently rather
+    // than added when the panel opens: resizing a layer surface while the panel
+    // is sliding fights the animation. The area stays transparent and
+    // click-through (see mask), and the reserved zone is computed from
+    // reservedHeight, so the extra height costs nothing.
+    readonly property int calendarReserve: calendarPanel.implicitHeight + 40
+    implicitHeight: bandHeight + calendarReserve
+
+    // With autohide off the whole band takes pointer input, exactly as before.
     // While autohiding only the pill and a full-width strip at the top of the
     // screen do, so the rest of the band stays click-through and never swallows
     // clicks meant for the windows behind it: hidden the strip is the hot zone
@@ -548,29 +616,58 @@ PanelWindow {
     // negative, and a region may not start above the window.
     readonly property int pillTop: Math.max(0, Math.round(pill.y))
 
+    // Top edge of the calendar panel, clamped the same way: it slides in from
+    // above the window, so its y is negative for part of the animation.
+    readonly property int calendarTop: Math.max(0, Math.round(calendarPanel.y))
+
+    // The bar's regions are dropped entirely when the bar is switched off, so a
+    // window kept mapped only to show the calendar does not swallow clicks
+    // across the top of the screen.
+    readonly property bool barTakesInput: root.barEnabled
+
     mask: Region {
         Region {
             x: 0
             y: 0
-            width: root.autohide ? 0 : root.width
-            height: root.autohide ? 0 : root.height
+            width: (root.autohide || !root.barTakesInput) ? 0 : root.width
+            height: (root.autohide || !root.barTakesInput) ? 0 : root.bandHeight
         }
         // The pill. While it is slid out this shrinks to nothing and the hot
         // zone below covers the sliver left at the screen edge.
         Region {
             x: Math.round(pill.x)
             y: root.pillTop
-            width: root.autohide ? Math.round(pill.width) : 0
-            height: root.autohide
+            width: (root.autohide && root.barTakesInput) ? Math.round(pill.width) : 0
+            height: (root.autohide && root.barTakesInput)
                 ? Math.max(0, Math.round(pill.y + pill.height) - root.pillTop)
                 : 0
         }
         Region {
             x: 0
             y: 0
-            width: root.autohide ? root.width : 0
-            height: root.autohide ? root.hotZoneHeight : 0
+            width: (root.autohide && root.barTakesInput) ? root.width : 0
+            height: (root.autohide && root.barTakesInput) ? root.hotZoneHeight : 0
         }
+        // The calendar panel, so its buttons are clickable while it is showing.
+        Region {
+            x: Math.round(calendarPanel.x)
+            y: root.calendarTop
+            width: root.calendarOpen ? Math.round(calendarPanel.width) : 0
+            height: root.calendarOpen
+                ? Math.max(0, Math.round(calendarPanel.y + calendarPanel.height)
+                    - root.calendarTop)
+                : 0
+        }
+    }
+
+    // A click anywhere in this window that is not on the panel or on a module
+    // closes the calendar (the focus grab only covers clicks in other windows).
+    // Declared before the pill and the panel so both get the click first.
+    MouseArea {
+        anchors.fill: parent
+        enabled: root.calendarOpen
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        onClicked: root.calendarOpen = false
     }
 
     // ==========================================
@@ -578,6 +675,9 @@ PanelWindow {
     // ==========================================
     Item {
         id: pill
+        // Not shown when the bar is switched off and the window is mapped only
+        // to carry the calendar panel.
+        visible: root.barEnabled
         anchors.horizontalCenter: parent.horizontalCenter
         // Center the pill within the reserved band. The window is taller than
         // the band (to fit the shadow / expanded pill), so offset accordingly.
@@ -668,7 +768,13 @@ PanelWindow {
             Keys.onDownPressed: root.stepFocused(-1)
             Keys.onReturnPressed: root.activateFocused()
             Keys.onEnterPressed: root.activateFocused()
-            Keys.onEscapePressed: root.barExpanded = false
+            Keys.onEscapePressed: {
+                // Close the calendar first; a second Escape collapses the bar.
+                if (root.calendarOpen)
+                    root.calendarOpen = false
+                else
+                    root.barExpanded = false
+            }
         }
 
         RectangularShadow {
@@ -803,5 +909,34 @@ PanelWindow {
                 }
             }
         }
+    }
+
+    // ==========================================
+    // CALENDAR PANEL
+    // ==========================================
+    // Declared after the pill so it draws on top of it, hanging below the clock
+    // module it belongs to and clamped to stay on screen.
+    CalendarPanel {
+        id: calendarPanel
+
+        isOpen: root.calendarOpen
+
+        x: {
+            // Centered on the clock when one is placed, on the bar otherwise.
+            // The clock is loaded into a Loader inside the center area, so its
+            // own x is 0 — the Loader holding it is what moves.
+            let holder = root.clockRef ? root.clockRef.parent : null
+            if (!holder)
+                return Math.round((root.width - width) / 2)
+            let center = pill.x + centerArea.x + holder.x + holder.width / 2
+            return Math.round(Math.max(8,
+                Math.min(root.width - width - 8, center - width / 2)))
+        }
+
+        // Hangs calendarGap below the bottom of the pill. The card sits
+        // cardInset inside the panel (the drop shadow's room), so that inset is
+        // taken off the panel's own position.
+        readonly property int calendarGap: 26
+        openY: Math.round(pill.y + pill.height + calendarGap - cardInset)
     }
 }
