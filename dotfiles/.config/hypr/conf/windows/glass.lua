@@ -1,7 +1,7 @@
 hl.config({
     general = {
         gaps_in  = 10,
-        gaps_out = 20,
+        gaps_out = 16,
         border_size = 1,
         col = {
             active_border   = { colors = {primary, on_primary}, angle = 90 },
