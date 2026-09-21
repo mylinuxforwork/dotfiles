@@ -159,6 +159,18 @@ hl.window_rule({
     suppress_event = "activate"
 })
 
+-- XWayland Video Bridge
+hl.window_rule({
+    name = "xwaylandvideobridge",
+    match = { class = "^(xwaylandvideobridge)$" },
+    opacity = "0.0 override 0.0 override",
+    no_anim = true,
+    no_initial_focus = true,
+    max_size = "1 1",
+    no_blur = true,
+    float = true
+})
+
 -- Wayland variables
 hl.env("OZONE_PLATFORM", "wayland")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
