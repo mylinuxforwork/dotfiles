@@ -36,5 +36,8 @@ Default configuration file for the Quickshell Statusbar.
     },
     "workspaces": {
         "count": 5
+    },
+    "systemtray": {
+        "chip": true
     }
 }

@@ -54,7 +54,8 @@ PanelWindow {
         "border": { "width": 2, "colorTop": "", "colorBottom": "" },
         "opacity":{ "collapsed": 0.6, "expanded": 0.8 },
         "clock":  { "format": "HH:mm", "dateFormat": "ddd, dd MMM" },
-        "workspaces": { "count": 5 }
+        "workspaces": { "count": 5 },
+        "systemtray": { "chip": true }
     })
 
     property var settings: defaultSettings
@@ -325,6 +326,7 @@ PanelWindow {
     Component {
         id: cSystemTray
         SystemTrayModule {
+            chip: root.settings.systemtray.chip
             // Rebuild keyboard navigation when the tray empties or repopulates
             // (it collapses out of the layout when it has no items).
             onCollapsedChanged: Qt.callLater(root.rebuildNavItems)
