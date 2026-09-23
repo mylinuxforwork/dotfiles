@@ -87,6 +87,15 @@ info "Starting Quickshell Overview"
 qs -p $HOME/.local/share/quickshell-overview &
 info "Quickshell Overview started"
 
+# Start Quickshell App Switcher
+if [ -d "$HOME/.config/quickshell/overview" ]; then
+    if ! systemctl --user is-active --quiet quickshell-overview.service 2>/dev/null; then
+        info "Starting Quickshell App Switcher"
+        qs -p "$HOME/.config/quickshell/overview" &
+        info "Quickshell App Switcher started"
+    fi
+fi
+
 # Start ML4W Welcome App
 info "Starting ML4W Welcome App"
 if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then

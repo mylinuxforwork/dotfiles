@@ -1,0 +1,13 @@
+[Unit]
+Description=Quickshell Overview & App Switcher Daemon
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/qs -p %h/.config/quickshell/overview
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=default.target
