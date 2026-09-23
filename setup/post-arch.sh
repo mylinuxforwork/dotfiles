@@ -18,6 +18,12 @@ bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-se
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-quickshell-overview/main/install.sh)
 
 # --------------------------------------------------------------
+# ML4W Dock
+# --------------------------------------------------------------
+
+bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-dock/main/install.sh)
+
+# --------------------------------------------------------------
 # Pipx
 # --------------------------------------------------------------
 

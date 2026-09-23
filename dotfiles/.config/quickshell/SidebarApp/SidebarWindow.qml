@@ -980,8 +980,8 @@ PanelWindow {
                                 // new state via IPC. `checked` already reflects
                                 // the post-click position.
                                 let ipcCmd = checked
-                                ? "qs ipc call dock enable"
-                                : "qs ipc call dock disable"
+                                ? "~/.config/ml4w/scripts/ml4w-dock enable"
+                                : "~/.config/ml4w/scripts/ml4w-dock disable"
                                 console.log("Dock cmd: " + ipcCmd)
                                 Quickshell.execDetached(["bash", "-c", ipcCmd])
                             }
@@ -1008,17 +1008,17 @@ PanelWindow {
                                     // (autohide lives there now).
                                     onClicked: {
                                         root.isOpen = false
-                                        Quickshell.execDetached(["bash", "-c", "qs ipc call dock settings"])
+                                        Quickshell.execDetached(["bash", "-c", "~/.config/ml4w/scripts/ml4w-dock settings"])
                                     }
                                 }
                                 ML4WMenuItem {
                                     text: "Edit configuration"
-                                    // The dock's own settings file, created on
-                                    // its first start, is meant to be edited
-                                    // directly.
+                                    // The dock opens its own settings file in
+                                    // dock.editorCommand (xdg-open without one),
+                                    // the same as its menu's entry.
                                     onClicked: {
                                         root.isOpen = false
-                                        Quickshell.execDetached(["bash", "-c", "~/.config/ml4w/settings/editor.sh ~/.config/ml4w-dock/config.json"])
+                                        Quickshell.execDetached(["bash", "-c", "~/.config/ml4w/scripts/ml4w-dock edit"])
                                     }
                                 }
                             }

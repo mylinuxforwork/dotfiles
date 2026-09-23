@@ -48,6 +48,12 @@ curl -sSL https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-setting
 curl -sSL https://raw.githubusercontent.com/mylinuxforwork/ml4w-quickshell-overview/main/install.sh | bash
 
 # --------------------------------------------------------------
+# ML4W Dock
+# --------------------------------------------------------------
+
+curl -sSL https://raw.githubusercontent.com/mylinuxforwork/ml4w-dock/main/install.sh | bash
+
+# --------------------------------------------------------------
 # Cargo
 # --------------------------------------------------------------
 

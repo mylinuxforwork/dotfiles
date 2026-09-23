@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+#  __  __ _     _  _ __        __  ____             _
+# |  \/  | |   | || |\ \      / / |  _ \  ___   ___| | __
+# | |\/| | |   | || |_\ \ /\ / /  | | | |/ _ \ / __| |/ /
+# | |  | | |___|__   _|\ V  V /   | |_| | (_) | (__|   <
+# |_|  |_|_____|  |_|   \_/\_/    |____/ \___/ \___|_|\_\
+#
+# Wrapper for the ML4W Dock (https://github.com/mylinuxforwork/ml4w-dock),
+# installed in ~/.local/share/ml4w-dock and started by ml4w-autostart.
+#
+# The dock runs as its own Quickshell config, so a plain `qs ipc call dock`
+# would reach the main shell instead; every call needs the dock's path.
+#
+#   ml4w-dock start        start the dock (does nothing if it already runs)
+#   ml4w-dock <function>   call a dock IPC function: toggle, enable, disable,
+#                          autohideToggle, autohideOn, autohideOff, reload,
+#                          settings, edit
+
+DOCK_DIR="$HOME/.local/share/ml4w-dock"
+
+if [ ! -f "$DOCK_DIR/shell.qml" ]; then
+    echo ":: ERROR: ml4w-dock is not installed in $DOCK_DIR" >&2
+    exit 1
+fi
+
+case "$1" in
+    "")
+        echo "Usage: ml4w-dock start | <ipc function>" >&2
+        exit 1
+        ;;
+    start)
+        pgrep -f "qs -p $DOCK_DIR" >/dev/null 2>&1 && exit 0
+        qs -p "$DOCK_DIR" >/dev/null 2>&1 &
+        disown
+        ;;
+    *)
+        qs -p "$DOCK_DIR" ipc call dock "$@"
+        ;;
+esac

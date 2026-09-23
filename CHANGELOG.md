@@ -8,7 +8,9 @@ Version 2.16
 - Add new configuration for the status bar to define an alternative calendar app that can be launched with a right click on the clock module.
 - Add new menu items "Open .mydotfiles Folder" and "Open Backup Folder" to the System menu of the Welcome app. Both open in your configured filemanager.
 - Add launcher button to the left side of the dock. Left click opens the application launcher, right click opens the dock menu with Reload Dock, Settings and Edit configuration. The button can be hidden with the Launcher Icon switch in the dock settings or "launcherButton": false in ~/.config/ml4w-dock/config.json
-- Add settings dialog to the dock. Open it from the dock menu, from Settings in the Dock menu of the sidebar or with qs ipc call dock settings. The Dock Autohide switch has moved from the sidebar into the new dialog
+- Add settings dialog to the dock. Open it from the dock menu, from Settings in the Dock menu of the sidebar or with ~/.config/ml4w/scripts/ml4w-dock settings. The Dock Autohide switch has moved from the sidebar into the new dialog
+- The dock has moved into its own repository: https://github.com/mylinuxforwork/ml4w-dock. It is installed into ~/.local/share/ml4w-dock and started from ml4w-autostart. Use ~/.config/ml4w/scripts/ml4w-dock <function> to control it (toggle, enable, disable, autohideToggle, reload, settings, edit)
+- Add "editorCommand" to ~/.config/ml4w-dock/config.json to set the editor that opens the dock configuration. Falls back to xdg-open when it is empty or not found
 
 Version 2.15.1
 --------------------------------------------------------
