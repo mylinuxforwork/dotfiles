@@ -2,7 +2,7 @@ import Quickshell
 import Quickshell.Wayland
 import QtQuick
 import QtQuick.Effects
-import qs.CustomTheme
+import qs.DockApp
 
 // One app in the dock: its icon, a running/focused indicator, a tooltip with
 // the app name and a right-click menu to pin or unpin it.
@@ -111,7 +111,7 @@ Item {
         width: item.iconSize + 14
         height: item.iconSize + 14
         radius: width / 2
-        color: item.highlighted ? Theme.primary : "transparent"
+        color: item.highlighted ? DockTheme.primary : "transparent"
         opacity: item.highlighted ? 0.25 : 0
 
         Behavior on color {
@@ -159,7 +159,7 @@ Item {
         height: 4
         width: item.active ? 14 : 4
         radius: 2
-        color: Theme.primary
+        color: DockTheme.primary
         opacity: item.running ? 1 : 0
 
         Behavior on width {
@@ -233,9 +233,9 @@ Item {
             implicitWidth: tooltipText.implicitWidth + 20
             implicitHeight: tooltipText.implicitHeight + 12
             radius: 8
-            color: Theme.surface_container_high
+            color: DockTheme.surface_container_high
             border.width: 1
-            border.color: Theme.outline_variant
+            border.color: DockTheme.outline_variant
 
             Text {
                 id: tooltipText
@@ -243,8 +243,8 @@ Item {
                 text: item.windows.length > 1
                     ? item.appName + " (" + item.windows.length + ")"
                     : item.appName
-                color: Theme.on_surface
-                font.family: Theme.fontFamily
+                color: DockTheme.on_surface
+                font.family: DockTheme.fontFamily
                 font.pixelSize: 14
             }
         }

@@ -4,7 +4,6 @@ import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Effects
-import qs.CustomTheme
 import qs.DockApp
 
 // Application dock: the running Hyprland applications plus a persistent list of 
@@ -345,7 +344,7 @@ PanelWindow {
             anchors.fill: pillBg
             radius: pillBg.radius
             blur: 15
-            color: Qt.rgba(Theme.shadow.r, Theme.shadow.g, Theme.shadow.b, 0.4)
+            color: Qt.rgba(DockTheme.shadow.r, DockTheme.shadow.g, DockTheme.shadow.b, 0.4)
         }
 
         // Gradient BORDER layer (outer)
@@ -363,13 +362,13 @@ PanelWindow {
                     position: 0.0
                     color: root.settings.border.colorTop !== ""
                         ? root.settings.border.colorTop
-                        : Theme.primary
+                        : DockTheme.primary
                 }
                 GradientStop {
                     position: 1.0
                     color: root.settings.border.colorBottom !== ""
                         ? root.settings.border.colorBottom
-                        : Theme.on_primary
+                        : DockTheme.on_primary
                 }
             }
 
@@ -378,7 +377,7 @@ PanelWindow {
                 anchors.fill: parent
                 anchors.margins: root.settings.border.width
                 radius: parent.radius - anchors.margins
-                color: Theme.background
+                color: DockTheme.background
             }
         }
 
@@ -386,6 +385,43 @@ PanelWindow {
             id: dockRow
             anchors.centerIn: parent
             spacing: root.settings.dock.spacing
+
+            // Application launcher (left click) and dock menu (right click), at
+            // the very left. dock.launcherButton hides it together with the
+            // divider; the settings dialog then stays reachable through the
+            // sidebar or `qs ipc call dock settings`. Hidden items take no
+            // room in the row.
+            DockLauncherButton {
+                visible: DockSettings.launcherButton
+                iconSize: root.settings.dock.iconSize
+                dockWindow: root
+                Layout.alignment: Qt.AlignVCenter
+
+                onReloadRequested: {
+                    DockSettings.reloadSettings()
+                    DockTheme.reload()
+                }
+                onSettingsRequested: DockSettings.dialogOpen = true
+                // The settings file in the ML4W editor, as the sidebar does it,
+                // or — without ML4W, e.g. when the dock runs on its own — in the
+                // default application for JSON files.
+                onEditConfigRequested: Quickshell.execDetached(["bash", "-c",
+                    'f="$HOME/.config/ml4w-dock/config.json";'
+                    + ' e="$HOME/.config/ml4w/settings/editor.sh";'
+                    + ' if [ -x "$e" ]; then exec "$e" "$f"; else exec xdg-open "$f"; fi'])
+            }
+
+            // Divider between the launcher button and the apps, so the button
+            // does not read as another app icon.
+            Rectangle {
+                visible: DockSettings.launcherButton
+                Layout.alignment: Qt.AlignVCenter
+                // Lifts it 2px, in line with the icons (see DockItem).
+                Layout.bottomMargin: 4
+                implicitWidth: 1
+                implicitHeight: Math.round(root.settings.dock.iconSize * 0.75)
+                color: DockTheme.primary
+            }
 
             Repeater {
                 model: root.dockEntries

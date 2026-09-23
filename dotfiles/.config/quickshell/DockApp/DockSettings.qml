@@ -30,10 +30,11 @@ Singleton {
     readonly property var defaultSettings: ({
         "dock":   { "enabled": true, "autohide": false, "iconSize": 32,
                     "spacing": 8, "marginBottom": 16, "reserveSpace": true,
-                    "hideDelay": 400 },
+                    "hideDelay": 400, "launcherButton": true },
         "pill":   { "radius": 16, "padding": 12, "animationDuration": 350 },
         "border": { "width": 2, "colorTop": "", "colorBottom": "" },
         "opacity":{ "normal": 0.7 },
+        "theme":  { "colorsFile": "~/.config/ml4w-dock/colors.json" },
         "apps":   { "pinned": ["firefox", "kitty"] }
     })
 
@@ -41,6 +42,13 @@ Singleton {
 
     readonly property bool enabled: settings.dock.enabled
     readonly property bool autohide: settings.dock.autohide
+    readonly property bool launcherButton: settings.dock.launcherButton
+
+    // Whether the settings dialog is open. DockLoader creates the dialog while
+    // this is set; the launcher button's menu and `qs ipc call dock settings`
+    // set it, and closing the dialog clears it. Kept here rather than on the
+    // dock window so the dialog also opens while the dock is turned off.
+    property bool dialogOpen: false
 
     // The settings file has reported back (loaded, or missing and created), so
     // `settings` holds the values from disk rather than the built-in defaults.
@@ -207,5 +215,9 @@ Singleton {
 
     function setAutohide(on: bool): void {
         applySettings(persistDockFlag("autohide", on))
+    }
+
+    function setLauncherButton(on: bool): void {
+        applySettings(persistDockFlag("launcherButton", on))
     }
 }

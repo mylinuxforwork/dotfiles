@@ -7,6 +7,8 @@ Version 2.16
 - The dock is now configured in one place only: ~/.config/ml4w-dock/config.json. The file is created on first start (migrated from the former ~/.config/ml4w-dock/dock.json or ~/.config/ml4w/settings/dock.json, which has been removed) and can be edited directly
 - Add new configuration for the status bar to define an alternative calendar app that can be launched with a right click on the clock module.
 - Add new menu items "Open .mydotfiles Folder" and "Open Backup Folder" to the System menu of the Welcome app. Both open in your configured filemanager.
+- Add launcher button to the left side of the dock. Left click opens the application launcher, right click opens the dock menu with Reload Dock, Settings and Edit configuration. The button can be hidden with the Launcher Icon switch in the dock settings or "launcherButton": false in ~/.config/ml4w-dock/config.json
+- Add settings dialog to the dock. Open it from the dock menu, from Settings in the Dock menu of the sidebar or with qs ipc call dock settings. The Dock Autohide switch has moved from the sidebar into the new dialog
 
 Version 2.15.1
 --------------------------------------------------------

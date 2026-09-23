@@ -27,7 +27,12 @@ Scope {
             DockSettings.setAutohide(!DockSettings.autohide)
         }
         // Re-read config.json from disk and apply the changes.
-        function reload(): void { DockSettings.reloadSettings() }
+        function reload(): void {
+            DockSettings.reloadSettings()
+            DockTheme.reload()
+        }
+        // Open the settings dialog.
+        function settings(): void { DockSettings.dialogOpen = true }
     }
 
     // Waits for the settings files before building the window, so the dock is
@@ -35,5 +40,12 @@ Scope {
     LazyLoader {
         active: DockSettings.ready && DockSettings.enabled
         DockWindow {}
+    }
+
+    // The settings dialog, built only while it is open. Separate from the dock
+    // window above so it outlives the dock being turned off.
+    LazyLoader {
+        active: DockSettings.dialogOpen
+        DockSettingsWindow {}
     }
 }

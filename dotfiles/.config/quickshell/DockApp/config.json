@@ -9,6 +9,10 @@ DockSettings.qml). The dock itself reads a single file:
 It is created empty on first start and merged over the
 built-in defaults below, so it only needs to carry the values you want to
 change. The dock writes enabled / autohide / the pinned app list back into it.
+
+theme.colorsFile is the JSON file of Material color roles the dock takes its
+colors from (matugen's templates/colors.json format). It is watched, so the
+dock recolors whenever the file changes.
 */
 {
     "dock": {
@@ -18,7 +22,8 @@ change. The dock writes enabled / autohide / the pinned app list back into it.
         "spacing": 8,
         "marginBottom": 16,
         "reserveSpace": true,
-        "hideDelay": 400
+        "hideDelay": 400,
+        "launcherButton": true
     },
     "pill": {
         "radius": 16,
@@ -32,6 +37,9 @@ change. The dock writes enabled / autohide / the pinned app list back into it.
     },
     "opacity": {
         "normal": 0.7
+    },
+    "theme": {
+        "colorsFile": "~/.config/ml4w-dock/colors.json"
     },
     "apps": {
         "pinned": [

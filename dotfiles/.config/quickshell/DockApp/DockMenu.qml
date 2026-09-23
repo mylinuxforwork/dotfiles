@@ -1,5 +1,5 @@
 import QtQuick
-import qs.CustomTheme
+import qs.DockApp
 
 // Small themed context menu shown above a dock item on right click.
 //
@@ -36,9 +36,9 @@ Item {
         // Same card style as the sidebar's context menus: flat background with
         // a thin accent border.
         radius: 8
-        color: Theme.background
+        color: DockTheme.background
         border.width: 1
-        border.color: Theme.primary
+        border.color: DockTheme.primary
 
         Column {
             id: menuColumn
@@ -56,7 +56,7 @@ Item {
                     width: menuColumn.width
                     height: 36
                     radius: 4
-                    color: rowMouse.containsMouse ? Theme.primary : "transparent"
+                    color: rowMouse.containsMouse ? DockTheme.primary : "transparent"
 
                     Behavior on color {
                         ColorAnimation { duration: 200; easing.type: Easing.OutQuint }
@@ -67,8 +67,8 @@ Item {
                         anchors.left: parent.left
                         anchors.leftMargin: 10
                         text: row.modelData.label
-                        color: rowMouse.containsMouse ? Theme.background : Theme.primary
-                        font.family: Theme.fontFamily
+                        color: rowMouse.containsMouse ? DockTheme.background : DockTheme.primary
+                        font.family: DockTheme.fontFamily
                         font.pixelSize: 14
                         elide: Text.ElideRight
                         width: parent.width - 20
