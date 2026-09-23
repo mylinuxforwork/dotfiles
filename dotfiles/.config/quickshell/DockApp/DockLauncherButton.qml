@@ -3,11 +3,11 @@ import QtQuick
 import qs.DockApp
 
 // Launcher button at the left end of the dock: a 3×3 grid of dots. A left click
-// opens the application launcher (like the status bar's launcher button), a
-// right click opens the dock menu (Reload Dock, Settings, Edit configuration).
-// The menu is the dock's shared context menu, so the button sits in the dock's
-// row and is passed to DockWindow.openMenuFor() as the item the menu is
-// positioned over.
+// runs dock.launcherCommand — by default the application launcher, like the
+// status bar's launcher button — and a right click opens the dock menu (Reload
+// Dock, Settings, Edit configuration). The menu is the dock's shared context
+// menu, so the button sits in the dock's row and is passed to
+// DockWindow.openMenuFor() as the item the menu is positioned over.
 //
 // The dots are drawn here rather than loaded from shared/icons, so the dock
 // does not depend on files outside DockApp.
@@ -15,6 +15,8 @@ Item {
     id: button
 
     property int iconSize: 32
+    // Shell command a left click runs: dock.launcherCommand from config.json.
+    property string command: ""
     // The dock window, which owns the context menu (see DockMenu).
     property var dockWindow: null
 
@@ -32,9 +34,11 @@ Item {
     implicitWidth: button.iconSize + 16
     implicitHeight: button.iconSize + 18
 
+    // Run through bash so the configured command can use ~, arguments and
+    // pipes. An empty command (set that way in config.json) does nothing.
     function launch(): void {
-        Quickshell.execDetached(["bash", "-c",
-            Quickshell.env("HOME") + "/.config/hypr/scripts/launcher.sh"])
+        if (button.command.trim() !== "")
+            Quickshell.execDetached(["bash", "-c", button.command])
     }
 
     function menuActions(): var {

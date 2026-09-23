@@ -10,6 +10,9 @@ It is created empty on first start and merged over the
 built-in defaults below, so it only needs to carry the values you want to
 change. The dock writes enabled / autohide / the pinned app list back into it.
 
+dock.launcherCommand is what a left click on the launcher button runs. It is
+run through bash, so a leading ~, arguments and pipes all work.
+
 theme.colorsFile is the JSON file of Material color roles the dock takes its
 colors from (matugen's templates/colors.json format). It is watched, so the
 dock recolors whenever the file changes.
@@ -23,7 +26,8 @@ dock recolors whenever the file changes.
         "marginBottom": 16,
         "reserveSpace": true,
         "hideDelay": 400,
-        "launcherButton": true
+        "launcherButton": true,
+        "launcherCommand": "~/.config/hypr/scripts/launcher.sh"
     },
     "pill": {
         "radius": 16,

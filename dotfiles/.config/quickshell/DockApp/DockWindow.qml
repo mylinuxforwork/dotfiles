@@ -393,6 +393,7 @@ PanelWindow {
             // room in the row.
             DockLauncherButton {
                 visible: DockSettings.launcherButton
+                command: root.settings.dock.launcherCommand
                 iconSize: root.settings.dock.iconSize
                 dockWindow: root
                 Layout.alignment: Qt.AlignVCenter

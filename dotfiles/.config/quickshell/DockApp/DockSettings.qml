@@ -30,7 +30,8 @@ Singleton {
     readonly property var defaultSettings: ({
         "dock":   { "enabled": true, "autohide": false, "iconSize": 32,
                     "spacing": 8, "marginBottom": 16, "reserveSpace": true,
-                    "hideDelay": 400, "launcherButton": true },
+                    "hideDelay": 400, "launcherButton": true,
+                    "launcherCommand": "~/.config/hypr/scripts/launcher.sh" },
         "pill":   { "radius": 16, "padding": 12, "animationDuration": 350 },
         "border": { "width": 2, "colorTop": "", "colorBottom": "" },
         "opacity":{ "normal": 0.7 },

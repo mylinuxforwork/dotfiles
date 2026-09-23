@@ -146,7 +146,7 @@ FloatingWindow {
                     }
                     Text {
                         Layout.fillWidth: true
-                        text: "Show the launcher button at the left end of the dock. Without it, open these settings from the sidebar's Dock menu."
+                        text: "Show the launcher button at the left end of the dock."
                         color: DockTheme.on_surface_variant
                         font.family: DockTheme.fontFamily
                         font.pixelSize: 13
