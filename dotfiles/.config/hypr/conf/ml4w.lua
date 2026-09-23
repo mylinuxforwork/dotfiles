@@ -34,6 +34,16 @@ hl.window_rule({
     size = "700 600"
 })
 
+-- ML4W Dock Settings (Quickshell dock dialog)
+hl.window_rule({
+    name = "ml4w-dock-settings",
+    match = {title = "ML4W Dock Settings"},
+    float = true,
+    center = true,
+    pin = true,
+    size = "480 300"
+})
+
 -- ML4W Settings App
 hl.window_rule({
     name = "ml4w-settings-app",

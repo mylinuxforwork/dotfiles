@@ -72,6 +72,13 @@ output_path = '~/.config/ml4w/colors/onprimary'
 input_path  = "./templates/colors.json"
 output_path = "~/.local/share/ml4w-dotfiles-settings/colors/colors.json"
 
+# Colors of the ML4W Dock (github.com/mylinuxforwork/ml4w-dock), which reads
+# its own copy so it can also run without the rest of the ML4W shell. It watches the file, so no
+# post_hook is needed. The path is theme.colorsFile in ~/.config/ml4w-dock/config.json.
+[templates.ml4w_dock]
+input_path  = "./templates/colors.json"
+output_path = "~/.config/ml4w-dock/colors.json"
+
 [templates.quickshell_overview]
 input_path  = "./templates/quickshell-overview.qml"
 output_path = "~/.local/share/quickshell-overview/common/Appearance.colors.qml"
