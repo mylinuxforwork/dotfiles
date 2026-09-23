@@ -840,7 +840,7 @@ PanelWindow {
                                     }
                                 }
                                 ML4WMenuItem {
-                                    text: "Edit Settings"
+                                    text: "Edit configuration"
                                     // The statusbar's own settings file, created
                                     // on its first start, is meant to be edited
                                     // directly.
@@ -1000,6 +1000,16 @@ PanelWindow {
                                         // Tells the running dock to re-read its
                                         // settings files and apply them live.
                                         Quickshell.execDetached(["bash", "-c", "~/.config/ml4w/scripts/ml4w-reload-dock"])
+                                    }
+                                }
+                                ML4WMenuItem {
+                                    text: "Edit configuration"
+                                    // The dock's own settings file, created on
+                                    // its first start, is meant to be edited
+                                    // directly.
+                                    onClicked: {
+                                        root.isOpen = false
+                                        Quickshell.execDetached(["bash", "-c", "~/.config/ml4w/settings/editor.sh ~/.config/ml4w-dock/config.json"])
                                     }
                                 }
                             }

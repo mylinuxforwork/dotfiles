@@ -6,6 +6,7 @@ Version 2.16
 - The statusbar is now configured in one place only: ~/.config/ml4w-statusbar/config.json. The file is created on first start (migrated from the former ~/.config/ml4w-statusbar/statusbar.json or ~/.config/ml4w/settings/statusbar.json, which has been removed) and can be edited directly
 - The dock is now configured in one place only: ~/.config/ml4w-dock/config.json. The file is created on first start (migrated from the former ~/.config/ml4w-dock/dock.json or ~/.config/ml4w/settings/dock.json, which has been removed) and can be edited directly
 - Add new configuration for the status bar to define an alternative calendar app that can be launched with a right click on the clock module.
+- Add new menu items "Open .mydotfiles Folder" and "Open Backup Folder" to the System menu of the Welcome app. Both open in your configured filemanager.
 
 Version 2.15.1
 --------------------------------------------------------
