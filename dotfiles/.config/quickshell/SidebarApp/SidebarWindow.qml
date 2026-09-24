@@ -980,8 +980,8 @@ PanelWindow {
                                 // new state via IPC. `checked` already reflects
                                 // the post-click position.
                                 let ipcCmd = checked
-                                ? "~/.config/ml4w/scripts/ml4w-dock enable"
-                                : "~/.config/ml4w/scripts/ml4w-dock disable"
+                                ? "ml4w-dock enable"
+                                : "ml4w-dock disable"
                                 console.log("Dock cmd: " + ipcCmd)
                                 Quickshell.execDetached(["bash", "-c", ipcCmd])
                             }
@@ -1008,7 +1008,7 @@ PanelWindow {
                                     // (autohide lives there now).
                                     onClicked: {
                                         root.isOpen = false
-                                        Quickshell.execDetached(["bash", "-c", "~/.config/ml4w/scripts/ml4w-dock settings"])
+                                        Quickshell.execDetached(["bash", "-c", "ml4w-dock settings"])
                                     }
                                 }
                                 ML4WMenuItem {
@@ -1018,7 +1018,7 @@ PanelWindow {
                                     // the same as its menu's entry.
                                     onClicked: {
                                         root.isOpen = false
-                                        Quickshell.execDetached(["bash", "-c", "~/.config/ml4w/scripts/ml4w-dock edit"])
+                                        Quickshell.execDetached(["bash", "-c", "ml4w-dock edit"])
                                     }
                                 }
                             }

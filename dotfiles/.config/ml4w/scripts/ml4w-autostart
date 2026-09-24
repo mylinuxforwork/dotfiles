@@ -89,7 +89,7 @@ info "Quickshell Overview started"
 
 # Start ML4W Dock
 info "Starting ML4W Dock"
-~/.config/ml4w/scripts/ml4w-dock start
+ml4w-dock start &
 info "ML4W Dock started"
 
 # Start ML4W Welcome App
