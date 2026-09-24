@@ -8,4 +8,4 @@
 # Reload the Quickshell dock of ML4W OS: tells the running dock to re-read its
 # dock settings file (~/.config/ml4w-dock/config.json) and apply it live.
 
-~/.config/ml4w/scripts/ml4w-dock reload
+ml4w-dock reload

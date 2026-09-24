@@ -11,4 +11,4 @@
 # into the dock's settings file (~/.config/ml4w-dock/config.json) by the dock
 # itself.
 
-~/.config/ml4w/scripts/ml4w-dock autohideToggle
+ml4w-dock autohideToggle

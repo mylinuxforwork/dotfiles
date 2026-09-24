@@ -10,5 +10,5 @@
 # only flips the "enabled" flag via IPC; the change is persisted into the dock's
 # settings file (~/.config/ml4w-dock/config.json) by the dock itself.
 
-~/.config/ml4w/scripts/ml4w-dock toggle
+ml4w-dock toggle
 
