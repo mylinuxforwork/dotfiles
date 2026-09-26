@@ -83,7 +83,7 @@ curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors https://raw.githubuserco
 
 # sed's exit status doesn't reflect whether it matched anything, so
 # check the anchor and the patch result explicitly instead of trusting it.
-else_count=$(grep -c '^else$' "$ML4W_SETTINGS_SETUP")
+else_count=$(grep -c '^else$' "$ML4W_SETTINGS_SETUP" || true)
 if [ "$else_count" -ne 1 ]; then
     error "ml4w-dotfiles-settings setup.sh no longer has exactly one"
     error "top-level 'else' (found $else_count) -- skipping ML4W Settings App install."
@@ -159,10 +159,15 @@ fi
 
 build_from_source() {
     local label=$1 tmp_prefix=$2 script=$3
-    local src_dir
+    local src_dir status
     src_dir=$(mktemp -d -t "${tmp_prefix}-XXXXXX")
-    run_quiet "Building $label from source" bash -c "$script" _ "$src_dir"
+    if run_quiet "Building $label from source" bash -c "$script" _ "$src_dir"; then
+        status=0
+    else
+        status=$?
+    fi
     rm -rf "$src_dir"
+    return $status
 }
 
 # --------------------------------------------------------------
@@ -211,11 +216,13 @@ fi
 # quickshell build since ml4w-dock wants qs on PATH.
 # --------------------------------------------------------------
 
-# matugen's [templates.quickshell_overview] writes into this same
-# path -- if it runs first, the installer finds a non-git directory
-# and refuses. Safe to clear; matugen regenerates the file.
+# matugen's [templates.quickshell_overview] writes
+# common/Appearance.colors.qml into this same path -- if it runs
+# first, the installer finds a non-git directory and refuses. Only
+# clear it when that specific generated file is present and there's
+# no .git, so unrelated user content at this path is never touched.
 QSO_DIR="$HOME/.local/share/quickshell-overview"
-if [ -d "$QSO_DIR" ] && [ ! -d "$QSO_DIR/.git" ]; then
+if [ -f "$QSO_DIR/common/Appearance.colors.qml" ] && [ ! -d "$QSO_DIR/.git" ]; then
     rm -rf "$QSO_DIR"
 fi
 run_quiet "Installing Quickshell Overview" bash -c '
@@ -278,7 +285,7 @@ run_quiet "Installing grimblast" bash -c '
 run_quiet "Installing pywalfox" bash -c '
     set -e
     sudo apt-get install -y python3-pip pipx
-    pipx install pywalfox
+    pipx install pywalfox || pipx upgrade pywalfox
     pipx ensurepath
 '
 

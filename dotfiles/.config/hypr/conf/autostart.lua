@@ -28,13 +28,13 @@ hl.on("hyprland.start", function ()
     -- Start waybar
     hl.exec_cmd(HOME .. "/.config/waybar/launch.sh")
 
-    -- Start polkit daemon
-    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-
-    -- Ubuntu ships hyprpolkitagent (via packages-ubuntu), but its unit
-    -- is WantedBy=graphical-session.target, which Hyprland never
-    -- activates, so start it explicitly. No-op where the unit doesn't exist.
-    hl.exec_cmd("systemctl --user start hyprpolkitagent.service 2>/dev/null || true")
+    -- Start polkit agent: prefer hyprpolkitagent.service (Ubuntu, via
+    -- packages-ubuntu -- its unit is WantedBy=graphical-session.target,
+    -- which Hyprland never activates, so start it explicitly), falling
+    -- back to polkit-gnome-authentication-agent-1 where that unit
+    -- doesn't exist. Only one should run -- starting both means
+    -- duplicate polkit auth dialogs.
+    hl.exec_cmd("systemctl --user start hyprpolkitagent.service 2>/dev/null || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 || true")
 
     -- Restore wallpaper (skip for quickshell — handled inside ml4w-autostart)
     if wallpaper_app ~= "quickshell" then
