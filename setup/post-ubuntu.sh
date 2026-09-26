@@ -251,18 +251,31 @@ if ! command -v qs &> /dev/null; then
 fi
 
 # --------------------------------------------------------------
-# nwg-dock-hyprland (no apt package; Go build)
+# Quickshell Overview + ML4W Dock -- pulled in directly rather than by
+# sourcing setup/post.sh, since post.sh's own Oh My Posh/ML4W Settings
+# App steps are the unpatched originals this file already fixes above.
+# Placed after the quickshell build since ml4w-dock wants qs on PATH.
 # --------------------------------------------------------------
 
-if ! command -v nwg-dock-hyprland &> /dev/null; then
-    build_from_source "nwg-dock-hyprland" nwg-dock '
-        set -e
-        sudo apt-get install -y golang-go libgtk-3-dev libgtk-layer-shell-dev libgtk-4-dev
-        git clone --depth=1 --branch v0.4.11 https://github.com/nwg-piotr/nwg-dock-hyprland "$1"
-        cd "$1" && make get && make build && sudo make install
-    '
-    info "nwg-dock-hyprland installed."
+# matugen's [templates.quickshell_overview] writes
+# ~/.local/share/quickshell-overview/common/Appearance.colors.qml -- if
+# matugen ever runs before this installer does (e.g. after a first
+# Hyprland login, or on a re-run), that leaves a plain, non-git
+# directory in the installer's clone target, and it refuses to touch
+# it. Safe to clear: matugen regenerates that file on its own.
+QSO_DIR="$HOME/.local/share/quickshell-overview"
+if [ -d "$QSO_DIR" ] && [ ! -d "$QSO_DIR/.git" ]; then
+    rm -rf "$QSO_DIR"
 fi
+run_quiet "Installing Quickshell Overview" bash -c '
+    set -euo pipefail
+    curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors https://raw.githubusercontent.com/mylinuxforwork/ml4w-quickshell-overview/main/install.sh | bash
+'
+
+run_quiet "Installing ML4W Dock" bash -c '
+    set -euo pipefail
+    curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors https://raw.githubusercontent.com/mylinuxforwork/ml4w-dock/main/install.sh | bash
+'
 
 # --------------------------------------------------------------
 # Walker (app launcher, Rust) + Elephant (its provider daemon, Go)
