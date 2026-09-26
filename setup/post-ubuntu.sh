@@ -62,46 +62,6 @@ if [ -f /etc/xdg/autostart/polkit-mate-authentication-agent-1.desktop ]; then
 fi
 
 # --------------------------------------------------------------
-# Oh My Posh
-# --------------------------------------------------------------
-
-run_quiet "Installing Oh My Posh" bash -c '
-    set -euo pipefail
-    curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
-'
-
-# --------------------------------------------------------------
-# ML4W Settings App
-# --------------------------------------------------------------
-# Upstream's distro detection only knows pacman/dnf/zypper and
-# hard-exits otherwise. Download and patch in an apt branch instead
-# of piping curl straight to bash.
-# --------------------------------------------------------------
-
-ML4W_SETTINGS_SETUP=$(mktemp -t ml4w-settings-setup-XXXXXX.sh)
-curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-settings/main/setup.sh -o "$ML4W_SETTINGS_SETUP"
-
-# sed's exit status doesn't reflect whether it matched anything, so
-# check the anchor and the patch result explicitly instead of trusting it.
-else_count=$(grep -c '^else$' "$ML4W_SETTINGS_SETUP" || true)
-if [ "$else_count" -ne 1 ]; then
-    error "ml4w-dotfiles-settings setup.sh no longer has exactly one"
-    error "top-level 'else' (found $else_count) -- skipping ML4W Settings App install."
-else
-    sed -i '/^else$/i\
-elif command -v apt-get \&> /dev/null; then\
-    DISTRO="ubuntu"\
-    info "Ubuntu detected. Installing base dependencies..."\
-    sudo apt-get install -y git make jq gawk gum' "$ML4W_SETTINGS_SETUP"
-    if grep -q 'DISTRO="ubuntu"' "$ML4W_SETTINGS_SETUP"; then
-        run_quiet "Installing ML4W Settings App" bash "$ML4W_SETTINGS_SETUP"
-    else
-        error "Failed to patch ml4w-dotfiles-settings setup.sh for Ubuntu -- skipping install."
-    fi
-fi
-rm -f "$ML4W_SETTINGS_SETUP"
-
-# --------------------------------------------------------------
 # Cargo -- matugen
 # --------------------------------------------------------------
 
@@ -211,9 +171,9 @@ fi
 
 # --------------------------------------------------------------
 # Quickshell Overview + ML4W Dock -- pulled in directly, not via
-# sourcing setup/post.sh, since its Oh My Posh/ML4W Settings App steps
-# are the unpatched originals already fixed above. Placed after the
-# quickshell build since ml4w-dock wants qs on PATH.
+# sourcing setup/post.sh, so the retry flags and the matugen-collision
+# guard below apply (post.sh's versions have neither). Placed after
+# the quickshell build since ml4w-dock wants qs on PATH.
 # --------------------------------------------------------------
 
 # matugen's [templates.quickshell_overview] writes
