@@ -31,6 +31,12 @@ hl.on("hyprland.start", function ()
     -- Start polkit daemon
     hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 
+    -- Ubuntu ships hyprpolkitagent instead (via packages-ubuntu), but its
+    -- unit is WantedBy=graphical-session.target, which Hyprland never
+    -- activates, so it has to be started explicitly. No-op on distros
+    -- where the unit doesn't exist.
+    hl.exec_cmd("systemctl --user start hyprpolkitagent.service 2>/dev/null || true")
+
     -- Restore wallpaper (skip for quickshell — handled inside ml4w-autostart)
     if wallpaper_app ~= "quickshell" then
         hl.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-app --restore")
@@ -42,8 +48,17 @@ hl.on("hyprland.start", function ()
     -- Load GTK settings
     hl.exec_cmd("~/.config/hypr/scripts/gtk.sh")
 
-    -- Start swaync
-    hl.exec_cmd("swaync")
+    -- Start swaync -- except on Debian/Ubuntu, where it's deliberately
+    -- left to D-Bus activation instead (org.erikreider.swaync.cc).
+    -- Confirmed live there: an explicit exec-once here raced with D-Bus
+    -- activation itself (e.g. from waybar's own swaync-client
+    -- notification-count module firing around the same time) and lost
+    -- with "An instance of SwayNotificationCenter is already running!".
+    -- That's tied to Ubuntu's swaync.service packaging specifically
+    -- (WantedBy=graphical-session.target, unmasked so D-Bus activation
+    -- self-heals it) -- other distros' swaync packaging isn't known to
+    -- have that same setup, so keep the direct launch there.
+    hl.exec_cmd("[ -f /etc/debian_version ] || swaync")
 
     -- Start hypridle
     hl.exec_cmd("hypridle")
