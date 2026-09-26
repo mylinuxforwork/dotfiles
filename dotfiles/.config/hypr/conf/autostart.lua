@@ -28,8 +28,13 @@ hl.on("hyprland.start", function ()
     -- Start waybar
     hl.exec_cmd(HOME .. "/.config/waybar/launch.sh")
 
-    -- Start polkit daemon
-    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+    -- Start polkit agent: prefer hyprpolkitagent.service (Ubuntu, via
+    -- packages-ubuntu -- its unit is WantedBy=graphical-session.target,
+    -- which Hyprland never activates, so start it explicitly), falling
+    -- back to polkit-gnome-authentication-agent-1 where that unit
+    -- doesn't exist. Only one should run -- starting both means
+    -- duplicate polkit auth dialogs.
+    hl.exec_cmd("systemctl --user start hyprpolkitagent.service 2>/dev/null || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 || true")
 
     -- Restore wallpaper (skip for quickshell — handled inside ml4w-autostart)
     if wallpaper_app ~= "quickshell" then
@@ -42,8 +47,13 @@ hl.on("hyprland.start", function ()
     -- Load GTK settings
     hl.exec_cmd("~/.config/hypr/scripts/gtk.sh")
 
-    -- Start swaync
-    hl.exec_cmd("swaync")
+    -- Start swaync -- except on Ubuntu, left to D-Bus activation
+    -- instead (org.erikreider.swaync.cc): an explicit exec-once here
+    -- raced with D-Bus activation (e.g. waybar's swaync-client module)
+    -- and lost with "already running!". Checks /etc/os-release's ID,
+    -- not /etc/debian_version, so Mint/Pop!_OS/etc. -- without this
+    -- Ubuntu-specific packaging -- still get the direct launch.
+    hl.exec_cmd("grep -q '^ID=ubuntu' /etc/os-release 2>/dev/null || swaync")
 
     -- Start hypridle
     hl.exec_cmd("hypridle")
