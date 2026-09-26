@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 # --------------------------------------------------------------
 # Mask systemd --user units that duplicate autostart.lua's own
 # exec-once launching of these daemons. Ubuntu's packaging ships
@@ -40,8 +42,14 @@ systemctl --user unmask swaync.service 2>/dev/null || true
 if command -v snap &> /dev/null && snap list snapd-desktop-integration &> /dev/null; then
     sudo snap refresh snapd-desktop-integration --channel=candidate >> "$LOG_FILE" 2>&1 || true
 
-    systemctl --user mask snapd-desktop-integration 2>/dev/null || true
-
+    # Gating via ConditionEnvironment (below) rather than masking, since
+    # this unit is meant to still run under real GNOME sessions -- a
+    # mask would disable it there too. Relies on XDG_CURRENT_DESKTOP
+    # being present in the systemd --user manager's own environment
+    # block by the time this unit tries to start, which on Ubuntu's
+    # GDM+gnome-session stack is set up by gnome-session's own systemd
+    # units running `dbus-update-activation-environment --systemd --all`
+    # early in session startup -- not independently verified here.
     _snap_svc="snap.snapd-desktop-integration.snapd-desktop-integration.service"
     mkdir -p "$HOME/.config/systemd/user/${_snap_svc}.d"
     cat > "$HOME/.config/systemd/user/${_snap_svc}.d/gnome-only.conf" <<-EOF
@@ -74,8 +82,10 @@ fi
 # Oh My Posh
 # --------------------------------------------------------------
 
-run_quiet "Installing Oh My Posh" bash -c \
-    'curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin'
+run_quiet "Installing Oh My Posh" bash -c '
+    set -euo pipefail
+    curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
+'
 
 # --------------------------------------------------------------
 # ML4W Settings App
@@ -89,13 +99,29 @@ run_quiet "Installing Oh My Posh" bash -c \
 # --------------------------------------------------------------
 
 ML4W_SETTINGS_SETUP=$(mktemp -t ml4w-settings-setup-XXXXXX.sh)
-curl -fsSL https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-settings/main/setup.sh -o "$ML4W_SETTINGS_SETUP"
-sed -i '/^else$/i\
+curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-settings/main/setup.sh -o "$ML4W_SETTINGS_SETUP"
+
+# sed's own exit status doesn't reflect whether it actually matched
+# anything, so upstream changing/removing/duplicating the top-level
+# `else` this patch anchors on would otherwise fail silently (either a
+# no-op that still hard-exits on Ubuntu, or a patch spliced into the
+# wrong place). Check the anchor and the result explicitly instead.
+else_count=$(grep -c '^else$' "$ML4W_SETTINGS_SETUP")
+if [ "$else_count" -ne 1 ]; then
+    error "ml4w-dotfiles-settings setup.sh no longer has exactly one"
+    error "top-level 'else' (found $else_count) -- skipping ML4W Settings App install."
+else
+    sed -i '/^else$/i\
 elif command -v apt-get \&> /dev/null; then\
     DISTRO="ubuntu"\
     info "Ubuntu detected. Installing base dependencies..."\
     sudo apt-get install -y git make jq gawk gum' "$ML4W_SETTINGS_SETUP"
-run_quiet "Installing ML4W Settings App" bash "$ML4W_SETTINGS_SETUP"
+    if grep -q 'DISTRO="ubuntu"' "$ML4W_SETTINGS_SETUP"; then
+        run_quiet "Installing ML4W Settings App" bash "$ML4W_SETTINGS_SETUP"
+    else
+        error "Failed to patch ml4w-dotfiles-settings setup.sh for Ubuntu -- skipping install."
+    fi
+fi
 rm -f "$ML4W_SETTINGS_SETUP"
 
 # --------------------------------------------------------------
@@ -163,6 +189,20 @@ if dpkg -l 2>/dev/null | grep -q "^ii  hyprpaper "; then
 fi
 
 # --------------------------------------------------------------
+# Shared scaffold for the from-source builds below: stage into a fresh
+# temp dir (passed to the build script as $1), run it under run_quiet,
+# and always clean the temp dir up afterwards.
+# --------------------------------------------------------------
+
+build_from_source() {
+    local label=$1 tmp_prefix=$2 script=$3
+    local src_dir
+    src_dir=$(mktemp -d -t "${tmp_prefix}-XXXXXX")
+    run_quiet "Building $label from source" bash -c "$script" _ "$src_dir"
+    rm -rf "$src_dir"
+}
+
+# --------------------------------------------------------------
 # Quickshell (built from source, not the danklinux PPA's quickshell-git
 # package -- pinned to the exact commit that PPA package already builds
 # from, since it's the one already validated to work with this repo's
@@ -180,8 +220,7 @@ fi
 # --------------------------------------------------------------
 
 if ! command -v qs &> /dev/null; then
-    QS_SRC=$(mktemp -d -t quickshell-src-XXXXXX)
-    run_quiet "Building quickshell from source" bash -c '
+    build_from_source "quickshell" quickshell-src '
         set -e
         sudo apt-get install -y \
             cmake ninja-build pkg-config \
@@ -207,8 +246,7 @@ if ! command -v qs &> /dev/null; then
             -DDISTRIBUTOR="ML4W Ubuntu Support (source build)"
         cmake --build "$1/build"
         sudo cmake --install "$1/build"
-    ' _ "$QS_SRC"
-    rm -rf "$QS_SRC"
+    '
     info "quickshell installed."
 fi
 
@@ -217,14 +255,12 @@ fi
 # --------------------------------------------------------------
 
 if ! command -v nwg-dock-hyprland &> /dev/null; then
-    NWG_DOCK_SRC=$(mktemp -d -t nwg-dock-XXXXXX)
-    run_quiet "Building nwg-dock-hyprland from source" bash -c '
+    build_from_source "nwg-dock-hyprland" nwg-dock '
         set -e
         sudo apt-get install -y golang-go libgtk-3-dev libgtk-layer-shell-dev libgtk-4-dev
         git clone --depth=1 --branch v0.4.11 https://github.com/nwg-piotr/nwg-dock-hyprland "$1"
         cd "$1" && make get && make build && sudo make install
-    ' _ "$NWG_DOCK_SRC"
-    rm -rf "$NWG_DOCK_SRC"
+    '
     info "nwg-dock-hyprland installed."
 fi
 
@@ -233,21 +269,18 @@ fi
 # --------------------------------------------------------------
 
 if ! command -v walker &> /dev/null; then
-    WALKER_SRC=$(mktemp -d -t walker-XXXXXX)
-    run_quiet "Building Walker from source" bash -c '
+    build_from_source "Walker" walker '
         set -e
         sudo apt-get install -y protobuf-compiler libgtk-4-dev libgtk4-layer-shell-dev libpoppler-glib-dev libgdk-pixbuf-2.0-dev
         git clone --depth=1 --branch v2.16.2 https://github.com/abenz1267/walker "$1"
         (cd "$1" && cargo build --release)
         sudo cp "$1/target/release/walker" /usr/local/bin/walker
-    ' _ "$WALKER_SRC"
-    rm -rf "$WALKER_SRC"
+    '
     info "Walker installed."
 fi
 
 if [ ! -x /usr/local/bin/elephant ]; then
-    ELEPHANT_SRC=$(mktemp -d -t elephant-XXXXXX)
-    run_quiet "Building Elephant from source" bash -c '
+    build_from_source "Elephant" elephant '
         set -e
         sudo apt-get install -y golang-go
         git clone --depth=1 --branch v2.21.0 https://github.com/abenz1267/elephant "$1"
@@ -258,8 +291,7 @@ if [ ! -x /usr/local/bin/elephant ]; then
             _provider=$(basename "$_pdir")
             (cd "$_pdir" && go build -buildmode=plugin -o "$HOME/.config/elephant/providers/${_provider}.so" .) || true
         done
-    ' _ "$ELEPHANT_SRC"
-    rm -rf "$ELEPHANT_SRC"
+    '
     info "Elephant and providers installed."
 fi
 
@@ -292,26 +324,43 @@ run_quiet "Installing pywalfox" bash -c '
 # Fonts
 # --------------------------------------------------------------
 
+# Shared scaffold for the zip-distributed fonts below: download, unzip,
+# and copy $glob matches into $dest. Only creates $dest once matching
+# files are confirmed present, so a failed download or an upstream zip
+# layout change can't leave an empty $dest behind that would make the
+# caller's `[ ! -d "$dest" ]` guard treat the font as already installed
+# on every future run.
+install_font_zip() {
+    local label=$1 url=$2 glob=$3 dest=$4
+    local tmp
+    tmp=$(mktemp -d)
+    if run_quiet "Installing $label" bash -c '
+        set -e
+        curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors -o "$1/font.zip" "$2"
+        (cd "$1" && unzip -q font.zip -d extracted)
+        shopt -s nullglob
+        files=("$1"/extracted/$4)
+        [ ${#files[@]} -gt 0 ]
+        sudo mkdir -p "$3"
+        sudo cp "${files[@]}" "$3/"
+    ' _ "$tmp" "$url" "$dest" "$glob"; then
+        rm -rf "$tmp"
+        return 0
+    fi
+    rm -rf "$tmp"
+    return 1
+}
+
 # JetBrains Mono Nerd Font -- no Ubuntu package, unlike
 # ttf-jetbrains-mono-nerd (Arch)/nerd-fonts-JetBrainsMono (Fedora
 # copr)/jetbrainsmono-nerd-fonts (openSUSE repo). Used by
 # dotfiles/.config/kitty/kitty.conf's font_family.
 JBM_DEST="/usr/share/fonts/JetBrainsMonoNerd"
 if [ ! -d "$JBM_DEST" ]; then
-    JBM_TMP=$(mktemp -d)
-    if run_quiet "Installing JetBrains Mono Nerd Font" bash -c '
-        set -e
-        curl -fsSL -o "$1/jbm.zip" \
-            "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip"
-        (cd "$1" && unzip -q jbm.zip -d extracted)
-        sudo mkdir -p "$2"
-        sudo cp "$1"/extracted/*.ttf "$2/"
-    ' _ "$JBM_TMP" "$JBM_DEST"; then
-        :
-    else
+    install_font_zip "JetBrains Mono Nerd Font" \
+        "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip" \
+        "*.ttf" "$JBM_DEST" ||
         warn "Failed to download JetBrains Mono Nerd Font; kitty font_family will fall back."
-    fi
-    rm -rf "$JBM_TMP"
 fi
 
 # Font Awesome 7 (Free + Brands) -- waybar's theme CSS font-family
@@ -324,20 +373,10 @@ fi
 # package too (harmless) and added the real thing on top.
 FA_DEST="/usr/share/fonts/font-awesome-7"
 if [ ! -d "$FA_DEST" ]; then
-    FA_TMP=$(mktemp -d)
-    if run_quiet "Installing Font Awesome 7" bash -c '
-        set -e
-        curl -fsSL -o "$1/fa.zip" \
-            "https://github.com/FortAwesome/Font-Awesome/releases/download/7.3.0/fontawesome-free-7.3.0-desktop.zip"
-        (cd "$1" && unzip -q fa.zip -d extracted)
-        sudo mkdir -p "$2"
-        sudo cp "$1"/extracted/*/otfs/*.otf "$2/"
-    ' _ "$FA_TMP" "$FA_DEST"; then
-        :
-    else
-        warn "Failed to download Font Awesome 7; waybar icons may not render."
-    fi
-    rm -rf "$FA_TMP"
+    install_font_zip "Font Awesome 7" \
+        "https://github.com/FortAwesome/Font-Awesome/releases/download/7.3.0/fontawesome-free-7.3.0-desktop.zip" \
+        "*/otfs/*.otf" "$FA_DEST" ||
+        warn "Failed to install Font Awesome 7; waybar icons may not render."
 fi
 
 sudo fc-cache -f >> "$LOG_FILE" 2>&1

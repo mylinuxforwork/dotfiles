@@ -48,17 +48,21 @@ hl.on("hyprland.start", function ()
     -- Load GTK settings
     hl.exec_cmd("~/.config/hypr/scripts/gtk.sh")
 
-    -- Start swaync -- except on Debian/Ubuntu, where it's deliberately
-    -- left to D-Bus activation instead (org.erikreider.swaync.cc).
-    -- Confirmed live there: an explicit exec-once here raced with D-Bus
-    -- activation itself (e.g. from waybar's own swaync-client
-    -- notification-count module firing around the same time) and lost
-    -- with "An instance of SwayNotificationCenter is already running!".
-    -- That's tied to Ubuntu's swaync.service packaging specifically
+    -- Start swaync -- except on Ubuntu, where it's deliberately left to
+    -- D-Bus activation instead (org.erikreider.swaync.cc). Confirmed
+    -- live there: an explicit exec-once here raced with D-Bus activation
+    -- itself (e.g. from waybar's own swaync-client notification-count
+    -- module firing around the same time) and lost with "An instance of
+    -- SwayNotificationCenter is already running!". That's tied to
+    -- Ubuntu's swaync.service packaging specifically
     -- (WantedBy=graphical-session.target, unmasked so D-Bus activation
     -- self-heals it) -- other distros' swaync packaging isn't known to
-    -- have that same setup, so keep the direct launch there.
-    hl.exec_cmd("[ -f /etc/debian_version ] || swaync")
+    -- have that same setup, so keep the direct launch there. Checking
+    -- /etc/os-release's ID rather than /etc/debian_version, which also
+    -- matches Mint/Pop!_OS/other Debian derivatives that don't have this
+    -- Ubuntu-specific packaging and would otherwise never get swaync
+    -- started at all.
+    hl.exec_cmd("grep -q '^ID=ubuntu' /etc/os-release 2>/dev/null || swaync")
 
     -- Start hypridle
     hl.exec_cmd("hypridle")

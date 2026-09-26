@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
 # Noisy command output (apt-get, cargo, cmake/ninja, go build, etc.) goes
 # here instead of the terminal. `gum spin` shows a spinner and only
@@ -73,11 +73,14 @@ else
     info "danklinux PPA already present"
 fi
 
-# gum (not available in Ubuntu main/universe)
-if [ ! -f /etc/apt/keyrings/charm.gpg ]; then
+# gum (not available in Ubuntu main/universe). Checked with -s, not -f: a
+# curl failure mid-pipeline still leaves gpg's -o output file behind
+# (0 bytes) before gpg itself fails, and an existence-only check would
+# treat that stale empty file as "already present" forever.
+if [ ! -s /etc/apt/keyrings/charm.gpg ]; then
     info "Adding Charm apt repo for gum"
     sudo mkdir -p /etc/apt/keyrings
-    curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+    curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
     echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list > /dev/null
 else
     info "Charm apt repo already present"
