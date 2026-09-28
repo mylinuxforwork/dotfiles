@@ -54,7 +54,7 @@ done
 # Use Walker to select the theme
 # -----------------------------------------------------
 _get_choice_walker() {
-    echo $(echo -e "$listNames" | $HOME/.config/walker/launch.sh -d -i -N -H --height 400 -p "Search Theme")
+    echo $(echo -e "$listNames" | walker -d -i -N -H --height 400 -p "Search Theme")
 }
 
 # -----------------------------------------------------

@@ -7,7 +7,7 @@ launcher=$(cat $HOME/.config/ml4w/settings/launcher)
 
 # Use Walker
 _launch_walker() {
-    $HOME/.config/walker/launch.sh --height 500
+    walker "$@"
 }
 
 # Use Rofi
