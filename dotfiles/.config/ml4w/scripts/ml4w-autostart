@@ -92,6 +92,11 @@ info "Starting ML4W Dock"
 ml4w-dock start &
 info "ML4W Dock started"
 
+# Start ML4W Power Menu
+info "Starting ML4W Power Menu"
+ml4w-powermenu start &
+info "ML4W Power Menu started"
+
 # Start ML4W Welcome App
 info "Starting ML4W Welcome App"
 if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then

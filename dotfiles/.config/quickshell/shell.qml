@@ -3,7 +3,6 @@
 import Quickshell
 import Quickshell.Io
 import "WelcomeApp"
-import "PowerApp"
 import "SidebarApp"
 import "WallpaperApp"
 import "StatusbarApp"
@@ -20,7 +19,6 @@ ShellRoot {
     }
 
     WelcomeWindow {}
-    PowerWindow {}
     SidebarWindow {}
     WallpaperWindow {}
     StatusbarWindow {}

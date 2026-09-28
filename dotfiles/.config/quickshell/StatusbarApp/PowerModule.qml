@@ -1,10 +1,10 @@
 import Quickshell
 import QtQuick
 
-// Power menu -> toggles the Power app via IPC.
+// Power menu -> toggles the ML4W Power Menu (github.com/mylinuxforwork/ml4w-powermenu).
 BarButton {
     iconSrc: "../shared/icons/power.svg"
     onClicked: {
-        Quickshell.execDetached(["qs", "ipc", "call", "power", "toggle"])
+        Quickshell.execDetached(["bash", "-c", "ml4w-powermenu toggle"])
     }
 }

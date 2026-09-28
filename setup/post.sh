@@ -25,6 +25,12 @@ bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-quickshell-
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-dock/main/install.sh)
 
 # --------------------------------------------------------------
+# ML4W Power Menu
+# --------------------------------------------------------------
+
+bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-powermenu/main/install.sh)
+
+# --------------------------------------------------------------
 # Cursors
 # --------------------------------------------------------------
 

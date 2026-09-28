@@ -159,7 +159,7 @@
   // Power Menu
   "custom/exit": {
     "format": "",
-    "on-click": "qs ipc call power toggle",
+    "on-click": "ml4w-powermenu toggle",
     "tooltip-format": "Open Power Menu"
   },
   // SwayNC
