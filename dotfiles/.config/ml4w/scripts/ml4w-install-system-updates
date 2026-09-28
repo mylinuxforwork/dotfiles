@@ -71,9 +71,9 @@ if _checkCommandExists "pacman"; then
     if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
         yay
     elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]]; then
-        paru -Syu --noconfirm
+        paru -Syu
     else
-        sudo pacman -Syu --noconfirm
+        sudo pacman -Syu
     fi
 
 # Fedora
