@@ -79,6 +79,13 @@ output_path = "~/.local/share/ml4w-dotfiles-settings/colors/colors.json"
 input_path  = "./templates/colors.json"
 output_path = "~/.config/ml4w-dock/colors.json"
 
+# Colors of the ML4W Power Menu (github.com/mylinuxforwork/ml4w-powermenu), which
+# reads its own copy like the dock. The path is theme.colorsFile in
+# ~/.config/ml4w-powermenu/config.json.
+[templates.ml4w_powermenu]
+input_path  = "./templates/colors.json"
+output_path = "~/.config/ml4w-powermenu/colors.json"
+
 [templates.quickshell_overview]
 input_path  = "./templates/quickshell-overview.qml"
 output_path = "~/.local/share/quickshell-overview/common/Appearance.colors.qml"

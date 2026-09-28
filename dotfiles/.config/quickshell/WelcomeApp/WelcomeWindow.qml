@@ -250,7 +250,7 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("Exit Hyprland") 
                     onClicked: {
-                        Quickshell.execDetached(["bash", "-c", "qs ipc call power toggle"])
+                        Quickshell.execDetached(["bash", "-c", "ml4w-powermenu toggle"])
                     }
                 }
 
