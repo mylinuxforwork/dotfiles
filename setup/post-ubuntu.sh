@@ -186,37 +186,6 @@ run_quiet "Installing ML4W Dock" bash -c '
 '
 
 # --------------------------------------------------------------
-# Walker (app launcher, Rust) + Elephant (its provider daemon, Go)
-# --------------------------------------------------------------
-
-if ! command -v walker &> /dev/null; then
-    build_from_source "Walker" walker '
-        set -e
-        sudo apt-get install -y protobuf-compiler libgtk-4-dev libgtk4-layer-shell-dev libpoppler-glib-dev libgdk-pixbuf-2.0-dev
-        git clone --depth=1 --branch v2.16.2 https://github.com/abenz1267/walker "$1"
-        (cd "$1" && cargo build --release)
-        sudo cp "$1/target/release/walker" /usr/local/bin/walker
-    '
-    info "Walker installed."
-fi
-
-if [ ! -x /usr/local/bin/elephant ]; then
-    build_from_source "Elephant" elephant '
-        set -e
-        sudo apt-get install -y golang-go
-        git clone --depth=1 --branch v2.21.0 https://github.com/abenz1267/elephant "$1"
-        (cd "$1/cmd/elephant" && go build -o "$HOME/go/bin/elephant" .)
-        sudo cp "$HOME/go/bin/elephant" /usr/local/bin/elephant
-        mkdir -p "$HOME/.config/elephant/providers"
-        for _pdir in "$1/internal/providers"/*/; do
-            _provider=$(basename "$_pdir")
-            (cd "$_pdir" && go build -buildmode=plugin -o "$HOME/.config/elephant/providers/${_provider}.so" .) || true
-        done
-    '
-    info "Elephant and providers installed."
-fi
-
-# --------------------------------------------------------------
 # ML4W Dotfiles Settings App -- its setup.sh only detects pacman/dnf/
 # zypper and exits 1 on Ubuntu; post.sh runs it later and tolerates
 # that failure, which otherwise leaves ml4w-autostart's
