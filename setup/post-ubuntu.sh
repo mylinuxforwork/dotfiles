@@ -231,6 +231,27 @@ run_quiet "Installing grimblast" bash -c '
 ' _ "$repo_path/setup/clean-install-grimblast.sh"
 
 # --------------------------------------------------------------
+# grim -- built from source because Ubuntu's package is compiled
+# without JPEG support, which breaks the default .jpg screenshot
+# filename. Installs to /usr/local/bin, ahead of the apt grim on PATH.
+# --------------------------------------------------------------
+
+if ! ldd /usr/local/bin/grim 2>/dev/null | grep -q libjpeg; then
+    build_from_source "grim" grim-src '
+        set -e
+        sudo apt-get install -y \
+            meson ninja-build pkg-config scdoc \
+            libpng-dev libjpeg-dev libpixman-1-dev \
+            libwayland-bin libwayland-dev wayland-protocols
+        git clone --depth=1 --branch v1.5.0 https://gitlab.freedesktop.org/emersion/grim.git "$1"
+        meson setup "$1/build" "$1" --buildtype=release -Djpeg=enabled
+        ninja -C "$1/build"
+        sudo ninja -C "$1/build" install
+    '
+    info "grim installed to /usr/local/bin"
+fi
+
+# --------------------------------------------------------------
 # Pip
 # --------------------------------------------------------------
 
