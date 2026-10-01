@@ -5,7 +5,6 @@ rsync
 unzip
 tar
 jq
-flatpak
 vim
 inotify-tools
 udisks2
