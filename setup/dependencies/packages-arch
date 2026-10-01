@@ -9,7 +9,6 @@ uwsm
 python-pip
 python-pipx
 python-gobject
-python-screeninfo
 nm-connection-editor
 network-manager-applet
 imagemagick
