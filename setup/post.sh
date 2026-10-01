@@ -31,6 +31,12 @@ bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-dock/main/i
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-powermenu/main/install.sh)
 
 # --------------------------------------------------------------
+# ML4W Walker (app launcher + its provider daemon, elephant)
+# --------------------------------------------------------------
+
+bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-walker/main/install.sh)
+
+# --------------------------------------------------------------
 # Cursors
 # --------------------------------------------------------------
 

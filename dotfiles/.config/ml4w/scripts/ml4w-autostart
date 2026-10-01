@@ -97,6 +97,12 @@ info "Starting ML4W Power Menu"
 ml4w-powermenu start &
 info "ML4W Power Menu started"
 
+# Start ML4W Walker (starts elephant first, then walker -- see
+# ml4w-walker's own start command)
+info "Starting ML4W Walker"
+ml4w-walker start &
+info "ML4W Walker started"
+
 # Start ML4W Welcome App
 info "Starting ML4W Welcome App"
 if [ ! -f $HOME/.cache/ml4w-welcome-autostart ]; then
