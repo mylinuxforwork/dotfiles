@@ -28,3 +28,5 @@ imagemagick
 pipx
 quickshell
 breeze-icon-theme
+libsecret-1-0
+tesseract-ocr

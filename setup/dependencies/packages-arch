@@ -34,3 +34,5 @@ ttf-font-awesome
 ttf-nerd-fonts-symbols
 noto-fonts-emoji
 breeze
+libsecret
+tesseract

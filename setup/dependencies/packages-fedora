@@ -44,3 +44,5 @@ libadwaita-devel
 lua
 hyprland-guiutils
 breeze-icon-theme
+libsecret
+tesseract
