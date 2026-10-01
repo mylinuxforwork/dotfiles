@@ -6,14 +6,14 @@ mkdir -p "$HOME/.local/bin"
 # Repositories
 # --------------------------------------------------------------
 
-sudo apt-get install -y software-properties-common >> "$LOG_FILE" 2>&1
-sudo add-apt-repository -y universe >> "$LOG_FILE" 2>&1
-sudo add-apt-repository -y restricted >> "$LOG_FILE" 2>&1
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository -y universe
+sudo add-apt-repository -y restricted
 
 # Hyprland core
 if ! grep -Rq "cppiber.*hyprland" /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null; then
     info "Adding PPA: ppa:cppiber/hyprland"
-    sudo add-apt-repository -y ppa:cppiber/hyprland >> "$LOG_FILE" 2>&1
+    sudo add-apt-repository -y ppa:cppiber/hyprland
 else
     info "Hyprland PPA already present"
 fi
@@ -21,7 +21,7 @@ fi
 # cliphist (quickshell itself is built from source in post-ubuntu.sh)
 if ! grep -Rq "avengemedia.*danklinux" /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null; then
     info "Adding PPA: ppa:avengemedia/danklinux"
-    sudo add-apt-repository -y ppa:avengemedia/danklinux >> "$LOG_FILE" 2>&1
+    sudo add-apt-repository -y ppa:avengemedia/danklinux
 else
     info "danklinux PPA already present"
 fi
@@ -42,7 +42,7 @@ fi
 # to a real .deb.
 if ! grep -Rq "mozillateam.*ppa" /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null; then
     info "Adding PPA: ppa:mozillateam/ppa (native Firefox .deb, not the snap)"
-    sudo add-apt-repository -y ppa:mozillateam/ppa >> "$LOG_FILE" 2>&1
+    sudo add-apt-repository -y ppa:mozillateam/ppa
 fi
 sudo tee /etc/apt/preferences.d/mozilla-firefox > /dev/null <<-'EOF'
 	Package: *
@@ -53,10 +53,10 @@ sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox > /dev/null <<-'EOF'
 	Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";
 	EOF
 
-sudo apt-get update >> "$LOG_FILE" 2>&1
+sudo apt-get update
 
 if ! command -v gum &> /dev/null; then
-    sudo apt-get install -y gum >> "$LOG_FILE" 2>&1
+    sudo apt-get install -y gum
 fi
 
 # --------------------------------------------------------------
@@ -64,5 +64,5 @@ fi
 # --------------------------------------------------------------
 
 if dpkg -l 2>/dev/null | grep -q "^ii  swww "; then
-    sudo apt-get remove -y swww >> "$LOG_FILE" 2>&1
+    sudo apt-get remove -y swww
 fi

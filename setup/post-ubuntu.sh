@@ -38,7 +38,7 @@ systemctl --user daemon-reload 2>/dev/null || true
 # --------------------------------------------------------------
 
 if command -v snap &> /dev/null && snap list snapd-desktop-integration &> /dev/null; then
-    sudo snap refresh snapd-desktop-integration --channel=candidate >> "$LOG_FILE" 2>&1 || true
+    sudo snap refresh snapd-desktop-integration --channel=candidate || true
 
     _snap_svc="snap.snapd-desktop-integration.snapd-desktop-integration.service"
     mkdir -p "$HOME/.config/systemd/user/${_snap_svc}.d"
@@ -107,7 +107,7 @@ if [ ! -x /usr/local/bin/awww ] || [ ! -x /usr/local/bin/awww-daemon ]; then
 fi
 
 if dpkg -l 2>/dev/null | grep -q "^ii  hyprpaper "; then
-    sudo apt-get remove -y hyprpaper >> "$LOG_FILE" 2>&1
+    sudo apt-get remove -y hyprpaper
 fi
 
 # --------------------------------------------------------------
@@ -207,7 +207,7 @@ info "ML4W Dotfiles Settings installed to ~/.local/bin/"
 # --------------------------------------------------------------
 
 if dpkg -l 2>/dev/null | grep -q "^ii  nwg-displays "; then
-    sudo apt-get remove -y nwg-displays >> "$LOG_FILE" 2>&1
+    sudo apt-get remove -y nwg-displays
 fi
 # gir1.2-gtklayershell-0.1 is required for nwg-displays to run as an
 # overlay via GtkLayerShell; without it, it falls back to a plain
@@ -308,4 +308,4 @@ if [ ! -d "$FA_DEST" ]; then
         warn "Failed to install Font Awesome 7; waybar icons may not render."
 fi
 
-sudo fc-cache -f >> "$LOG_FILE" 2>&1
+sudo fc-cache -f
