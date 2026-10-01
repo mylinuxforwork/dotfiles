@@ -22,7 +22,6 @@ NetworkManager-tui
 tesseract-langpack-eng
 SwayNotificationCenter
 fontawesome-fonts
-nerd-fonts-JetBrainsMono
 awww
 qt5-qtgraphicaleffects
 qt6-qt5compat
@@ -34,7 +33,7 @@ hyprsunset
 quickshell
 openssl-devel
 pkg-config
-gnome-themes-extra
+adw-gtk3-theme
 gcc
 gobject-introspection-devel
 cairo-gobject-devel
@@ -44,3 +43,4 @@ gtk4
 libadwaita-devel
 lua
 hyprland-guiutils
+breeze-icon-theme

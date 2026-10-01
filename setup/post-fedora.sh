@@ -54,3 +54,9 @@ pywalfox-install
 # --------------------------------------------------------------
 
 source $repo_path/setup/clean-install-grimblast.sh
+
+# --------------------------------------------------------------
+# JetBrains Mono Font
+# --------------------------------------------------------------
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
