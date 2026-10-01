@@ -26,3 +26,4 @@ libcairo2-dev
 lua5.4
 imagemagick
 pipx
+quickshell
