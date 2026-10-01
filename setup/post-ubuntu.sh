@@ -64,7 +64,7 @@ if [ -f /etc/xdg/autostart/polkit-mate-authentication-agent-1.desktop ]; then
 fi
 
 # --------------------------------------------------------------
-# Cargo -- matugen
+# Matugen
 # --------------------------------------------------------------
 
 TARGET_VERSION="4.0.0"
