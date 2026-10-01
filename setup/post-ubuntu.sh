@@ -70,7 +70,8 @@ fi
 TARGET_VERSION="4.0.0"
 
 force_install_matugen() {
-    run_quiet "Installing matugen" cargo install matugen --force
+    info "Installing matugen"
+    cargo install matugen --force
     info "matugen installed."
 }
 
@@ -96,7 +97,8 @@ if [ ! -x /usr/local/bin/awww ] || [ ! -x /usr/local/bin/awww-daemon ]; then
     # Check the install target, not `command -v awww` -- a prior run
     # where only awww-daemon failed to build would otherwise skip this
     # block forever.
-    run_quiet "Building awww from source" bash -c '
+    info "Building awww from source"
+    bash -c '
         set -e
         sudo apt-get install -y liblz4-dev pkg-config libwayland-dev
         cargo install --git https://codeberg.org/LGFae/awww --tag v0.12.1 awww awww-daemon --locked
@@ -118,7 +120,8 @@ build_from_source() {
     local label=$1 tmp_prefix=$2 script=$3
     local src_dir status
     src_dir=$(mktemp -d -t "${tmp_prefix}-XXXXXX")
-    if run_quiet "Building $label from source" bash -c "$script" _ "$src_dir"; then
+    info "Building $label from source"
+    if bash -c "$script" _ "$src_dir"; then
         status=0
     else
         status=$?
@@ -175,12 +178,14 @@ QSO_DIR="$HOME/.local/share/quickshell-overview"
 if [ -f "$QSO_DIR/common/Appearance.colors.qml" ] && [ ! -d "$QSO_DIR/.git" ]; then
     rm -rf "$QSO_DIR"
 fi
-run_quiet "Installing Quickshell Overview" bash -c '
+info "Installing Quickshell Overview"
+bash -c '
     set -euo pipefail
     curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors https://raw.githubusercontent.com/mylinuxforwork/ml4w-quickshell-overview/main/install.sh | bash
 '
 
-run_quiet "Installing ML4W Dock" bash -c '
+info "Installing ML4W Dock"
+bash -c '
     set -euo pipefail
     curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors https://raw.githubusercontent.com/mylinuxforwork/ml4w-dock/main/install.sh | bash
 '
@@ -224,7 +229,8 @@ info "nwg-displays installed to ~/.local/bin/"
 # Grimblast
 # --------------------------------------------------------------
 
-run_quiet "Installing grimblast" bash -c '
+info "Installing grimblast"
+bash -c '
     set -e
     sudo apt-get install -y scdoc
     bash "$1"
@@ -255,7 +261,8 @@ fi
 # Pip
 # --------------------------------------------------------------
 
-run_quiet "Installing pywalfox" bash -c '
+info "Installing pywalfox"
+bash -c '
     set -e
     sudo apt-get install -y python3-pip pipx
     pipx install pywalfox || pipx upgrade pywalfox
@@ -272,7 +279,8 @@ install_font_zip() {
     local label=$1 url=$2 glob=$3 dest=$4
     local tmp
     tmp=$(mktemp -d)
-    if run_quiet "Installing $label" bash -c '
+    info "Installing $label"
+    if bash -c '
         set -e
         curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors -o "$1/font.zip" "$2"
         (cd "$1" && unzip -q font.zip -d extracted)

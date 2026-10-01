@@ -16,7 +16,7 @@ info "nwg-displays installed to ~/.local/bin/"
 rm -rf $NWG_DISPLAYS_BUILD_DIR
 
 # --------------------------------------------------------------
-# Cargo
+# Matugen
 # --------------------------------------------------------------
 
 TARGET_VERSION="4.0.0"
@@ -24,6 +24,7 @@ TARGET_VERSION="4.0.0"
 force_install_matugen() {
     info "Running: cargo install matugen --force"
     cargo install matugen --force
+    info "matugen installed."
 }
 
 if ! command -v matugen &> /dev/null; then
