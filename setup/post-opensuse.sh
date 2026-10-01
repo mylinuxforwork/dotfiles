@@ -56,11 +56,10 @@ else
 fi
 
 # --------------------------------------------------------------
-# JetBrains Mono Nerd Font
+# JetBrains Mono Font
 # --------------------------------------------------------------
 
-sudo zypper addrepo https://download.opensuse.org/repositories/X11:fonts/openSUSE_Factory/X11:fonts.repo
-sudo zypper -n install jetbrainsmono-nerd-fonts
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
 # --------------------------------------------------------------
 # Pip
