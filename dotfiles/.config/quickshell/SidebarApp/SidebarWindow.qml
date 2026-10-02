@@ -950,6 +950,48 @@ PanelWindow {
                         Item { implicitWidth: 28 }
                     }
 
+                    // --- LAUNCHER ---
+                    // Select which launcher ML4W OS uses. The choice is persisted
+                    // to ~/.config/ml4w/settings/launcher (read by ml4w-launcher).
+                    // On = Walker, Off = Rofi.
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text { text: "Launcher"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Item { Layout.fillWidth: true }
+                        Text {
+                            text: launcherSwitch.checked ? "Walker" : "Rofi"
+                            color: Theme.primary
+                            opacity: 0.7
+                            font.family: Theme.fontFamily
+                            font.pixelSize: 14
+                            Layout.rightMargin: 8
+                        }
+                        ML4WSwitch {
+                            id: launcherSwitch
+                            property bool ready: false
+                            // Read the configured launcher (defaults to rofi).
+                            Process {
+                                command: ["bash", "-c", "l=$(tr -d '[:space:]' < ~/.config/ml4w/settings/launcher 2>/dev/null); [ \"$l\" = walker ] && echo 1 || echo 0"]
+                                running: root.isOpen
+                                stdout: StdioCollector {
+                                    onStreamFinished: {
+                                        launcherSwitch.checked = (this.text.trim() === "1")
+                                        launcherSwitch.ready = true
+                                    }
+                                }
+                            }
+                            onClicked: {
+                                if (!ready) return;
+                                let cmd = checked
+                                    ? "echo walker > ~/.config/ml4w/settings/launcher"
+                                    : "echo rofi > ~/.config/ml4w/settings/launcher"
+                                console.log("Launcher cmd: " + cmd)
+                                Quickshell.execDetached(["bash", "-c", cmd])
+                            }
+                        }
+                        Item { implicitWidth: 28 }
+                    }
+
                     // --- DOCK ---
                     RowLayout {
                         Layout.fillWidth: true
