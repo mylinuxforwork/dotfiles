@@ -93,9 +93,11 @@ fi
 echo
 
 # Flatpak
-echo ":: Searching for Flatpak updates..."
-flatpak update
-echo
+if _checkCommandExists "flatpak"; then
+    echo ":: Searching for Flatpak updates..."
+    flatpak update
+    echo
+fi
 
 # Reload Waybar
 pkill -RTMIN+1 waybar
