@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+#  _                           _
+# | |    __ _ _   _ _ __   ___| |__   ___ _ __
+# | |   / _` | | | | '_ \ / __| '_ \ / _ \ '__|
+# | |__| (_| | |_| | | | | (__| | | |  __/ |
+# |_____\__,_|\__,_|_| |_|\___|_| |_|\___|_|
+#
+# Runs the launcher selected in ~/.config/ml4w/settings/launcher
+# (rofi or walker). Falls back to rofi if walker is selected but
+# not installed.
+#
+# Usage:
+#   ml4w-launcher [drun]        Open the application launcher (default)
+#   ml4w-launcher dmenu [opts]  Read options from stdin, print the selection
+#       -p <prompt>             Prompt (rofi) / placeholder (walker)
+#       -c <file.rasi>          Rofi config (default: config-themes.rasi)
+#       -l <lines>              Number of lines (rofi)
+#       --index                 Print the selected index instead of the value
+#       --rofi-args "<args>"    Extra arguments for rofi only
+#       --walker-args "<args>"  Extra arguments for walker only
+#   ml4w-launcher which         Print the launcher in use: walker or rofi
+
+# -----------------------------------------------------
+# Resolve Launcher
+# -----------------------------------------------------
+_resolve_launcher() {
+    local launcher=""
+    local settings_file="$HOME/.config/ml4w/settings/launcher"
+    if [ -f "$settings_file" ]; then
+        launcher=$(tr -d '[:space:]' <"$settings_file")
+    fi
+    if [ "$launcher" == "walker" ] && command -v walker >/dev/null 2>&1; then
+        echo "walker"
+    else
+        echo "rofi"
+    fi
+}
+
+launcher=$(_resolve_launcher)
+
+# -----------------------------------------------------
+# Application Launcher
+# -----------------------------------------------------
+_drun() {
+    if [ "$launcher" == "walker" ]; then
+        walker -t ml4w --height 500
+    else
+        pkill rofi || rofi -show drun -replace -i
+    fi
+}
+
+# -----------------------------------------------------
+# Dmenu
+# -----------------------------------------------------
+_dmenu() {
+    local prompt=""
+    local config="$HOME/.config/rofi/config-themes.rasi"
+    local lines=""
+    local index=0
+    local rofi_extra=()
+    local walker_extra=()
+
+    while [ $# -gt 0 ]; do
+        case "$1" in
+            -p) prompt="$2"; shift 2 ;;
+            -c) config="$2"; shift 2 ;;
+            -l) lines="$2"; shift 2 ;;
+            --index) index=1; shift ;;
+            --rofi-args) read -ra rofi_extra <<<"$2"; shift 2 ;;
+            --walker-args) read -ra walker_extra <<<"$2"; shift 2 ;;
+            *) echo "ml4w-launcher: unknown option $1" >&2; exit 1 ;;
+        esac
+    done
+
+    if [ "$launcher" == "walker" ]; then
+        local args=(-t ml4w -d -N -H)
+        [ -n "$prompt" ] && args+=(-p "$prompt")
+        [ "$index" == 1 ] && args+=(-i)
+        walker "${args[@]}" "${walker_extra[@]}"
+    else
+        local args=(-dmenu -replace -i -config "$config")
+        [ -n "$prompt" ] && args+=(-p "$prompt")
+        [ -n "$lines" ] && args+=(-l "$lines")
+        [ "$index" == 1 ] && args+=(-format i)
+        rofi "${args[@]}" "${rofi_extra[@]}"
+    fi
+}
+
+# -----------------------------------------------------
+# Main
+# -----------------------------------------------------
+case "$1" in
+    "" | drun) _drun ;;
+    dmenu) shift; _dmenu "$@" ;;
+    which) echo "$launcher" ;;
+    *) echo "ml4w-launcher: unknown command $1" >&2; exit 1 ;;
+esac

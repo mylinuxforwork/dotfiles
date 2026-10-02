@@ -119,12 +119,12 @@ save='Save'
 copy_save='Copy & Save'
 edit='Edit'
 
-# Rofi CMD
+# Launcher CMD
 rofi_cmd() {
-    rofi -dmenu -replace -config ~/.config/rofi/config-screenshot.rasi -i -no-show-icons -l 2 -width 30 -p "Take screenshot"
+    $HOME/.config/ml4w/scripts/ml4w-launcher dmenu -c ~/.config/rofi/config-screenshot.rasi -l 2 -p "Take screenshot" --rofi-args "-no-show-icons -width 30"
 }
 
-# Pass variables to rofi dmenu
+# Pass variables to the launcher
 run_rofi() {
     echo -e "$option_1\n$option_2" | rofi_cmd
 }
@@ -133,7 +133,7 @@ run_rofi() {
 # Choose Timer
 # CMD
 timer_cmd() {
-    rofi -dmenu -replace -config ~/.config/rofi/config-screenshot.rasi -i -no-show-icons -l 5 -width 30 -p "Choose timer"
+    $HOME/.config/ml4w/scripts/ml4w-launcher dmenu -c ~/.config/rofi/config-screenshot.rasi -l 5 -p "Choose timer" --rofi-args "-no-show-icons -width 30"
 }
 
 # Ask for confirmation
@@ -169,7 +169,7 @@ timer_run() {
 # Chose Screenshot Type
 # CMD
 type_screenshot_cmd() {
-    rofi -dmenu -replace -config ~/.config/rofi/config-screenshot.rasi -i -no-show-icons -l 3 -width 30 -p "Type of screenshot"
+    $HOME/.config/ml4w/scripts/ml4w-launcher dmenu -c ~/.config/rofi/config-screenshot.rasi -l 3 -p "Type of screenshot" --rofi-args "-no-show-icons -width 30"
 }
 
 # Ask for confirmation
@@ -199,7 +199,7 @@ type_screenshot_run() {
 # Choose to save or copy photo
 # CMD
 copy_save_editor_cmd() {
-    rofi -dmenu -replace -config ~/.config/rofi/config-screenshot.rasi -i -no-show-icons -l 4 -width 30 -p "How to save"
+    $HOME/.config/ml4w/scripts/ml4w-launcher dmenu -c ~/.config/rofi/config-screenshot.rasi -l 4 -p "How to save" --rofi-args "-no-show-icons -width 30"
 }
 
 # Ask for confirmation

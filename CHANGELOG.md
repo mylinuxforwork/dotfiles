@@ -4,6 +4,7 @@ Version 2.16.1
 - Add ~/.config/ml4w-powermenu/config.json to configure the power menu: the order of the buttons (buttons can also be hidden), the command of each button, and the size, spacing, shape, animation and colors of the menu
 - The ML4W OS autostart log has moved from ~/.mydotfiles/ml4w-autostart.log to ~/.local/state/ml4w-os-hyprland. Each start writes a new log file named with the date and time (e.g. ml4w-autostart-2026-10-02_08-32-45.log), and only the last 10 logs are kept
 - Add "Keybinds" button to the upper right of the sidebar to show all keybindings. The "All keybindings" button in the Welcome app has been renamed to "All Keybinds"
+- Add "Launcher" switch to the sidebar to select the application launcher: on uses Walker, off uses Rofi. The selection is saved to ~/.config/ml4w/settings/launcher
 
 Version 2.16
 --------------------------------------------------------
