@@ -9,11 +9,6 @@
 # -----------------------------------------------------
 
 # -----------------------------------------------------
-# Load Launcher
-# -----------------------------------------------------
-launcher=$(cat $HOME/.config/ml4w/settings/launcher)
-
-# -----------------------------------------------------
 # Default theme folder
 # -----------------------------------------------------
 themes_path="$HOME/.config/waybar/themes"
@@ -51,29 +46,11 @@ for value in $options; do
 done
 
 # -----------------------------------------------------
-# Use Walker to select the theme
-# -----------------------------------------------------
-_get_choice_walker() {
-    echo $(echo -e "$listNames" | walker -t ml4w -d -i -N -H --height 400 -p "Search Theme")
-}
-
-# -----------------------------------------------------
-# Use Rofi to select the theme
-# -----------------------------------------------------
-_get_choice_rofi() {
-    echo $(echo -e "$listNames" | rofi -dmenu -replace -i -config ~/.config/rofi/config-themes.rasi -no-show-icons -width 30 -p "Themes" -format i)
-}
-
-# -----------------------------------------------------
 # Show dialog
 # -----------------------------------------------------
 listNames=${listNames::-2}
 
-if [ "$launcher" == "walker" ] && command -v walker >/dev/null 2>&1; then
-    choice=$(_get_choice_walker)
-else
-    choice=$(_get_choice_rofi)
-fi
+choice=$(echo -e "$listNames" | $HOME/.config/ml4w/scripts/ml4w-launcher dmenu --index -p "Themes" --rofi-args "-no-show-icons -width 30" --walker-args "--height 400")
 
 IFS="~"
 input=$listNames2

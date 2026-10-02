@@ -156,7 +156,7 @@
     // Rofi Application Launcher
     "custom/appmenu": {
         "format": "Apps",
-        "on-click": "rofi -show drun -replace",
+        "on-click": "~/.config/ml4w/scripts/ml4w-launcher",
         "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
         "tooltip": false
     },

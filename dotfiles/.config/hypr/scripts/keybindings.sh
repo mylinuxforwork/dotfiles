@@ -3,16 +3,16 @@
 # -----------------------------------------------------
 # Load Launcher
 # -----------------------------------------------------
-launcher=$(cat $HOME/.config/ml4w/settings/launcher)
+launcher=$($HOME/.config/ml4w/scripts/ml4w-launcher which)
 
 # Use Walker (one entry per line)
 _show_walker() {
-    awk -F '\t' '{ printf "%s  ➔ %s\n", $1, $2 }' | walker -t ml4w -d -N -H -p "Keybinds"
+    awk -F '\t' '{ printf "%s  ➔ %s\n", $1, $2 }' | $HOME/.config/ml4w/scripts/ml4w-launcher dmenu -p "Keybinds"
 }
 
 # Use Rofi (two-line entries separated by null)
 _show_rofi() {
-    awk -F '\t' '{ printf "%s\n➔ %s\0", $1, $2 }' | rofi -dmenu -i -replace -p "Keybinds" -sep '\0' -eh 2 -config ~/.config/rofi/config-compact.rasi
+    awk -F '\t' '{ printf "%s\n➔ %s\0", $1, $2 }' | $HOME/.config/ml4w/scripts/ml4w-launcher dmenu -p "Keybinds" -c ~/.config/rofi/config-compact.rasi --rofi-args "-sep \\0 -eh 2"
 }
 
 # Pipe the JSON stream through jq and awk into the configured launcher
@@ -52,4 +52,4 @@ BEGIN {
 
     # Output: Keys and Description separated by a tab
     printf "%s\t%s\n", combo, desc
-}' | if [ "$launcher" == "walker" ] && command -v walker >/dev/null 2>&1; then _show_walker; else _show_rofi; fi
+}' | if [ "$launcher" == "walker" ]; then _show_walker; else _show_rofi; fi

@@ -145,14 +145,14 @@
     // START APPS LABEL
     "format": "Apps",
     // END APPS LABEL
-    "on-click": "~/.config/hypr/scripts/launcher.sh",
+    "on-click": "~/.config/ml4w/scripts/ml4w-launcher",
     "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
   },
   // Rofi Application Launcher
   "custom/appmenuicon": {
     "format": "",
-    "on-click": "sleep 0.2;rofi -show drun -replace",
+    "on-click": "sleep 0.2;~/.config/ml4w/scripts/ml4w-launcher",
     "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
   },
