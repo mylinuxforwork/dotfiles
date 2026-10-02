@@ -79,6 +79,12 @@ if _checkCommandExists "pacman"; then
 # Fedora
 elif _checkCommandExists "dnf"; then
     sudo dnf upgrade
+# openSUSE
+elif _checkCommandExists "zypper"; then
+    sudo zypper dup
+# Ubuntu
+elif _checkCommandExists "apt"; then
+    sudo apt update && sudo apt upgrade
 else
     echo ":: ERROR - Platform not supported"
     echo "Press [ENTER] to close."
