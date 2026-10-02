@@ -260,7 +260,7 @@ PanelWindow {
             anchors.margins: 20
             spacing: 20
 
-            // --- TOP BAR (Light/Dark, Screenshot & Color Picker) ---
+            // --- TOP BAR (Light/Dark, Screenshot, Color Picker & Keybinds) ---
             RowLayout {
                 Layout.fillWidth: true
                 spacing: 10
@@ -289,6 +289,15 @@ PanelWindow {
                 }
 
                 Item { Layout.fillWidth: true }
+
+                ML4WButton {
+                    text: "Keybinds"
+                    Layout.fillWidth: false
+                    onClicked: {
+                        root.isOpen = false
+                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/keybindings.sh"])
+                    }
+                }
             }
 
             Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: Theme.primary; opacity: 0.3 }

@@ -514,7 +514,7 @@ FloatingWindow {
                         }
 
                         Button {
-                            text: "All keybindings"
+                            text: "All Keybinds"
 
                             onClicked: {
                                 Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/hypr/scripts/keybindings.sh"])
