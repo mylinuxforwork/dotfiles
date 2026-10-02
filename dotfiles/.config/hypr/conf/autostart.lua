@@ -41,8 +41,13 @@ hl.on("hyprland.start", function ()
         hl.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-app --restore")
     end
 
-    -- Autostart scripts
-    hl.exec_cmd("~/.config/ml4w/scripts/ml4w-autostart > ~/.mydotfiles/ml4w-autostart.log 2>&1")
+    -- Autostart scripts -- log to a dated file, keeping only the last 10
+    -- logs (the 9 newest existing ones plus the one written now)
+    hl.exec_cmd(
+        "d=\"$HOME/.local/state/ml4w-os-hyprland\"; mkdir -p \"$d\"; " ..
+        "ls -1r \"$d\"/ml4w-autostart-*.log 2>/dev/null | tail -n +10 | xargs -r rm -f; " ..
+        "~/.config/ml4w/scripts/ml4w-autostart > \"$d/ml4w-autostart-$(date +%Y-%m-%d_%H-%M-%S).log\" 2>&1"
+    )
 
     -- Load GTK settings
     hl.exec_cmd("~/.config/hypr/scripts/gtk.sh")
