@@ -21,8 +21,8 @@ fi
 # Start Launcher
 # -----------------------------------------------------
 
-if [ "$launcher" == "walker" ]; then
-    selected_theme=$($HOME/.config/walker/launch.sh -d -N -H -p "Search Theme" <<<"$THEME_OPTIONS")
+if [ "$launcher" == "walker" ] && command -v walker >/dev/null 2>&1; then
+    selected_theme=$(walker -t ml4w -d -N -H -p "Search Theme" <<<"$THEME_OPTIONS")
 else
     selected_theme=$(rofi -dmenu -replace -config ~/.config/rofi/config-themes.rasi -i -no-show-icons -l 5 -width 30 <<<"$THEME_OPTIONS")
 fi

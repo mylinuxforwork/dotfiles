@@ -54,7 +54,7 @@ done
 # Use Walker to select the theme
 # -----------------------------------------------------
 _get_choice_walker() {
-    echo $(echo -e "$listNames" | $HOME/.config/walker/launch.sh -d -i -N -H --height 400 -p "Search Theme")
+    echo $(echo -e "$listNames" | walker -t ml4w -d -i -N -H --height 400 -p "Search Theme")
 }
 
 # -----------------------------------------------------
@@ -69,7 +69,7 @@ _get_choice_rofi() {
 # -----------------------------------------------------
 listNames=${listNames::-2}
 
-if [ "$launcher" == "walker" ]; then
+if [ "$launcher" == "walker" ] && command -v walker >/dev/null 2>&1; then
     choice=$(_get_choice_walker)
 else
     choice=$(_get_choice_rofi)

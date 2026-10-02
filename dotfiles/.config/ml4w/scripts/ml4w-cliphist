@@ -10,8 +10,8 @@
 # Load Launcher
 # -----------------------------------------------------
 launcher=$(cat $HOME/.config/ml4w/settings/launcher)
-if [ "$launcher" == "walker" ]; then
-    $HOME/.config/walker/launch.sh -m clipboard -N -H
+if [ "$launcher" == "walker" ] && command -v walker >/dev/null 2>&1; then
+    walker -t ml4w -m clipboard -N -H
 else
     case $1 in
         d)

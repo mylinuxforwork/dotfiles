@@ -1,6 +1,21 @@
 #!/usr/bin/env bash
 
-# Pipe the JSON stream directly through jq and awk, straight into rofi
+# -----------------------------------------------------
+# Load Launcher
+# -----------------------------------------------------
+launcher=$(cat $HOME/.config/ml4w/settings/launcher)
+
+# Use Walker (one entry per line)
+_show_walker() {
+    awk -F '\t' '{ printf "%s  ➔ %s\n", $1, $2 }' | walker -t ml4w -d -N -H -p "Keybinds"
+}
+
+# Use Rofi (two-line entries separated by null)
+_show_rofi() {
+    awk -F '\t' '{ printf "%s\n➔ %s\0", $1, $2 }' | rofi -dmenu -i -replace -p "Keybinds" -sep '\0' -eh 2 -config ~/.config/rofi/config-compact.rasi
+}
+
+# Pipe the JSON stream through jq and awk into the configured launcher
 hyprctl binds -j | jq -c '.[] | select(.description != "")' | awk '
 BEGIN {
     # Define modifier bits based on libxkbcommon
@@ -35,6 +50,6 @@ BEGIN {
         combo = (mods != "" ? mods : key)
     }
 
-    # Output: Line 1 (Keys), Line 2 (Description), followed by the Null separator
-    printf "%s\n➔ %s\0", combo, desc
-}' | rofi -dmenu -i -replace -p "Keybinds" -sep '\0' -eh 2 -config ~/.config/rofi/config-compact.rasi
+    # Output: Keys and Description separated by a tab
+    printf "%s\t%s\n", combo, desc
+}' | if [ "$launcher" == "walker" ] && command -v walker >/dev/null 2>&1; then _show_walker; else _show_rofi; fi

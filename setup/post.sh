@@ -35,6 +35,7 @@ bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-powermenu/m
 # --------------------------------------------------------------
 
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-walker/main/install.sh)
+ml4w-walker add clipboard
 
 # --------------------------------------------------------------
 # Cursors
