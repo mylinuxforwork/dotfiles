@@ -8,6 +8,9 @@
 -- FUNCTIONS
 require("functions")
 
+-- PLUGINS
+require("plugins")
+
 -- MONITORS
 require("monitors")
 require("conf.monitor")
