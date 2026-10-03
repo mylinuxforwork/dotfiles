@@ -419,7 +419,10 @@ PanelWindow {
                         ML4WMenuItem { 
                             text: "Reload Images"
                             onClicked: {
-                                folderLoader.running = true;
+                                // Blank the folder and set it back so FolderListModel rescans it
+                                const current = root.wallpaperFolder
+                                root.wallpaperFolder = ""
+                                Qt.callLater(() => { root.wallpaperFolder = current })
                             } 
                         }
 
