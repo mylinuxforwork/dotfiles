@@ -1,6 +1,6 @@
 # ML4W OS - Dotfiles for Hyprland
 
-An advanced configuration of Hyprland for Arch Linux based distributions (CachyOS), Fedora and openSuse Tumbleweed. 
+An advanced configuration of Hyprland for Arch Linux based distributions (CachyOS), Fedora, Ubuntu and openSuse Tumbleweed. 
 
 Full featured desktop environment based on the dynamic tiling window manager Hyprland with adaptive material color themes based on the selected wallpaper for all components. Including a comprehensive selection of apps with the ability to customize the configuration to your personal needs.
 
@@ -21,7 +21,7 @@ bash <(curl -s https://ml4w.com/os/stable) # Stable Release
 ```sh
 bash <(curl -s https://ml4w.com/os/rolling) # Rolling Release
 ```
-Arch, Fedora and openSuse Tumbleweed are directly supported.
+Arch, Fedora, Ubuntu and openSuse Tumbleweed are directly supported.
 
 ### Test and install with the ML4W OS Live ISO
 
