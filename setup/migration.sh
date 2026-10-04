@@ -54,3 +54,24 @@ fi
 if [ -f $HOME/.config/ml4w/settings/wallpaper-automation.sh ]; then
     mv $HOME/.config/ml4w/settings/wallpaper-automation.sh $HOME/.config/ml4w/settings/wallpaper-automation
 fi
+
+# Update an old default editor.sh that the user did not change. Old
+# releases shipped only the line "gnome-text-editor" (or "mousepad"). That
+# line drops the file names that callers such as "ml4w-dock edit" give.
+# The update restores the old settings folder, so the new default editor.sh
+# does not replace it.
+ml4w_migrate_editor() {
+    local editor_file="$HOME/.config/ml4w/settings/editor.sh"
+    [ -f "$editor_file" ] || return 0
+    local editor_cmd
+    editor_cmd="$(< "$editor_file")"
+    case "$editor_cmd" in
+        gnome-text-editor | mousepad)
+            # shellcheck disable=SC2016 # "$@" must stay literal in the new file
+            printf '#!/bin/bash\n%s "$@"\n' "$editor_cmd" > "$editor_file"
+            info "editor.sh updated: $editor_cmd now opens the given files"
+            ;;
+    esac
+}
+ml4w_migrate_editor
+unset -f ml4w_migrate_editor
