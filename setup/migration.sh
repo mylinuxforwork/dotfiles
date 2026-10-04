@@ -75,3 +75,20 @@ ml4w_migrate_editor() {
 }
 ml4w_migrate_editor
 unset -f ml4w_migrate_editor
+
+# Move away the nested settings folder that old installer versions made.
+# Before the installer used "cp -aT", each update copied the settings folder
+# into itself as settings/settings. No script reads that copy. The move keeps
+# it in ~/.cache/ml4w, so the user can still get files back from it.
+ml4w_migrate_nested_settings() {
+    local nested_dir="$HOME/.config/ml4w/settings/settings"
+    [ -d "$nested_dir" ] && [ ! -L "$nested_dir" ] || return 0
+    local target_dir
+    target_dir="$HOME/.cache/ml4w/nested-settings-$(date +%Y%m%d_%H%M%S)"
+    mkdir -p "$HOME/.cache/ml4w"
+    if mv -- "$nested_dir" "$target_dir"; then
+        info "Nested folder $nested_dir moved to $target_dir"
+    fi
+}
+ml4w_migrate_nested_settings
+unset -f ml4w_migrate_nested_settings
