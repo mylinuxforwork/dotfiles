@@ -16,25 +16,7 @@ info "nwg-displays installed to ~/.local/bin/"
 rm -rf $NWG_DISPLAYS_BUILD_DIR
 
 # --------------------------------------------------------------
-# Oh My Posh
-# --------------------------------------------------------------
-
-curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
-
-# --------------------------------------------------------------
-# ML4W Settings App
-# --------------------------------------------------------------
-
-curl -sSL https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-settings/main/setup.sh | bash
-
-# --------------------------------------------------------------
-# Quickshell Overview
-# --------------------------------------------------------------
-
-curl -sSL https://raw.githubusercontent.com/mylinuxforwork/ml4w-quickshell-overview/main/install.sh | bash
-
-# --------------------------------------------------------------
-# Cargo
+# Matugen
 # --------------------------------------------------------------
 
 TARGET_VERSION="4.0.0"
@@ -42,6 +24,7 @@ TARGET_VERSION="4.0.0"
 force_install_matugen() {
     info "Running: cargo install matugen --force"
     cargo install matugen --force
+    info "matugen installed."
 }
 
 if ! command -v matugen &> /dev/null; then
@@ -73,25 +56,7 @@ pywalfox-install
 source $repo_path/setup/clean-install-grimblast.sh
 
 # --------------------------------------------------------------
-# Cursors
+# JetBrains Mono Font
 # --------------------------------------------------------------
 
-source $repo_path/setup/_cursors.sh
-
-# --------------------------------------------------------------
-# Fonts
-# --------------------------------------------------------------
-
-source $repo_path/setup/_fonts.sh
-
-# --------------------------------------------------------------
-# Icons
-# --------------------------------------------------------------
-
-source $repo_path/setup/_icons.sh
-
-# --------------------------------------------------------------
-# Create XDG Directories
-# --------------------------------------------------------------
-
-xdg-user-dirs-update
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"

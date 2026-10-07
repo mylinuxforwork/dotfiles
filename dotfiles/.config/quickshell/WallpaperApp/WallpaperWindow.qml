@@ -419,7 +419,10 @@ PanelWindow {
                         ML4WMenuItem { 
                             text: "Reload Images"
                             onClicked: {
-                                folderLoader.running = true;
+                                // Blank the folder and set it back so FolderListModel rescans it
+                                const current = root.wallpaperFolder
+                                root.wallpaperFolder = ""
+                                Qt.callLater(() => { root.wallpaperFolder = current })
                             } 
                         }
 
@@ -739,24 +742,18 @@ PanelWindow {
                             cursorShape: Qt.PointingHandCursor
                             
                             onClicked: {
-                                let scriptPath = Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-wallpaper";
-                                let options = ""
+                                // Pass each value as its own argument. No shell reads the
+                                // file name, so quotes and spaces in it are safe.
+                                const args = [Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-wallpaper", model.filePath]
                                 if (advancedOptions.visible) {
                                     const outputSelection = outputMonitorSelector.currentValue
-                                    const outputParams = outputSelection.isSingleOutput
-                                        ? " --monitor " + outputSelection.name
-                                        : ""
-                                    const positioningParams = " --crop-gravity " + wallpaperPositioningSelector.currentText
-                                    const themingParams = shouldUpdateTheming.checked
-                                        ? ""
-                                        : " --skip-theming"
-                                    options = `${outputParams}${positioningParams}${themingParams}`
+                                    if (outputSelection.isSingleOutput)
+                                        args.push("--monitor", outputSelection.name)
+                                    args.push("--crop-gravity", wallpaperPositioningSelector.currentText)
+                                    if (!shouldUpdateTheming.checked)
+                                        args.push("--skip-theming")
                                 }
-                                Quickshell.execDetached([
-                                    "bash",
-                                    "-c",
-                                    scriptPath + " '" + model.filePath + "'" + options
-                                ]);
+                                Quickshell.execDetached(args)
                             }
                         }
                     }

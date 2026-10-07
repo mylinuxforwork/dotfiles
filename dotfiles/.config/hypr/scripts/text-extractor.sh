@@ -47,7 +47,7 @@ fi
 
 argc() { echo $#; }
 rofi_cmd() {
-    rofi -dmenu -replace -config ~/.config/rofi/config-ocr-lang.rasi -i -no-show-icons -l 3 -width 30 -p "Select the OCR language"
+    $HOME/.config/ml4w/scripts/ml4w-launcher dmenu -c ~/.config/rofi/config-ocr-lang.rasi -l 3 -p "Select the OCR language" --rofi-args "-no-show-icons -width 30"
 }
 
 if [ "$(argc $OCR_LANGUAGE_LIST)" -gt 1 ]; then

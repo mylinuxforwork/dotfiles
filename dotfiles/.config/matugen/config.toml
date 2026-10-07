@@ -23,6 +23,10 @@ input_path = '~/.config/matugen/templates/hyprland-colors.lua'
 output_path = '~/.config/hypr/colors.lua'
 post_hook = 'hyprctl reload'
 
+[templates.hyprtoolkit]
+input_path = '~/.config/matugen/templates/hyprtoolkit-colors.conf'
+output_path = '~/.config/hypr/hyprtoolkit.conf'
+
 [templates.waybar]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
@@ -48,6 +52,10 @@ output_path = '~/.cache/wal/colors.json'
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/swaync/colors.css'
 
+[templates.walker]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/walker/colors.css'
+
 [templates.sequences]
 input_path = '~/.config/matugen/templates/sequences'
 output_path = '~/.cache/wal/sequences'
@@ -71,6 +79,20 @@ output_path = '~/.config/ml4w/colors/onprimary'
 [templates.ml4w_dotfiles_settings]
 input_path  = "./templates/colors.json"
 output_path = "~/.local/share/ml4w-dotfiles-settings/colors/colors.json"
+
+# Colors of the ML4W Dock (github.com/mylinuxforwork/ml4w-dock), which reads
+# its own copy so it can also run without the rest of the ML4W shell. It watches the file, so no
+# post_hook is needed. The path is theme.colorsFile in ~/.config/ml4w-dock/config.json.
+[templates.ml4w_dock]
+input_path  = "./templates/colors.json"
+output_path = "~/.config/ml4w-dock/colors.json"
+
+# Colors of the ML4W Power Menu (github.com/mylinuxforwork/ml4w-powermenu), which
+# reads its own copy like the dock. The path is theme.colorsFile in
+# ~/.config/ml4w-powermenu/config.json.
+[templates.ml4w_powermenu]
+input_path  = "./templates/colors.json"
+output_path = "~/.config/ml4w-powermenu/colors.json"
 
 [templates.quickshell_overview]
 input_path  = "./templates/quickshell-overview.qml"

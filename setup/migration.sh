@@ -54,3 +54,41 @@ fi
 if [ -f $HOME/.config/ml4w/settings/wallpaper-automation.sh ]; then
     mv $HOME/.config/ml4w/settings/wallpaper-automation.sh $HOME/.config/ml4w/settings/wallpaper-automation
 fi
+
+# Update an old default editor.sh that the user did not change. Old
+# releases shipped only the line "gnome-text-editor" (or "mousepad"). That
+# line drops the file names that callers such as "ml4w-dock edit" give.
+# The update restores the old settings folder, so the new default editor.sh
+# does not replace it.
+ml4w_migrate_editor() {
+    local editor_file="$HOME/.config/ml4w/settings/editor.sh"
+    [ -f "$editor_file" ] || return 0
+    local editor_cmd
+    editor_cmd="$(< "$editor_file")"
+    case "$editor_cmd" in
+        gnome-text-editor | mousepad)
+            # shellcheck disable=SC2016 # "$@" must stay literal in the new file
+            printf '#!/bin/bash\n%s "$@"\n' "$editor_cmd" > "$editor_file"
+            info "editor.sh updated: $editor_cmd now opens the given files"
+            ;;
+    esac
+}
+ml4w_migrate_editor
+unset -f ml4w_migrate_editor
+
+# Move away the nested settings folder that old installer versions made.
+# Before the installer used "cp -aT", each update copied the settings folder
+# into itself as settings/settings. No script reads that copy. The move keeps
+# it in ~/.cache/ml4w, so the user can still get files back from it.
+ml4w_migrate_nested_settings() {
+    local nested_dir="$HOME/.config/ml4w/settings/settings"
+    [ -d "$nested_dir" ] && [ ! -L "$nested_dir" ] || return 0
+    local target_dir
+    target_dir="$HOME/.cache/ml4w/nested-settings-$(date +%Y%m%d_%H%M%S)"
+    mkdir -p "$HOME/.cache/ml4w"
+    if mv -- "$nested_dir" "$target_dir"; then
+        info "Nested folder $nested_dir moved to $target_dir"
+    fi
+}
+ml4w_migrate_nested_settings
+unset -f ml4w_migrate_nested_settings

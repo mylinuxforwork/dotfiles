@@ -71,14 +71,20 @@ if _checkCommandExists "pacman"; then
     if [[ $yay_installed == "true" ]] && [[ $paru_installed == "false" ]]; then
         yay
     elif [[ $yay_installed == "false" ]] && [[ $paru_installed == "true" ]]; then
-        paru -Syu --noconfirm
+        paru -Syu
     else
-        sudo pacman -Syu --noconfirm
+        sudo pacman -Syu
     fi
 
 # Fedora
 elif _checkCommandExists "dnf"; then
     sudo dnf upgrade
+# openSUSE
+elif _checkCommandExists "zypper"; then
+    sudo zypper dup
+# Ubuntu
+elif _checkCommandExists "apt"; then
+    sudo apt update && sudo apt upgrade
 else
     echo ":: ERROR - Platform not supported"
     echo "Press [ENTER] to close."
@@ -87,9 +93,11 @@ fi
 echo
 
 # Flatpak
-echo ":: Searching for Flatpak updates..."
-flatpak update
-echo
+if _checkCommandExists "flatpak"; then
+    echo ":: Searching for Flatpak updates..."
+    flatpak update
+    echo
+fi
 
 # Reload Waybar
 pkill -RTMIN+1 waybar

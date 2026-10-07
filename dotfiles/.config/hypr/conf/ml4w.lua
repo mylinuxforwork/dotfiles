@@ -34,6 +34,16 @@ hl.window_rule({
     size = "700 600"
 })
 
+-- ML4W Dock Settings (Quickshell dock dialog)
+hl.window_rule({
+    name = "ml4w-dock-settings",
+    match = {title = "ML4W Dock Settings"},
+    float = true,
+    center = true,
+    pin = true,
+    size = "480 300"
+})
+
 -- ML4W Settings App
 hl.window_rule({
     name = "ml4w-settings-app",
@@ -157,6 +167,18 @@ hl.window_rule({
     focus_on_activate = false,
     no_initial_focus = true,
     suppress_event = "activate"
+})
+
+-- XWayland Video Bridge
+hl.window_rule({
+    name = "xwaylandvideobridge",
+    match = { class = "^(xwaylandvideobridge)$" },
+    opacity = "0.0 override 0.0 override",
+    no_anim = true,
+    no_initial_focus = true,
+    max_size = "1 1",
+    no_blur = true,
+    float = true
 })
 
 -- Wayland variables

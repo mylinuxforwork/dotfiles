@@ -1,5 +1,6 @@
 hyprland
 hyprshutdown
+hyprpolkitagent
 libnotify
 qt5-qtwayland
 qt6-qtwayland
@@ -21,7 +22,6 @@ NetworkManager-tui
 tesseract-langpack-eng
 SwayNotificationCenter
 fontawesome-fonts
-nerd-fonts-JetBrainsMono
 awww
 qt5-qtgraphicaleffects
 qt6-qt5compat
@@ -30,10 +30,9 @@ qt6-qtvirtualkeyboard
 qt6-qtmultimedia
 gvfs-mtp
 hyprsunset
-quickshell
 openssl-devel
 pkg-config
-gnome-themes-extra
+adw-gtk3-theme
 gcc
 gobject-introspection-devel
 cairo-gobject-devel
@@ -43,3 +42,6 @@ gtk4
 libadwaita-devel
 lua
 hyprland-guiutils
+breeze-icon-theme
+libsecret
+tesseract

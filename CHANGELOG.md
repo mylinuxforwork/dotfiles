@@ -1,8 +1,25 @@
+Version 2.16.1
+--------------------------------------------------------
+- The power menu has moved into its own repository: https://github.com/mylinuxforwork/ml4w-powermenu. It is installed into ~/.local/share/ml4w-powermenu and started from ml4w-autostart. Its installer adds the ml4w-powermenu command (~/.local/bin/ml4w-powermenu) to start, stop and control the power menu (toggle, open, close, reload, edit). Custom scripts or keybindings using "qs ipc call power toggle" must be changed to "ml4w-powermenu toggle"
+- Add key board control for the power menu. Select the module with up and down arrow keys and confirm with Return.
+- Add ~/.config/ml4w-powermenu/config.json to configure the power menu: the order of the buttons (buttons can also be hidden), the command of each button, and the size, spacing, shape, animation and colors of the menu
+- The ML4W OS autostart log has moved from ~/.mydotfiles/ml4w-autostart.log to ~/.local/state/ml4w-os-hyprland. Each start writes a new log file named with the date and time (e.g. ml4w-autostart-2026-10-02_08-32-45.log), and only the last 10 logs are kept
+- Add "Keybinds" button to the upper right of the sidebar to show all keybindings. The "All keybindings" button in the Welcome app has been renamed to "All Keybinds"
+- Add "Launcher" switch to the sidebar to select the application launcher: on uses Walker, off uses Rofi. The selection is saved to ~/.config/ml4w/settings/launcher
+
 Version 2.16
 --------------------------------------------------------
 - Add Blue Light Filter toggle switch to sidebar in addition to SUPER + SHIFT + H
 - New quickshell windows installation script added. Using the latest version from GitHub
 - Welcome app is now using the version information from ~/.config/ml4w/version.json
+- The statusbar is now configured in one place only: ~/.config/ml4w-statusbar/config.json. The file is created on first start (migrated from the former ~/.config/ml4w-statusbar/statusbar.json or ~/.config/ml4w/settings/statusbar.json, which has been removed) and can be edited directly
+- The dock is now configured in one place only: ~/.config/ml4w-dock/config.json. The file is created on first start (migrated from the former ~/.config/ml4w-dock/dock.json or ~/.config/ml4w/settings/dock.json, which has been removed) and can be edited directly
+- Add new configuration for the status bar to define an alternative calendar app that can be launched with a right click on the clock module.
+- Add new menu items "Open .mydotfiles Folder" and "Open Backup Folder" to the System menu of the Welcome app. Both open in your configured filemanager.
+- Add launcher button to the left side of the dock. Left click opens the application launcher, right click opens the dock menu with Reload Dock, Settings and Edit configuration. The button can be hidden with the Launcher Icon switch in the dock settings or "launcherButton": false in ~/.config/ml4w-dock/config.json
+- Add settings dialog to the dock. Open it from the dock menu, from Settings in the Dock menu of the sidebar or with ml4w-dock settings. The Dock Autohide switch has moved from the sidebar into the new dialog
+- The dock has moved into its own repository: https://github.com/mylinuxforwork/ml4w-dock. It is installed into ~/.local/share/ml4w-dock and started from ml4w-autostart. Its installer adds the ml4w-dock command (~/.local/bin/ml4w-dock) to start, stop and control the dock (toggle, enable, disable, autohideToggle, reload, settings, edit)
+- Add "editorCommand" to ~/.config/ml4w-dock/config.json to set the editor that opens the dock configuration. Falls back to xdg-open when it is empty or not found
 
 Version 2.15.1
 --------------------------------------------------------

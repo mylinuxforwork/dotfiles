@@ -72,6 +72,12 @@ if _checkCommandExists "pacman"; then
 # Fedora
 elif _checkCommandExists "dnf"; then
     updates=$(dnf check-update -q | grep -c ^[a-z0-9])
+# openSUSE
+elif _checkCommandExists "zypper"; then
+    updates=$(zypper --non-interactive --quiet list-updates 2>/dev/null | grep -c "^v ")
+# Ubuntu
+elif _checkCommandExists "apt"; then
+    updates=$(apt list --upgradable 2>/dev/null | grep -c "/")
 # Others
 else
     updates=0

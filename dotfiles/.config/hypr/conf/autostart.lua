@@ -28,22 +28,34 @@ hl.on("hyprland.start", function ()
     -- Start waybar
     hl.exec_cmd(HOME .. "/.config/waybar/launch.sh")
 
-    -- Start polkit daemon
-    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+    -- Start polkit agent: prefer hyprpolkitagent.service (Ubuntu, via
+    -- packages-ubuntu -- its unit is WantedBy=graphical-session.target,
+    -- which Hyprland never activates, so start it explicitly), falling
+    -- back to polkit-gnome-authentication-agent-1 where that unit
+    -- doesn't exist. Only one should run -- starting both means
+    -- duplicate polkit auth dialogs.
+    hl.exec_cmd("systemctl --user start hyprpolkitagent.service 2>/dev/null || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 || true")
 
     -- Restore wallpaper (skip for quickshell — handled inside ml4w-autostart)
     if wallpaper_app ~= "quickshell" then
         hl.exec_cmd("~/.config/ml4w/scripts/ml4w-wallpaper-app --restore")
     end
 
-    -- Autostart scripts
-    hl.exec_cmd("~/.config/ml4w/scripts/ml4w-autostart > ~/.mydotfiles/ml4w-autostart.log 2>&1")
+    -- Autostart scripts -- log to a dated file, keeping only the last 10
+    -- logs (the 9 newest existing ones plus the one written now)
+    hl.exec_cmd(
+        "d=\"$HOME/.local/state/ml4w-os-hyprland\"; mkdir -p \"$d\"; " ..
+        "ls -1r \"$d\"/ml4w-autostart-*.log 2>/dev/null | tail -n +10 | xargs -r rm -f; " ..
+        "~/.config/ml4w/scripts/ml4w-autostart > \"$d/ml4w-autostart-$(date +%Y-%m-%d_%H-%M-%S).log\" 2>&1"
+    )
 
     -- Load GTK settings
     hl.exec_cmd("~/.config/hypr/scripts/gtk.sh")
 
-    -- Start swaync
-    hl.exec_cmd("swaync")
+    -- Start swaync -- skipped where D-Bus activation is already set up
+    -- (marker written by post-ubuntu.sh), since an explicit exec-once
+    -- there raced with it and lost with "already running!".
+    hl.exec_cmd("[ -f ~/.config/ml4w/.swaync-dbus-activated ] || swaync")
 
     -- Start hypridle
     hl.exec_cmd("hypridle")

@@ -9,13 +9,13 @@
 # -----------------------------------------------------
 # Load Launcher
 # -----------------------------------------------------
-launcher=$(cat $HOME/.config/ml4w/settings/launcher)
+launcher=$($HOME/.config/ml4w/scripts/ml4w-launcher which)
 if [ "$launcher" == "walker" ]; then
-    $HOME/.config/walker/launch.sh -m clipboard -N -H
+    walker -t ml4w -m clipboard -N -H
 else
     case $1 in
         d)
-            selected=$(cliphist list | rofi -dmenu -replace -config ~/.config/rofi/config-cliphist.rasi)
+            selected=$(cliphist list | $HOME/.config/ml4w/scripts/ml4w-launcher dmenu -c ~/.config/rofi/config-cliphist.rasi)
             [ -z "$selected" ] && exit 0
             echo "$selected" | cliphist delete
         ;;
@@ -23,7 +23,7 @@ else
             cliphist wipe
         ;;
         *)
-            selected=$(cliphist list | rofi -dmenu -replace -config ~/.config/rofi/config-cliphist.rasi)
+            selected=$(cliphist list | $HOME/.config/ml4w/scripts/ml4w-launcher dmenu -c ~/.config/rofi/config-cliphist.rasi)
             [ -z "$selected" ] && exit 0
             echo "$selected" | cliphist decode | wl-copy
         ;;
