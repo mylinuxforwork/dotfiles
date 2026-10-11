@@ -124,19 +124,18 @@ FloatingWindow {
                 ML4WMenuItem { 
                     text: qsTr("Input");
                     onClicked: {
-                        Quickshell.execDetached(["gnome-text-editor", Quickshell.env("HOME") + "/.config/hypr/input.lua"])
+                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/settings/editor.sh " + Quickshell.env("HOME") + "/.config/hypr/input.lua"])
                     }
                 }
                 ML4WMenuItem { 
                     text: qsTr("Gestures");
                     onClicked: {
-                        Quickshell.execDetached(["gnome-text-editor", Quickshell.env("HOME") + "/.config/hypr/gestures.lua"])
+                        Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/settings/editor.sh " + Quickshell.env("HOME") + "/.config/hypr/gestures.lua"])
                     }
                 }
                 ML4WMenuItem { 
                     text: qsTr("Monitors");
                     onClicked: { 
-                        // Quickshell.execDetached(["gnome-text-editor", Quickshell.env("HOME") + "/.config/hypr/monitors.lua"])
                         Quickshell.execDetached(["nwg-displays"]) 
                     }
                 }
@@ -477,7 +476,7 @@ FloatingWindow {
                             text: "Input"
 
                             onClicked: {
-                                Quickshell.execDetached(["gnome-text-editor", Quickshell.env("HOME") + "/.config/hypr/input.lua"])
+                                Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/settings/editor.sh " + Quickshell.env("HOME") + "/.config/hypr/input.lua"])
                             }
 
                             background: Rectangle {
