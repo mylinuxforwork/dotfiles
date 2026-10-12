@@ -83,6 +83,7 @@ PanelWindow {
         "border": { "width": 2, "colorTop": "", "colorBottom": "" },
         "opacity":{ "collapsed": 0.6, "expanded": 0.8 },
         "clock":  { "format": "HH:mm", "dateFormat": "ddd, dd MMM", "calendarCommand": "" },
+        "volume": { "settingsCommand": "pavucontrol" },
         "workspaces": { "count": 5 },
         "systemtray": { "chip": true }
     })
@@ -465,6 +466,7 @@ PanelWindow {
         id: cVolume
         VolumeModule {
             id: volumeModule
+            settingsCommand: root.settings.volume.settingsCommand
             Component.onCompleted: root.volumeRef = volumeModule
             Component.onDestruction: {
                 if (root.volumeRef === volumeModule) {
@@ -612,6 +614,9 @@ PanelWindow {
             ? root.navItems[root.focusIndex] : null
         if (m && m !== root.clockRef)
             root.calendarOpen = false
+        // Likewise any module other than the volume one closes its output menu.
+        if (m && m !== root.volumeRef && root.volumeRef)
+            root.volumeRef.closeOutputMenu()
         if (m)
             m.activate()
         // Collapse so the keyboard is handed back to the (possibly newly
@@ -761,14 +766,19 @@ PanelWindow {
         }
     }
 
-    // A click anywhere in this window that is not on the panel or on a module
-    // closes the calendar (the focus grab only covers clicks in other windows).
-    // Declared before the pill and the panel so both get the click first.
+    // A click anywhere in this window that is not on a panel or on a module
+    // closes the calendar and the audio output menu (the focus grab only covers
+    // clicks in other windows). Declared before the pill and the panels so they
+    // get the click first.
     MouseArea {
         anchors.fill: parent
-        enabled: root.calendarOpen
+        enabled: root.calendarOpen || root.audioMenuOpen
         acceptedButtons: Qt.LeftButton | Qt.RightButton
-        onClicked: root.calendarOpen = false
+        onClicked: {
+            root.calendarOpen = false
+            if (root.volumeRef)
+                root.volumeRef.closeOutputMenu()
+        }
     }
 
     // ==========================================
@@ -1076,6 +1086,13 @@ PanelWindow {
             border.color: Theme.primary
         }
 
+        // Swallow clicks on the card's padding so they don't reach the
+        // window-wide dismiss area behind it and close the menu.
+        MouseArea {
+            anchors.fill: parent
+            acceptedButtons: Qt.LeftButton | Qt.RightButton
+        }
+
         ListView {
             id: outputList
             anchors.fill: parent
@@ -1083,16 +1100,18 @@ PanelWindow {
             clip: true
             spacing: 2
 
-            model: Pipewire.nodes
+            // Only available output devices. Filtering here rather than
+            // collapsing the other nodes' rows to zero height keeps the list
+            // spacing from piling up as gaps between the entries.
+            model: Pipewire.nodes.values.filter(node =>
+                node.isSink && !node.isStream && node.audio !== null
+                && root.audioSinkIsAvailable(node.name))
             delegate: Rectangle {
                 required property var modelData
-                readonly property bool outputSink:
-                    modelData.isSink && !modelData.isStream && modelData.audio !== null
-                    && root.audioSinkIsAvailable(modelData.name)
                 width: outputList.width
-                height: outputSink ? 36 : 0
+                height: 36
                 radius: 7
-                color: (outputSink && modelData === Pipewire.defaultAudioSink)
+                color: modelData === Pipewire.defaultAudioSink
                     || rowMouse.containsMouse ? Theme.primary : "transparent"
 
                 Text {
@@ -1112,12 +1131,63 @@ PanelWindow {
                 MouseArea {
                     id: rowMouse
                     anchors.fill: parent
-                    enabled: outputSink
                     hoverEnabled: true
                     cursorShape: Qt.PointingHandCursor
                     onClicked: {
                         if (root.volumeRef)
                             root.volumeRef.selectSink(modelData)
+                    }
+                }
+            }
+
+            // Last entry, below a divider: opens the configured audio control
+            // app (volume.settingsCommand, pavucontrol by default) for
+            // everything the dropdown does not cover. Hidden, divider included,
+            // when that setting is empty.
+            footer: Item {
+                readonly property bool shown: root.volumeRef !== null
+                    && root.volumeRef.settingsCommand !== ""
+                visible: shown
+                width: outputList.width
+                height: shown ? 47 : 0
+
+                Rectangle {
+                    x: 4
+                    y: 5
+                    width: parent.width - 8
+                    height: 1
+                    color: Theme.primary
+                    opacity: 0.3
+                }
+
+                Rectangle {
+                    y: 11
+                    width: parent.width
+                    height: 36
+                    radius: 7
+                    color: settingsMouse.containsMouse ? Theme.primary : "transparent"
+
+                    Text {
+                        anchors.fill: parent
+                        anchors.leftMargin: 10
+                        anchors.rightMargin: 10
+                        text: "More Settings"
+                        color: settingsMouse.containsMouse ? Theme.background : Theme.primary
+                        font.family: Theme.fontFamily
+                        font.pixelSize: 13
+                        elide: Text.ElideRight
+                        verticalAlignment: Text.AlignVCenter
+                    }
+
+                    MouseArea {
+                        id: settingsMouse
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            if (root.volumeRef)
+                                root.volumeRef.openSettings()
+                        }
                     }
                 }
             }

@@ -6,7 +6,8 @@ import QtQuick.Layouts
 import qs.CustomTheme
 
 // Shows the default output sink's volume next to a speaker icon.
-//   • left click / Return   → choose the default output
+//   • left click / Return   → choose the default output (or "More Settings"
+//                             → volume.settingsCommand, pavucontrol by default)
 //   • right click           → mute (volume 0); right click again restores it
 //   • mouse wheel (hovered)  → raise/lower the volume in 5% steps
 //   • Up / Down arrows (keyboard-focused) → raise/lower the volume
@@ -31,6 +32,9 @@ Rectangle {
     // Set by the keyboard navigation in StatusbarWindow.
     property bool focused: false
     property bool outputMenuOpen: false
+    // Shell command behind the output menu's "More Settings" entry
+    // (volume.settingsCommand); empty hides the entry.
+    property string settingsCommand: "pavucontrol"
 
     // Keep the sink's audio (volume/muted) properties live and writable.
     PwObjectTracker { objects: sink !== null ? [sink] : [] }
@@ -75,6 +79,13 @@ Rectangle {
     // Left click / keyboard Return: show available audio outputs.
     function activate(): void {
         outputMenuOpen = !outputMenuOpen
+    }
+
+    // "More Settings" in the output menu: open the configured audio control app.
+    function openSettings(): void {
+        if (settingsCommand !== "")
+            Quickshell.execDetached(["bash", "-c", settingsCommand])
+        outputMenuOpen = false
     }
 
     function closeOutputMenu(): void {
