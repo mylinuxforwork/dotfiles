@@ -2,6 +2,7 @@ import Quickshell
 import Quickshell.Wayland
 import Quickshell.Hyprland
 import Quickshell.Io
+import Quickshell.Services.Pipewire
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Effects
@@ -31,9 +32,11 @@ PanelWindow {
     // normally, while a click in another window clears it and closes both.
     HyprlandFocusGrab {
         windows: [root]
-        active: root.barExpanded || root.calendarOpen
+        active: root.barExpanded || root.calendarOpen || root.audioMenuOpen
         onCleared: {
             root.calendarOpen = false
+            if (root.volumeRef)
+                root.volumeRef.closeOutputMenu()
             root.barExpanded = false
         }
     }
@@ -44,8 +47,13 @@ PanelWindow {
     // takes precedence over collapsing the bar (see keyHandler below).
     Shortcut {
         sequence: "Escape"
-        enabled: root.calendarOpen
-        onActivated: root.calendarOpen = false
+        enabled: root.calendarOpen || root.audioMenuOpen
+        onActivated: {
+            if (root.audioMenuOpen)
+                root.volumeRef.closeOutputMenu()
+            else
+                root.calendarOpen = false
+        }
     }
 
     // --- USER SETTINGS ---
@@ -345,6 +353,71 @@ PanelWindow {
     // of the clock module, drawn inside this window (see CalendarPanel.qml), so
     // the bar carries it rather than depending on a separate calendar window.
     property bool calendarOpen: false
+    property bool audioMenuOpen: false
+    property var volumeRef: null
+    property var audioSinkAvailability: ({})
+
+    function audioSinkIsAvailable(name: string): bool {
+        // Keep sinks visible until PipeWire/PulseAudio reports port availability.
+        // This preserves virtual or unusual sinks that do not expose ports.
+        return audioSinkAvailability[name] !== false
+    }
+
+    function audioSinkLabel(node): string {
+        if (!node)
+            return "Audio output"
+
+        let nodeName = String(node.name || "")
+        let hdmi = nodeName.match(/hifi__hdmi(\d+)__sink/i)
+        if (hdmi)
+            return "HDMI / DisplayPort " + hdmi[1]
+
+        let description = String(node.description || "").trim()
+        return description || nodeName.replace(/[._]+/g, " ") || "Audio output"
+    }
+
+    function refreshAudioSinkAvailability(): void {
+        audioSinkAvailabilityProcess.running = false
+        audioSinkAvailabilityProcess.running = true
+    }
+
+    function updateAudioSinkAvailability(raw: string): void {
+        let next = {}
+        let sinks = raw.split(/(?=^Sink #\d+)/m)
+        for (let block of sinks) {
+            let nameMatch = block.match(/^\s*Name:\s*(.+)$/m)
+            if (!nameMatch)
+                continue
+            let name = nameMatch[1].trim()
+            let portsMatch = block.match(/^\s*Ports:\s*\n([\s\S]*?)(?=^\s*Active Port:|^\s*Properties:|$)/m)
+            if (!portsMatch) {
+                next[name] = true
+                continue
+            }
+            let statusLines = portsMatch[1].split("\n").filter(line =>
+                /\b(?:not available|available|unknown)\b/i.test(line))
+            let allUnavailable = statusLines.length > 0 && statusLines.every(line =>
+                /\bnot available\b/i.test(line))
+            next[name] = !allUnavailable
+        }
+        audioSinkAvailability = next
+    }
+
+    Process {
+        id: audioSinkAvailabilityProcess
+        command: ["pactl", "list", "sinks"]
+        running: false
+        stdout: StdioCollector {
+            onStreamFinished: root.updateAudioSinkAvailability(this.text)
+        }
+    }
+
+    Timer {
+        interval: 1500
+        repeat: true
+        running: root.audioMenuOpen
+        onTriggered: root.refreshAudioSinkAvailability()
+    }
 
     // The placed clock module, tracked so the panel can be centered under it.
     property var clockRef: null
@@ -388,7 +461,27 @@ PanelWindow {
     }
     Component { id: cLogo;       Ml4wLogoModule {} }
     Component { id: cPower;      PowerModule {} }
-    Component { id: cVolume;     VolumeModule {} }
+    Component {
+        id: cVolume
+        VolumeModule {
+            id: volumeModule
+            Component.onCompleted: root.volumeRef = volumeModule
+            Component.onDestruction: {
+                if (root.volumeRef === volumeModule) {
+                    root.volumeRef = null
+                    root.audioMenuOpen = false
+                }
+            }
+            Connections {
+                target: volumeModule
+                function onOutputMenuOpenChanged() {
+                    root.audioMenuOpen = volumeModule.outputMenuOpen
+                    if (root.audioMenuOpen)
+                        root.refreshAudioSinkAvailability()
+                }
+            }
+        }
+    }
     Component {
         id: cUpdates
         UpdatesModule {
@@ -657,6 +750,14 @@ PanelWindow {
                 ? Math.max(0, Math.round(calendarPanel.y + calendarPanel.height)
                     - root.calendarTop)
                 : 0
+        }
+        // The output dropdown extends below the statusbar. Include it in the
+        // layer surface input mask while open, or clicks pass through it.
+        Region {
+            x: root.audioMenuOpen ? Math.round(audioOutputPanel.x) : 0
+            y: root.audioMenuOpen ? Math.round(audioOutputPanel.y) : 0
+            width: root.audioMenuOpen ? Math.round(audioOutputPanel.width) : 0
+            height: root.audioMenuOpen ? Math.round(audioOutputPanel.height) : 0
         }
     }
 
@@ -938,5 +1039,88 @@ PanelWindow {
         // taken off the panel's own position.
         readonly property int calendarGap: 26
         openY: Math.round(pill.y + pill.height + calendarGap - cardInset)
+    }
+
+    // This dropdown lives in the statusbar layer surface itself so its rows
+    // receive pointer input under the layer-shell mask, like the calendar panel.
+    Item {
+        id: audioOutputPanel
+        z: 100
+        visible: root.audioMenuOpen
+        width: 260
+        height: outputList.contentHeight + 12
+
+        x: {
+            if (!root.volumeRef)
+                return 8
+            // The audio module is loaded into a Loader in rightArea; sum those
+            // parent offsets explicitly so the panel uses statusbar-window
+            // coordinates (mapToItem on the layer-shell window can report 0,0).
+            let host = root.volumeRef.parent
+            let px = pill.x + rightArea.x + (host ? host.x : 0) + root.volumeRef.x
+            return Math.round(Math.max(8, Math.min(root.width - width - 8, px)))
+        }
+        y: {
+            if (!root.volumeRef)
+                return 0
+            let host = root.volumeRef.parent
+            return Math.round(pill.y + rightArea.y + (host ? host.y : 0)
+                + root.volumeRef.y + root.volumeRef.height + 6)
+        }
+
+        Rectangle {
+            anchors.fill: parent
+            color: Theme.background
+            radius: 10
+            border.width: 1
+            border.color: Theme.primary
+        }
+
+        ListView {
+            id: outputList
+            anchors.fill: parent
+            anchors.margins: 6
+            clip: true
+            spacing: 2
+
+            model: Pipewire.nodes
+            delegate: Rectangle {
+                required property var modelData
+                readonly property bool outputSink:
+                    modelData.isSink && !modelData.isStream && modelData.audio !== null
+                    && root.audioSinkIsAvailable(modelData.name)
+                width: outputList.width
+                height: outputSink ? 36 : 0
+                radius: 7
+                color: (outputSink && modelData === Pipewire.defaultAudioSink)
+                    || rowMouse.containsMouse ? Theme.primary : "transparent"
+
+                Text {
+                    anchors.fill: parent
+                    anchors.leftMargin: 10
+                    anchors.rightMargin: 10
+                    text: root.audioSinkLabel(modelData)
+                    color: modelData === Pipewire.defaultAudioSink || rowMouse.containsMouse
+                        ? Theme.background
+                        : Theme.primary
+                    font.family: Theme.fontFamily
+                    font.pixelSize: 13
+                    elide: Text.ElideRight
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                MouseArea {
+                    id: rowMouse
+                    anchors.fill: parent
+                    enabled: outputSink
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        if (root.volumeRef)
+                            root.volumeRef.selectSink(modelData)
+                    }
+                }
+            }
+        }
     }
 }
