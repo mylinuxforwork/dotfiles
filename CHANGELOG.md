@@ -1,3 +1,7 @@
+Version 2.17
+--------------------------------------------------------
+- Add audio output menu to the volume module of the status bar. A left click opens a list of the available output devices to switch the default output; currently playing audio moves to the selected device. The "More Settings" entry opens the audio control app set with "settingsCommand" in the "volume" section of ~/.config/ml4w-statusbar/config.json (default: pavucontrol). Leave it empty to hide the entry
+
 Version 2.16.1
 --------------------------------------------------------
 - The power menu has moved into its own repository: https://github.com/mylinuxforwork/ml4w-powermenu. It is installed into ~/.local/share/ml4w-powermenu and started from ml4w-autostart. Its installer adds the ml4w-powermenu command (~/.local/bin/ml4w-powermenu) to start, stop and control the power menu (toggle, open, close, reload, edit). Custom scripts or keybindings using "qs ipc call power toggle" must be changed to "ml4w-powermenu toggle"
