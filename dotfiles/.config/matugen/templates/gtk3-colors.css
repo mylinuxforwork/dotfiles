@@ -1,0 +1,16 @@
+@define-color color0  {{colors.surface.default.hex}};
+@define-color color1  {{colors.on_surface_variant.default.hex}};
+@define-color color2  {{colors.secondary.default.hex}};
+@define-color color3  {{colors.secondary.default.hex}};
+@define-color color4  {{colors.primary.default.hex}};
+@define-color color5  {{colors.primary.default.hex}};
+@define-color color6  {{colors.primary.default.hex}};
+@define-color color7  {{colors.on_surface.default.hex}};
+@define-color color8  {{colors.surface.default.hex}};
+@define-color color9  {{colors.surface.default.hex}};
+@define-color color10 {{colors.on_primary.default.hex}};
+@define-color color11 {{colors.on_secondary.default.hex}};
+@define-color color12 {{colors.primary.default.hex}};
+@define-color color13 {{colors.primary.default.hex}};
+@define-color color14 {{colors.on_surface_variant.default.hex}};
+@define-color color15 {{colors.on_surface_variant.default.hex}};
