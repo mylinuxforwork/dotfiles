@@ -235,10 +235,6 @@ if [[ ! -f "$IMAGE_PATH" ]]; then
     error "Image file does not exist -> $IMAGE_PATH"; exit 1
 fi
 
-mkdir -p "$CACHE_FOLDER"
-echo "$IMAGE_PATH" > "$CACHE_FILE"
-info "Cache updated: $IMAGE_PATH"
-
 # ============================================================
 # Main
 # ============================================================
@@ -248,6 +244,11 @@ set_wallpaper
 if "$SKIP_THEMING"; then
     info "Updating theming skipped"
 else
+    # Update cache file for future theming updates
+    mkdir -p "$CACHE_FOLDER"
+    echo "$IMAGE_PATH" > "$CACHE_FILE"
+    info "Cache updated: $IMAGE_PATH"
+
     run_matugen
     reload_waybar
     reload_quickshell
