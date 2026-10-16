@@ -118,8 +118,47 @@ hl.bind(mainMod .. " + SHIFT + S", function()
 end, { description = "Move window to special workspace scratchpad" })
 
 -- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }), { description = "Switch to next workspace" })
-hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }), { description = "Switch to previous workspace" })
+-- hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }), { description = "Switch to next workspace" })
+-- hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }), { description = "Switch to previous workspace" })
+
+hl.config({
+	binds = {
+		pass_mouse_when_bound = false,
+		scroll_event_delay = 1,
+	},
+})
+
+local scroll_locked = false
+
+local function throttled_scroll(dispatcher)
+	return function()
+		if scroll_locked then
+			return
+		end
+
+		scroll_locked = true
+		hl.dispatch(dispatcher)
+
+		hl.timer(function()
+			scroll_locked = false
+		end, {
+			timeout = 200,
+			type = "oneshot",
+		})
+	end
+end
+
+hl.bind(
+	mainMod .. " + mouse_down",
+	throttled_scroll(hl.dsp.focus({ workspace = "e+1" })),
+	{ description = "Switch to next workspace" }
+)
+
+hl.bind(
+	mainMod .. " + mouse_up",
+	throttled_scroll(hl.dsp.focus({ workspace = "e-1" })),
+	{ description = "Switch to previous workspace" }
+)
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true, description = "Raise volume" })
