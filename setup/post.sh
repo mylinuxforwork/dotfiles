@@ -19,6 +19,12 @@ bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-dotfiles-se
 bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/ml4w-quickshell-overview/main/install.sh)
 
 # --------------------------------------------------------------
+# Hypr App Switcher
+# --------------------------------------------------------------
+
+bash <(curl -s https://raw.githubusercontent.com/anshifmonz/hypr-app-switcher/main/install.sh)
+
+# --------------------------------------------------------------
 # ML4W Dock
 # --------------------------------------------------------------
 

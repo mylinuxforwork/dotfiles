@@ -1,6 +1,7 @@
 Version 2.17
 --------------------------------------------------------
 - Add audio output menu to the volume module of the status bar. A left click opens a list of the available output devices to switch the default output; currently playing audio moves to the selected device. The "More Settings" entry opens the audio control app set with "settingsCommand" in the "volume" section of ~/.config/ml4w-statusbar/config.json (default: pavucontrol). Leave it empty to hide the entry
+- Add Hypr App Switcher (https://github.com/anshifmonz/hypr-app-switcher) to switch between the applications on the active workspace. Open it with ALT + Tab (ALT + SHIFT + Tab to switch backwards). It is installed into ~/.local/share/hypr-app-switcher and started from ml4w-autostart
 
 Version 2.16.1
 --------------------------------------------------------
