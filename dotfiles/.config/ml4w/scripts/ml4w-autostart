@@ -87,6 +87,11 @@ info "Starting Quickshell Overview"
 qs -p $HOME/.local/share/quickshell-overview &
 info "Quickshell Overview started"
 
+# Start Hypr App Switcher
+info "Starting Hypr App Switcher"
+qs -p $HOME/.local/share/hypr-app-switcher &
+info "Hypr App Switcher started"
+
 # Start ML4W Dock
 info "Starting ML4W Dock"
 ml4w-dock start &
