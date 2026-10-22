@@ -44,6 +44,9 @@ source "$HOME/.config/ml4w/scripts/ml4w-notification-handler"
 APP_NAME="Screen Capture"
 NOTIFICATION_ICON="camera-photo-symbolic"
 
+# Delay to let the launcher close before the capture (seconds)
+MENU_CLOSE_DELAY="0.6"
+
 # Screenshot Editor
 export GRIMBLAST_EDITOR="$(cat ~/.config/ml4w/settings/screenshot-editor)"
 
@@ -277,7 +280,7 @@ timer() {
 
 # take shots
 takescreenshot() {
-    sleep 1
+    sleep "$MENU_CLOSE_DELAY"
     grimblast --notify "$option_chosen" --filetype "$image_format" "$option_type_screenshot" $NAME
     if [ -f $HOME/$NAME ]; then
         if [ -d $screenshot_folder ]; then
@@ -287,7 +290,6 @@ takescreenshot() {
 }
 
 takescreenshot_timer() {
-    sleep 1
     timer
     sleep 1
     grimblast --notify "$option_chosen" --filetype "$image_format" "$option_type_screenshot" $NAME
