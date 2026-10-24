@@ -1,8 +1,84 @@
 #!/usr/bin/env bash
-ws_id=$(hyprctl activeworkspace -j | jq -r '.id')
-mapfile -t addresses < <(
-    hyprctl clients -j | jq -r --argjson ws "$ws_id" '.[] | select(.workspace.id == $ws) | .address'
-)
+# Toggle all windows of the active workspace between tiling and floating.
+# When switching to floating, the windows are arranged in a grid inside the
+# usable area of the monitor (respecting bars/docks) instead of keeping
+# their tiled or last floating size.
+#
+# Usage: ml4w-toggle-allfloat [floating|tiling] [workspace id]
+#   Without a mode it toggles; without a workspace id it uses the active one.
+
+gap=16
+
+mode=$1
+if [ -n "$2" ]; then
+    ws=$(hyprctl workspaces -j | jq --argjson id "$2" '.[] | select(.id == $id)')
+else
+    ws=$(hyprctl activeworkspace -j)
+fi
+[ -z "$ws" ] && exit 0
+ws_id=$(jq -r '.id' <<<"$ws")
+mon_name=$(jq -r '.monitor' <<<"$ws")
+
+clients=$(hyprctl clients -j | jq --argjson ws "$ws_id" '[.[] | select(.workspace.id == $ws and .mapped and (.hidden | not))]')
+count=$(jq 'length' <<<"$clients")
+[ "$count" -eq 0 ] && exit 0
+
+# If any window is tiled, float everything. Otherwise tile everything.
+if [ "$mode" = floating ]; then
+    target=true
+elif [ "$mode" = tiling ]; then
+    target=false
+elif jq -e 'any(.[]; .floating | not)' <<<"$clients" >/dev/null; then
+    target=true
+else
+    target=false
+fi
+
+mapfile -t to_toggle < <(jq -r --argjson t "$target" '.[] | select(.floating != $t) | .address' <<<"$clients")
+for addr in "${to_toggle[@]}"; do
+    hyprctl dispatch "hl.dsp.window.float({ action = \"toggle\", window = \"address:$addr\" })" >/dev/null
+done
+
+[ "$target" = false ] && exit 0
+
+# Usable area of the monitor in logical pixels (reserved = left, top, right, bottom)
+read -r mx my mw mh rl rt rr rb < <(hyprctl monitors -j | jq -r --arg m "$mon_name" '
+    .[] | select(.name == $m) |
+    [.x, .y, ((.width / .scale) | floor), ((.height / .scale) | floor)] + .reserved | @tsv')
+
+area_x=$((mx + rl + gap))
+area_y=$((my + rt + gap))
+area_w=$((mw - rl - rr - 2 * gap))
+area_h=$((mh - rt - rb - 2 * gap))
+
+# Grid: as square as possible, landscape-leaning (more columns than rows)
+cols=1
+while [ $((cols * cols)) -lt "$count" ]; do cols=$((cols + 1)); done
+rows=$(((count + cols - 1) / cols))
+
+cell_w=$(((area_w - (cols - 1) * gap) / cols))
+cell_h=$(((area_h - (rows - 1) * gap) / rows))
+
+# Decorations drawn outside the window geometry: border on all sides and the
+# hyprbars title bar (if the plugin is loaded) above the window
+border=$(hyprctl getoption general:border_size -j 2>/dev/null | jq -r '.int // 0' 2>/dev/null)
+bar=$(hyprctl getoption plugin:hyprbars:bar_height -j 2>/dev/null | jq -r '.int // 0' 2>/dev/null)
+border=${border:-0}
+bar=${bar:-0}
+win_w=$((cell_w - 2 * border))
+win_h=$((cell_h - 2 * border - bar))
+
+mapfile -t addresses < <(jq -r 'sort_by(.at[1], .at[0]) | .[].address' <<<"$clients")
+i=0
 for addr in "${addresses[@]}"; do
-    hyprctl dispatch "hl.dsp.window.float({ action = \"toggle\", window = \"address:$addr\" })"
+    row=$((i / cols))
+    col=$((i % cols))
+    # Center the last row if it is not full
+    in_row=$((row == rows - 1 ? count - row * cols : cols))
+    offset=$(((cols - in_row) * (cell_w + gap) / 2))
+    x=$((area_x + offset + col * (cell_w + gap) + border))
+    y=$((area_y + row * (cell_h + gap) + border + bar))
+    hyprctl dispatch "hl.dsp.window.resize({ x = $win_w, y = $win_h, window = \"address:$addr\" })" >/dev/null
+    hyprctl dispatch "hl.dsp.window.move({ x = $x, y = $y, window = \"address:$addr\" })" >/dev/null
+    i=$((i + 1))
 done
