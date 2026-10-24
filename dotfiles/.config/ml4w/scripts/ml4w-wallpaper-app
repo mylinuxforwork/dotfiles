@@ -44,6 +44,17 @@ elif [ "$1" == "--random" ]; then
         error "Wallpaper App $WALLPAPER_APP not supported."
     fi    
     exit
+elif [ "$1" == "--carousel" ]; then
+    if [ "$WALLPAPER_APP" == "quickshell" ]; then
+        info "Toggle Quickshell Wallpaper Carousel"
+        qs ipc call wallpaper-carousel toggle
+    elif [ "$WALLPAPER_APP" == "waypaper" ]; then
+        info "Launch Waypaper"
+        waypaper --folder $WALLPAPER_FOLDER
+    else
+        error "Wallpaper App $WALLPAPER_APP not supported."
+    fi
+    exit
 fi
 
 # Launch wallpaper app

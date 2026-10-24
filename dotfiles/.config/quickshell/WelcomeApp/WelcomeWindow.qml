@@ -11,7 +11,7 @@ FloatingWindow {
     visible: false
     title: "ML4W Welcome"
     implicitWidth: 850
-    implicitHeight: 550
+    implicitHeight: 560
 
     // --- Guard property for the flatpak app ---
     property bool isHyprlandSettingsInstalled: false
@@ -441,6 +441,7 @@ FloatingWindow {
                             ListElement { keys: "Super + Q"; desc: "to close the active window" }
                             ListElement { keys: "Super + CTRL + Enter"; desc: "to open the application launcher" }
                             ListElement { keys: "Super + CTRL + S"; desc: "to open the sidebar" }
+                            ListElement { keys: "Super + W"; desc: "to open the wallpaper carousel" }
                             ListElement { keys: "Super + CTRL + W"; desc: "to set a wallpaper" }
                         }
                         

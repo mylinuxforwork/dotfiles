@@ -53,6 +53,7 @@ show_help() {
     echo "  --skip                 Alias for \"--skip-wallpaper\"."
     echo "  --monitor              Specify which input to apply wallpaper change (default applies to all outputs)"
     echo "  --crop-gravity         Specify where to anchor wallpaper image in case cropping is needed (values from 'awww img --crop-gravity; default is center)"
+    echo "  --transition TYPE      Override the transition effect setting for this call (values from 'awww img --transition-type', e.g. none)"
     echo "  --help                 Show this help message and exit."
 }
 
@@ -209,6 +210,8 @@ while [[ $# -gt 0 ]]; do
             MONITOR_OUTPUT="$2"; shift 2 ;;
         --crop-gravity)
             AWWW_CROP_GRAVITY="$2"; shift 2 ;;
+        --transition)
+            SETTINGS_TRANSITION_EFFECT="$2"; shift 2 ;;
         --help)
             show_help; exit 0 ;;
         -*)

@@ -31,7 +31,7 @@ hl.window_rule({
     float = true,
     center = true,
     pin = true,
-    size = "700 600"
+    size = "700 640"
 })
 
 -- ML4W Dock Settings (Quickshell dock dialog)
