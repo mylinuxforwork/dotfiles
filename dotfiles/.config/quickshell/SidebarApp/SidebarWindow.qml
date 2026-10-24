@@ -1076,6 +1076,43 @@ PanelWindow {
                         }
                     }
 
+                    // --- WINDOW MODE ---
+                    // Global window mode, persisted to
+                    // ~/.config/ml4w/settings/window-mode by ml4w-window-mode
+                    // (missing = tiling). On = Floating, Off = Tiling.
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Text { text: "Window Mode"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                        Item { Layout.fillWidth: true }
+                        Text {
+                            text: windowModeSwitch.checked ? "Floating" : "Tiling"
+                            color: Theme.primary
+                            opacity: 0.7
+                            font.family: Theme.fontFamily
+                            font.pixelSize: 14
+                            Layout.rightMargin: 8
+                        }
+                        ML4WSwitch {
+                            id: windowModeSwitch
+                            property bool ready: false
+                            Process {
+                                command: ["bash", "-c", "m=$(tr -d '[:space:]' < ~/.config/ml4w/settings/window-mode 2>/dev/null); [ \"$m\" = floating ] && echo 1 || echo 0"]
+                                running: root.isOpen
+                                stdout: StdioCollector {
+                                    onStreamFinished: {
+                                        windowModeSwitch.checked = (this.text.trim() === "1")
+                                        windowModeSwitch.ready = true
+                                    }
+                                }
+                            }
+                            onClicked: {
+                                if (!ready) return;
+                                Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-window-mode " + (checked ? "floating" : "tiling")])
+                            }
+                        }
+                        Item { implicitWidth: 28 }
+                    }
+
                     // --- GAMEMODE ---
                     RowLayout {
                         Layout.fillWidth: true

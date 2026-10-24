@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Switch the global window mode between tiling (default) and floating.
+# The mode is stored in ~/.config/ml4w/settings/window-mode and read by
+# ~/.config/hypr/conf/ml4w.lua. In floating mode every new window floats.
+# Switching also converts the existing windows on all regular workspaces
+# (floating windows are arranged in a grid by ml4w-toggle-allfloat).
+#
+# Usage: ml4w-window-mode [floating|tiling|toggle|get]
+
+settings="$HOME/.config/ml4w/settings/window-mode"
+current=$(tr -d "[:space:]" 2>/dev/null <"$settings")
+[ "$current" = floating ] || current=tiling
+
+case "$1" in
+    get) echo "$current"; exit 0 ;;
+    floating | tiling) mode=$1 ;;
+    toggle | "") [ "$current" = floating ] && mode=tiling || mode=floating ;;
+    *) echo "Usage: $(basename "$0") [floating|tiling|toggle|get]" >&2; exit 1 ;;
+esac
+
+echo "$mode" >"$settings"
+hyprctl eval "set_window_mode('$mode')" >/dev/null
+
+mapfile -t workspaces < <(hyprctl workspaces -j | jq -r '.[] | select(.id > 0 and .windows > 0) | .id')
+for ws_id in "${workspaces[@]}"; do
+    "$HOME/.config/ml4w/scripts/ml4w-toggle-allfloat" "$mode" "$ws_id"
+done
