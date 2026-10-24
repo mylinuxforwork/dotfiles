@@ -21,5 +21,6 @@ ShellRoot {
     WelcomeWindow {}
     SidebarWindow {}
     WallpaperWindow {}
+    WallpaperCarousel {}
     StatusbarWindow {}
 }
