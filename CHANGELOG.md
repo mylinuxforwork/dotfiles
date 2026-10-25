@@ -7,6 +7,7 @@ Version 2.17
 - Add "Window Mode" switch to the sidebar to select the window mode: off uses Tiling (default), on uses Floating. In floating mode every new window opens floating, and switching the mode converts the open windows on all workspaces (floating windows are arranged in a grid). The selection is saved to ~/.config/ml4w/settings/window-mode and can also be changed with ~/.config/ml4w/scripts/ml4w-window-mode (floating, tiling, toggle, get)
 - Add wallpaper carousel as a modern alternative to the wallpaper selector. Open it with SUPER + W or with the new button to the left of the search field in the wallpaper selector. Move through the wallpapers with the left and right arrow keys or the mouse wheel, and select one with Return or a click. The wallpaper is set without transition and the carousel closes after one second. Can also be opened with "qs ipc call wallpaper-carousel toggle"
 - Add --transition option to ~/.config/ml4w/scripts/ml4w-wallpaper to override the transition effect setting for a single call (e.g. --transition none)
+- The packages listed in setup/packages/packages (default apps: kitty, neovim, nautilus, gnome-text-editor, firefox) are installed with the initial installation only and not with updates. This enables a safe replacement of selected default apps, e.g. after uninstalling Firefox and switching to another browser, an update will not install it again
 
 Version 2.16.1
 --------------------------------------------------------
