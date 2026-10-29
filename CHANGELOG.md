@@ -8,6 +8,8 @@ Version 2.17
 - Add wallpaper carousel as a modern alternative to the wallpaper selector. Open it with SUPER + W or with the new button to the left of the search field in the wallpaper selector. Move through the wallpapers with the left and right arrow keys or the mouse wheel, and select one with Return or a click. The wallpaper is set without transition and the carousel closes after one second. Can also be opened with "qs ipc call wallpaper-carousel toggle"
 - Add --transition option to ~/.config/ml4w/scripts/ml4w-wallpaper to override the transition effect setting for a single call (e.g. --transition none)
 - The packages listed in setup/packages/packages (default apps: kitty, neovim, nautilus, gnome-text-editor, firefox) are installed with the initial installation only and not with updates. This enables a safe replacement of selected default apps, e.g. after uninstalling Firefox and switching to another browser, an update will not install it again
+- Add mute toggle to the volume icon of the sidebar. A click mutes the audio output, a second click unmutes it and restores the previous volume. The icon shows the current mute status, also when muted from somewhere else (e.g. status bar, keyboard or pavucontrol)
+- Add microphone slider below the loudness slider of the sidebar to set the volume of the default audio input. A click on the microphone icon mutes or unmutes the microphone, and the icon shows the current mute status
 
 Version 2.16.1
 --------------------------------------------------------
