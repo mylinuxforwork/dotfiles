@@ -1216,6 +1216,13 @@ PanelWindow {
                         Text { text: "Wallpaper"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
                         Item { Layout.fillWidth: true }
                         ActionIcon {
+                            iconSrc: "../shared/icons/carousel.svg"
+                            onClicked: {
+                                root.isOpen = false
+                                Quickshell.execDetached(["bash", "-c", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-wallpaper-app --carousel"])
+                            }
+                        }
+                        ActionIcon {
                             iconSrc: "../shared/icons/wallpaper.svg"
                             onClicked: {
                                 root.isOpen = false
