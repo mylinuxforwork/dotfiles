@@ -200,6 +200,9 @@ hl.window_rule({
     float = true
 })
 
+-- ML4W Power Menu (slides in on its own)
+hl.layer_rule({ match = { namespace = "ml4w-powermenu" }, no_anim = true })
+
 -- Wayland variables
 hl.env("OZONE_PLATFORM", "wayland")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
