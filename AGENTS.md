@@ -20,6 +20,19 @@ These instructions apply to the entire repository. Follow any more specific `AGE
 - Keep issues open when validation requires unavailable hardware, a user-specific environment, an interactive desktop session, credentials, or manual confirmation. Explain what remains to be checked instead of claiming completion.
 - Do not close user-created issues or mark work as not planned unless the repository owner explicitly directs you to do so.
 
+## Acceptance Criteria and Issue Checklists
+
+- Write explicit, testable acceptance criteria for each issue before implementation. Use GitHub task-list checkboxes (`- [ ]`) so progress is visible and auditable.
+- Treat every checkbox as a claim that must be supported by evidence. Check a box only after the corresponding behavior or deliverable has been implemented and verified; code changes, a commit, or a passing unrelated test are not sufficient evidence.
+- Keep criteria specific and independently verifiable. Separate automated checks from manual, runtime, hardware, accessibility, and environment-dependent validation where relevant.
+- Before closing an issue, re-read its current description and verify every acceptance criterion. Do not close it while any in-scope criterion remains incomplete or unverified.
+- If work is incomplete, leave the issue open and keep the relevant boxes unchecked. State precisely what remains and what evidence or environment is needed.
+- When auditing previously closed issues, compare each original acceptance criterion with the implementation and available test evidence. Update checkboxes honestly; never tick boxes retroactively based only on the fact that the issue was closed.
+- Reopen a closed issue when an in-scope requirement remains incomplete or requires validation that has not occurred. Preserve the original context and explain the remaining work in the issue.
+- For duplicate issues, link to the canonical issue and keep the duplicate's acceptance boxes unchecked unless the duplicate was independently completed and verified. Track completion on the canonical issue to avoid misleading duplicate checklists.
+- After editing an issue description or state, fetch it again and confirm that the intended checklist and status were saved.
+
+
 ## Code Quality and Testing
 
 - Follow the repository's established formatting, naming, documentation, dependency, and error-handling conventions.
