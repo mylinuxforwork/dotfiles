@@ -63,3 +63,14 @@ These instructions apply to the entire repository. Follow any more specific `AGE
 - Summarize concrete changes with file paths and commit identifiers.
 - Distinguish verified results from assumptions and unrun checks.
 - List remaining manual validation, blockers, and issues intentionally left open.
+
+## Maintenance Session Execution
+
+- Start by reviewing actionable open issues in batches. Identify dependencies, shared root causes, acceptance criteria, and tasks that do not require unavailable runtime access.
+- Do not limit a maintenance session to one issue when several independent, source-verifiable issues are ready. Implement multiple useful fixes in the same session and continue until actionable work is exhausted or a genuine blocker remains.
+- Group related fixes into coherent commits when they share a root cause or change set. Keep unrelated work in separate focused commits; do not create a commit for every trivial edit or combine unrelated issues merely to increase issue count. Preserve any stricter repository-specific commit requirements above.
+- Do not pause for approval or send a progress report after every issue or commit. Continue through the planned batch, verify the work, and report at a meaningful stopping point.
+- If an issue requires unavailable hardware, credentials, a live desktop session, or user confirmation, leave it open and continue with independently verifiable work.
+- Treat each commit as unfinished until its associated CI and checks reach a final state. Inspect failed job details, fix regressions introduced by the change, and rerun relevant checks. Pending checks are not passing checks.
+- Before ending a session, review all commits made during that session, their CI results, remaining actionable issues, and required manual validation.
+- Optimize for verified issue completion and a healthy default branch, not commit volume, issue-closure volume, or frequent status messages.
