@@ -85,3 +85,21 @@ These instructions apply to the entire repository. Follow any more specific `AGE
 - Preserve red history. Append failed job/step, diagnosis, classification, fix commit(s), rerun attempts, and final verified outcome. Associate reruns with the original failing commit.
 - Advance the checkpoint only after reviewing the newer range, and carry unresolved entries forward.
 - Include ledger/AGENTS setup commits in the next incremental review unless explicitly recorded as checked.
+
+## Issue Classification System
+
+Classify every open issue into exactly one of these categories during triage. Record the category and a brief evidence-based reason in the issue notes or maintenance tracker; do not apply a category based on guesswork.
+
+- **Category A — Fully actionable:** The issue can be implemented, tested, and fully verified with the available source code, automated tests, and CI. No user laptop, live desktop session, special hardware, or manual confirmation is required. Prioritize these issues and close them only after their acceptance criteria are met and verification succeeds.
+- **Category B — Implementation ready, validation pending:** The implementation can be completed now, but final acceptance requires unavailable real-world validation such as a live GNOME session, visual/accessibility inspection, or measurements on target hardware. Implement and automate everything possible, but keep the issue open until the remaining validation is completed and recorded.
+- **Category C — Environment-dependent:** Reliable implementation or verification is not currently possible without a specific laptop, hardware, operating system/runtime, device, or interactive environment. Document the missing environment and any useful reproduction steps; keep the issue open.
+- **Category D — Blocked by external dependencies:** Progress depends on an unavailable external service, upstream change, third-party project, API, or other dependency outside this repository. Identify the exact dependency and the condition that will unblock the work; revisit when it changes.
+- **Category E — Needs the repository owner's decision or information:** The issue needs a preference, clarification, approval, credentials, missing requirements, or other information only the owner can provide. Ask the owner a specific, concise question instead of silently deferring it. Once answered, reclassify the issue into the appropriate category and continue.
+
+### Classification workflow
+
+- Review all open issues and assign the best-supported category, with a short reason and any outstanding acceptance criteria.
+- Work through Category A first; then complete the implementation portions of Category B where useful. Do not confuse implementation completion with final validation.
+- For Category E, ask the owner promptly and track the answer needed. Do not leave it indefinitely in a generic blocked/deferred bucket.
+- Keep Categories B, C, and D visible and actionable: state exactly what remains, who or what can unblock it, and when it should be revisited.
+- Reassess categories when code, tests, CI, upstream dependencies, environments, or owner decisions change. Never close an issue solely because it has been categorized.
