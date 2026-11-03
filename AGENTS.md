@@ -51,6 +51,14 @@ These instructions apply to the entire repository. Follow any more specific `AGE
 - Include issue references for issue-related commits. Do not create empty or misleading commits.
 - After committing, verify the commit exists on the intended default branch and inspect the resulting diff/status.
 
+### Administrative Commit Hygiene
+
+- Do not create standalone commits solely for issue-triage edits, category changes, backlog counts, CI-ledger housekeeping, or routine maintenance notes.
+- Keep routine triage and progress information in working notes or the relevant GitHub issues instead of creating repository commits.
+- When a substantive code, test, or documentation change is already being committed, include only directly related maintenance-documentation updates in that same focused commit.
+- Keep commits logically coherent. Never bundle unrelated changes merely to avoid an administrative-only commit.
+- Do not rewrite or force-push published history to remove administrative commits that already exist.
+
 ## Documentation and Dependencies
 
 - Keep documentation accurate, concise, and consistent with the actual implementation.
