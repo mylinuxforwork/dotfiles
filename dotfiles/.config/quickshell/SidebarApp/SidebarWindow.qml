@@ -549,78 +549,9 @@ PanelWindow {
                         }
 
                         // BRIGHTNESS SLIDER
-                        RowLayout {
-                            Layout.fillWidth: true
-                            spacing: 15
-
-                            Image {
-                                source: "../shared/icons/brightness.svg"
-                                Layout.alignment: Qt.AlignVCenter
-                                Layout.preferredWidth: 20
-                                Layout.preferredHeight: 20
-                                sourceSize.width: 20
-                                sourceSize.height: 20
-                                fillMode: Image.PreserveAspectFit
-                                layer.enabled: true
-                                layer.effect: MultiEffect {
-                                    colorization: 1.0
-                                    colorizationColor: Theme.primary
-                                }
-                            }
-
-                            Slider {
-                                id: brightnessSlider
-                                Layout.fillWidth: true
-                                from: 10 // Guaranteed Minimum 10%
-                                to: 100
-                                value: 100
-
-                                Process {
-                                    command: ["bash", "-c", "brightnessctl -m | awk -F, '{gsub(\"%\",\"\",$4); print $4}'"]
-                                    running: root.isOpen
-                                    stdout: StdioCollector {
-                                        onStreamFinished: {
-                                            let val = parseInt(this.text.trim())
-                                            if (!isNaN(val)) brightnessSlider.value = Math.max(10, val);
-                                        }
-                                    }
-                                }
-
-                                onMoved: {
-                                    Quickshell.execDetached(["bash", "-c", "brightnessctl set " + Math.round(value) + "%"])
-                                }
-
-                                background: Rectangle {
-                                    x: brightnessSlider.leftPadding
-                                    y: brightnessSlider.topPadding + brightnessSlider.availableHeight / 2 - height / 2
-                                    implicitWidth: 200
-                                    implicitHeight: 6
-                                    width: brightnessSlider.availableWidth
-                                    height: implicitHeight
-                                    radius: 3
-                                    color: Theme.background
-                                    border.color: Theme.primary
-                                    border.width: 1
-
-                                    Rectangle {
-                                        width: brightnessSlider.visualPosition * parent.width
-                                        height: parent.height
-                                        color: Theme.primary
-                                        radius: 3
-                                    }
-                                }
-
-                                handle: Rectangle {
-                                    x: brightnessSlider.leftPadding + brightnessSlider.visualPosition * (brightnessSlider.availableWidth - width)
-                                    y: brightnessSlider.topPadding + brightnessSlider.availableHeight / 2 - height / 2
-                                    implicitWidth: 16
-                                    implicitHeight: 16
-                                    radius: 8
-                                    color: brightnessSlider.pressed ? Theme.background : Theme.primary
-                                    border.color: Theme.primary
-                                    border.width: 1
-                                }
-                            }
+                        BrightnessControls {
+                            id: brightnessControls
+                            isOpen: root.isOpen
                         }
 
                         // BLUE LIGHT FILTER (HYPRSUNSET) TOGGLE
