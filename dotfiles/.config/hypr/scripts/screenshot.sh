@@ -90,12 +90,41 @@ take_instant_area() {
     [[ -f "$HOME/$NAME" && -d "$screenshot_folder" && -w "$screenshot_folder" ]] && mv "$HOME/$NAME" "$screenshot_folder/"
 }
 
+take_instant_area_copy() {
+    local pid_picker region
+
+    # freeze screen for region selection
+    hyprpicker -r -z &
+    pid_picker=$!
+    trap 'kill "$pid_picker" 2>/dev/null' EXIT
+    sleep 0.1
+
+    # user selects region; kill picker on cancel
+    region=$(slurp -b "#00000080" -c "#888888ff" -w 1) || exit 0
+    [[ -z "$region" ]] && exit 0
+
+    # unfreeze screen
+    kill "$pid_picker" 2>/dev/null
+    trap - EXIT
+
+    # capture and notify
+    grim -g "$region" -t "$image_format" - | wl-copy --type image/png && notify_user \
+        --a "${APP_NAME}" \
+        --i "${NOTIFICATION_ICON}" \
+        --s "Screenshot copied to clipboard" \
+        --m "" \
+        --t 1000
+}
+
 # Handle instant flags
 if [[ "$1" == "--instant" ]]; then
     take_instant_full
     exit 0
 elif [[ "$1" == "--instant-area" ]]; then
     take_instant_area
+    exit 0
+elif [[ "$1" == "--instant-area-copy" ]]; then
+    take_instant_area_copy
     exit 0
 fi
 
