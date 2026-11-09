@@ -1,3 +1,6 @@
+Version 2.17.1
+--------------------------------------------------------
+
 Version 2.17
 --------------------------------------------------------
 - Add wallpaper carousel as a modern alternative to the wallpaper selector. Open it with SUPER + W or with the new button to the left of the search field in the wallpaper selector. Move through the wallpapers with the left and right arrow keys or the mouse wheel, and select one with Return or a click. The wallpaper is set without transition and the carousel closes after one second. Can also be opened with "qs ipc call wallpaper-carousel toggle"
