@@ -15,6 +15,7 @@ ColumnLayout {
     property int screenCount: 1
     property var brightnessValues: ({})
     property bool fetchTick: false
+    property bool expanded: true
 
     // Re-read cached values while the panel stays open. The brightness.sh cache
     // (TTL 15s for display values) makes these calls near-instant.
@@ -81,12 +82,10 @@ ColumnLayout {
         }
     }
 
-    Text {
-        text: "Brightness" // Sun/Brightness icon
-        color: Theme.primary
-        font.family: "monospace"
-        font.pixelSize: 18
-        Layout.alignment: Qt.AlignVCenter
+    SectionHeader {
+        title: "Brightness"
+        expanded: root.expanded
+        onExpandedChanged: root.expanded = expanded
     }
 
     Repeater {
@@ -94,6 +93,7 @@ ColumnLayout {
 
         delegate: RowLayout {
             Layout.fillWidth: true
+            visible: root.expanded
             spacing: 15
 
             RowLayout {
