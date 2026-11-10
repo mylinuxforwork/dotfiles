@@ -1,5 +1,7 @@
 Version 2.17.1
 --------------------------------------------------------
+- The sidebar is now organized in collapsible sections: Sound (with the media players), Brightness (with the Blue Light Filter), Appearance, Widgets and System. Click a section title to collapse or expand it. Sound, Brightness and Appearance are expanded by default, Widgets and System are collapsed. The state is kept while Quickshell is running
+- Add "Opacity" slider to the Appearance section of the sidebar to set the background opacity of the status bar, sidebar, wallpaper selector, dock and power menu. Only the backgrounds become transparent, the content stays fully visible. The value (0-100) is saved to ~/.config/ml4w/settings/quickshell-opacity. As long as the slider has not been used, each element keeps its own default opacity. In the status bar the slider sets the opacity of the expanded bar and the collapsed bar keeps its lighter ratio. Dock and power menu read the file with the new "opacityFile" option in the "theme" section of ~/.config/ml4w-dock/config.json and ~/.config/ml4w-powermenu/config.json. Set it to "" to keep their own "opacity" setting
 
 Version 2.17
 --------------------------------------------------------

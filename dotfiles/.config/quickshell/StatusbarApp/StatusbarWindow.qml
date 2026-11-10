@@ -900,9 +900,17 @@ PanelWindow {
             id: pillBg
             anchors.fill: parent
             radius: root.settings.pill.radius
-            opacity: pill.expanded
-                ? root.settings.opacity.expanded
-                : root.settings.opacity.collapsed
+            // The global Opacity slider (Theme.backgroundOpacity, sidebar >
+            // Appearance) overrides opacity.expanded when it is set; the
+            // collapsed pill keeps its configured ratio to the expanded one.
+            opacity: {
+                let exp = root.settings.opacity.expanded
+                let col = root.settings.opacity.collapsed
+                if (Theme.backgroundOpacity < 0)
+                    return pill.expanded ? exp : col
+                let g = Theme.backgroundOpacity / 100
+                return pill.expanded ? g : (exp > 0 ? g * col / exp : g)
+            }
             Behavior on opacity {
                 NumberAnimation {
                     duration: root.settings.pill.animationDuration

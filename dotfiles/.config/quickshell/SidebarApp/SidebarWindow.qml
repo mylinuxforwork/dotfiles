@@ -242,7 +242,9 @@ PanelWindow {
             id: mainBgRect
             anchors.fill: parent
             radius: 10
-            opacity: 0.95 // Only the background is transparent
+            // Only the background is transparent; the global Opacity slider
+            // (Theme.backgroundOpacity) overrides the 0.95 default.
+            opacity: Theme.surfaceOpacity(0.95)
 
             // Gradient border (outer)
             gradient: Gradient {
@@ -370,6 +372,146 @@ PanelWindow {
                         SoundControls {
                             id: soundControls
                             isOpen: root.isOpen
+                        }
+
+                        // --- MPRIS PLAYERS (part of the Sound section) ---
+                        ListView {
+                            id: mprisListView
+                            Layout.fillWidth: true
+
+                            // Dynamically scale based on players, up to 210px (max 2 players)
+                            Layout.preferredHeight: contentHeight
+                            Layout.maximumHeight: 210
+
+                            spacing: 10
+                            clip: true
+
+                            model: Mpris.players.values
+                            visible: soundControls.expanded && Mpris.players.values.length > 0
+
+                            // Force disable scrolling entirely unless there are 3+ players
+                            interactive: mprisListView.count > 2
+
+                            ScrollBar.vertical: ScrollBar {
+                                // Explicitly hide the scrollbar unless there are 3+ players
+                                policy: mprisListView.count > 2 ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
+                                interactive: true
+                                contentItem: Rectangle {
+                                    implicitWidth: 6; radius: 3; color: Theme.primary
+                                    opacity: parent.pressed ? 1.0 : (parent.active ? 0.8 : 0.4)
+                                }
+                            }
+
+                            delegate: Rectangle {
+                                id: playerCard
+                                property var player: modelData
+
+                                // Full width like the sliders; only leave room for
+                                // the scrollbar when it is shown (3+ players).
+                                width: mprisListView.width - (mprisListView.count > 2 ? 16 : 0)
+                                implicitHeight: 100
+
+                                radius: 10
+                                color: Theme.background
+                                border.color: Theme.primary
+                                border.width: 1
+                                clip: true
+
+                                RowLayout {
+                                    anchors.fill: parent
+                                    anchors.margins: 10
+                                    spacing: 15
+
+                                    // Cover Art Block
+                                    Rectangle {
+                                        implicitWidth: 80
+                                        implicitHeight: 80
+                                        radius: 8
+                                        color: "transparent"
+                                        border.color: Theme.primary
+                                        border.width: 1
+                                        clip: true
+
+                                        Image {
+                                            anchors.fill: parent
+                                            source: player.trackArtUrl ? player.trackArtUrl : ""
+                                            fillMode: Image.PreserveAspectCrop
+                                            visible: player.trackArtUrl !== ""
+                                        }
+                                        Text {
+                                            anchors.centerIn: parent
+                                            text: "󰝚" // Music note icon (fallback)
+                                            font.family: "monospace"
+                                            font.pixelSize: 32
+                                            color: Theme.primary
+                                            visible: !player.trackArtUrl || player.trackArtUrl === ""
+                                        }
+                                    }
+
+                                    // Track Info & Controls
+                                    ColumnLayout {
+                                        Layout.fillWidth: true
+                                        Layout.fillHeight: true
+                                        spacing: 5
+
+                                        Text {
+                                            Layout.fillWidth: true
+                                            text: player.trackTitle ? player.trackTitle : (player.identity ? player.identity : "No Media Playing")
+                                            color: Theme.primary
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: 16
+                                            font.bold: true
+                                            elide: Text.ElideRight
+                                        }
+
+                                        Text {
+                                            Layout.fillWidth: true
+                                            text: {
+                                                if (player.trackArtist) return player.trackArtist;
+                                                if (player.trackArtists && player.trackArtists.length > 0) return player.trackArtists[0];
+                                                return "Unknown Artist";
+                                            }
+                                            color: Theme.on_background
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: 13
+                                            elide: Text.ElideRight
+                                            opacity: 0.8
+                                        }
+
+                                        Item { Layout.fillHeight: true }
+
+                                        RowLayout {
+                                            Layout.fillWidth: true
+                                            spacing: 15
+
+                                            Item { Layout.fillWidth: true }
+
+                                            ActionIcon {
+                                                iconTxt: "󰒮"
+                                                implicitWidth: 32
+                                                implicitHeight: 32
+                                                onClicked: player.previous()
+                                            }
+
+                                            ActionIcon {
+                                                iconTxt: player.isPlaying ? "󰏤" : "󰐊"
+                                                implicitWidth: 32
+                                                implicitHeight: 32
+                                                onClicked: player.isPlaying = !player.isPlaying
+                                            }
+
+                                            ActionIcon {
+                                                iconTxt: "󰒭"
+                                                implicitWidth: 32
+                                                implicitHeight: 32
+                                                onClicked: player.next()
+                                            }
+
+                                            Item { Layout.fillWidth: true }
+                                        }
+                                    }
+                                }
+                            }
                         }
 
                         Rectangle {
@@ -511,158 +653,76 @@ PanelWindow {
                                     }
                                 }
                             }
+
+                            // --- OPACITY ---
+                            // Global background opacity of the Quickshell
+                            // surfaces (statusbar, sidebar, wallpaper window,
+                            // dock). Dragging previews live through
+                            // Theme.backgroundOpacity; the value is written to
+                            // disk on release, which is when the dock (a
+                            // separate config watching the file) follows.
+                            RowLayout {
+                                Layout.fillWidth: true
+                                spacing: 15
+                                Text { text: "Opacity"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                                Slider {
+                                    id: opacitySlider
+                                    Layout.fillWidth: true
+                                    from: 0
+                                    to: 100
+                                    stepSize: 1
+                                    // 80 = the statusbar's built-in expanded opacity.
+                                    value: Theme.backgroundOpacity >= 0 ? Theme.backgroundOpacity : 80
+                                    onMoved: Theme.backgroundOpacity = Math.round(value)
+                                    onPressedChanged: {
+                                        if (!pressed)
+                                            Theme.saveBackgroundOpacity(value)
+                                    }
+
+                                    background: Rectangle {
+                                        x: opacitySlider.leftPadding
+                                        y: opacitySlider.topPadding + opacitySlider.availableHeight / 2 - height / 2
+                                        implicitWidth: 200
+                                        implicitHeight: 6
+                                        width: opacitySlider.availableWidth
+                                        height: implicitHeight
+                                        radius: 3
+                                        color: Theme.background
+                                        border.color: Theme.primary
+                                        border.width: 1
+
+                                        Rectangle {
+                                            width: opacitySlider.visualPosition * parent.width
+                                            height: parent.height
+                                            color: Theme.primary
+                                            radius: 3
+                                        }
+                                    }
+
+                                    handle: Rectangle {
+                                        x: opacitySlider.leftPadding + opacitySlider.visualPosition * (opacitySlider.availableWidth - width)
+                                        y: opacitySlider.topPadding + opacitySlider.availableHeight / 2 - height / 2
+                                        implicitWidth: 16
+                                        implicitHeight: 16
+                                        radius: 8
+                                        color: opacitySlider.pressed ? Theme.background : Theme.primary
+                                        border.color: Theme.primary
+                                        border.width: 1
+                                    }
+                                }
+                                Text {
+                                    text: Math.round(opacitySlider.value) + "%"
+                                    color: Theme.primary
+                                    font.family: "monospace"
+                                    font.pixelSize: 14
+                                    Layout.preferredWidth: 40
+                                    horizontalAlignment: Text.AlignRight
+                                }
+                            }
                         }
                     }
 
                     Rectangle { Layout.fillWidth: true; implicitHeight: 1; color: Theme.primary; opacity: 0.3; Layout.topMargin: 5; Layout.bottomMargin: 5 }
-
-                    // --- MPRIS PLAYERS (Scrollable ListView) ---
-                    ListView {
-                        id: mprisListView
-                        Layout.fillWidth: true
-
-                        // Dynamically scale based on players, up to 210px (max 2 players)
-                        Layout.preferredHeight: contentHeight
-                        Layout.maximumHeight: 210
-
-                        spacing: 10
-                        clip: true
-
-                        model: Mpris.players.values
-                        visible: Mpris.players.values.length > 0
-
-                        // Force disable scrolling entirely unless there are 3+ players
-                        interactive: mprisListView.count > 2
-
-                        ScrollBar.vertical: ScrollBar {
-                            // Explicitly hide the scrollbar unless there are 3+ players
-                            policy: mprisListView.count > 2 ? ScrollBar.AsNeeded : ScrollBar.AlwaysOff
-                            interactive: true
-                            contentItem: Rectangle {
-                                implicitWidth: 6; radius: 3; color: Theme.primary
-                                opacity: parent.pressed ? 1.0 : (parent.active ? 0.8 : 0.4)
-                            }
-                        }
-
-                        delegate: Rectangle {
-                            id: playerCard
-                            property var player: modelData
-
-                            width: mprisListView.width - 16
-                            implicitHeight: 100
-
-                            radius: 10
-                            color: Theme.background
-                            border.color: Theme.primary
-                            border.width: 1
-                            clip: true
-
-                            RowLayout {
-                                anchors.fill: parent
-                                anchors.margins: 10
-                                spacing: 15
-
-                                // Cover Art Block
-                                Rectangle {
-                                    implicitWidth: 80
-                                    implicitHeight: 80
-                                    radius: 8
-                                    color: "transparent"
-                                    border.color: Theme.primary
-                                    border.width: 1
-                                    clip: true
-
-                                    Image {
-                                        anchors.fill: parent
-                                        source: player.trackArtUrl ? player.trackArtUrl : ""
-                                        fillMode: Image.PreserveAspectCrop
-                                        visible: player.trackArtUrl !== ""
-                                    }
-                                    Text {
-                                        anchors.centerIn: parent
-                                        text: "󰝚" // Music note icon (fallback)
-                                        font.family: "monospace"
-                                        font.pixelSize: 32
-                                        color: Theme.primary
-                                        visible: !player.trackArtUrl || player.trackArtUrl === ""
-                                    }
-                                }
-
-                                // Track Info & Controls
-                                ColumnLayout {
-                                    Layout.fillWidth: true
-                                    Layout.fillHeight: true
-                                    spacing: 5
-
-                                    Text {
-                                        Layout.fillWidth: true
-                                        text: player.trackTitle ? player.trackTitle : (player.identity ? player.identity : "No Media Playing")
-                                        color: Theme.primary
-                                        font.family: Theme.fontFamily
-                                        font.pixelSize: 16
-                                        font.bold: true
-                                        elide: Text.ElideRight
-                                    }
-
-                                    Text {
-                                        Layout.fillWidth: true
-                                        text: {
-                                            if (player.trackArtist) return player.trackArtist;
-                                            if (player.trackArtists && player.trackArtists.length > 0) return player.trackArtists[0];
-                                            return "Unknown Artist";
-                                        }
-                                        color: Theme.on_background
-                                        font.family: Theme.fontFamily
-                                        font.pixelSize: 13
-                                        elide: Text.ElideRight
-                                        opacity: 0.8
-                                    }
-
-                                    Item { Layout.fillHeight: true }
-
-                                    RowLayout {
-                                        Layout.fillWidth: true
-                                        spacing: 15
-
-                                        Item { Layout.fillWidth: true }
-
-                                        ActionIcon {
-                                            iconTxt: "󰒮"
-                                            implicitWidth: 32
-                                            implicitHeight: 32
-                                            onClicked: player.previous()
-                                        }
-
-                                        ActionIcon {
-                                            iconTxt: player.isPlaying ? "󰏤" : "󰐊"
-                                            implicitWidth: 32
-                                            implicitHeight: 32
-                                            onClicked: player.isPlaying = !player.isPlaying
-                                        }
-
-                                        ActionIcon {
-                                            iconTxt: "󰒭"
-                                            implicitWidth: 32
-                                            implicitHeight: 32
-                                            onClicked: player.next()
-                                        }
-
-                                        Item { Layout.fillWidth: true }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    Rectangle {
-                        Layout.fillWidth: true;
-                        implicitHeight: 1;
-                        color: Theme.primary;
-                        opacity: 0.3;
-                        Layout.topMargin: 5;
-                        Layout.bottomMargin: 5;
-                        visible: Mpris.players.values.length > 0
-                    }
 
                     SectionHeader {
                         title: "Widgets"

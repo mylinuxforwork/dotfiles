@@ -293,22 +293,31 @@ PanelWindow {
             id: mainBgRect
             anchors.fill: parent
             radius: 10
-            opacity: 0.95
+            color: "transparent"
             clip: true
 
-            // Gradient border (outer)
-            gradient: Gradient {
-                orientation: Gradient.Vertical
-                GradientStop { position: 0.0; color: Theme.primary }
-                GradientStop { position: 1.0; color: Theme.on_primary }
-            }
-
-            // Background fill (inner), inset by the border thickness
+            // Background layer behind the content, so only the background
+            // fades: the global Opacity slider (Theme.backgroundOpacity)
+            // overrides the 0.95 default.
             Rectangle {
                 anchors.fill: parent
-                anchors.margins: 2
-                radius: parent.radius - anchors.margins
-                color: Theme.background
+                radius: parent.radius
+                opacity: Theme.surfaceOpacity(0.95)
+
+                // Gradient border (outer)
+                gradient: Gradient {
+                    orientation: Gradient.Vertical
+                    GradientStop { position: 0.0; color: Theme.primary }
+                    GradientStop { position: 1.0; color: Theme.on_primary }
+                }
+
+                // Background fill (inner), inset by the border thickness
+                Rectangle {
+                    anchors.fill: parent
+                    anchors.margins: 2
+                    radius: parent.radius - anchors.margins
+                    color: Theme.background
+                }
             }
 
         ColumnLayout {

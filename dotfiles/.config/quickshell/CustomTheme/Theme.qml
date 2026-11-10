@@ -93,6 +93,47 @@ QtObject {
         }
     }
 
+    // --- GLOBAL BACKGROUND OPACITY ---
+    // Background opacity of the Quickshell surfaces (statusbar, ...), set from
+    // the Opacity slider in the sidebar's Appearance section. Stored as a
+    // percentage (0-100) in a plain file so other Quickshell configs (dock,
+    // power menu) can read and watch the same value:
+    //
+    //   ~/.config/ml4w/settings/quickshell-opacity
+    //
+    // -1 while the file is missing or invalid: each surface then keeps its own
+    // default opacity.
+    property int backgroundOpacity: -1
+
+    // Opacity (0-1) for a surface's background: the global value when it is
+    // set, otherwise the surface's own default.
+    function surfaceOpacity(fallback) {
+        return root.backgroundOpacity >= 0 ? root.backgroundOpacity / 100 : fallback;
+    }
+
+    // Persist a percentage. backgroundOpacity is assigned directly so the
+    // change is visible at once; the file watcher re-reads the same value.
+    // Other configs watching the file (the dock) follow it on their own, even
+    // when this save creates the file.
+    function saveBackgroundOpacity(percent) {
+        let p = Math.max(0, Math.min(100, Math.round(percent)));
+        root.backgroundOpacity = p;
+        opacityFile.setText(p + "\n");
+    }
+
+    property var opacityFile: FileView {
+        id: opacityFile
+        path: Quickshell.env("HOME") + "/.config/ml4w/settings/quickshell-opacity"
+        watchChanges: true
+        printErrors: false
+        onFileChanged: reload()
+        onLoaded: {
+            let v = parseInt(text().trim());
+            root.backgroundOpacity = isNaN(v) ? -1 : Math.max(0, Math.min(100, v));
+        }
+        onLoadFailed: root.backgroundOpacity = -1
+    }
+
     function reloadTheme() {
         // Toggle false then true to guarantee Quickshell restarts the cat process
         reader.running = false;
