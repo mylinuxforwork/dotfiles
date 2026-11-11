@@ -134,6 +134,37 @@ QtObject {
         onLoadFailed: root.backgroundOpacity = -1
     }
 
+    // --- TRANSPARENT BORDER ---
+    // Whether the border of the Quickshell surfaces follows the background
+    // opacity (on, the default) or stays at fixedBorderOpacity (off). Set from
+    // the Transparent Border switch in the sidebar and stored as "on"/"off" in
+    //
+    //   ~/.config/ml4w/settings/quickshell-transparent-border
+    //
+    // which the dock and power menu watch as well. Missing = on.
+    property bool transparentBorder: true
+    readonly property real fixedBorderOpacity: 0.8
+
+    // Opacity (0-1) for a surface's border, given its background opacity.
+    function borderOpacity(fillOpacity) {
+        return root.transparentBorder ? fillOpacity : root.fixedBorderOpacity;
+    }
+
+    function saveTransparentBorder(on) {
+        root.transparentBorder = on;
+        transparentBorderFile.setText((on ? "on" : "off") + "\n");
+    }
+
+    property var transparentBorderFile: FileView {
+        id: transparentBorderFile
+        path: Quickshell.env("HOME") + "/.config/ml4w/settings/quickshell-transparent-border"
+        watchChanges: true
+        printErrors: false
+        onFileChanged: reload()
+        onLoaded: root.transparentBorder = text().trim() !== "off"
+        onLoadFailed: root.transparentBorder = true
+    }
+
     function reloadTheme() {
         // Toggle false then true to guarantee Quickshell restarts the cat process
         reader.running = false;

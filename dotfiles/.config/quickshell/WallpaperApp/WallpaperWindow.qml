@@ -298,26 +298,13 @@ PanelWindow {
 
             // Background layer behind the content, so only the background
             // fades: the global Opacity slider (Theme.backgroundOpacity)
-            // overrides the 0.95 default.
-            Rectangle {
+            // overrides the 0.95 default. The border follows it or stays at
+            // 80% (Transparent Border switch).
+            PanelBackground {
                 anchors.fill: parent
                 radius: parent.radius
-                opacity: Theme.surfaceOpacity(0.95)
-
-                // Gradient border (outer)
-                gradient: Gradient {
-                    orientation: Gradient.Vertical
-                    GradientStop { position: 0.0; color: Theme.primary }
-                    GradientStop { position: 1.0; color: Theme.on_primary }
-                }
-
-                // Background fill (inner), inset by the border thickness
-                Rectangle {
-                    anchors.fill: parent
-                    anchors.margins: 2
-                    radius: parent.radius - anchors.margins
-                    color: Theme.background
-                }
+                borderWidth: 2
+                fillOpacity: Theme.surfaceOpacity(0.95)
             }
 
         ColumnLayout {

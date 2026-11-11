@@ -895,15 +895,17 @@ PanelWindow {
             color: Qt.rgba(Theme.shadow.r, Theme.shadow.g, Theme.shadow.b, 0.4)
         }
 
-        // Gradient BORDER layer (outer)
-        Rectangle {
+        // Background: fill + gradient border, each with its own opacity
+        // (PanelBackground). The global Opacity slider (Theme.backgroundOpacity,
+        // sidebar > Appearance) overrides opacity.expanded when it is set; the
+        // collapsed pill keeps its configured ratio to the expanded one. The
+        // border follows the fill or stays at 80% (Transparent Border switch).
+        PanelBackground {
             id: pillBg
             anchors.fill: parent
             radius: root.settings.pill.radius
-            // The global Opacity slider (Theme.backgroundOpacity, sidebar >
-            // Appearance) overrides opacity.expanded when it is set; the
-            // collapsed pill keeps its configured ratio to the expanded one.
-            opacity: {
+            borderWidth: root.settings.border.width
+            fillOpacity: {
                 let exp = root.settings.opacity.expanded
                 let col = root.settings.opacity.collapsed
                 if (Theme.backgroundOpacity < 0)
@@ -911,7 +913,7 @@ PanelWindow {
                 let g = Theme.backgroundOpacity / 100
                 return pill.expanded ? g : (exp > 0 ? g * col / exp : g)
             }
-            Behavior on opacity {
+            Behavior on fillOpacity {
                 NumberAnimation {
                     duration: root.settings.pill.animationDuration
                     easing.type: Easing.OutQuint
@@ -920,29 +922,12 @@ PanelWindow {
 
             // Border colors come from the settings file; empty strings fall
             // back to the dynamic wallpaper theme.
-            gradient: Gradient {
-                orientation: Gradient.Vertical
-                GradientStop {
-                    position: 0.0
-                    color: root.settings.border.colorTop !== ""
-                        ? root.settings.border.colorTop
-                        : Theme.primary
-                }
-                GradientStop {
-                    position: 1.0
-                    color: root.settings.border.colorBottom !== ""
-                        ? root.settings.border.colorBottom
-                        : Theme.on_primary
-                }
-            }
-
-            // Actual background fill (inner), inset by the border thickness
-            Rectangle {
-                anchors.fill: parent
-                anchors.margins: root.settings.border.width
-                radius: parent.radius - anchors.margins
-                color: Theme.background
-            }
+            colorTop: root.settings.border.colorTop !== ""
+                ? root.settings.border.colorTop
+                : Theme.primary
+            colorBottom: root.settings.border.colorBottom !== ""
+                ? root.settings.border.colorBottom
+                : Theme.on_primary
         }
 
         // ==========================================

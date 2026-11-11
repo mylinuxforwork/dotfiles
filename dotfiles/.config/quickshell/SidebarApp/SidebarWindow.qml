@@ -238,28 +238,15 @@ PanelWindow {
             color: Qt.rgba(Theme.shadow.r, Theme.shadow.g, Theme.shadow.b, 0.4)
         }
 
-        Rectangle {
+        // Only the background is transparent; the global Opacity slider
+        // (Theme.backgroundOpacity) overrides the 0.95 default. The border
+        // follows it or stays at 80% (Transparent Border switch).
+        PanelBackground {
             id: mainBgRect
             anchors.fill: parent
             radius: 10
-            // Only the background is transparent; the global Opacity slider
-            // (Theme.backgroundOpacity) overrides the 0.95 default.
-            opacity: Theme.surfaceOpacity(0.95)
-
-            // Gradient border (outer)
-            gradient: Gradient {
-                orientation: Gradient.Vertical
-                GradientStop { position: 0.0; color: Theme.primary }
-                GradientStop { position: 1.0; color: Theme.on_primary }
-            }
-
-            // Background fill (inner), inset by the border thickness
-            Rectangle {
-                anchors.fill: parent
-                anchors.margins: 2
-                radius: parent.radius - anchors.margins
-                color: Theme.background
-            }
+            borderWidth: 2
+            fillOpacity: Theme.surfaceOpacity(0.95)
         }
 
         ColumnLayout {
@@ -718,6 +705,52 @@ PanelWindow {
                                     Layout.preferredWidth: 40
                                     horizontalAlignment: Text.AlignRight
                                 }
+                            }
+
+                            // --- BLUR ---
+                            // Blur behind the Quickshell surfaces (Hyprland
+                            // layer rule in hypr/conf/ml4w.lua), persisted to
+                            // ~/.config/ml4w/settings/quickshell-blur by
+                            // ml4w-quickshell-blur (missing = off).
+                            RowLayout {
+                                Layout.fillWidth: true
+                                Text { text: "Blur"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                                Item { Layout.fillWidth: true }
+                                ML4WSwitch {
+                                    id: blurSwitch
+                                    property bool ready: false
+                                    Process {
+                                        command: ["bash", "-c", "b=$(tr -d '[:space:]' < ~/.config/ml4w/settings/quickshell-blur 2>/dev/null); [ \"$b\" = on ] && echo 1 || echo 0"]
+                                        running: root.isOpen
+                                        stdout: StdioCollector {
+                                            onStreamFinished: {
+                                                blurSwitch.checked = (this.text.trim() === "1")
+                                                blurSwitch.ready = true
+                                            }
+                                        }
+                                    }
+                                    onClicked: {
+                                        if (!ready) return;
+                                        Quickshell.execDetached(["bash", Quickshell.env("HOME") + "/.config/ml4w/scripts/ml4w-quickshell-blur", checked ? "on" : "off"])
+                                    }
+                                }
+                                Item { implicitWidth: 28 }
+                            }
+
+                            // --- TRANSPARENT BORDER ---
+                            // On: the border of the Quickshell surfaces follows
+                            // the Opacity slider. Off: it stays at 80%. Stored
+                            // in ~/.config/ml4w/settings/quickshell-transparent-border
+                            // (missing = on) through Theme.
+                            RowLayout {
+                                Layout.fillWidth: true
+                                Text { text: "Transparent Border"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
+                                Item { Layout.fillWidth: true }
+                                ML4WSwitch {
+                                    checked: Theme.transparentBorder
+                                    onClicked: Theme.saveTransparentBorder(checked)
+                                }
+                                Item { implicitWidth: 28 }
                             }
                         }
                     }
