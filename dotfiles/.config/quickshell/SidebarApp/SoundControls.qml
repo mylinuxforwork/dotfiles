@@ -17,6 +17,13 @@ ColumnLayout {
     property string defaultSink: ""
     property bool fetchTick: false
     property bool micMuted: false
+    property bool expanded: true
+    readonly property bool defaultSinkMuted: {
+        for (let i = 0; i < root.sinks.length; i++)
+            if (root.sinks[i].name === root.defaultSink)
+                return root.sinks[i].muted;
+        return false;
+    }
 
     // Re-list sinks and re-read the default output while the panel stays open
     // so the dropdown follows external switches (pavucontrol, wpctl, ...).
@@ -79,8 +86,8 @@ ColumnLayout {
                 }
                 if (cur) next.push(cur);
                 next = next.filter(s => !isNaN(s.id));
-                // Only replace when the list actually changed, so the slider
-                // Repeater isn't recreated (and re-fetched) on every poll.
+                // Only replace when the list actually changed, so the
+                // ComboBox model isn't reset on every poll.
                 if (JSON.stringify(next) !== JSON.stringify(root.sinks)) {
                     root.sinks = next;
                 }
@@ -101,6 +108,28 @@ ColumnLayout {
                 root.syncOutput();
             }
         }
+    }
+
+    // Volume of the current default sink (the one selected in the dropdown).
+    Process {
+        id: sinkVolumeProc
+        command: ["bash", "-c", "pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]*%' | head -1 | sed 's/%//'"]
+        running: root.isOpen && root.fetchTick
+        stdout: StdioCollector {
+            onStreamFinished: {
+                let v = parseInt(this.text.trim());
+                if (!isNaN(v) && !soundSlider.pressed)
+                    soundSlider.value = v;
+            }
+        }
+    }
+
+    // Give pactl a moment to apply a new default sink before re-reading it,
+    // so the slider jumps to the newly selected device's volume.
+    Timer {
+        id: refetchAfterSwitch
+        interval: 250
+        onTriggered: root.kickFetch()
     }
 
     Process {
@@ -130,46 +159,17 @@ ColumnLayout {
         Layout.fillWidth: true
         spacing: 20
 
-        Text {
-            text: "Sound"
-            color: Theme.primary
-            font.family: "monospace"
-            font.pixelSize: 18
+        SectionHeader {
+            title: "Sound"
+            expanded: root.expanded
+            onExpandedChanged: root.expanded = expanded
         }
 
         // --- OUTPUT SELECTOR (default sink) ---
         RowLayout {
             Layout.fillWidth: true
+            visible: root.expanded
             spacing: 10
-
-            Image {
-                source: {
-                    for (let i = 0; i < root.sinks.length; i++)
-                        if (root.sinks[i].name === root.defaultSink)
-                            return root.sinks[i].muted ? "../shared/icons/volume-muted.svg" : "../shared/icons/volume.svg"
-                    return "../shared/icons/volume.svg"
-                }
-                Layout.alignment: Qt.AlignVCenter
-                Layout.preferredWidth: 20
-                Layout.preferredHeight: 20
-                sourceSize.width: 20
-                sourceSize.height: 20
-                fillMode: Image.PreserveAspectFit
-                layer.enabled: true
-                layer.effect: MultiEffect {
-                    colorization: 1.0
-                    colorizationColor: Theme.primary
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: {
-                        Quickshell.execDetached(["bash", "-c", "pactl set-sink-mute @DEFAULT_SINK@ toggle"])
-                        root.kickFetch()
-                    }
-                }
-            }
 
             ComboBox {
                 id: outputSelector
@@ -185,6 +185,8 @@ ColumnLayout {
                         console.log("Set default sink:", sink.name);
                         Quickshell.execDetached(["bash", "-c",
                             "pactl set-default-sink '" + sink.name + "'"]);
+                        root.defaultSink = sink.name;
+                        refetchAfterSwitch.restart();
                     }
                 }
 
@@ -264,93 +266,76 @@ ColumnLayout {
             }
         }
 
-        Repeater {
-            model: root.sinks
+        // --- VOLUME (selected / default sink only) ---
+        RowLayout {
+            Layout.fillWidth: true
+            visible: root.expanded
+            spacing: 15
 
-            delegate: RowLayout {
-                Layout.fillWidth: true
-                spacing: 15
+            Image {
+                source: root.defaultSinkMuted ? "../shared/icons/volume-muted.svg" : "../shared/icons/volume.svg"
+                Layout.alignment: Qt.AlignVCenter
+                Layout.preferredWidth: 20
+                Layout.preferredHeight: 20
+                sourceSize.width: 20
+                sourceSize.height: 20
+                fillMode: Image.PreserveAspectFit
+                layer.enabled: true
+                layer.effect: MultiEffect {
+                    colorization: 1.0
+                    colorizationColor: Theme.primary
+                }
 
-                property var sink: modelData
-                property int sinkId: sink.id
-
-                Image {
-                    source: sink.muted ? "../shared/icons/volume-muted.svg" : "../shared/icons/volume.svg"
-                    Layout.alignment: Qt.AlignVCenter
-                    Layout.preferredWidth: 20
-                    Layout.preferredHeight: 20
-                    sourceSize.width: 20
-                    sourceSize.height: 20
-                    fillMode: Image.PreserveAspectFit
-                    layer.enabled: true
-                    layer.effect: MultiEffect {
-                        colorization: 1.0
-                        colorizationColor: Theme.primary
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        Quickshell.execDetached(["bash", "-c", "pactl set-sink-mute @DEFAULT_SINK@ toggle"])
+                        root.kickFetch()
                     }
+                }
+            }
 
-                    MouseArea {
-                        anchors.fill: parent
-                        cursorShape: Qt.PointingHandCursor
-                        onClicked: {
-                            Quickshell.execDetached(["bash", "-c", "pactl set-sink-mute " + sinkId + " toggle"])
-                            root.kickFetch()
-                        }
+            Slider {
+                id: soundSlider
+                Layout.fillWidth: true
+                from: 0
+                to: 100
+                value: 50
+
+                onMoved: {
+                    Quickshell.execDetached(["bash", "-c", "pactl set-sink-volume @DEFAULT_SINK@ " + Math.round(value) + "%"]);
+                }
+
+                background: Rectangle {
+                    x: soundSlider.leftPadding
+                    y: soundSlider.topPadding + soundSlider.availableHeight / 2 - height / 2
+                    implicitWidth: 200
+                    implicitHeight: 6
+                    width: soundSlider.availableWidth
+                    height: implicitHeight
+                    radius: 3
+                    color: Theme.background
+                    border.color: Theme.primary
+                    border.width: 1
+
+                    Rectangle {
+                        width: soundSlider.visualPosition * parent.width
+                        height: parent.height
+                        color: Theme.primary
+                        radius: 3
                     }
                 }
 
-                Slider {
-                    id: soundSlider
-                    Layout.fillWidth: true
-                    from: 0
-                    to: 100
-                    value: 50
-
-                    Process {
-                        command: ["bash", "-c", "pactl get-sink-volume " + sinkId + " | grep -o '[0-9]*%' | head -1 | sed 's/%//'"]
-                        running: root.isOpen
-                        stdout: StdioCollector {
-                            onStreamFinished: {
-                                let v = parseInt(this.text.trim());
-                                if (!isNaN(v))
-                                    soundSlider.value = v;
-                            }
-                        }
-                    }
-
-                    onMoved: {
-                        Quickshell.execDetached(["bash", "-c", "pactl set-sink-volume " + sinkId + " " + Math.round(value) + "%"]);
-                    }
-
-                    background: Rectangle {
-                        x: soundSlider.leftPadding
-                        y: soundSlider.topPadding + soundSlider.availableHeight / 2 - height / 2
-                        implicitWidth: 200
-                        implicitHeight: 6
-                        width: soundSlider.availableWidth
-                        height: implicitHeight
-                        radius: 3
-                        color: Theme.background
-                        border.color: Theme.primary
-                        border.width: 1
-
-                        Rectangle {
-                            width: soundSlider.visualPosition * parent.width
-                            height: parent.height
-                            color: Theme.primary
-                            radius: 3
-                        }
-                    }
-
-                    handle: Rectangle {
-                        x: soundSlider.leftPadding + soundSlider.visualPosition * (soundSlider.availableWidth - width)
-                        y: soundSlider.topPadding + soundSlider.availableHeight / 2 - height / 2
-                        implicitWidth: 16
-                        implicitHeight: 16
-                        radius: 8
-                        color: soundSlider.pressed ? Theme.background : Theme.primary
-                        border.color: Theme.primary
-                        border.width: 1
-                    }
+                handle: Rectangle {
+                    x: soundSlider.leftPadding + soundSlider.visualPosition * (soundSlider.availableWidth - width)
+                    y: soundSlider.topPadding + soundSlider.availableHeight / 2 - height / 2
+                    implicitWidth: 16
+                    implicitHeight: 16
+                    radius: 8
+                    color: soundSlider.pressed ? Theme.background : Theme.primary
+                    border.color: Theme.primary
+                    border.width: 1
                 }
             }
         }
@@ -358,6 +343,7 @@ ColumnLayout {
         // --- MICROPHONE ---
         RowLayout {
             Layout.fillWidth: true
+            visible: root.expanded
             spacing: 15
 
             Image {

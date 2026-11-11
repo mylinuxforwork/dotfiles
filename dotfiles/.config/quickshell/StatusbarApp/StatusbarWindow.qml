@@ -77,7 +77,7 @@ PanelWindow {
         "bar":    { "height": 40, "reservedHeight": 72, "enabled": true,
                     "alwaysExpanded": true, "autohide": false, "hideDelay": 400 },
         "pill":   { "collapsedWidth": 0, "expandedWidth": 680, "radius": 12, "animationDuration": 350 },
-        "modules":{ "left": ["terminal", "workspaces"],
+        "modules":{ "left": ["terminal", "workspaces", "clipboard"],
                     "center": ["launcher", "clock", "swaync"],
                     "right": ["updates", "battery", "powerprofile", "volume", "systemtray", "logo", "power"] },
         "border": { "width": 2, "colorTop": "", "colorBottom": "" },
@@ -350,6 +350,7 @@ PanelWindow {
         }
     }
     Component { id: cLauncher;   LauncherModule {} }
+    Component { id: cClipboard;  ClipboardModule {} }
     // Whether the calendar panel is showing. The panel is an information layer
     // of the clock module, drawn inside this window (see CalendarPanel.qml), so
     // the bar carries it rather than depending on a separate calendar window.
@@ -505,6 +506,7 @@ PanelWindow {
     readonly property var moduleComponents: ({
         "terminal":   cTerminal,
         "workspaces": cWorkspaces,
+        "clipboard":  cClipboard,
         "launcher":   cLauncher,
         "clock":      cClock,
         "swaync":     cSwaync,
@@ -889,21 +891,34 @@ PanelWindow {
         }
 
         RectangularShadow {
+            // Hidden while blur is on: the blur would end in a hard edge
+            // around the panel (see Theme.blurEnabled).
+            visible: !Theme.blurEnabled
             anchors.fill: pillBg
             radius: pillBg.radius
             blur: 15
             color: Qt.rgba(Theme.shadow.r, Theme.shadow.g, Theme.shadow.b, 0.4)
         }
 
-        // Gradient BORDER layer (outer)
-        Rectangle {
+        // Background: fill + gradient border, each with its own opacity
+        // (PanelBackground). The global Opacity slider (Theme.backgroundOpacity,
+        // sidebar > Appearance) overrides opacity.expanded when it is set; the
+        // collapsed pill keeps its configured ratio to the expanded one. The
+        // border follows the fill or stays at 80% (Transparent Border switch).
+        PanelBackground {
             id: pillBg
             anchors.fill: parent
             radius: root.settings.pill.radius
-            opacity: pill.expanded
-                ? root.settings.opacity.expanded
-                : root.settings.opacity.collapsed
-            Behavior on opacity {
+            borderWidth: root.settings.border.width
+            fillOpacity: {
+                let exp = root.settings.opacity.expanded
+                let col = root.settings.opacity.collapsed
+                if (Theme.backgroundOpacity < 0)
+                    return pill.expanded ? exp : col
+                let g = Theme.backgroundOpacity / 100
+                return pill.expanded ? g : (exp > 0 ? g * col / exp : g)
+            }
+            Behavior on fillOpacity {
                 NumberAnimation {
                     duration: root.settings.pill.animationDuration
                     easing.type: Easing.OutQuint
@@ -912,29 +927,12 @@ PanelWindow {
 
             // Border colors come from the settings file; empty strings fall
             // back to the dynamic wallpaper theme.
-            gradient: Gradient {
-                orientation: Gradient.Vertical
-                GradientStop {
-                    position: 0.0
-                    color: root.settings.border.colorTop !== ""
-                        ? root.settings.border.colorTop
-                        : Theme.primary
-                }
-                GradientStop {
-                    position: 1.0
-                    color: root.settings.border.colorBottom !== ""
-                        ? root.settings.border.colorBottom
-                        : Theme.on_primary
-                }
-            }
-
-            // Actual background fill (inner), inset by the border thickness
-            Rectangle {
-                anchors.fill: parent
-                anchors.margins: root.settings.border.width
-                radius: parent.radius - anchors.margins
-                color: Theme.background
-            }
+            colorTop: root.settings.border.colorTop !== ""
+                ? root.settings.border.colorTop
+                : Theme.primary
+            colorBottom: root.settings.border.colorBottom !== ""
+                ? root.settings.border.colorBottom
+                : Theme.on_primary
         }
 
         // ==========================================

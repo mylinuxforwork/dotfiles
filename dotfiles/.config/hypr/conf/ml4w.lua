@@ -203,6 +203,30 @@ hl.window_rule({
 -- ML4W Power Menu (slides in on its own)
 hl.layer_rule({ match = { namespace = "ml4w-powermenu" }, no_anim = true })
 
+-- Quickshell Blur (on|off), set from the sidebar via ml4w-quickshell-blur.
+-- Stored in ~/.config/ml4w/settings/quickshell-blur (missing = on). Blurs
+-- what is behind the status bar, sidebar, wallpaper selector, dock (layer
+-- namespace "quickshell") and power menu. ignore_alpha keeps the fully
+-- transparent parts of the surfaces (e.g. the full-width strip around the
+-- status bar) unblurred. The strength follows decoration.blur. Switched at
+-- runtime with `hyprctl eval "set_quickshell_blur('on')"`, so no reload is
+-- needed.
+quickshell_blur_rule = hl.layer_rule({
+    name = "ml4w-quickshell-blur",
+    match = { namespace = "^(quickshell|ml4w-powermenu)$" },
+    blur = true,
+    ignore_alpha = 0.1
+})
+
+function set_quickshell_blur(state)
+    quickshell_blur_rule:set_enabled(state ~= "off")
+end
+
+local quickshell_blur_file = io.open(HOME .. "/.config/ml4w/settings/quickshell-blur", "r")
+local quickshell_blur = quickshell_blur_file and quickshell_blur_file:read("*l") or "on"
+if quickshell_blur_file then quickshell_blur_file:close() end
+set_quickshell_blur(quickshell_blur)
+
 -- Wayland variables
 hl.env("OZONE_PLATFORM", "wayland")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")

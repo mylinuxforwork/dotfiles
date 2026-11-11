@@ -11,7 +11,16 @@
 # -----------------------------------------------------
 launcher=$($HOME/.config/ml4w/scripts/ml4w-launcher which)
 if [ "$launcher" == "walker" ]; then
-    walker -t ml4w -m clipboard -N -H
+    # The walker history is kept by elephant, not cliphist. Deleting a single
+    # entry is done inside walker (CTRL + D, shown in the keybind hints).
+    case $1 in
+        w)
+            elephant activate "clipboard;;remove_all;;"
+        ;;
+        *)
+            walker -t ml4w -m clipboard -H
+        ;;
+    esac
 else
     case $1 in
         d)

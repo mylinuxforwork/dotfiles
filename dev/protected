@@ -1,3 +1,6 @@
 input.lua
 custom.lua
 monitors.lua
+quickshell-opacity
+quickshell-blur
+quickshell-transparent-border

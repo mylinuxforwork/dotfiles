@@ -282,6 +282,9 @@ PanelWindow {
         anchors.margins: 20
 
         RectangularShadow {
+            // Hidden while blur is on: the blur would end in a hard edge
+            // around the panel (see Theme.blurEnabled).
+            visible: !Theme.blurEnabled
             id: shadow
             anchors.fill: mainBgRect
             radius: mainBgRect.radius
@@ -293,22 +296,18 @@ PanelWindow {
             id: mainBgRect
             anchors.fill: parent
             radius: 10
-            opacity: 0.95
+            color: "transparent"
             clip: true
 
-            // Gradient border (outer)
-            gradient: Gradient {
-                orientation: Gradient.Vertical
-                GradientStop { position: 0.0; color: Theme.primary }
-                GradientStop { position: 1.0; color: Theme.on_primary }
-            }
-
-            // Background fill (inner), inset by the border thickness
-            Rectangle {
+            // Background layer behind the content, so only the background
+            // fades: the global Opacity slider (Theme.backgroundOpacity)
+            // overrides the 0.95 default. The border follows it or stays at
+            // 80% (Transparent Border switch).
+            PanelBackground {
                 anchors.fill: parent
-                anchors.margins: 2
-                radius: parent.radius - anchors.margins
-                color: Theme.background
+                radius: parent.radius
+                borderWidth: 2
+                fillOpacity: Theme.surfaceOpacity(0.95)
             }
 
         ColumnLayout {

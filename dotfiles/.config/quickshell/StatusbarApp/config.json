@@ -9,6 +9,11 @@ StatusbarWindow.qml). The statusbar itself reads a single file:
 It is created empty on first start and merged over
 the built-in defaults below, so it only needs to carry the values you want to
 change. The statusbar writes enabled / alwaysExpanded / autohide back into it.
+
+The global Opacity slider in the sidebar (Appearance) is stored separately in
+~/.config/ml4w/settings/quickshell-opacity (0-100). When set, it overrides
+opacity.expanded; the collapsed pill keeps its ratio to the expanded opacity.
+The dock (ml4w-dock) follows the same file through its theme.opacityFile.
 */
 {
     "bar": {
@@ -26,7 +31,7 @@ change. The statusbar writes enabled / alwaysExpanded / autohide back into it.
         "animationDuration": 350
     },
     "modules": {
-        "left":   ["terminal", "workspaces"],
+        "left":   ["terminal", "workspaces", "clipboard"],
         "center": ["launcher", "clock", "swaync"],
         "right":  ["updates", "battery", "powerprofile", "volume", "systemtray", "logo", "power"]
     },
