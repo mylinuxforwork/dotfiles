@@ -204,7 +204,7 @@ hl.window_rule({
 hl.layer_rule({ match = { namespace = "ml4w-powermenu" }, no_anim = true })
 
 -- Quickshell Blur (on|off), set from the sidebar via ml4w-quickshell-blur.
--- Stored in ~/.config/ml4w/settings/quickshell-blur (missing = off). Blurs
+-- Stored in ~/.config/ml4w/settings/quickshell-blur (missing = on). Blurs
 -- what is behind the status bar, sidebar, wallpaper selector, dock (layer
 -- namespace "quickshell") and power menu. ignore_alpha keeps the fully
 -- transparent parts of the surfaces (e.g. the full-width strip around the
@@ -219,11 +219,11 @@ quickshell_blur_rule = hl.layer_rule({
 })
 
 function set_quickshell_blur(state)
-    quickshell_blur_rule:set_enabled(state == "on")
+    quickshell_blur_rule:set_enabled(state ~= "off")
 end
 
 local quickshell_blur_file = io.open(HOME .. "/.config/ml4w/settings/quickshell-blur", "r")
-local quickshell_blur = quickshell_blur_file and quickshell_blur_file:read("*l") or "off"
+local quickshell_blur = quickshell_blur_file and quickshell_blur_file:read("*l") or "on"
 if quickshell_blur_file then quickshell_blur_file:close() end
 set_quickshell_blur(quickshell_blur)
 

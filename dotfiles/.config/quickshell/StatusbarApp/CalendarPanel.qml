@@ -229,26 +229,15 @@ Item {
             color: Qt.rgba(Theme.shadow.r, Theme.shadow.g, Theme.shadow.b, 0.4)
         }
 
-        Rectangle {
+        // Fill and gradient border as separate layers (PanelBackground): the
+        // global Opacity slider (Theme.backgroundOpacity) overrides the 0.95
+        // default, and the border follows it unless Transparent Border is off.
+        PanelBackground {
             id: mainBgRect
             anchors.fill: parent
             radius: 10
-            opacity: 0.95 // Only the background is transparent
-
-            // Gradient border (outer)
-            gradient: Gradient {
-                orientation: Gradient.Vertical
-                GradientStop { position: 0.0; color: Theme.primary }
-                GradientStop { position: 1.0; color: Theme.on_primary }
-            }
-
-            // Background fill (inner), inset by the border thickness
-            Rectangle {
-                anchors.fill: parent
-                anchors.margins: 2
-                radius: parent.radius - anchors.margins
-                color: Theme.background
-            }
+            borderWidth: 2
+            fillOpacity: Theme.surfaceOpacity(0.95)
         }
 
         ColumnLayout {

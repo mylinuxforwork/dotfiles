@@ -662,7 +662,7 @@ PanelWindow {
                                     to: 100
                                     stepSize: 1
                                     // 80 = the statusbar's built-in expanded opacity.
-                                    value: Theme.backgroundOpacity >= 0 ? Theme.backgroundOpacity : 80
+                                    value: Theme.backgroundOpacity >= 0 ? Theme.backgroundOpacity : 50
                                     onMoved: Theme.backgroundOpacity = Math.round(value)
                                     onPressedChanged: {
                                         if (!pressed)
@@ -714,7 +714,7 @@ PanelWindow {
                             // Blur behind the Quickshell surfaces (Hyprland
                             // layer rule in hypr/conf/ml4w.lua), persisted to
                             // ~/.config/ml4w/settings/quickshell-blur by
-                            // ml4w-quickshell-blur (missing = off).
+                            // ml4w-quickshell-blur (missing = on).
                             RowLayout {
                                 Layout.fillWidth: true
                                 Text { text: "Blur"; color: Theme.primary; font.family: Theme.fontFamily; font.pixelSize: 16 }
@@ -723,7 +723,7 @@ PanelWindow {
                                     id: blurSwitch
                                     property bool ready: false
                                     Process {
-                                        command: ["bash", "-c", "b=$(tr -d '[:space:]' < ~/.config/ml4w/settings/quickshell-blur 2>/dev/null); [ \"$b\" = on ] && echo 1 || echo 0"]
+                                        command: ["bash", "-c", "b=$(tr -d '[:space:]' < ~/.config/ml4w/settings/quickshell-blur 2>/dev/null); [ \"$b\" = off ] && echo 0 || echo 1"]
                                         running: root.isOpen
                                         stdout: StdioCollector {
                                             onStreamFinished: {

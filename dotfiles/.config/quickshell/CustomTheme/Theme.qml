@@ -139,11 +139,11 @@ QtObject {
     //
     //   ~/.config/ml4w/settings/quickshell-blur
     //
-    // ("on"/"off", missing = off), which ml4w-quickshell-blur writes and
+    // ("on"/"off", missing = on), which ml4w-quickshell-blur writes and
     // hypr/conf/ml4w.lua reads. The blur rule uses ignore_alpha, so it also
     // blurs the denser part of a drop shadow and ends in a hard edge around the
     // panel. Surfaces therefore hide their shadow while blur is on.
-    property bool blurEnabled: false
+    property bool blurEnabled: true
 
     property var blurFile: FileView {
         id: blurFile
@@ -151,8 +151,8 @@ QtObject {
         watchChanges: true
         printErrors: false
         onFileChanged: reload()
-        onLoaded: root.blurEnabled = text().trim() === "on"
-        onLoadFailed: root.blurEnabled = false
+        onLoaded: root.blurEnabled = text().trim() !== "off"
+        onLoadFailed: root.blurEnabled = true
     }
 
     // --- TRANSPARENT BORDER ---

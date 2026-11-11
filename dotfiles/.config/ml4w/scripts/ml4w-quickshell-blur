@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Switch the blur behind the Quickshell elements (status bar, sidebar,
-# wallpaper selector, dock, power menu) on or off (default).
+# wallpaper selector, dock, power menu) on (default) or off.
 # The state is stored in ~/.config/ml4w/settings/quickshell-blur and read by
 # ~/.config/hypr/conf/ml4w.lua, which switches its layer rule at runtime.
 #
@@ -8,7 +8,7 @@
 
 settings="$HOME/.config/ml4w/settings/quickshell-blur"
 current=$(tr -d "[:space:]" 2>/dev/null <"$settings")
-[ "$current" = on ] || current=off
+[ "$current" = off ] || current=on
 
 case "$1" in
     get) echo "$current"; exit 0 ;;
