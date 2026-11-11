@@ -134,6 +134,27 @@ QtObject {
         onLoadFailed: root.backgroundOpacity = -1
     }
 
+    // --- BLUR ---
+    // Whether Hyprland blurs behind the Quickshell surfaces, mirrored from
+    //
+    //   ~/.config/ml4w/settings/quickshell-blur
+    //
+    // ("on"/"off", missing = off), which ml4w-quickshell-blur writes and
+    // hypr/conf/ml4w.lua reads. The blur rule uses ignore_alpha, so it also
+    // blurs the denser part of a drop shadow and ends in a hard edge around the
+    // panel. Surfaces therefore hide their shadow while blur is on.
+    property bool blurEnabled: false
+
+    property var blurFile: FileView {
+        id: blurFile
+        path: Quickshell.env("HOME") + "/.config/ml4w/settings/quickshell-blur"
+        watchChanges: true
+        printErrors: false
+        onFileChanged: reload()
+        onLoaded: root.blurEnabled = text().trim() === "on"
+        onLoadFailed: root.blurEnabled = false
+    }
+
     // --- TRANSPARENT BORDER ---
     // Whether the border of the Quickshell surfaces follows the background
     // opacity (on, the default) or stays at fixedBorderOpacity (off). Set from

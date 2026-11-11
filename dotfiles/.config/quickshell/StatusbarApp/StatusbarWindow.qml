@@ -889,6 +889,9 @@ PanelWindow {
         }
 
         RectangularShadow {
+            // Hidden while blur is on: the blur would end in a hard edge
+            // around the panel (see Theme.blurEnabled).
+            visible: !Theme.blurEnabled
             anchors.fill: pillBg
             radius: pillBg.radius
             blur: 15
