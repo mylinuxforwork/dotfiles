@@ -66,6 +66,18 @@ done
 sleep 0.5
 info "Quickshell ready"
 
+# ml4w-wallpaper exits before reload_waybar if the cached image is gone, and
+# it is the only thing that starts waybar at login (#1904) -- fall back to the
+# default wallpaper, or start waybar directly if that is missing too.
+if [ ! -f "$(cat $CACHE_FILE)" ]; then
+    warn "Cached wallpaper $(cat $CACHE_FILE) not found, using default"
+    echo "$DEFAULT_WALLPAPER" > "$CACHE_FILE"
+fi
+if [ ! -f "$(cat $CACHE_FILE)" ]; then
+    warn "No wallpaper found, starting waybar directly"
+    ~/.config/waybar/launch.sh &
+fi
+
 # Apply wallpaper theming on every start — qs is guaranteed ready for IPC calls.
 # Theming (matugen colors, quickshell reload) must always run.
 # Only the awww image set is skipped when already cached, to avoid a flicker.

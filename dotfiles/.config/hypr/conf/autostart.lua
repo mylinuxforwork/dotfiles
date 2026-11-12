@@ -25,8 +25,9 @@ hl.on("hyprland.start", function ()
     -- Start listeners
     hl.exec_cmd("~/.config/ml4w/listeners.sh --startall")
 
-    -- Start waybar
-    hl.exec_cmd(HOME .. "/.config/waybar/launch.sh")
+    -- Waybar is not started here: ml4w-autostart always runs ml4w-wallpaper,
+    -- whose reload_waybar starts it once matugen has written the colors.
+    -- Launching it here as well started waybar twice at login (#1904).
 
     -- Start polkit agent: prefer hyprpolkitagent.service (Ubuntu, via
     -- packages-ubuntu -- its unit is WantedBy=graphical-session.target,
