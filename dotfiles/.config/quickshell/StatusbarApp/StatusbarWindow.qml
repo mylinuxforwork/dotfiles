@@ -116,6 +116,7 @@ PanelWindow {
         path: Quickshell.env("HOME") + "/.config/ml4w-statusbar/config.json"
         blockLoading: true
         printErrors: false
+        watchChanges: true
         // `ready` is set last, after the values are in place: it releases the
         // gate below, and a binding fires the moment it is assigned.
         onLoaded: { root.applySettings(); root.ready = true }
@@ -131,6 +132,7 @@ PanelWindow {
             root.applySettings()
             root.ready = true
         }
+        onFileChanged: { reload() } 
     }
 
     // Creates ~/.config/ml4w-statusbar/config.json when it is missing — FileView
