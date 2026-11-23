@@ -93,12 +93,17 @@ Rectangle {
     // Count the history entries of the launcher in use: walker keeps its
     // history in elephant (one JSON line per item), rofi uses cliphist (one
     // line per item). The launcher is resolved on every count, so switching it
-    // in the settings is picked up without a reload.
+    // in the settings is picked up without a reload. elephant is only queried
+    // once its daemon socket exists: a query without the daemon just panics,
+    // and a query client running at login made `ml4w-walker start` take it
+    // for the daemon and skip starting elephant.
     Process {
         id: countProc
         command: ["bash", "-c",
             "if [ \"$(\"$HOME\"/.config/ml4w/scripts/ml4w-launcher which)\" = walker ]; then "
+            + "if [ -S \"${XDG_RUNTIME_DIR:-${TMPDIR:-/tmp}}/elephant/elephant.sock\" ]; then "
             + "timeout 3 elephant query --json 'clipboard;;100000' 2>/dev/null | grep -c '\"identifier\"'; "
+            + "else echo 0; fi; "
             + "else cliphist list 2>/dev/null | wc -l; fi"]
         running: true
         stdout: StdioCollector {
